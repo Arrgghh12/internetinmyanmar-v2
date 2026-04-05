@@ -6,7 +6,6 @@ const articles = defineCollection({
     title:            z.string(),
     seoTitle:         z.string().max(60),
     metaDescription:  z.string().max(155),
-    slug:             z.string(),
     category:         z.enum([
       'Censorship & Shutdowns',
       'Telecom & Infrastructure',
@@ -25,11 +24,15 @@ const articles = defineCollection({
     featuredImageAlt: z.string().max(100).optional(),
     excerpt:          z.string().max(300),
     readingTime:      z.number().optional(),
-    lang:             z.enum(['en', 'fr', 'es', 'it']).default('en'),
+    lang:             z.enum(['en', 'fr', 'es', 'it', 'my']).default('en'),
     translationOf:    z.string().optional(),
     sources:          z.array(z.string().url()).optional(),
     migrated:         z.boolean().default(false),
     originalUrl:      z.string().url().optional(),
+    archived:         z.boolean().default(false),
+    archivedAt:       z.string().optional(),
+    archivedReason:   z.string().optional(),
+    restoredAt:       z.string().optional(),
   }),
 })
 

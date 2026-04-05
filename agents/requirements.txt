@@ -12,4 +12,8 @@ tenacity>=8.2.3
 schedule>=1.2.1
 python-telegram-bot>=21.0
 aiosqlite>=0.20.0
-# aiosqlite must be installed separately if not pulled in by python-telegram-bot
+# Multi-model routing (MODEL_ROUTING.md)
+groq>=0.9.0
+together>=1.3.0
+openai>=1.0.0
+tavily-python>=0.5.0

@@ -1,0 +1,67 @@
+---
+import Observatory from '../../layouts/Observatory.astro'
+import stats from '../../content/observatory/stats.json'
+
+export const prerender = false
+---
+<Observatory
+  title="Internet Observatory — Myanmar"
+  seoTitle="Myanmar Internet Observatory | Censorship Data"
+  metaDescription="Real-time tracking of internet shutdowns, blocked sites, and connectivity anomalies in Myanmar. Powered by OONI data."
+  lastUpdated={stats.lastUpdated}
+>
+  <div class="max-w-7xl mx-auto px-4 py-12">
+
+    <!-- Stats grid -->
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
+      <div class="border border-white/10 rounded-lg p-6 text-center">
+        <div class="font-mono text-3xl font-bold text-[color:var(--color-danger)] mb-1">
+          {stats.activeShutdowns}
+        </div>
+        <div class="text-sm opacity-60">Active Shutdowns</div>
+      </div>
+      <div class="border border-white/10 rounded-lg p-6 text-center">
+        <div class="font-mono text-3xl font-bold text-[color:var(--color-warning)] mb-1">
+          {stats.blockedSites}
+        </div>
+        <div class="text-sm opacity-60">Confirmed Blocked Sites</div>
+      </div>
+      <div class="border border-white/10 rounded-lg p-6 text-center">
+        <div class="font-mono text-3xl font-bold text-[color:var(--color-accent)] mb-1">
+          {stats.daysSinceLastMajorOutage}
+        </div>
+        <div class="text-sm opacity-60">Days Since Major Outage</div>
+      </div>
+      <div class="border border-white/10 rounded-lg p-6 text-center">
+        <div class="font-mono text-3xl font-bold text-white mb-1">MM</div>
+        <div class="text-sm opacity-60">Country Code</div>
+      </div>
+    </div>
+
+    {stats.note && (
+      <div class="border-l-4 border-[color:var(--color-warning)] pl-4 mb-12 opacity-80 text-sm">
+        {stats.note}
+      </div>
+    )}
+
+    <!-- Sub-sections -->
+    <div class="grid md:grid-cols-2 gap-6">
+      <a href="/observatory/shutdown-tracker/" class="border border-white/10 rounded-lg p-6 hover:border-[color:var(--color-accent)] transition-colors group">
+        <div class="font-mono text-xs text-[color:var(--color-danger)] mb-2 uppercase tracking-widest">Live tracker</div>
+        <h2 class="font-headline text-2xl mb-2 group-hover:text-[color:var(--color-accent)] transition-colors">Shutdown Tracker</h2>
+        <p class="opacity-60 text-sm">Timeline of internet shutdowns and service disruptions documented by OONI and independent monitors.</p>
+      </a>
+      <a href="/observatory/blocked-sites/" class="border border-white/10 rounded-lg p-6 hover:border-[color:var(--color-accent)] transition-colors group">
+        <div class="font-mono text-xs text-[color:var(--color-warning)] mb-2 uppercase tracking-widest">Censorship database</div>
+        <h2 class="font-headline text-2xl mb-2 group-hover:text-[color:var(--color-accent)] transition-colors">Blocked Sites Monitor</h2>
+        <p class="opacity-60 text-sm">Confirmed blocked domains across Myanmar ISPs — updated from OONI measurement data.</p>
+      </a>
+    </div>
+
+    <!-- Attribution -->
+    <div class="mt-12 pt-8 border-t border-white/10 text-xs font-mono opacity-40">
+      Data sources: OONI Explorer · Cloudflare Radar · NetBlocks ·
+      <a href="https://ooni.org/country/MM" target="_blank" rel="noopener" class="hover:opacity-100">ooni.org/country/MM</a>
+    </div>
+  </div>
+</Observatory>

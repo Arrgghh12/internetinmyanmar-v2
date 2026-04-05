@@ -1,0 +1,36 @@
+---
+import { getEntry } from 'astro:content'
+import Article from '../../layouts/Article.astro'
+
+export const prerender = false
+
+const { slug } = Astro.params
+if (!slug) return new Response(null, { status: 404 })
+
+const article = await getEntry('articles', slug)
+if (!article || article.data.draft || article.data.archived) {
+  return new Response(null, { status: 404 })
+}
+
+const { Content } = await article.render()
+const d = article.data
+---
+<Article
+  title={d.title}
+  seoTitle={d.seoTitle}
+  metaDescription={d.metaDescription}
+  slug={slug}
+  category={d.category}
+  author={d.author}
+  publishedAt={d.publishedAt}
+  updatedAt={d.updatedAt}
+  featuredImage={d.featuredImage}
+  featuredImageAlt={d.featuredImageAlt}
+  excerpt={d.excerpt}
+  readingTime={d.readingTime}
+  sources={d.sources}
+  originalUrl={d.originalUrl}
+  lang={d.lang}
+>
+  <Content />
+</Article>

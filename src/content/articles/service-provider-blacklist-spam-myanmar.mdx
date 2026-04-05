@@ -1,0 +1,179 @@
+---
+title: "Which Internet Service Provider in Myanmar is blacklisted?"
+seoTitle: "Which Internet Service Provider in Myanmar is blacklisted?"
+metaDescription: "Internet in Myanmar, this love story is only a few years old and it is amazing how fast Myanmar people adopt a digital-centric lifestyle"
+category: "Censorship & Shutdowns"
+tags: []
+author: "Anna Faure Revol"
+publishedAt: 2017-11-18
+draft: false
+excerpt: "Internet in Myanmar, this love story is only a few years old and it is amazing how fast Myanmar people adopt a digital-centric lifestyle"
+readingTime: 13
+lang: "en"
+migrated: true
+originalUrl: "https://www.internetinmyanmar.com/service-provider-blacklist-spam-myanmar/"
+---
+
+
+> ⚠️ First published in 2017. Some figures may be outdated.
+
+Internet in Myanmar, this love story is only a few years old and it is amazing how fast Myanmar people adopt a digital-centric lifestyle.
+
+In Yangon, Internet service providers are fiercely competing on prices, fighting promotions with promotions to step foot into Myanmar households and push mobile data to the streets. As mobile operators reach market saturation in the city, they strive after nationwide 4G coverage. High-speed Internet is no more a privilege of urban citizens but a reality for most Myanmar people.
+
+Myanmar is rapidly catching up on its Asian neighbors at least from a connectivity standpoint.
+
+As the euphoria of novelty slowly fades away, Myanmar realizes that the Internet is not just a dream come true. It is also a dangerous place. And sadly, dangers already invade Myanmar homes and smartphones.
+
+According to a recent article from Myanmar Times, most of the consumers in Myanmar trust what they see and read online. Myanmar people are also more open to share personal data online. This candid attitude represents a big opportunity for brands but also for hackers that see Myanmar as fertile soil to grow their strike force.
+
+Lately, on the news, Turkish hackers violently attacked Myanmar government websites protesting against the conflict in Rakhine. These attacks are just the visible tip of the iceberg.
+
+As Myanmar consumers slowly transit from smartphones to laptops, most of the computers sold in Myanmar come without a Windows license to save a few bucks on the final bill. Consumers do not always realize that installing a pirated version of Windows on your computer is similar to leaving your front door open with a big welcome sign.
+
+Have you ever wondered where all the spam that infest your mailbox come from?
+
+
+## How do spammers manage to find your email address?
+
+
+There are multiple ways for spammers to collect mail addresses:
+
+First, spammers scavenge webpages hunting for email addresses that appear in HTML code. If you have ever shared your email address on a forum or a public webpage, you are definitely in the spammer databases.
+
+But the main source of email addresses come from large security breaches that happen very regularly on the Internet.
+
+Over the past few years, large companies like Adobe, Linkedin, Sony, Yahoo or Last.fm have all been compromised. These security breaches give hackers access to hundreds of millions of mail accounts and passwords. The last database leak in August 2017 was the largest ever: 700 million accounts fell into the hands of hackers due to a misconfigured spambot.
+
+Wonder if your mail address has been compromised? visit the website [https://haveibeenpwned.com/](https://en.wikipedia.org/wiki/Have_I_Been_Pwned%3F). Keep in mind that these security breaches may also have leaked your password.
+
+
+## But where does spam come from?
+
+
+"Two years from now, spam will be solved," That was Bill Gates said in 2004. While spams have effectively started to decline in 2011, they are on the rise again since 2015.
+
+In the first quarter of 2017, 55.9% of the total mail traffic was spam according to [securelist](https://securelist.com/spam-and-phishing-in-q1-2017/78221/). That is a huge amount of emails. So how do spammers manage to send so many emails?
+
+
+### Spam delivery is distributed
+
+
+The main reason spam is so hard to intercept is that it could come from everywhere including your own computer.  Nowadays, most of the spam spread via botnets. Botnet is “a network of private computers infected with malicious software and controlled as a group without the owners' knowledge”.
+
+According to [spamhaus](https://web.archive.org/web/20240229195945/https://www.spamhaus.org/), the most infected countries by botnets are China, India, Russia, and Vietnam. Myanmar is 90th which does not seem worrying. However, if we look at the [rank per capita](https://web.archive.org/web/20221209001110/https://www.abuseat.org/public/countrypercapita.html), Myanmar ends up 20th. This is more alarming considering this data is computed on the total population and not the total penetrated population which would obviously be lower for Myanmar than for the rest of the world.
+
+Services of such spam botnets are advertised on underground hacking forums, the Dark Web, via XMPP spam, or on sites available on the public Internet.
+
+Once your computer gets infected with a botnet, it will immediately start blasting emails all over the place leveraging the large email databases gathered over years by hackers. Most of the large mail providers use spam filtering systems as an attempt to filter out all the trash sent by botnets. But obviously, these filters show their limits.
+
+
+## There are basically two methods to filter spams.
+
+
+The first type is **content-based**. Spam filters analyze email content and look for words that hit a "spam dictionary". The word-list is built up from existing spam records and will contain the usual suspects. Ex: “viagra”, "rolex".
+
+Heuristic filtering goes one step further and assigns a score to each email by scanning and allocating points to each word based on its likeliness to be found in spam messages.
+
+[Machine learning](https://blog.aioneers.com/supplychain/improve-your-demand-forecasting-with-machine-learning) techniques are also widely used to filter spams.  Bayesian filtering is one of them and uses statistics and "training" to spot and trash spam.
+
+The second type of filtering is **list-based**. Blacklists are records dynamically built and updated by security companies that contain emails as well as IPs, subnets and Autonomous System known as the source of spam.
+
+These blacklists are also fed through spam traps. Spam traps are email addresses that are released intentionally on the internet. Spam traps are real but invalid address under existing domains.
+
+Example: [honeypot@internetinmyanmar.com](mailto:honeypot@internetinmyanmar.com) is a spam trap. There is no real user behind and is just left here hoping spammers will screen this webpage and catch it. Behind this mail address, a script will automatically screen for incoming emails and blacklist the sender.
+
+
+## Which service provider in Myanmar is blacklisted and why does it matter?
+
+
+Even if your home or corporate network is protected and you know for granted that you do not host any botnet, you may end up in a blacklist. The main reason is that blacklists not only include single hosts but subnets and autonomous system as well.
+
+On the Internet, an [_**autonomous system**_ (AS)](http://searchnetworking.techtarget.com/definition/autonomous-system) is the unit of router policy, either a single network or a group of networks that is controlled by a common network administrator (or group of administrators) on behalf of a single administrative entity (such as a university, a business enterprise, or a business division).
+
+Usually, service providers are recognized over the Internet via their AS and their public subnets.
+
+ISP's subnets can host thousands and even millions of subscribers. Thanks to a feature called [Carrier-Grade NAT](https://www.networkworld.com/article/2237054/cisco-subnet/understanding-carrier-grade-nat.html), service providers can work around the public IP addresses scarcity by pooling a huge number of subscribers behind a small pool of public IP addresses.
+
+
+### But what if some of the subscribers get infected?
+
+
+If a few subscribers behind the NAT get infected, the public pool will get blacklisted as well as all the subscribers behind it. No matter if they are botnets or not.
+
+Spam filter goes even further than that. Filters consider AS and public subnets are one unique area which is under the service provider responsibility. The spam filter can decide to blacklist an entire public subnet or AS, may some of the IPs addresses inside these subnets broadcast spams. They consider the service provider to be liable to mitigate this spam issue.
+
+Service providers do have means to address and eliminate spam issues. Most of the ISP’s block outbound port 25 on their network for this exact same reason. Port 25 is the legacy SMTP port used by all the botnets to propagate spam. Problem is that it can also be used by legit customers that connect to (antic) corporate mail servers. To address this issue, service providers usually allow customers inside their network to use their carrier-grade SMTP gateway to send mail outside the network. This gateway should be carefully protected with Antivirus and Spam filtering system to avoid being blacklisted.
+
+
+## What is the consequence of being blacklisted?
+
+
+As a home user, there is absolutely no consequence of being blacklisted. The main reason is that you will never use your home broadband as a mail gateway. Except if you are infected.
+
+If you use a webmail (Gmail, Yahoo Mail…), all your emails will be crafted directly on your provider mail server and sent out from there.
+
+If you use a mail client such as Outlook or Thunderbird, you will more likely use SMPT with authentication against your provider mail server. As you authenticate, you will be recognized as a legit mail sender and not categorized as spam.
+
+IP/Subnet blacklisting become a major concern for those who host their own mail server which could be the case for corporate customers.
+
+Any mail server sitting on a blacklisted network will have a serious challenge to deliver emails to other domains (i.e. everyone outside the company). This can represent a business risk for any organization. Spam filter sometimes let suspicious emails go through with a simple **SPAM** headline. But most of the time and especially for blacklisted IPs, filters drop emails without informing the sender or the recipient. This could have had a deep impact on business activity.
+
+
+## So what are the networks blacklisted in Myanmar?
+
+
+[UCE Protect](http://www.uceprotect.net/en/) is a German company that offers blacklist services built on spam traps to mail providers. We decided to test every AS and prefixes in Myanmar against their blacklists.
+
+Based on this study, we divided ISP in Myanmar into 3 categories: Blacklisted - At Risk – Secured.
+
+
+### **Blacklisted:**
+
+
+
+
+- **Ooredoo Myanmar**
+- **Telenor Myanmar**
+- **Myanma Posts and Telecommunications**
+- **Myanmar Broadband Telecom Co., Ltd**
+- **Elite Telecom Public Company Limited**
+- **Shwe Than Lwin Media Co.,Ltd.**
+- **5BB Broadband**
+
+
+
+
+### **At Risk:**
+
+
+
+
+- **Global Technology Co., Ltd.**
+- **Yatanarpon Teleport Company Limited**
+- **Kinetic Myanmar Technology**
+- **Fortune International Ltd.**
+- **AGB Communication Co.Ltd**
+- **Horizon Telecom International Company Limited**
+- **Myanmar Unilink Communication Company Limited**
+- **Myanmar Country Co., Ltd.**
+
+
+
+
+### **Secured:**
+
+
+
+
+- **Frontiir Co. Ltd / Myanmar Net**
+- **Golden TMH Telecom Co. Ltd**
+- **WeLink**
+- **Spectrum Life Company Limited**
+- **Myanmar Information Highway Limited**
+- **Myanmar Speed Net Co.,Ltd**
+
+
+Surprisingly, all the mobile operators are blacklisted in Myanmar. This is mainly due to the enormous number of subscribers sitting behind their IP's. Without proper security filtering in place, blacklist is inevitable.
+
+In conclusion, blacklisting clearly suggests a lack of security awareness among ISP's in Myanmar and may underlie severe security issues. For service providers in the red zone, it is time to step up their game and implement the security measures to protect their customers.

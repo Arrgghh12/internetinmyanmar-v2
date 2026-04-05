@@ -1,0 +1,197 @@
+---
+title: "SD-WAN in Myanmar, a golden opportunity?"
+seoTitle: "SD-WAN in Myanmar, a golden opportunity?"
+metaDescription: "SD-WAN is one of the fastest growing technology in the enterprise infrastructure space and this is not going to end soon"
+category: "Censorship & Shutdowns"
+tags: []
+author: "Anna Faure Revol"
+publishedAt: 2020-04-25
+draft: false
+excerpt: "SD-WAN is one of the fastest growing technology in the enterprise infrastructure space and this is not going to end soon"
+readingTime: 16
+lang: "en"
+migrated: true
+originalUrl: "https://www.internetinmyanmar.com/sd-wan-myanmar-opportunity/"
+---
+
+
+> ⚠️ First published in 2020. Some figures may be outdated.
+
+SD-WAN is one of the fastest growing technology in the enterprise infrastructure space and this is not going to end soon.
+
+
+## What is SD-WAN?
+
+
+A software-defined wide-area network (SD-WAN), is a network that is abstracted from its hardware, creating a virtualized network overlay.
+
+Enterprise customers can remotely manage and quickly scale this overlay, which can extent over large number of sites and geographical distances. It is one of the application of software-defined networking (SDN).
+
+An SD-WAN can connect hundreds of branch locations to one or multiple central hub offices or data centers. Because it is abstracted from hardware, it is more flexible and available than a standard WAN.
+
+It relies on four key principles:
+
+
+- Centralized management
+- Elastic traffic management
+- Edge connectivity abstraction
+- WAN virtualization
+
+
+
+
+## SD-WAN is huge
+
+
+According to [ComputerWeekly](https://www.computerweekly.com/news/252481643/Managed-services-rev-up-revenues-for-SD-WAN-in-fourth-quarter-of-2019), SD-WAN revenue grew by **90% **between 2018 and 2019 reaching $2bn last year.
+
+_Revenue for SD-WAN [...] surged by **75% year on year** in the fourth quarter of 2019, partly as a result of service providers offering enterprise SD-WAN in managed-service bundles, according to research by analyst Omdia._
+
+[...] _Another factor driving growth was the development of an SD-WAN standard by the Metro Ethernet Forum (MEF)._
+
+
+## What is all the fuss about SD-WAN?
+
+
+About a decade ago, I was a network team leader in charge of a large WAN network covering the EMEA region for the world's third largest research agency in the world.
+
+At that time, WAN was definitely not software-defined and we operated the network the old fashion way i.e. with multiple upstreams and dynamic routing to keep everything redundant. Quality of Service was implemented on a router per router basis. There was no fancy feature like centralized configuration management, no dynamic traffic management.
+
+The simple operation of this gigantic WAN was a full-time job for my team and I. We spend most of our time monitoring and troubleshooting, with little time left for optimization.
+
+For every new branch installation, we had to prepare manually a new VPN configuration based on an agreed template, shipped the box and prayed that it went online once connected to the network. If it didn’t come up, the network engineer had to remote connect and complete the configuration.
+
+Then comes SD-WAN. For network engineers, SDWAN should rhyme with simplicity. It relies on a cloud-based 'command and control' center that manages the entire network. This cloud orchestrator is tasked to on-board every new device as soon as they come online and ensure that consistent configuration and security policies are applied across all the devices.
+
+The sales pitch for SD-WAN is that it simplifies considerably the deployment of new branches as the installation is completely plug and play. Once the SDWAN edge device is connected to the network, the cloud-based orchestrator detects it and inform the network administrator who just has to push the preconfigured policy to the new edge. In a matter of minutes, the new branch is online and completely compliant security-wise with the rest of the network.
+
+SD-WAN is also supposed to improve the overall network uptime by offering fast failover and dynamic traffic management capabilities.
+
+Before SDWAN, failover was achieved through multiple techniques depending on the underlying infrastructure .
+
+
+- Branches connected with IPsec over Internet could leverage dynamic routing protocol (OSPF, ISIS, EIGRP) to failover in case of upstream failure. This would translate into a downtime of a few seconds.
+- Branches connected via Ethernet/L2VPN connectivity can emulate an extra MPLS layer with fast reroute capabilities. This is a pricey solution connectivity-wise but it gives excellent failover result if it is correctly configured: ~40-100ms
+
+
+As SDWAN moto is to be completely abstracted from the infrastructure layer, it does not relate anymore to the underneath technology, it considerably reduces the complexity. No matter how the branch is connected to the network, SDWAN implementation is always the same.
+
+Plus, SDWAN offers fast failover by monitoring in real time the availability and performance of each upstream. It also has the capability to shift network traffic if the upstream is degraded which was complex to achieve with traditional WAN.
+
+In a nutshell, a good SD-WAN solution can be a real blessing for IT managers as it simplifies not only the implementation but operation and maintenance (O&M) activities as well. It also gives the technical team a complete visibility on the enterprise network from a single dashboard. It is also extremely easy to audit as the configuration is centralized.
+
+There is a common fear across IT engineers that SDWAN may lead to lay off as the solution is centrally managed and require little effort. I believe this is a false concern. SD-WAN simply shift the IT workload from implementation and troubleshooting to monitoring and optimizing.
+
+
+## How is SD-WAN a good fit for Myanmar?
+
+
+Now, that we have set the scene about SD-WAN, lets discuss the particular case of SD-WAN in Myanmar and why we believe this is a great technology for the country at this moment in time.
+
+As we have discussed extensively, SD-WAN provides significant benefits to enterprises:
+
+
+### 1. Improve reliability and performance
+
+
+SD-WAN is a perfect solution to implement site redundancy. SD-WAN is completely agnostic of the underneath infrastructure which means that the company looking to implement SD-WAN can leverage existing connectivity no matter the medium.
+
+SDWAN runs seamlessly over Fiber, xDSL, Wifi, 4G Mobile Data and VSAT. It sits on OSI Layer 3 and works seamlessy over any Internet and MPLS connectivity.
+
+[![juniper sdwan sd-wan myanmar internet mpls dia broadband home enterprise](/images/sd-wan-myanmar-opportunity/Juniper-SDWAN.png)](/wp-content/uploads/2020/04/Juniper-SDWAN.png) SD-WAN is infrastructure agnostic
+
+In Myanmar, reliability is definitely one of the top advantage of SDWAN technology as the in-country infrastructure is far from being reliable.
+
+Indeed, fiber cuts are happening on a daily basis in Myanmar. In Yangon for instance, underground fiber is regularly impacted by Yangon City construction work which could lead to hours of downtime if not days. Overhead fiber gets damaged by car accident, truck or flooding that can bring poles down. Power outage is also an important factor that lead to service downtime nation-wide. Finally, ethnic conflicts hinder the access to remote areas which can delay service recovery.
+
+By implementing SD-WAN on top of two diverse Internet access, the enterprise will achieve high availability and significantly improve its service availability.
+
+Furthermore, SD-WAN provides the capability to tag applications that are critical to the business (E.g. VoIP) and ensure that in case of performance degradation or unavailability of one of the upstream, these get priority over non business critical applications.
+
+[![sdwan performance packet steering sd-wan velocloud cisco myanmar internet mpls](/images/sd-wan-myanmar-opportunity/15.05.15-velocloud-100585665-large.idge_.png)](/wp-content/uploads/2020/04/15.05.15-velocloud-100585665-large.idge_.png) VMware Velocloud Packet Steering Technology
+
+ 
+
+SDWAN also optimizes network performance. It monitors the characteristics and real-time performance of the upstreams and steers packets to achieve optimal performance.
+
+
+### 2. SD-WAN enables Disaster-Recovery
+
+
+Disaster recovery is an **organization's response strategy to a natural or manmade disaster**. This strategy is a solid-must for any mature enterprise organization. Failing to design and implement DR put any business at risk of data loss which can lead to economical loss or even bankruptcy.
+
+Which the emergence of virtualization and cloud-based platforms, replicating workloads from site to site has never been easier.  But activating a simple replication feature is by no means sufficient to complete a disaster recovery plan.
+
+One of the most complex component of a Disaster Recovery plan is to design how user accesses the secondary datacenter in case the primary site is unavailable. As SD-WAN is completely abstracted of the physical layer and centrally managed, it makes a great case for ensuring that all traffic will failover to the disaster site.
+
+SD-WAN can help building and maintaining a point to multipoint network between the branches and the second site in a few easy steps. The leading SDWAN solutions in the market are also compatible with the most popular private and public cloud providers (VMware, AWS, Azure, Google Cloud, Alibaba) which enable enterprise customers to quickly deploy an hybrid approach with a Disaster Recovery Site in the [cloud](https://www.global-dms.com/).
+
+
+### 3. SD-WAN is cost effective
+
+
+One of the sale pitch of SD-WAN is also the cost reduction on the underlying infrastructure as SD-WAN does not require to invest in pricey MPLS L2VPN connectivity.
+
+In Myanmar, this argument is less relevant as MPLS connectivity is already affordable and close to the level of a dedicated internet access. As of today, 100 Mbps DIA or MPLS costs ~$500/month in Myanmar.
+
+For those looking to cut down cost, a solution to explore could be to use home / SME broadband connectivity to protect an existing enterprise dedicated uplink with SD-WAN. The current price for a 10mbps home broadband in Myanmar is around $30-$40 which make an easy business case for a redundant solution.
+
+Another cost reduction opportunity is on the Internet connectivity of the main site.
+
+For security reason, traditional WAN networks usually implement one or two Internet gateways for an entire organization usually located at the company data center or headquarter.
+
+This to ensure that Internet traffic goes through all the Internet security policies no matter where the user is located.
+
+As more and more applications are sitting in public cloud, Internet traffic keeps growing for the enterprise.
+
+Enterprises that implement a centralized firewall / gateway to access the Internet are somehow billed twice for Internet bandwidth. First at the branch level where Internet is the underneath technology for the point to multipoint WAN network. Second, at the HQ level when the traffic goes out to the Internet.
+
+As SDWAN can implement consistent security policies across the entire organization, it is completely possible to let the internet traffic of the branch exits directly at the branch level therefore reducing drastically the internet usage at the HQ level.
+
+
+### 4. SD-WAN centralized management is an advantage upon Myanmar technical resource scarcity
+
+
+If you are a manager in the technology field in Myanmar, you know how limited technical resources are in Myanmar. It is very challenging to find and retain good resources to operate an enterprise IT network.
+
+As SDWAN is centrally managed, it reduces the need for technical ressources across your network. Everything can be managed from the headquarter seamlessly.
+
+_Revenue for SD-WAN (software-defined wide area network) appliance and control and management software surged by 75% year on year in the fourth quarter of 2019, partly as a result of service providers offering enterprise SD-WAN in **managed-service bundles**, according to research by analyst Omdia. _
+
+Going even one step further, enterprise facing technical ressource scarcity can decide to outsource their SD-WAN deployment and operation to a managed service provider (MSP). MSPs typically procure and implement SD-WAN functionality as an enterprise network organization would and leverage that functionality to deliver their customers with a turnkey solution.
+
+Proof that the managed service trend is really picking up, the MEF which is a global industry alliance comprised of more than 150 organization has started [to standardize the terminology](https://www.mef.net/service-standards/overlay/sd-wan/) for different SD-WAN managed service components.
+
+
+### 5. SD-WAN is your gateway to public cloud
+
+
+SD-WAN can be deployed easily in the cloud. If you take a look at AWS marketplace for instance, you will find 45 SD-WAN products readily available for deployment. Among them, the top brands for SD-WAN:
+
+
+- VMware SD-WAN by VeloCloud Virtual Edge
+- Cisco Cloud Services Router (CSR) for SD-WAN
+- Citrix SD-WAN Standard Edition
+- CloudGenix ION SD-WAN Virtual Appliance
+- Riverbed SteelConnect Gateway (SD-WAN)
+- Silver Peak Unity EdgeConnect for AWS
+- Fortinet FortiGate Next-Generation Firewall
+
+
+More and more companies these days are adopting a hybrid cloud strategy.  A hybrid cloud is a mixture of a private cloud (usually the enterprise data center) combined with the use of public cloud services like AWS or Azure with one or several touch points exist between the environments. The objective is to combine services and data from a selection of cloud models to create a unified and consistent computing environment.
+
+SD-WAN fulfills this need for consistency by implementing a standard set of network and security policies across the board.
+
+[![sdwan sd-wan velocloud cisco myanmar internet mpls dia broadband home enterprise](/images/sd-wan-myanmar-opportunity/sd-wan-640x302-1.png)](/wp-content/uploads/2020/04/sd-wan-640x302-1.png)
+
+
+## Conclusion
+
+
+Vendors such as VMware, Huawei or Cisco are already pushing their SD-WAN solution in Myanmar. It is beside the point of this article to compare and give recommendations on the best solution. However, we think it would be a good idea to end with Gartner Magic Quadrant for WAN Edge Infrastructure from November 2019.
+
+[![sdwan sd-wan velocloud cisco myanmar internet mpls dia broadband home enterprise](/images/sd-wan-myanmar-opportunity/SD-WAN-Internet-Myanmar.jpg)](/wp-content/uploads/2020/04/SD-WAN-Internet-Myanmar.jpg)
+
+I think we made our case clear, we truly believe SD-WAN is a great fit for the Myanmar market.
+
+If you have implemented SDWAN in Myanmar or looking to deploy it, we would love to hear your story, feel free to comment below or **[contact us](/contact/) **directly.

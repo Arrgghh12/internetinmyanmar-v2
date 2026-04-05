@@ -1,0 +1,25 @@
+---
+import { getCollection } from 'astro:content'
+import Base from '../../../layouts/Base.astro'
+import ArticleList from '../../../components/ArticleList.astro'
+
+export const prerender = false
+
+const articles = (await getCollection('articles', ({ data }) =>
+  !data.draft && !data.archived && data.category === 'Telecom & Infrastructure' && data.lang === 'en'
+)).sort((a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf())
+---
+<Base
+  title="Telecom & Infrastructure — Myanmar"
+  seoTitle="Myanmar Telecom & Infrastructure | Internet in Myanmar"
+  metaDescription="Analysis of Myanmar's telecommunications infrastructure, ISP landscape, mobile network rollout, and broadband development."
+>
+  <div class="max-w-5xl mx-auto px-4 py-12">
+    <div class="font-mono text-xs text-[color:var(--color-accent)] mb-3 uppercase tracking-widest">Reports & Analysis</div>
+    <h1 class="font-headline text-3xl md:text-4xl mb-4">Telecom & Infrastructure</h1>
+    <p class="opacity-70 mb-10 max-w-2xl">
+      Coverage of Myanmar's telecom sector: ISP operations, spectrum licensing, mobile network expansion, and the impact of military governance on connectivity infrastructure.
+    </p>
+    <ArticleList {articles} emptyMessage="No articles published yet in this category." />
+  </div>
+</Base>

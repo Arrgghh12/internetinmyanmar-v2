@@ -1,0 +1,45 @@
+---
+import Base from '../../layouts/Base.astro'
+
+export const prerender = true
+---
+<Base
+  title="Our Mission — Internet in Myanmar"
+  seoTitle="Mission | Internet in Myanmar"
+  metaDescription="Internet in Myanmar is an independent monitor of digital censorship, internet shutdowns, and connectivity in Myanmar."
+>
+  <div class="max-w-3xl mx-auto px-4 py-16">
+    <div class="font-mono text-xs text-[color:var(--color-accent)] mb-3 uppercase tracking-widest">About</div>
+    <h1 class="font-headline text-3xl md:text-4xl mb-8">Our Mission</h1>
+
+    <div class="prose prose-invert max-w-none space-y-6 opacity-85">
+      <p class="text-lg">
+        <strong>Internet in Myanmar</strong> is an independent technical monitor tracking the Myanmar military junta's systematic censorship of online information since the February 2021 coup.
+      </p>
+
+      <p>
+        We document internet shutdowns, website blocking, and connectivity disruptions through a combination of OONI measurement data, independent technical analysis, and investigative journalism. Our reporting serves journalists, researchers, international organizations, and civil society groups that need reliable, technically grounded information on Myanmar's digital environment.
+      </p>
+
+      <h2 class="font-headline text-2xl mt-10 mb-4">What We Track</h2>
+      <ul class="space-y-2">
+        <li>→ Internet shutdowns and partial connectivity restrictions</li>
+        <li>→ Website and service blocking across Myanmar ISPs</li>
+        <li>→ VPN and circumvention tool blocking</li>
+        <li>→ Telecommunications infrastructure and policy changes</li>
+        <li>→ Digital surveillance and cybersecurity developments</li>
+      </ul>
+
+      <h2 class="font-headline text-2xl mt-10 mb-4">Our Standards</h2>
+      <p>
+        All technical claims are backed by verifiable data — primarily OONI measurements, Cloudflare Radar, and NetBlocks reports. We do not publish unverified claims. When data is preliminary, we say so. When a situation is evolving, we update articles.
+      </p>
+
+      <h2 class="font-headline text-2xl mt-10 mb-4" id="contact">Contact</h2>
+      <p>
+        For press inquiries, research collaboration, or to share information securely,
+        contact <a href="/about/anna-faure-revol/" class="text-[color:var(--color-accent)] hover:underline">Anna Faure Revol</a>.
+      </p>
+    </div>
+  </div>
+</Base>

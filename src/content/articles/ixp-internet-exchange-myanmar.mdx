@@ -1,0 +1,200 @@
+---
+title: "Why Internet Exchange Points Are Important"
+seoTitle: "Why Internet Exchange Points Are Important"
+metaDescription: "Today we are going to talk about Internet infrastructure and the importance of a local Internet exchange point"
+category: "Censorship & Shutdowns"
+tags: []
+author: "Anna Faure Revol"
+publishedAt: 2019-03-04
+draft: false
+excerpt: "Today we are going to talk about Internet infrastructure and the importance of a local Internet exchange point"
+readingTime: 13
+lang: "en"
+migrated: true
+originalUrl: "https://www.internetinmyanmar.com/ixp-internet-exchange-myanmar/"
+---
+
+
+> ⚠️ First published in 2019. Some figures may be outdated.
+
+Today we are going to talk about Internet infrastructure and the importance of a local Internet exchange point.
+
+If you are not a techie, don’t be scared, we bring you on a journey into the womb of the internet.
+
+
+## What is an Internet Exchange Point?
+
+
+To understand the whole concept of an Internet Exchange Point (or IXP), we need to explain first how the Internet is working.
+
+To put it simply, the Internet is a worldwide network that aims to connect users to content. Internet is a public network which means that any Internet user anywhere in the world can access any internet content anywhere in the world. That's the theory.
+
+In the past, if you were browsing from Myanmar and looking to access content hosted in your US, your request would travel all the way to US by a complex interconnection of service providers whose whole purpose was to carry your request from one border of their respective network to the other.
+
+
+## This was the Internet 1.0
+
+
+Internet 1.0 was mainly text based and low resolution pictures. Nowadays, things have changed. Websites are getting obese, embedding high resolution pictures and videos. To improve the quality of experience, content providers were pushed to bring their content closer to the viewer.
+
+
+
+![Web Page Size IXP Internet Exchange Myanmar](/images/ixp-internet-exchange-myanmar/web-page-size-lg.webp)
+
+ Source: [https://www.keycdn.com/support/the-growth-of-web-page-size](https://www.keycdn.com/support/the-growth-of-web-page-size)
+
+Nowadays if you try to access Google from Myanmar, it is less likely to travel the world. Google has deployed nodes all over the globe whose whole purpose is to bring the content as close to the user as possible_. _This is what is called a **content delivery network** or **CDN**.
+
+A CDN consists of a network of distributed servers that deliver pages and other web content to users based on their geographic location.
+
+Mobile operators in Myanmar leverage on CDN heavily. They host Google and Facebook nodes in their respective network to improve the [user experience](https://ux4sight.com/blog/ux-ui-and-usability-what-they-are-and-how-they-differ) and save on international bandwidth. They also host **Akamai CDN**.
+
+[Akamai](https://web.archive.org/web/20210118122744/https://www.akamai.com/) is the largest CDN network in the world.  The tech giant contracts with content providers to carry their content all over the world and improve the user experience. In Myanmar, Akamai delivers [Iflix](https://www.iflix.com/) and [Pyone Play](http://www.pyoneplay.com/) streaming feeds to local users.
+
+
+
+![CDN Streaming Internet Myanmar ](/images/ixp-internet-exchange-myanmar/cdn-web-hosting.jpg)
+
+ CDN Basic Concept Source: [https://www.techradar.com/how-to/what-is-a-cdn](https://www.techradar.com/how-to/what-is-a-cdn)
+
+If you wish to picture the Internet infrastructure in Myanmar, think about a **reverse tree: core-spine-leaf.**
+
+Internet users buy Internet services from local ISPs (the leaves) which themselves buy bandwidth from large domestic telcos (the spines) which themselves source their Internet bandwidth from big Tier 1 service providers (the core) overseas.
+
+This system works perfectly as long as the vast majority of the traffic requested by the user is international content accelerated through the CDN nodes that sit at the spines.
+
+As long as 99% of the traffic in Myanmar is Facebook, Google and Youtube, there is no need for a change.
+
+
+## I still don’t get why Myanmar needs an Internet Exchange Point
+
+
+Hold on, we are getting there.
+
+With a reverse tree design, lateral traffic is not optimized. You cannot jump from one spine to another or from one leaf to another, you have to go all the way back to the core and that could be completely suboptimal.
+
+Let's assume that your office, where your mail server is sitting, is using **Yatanarpon Fiber Internet**. If you try to access your emails from your home's 5BB broadband connection, the traffic will not flow directly from Yatanarpon to 5BB because there is no connection between the two service providers. It will go all the way through the international gateway to Singapore and then come back to Myanmar.
+
+Quite a journey to access emails sitting a few kilometers away.
+
+This can be avoided by the creation of a** domestic Internet Exchange Point**.
+
+[![Internet Myanmar IXP MMIX MM-IX](/images/ixp-internet-exchange-myanmar/Internet-IXP-Myanmar.png)](/wp-content/uploads/2019/03/Internet-IXP-Myanmar.png) Domestic traffic flow with and without IXP
+
+
+### The role of an Internet exchange point is to:
+
+
+
+
+- Keep the traffic local within the domestic infrastructure and reduce the international transit cost
+- Improve the overall quality of experience by reducing delay and retransmission
+- Create fertile soil for the development of local internet content and localized digital services
+- Bring telecom providers closer together, motivate synergies and joint initiatives
+
+
+
+
+## Myanmar Internet Exchange (MMIX)
+
+
+Myanmar Internet Exchange (MM-IX) was born in September 2017 and is Myanmar’s first Internet Exchange Point.  MMIX is dubbed by [APNIC](https://www.apnic.net/), the Regional Internet address Registry (RIR) for the Asia-Pacific region.
+
+MMIX is an association that provides IP peering facilities to its members.
+
+
+## Is it working?
+
+
+MMIX website proudly displays a graph that represents the traffic flowing through its domestic peering point. In busy hour, 6 gbps of traffic is routed through the IXP which is impressive.
+
+[![Internet Myanmar IXP MMIX MM-IX](/images/ixp-internet-exchange-myanmar/Untitled2.png)](/wp-content/uploads/2019/03/Untitled2.png)As of today, the domestic IXP interconnects twelve local Internet Service Providers and telco’s together.
+
+
+- AGB Communication Co., Ltd.
+- Southeastasianet Technologies Myanmar Co., Ltd
+- Global Technology Co., Ltd.
+- Kinetic Myanmar Technology Co., Ltd.
+- Yatanarpon Teleport Public Co., Ltd
+- Fortune Telecom Co., Ltd.
+- NTT Communications (Thailand) Co., Ltd. (Yangon Branch)
+- Horizon Telecom International Co., Ltd.
+- Myanmar Unilink Communication Co., Ltd.
+- Amara Communication Co., Ltd.(Ananda)
+- Telecom International Myanmar Co., Ltd.(Mytel)
+- Myanmar Information Highway Limited
+
+
+We cannot help noticing that a few big names are missing from this list, especially among the mobile operators.
+
+Out of the nine International Gateways license holders, only three of them, Telecom International Myanmar (Mytel), Global Technology (5BB) and Fortune Telecom have joined the local exchange.
+
+
+## Why is that?
+
+
+There could be multiple reasons to explain why the dominant players are reluctant to join the local Internet Exchange Point.
+
+
+### It is not a priority
+
+
+MMIX proudly announces 6 gbps of traffic at peak time. But an educated guess would be that most of the traffic is generated by Facebook and Google nodes hosted within the IX itself.
+
+Browsing the MMIX website, we bumped into a very interesting graph which represents the traffic per member on the IXP.
+
+[![Internet Exchange Myanmar IXP MMIX MM-IX](/images/ixp-internet-exchange-myanmar/MMIX-per-ISP.png)](/wp-content/uploads/2019/03/MMIX-per-ISP.png)
+
+Mytel (TIM) with its 5 million mobile subs is definitely the largest member of the association. However, its IXP traffic during peak time does not exceed 200 mbps aggregated.
+
+This corroborates our hypothesis that the traffic flowing through the exchange point is mostly driven by locally hosted CDNs and not by the traffic transiting from one ISP to another.
+
+As Mytel already hosts both Google and Facebook nodes, the local peering drives very little traffic to the Vietnamese telecom provider.
+
+We also can see on this graph that two of the largest IXP members, Amara and Globalnet are both connected but not transmitting a single bit on the peering platform.
+
+
+### The IXP impacts their business
+
+
+As we said before, the development of a local exchange reduces the international traffic. But the thing is that the dominant players make money by reselling international bandwidth. As such, the development of a local IXP threatens their revenue.
+
+For these reasons, dominant players have very little motivation to join the IXP at that stage.
+
+
+## Chicken and Egg situation
+
+
+If you ask around, you may notice that most of the websites that target a Myanmar audience are hosted outside of Myanmar. There is definitely an economical reason behind that but also a practical reason. With the absence of a local exchange point, there is very little interest in hosting content locally as most users would not feel the difference.
+
+The development of a local exchange point is crucial to the emergence of locally hosted content. As long as there is not a strongly connected peering point in the country, hosting outside Myanmar will always represent a more appealing solution from a connectivity standpoint.
+
+On the other hand, Myanmar telcos are all starving for content and especially **localized content**. By developing a locally hosted content offering, content providers will force the telco's to connect to the local exchange so that mobile subscribers can benefit from the best user experience possible.
+
+As such, domestic cloud and content providers have a strategic role to play and will more likely pave the way for the adoption of a local exchange. They may become an exchange point themselves.
+
+
+## Local media companies are betting on OTT
+
+
+Forever Group with its app [Pyone Play](/pyone-play-phone/) was the first media company in Myanmar to offer video content in an OTT fashion. Pyone Play rapidly became extremely popular among the younger generation.
+
+Last month, local paid TV provider Canal+ Myanmar released its app that allows every subscriber to watch live and replay TV directly from their mobile.
+
+A few days ago, we read that [Mizzima TV has signed a MoU with Ooredoo](https://web.archive.org/web/20201123194927/http://mizzima.com/article/ooredoo-myanmar-and-mizzima-tv-sign-mou-provide-digital-free-air-channel-exclusively) to offer free-to-air channels exclusively on the mobile operator network.
+
+Media companies in Myanmar are playing their piece by developing an attractive and localized OTT offer that should boost domestic traffic and incite telecom providers in Myanmar to interconnect.
+
+
+
+![Mizzima TV CDN Streaming IXP Internet Myanmar](/images/ixp-internet-exchange-myanmar/mizzima_tv_app_on_the_ooredoo_1.jpg)
+
+ Mizzima TV Launch with Ooredoo
+
+
+## Where the regulator kicks in
+
+
+The situation in Myanmar is not exceptional and is actually typical of any emerging market. The delivery of the first Internet exchange always comes with pain and tears. Dominant players are happily sitting at the top of the food chain and see every change as a threat to their supremacy. The telecom regulator has a predominant role to play by enforcing all parties to join a local peering point for the sole end user benefit.
+
+The emergence of a local cloud and hosting offering is also vital to motivate every stakeholder to take part in the local initiative.

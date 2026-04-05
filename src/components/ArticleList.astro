@@ -1,0 +1,59 @@
+---
+interface Article {
+  slug: string
+  data: {
+    title: string
+    excerpt: string
+    publishedAt: Date
+    author: string
+    readingTime?: number
+    featuredImage?: string
+    tags: string[]
+  }
+}
+
+interface Props {
+  articles: Article[]
+  emptyMessage?: string
+}
+
+const { articles, emptyMessage = 'No articles yet.' } = Astro.props
+---
+
+{articles.length === 0 ? (
+  <p class="opacity-50 text-center py-16">{emptyMessage}</p>
+) : (
+  <div class="divide-y divide-white/10">
+    {articles.map((a) => (
+      <article class="py-8 grid md:grid-cols-[1fr_200px] gap-6 items-start">
+        <div>
+          <div class="font-mono text-xs text-[color:var(--color-accent)] mb-2">
+            {a.data.publishedAt.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
+            {a.data.readingTime && <span class="ml-3 opacity-60">· {a.data.readingTime} min read</span>}
+          </div>
+          <h2 class="font-headline text-xl mb-2">
+            <a href={`/articles/${a.slug}`} class="hover:text-[color:var(--color-accent)] transition-colors">
+              {a.data.title}
+            </a>
+          </h2>
+          <p class="opacity-70 text-sm leading-relaxed mb-3">{a.data.excerpt}</p>
+          {a.data.tags.length > 0 && (
+            <div class="flex flex-wrap gap-2">
+              {a.data.tags.map((tag) => (
+                <span class="font-mono text-xs px-2 py-0.5 border border-white/20 rounded opacity-60">{tag}</span>
+              ))}
+            </div>
+          )}
+        </div>
+        {a.data.featuredImage && (
+          <img
+            src={a.data.featuredImage}
+            alt={a.data.title}
+            class="w-full h-32 object-cover rounded opacity-80"
+            loading="lazy"
+          />
+        )}
+      </article>
+    ))}
+  </div>
+)}

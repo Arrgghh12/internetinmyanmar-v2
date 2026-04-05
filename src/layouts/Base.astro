@@ -23,6 +23,25 @@ const {
   lang = 'en',
 } = Astro.props
 
+// Build language switcher URLs from the current pathname
+const currentPath = Astro.url.pathname
+const LOCALES = ['en', 'fr', 'es', 'it', 'my'] as const
+const LOCALE_LABELS: Record<string, string> = { en: 'EN', fr: 'FR', es: 'ES', it: 'IT', my: 'MY' }
+
+function getLocalePath(targetLang: string): string {
+  // Strip current locale prefix if present (/fr/..., /es/..., /it/..., /my/...)
+  const prefixedLocales = ['fr', 'es', 'it', 'my']
+  let pathWithoutLocale = currentPath
+  for (const loc of prefixedLocales) {
+    if (currentPath === `/${loc}` || currentPath.startsWith(`/${loc}/`)) {
+      pathWithoutLocale = currentPath.slice(loc.length + 1) || '/'
+      break
+    }
+  }
+  if (!pathWithoutLocale.startsWith('/')) pathWithoutLocale = '/' + pathWithoutLocale
+  return targetLang === 'en' ? pathWithoutLocale : `/${targetLang}${pathWithoutLocale}`
+}
+
 const nav = [
   {
     label: 'Reports & Analysis',
@@ -107,10 +126,19 @@ const nav = [
           <a href="/about/mission/#contact" class="hover:opacity-100">Contact</a>
         </div>
         <div class="flex gap-2 font-mono">
-          <a href="/" class="hover:text-[color:var(--color-accent)]" class:list={[{ 'text-[color:var(--color-accent)]': lang === 'en' }]}>EN</a>
-          <a href="/fr/" class="hover:text-[color:var(--color-accent)] opacity-50">FR</a>
-          <a href="/es/" class="hover:text-[color:var(--color-accent)] opacity-50">ES</a>
-          <a href="/it/" class="hover:text-[color:var(--color-accent)] opacity-50">IT</a>
+          {LOCALES.map((loc) => (
+            <a
+              href={getLocalePath(loc)}
+              class:list={[
+                'hover:text-[color:var(--color-accent)] transition-colors',
+                lang === loc
+                  ? 'text-[color:var(--color-accent)]'
+                  : 'opacity-50 hover:opacity-100',
+              ]}
+            >
+              {LOCALE_LABELS[loc]}
+            </a>
+          ))}
         </div>
       </div>
     </div>

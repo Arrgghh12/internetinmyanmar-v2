@@ -1,0 +1,31 @@
+---
+import Observatory from '../../layouts/Observatory.astro'
+import stats from '../../content/observatory/stats.json'
+
+export const prerender = false
+---
+<Observatory
+  title="Myanmar Internet Shutdown Tracker"
+  seoTitle="Myanmar Shutdown Tracker | Internet in Myanmar"
+  metaDescription="Documented timeline of internet shutdowns and service disruptions in Myanmar since the 2021 military coup."
+  lastUpdated={stats.lastUpdated}
+>
+  <div class="max-w-5xl mx-auto px-4 py-12">
+    <h1 class="font-headline text-3xl md:text-4xl mb-4">Shutdown Tracker</h1>
+    <p class="opacity-70 mb-8 max-w-2xl">
+      Documented shutdowns sourced from OONI measurements, NetBlocks, and Cloudflare Radar.
+      The Myanmar military junta has used internet shutdowns as a tool of political repression since the February 2021 coup.
+    </p>
+
+    <div class="border border-[color:var(--color-warning)]/40 bg-[color:var(--color-warning)]/5 rounded-lg p-6 mb-8">
+      <div class="font-mono text-xs text-[color:var(--color-warning)] mb-2 uppercase tracking-widest">Current status</div>
+      <div class="text-2xl font-bold mb-1">{stats.activeShutdowns} active shutdown{stats.activeShutdowns !== 1 ? 's' : ''}</div>
+      <div class="text-sm opacity-60">As of {stats.lastUpdated} · Updated every 12 hours via OONI API</div>
+    </div>
+
+    <div class="text-center py-16 border border-white/10 rounded-lg opacity-50">
+      <div class="font-mono text-sm mb-2">Historical timeline coming soon</div>
+      <div class="text-xs">OONI watcher agent populates this data automatically</div>
+    </div>
+  </div>
+</Observatory>

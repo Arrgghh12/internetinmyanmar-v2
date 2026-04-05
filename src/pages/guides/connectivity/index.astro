@@ -1,0 +1,25 @@
+---
+import { getCollection } from 'astro:content'
+import Base from '../../../layouts/Base.astro'
+import ArticleList from '../../../components/ArticleList.astro'
+
+export const prerender = false
+
+const articles = (await getCollection('articles', ({ data }) =>
+  !data.draft && !data.archived && data.category === 'Guides & Tools' && data.lang === 'en'
+)).sort((a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf())
+---
+<Base
+  title="Connectivity & SIM Card Guides — Myanmar"
+  seoTitle="Myanmar Connectivity & SIM Card Guides | Internet in Myanmar"
+  metaDescription="SIM card, mobile data, and connectivity guides for Myanmar — which operators are most reliable, speeds, and coverage maps."
+>
+  <div class="max-w-5xl mx-auto px-4 py-12">
+    <div class="font-mono text-xs text-[color:var(--color-accent)] mb-3 uppercase tracking-widest">Guides & Tools</div>
+    <h1 class="font-headline text-3xl md:text-4xl mb-4">Connectivity & SIM Cards</h1>
+    <p class="opacity-70 mb-10 max-w-2xl">
+      Practical information on Myanmar mobile operators, SIM cards, data plans, and connectivity options — including which providers are less subject to filtering.
+    </p>
+    <ArticleList {articles} emptyMessage="No guides published yet." />
+  </div>
+</Base>
