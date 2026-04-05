@@ -53,8 +53,8 @@ def _notify_telegram(text: str) -> None:
 
 AGENTS_DIR = Path(__file__).parent
 CONFIG = yaml.safe_load((AGENTS_DIR / "config.yaml").read_text())
-CLIENT = anthropic.Anthropic(api_key=os.environ["ANTHROPIC_API_KEY"])
 VENV_PYTHON = AGENTS_DIR / "venv" / "bin" / "python"
+CLIENT: anthropic.Anthropic | None = None  # initialized in run()
 
 
 # ---------------------------------------------------------------------------
@@ -197,10 +197,12 @@ def deduplicate(items: list[dict]) -> list[dict]:
 # ---------------------------------------------------------------------------
 
 def run(dry_run: bool = False):
+    global CLIENT
     logging.basicConfig(
         level=logging.INFO,
         format="%(asctime)s %(levelname)s %(message)s",
     )
+    CLIENT = anthropic.Anthropic(api_key=os.environ["ANTHROPIC_API_KEY"])
 
     log.info("=== Monitor starting ===")
     items = asyncio.run(fetch_all())
