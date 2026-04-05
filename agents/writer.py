@@ -109,16 +109,7 @@ def _write_with_claude(brief_text: str, adjustments: str) -> str:
 
 
 def write_article(brief_text: str, adjustments: str = "", force_deepseek: bool = False) -> str:
-    """Route to correct model based on content sensitivity."""
-    if not force_deepseek:
-        sys.path.insert(0, str(AGENTS_DIR))
-        try:
-            from utils.model_router import is_sensitive
-            if is_sensitive(brief_text):
-                log.info("Sensitive content detected — using Claude Sonnet")
-                return _write_with_claude(brief_text, adjustments)
-        except ImportError:
-            pass
+    """Always use DeepSeek-V3. Claude routing disabled until API credits confirmed."""
     log.info("Using DeepSeek-V3 for article generation")
     return _write_with_deepseek(brief_text, adjustments)
 
