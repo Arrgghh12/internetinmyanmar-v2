@@ -12,17 +12,188 @@ anthropic:
     write:   3000
     seo:     200
 
+# ── Sources by tier ───────────────────────────────────────────────────────────
+# Tier 1: Technical data — primary, high reliability
+# Tier 2: Established media — verified journalism
+# Tier 3: Informal / unverified — cross-check required before publishing
+
 sources:
-  ooni_api:      "https://api.ooni.io/api/v1/measurements?probe_cc=MM&limit=100"
-  rsf:           "https://rsf.org/en/rss/myanmar"
-  netblocks:     "https://netblocks.org/tag/myanmar/feed"
-  access_now:    "https://www.accessnow.org/category/blog/feed/"
-  dvb:           "https://english.dvb.no/feed"
-  irrawaddy:     "https://www.irrawaddy.com/feed"
-  freedom_house: "https://freedomhouse.org/reports/freedom-net/feed"
+
+  # TIER 1 — Technical data (highest reliability, always process)
+  tier1:
+    ooni_api:
+      url: "https://api.ooni.io/api/v1/measurements?probe_cc=MM&limit=100&anomaly=true"
+      type: api
+      reliability: high
+      note: "OONI network measurements for Myanmar"
+
+    netblocks:
+      url: "https://netblocks.org/tag/myanmar/feed"
+      type: rss
+      reliability: high
+      note: "Confirmed network blocking events"
+
+    cloudflare_radar:
+      url: "https://api.cloudflare.com/client/v4/radar/traffic/summary?location=MM"
+      type: api
+      reliability: high
+      note: "Cloudflare traffic anomalies Myanmar — requires CF API token"
+
+  # TIER 2 — Established English-language media (verified journalism)
+  tier2_en:
+    rsf:
+      url: "https://rsf.org/en/rss/myanmar"
+      type: rss
+      reliability: high
+
+    access_now:
+      url: "https://www.accessnow.org/category/blog/feed/"
+      type: rss
+      reliability: high
+      filter: "myanmar"
+
+    freedom_house:
+      url: "https://freedomhouse.org/reports/freedom-net/feed"
+      type: rss
+      reliability: high
+
+    dvb_english:
+      url: "https://english.dvb.no/feed"
+      type: rss
+      reliability: high
+
+    irrawaddy_english:
+      url: "https://www.irrawaddy.com/feed"
+      type: rss
+      reliability: high
+
+    myanmar_now:
+      url: "https://myanmar-now.org/en/feed/"
+      type: rss
+      reliability: high
+
+    mizzima_english:
+      url: "https://mizzima.com/rss.xml"
+      type: rss
+      reliability: high
+
+    frontier_myanmar:
+      url: "https://www.frontiermyanmar.net/en/feed/"
+      type: rss
+      reliability: high
+
+    citizen_lab:
+      url: "https://citizenlab.ca/category/research/tag/myanmar/feed/"
+      type: rss
+      reliability: high
+
+    article19:
+      url: "https://www.article19.org/tag/myanmar/feed/"
+      type: rss
+      reliability: high
+
+  # TIER 2 — Burmese-language media (translate before processing)
+  tier2_my:
+    dvb_burmese:
+      url: "https://burmese.dvb.no/feed"
+      type: rss
+      reliability: high
+      lang: my
+
+    irrawaddy_burmese:
+      url: "https://burmese.irrawaddy.com/feed"
+      type: rss
+      reliability: high
+      lang: my
+
+    khit_thit:
+      url: "https://khitthitmedia.com/feed/"
+      type: rss
+      reliability: high
+      lang: my
+
+    mizzima_burmese:
+      url: "https://burma.mizzima.com/rss.xml"
+      type: rss
+      reliability: medium
+      lang: my
+
+  # TIER 2 — Google News RSS (Myanmar internet/tech filter)
+  tier2_gnews:
+    gnews_myanmar_internet:
+      url: "https://news.google.com/rss/search?q=myanmar+internet+shutdown+censorship&hl=en-US&gl=US&ceid=US:en"
+      type: rss
+      reliability: medium
+      note: "Aggregates many sources — check original before citing"
+
+    gnews_myanmar_telecom:
+      url: "https://news.google.com/rss/search?q=myanmar+telecom+mytel+ooredoo+MPT&hl=en-US&gl=US&ceid=US:en"
+      type: rss
+      reliability: medium
+      note: "Telecom-specific Google News feed"
+
+    gnews_myanmar_digital:
+      url: "https://news.google.com/rss/search?q=myanmar+digital+rights+VPN+blocked&hl=en-US&gl=US&ceid=US:en"
+      type: rss
+      reliability: medium
+      note: "Digital rights Google News feed"
+
+  # TIER 3 — Informal / social media (low reliability, MUST cross-check)
+  # Items from these sources get is_sensitive()=True automatically (telegram_origin flag)
+  # Never publish from tier 3 alone — always requires tier 1 or tier 2 corroboration
+  tier3:
+    athan_facebook:
+      url: "https://www.facebook.com/athanfreeexpression"
+      type: facebook_page
+      reliability: low
+      note: "Athan (Freedom of Expression Myanmar) — monitor manually"
+      fetch: manual  # no public RSS, check via Tavily search
+
+    myanmar_digital_news_telegram:
+      url: "https://t.me/myanmardigitalnews"
+      type: telegram_channel
+      reliability: low
+      note: "Myanmar Digital News Telegram — unverified, citizen reports"
+      fetch: manual
+
+    netblocks_twitter:
+      url: "https://twitter.com/netblocks"
+      type: twitter
+      reliability: medium
+      note: "NetBlocks Twitter often breaks stories before RSS updates"
+      fetch: tavily  # search via Tavily: site:twitter.com netblocks myanmar
+
+    ooni_twitter:
+      url: "https://twitter.com/OpenObservatory"
+      type: twitter
+      reliability: high
+      note: "OONI official Twitter for real-time announcements"
+      fetch: tavily
+
+    myanmar_digital_watch:
+      url: "https://t.me/myanmarwatch"
+      type: telegram_channel
+      reliability: low
+      note: "Citizen reports of connectivity issues — high false positive rate"
+      fetch: manual
+
+# Tavily search queries run alongside RSS (for breaking news not yet in feeds)
+tavily_queries:
+  daily:
+    - "myanmar internet shutdown site:netblocks.org OR site:ooni.org"
+    - "myanmar VPN blocked OR censorship site:irrawaddy.com OR site:dvb.no"
+    - "myanmar telecom junta regulation"
+    - "myanmar MPT Mytel Ooredoo internet"
+  on_anomaly:  # triggered when OONI anomaly count spikes
+    - "myanmar internet disruption {date}"
+    - "myanmar internet cut {region}"
 
 scoring:
   min_score_for_brief: 6.0
+  # Tier 3 sources automatically get -2 penalty unless corroborated
+  tier3_penalty: -2.0
+  # Items appearing in 2+ independent sources get +1 bonus
+  corroboration_bonus: 1.0
 
 article:
   author:         "Anna Faure Revol"
@@ -31,12 +202,12 @@ article:
   internal_links: [3, 5]
 
 github:
-  repo:         "GITHUB_USERNAME/internetinmyanmar-v2"
+  repo:         "Arrgghh12/internetinmyanmar-v2"
   base_branch:  "dev"
   draft_prefix: "draft/"
 
 paths:
-  briefs:      "~/dev/iimv2/agents/briefs"
-  approved:    "~/dev/iimv2/agents/approved"
+  briefs:      "~/agents/briefs"
+  approved:    "~/agents/approved"
   articles:    "~/dev/iimv2/src/content/articles"
   observatory: "~/dev/iimv2/src/content/observatory"
