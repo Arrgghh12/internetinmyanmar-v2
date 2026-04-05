@@ -16,6 +16,7 @@ Usage:
 
 import csv
 import html
+import json
 import re
 import sys
 from datetime import datetime, timezone
@@ -246,20 +247,34 @@ def build_frontmatter(row: dict, post: dict, slug: str) -> str:
     category = _map_category(post.get("categories", ""))
     word_count = post.get("word_count", 500)
     reading_time = _word_count_to_reading_time(word_count)
-    stale = _is_stale(pub_date)
 
     title = post["title"].replace('"', "'")
-    # SEO title: truncate to 60 chars
-    seo_title = title[:57] + "…" if len(title) > 60 else title
-    # Meta description: first 155 chars of excerpt handled after content conversion
+
+    # SEO title: prefer Yoast title, fall back to post title (max 60 chars)
+    yoast_title = (post.get("yoast_title") or "").strip()
+    # Yoast titles often have %%sep%% %%sitename%% tokens — strip them
+    yoast_title = re.sub(r'\s*%%[^%]+%%\s*', '', yoast_title).strip()
+    seo_title = yoast_title[:60] if yoast_title else (title[:57] + "…" if len(title) > 60 else title)
+
+    # Yoast meta description (already written, plain text)
+    yoast_meta = (post.get("yoast_meta") or "").strip().replace('"', "'")
+    yoast_meta = yoast_meta[:152] + "…" if len(yoast_meta) > 155 else yoast_meta
+
+    # Tags from WP (deduplicated)
+    raw_tags = post.get("tags") or ""
+    tags = list(dict.fromkeys(
+        t.strip() for t in raw_tags.split("|||") if t.strip()
+    ))[:5]  # max 5 tags
+    tags_json = json.dumps(tags)
+
     original_url = f"https://www.internetinmyanmar.com/{post['wp_slug']}/"
 
     fm = f"""---
 title: "{title}"
 seoTitle: "{seo_title}"
-metaDescription: ""
+metaDescription: "{yoast_meta}"
 category: "{category}"
-tags: []
+tags: {tags_json}
 author: "Anna Faure Revol"
 publishedAt: {pub_date.strftime('%Y-%m-%d')}
 draft: false
@@ -275,7 +290,7 @@ originalUrl: "{original_url}"
 # ── DB query ──────────────────────────────────────────────────────────────────
 
 def fetch_posts(slugs: list[str] | None = None) -> dict[str, dict]:
-    """Fetch full post content from WP DB. Returns dict keyed by post_name."""
+    """Fetch full post content from WP DB including Yoast SEO and tags."""
     conn = mysql.connector.connect(**DB)
     cur = conn.cursor(dictionary=True)
 
@@ -289,12 +304,19 @@ def fetch_posts(slugs: list[str] | None = None) -> dict[str, dict]:
                p.post_content as content,
                ROUND(LENGTH(p.post_content) / 5) as word_count,
                u.display_name as author,
-               GROUP_CONCAT(t.name ORDER BY t.name SEPARATOR ', ') as categories
+               GROUP_CONCAT(DISTINCT CASE WHEN tt.taxonomy='category' THEN t.name END ORDER BY t.name SEPARATOR ', ') as categories,
+               GROUP_CONCAT(DISTINCT CASE WHEN tt.taxonomy='post_tag' THEN t.name END ORDER BY t.name SEPARATOR '|||') as tags,
+               MAX(CASE WHEN pm.meta_key='_yoast_wpseo_metadesc' THEN pm.meta_value END) as yoast_meta,
+               MAX(CASE WHEN pm.meta_key='_yoast_wpseo_title' THEN pm.meta_value END) as yoast_title,
+               MAX(CASE WHEN pm.meta_key='_yoast_wpseo_focuskw' THEN pm.meta_value END) as focus_kw
         FROM wp_posts p
         LEFT JOIN wp_users u ON u.ID = p.post_author
         LEFT JOIN wp_term_relationships tr ON p.ID = tr.object_id
-        LEFT JOIN wp_term_taxonomy tt ON tr.term_taxonomy_id = tt.term_taxonomy_id AND tt.taxonomy = 'category'
+        LEFT JOIN wp_term_taxonomy tt ON tr.term_taxonomy_id = tt.term_taxonomy_id
+            AND tt.taxonomy IN ('category', 'post_tag')
         LEFT JOIN wp_terms t ON tt.term_id = t.term_id
+        LEFT JOIN wp_postmeta pm ON p.ID = pm.post_id
+            AND pm.meta_key IN ('_yoast_wpseo_metadesc','_yoast_wpseo_title','_yoast_wpseo_focuskw')
         WHERE {where}
         GROUP BY p.ID
     """, slugs if slugs else None)
@@ -379,18 +401,18 @@ def migrate(dry_run: bool = False, limit: int | None = None, only_slug: str | No
         raw_html = post.get("content", "") or ""
         mdx_content = html_to_mdx(raw_html, new_slug)
 
-        # Build excerpt
-        excerpt = _excerpt_from_content(mdx_content)
-        excerpt = excerpt.replace('"', "'").replace('\n', ' ')[:280]
+        # Excerpt: prefer Yoast meta (already plain text), fall back to first paragraph
+        yoast_meta_val = (post.get("yoast_meta") or "").strip().replace('"', "'")
+        if yoast_meta_val:
+            excerpt = yoast_meta_val[:280]
+        else:
+            excerpt = _excerpt_from_content(mdx_content)
+            excerpt = excerpt.replace('"', "'").replace('\n', ' ')[:280]
 
-        # Build SEO meta description (plain text, max 155)
-        meta = excerpt[:152] + "…" if len(excerpt) > 155 else excerpt
-        meta = meta.replace('"', "'")
-
-        # Build frontmatter then inject excerpt + meta
+        # Build frontmatter (already has metaDescription from Yoast)
         fm = build_frontmatter(row, post, new_slug)
-        fm = fm.replace('metaDescription: ""', f'metaDescription: "{meta}"')
-        fm = fm.replace('excerpt: ""', f'excerpt: "{excerpt}"')
+        # Only inject excerpt into frontmatter
+        fm = fm.replace('excerpt: ""', f'excerpt: "{excerpt[:280]}"')
 
         # Stale notice
         pub_date = post["post_date"]
