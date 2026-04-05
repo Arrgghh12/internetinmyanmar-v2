@@ -103,7 +103,7 @@ const categoryHref: Record<string, string> = {
 
     <!-- Byline -->
     <div class="flex items-center gap-3 text-sm opacity-60 mb-10 pb-6 border-b border-white/10">
-      <span>By <strong class="opacity-100">{author}</strong></span>
+      <span>By <strong class="opacity-100">{author.split(' ')[0]}</strong></span>
       <span>·</span>
       <time datetime={publishedAt.toISOString()}>
         {publishedAt.toLocaleDateString(lang, { year: 'numeric', month: 'long', day: 'numeric' })}

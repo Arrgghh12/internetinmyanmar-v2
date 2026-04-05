@@ -361,19 +361,83 @@ async def cmd_approve(update: Update, context: ContextTypes.DEFAULT_TYPE) -> Non
     shutil.copy2(path, approved_path)
 
     await update.message.reply_text(f"✅ Brief approved. Writing article for _{slug}_…", parse_mode="Markdown")
-    rc, out = run_agent("writer.py", str(approved_path), timeout=300)
+    rc, out = run_agent("writer.py", str(approved_path), "--deepseek", timeout=300)
     if rc == 0:
-        pr_url_match = re.search(r"https://github\.com/\S+/pull/\d+", out)
-        pr_url = pr_url_match.group(0) if pr_url_match else None
-        if pr_url:
+        # Parse JSON result from writer.py stdout
+        result = {}
+        for line in out.splitlines():
+            line = line.strip()
+            if line.startswith("{") and "preview_url" in line:
+                try:
+                    result = json.loads(line)
+                except json.JSONDecodeError:
+                    pass
+
+        preview_url = result.get("preview_url", "")
+        preview_slug = result.get("preview_slug", "")
+        real_slug = result.get("real_slug", slug)
+
+        # Store mapping so /publish knows what to rename
+        await db_set("pending_preview_slug", preview_slug)
+        await db_set("pending_real_slug", real_slug)
+        await db_set("pending_mdx_path", result.get("mdx_path", ""))
+
+        if preview_url:
             await update.message.reply_text(
-                f"✅ Article written and PR opened:\n{pr_url}\n\nReview in Keystatic → merge when ready.",
+                f"✅ Draft ready — preview link (secret, share only with Anna):\n\n"
+                f"{preview_url}\n\n"
+                f"Reply /publish to push to GitHub with slug `{real_slug}`, or send revision notes.",
             )
         else:
             await update.message.reply_text(f"✅ Done:\n```\n{out[-600:]}\n```", parse_mode="Markdown")
         await db_set("active_brief_path", "")
     else:
         await update.message.reply_text(f"❌ writer.py failed:\n```\n{out[-800:]}\n```", parse_mode="Markdown")
+
+
+# ── /publish ─────────────────────────────────────────────────────────────────
+
+async def cmd_publish(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
+    """Rename preview-{token}.mdx → {real_slug}.mdx, open GitHub PR."""
+    if not authorized(update): return
+    preview_slug = await db_get("pending_preview_slug")
+    real_slug    = await db_get("pending_real_slug")
+    mdx_path     = await db_get("pending_mdx_path")
+
+    if not preview_slug or not real_slug:
+        await auth_reply(update, "No pending draft to publish. Use `/approve` on a brief first.")
+        return
+
+    import shutil
+    src = Path(mdx_path)
+    if not src.exists():
+        await auth_reply(update, f"❌ Draft file not found: `{mdx_path}`")
+        return
+
+    articles_dir = src.parent
+    dst = articles_dir / f"{real_slug}.mdx"
+
+    # Rename preview → real slug
+    src.rename(dst)
+
+    # Clear pending state
+    await db_set("pending_preview_slug", "")
+    await db_set("pending_real_slug", "")
+    await db_set("pending_mdx_path", "")
+
+    await update.message.reply_text(f"✅ Renamed to `{real_slug}.mdx`. Opening GitHub PR…", parse_mode="Markdown")
+    rc, out = run_agent("publisher.py", str(dst), timeout=120)
+    if rc == 0:
+        pr_match = re.search(r"https://github\.com/\S+/pull/\d+", out)
+        pr_url = pr_match.group(0) if pr_match else None
+        if pr_url:
+            await update.message.reply_text(
+                f"🚀 PR opened:\n{pr_url}\n\nSet `draft: false` in Keystatic then merge to publish.",
+            )
+        else:
+            await update.message.reply_text(f"✅ Done:\n```\n{out[-600:]}\n```", parse_mode="Markdown")
+    else:
+        await update.message.reply_text(f"❌ Publisher failed:\n```\n{out[-800:]}\n```", parse_mode="Markdown")
 
 
 # ── /amend ───────────────────────────────────────────────────────────────────
@@ -887,6 +951,7 @@ def main() -> None:
         ("pick",      cmd_pick),
         ("show",      cmd_show),
         ("approve",   cmd_approve),
+        ("publish",   cmd_publish),
         ("amend",     cmd_amend),
         ("merge",     cmd_merge),
         ("reject",    cmd_reject),

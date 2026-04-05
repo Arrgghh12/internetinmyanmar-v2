@@ -15,6 +15,7 @@ import logging
 import os
 import re
 import sys
+import uuid
 from datetime import date
 from pathlib import Path
 
@@ -153,6 +154,9 @@ sources:
 """
 
 
+SITE_URL = os.getenv("SITE_URL", "https://dev.internetinmyanmar.com")
+
+
 def run(brief_path: str, adjustments: str = "", force_deepseek: bool = False) -> dict:
     brief, raw_text = _read_brief(brief_path)
     log.info(f"Writing article for: {brief.get('title', brief_path)}")
@@ -161,20 +165,28 @@ def run(brief_path: str, adjustments: str = "", force_deepseek: bool = False) ->
     frontmatter = build_frontmatter(brief)
     full_content = frontmatter + body
 
-    slug = brief.get("slug", "article")
+    real_slug = brief.get("slug", "article")
+
+    # Save under a random preview token — accessible at /preview/{token}
+    # On approval, publisher renames to real SEO slug
+    token = uuid.uuid4().hex[:16]
+    preview_slug = f"preview-{token}"
+
     ARTICLES_DIR.mkdir(parents=True, exist_ok=True)
-    mdx_path = ARTICLES_DIR / f"{slug}.mdx"
+    mdx_path = ARTICLES_DIR / f"{preview_slug}.mdx"
     mdx_path.write_text(full_content, encoding="utf-8")
 
-    # Plain .txt for easy Telegram reading
-    drafts_dir = AGENTS_DIR / "drafts"
-    drafts_dir.mkdir(exist_ok=True)
-    txt_path = drafts_dir / f"{slug}.txt"
-    txt_path.write_text(full_content, encoding="utf-8")
+    preview_url = f"{SITE_URL}/preview/{token}/"
 
-    result = {"path": str(txt_path), "mdx_path": str(mdx_path), "slug": slug}
+    result = {
+        "preview_url": preview_url,
+        "preview_slug": preview_slug,
+        "real_slug": real_slug,
+        "mdx_path": str(mdx_path),
+    }
     print(json.dumps(result))
-    log.info(f"Article written: {mdx_path}")
+    log.info(f"Article written (preview): {mdx_path}")
+    log.info(f"Preview URL: {preview_url}")
     return result
 
 

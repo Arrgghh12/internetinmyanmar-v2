@@ -1,0 +1,40 @@
+---
+import { getEntry } from 'astro:content'
+import Article from '../../layouts/Article.astro'
+
+export const prerender = false
+
+const { token } = Astro.params
+if (!token) return new Response(null, { status: 404 })
+
+// Preview articles are stored as preview-{token}.mdx — draft: true, not yet at SEO slug
+const article = await getEntry('articles', `preview-${token}`)
+if (!article || article.data.archived) {
+  return new Response(null, { status: 404 })
+}
+
+const { Content } = await article.render()
+const d = article.data
+---
+<Article
+  title={d.title}
+  seoTitle={d.seoTitle}
+  metaDescription={d.metaDescription}
+  slug={`preview/${token}`}
+  category={d.category}
+  author={d.author}
+  publishedAt={d.publishedAt}
+  updatedAt={d.updatedAt}
+  featuredImage={d.featuredImage}
+  featuredImageAlt={d.featuredImageAlt}
+  excerpt={d.excerpt}
+  readingTime={d.readingTime}
+  sources={d.sources}
+  lang={d.lang}
+>
+  <!-- Preview banner -->
+  <div style="background:#F59E0B;color:#000;padding:0.6rem 1rem;border-radius:6px;margin-bottom:1.5rem;font-size:0.85rem;font-family:monospace;">
+    DRAFT PREVIEW — not published. Send /approve in Telegram to publish.
+  </div>
+  <Content />
+</Article>
