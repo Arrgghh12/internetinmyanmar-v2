@@ -61,9 +61,9 @@ def _read_brief(path: str) -> tuple[dict, str]:
         if line.startswith("# "):
             brief["title"] = line[2:].strip()
         elif line.lower().startswith("**slug:**"):
-            brief["slug"] = re.sub(r'`', '', line.split(":", 1)[1]).strip()
+            brief["slug"] = re.sub(r'[`* ]', '', line.split(":", 1)[1]).strip()
         elif line.lower().startswith("**category:**"):
-            brief["category"] = line.split(":", 1)[1].strip()
+            brief["category"] = re.sub(r'[`*]', '', line.split(":", 1)[1]).strip()
         elif line.startswith("- http"):
             brief["sources"].append(line[2:].strip())
     if "slug" not in brief:
@@ -107,16 +107,17 @@ def _write_with_claude(brief_text: str, adjustments: str) -> str:
     return resp.content[0].text
 
 
-def write_article(brief_text: str, adjustments: str = "") -> str:
+def write_article(brief_text: str, adjustments: str = "", force_deepseek: bool = False) -> str:
     """Route to correct model based on content sensitivity."""
-    sys.path.insert(0, str(AGENTS_DIR))
-    try:
-        from utils.model_router import is_sensitive
-        if is_sensitive(brief_text):
-            log.info("Sensitive content detected — using Claude Sonnet")
-            return _write_with_claude(brief_text, adjustments)
-    except ImportError:
-        pass
+    if not force_deepseek:
+        sys.path.insert(0, str(AGENTS_DIR))
+        try:
+            from utils.model_router import is_sensitive
+            if is_sensitive(brief_text):
+                log.info("Sensitive content detected — using Claude Sonnet")
+                return _write_with_claude(brief_text, adjustments)
+        except ImportError:
+            pass
     log.info("Using DeepSeek-V3 for article generation")
     return _write_with_deepseek(brief_text, adjustments)
 
@@ -152,11 +153,11 @@ sources:
 """
 
 
-def run(brief_path: str, adjustments: str = "") -> dict:
+def run(brief_path: str, adjustments: str = "", force_deepseek: bool = False) -> dict:
     brief, raw_text = _read_brief(brief_path)
     log.info(f"Writing article for: {brief.get('title', brief_path)}")
 
-    body = write_article(raw_text, adjustments)
+    body = write_article(raw_text, adjustments, force_deepseek=force_deepseek)
     frontmatter = build_frontmatter(brief)
     full_content = frontmatter + body
 
@@ -196,7 +197,8 @@ if __name__ == "__main__":
     # New: positional path argument
     brief_path = args[0] if args and not args[0].startswith("--") else None
     if not brief_path:
-        print("Usage: writer.py /path/to/brief.md [--adjustments '...']", file=sys.stderr)
+        print("Usage: writer.py /path/to/brief.md [--adjustments '...'] [--deepseek]", file=sys.stderr)
         sys.exit(1)
     adj = args[args.index("--adjustments") + 1] if "--adjustments" in args else ""
-    run(brief_path, adj)
+    force_ds = "--deepseek" in args
+    run(brief_path, adj, force_deepseek=force_ds)
