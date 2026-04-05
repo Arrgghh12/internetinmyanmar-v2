@@ -1,0 +1,39 @@
+---
+import Base from './Base.astro'
+
+interface Props {
+  title: string
+  seoTitle: string
+  metaDescription: string
+  lastUpdated?: string
+  dataSource?: string
+}
+
+const {
+  title,
+  seoTitle,
+  metaDescription,
+  lastUpdated,
+  dataSource = 'OONI Explorer, Cloudflare Radar',
+} = Astro.props
+---
+<Base {title} {seoTitle} {metaDescription}>
+  <!-- Live data banner -->
+  <div class="border-b border-[color:var(--color-accent)]/30 bg-[color:var(--color-accent)]/5">
+    <div class="max-w-7xl mx-auto px-4 py-2 flex items-center justify-between text-xs font-mono">
+      <span class="flex items-center gap-2">
+        <span class="inline-block w-2 h-2 rounded-full bg-[color:var(--color-accent)] animate-pulse"></span>
+        <span class="text-[color:var(--color-accent)] font-semibold">LIVE DATA</span>
+      </span>
+      <span class="opacity-50">
+        {lastUpdated ? `Updated ${lastUpdated}` : 'Auto-updated twice daily'}
+        · Source: {dataSource}
+      </span>
+    </div>
+  </div>
+
+  <div class="max-w-7xl mx-auto px-4 py-10">
+    <h1 class="font-headline text-3xl md:text-4xl mb-2">{title}</h1>
+    <slot />
+  </div>
+</Base>

@@ -22,3 +22,11 @@ pnpm-debug.log*
 
 # jetbrains setting folder
 .idea/
+
+# agents
+agents/venv/
+agents/briefs/
+agents/approved/
+agents/drafts/
+agents/bot_state.db
+agents/monitor_output.json

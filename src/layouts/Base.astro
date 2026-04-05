@@ -1,0 +1,191 @@
+---
+import { SEO } from 'astro-seo'
+import SchemaOrg from '../components/SchemaOrg.astro'
+import '../styles/global.css'
+
+interface Props {
+  title: string
+  seoTitle: string
+  metaDescription: string
+  canonicalUrl?: string
+  ogImage?: string
+  ogType?: string
+  lang?: string
+}
+
+const {
+  title,
+  seoTitle,
+  metaDescription,
+  canonicalUrl = Astro.url.href,
+  ogImage = '/og-default.png',
+  ogType = 'website',
+  lang = 'en',
+} = Astro.props
+
+const nav = [
+  {
+    label: 'Reports & Analysis',
+    children: [
+      { label: 'Censorship & Shutdowns', href: '/analysis/censorship/' },
+      { label: 'Telecom & Infrastructure', href: '/analysis/infrastructure/' },
+      { label: 'Digital Economy', href: '/analysis/digital-economy/' },
+    ],
+  },
+  {
+    label: 'Guides & Tools',
+    children: [
+      { label: 'VPN & Circumvention', href: '/guides/vpn-circumvention/' },
+      { label: 'Digital Security', href: '/guides/digital-security/' },
+      { label: 'Connectivity & SIM Cards', href: '/guides/connectivity/' },
+    ],
+  },
+  {
+    label: 'Observatory',
+    children: [
+      { label: 'Shutdown Tracker', href: '/observatory/shutdown-tracker/' },
+      { label: 'Blocked Sites Monitor', href: '/observatory/blocked-sites/' },
+      { label: 'Quarterly Reports', href: '/observatory/' },
+    ],
+  },
+  {
+    label: 'News',
+    children: [
+      { label: 'Mobile Networks', href: '/news/mobile/' },
+      { label: 'Broadband', href: '/news/broadband/' },
+      { label: 'Policy & Regulation', href: '/news/policy/' },
+    ],
+  },
+  { label: 'About', href: '/about/mission/' },
+]
+---
+<!doctype html>
+<html lang={lang} class="dark">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="alternate" type="application/rss+xml" title="Internet in Myanmar" href="/rss.xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <SEO
+      title={seoTitle}
+      description={metaDescription}
+      canonical={canonicalUrl}
+      openGraph={{
+        basic: {
+          title: seoTitle,
+          type: ogType,
+          image: new URL(ogImage, Astro.site).href,
+          url: canonicalUrl,
+        },
+        optional: {
+          description: metaDescription,
+          siteName: 'Internet in Myanmar',
+          locale: lang,
+        },
+      }}
+      twitter={{
+        card: 'summary_large_image',
+        title: seoTitle,
+        description: metaDescription,
+        image: new URL(ogImage, Astro.site).href,
+      }}
+    />
+    <SchemaOrg type="organization" />
+  </head>
+  <body class="min-h-screen flex flex-col">
+
+    <!-- Utility bar -->
+    <div class="border-b border-white/10 text-xs">
+      <div class="max-w-7xl mx-auto px-4 py-1.5 flex justify-between items-center">
+        <div class="flex gap-4 text-[color:var(--color-text-dark)] opacity-70">
+          <a href="/observatory/" class="hover:opacity-100">Coverage Map</a>
+          <span>|</span>
+          <a href="/guides/connectivity/" class="hover:opacity-100">Speedtest</a>
+          <span>|</span>
+          <a href="/about/mission/#contact" class="hover:opacity-100">Contact</a>
+        </div>
+        <div class="flex gap-2 font-mono">
+          <a href="/" class="hover:text-[color:var(--color-accent)]" class:list={[{ 'text-[color:var(--color-accent)]': lang === 'en' }]}>EN</a>
+          <a href="/fr/" class="hover:text-[color:var(--color-accent)] opacity-50">FR</a>
+          <a href="/es/" class="hover:text-[color:var(--color-accent)] opacity-50">ES</a>
+          <a href="/it/" class="hover:text-[color:var(--color-accent)] opacity-50">IT</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main nav -->
+    <header class="border-b border-white/10">
+      <div class="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
+        <a href="/" class="font-headline text-xl font-bold tracking-tight">
+          Internet in <span class="text-[color:var(--color-accent)]">Myanmar</span>
+        </a>
+        <nav class="hidden md:flex gap-6 text-sm">
+          {nav.map((item) => (
+            <div class="relative group">
+              {item.href ? (
+                <a href={item.href} class="hover:text-[color:var(--color-accent)] transition-colors">
+                  {item.label}
+                </a>
+              ) : (
+                <>
+                  <button class="hover:text-[color:var(--color-accent)] transition-colors cursor-default">
+                    {item.label} ▾
+                  </button>
+                  <div class="absolute top-full left-0 pt-2 hidden group-hover:block z-50">
+                    <div class="bg-[#0f1e35] border border-white/10 rounded shadow-xl min-w-48 py-1">
+                      {item.children?.map((child) => (
+                        <a
+                          href={child.href}
+                          class="block px-4 py-2 text-sm hover:bg-white/5 hover:text-[color:var(--color-accent)]"
+                        >
+                          {child.label}
+                        </a>
+                      ))}
+                    </div>
+                  </div>
+                </>
+              )}
+            </div>
+          ))}
+        </nav>
+      </div>
+    </header>
+
+    <!-- Page content -->
+    <main class="flex-1">
+      <slot />
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-white/10 mt-16">
+      <div class="max-w-7xl mx-auto px-4 py-10 grid grid-cols-1 md:grid-cols-3 gap-8 text-sm opacity-70">
+        <div>
+          <div class="font-headline text-base font-bold mb-2">Internet in Myanmar</div>
+          <p>Independent technical monitor of Myanmar's digital environment. Tracking censorship, shutdowns, and connectivity.</p>
+        </div>
+        <div>
+          <div class="font-semibold mb-2">Data sources</div>
+          <ul class="space-y-1">
+            <li><a href="https://ooni.org" class="hover:opacity-100" target="_blank" rel="noopener">OONI Explorer</a></li>
+            <li><a href="https://radar.cloudflare.com" class="hover:opacity-100" target="_blank" rel="noopener">Cloudflare Radar</a></li>
+            <li><a href="https://netblocks.org" class="hover:opacity-100" target="_blank" rel="noopener">NetBlocks</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="font-semibold mb-2">Editorial</div>
+          <ul class="space-y-1">
+            <li><a href="/about/mission/" class="hover:opacity-100">Mission</a></li>
+            <li><a href="/about/anna-faure-revol/" class="hover:opacity-100">Anna Faure Revol</a></li>
+            <li><a href="/rss.xml" class="hover:opacity-100">RSS Feed</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="border-t border-white/10 text-center text-xs py-3 opacity-40">
+        © {new Date().getFullYear()} Internet in Myanmar. Content licensed CC BY 4.0.
+      </div>
+    </footer>
+
+  </body>
+</html>

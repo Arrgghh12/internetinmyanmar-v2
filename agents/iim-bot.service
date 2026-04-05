@@ -1,0 +1,14 @@
+[Unit]
+Description=IIM Telegram Editorial Bot
+After=network.target
+
+[Service]
+User=AGENTS_USER
+WorkingDirectory=/home/AGENTS_USER/agents
+ExecStart=/home/AGENTS_USER/agents/venv/bin/python telegram_bot.py
+Restart=always
+RestartSec=10
+EnvironmentFile=/home/AGENTS_USER/agents/.env
+
+[Install]
+WantedBy=multi-user.target

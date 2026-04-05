@@ -1,0 +1,160 @@
+---
+import Base from './Base.astro'
+import SchemaOrg from '../components/SchemaOrg.astro'
+
+interface Props {
+  title: string
+  seoTitle: string
+  metaDescription: string
+  slug: string
+  category: string
+  author: string
+  publishedAt: Date
+  updatedAt?: Date
+  featuredImage?: string
+  featuredImageAlt?: string
+  excerpt: string
+  readingTime?: number
+  lang?: string
+  sources?: string[]
+  originalUrl?: string
+}
+
+const {
+  title,
+  seoTitle,
+  metaDescription,
+  slug,
+  category,
+  author,
+  publishedAt,
+  updatedAt,
+  featuredImage,
+  featuredImageAlt,
+  excerpt,
+  readingTime,
+  lang = 'en',
+  sources = [],
+  originalUrl,
+} = Astro.props
+
+const canonicalUrl = originalUrl ?? new URL(`/articles/${slug}/`, Astro.site).href
+const isStale = (Date.now() - publishedAt.valueOf()) > 1000 * 60 * 60 * 24 * 548 // 18 months
+
+const categoryHref: Record<string, string> = {
+  'Censorship & Shutdowns':   '/analysis/censorship/',
+  'Telecom & Infrastructure': '/analysis/infrastructure/',
+  'Digital Economy':          '/analysis/digital-economy/',
+  'Guides & Tools':           '/guides/vpn-circumvention/',
+  'News - Mobile':            '/news/mobile/',
+  'News - Broadband':         '/news/broadband/',
+  'News - Policy':            '/news/policy/',
+}
+---
+<Base
+  {title}
+  {seoTitle}
+  {metaDescription}
+  {canonicalUrl}
+  ogImage={featuredImage}
+  ogType="article"
+  {lang}
+>
+  <SchemaOrg
+    type="article"
+    headline={title}
+    datePublished={publishedAt.toISOString()}
+    dateModified={updatedAt?.toISOString()}
+    authorName={author}
+    image={featuredImage}
+    url={canonicalUrl}
+    description={excerpt}
+    slot="head"
+  />
+
+  <article class="max-w-3xl mx-auto px-4 py-12">
+
+    <!-- Breadcrumb -->
+    <nav class="text-xs opacity-50 mb-6 font-mono">
+      <a href="/" class="hover:opacity-100">Home</a>
+      <span class="mx-2">›</span>
+      <a href={categoryHref[category] ?? '/'} class="hover:opacity-100">{category}</a>
+    </nav>
+
+    <!-- Stale notice -->
+    {isStale && (
+      <div class="mb-6 px-4 py-3 rounded border border-[color:var(--color-warning)] text-[color:var(--color-warning)] text-sm">
+        ⚠️ First published in {publishedAt.getFullYear()}. Some figures may be outdated.
+      </div>
+    )}
+
+    <!-- Featured image -->
+    {featuredImage && (
+      <img
+        src={featuredImage}
+        alt={featuredImageAlt ?? ''}
+        class="w-full rounded mb-8 aspect-video object-cover"
+        loading="eager"
+      />
+    )}
+
+    <!-- H1 -->
+    <h1 class="font-headline text-3xl md:text-4xl leading-tight mb-4">{title}</h1>
+
+    <!-- Byline -->
+    <div class="flex items-center gap-3 text-sm opacity-60 mb-10 pb-6 border-b border-white/10">
+      <span>By <strong class="opacity-100">{author}</strong></span>
+      <span>·</span>
+      <time datetime={publishedAt.toISOString()}>
+        {publishedAt.toLocaleDateString(lang, { year: 'numeric', month: 'long', day: 'numeric' })}
+      </time>
+      {readingTime && (
+        <>
+          <span>·</span>
+          <span>{readingTime} min read</span>
+        </>
+      )}
+    </div>
+
+    <!-- Article body -->
+    <div class="prose prose-invert max-w-none
+      prose-headings:font-headline
+      prose-a:text-[color:var(--color-accent)]
+      prose-code:font-mono">
+      <slot />
+    </div>
+
+    <!-- Sources -->
+    {sources.length > 0 && (
+      <div class="mt-12 pt-6 border-t border-white/10">
+        <h2 class="font-headline text-lg mb-3">Sources</h2>
+        <ul class="space-y-1 text-sm">
+          {sources.map((src) => (
+            <li>
+              <a href={src} class="text-[color:var(--color-accent)] hover:underline break-all" target="_blank" rel="noopener noreferrer">
+                {src}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    )}
+
+    <!-- Author bio -->
+    <div class="mt-10 pt-6 border-t border-white/10 flex gap-4 items-start">
+      <div class="shrink-0 w-12 h-12 rounded-full bg-white/10 flex items-center justify-center text-lg font-headline">
+        AF
+      </div>
+      <div>
+        <div class="font-semibold mb-1">
+          <a href="/about/anna-faure-revol/" class="hover:text-[color:var(--color-accent)]">Anna Faure Revol</a>
+        </div>
+        <p class="text-sm opacity-70">
+          Anna Faure Revol is a journalist specializing in Myanmar's media landscape, digital rights, and internet freedom.
+          She has closely followed the military junta's systematic censorship of online information since the 2021 coup.
+        </p>
+      </div>
+    </div>
+
+  </article>
+</Base>

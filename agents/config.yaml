@@ -1,0 +1,42 @@
+anthropic:
+  models:
+    score:   claude-haiku-4-5
+    monitor: claude-haiku-4-5
+    brief:   claude-sonnet-4-6
+    write:   claude-sonnet-4-6
+    seo:     claude-haiku-4-5
+  max_tokens:
+    score:   150
+    monitor: 300
+    brief:   800
+    write:   3000
+    seo:     200
+
+sources:
+  ooni_api:      "https://api.ooni.io/api/v1/measurements?probe_cc=MM&limit=100"
+  rsf:           "https://rsf.org/en/rss/myanmar"
+  netblocks:     "https://netblocks.org/tag/myanmar/feed"
+  access_now:    "https://www.accessnow.org/category/blog/feed/"
+  dvb:           "https://english.dvb.no/feed"
+  irrawaddy:     "https://www.irrawaddy.com/feed"
+  freedom_house: "https://freedomhouse.org/reports/freedom-net/feed"
+
+scoring:
+  min_score_for_brief: 6.0
+
+article:
+  author:         "Anna Faure Revol"
+  default_lang:   "en"
+  target_words:   [1200, 1800]
+  internal_links: [3, 5]
+
+github:
+  repo:         "GITHUB_USERNAME/internetinmyanmar-v2"
+  base_branch:  "dev"
+  draft_prefix: "draft/"
+
+paths:
+  briefs:      "~/dev/iimv2/agents/briefs"
+  approved:    "~/dev/iimv2/agents/approved"
+  articles:    "~/dev/iimv2/src/content/articles"
+  observatory: "~/dev/iimv2/src/content/observatory"

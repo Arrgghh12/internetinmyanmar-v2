@@ -1,0 +1,42 @@
+---
+interface ArticleSchema {
+  type: 'article'
+  headline: string
+  datePublished: string
+  dateModified?: string
+  authorName: string
+  image?: string
+  url: string
+  description: string
+}
+interface OrgSchema {
+  type: 'organization'
+}
+type Props = ArticleSchema | OrgSchema
+
+const props = Astro.props
+const siteUrl = 'https://www.internetinmyanmar.com'
+
+const orgSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: 'Internet in Myanmar',
+  url: siteUrl,
+  description: 'Independent technical monitor of Myanmar\'s digital environment.',
+  sameAs: [siteUrl],
+}
+
+const schema = props.type === 'article' ? {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: props.headline,
+  datePublished: props.datePublished,
+  dateModified: props.dateModified ?? props.datePublished,
+  author: { '@type': 'Person', name: props.authorName },
+  image: props.image,
+  url: props.url,
+  description: props.description,
+  publisher: orgSchema,
+} : orgSchema
+---
+<script type="application/ld+json" set:html={JSON.stringify(schema)} />

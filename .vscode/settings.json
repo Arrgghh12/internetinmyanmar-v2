@@ -1,0 +1,22 @@
+{
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "[astro]": {
+    "editor.defaultFormatter": "astro-build.astro-vscode"
+  },
+  "[mdx]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "tailwindCSS.includeLanguages": {
+    "astro": "html"
+  },
+  "cSpell.language": "en,fr",
+  "cSpell.words": [
+    "Myanmar", "Yangon", "Mandalay", "junta", "OONI",
+    "Cloudflare", "Keystatic", "frontmatter", "MDX",
+    "Anthropic", "byline", "telecom"
+  ],
+  "files.associations": {
+    "*.mdx": "mdx"
+  }
+}
