@@ -29,8 +29,27 @@ import yaml
 from dotenv import load_dotenv
 from tenacity import retry, stop_after_attempt, wait_exponential
 
+import requests
+
 load_dotenv()
 log = logging.getLogger(__name__)
+
+
+def _notify_telegram(text: str) -> None:
+    """Send a plain text message to Anna's Telegram chat."""
+    token = os.environ.get("TELEGRAM_BOT_TOKEN")
+    chat_id = os.environ.get("TELEGRAM_CHAT_ID")
+    if not token or not chat_id:
+        log.warning("TELEGRAM_BOT_TOKEN or TELEGRAM_CHAT_ID not set — skipping notification")
+        return
+    try:
+        requests.post(
+            f"https://api.telegram.org/bot{token}/sendMessage",
+            json={"chat_id": chat_id, "text": text},
+            timeout=10,
+        )
+    except Exception as e:
+        log.warning(f"Telegram notify failed: {e}")
 
 AGENTS_DIR = Path(__file__).parent
 CONFIG = yaml.safe_load((AGENTS_DIR / "config.yaml").read_text())
@@ -69,8 +88,9 @@ async def fetch_feed(name: str, url: str, client: httpx.AsyncClient) -> list[dic
 async def fetch_ooni(client: httpx.AsyncClient) -> list[dict]:
     """Fetch recent OONI anomalies for Myanmar."""
     try:
+        ooni_url = CONFIG["sources"]["tier1"]["ooni_api"]["url"]
         resp = await client.get(
-            CONFIG["sources"]["ooni_api"],
+            ooni_url,
             timeout=20,
             follow_redirects=True,
         )
@@ -94,11 +114,29 @@ async def fetch_ooni(client: httpx.AsyncClient) -> list[dict]:
         return []
 
 
+def _rss_sources() -> list[tuple[str, str]]:
+    """Flatten the nested sources config into (name, url) pairs for RSS feeds."""
+    pairs = []
+    for tier_key, tier_val in CONFIG["sources"].items():
+        if not isinstance(tier_val, dict):
+            continue
+        for src_name, src_cfg in tier_val.items():
+            if not isinstance(src_cfg, dict):
+                continue
+            url = src_cfg.get("url", "")
+            fetch_type = src_cfg.get("type", "rss")
+            fetch_method = src_cfg.get("fetch", "rss")
+            # Only auto-fetch RSS/API types (skip manual/tavily/scrape)
+            if fetch_type in ("rss",) and fetch_method not in ("manual", "tavily", "scrape"):
+                pairs.append((f"{tier_key}:{src_name}", url))
+    return pairs
+
+
 async def fetch_all() -> list[dict]:
     """Fetch all sources concurrently."""
-    sources = {k: v for k, v in CONFIG["sources"].items() if k != "ooni_api"}
+    rss_pairs = _rss_sources()
     async with httpx.AsyncClient(headers={"User-Agent": "IIMBot/1.0"}) as client:
-        tasks = [fetch_feed(name, url, client) for name, url in sources.items()]
+        tasks = [fetch_feed(name, url, client) for name, url in rss_pairs]
         tasks.append(fetch_ooni(client))
         results = await asyncio.gather(*tasks)
     items = [item for batch in results for item in batch]
@@ -202,7 +240,9 @@ def run(dry_run: bool = False):
         else:
             log.info("brief_generator.py completed")
     else:
-        log.info("No items above threshold today — no briefs generated")
+        msg = CONFIG.get("scoring", {}).get("no_news_message", "No noteworthy news today — no brief generated.")
+        log.info(msg)
+        _notify_telegram(msg)
 
     log.info("=== Monitor done ===")
 

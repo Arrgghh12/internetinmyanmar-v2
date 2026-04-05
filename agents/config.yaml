@@ -39,6 +39,40 @@ sources:
       reliability: high
       note: "Cloudflare traffic anomalies Myanmar — requires CF API token"
 
+  # TIER 2 — Wire services (Reuters/AP/BBC via Google News RSS)
+  tier2_wire:
+    reuters_myanmar:
+      url: "https://news.google.com/rss/search?q=myanmar+site:reuters.com&hl=en-US&gl=US&ceid=US:en"
+      type: rss
+      reliability: high
+      wire_boost: 0.5
+      note: "Reuters Myanmar stories via Google News RSS"
+
+    ap_myanmar:
+      url: "https://news.google.com/rss/search?q=myanmar+site:apnews.com&hl=en-US&gl=US&ceid=US:en"
+      type: rss
+      reliability: high
+      wire_boost: 0.5
+      note: "AP News Myanmar stories via Google News RSS"
+
+    bbc_english_myanmar:
+      url: "https://news.google.com/rss/search?q=myanmar+site:bbc.com&hl=en-US&gl=US&ceid=US:en"
+      type: rss
+      reliability: high
+      wire_boost: 0.5
+      note: "BBC News Myanmar stories via Google News RSS"
+
+    voa_english:
+      url: "https://www.voanews.com/api/ztrqpiqkyp"
+      type: rss
+      reliability: high
+      filter: "myanmar"
+
+    rfa_english:
+      url: "https://www.rfa.org/english/news/myanmar/rss2.xml"
+      type: rss
+      reliability: high
+
   # TIER 2 — Established English-language media (verified journalism)
   tier2_en:
     rsf:
@@ -54,6 +88,16 @@ sources:
 
     freedom_house:
       url: "https://freedomhouse.org/reports/freedom-net/feed"
+      type: rss
+      reliability: high
+
+    hrw_myanmar:
+      url: "https://www.hrw.org/rss/region/asia/myanmar.xml"
+      type: rss
+      reliability: high
+
+    cpj_myanmar:
+      url: "https://cpj.org/feed/?region=asia&country=myanmar"
       type: rss
       reliability: high
 
@@ -73,7 +117,7 @@ sources:
       reliability: high
 
     mizzima_english:
-      url: "https://mizzima.com/rss.xml"
+      url: "https://eng.mizzima.com/feed/"
       type: rss
       reliability: high
 
@@ -92,31 +136,118 @@ sources:
       type: rss
       reliability: high
 
+  # TIER 2 — Digital rights organizations
+  tier2_rights:
+    athan:
+      url: "https://athanmyanmar.org/feed/"
+      type: rss
+      reliability: high
+      note: "Athan (Freedom of Expression Myanmar)"
+
+    myanmar_internet_info:
+      url: "https://myanmarinternet.info/feed/"
+      type: rss
+      reliability: high
+      note: "Myanmar Internet Project / Myanmar Internet Info"
+
+    free_expression_myanmar:
+      url: "https://freeexpressionmyanmar.org/feed/"
+      type: rss
+      reliability: high
+
   # TIER 2 — Burmese-language media (translate before processing)
   tier2_my:
+    bbc_burmese:
+      url: "https://feeds.bbci.co.uk/burmese/rss.xml"
+      type: rss
+      reliability: high
+      lang: my
+      burmese_source_bonus: 0.5
+
+    voa_burmese:
+      url: "https://www.voanews.com/api/ztrqpiqkyp"
+      type: rss
+      reliability: high
+      lang: my
+      burmese_source_bonus: 0.5
+      note: "VOA Burmese — verify correct RSS endpoint"
+
+    rfa_burmese:
+      url: "https://www.rfa.org/burmese/rss2.xml"
+      type: rss
+      reliability: high
+      lang: my
+      burmese_source_bonus: 0.5
+
     dvb_burmese:
       url: "https://burmese.dvb.no/feed"
       type: rss
       reliability: high
       lang: my
+      burmese_source_bonus: 0.5
 
     irrawaddy_burmese:
-      url: "https://burmese.irrawaddy.com/feed"
+      url: "https://burma.irrawaddy.com/feed"
       type: rss
       reliability: high
       lang: my
+      burmese_source_bonus: 0.5
 
-    khit_thit:
-      url: "https://khitthitmedia.com/feed/"
+    myanmar_now_burmese:
+      url: "https://myanmar-now.org/mm/feed/"
       type: rss
       reliability: high
       lang: my
+      burmese_source_bonus: 0.5
 
-    mizzima_burmese:
-      url: "https://burma.mizzima.com/rss.xml"
+    mizzima_tv:
+      url: "https://www.mizzima.tv/feed/"
       type: rss
       reliability: medium
       lang: my
+      burmese_source_bonus: 0.5
+
+    khit_thit:
+      url: "https://www.khitthitnews.com/feed/"
+      type: rss
+      reliability: high
+      lang: my
+      burmese_source_bonus: 0.5
+
+    eleven_media:
+      url: "https://7day.news/feed/"
+      type: rss
+      reliability: medium
+      lang: my
+      note: "7Day Daily / Eleven Media group"
+
+    myanmar_platform:
+      url: "https://www.myanmarplatform.com/feed/"
+      type: rss
+      reliability: medium
+      lang: my
+
+    popular_news:
+      url: "https://www.popularmyanmar.com/feed/"
+      type: rss
+      reliability: medium
+      lang: my
+
+  # TIER 3 — Official/adversarial (junta state media — monitor for announcements)
+  tier3_official:
+    mrtv:
+      url: "https://www.mrtv.gov.mm"
+      type: scrape
+      reliability: adversarial
+      note: "MRTV state TV — monitor for official announcements, not for citation"
+      fetch: tavily
+
+    motc:
+      url: "https://www.motc.gov.mm"
+      type: scrape
+      reliability: adversarial
+      note: "Ministry of Transport and Communications — regulatory announcements"
+      fetch: tavily
 
   # TIER 2 — Google News RSS (Myanmar internet/tech filter)
   tier2_gnews:
@@ -184,6 +315,12 @@ tavily_queries:
     - "myanmar VPN blocked OR censorship site:irrawaddy.com OR site:dvb.no"
     - "myanmar telecom junta regulation"
     - "myanmar MPT Mytel Ooredoo internet"
+    - "myanmar digital rights censorship 2026"
+    - "myanmar internet freedom Access Now RSF HRW"
+    - "myanmar broadband mobile data cut"
+    - "myanmar social media block Facebook Twitter"
+    - "MRTV MOTC myanmar telecom announcement"
+    - "myanmar internet shutdown Athan Free Expression"
   on_anomaly:  # triggered when OONI anomaly count spikes
     - "myanmar internet disruption {date}"
     - "myanmar internet cut {region}"
@@ -194,6 +331,13 @@ scoring:
   tier3_penalty: -2.0
   # Items appearing in 2+ independent sources get +1 bonus
   corroboration_bonus: 1.0
+  # Wire services (Reuters/AP/BBC) add credibility bonus
+  wire_boost: 0.5
+  # Burmese-language sources confirm local impact — add bonus
+  burmese_source_bonus: 0.5
+  # Fresh news filter: if no items reach min_score, skip brief generation
+  # Bot sends "No noteworthy news today" message instead
+  no_news_message: "No noteworthy news today — no brief generated."
 
 article:
   author:         "Anna Faure Revol"
