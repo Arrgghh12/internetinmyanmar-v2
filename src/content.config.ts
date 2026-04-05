@@ -33,4 +33,15 @@ const articles = defineCollection({
   }),
 })
 
-export const collections = { articles }
+const observatory = defineCollection({
+  type: 'data',
+  schema: z.object({
+    lastUpdated:             z.string(),
+    activeShutdowns:         z.number(),
+    blockedSites:            z.number(),
+    daysSinceLastMajorOutage: z.number(),
+    note:                    z.string().optional(),
+  }),
+})
+
+export const collections = { articles, observatory }
