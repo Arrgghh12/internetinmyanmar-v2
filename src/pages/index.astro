@@ -1,7 +1,33 @@
 ---
 import Base from '../layouts/Base.astro'
+import { getCollection } from 'astro:content'
 import stats from '../content/observatory/stats.json'
 
+const allArticles = await getCollection('articles', ({ data }) =>
+  !data.draft && data.lang === 'en'
+)
+
+// Featured: Censorship & Shutdowns or Telecom, newest first
+const featured = allArticles
+  .filter(a => a.data.category === 'Censorship & Shutdowns' || a.data.category === 'Telecom & Infrastructure')
+  .sort((a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf())
+  .slice(0, 2)
+
+// Latest news: News-* categories, newest first
+const latestNews = allArticles
+  .filter(a => a.data.category.startsWith('News'))
+  .sort((a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf())
+  .slice(0, 3)
+
+const categoryColor: Record<string, string> = {
+  'Censorship & Shutdowns':   'var(--color-danger)',
+  'Telecom & Infrastructure': 'var(--color-accent)',
+  'Digital Economy':          'var(--color-warning)',
+  'Guides & Tools':           'var(--color-accent)',
+  'News - Mobile':            'var(--color-warning)',
+  'News - Broadband':         'var(--color-warning)',
+  'News - Policy':            'var(--color-warning)',
+}
 ---
 <Base
   title="Myanmar Internet Censorship Monitor"
@@ -68,36 +94,51 @@ import stats from '../content/observatory/stats.json'
   <section class="py-16 px-4 border-b border-white/10">
     <div class="max-w-7xl mx-auto">
       <h2 class="font-headline text-2xl mb-8">Featured Analysis</h2>
-      <div class="grid md:grid-cols-2 gap-6">
-        {[1, 2].map((i) => (
-          <div class="border border-white/10 rounded p-6 hover:border-white/20 transition-colors">
-            <div class="font-mono text-xs text-[color:var(--color-accent)] mb-3">Censorship & Shutdowns</div>
-            <h3 class="font-headline text-xl mb-3 leading-snug">
-              Analysis article placeholder {i}
-            </h3>
-            <p class="text-sm opacity-60 mb-4">
-              In-depth analysis of Myanmar's digital censorship landscape — coming soon as articles are migrated and created.
-            </p>
-            <div class="text-xs opacity-40 font-mono">Anna Faure Revol · April 2026</div>
-          </div>
-        ))}
-      </div>
+      {featured.length > 0 ? (
+        <div class="grid md:grid-cols-2 gap-6">
+          {featured.map((article) => (
+            <a href={`/articles/${article.slug}/`} class="border border-white/10 rounded p-6 hover:border-white/30 transition-colors block">
+              <div class="font-mono text-xs mb-3" style={`color: ${categoryColor[article.data.category] ?? 'var(--color-accent)'}`}>
+                {article.data.category}
+              </div>
+              <h3 class="font-headline text-xl mb-3 leading-snug">{article.data.title}</h3>
+              <p class="text-sm opacity-60 mb-4 line-clamp-3">{article.data.excerpt}</p>
+              <div class="text-xs opacity-40 font-mono">
+                {article.data.author.split(' ')[0]} · {article.data.publishedAt.toLocaleDateString('en-US', { year: 'numeric', month: 'long' })}
+              </div>
+            </a>
+          ))}
+        </div>
+      ) : (
+        <p class="opacity-40 text-sm font-mono">Analysis articles coming soon.</p>
+      )}
     </div>
   </section>
 
   <!-- Latest news -->
   <section class="py-16 px-4 border-b border-white/10">
     <div class="max-w-7xl mx-auto">
-      <h2 class="font-headline text-2xl mb-8">Latest News</h2>
-      <div class="grid md:grid-cols-3 gap-4">
-        {[1, 2, 3].map((i) => (
-          <div class="border border-white/10 rounded p-5 hover:border-white/20 transition-colors">
-            <div class="font-mono text-xs text-[color:var(--color-warning)] mb-2">News · Mobile</div>
-            <h3 class="font-headline text-base leading-snug mb-2">News item placeholder {i}</h3>
-            <div class="text-xs opacity-40 font-mono">April 2026</div>
-          </div>
-        ))}
+      <div class="flex items-center justify-between mb-8">
+        <h2 class="font-headline text-2xl">Latest News</h2>
+        <a href="/news/policy/" class="text-xs font-mono opacity-50 hover:opacity-100 transition-opacity">All news →</a>
       </div>
+      {latestNews.length > 0 ? (
+        <div class="grid md:grid-cols-3 gap-4">
+          {latestNews.map((article) => (
+            <a href={`/articles/${article.slug}/`} class="border border-white/10 rounded p-5 hover:border-white/30 transition-colors block">
+              <div class="font-mono text-xs mb-2" style={`color: ${categoryColor[article.data.category] ?? 'var(--color-warning)'}`}>
+                {article.data.category}
+              </div>
+              <h3 class="font-headline text-base leading-snug mb-3">{article.data.title}</h3>
+              <div class="text-xs opacity-40 font-mono">
+                {article.data.publishedAt.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })}
+              </div>
+            </a>
+          ))}
+        </div>
+      ) : (
+        <p class="opacity-40 text-sm font-mono">News articles coming soon.</p>
+      )}
     </div>
   </section>
 

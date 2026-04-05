@@ -1,0 +1,632 @@
+[
+  {
+    "anomaly_count": 56286,
+    "confirmed_count": 0,
+    "failure_count": 30947,
+    "ok_count": 356086,
+    "measurement_count": 443319,
+    "measurement_start_day": "2021-02-01",
+    "anomaly_rate": 12.7,
+    "month": "2021-02"
+  },
+  {
+    "anomaly_count": 12460,
+    "confirmed_count": 0,
+    "failure_count": 1909,
+    "ok_count": 97533,
+    "measurement_count": 111902,
+    "measurement_start_day": "2021-03-01",
+    "anomaly_rate": 11.1,
+    "month": "2021-03"
+  },
+  {
+    "anomaly_count": 8796,
+    "confirmed_count": 0,
+    "failure_count": 823,
+    "ok_count": 74797,
+    "measurement_count": 84416,
+    "measurement_start_day": "2021-04-01",
+    "anomaly_rate": 10.4,
+    "month": "2021-04"
+  },
+  {
+    "anomaly_count": 9730,
+    "confirmed_count": 0,
+    "failure_count": 2863,
+    "ok_count": 82739,
+    "measurement_count": 95332,
+    "measurement_start_day": "2021-05-01",
+    "anomaly_rate": 10.2,
+    "month": "2021-05"
+  },
+  {
+    "anomaly_count": 8322,
+    "confirmed_count": 7,
+    "failure_count": 2715,
+    "ok_count": 74483,
+    "measurement_count": 85527,
+    "measurement_start_day": "2021-06-01",
+    "anomaly_rate": 9.7,
+    "month": "2021-06"
+  },
+  {
+    "anomaly_count": 7504,
+    "confirmed_count": 42,
+    "failure_count": 2817,
+    "ok_count": 62820,
+    "measurement_count": 73183,
+    "measurement_start_day": "2021-07-01",
+    "anomaly_rate": 10.3,
+    "month": "2021-07"
+  },
+  {
+    "anomaly_count": 4436,
+    "confirmed_count": 64,
+    "failure_count": 710,
+    "ok_count": 31921,
+    "measurement_count": 37131,
+    "measurement_start_day": "2021-08-01",
+    "anomaly_rate": 11.9,
+    "month": "2021-08"
+  },
+  {
+    "anomaly_count": 5198,
+    "confirmed_count": 65,
+    "failure_count": 889,
+    "ok_count": 45246,
+    "measurement_count": 51398,
+    "measurement_start_day": "2021-09-01",
+    "anomaly_rate": 10.1,
+    "month": "2021-09"
+  },
+  {
+    "anomaly_count": 10224,
+    "confirmed_count": 208,
+    "failure_count": 1490,
+    "ok_count": 99053,
+    "measurement_count": 110975,
+    "measurement_start_day": "2021-10-01",
+    "anomaly_rate": 9.2,
+    "month": "2021-10"
+  },
+  {
+    "anomaly_count": 8130,
+    "confirmed_count": 160,
+    "failure_count": 2174,
+    "ok_count": 78717,
+    "measurement_count": 89181,
+    "measurement_start_day": "2021-11-01",
+    "anomaly_rate": 9.1,
+    "month": "2021-11"
+  },
+  {
+    "anomaly_count": 13951,
+    "confirmed_count": 292,
+    "failure_count": 1988,
+    "ok_count": 151727,
+    "measurement_count": 167958,
+    "measurement_start_day": "2021-12-01",
+    "anomaly_rate": 8.3,
+    "month": "2021-12"
+  },
+  {
+    "anomaly_count": 17159,
+    "confirmed_count": 404,
+    "failure_count": 2621,
+    "ok_count": 167844,
+    "measurement_count": 188028,
+    "measurement_start_day": "2022-01-01",
+    "anomaly_rate": 9.1,
+    "month": "2022-01"
+  },
+  {
+    "anomaly_count": 18676,
+    "confirmed_count": 296,
+    "failure_count": 2838,
+    "ok_count": 192963,
+    "measurement_count": 214773,
+    "measurement_start_day": "2022-02-01",
+    "anomaly_rate": 8.7,
+    "month": "2022-02"
+  },
+  {
+    "anomaly_count": 11055,
+    "confirmed_count": 366,
+    "failure_count": 2349,
+    "ok_count": 98157,
+    "measurement_count": 111927,
+    "measurement_start_day": "2022-03-01",
+    "anomaly_rate": 9.9,
+    "month": "2022-03"
+  },
+  {
+    "anomaly_count": 9386,
+    "confirmed_count": 159,
+    "failure_count": 1097,
+    "ok_count": 71563,
+    "measurement_count": 82205,
+    "measurement_start_day": "2022-04-01",
+    "anomaly_rate": 11.4,
+    "month": "2022-04"
+  },
+  {
+    "anomaly_count": 11010,
+    "confirmed_count": 194,
+    "failure_count": 774,
+    "ok_count": 99263,
+    "measurement_count": 111241,
+    "measurement_start_day": "2022-05-01",
+    "anomaly_rate": 9.9,
+    "month": "2022-05"
+  },
+  {
+    "anomaly_count": 18123,
+    "confirmed_count": 256,
+    "failure_count": 868,
+    "ok_count": 130621,
+    "measurement_count": 149868,
+    "measurement_start_day": "2022-06-01",
+    "anomaly_rate": 12.1,
+    "month": "2022-06"
+  },
+  {
+    "anomaly_count": 12488,
+    "confirmed_count": 367,
+    "failure_count": 2342,
+    "ok_count": 122672,
+    "measurement_count": 137869,
+    "measurement_start_day": "2022-07-01",
+    "anomaly_rate": 9.1,
+    "month": "2022-07"
+  },
+  {
+    "anomaly_count": 13935,
+    "confirmed_count": 231,
+    "failure_count": 5061,
+    "ok_count": 143218,
+    "measurement_count": 162445,
+    "measurement_start_day": "2022-08-01",
+    "anomaly_rate": 8.6,
+    "month": "2022-08"
+  },
+  {
+    "anomaly_count": 11868,
+    "confirmed_count": 155,
+    "failure_count": 5657,
+    "ok_count": 121261,
+    "measurement_count": 138941,
+    "measurement_start_day": "2022-09-01",
+    "anomaly_rate": 8.5,
+    "month": "2022-09"
+  },
+  {
+    "anomaly_count": 7052,
+    "confirmed_count": 63,
+    "failure_count": 7681,
+    "ok_count": 87134,
+    "measurement_count": 101930,
+    "measurement_start_day": "2022-10-01",
+    "anomaly_rate": 6.9,
+    "month": "2022-10"
+  },
+  {
+    "anomaly_count": 6880,
+    "confirmed_count": 124,
+    "failure_count": 7701,
+    "ok_count": 90780,
+    "measurement_count": 105485,
+    "measurement_start_day": "2022-11-01",
+    "anomaly_rate": 6.5,
+    "month": "2022-11"
+  },
+  {
+    "anomaly_count": 6734,
+    "confirmed_count": 168,
+    "failure_count": 5030,
+    "ok_count": 82776,
+    "measurement_count": 94708,
+    "measurement_start_day": "2022-12-01",
+    "anomaly_rate": 7.1,
+    "month": "2022-12"
+  },
+  {
+    "anomaly_count": 6586,
+    "confirmed_count": 127,
+    "failure_count": 4517,
+    "ok_count": 80971,
+    "measurement_count": 92201,
+    "measurement_start_day": "2023-01-01",
+    "anomaly_rate": 7.1,
+    "month": "2023-01"
+  },
+  {
+    "anomaly_count": 6928,
+    "confirmed_count": 168,
+    "failure_count": 4602,
+    "ok_count": 67972,
+    "measurement_count": 79670,
+    "measurement_start_day": "2023-02-01",
+    "anomaly_rate": 8.7,
+    "month": "2023-02"
+  },
+  {
+    "anomaly_count": 6111,
+    "confirmed_count": 406,
+    "failure_count": 6310,
+    "ok_count": 74591,
+    "measurement_count": 87418,
+    "measurement_start_day": "2023-03-01",
+    "anomaly_rate": 7.0,
+    "month": "2023-03"
+  },
+  {
+    "anomaly_count": 4204,
+    "confirmed_count": 96,
+    "failure_count": 3595,
+    "ok_count": 37644,
+    "measurement_count": 45539,
+    "measurement_start_day": "2023-04-01",
+    "anomaly_rate": 9.2,
+    "month": "2023-04"
+  },
+  {
+    "anomaly_count": 6990,
+    "confirmed_count": 205,
+    "failure_count": 3814,
+    "ok_count": 66921,
+    "measurement_count": 77930,
+    "measurement_start_day": "2023-05-01",
+    "anomaly_rate": 9.0,
+    "month": "2023-05"
+  },
+  {
+    "anomaly_count": 6724,
+    "confirmed_count": 332,
+    "failure_count": 2913,
+    "ok_count": 62630,
+    "measurement_count": 72599,
+    "measurement_start_day": "2023-06-01",
+    "anomaly_rate": 9.3,
+    "month": "2023-06"
+  },
+  {
+    "anomaly_count": 6076,
+    "confirmed_count": 394,
+    "failure_count": 3263,
+    "ok_count": 53633,
+    "measurement_count": 63366,
+    "measurement_start_day": "2023-07-01",
+    "anomaly_rate": 9.6,
+    "month": "2023-07"
+  },
+  {
+    "anomaly_count": 6729,
+    "confirmed_count": 525,
+    "failure_count": 4083,
+    "ok_count": 57021,
+    "measurement_count": 68358,
+    "measurement_start_day": "2023-08-01",
+    "anomaly_rate": 9.8,
+    "month": "2023-08"
+  },
+  {
+    "anomaly_count": 6691,
+    "confirmed_count": 580,
+    "failure_count": 2444,
+    "ok_count": 49759,
+    "measurement_count": 59474,
+    "measurement_start_day": "2023-09-01",
+    "anomaly_rate": 11.3,
+    "month": "2023-09"
+  },
+  {
+    "anomaly_count": 4714,
+    "confirmed_count": 205,
+    "failure_count": 1716,
+    "ok_count": 41778,
+    "measurement_count": 48413,
+    "measurement_start_day": "2023-10-01",
+    "anomaly_rate": 9.7,
+    "month": "2023-10"
+  },
+  {
+    "anomaly_count": 3929,
+    "confirmed_count": 446,
+    "failure_count": 1638,
+    "ok_count": 38371,
+    "measurement_count": 44384,
+    "measurement_start_day": "2023-11-01",
+    "anomaly_rate": 8.9,
+    "month": "2023-11"
+  },
+  {
+    "anomaly_count": 3821,
+    "confirmed_count": 479,
+    "failure_count": 2016,
+    "ok_count": 46444,
+    "measurement_count": 52760,
+    "measurement_start_day": "2023-12-01",
+    "anomaly_rate": 7.2,
+    "month": "2023-12"
+  },
+  {
+    "anomaly_count": 15652,
+    "confirmed_count": 106,
+    "failure_count": 2966,
+    "ok_count": 64827,
+    "measurement_count": 83551,
+    "measurement_start_day": "2024-01-01",
+    "anomaly_rate": 18.7,
+    "month": "2024-01"
+  },
+  {
+    "anomaly_count": 16773,
+    "confirmed_count": 88,
+    "failure_count": 3150,
+    "ok_count": 65130,
+    "measurement_count": 85141,
+    "measurement_start_day": "2024-02-01",
+    "anomaly_rate": 19.7,
+    "month": "2024-02"
+  },
+  {
+    "anomaly_count": 4065,
+    "confirmed_count": 142,
+    "failure_count": 3158,
+    "ok_count": 33633,
+    "measurement_count": 40998,
+    "measurement_start_day": "2024-03-01",
+    "anomaly_rate": 9.9,
+    "month": "2024-03"
+  },
+  {
+    "anomaly_count": 5852,
+    "confirmed_count": 82,
+    "failure_count": 1364,
+    "ok_count": 35267,
+    "measurement_count": 42565,
+    "measurement_start_day": "2024-04-01",
+    "anomaly_rate": 13.7,
+    "month": "2024-04"
+  },
+  {
+    "anomaly_count": 5995,
+    "confirmed_count": 77,
+    "failure_count": 1203,
+    "ok_count": 34533,
+    "measurement_count": 41808,
+    "measurement_start_day": "2024-05-01",
+    "anomaly_rate": 14.3,
+    "month": "2024-05"
+  },
+  {
+    "anomaly_count": 23864,
+    "confirmed_count": 71,
+    "failure_count": 3677,
+    "ok_count": 60690,
+    "measurement_count": 88302,
+    "measurement_start_day": "2024-06-01",
+    "anomaly_rate": 27.0,
+    "month": "2024-06"
+  },
+  {
+    "anomaly_count": 26307,
+    "confirmed_count": 77,
+    "failure_count": 2864,
+    "ok_count": 66162,
+    "measurement_count": 95410,
+    "measurement_start_day": "2024-07-01",
+    "anomaly_rate": 27.6,
+    "month": "2024-07"
+  },
+  {
+    "anomaly_count": 22288,
+    "confirmed_count": 399,
+    "failure_count": 1741,
+    "ok_count": 44605,
+    "measurement_count": 69033,
+    "measurement_start_day": "2024-08-01",
+    "anomaly_rate": 32.3,
+    "month": "2024-08"
+  },
+  {
+    "anomaly_count": 28848,
+    "confirmed_count": 1061,
+    "failure_count": 2760,
+    "ok_count": 61627,
+    "measurement_count": 94296,
+    "measurement_start_day": "2024-09-01",
+    "anomaly_rate": 30.6,
+    "month": "2024-09"
+  },
+  {
+    "anomaly_count": 32383,
+    "confirmed_count": 1470,
+    "failure_count": 4426,
+    "ok_count": 86557,
+    "measurement_count": 124836,
+    "measurement_start_day": "2024-10-01",
+    "anomaly_rate": 25.9,
+    "month": "2024-10"
+  },
+  {
+    "anomaly_count": 26713,
+    "confirmed_count": 1492,
+    "failure_count": 2257,
+    "ok_count": 69262,
+    "measurement_count": 99724,
+    "measurement_start_day": "2024-11-01",
+    "anomaly_rate": 26.8,
+    "month": "2024-11"
+  },
+  {
+    "anomaly_count": 13713,
+    "confirmed_count": 1268,
+    "failure_count": 1495,
+    "ok_count": 47580,
+    "measurement_count": 64056,
+    "measurement_start_day": "2024-12-01",
+    "anomaly_rate": 21.4,
+    "month": "2024-12"
+  },
+  {
+    "anomaly_count": 8110,
+    "confirmed_count": 826,
+    "failure_count": 904,
+    "ok_count": 31026,
+    "measurement_count": 40866,
+    "measurement_start_day": "2025-01-01",
+    "anomaly_rate": 19.8,
+    "month": "2025-01"
+  },
+  {
+    "anomaly_count": 9120,
+    "confirmed_count": 910,
+    "failure_count": 1116,
+    "ok_count": 35985,
+    "measurement_count": 47131,
+    "measurement_start_day": "2025-02-01",
+    "anomaly_rate": 19.4,
+    "month": "2025-02"
+  },
+  {
+    "anomaly_count": 6840,
+    "confirmed_count": 198,
+    "failure_count": 1025,
+    "ok_count": 28569,
+    "measurement_count": 36632,
+    "measurement_start_day": "2025-03-01",
+    "anomaly_rate": 18.7,
+    "month": "2025-03"
+  },
+  {
+    "anomaly_count": 8417,
+    "confirmed_count": 19,
+    "failure_count": 1694,
+    "ok_count": 31676,
+    "measurement_count": 41806,
+    "measurement_start_day": "2025-04-01",
+    "anomaly_rate": 20.1,
+    "month": "2025-04"
+  },
+  {
+    "anomaly_count": 10618,
+    "confirmed_count": 69,
+    "failure_count": 2059,
+    "ok_count": 42026,
+    "measurement_count": 54772,
+    "measurement_start_day": "2025-05-01",
+    "anomaly_rate": 19.4,
+    "month": "2025-05"
+  },
+  {
+    "anomaly_count": 8197,
+    "confirmed_count": 2,
+    "failure_count": 1628,
+    "ok_count": 25066,
+    "measurement_count": 34893,
+    "measurement_start_day": "2025-06-01",
+    "anomaly_rate": 23.5,
+    "month": "2025-06"
+  },
+  {
+    "anomaly_count": 8688,
+    "confirmed_count": 13,
+    "failure_count": 1089,
+    "ok_count": 31394,
+    "measurement_count": 41184,
+    "measurement_start_day": "2025-07-01",
+    "anomaly_rate": 21.1,
+    "month": "2025-07"
+  },
+  {
+    "anomaly_count": 14381,
+    "confirmed_count": 159,
+    "failure_count": 2759,
+    "ok_count": 53838,
+    "measurement_count": 71137,
+    "measurement_start_day": "2025-08-01",
+    "anomaly_rate": 20.2,
+    "month": "2025-08"
+  },
+  {
+    "anomaly_count": 9614,
+    "confirmed_count": 128,
+    "failure_count": 4007,
+    "ok_count": 37012,
+    "measurement_count": 50761,
+    "measurement_start_day": "2025-09-01",
+    "anomaly_rate": 18.9,
+    "month": "2025-09"
+  },
+  {
+    "anomaly_count": 7830,
+    "confirmed_count": 109,
+    "failure_count": 1083,
+    "ok_count": 27008,
+    "measurement_count": 36030,
+    "measurement_start_day": "2025-10-01",
+    "anomaly_rate": 21.7,
+    "month": "2025-10"
+  },
+  {
+    "anomaly_count": 6730,
+    "confirmed_count": 233,
+    "failure_count": 1124,
+    "ok_count": 20968,
+    "measurement_count": 29055,
+    "measurement_start_day": "2025-11-01",
+    "anomaly_rate": 23.2,
+    "month": "2025-11"
+  },
+  {
+    "anomaly_count": 4691,
+    "confirmed_count": 186,
+    "failure_count": 1023,
+    "ok_count": 19327,
+    "measurement_count": 25227,
+    "measurement_start_day": "2025-12-01",
+    "anomaly_rate": 18.6,
+    "month": "2025-12"
+  },
+  {
+    "anomaly_count": 13772,
+    "confirmed_count": 227,
+    "failure_count": 2801,
+    "ok_count": 50056,
+    "measurement_count": 66856,
+    "measurement_start_day": "2026-01-01",
+    "anomaly_rate": 20.6,
+    "month": "2026-01"
+  },
+  {
+    "anomaly_count": 6971,
+    "confirmed_count": 615,
+    "failure_count": 3320,
+    "ok_count": 32815,
+    "measurement_count": 43721,
+    "measurement_start_day": "2026-02-01",
+    "anomaly_rate": 15.9,
+    "month": "2026-02"
+  },
+  {
+    "anomaly_count": 3797,
+    "confirmed_count": 466,
+    "failure_count": 1804,
+    "ok_count": 24962,
+    "measurement_count": 31029,
+    "measurement_start_day": "2026-03-01",
+    "anomaly_rate": 12.2,
+    "month": "2026-03"
+  },
+  {
+    "anomaly_count": 1069,
+    "confirmed_count": 65,
+    "failure_count": 248,
+    "ok_count": 5698,
+    "measurement_count": 7080,
+    "measurement_start_day": "2026-04-01",
+    "anomaly_rate": 15.1,
+    "month": "2026-04"
+  }
+]

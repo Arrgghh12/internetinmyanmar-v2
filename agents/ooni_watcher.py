@@ -71,15 +71,29 @@ def fetch_blocked_sites(limit: int = 500) -> list[dict]:
 
 
 @retry(stop=stop_after_attempt(3), wait=wait_exponential(min=2, max=10))
-def fetch_network_outages() -> dict:
-    """Fetch OONI network outage data for Myanmar."""
+def fetch_monthly_history() -> list[dict]:
+    """Fetch monthly aggregated OONI measurements for Myanmar since Feb 2021 (coup date)."""
     resp = requests.get(
-        f"{OONI_API}/observations",
-        params={"probe_cc": "MM", "limit": 50},
-        timeout=20,
+        f"{OONI_API}/aggregation",
+        params={
+            "probe_cc": "MM",
+            "test_name": "web_connectivity",
+            "since": "2021-02-01",
+            "time_grain": "month",
+            "axis_x": "measurement_start_day",
+        },
+        timeout=30,
     )
     resp.raise_for_status()
-    return resp.json()
+    result = resp.json().get("result", [])
+    # Annotate with anomaly rate and format month label
+    for row in result:
+        total = row.get("measurement_count", 0)
+        anomaly = row.get("anomaly_count", 0)
+        row["anomaly_rate"] = round(anomaly / total * 100, 1) if total > 0 else 0
+        # measurement_start_day is "2021-02-01" format
+        row["month"] = row.get("measurement_start_day", "")[:7]  # "2021-02"
+    return sorted(result, key=lambda x: x["month"])
 
 
 def compute_stats(measurements: list[dict], blocked: list[dict]) -> dict:
@@ -141,7 +155,7 @@ def compute_stats(measurements: list[dict], blocked: list[dict]) -> dict:
 # GitHub push
 # ---------------------------------------------------------------------------
 
-def push_to_github(stats: dict):
+def push_to_github(stats: dict, history: list[dict] | None = None):
     """Update observatory/stats.json in the repo to trigger a Cloudflare rebuild."""
     if not GITHUB_TOKEN:
         log.warning("No GITHUB_TOKEN — skipping GitHub push")
@@ -149,21 +163,35 @@ def push_to_github(stats: dict):
 
     g = Github(GITHUB_TOKEN)
     repo = g.get_repo(REPO_NAME)
-    path = "src/content/observatory/stats.json"
-    content = json.dumps(stats, indent=2, ensure_ascii=False)
+    timestamp = datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M')
 
-    try:
-        existing = repo.get_contents(path, ref="main")
-        repo.update_file(
-            path,
-            f"observatory: update stats {datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M')} UTC",
-            content,
-            existing.sha,
-            branch="main",
-        )
-        log.info("Pushed updated stats.json to GitHub (main)")
-    except Exception as e:
-        log.error(f"GitHub push failed: {e}")
+    files_to_update = {
+        "src/content/observatory/stats.json": json.dumps(stats, indent=2),
+    }
+    if history:
+        files_to_update["src/data/ooni-history.json"] = json.dumps(history, indent=2)
+
+    for path, content in files_to_update.items():
+        try:
+            try:
+                existing = repo.get_contents(path, ref="main")
+                repo.update_file(
+                    path,
+                    f"observatory: update {path.split('/')[-1]} {timestamp} UTC",
+                    content,
+                    existing.sha,
+                    branch="main",
+                )
+            except Exception:
+                repo.create_file(
+                    path,
+                    f"observatory: create {path.split('/')[-1]} {timestamp} UTC",
+                    content,
+                    branch="main",
+                )
+            log.info(f"Pushed {path} to GitHub (main)")
+        except Exception as e:
+            log.error(f"GitHub push failed for {path}: {e}")
 
 
 # ---------------------------------------------------------------------------
@@ -183,6 +211,9 @@ def run(test: bool = False):
     blocked = fetch_blocked_sites()
     log.info(f"Fetched {len(blocked)} confirmed blocked entries")
 
+    history = fetch_monthly_history()
+    log.info(f"Fetched {len(history)} months of historical data")
+
     stats = compute_stats(measurements, blocked)
     log.info(f"Stats: {json.dumps(stats)}")
 
@@ -193,9 +224,12 @@ def run(test: bool = False):
     if test:
         log.info("--test mode: skipping GitHub push")
         print(json.dumps(stats, indent=2))
+        print(f"\nHistory sample ({len(history)} months):")
+        for row in history[-3:]:
+            print(f"  {row['month']}: {row['anomaly_count']} anomalies / {row['measurement_count']} total ({row['anomaly_rate']}%)")
         return
 
-    push_to_github(stats)
+    push_to_github(stats, history)
     log.info("=== OONI Watcher done ===")
 
 

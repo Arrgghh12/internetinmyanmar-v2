@@ -1,0 +1,26 @@
+---
+import Base from '../layouts/Base.astro'
+---
+<Base
+  title="Myanmar Internet Speed Test"
+  seoTitle="Myanmar Internet Speed Test | Internet in Myanmar"
+  metaDescription="Test your internet speed in Myanmar. Compare results against national averages for mobile and fixed broadband connections."
+>
+  <div class="max-w-4xl mx-auto px-4 py-12">
+    <div class="font-mono text-xs text-[color:var(--color-accent)] mb-4 tracking-widest uppercase">Tools</div>
+    <h1 class="font-headline text-3xl md:text-4xl mb-4">Myanmar Internet Speed Test</h1>
+    <p class="opacity-70 mb-8 max-w-2xl">
+      Test your current connection speed. Results are compared against Myanmar's national averages
+      for mobile and fixed broadband, based on nPerf measurement data.
+    </p>
+
+    <div class="border border-white/10 rounded-lg overflow-hidden mb-8" style="min-height: 400px;">
+      <script src="https://ws.nperf.com/partner/js?l=a41e585c-2598-4e52-aeed-ce37b4eeb8fa" is:inline></script>
+    </div>
+
+    <div class="text-xs font-mono opacity-40 mt-4">
+      Speed test powered by <a href="https://www.nperf.com" target="_blank" rel="noopener noreferrer" class="hover:opacity-100 underline">nPerf</a>.
+      Your result is submitted anonymously to nPerf's global benchmark database.
+    </div>
+  </div>
+</Base>

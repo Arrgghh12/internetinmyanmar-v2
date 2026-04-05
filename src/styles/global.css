@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=Padauk:wght@400;700&family=Noto+Sans+Myanmar:wght@400;500;700&display=swap');
 @import "tailwindcss";
+@plugin "@tailwindcss/typography";
 
 :root {
   --color-bg-dark:    #0A1628;

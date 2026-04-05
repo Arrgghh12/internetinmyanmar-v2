@@ -1,0 +1,26 @@
+---
+import Base from '../layouts/Base.astro'
+---
+<Base
+  title="Myanmar Mobile Coverage Map"
+  seoTitle="Myanmar Mobile Coverage Map | Internet in Myanmar"
+  metaDescription="Interactive mobile network coverage map for Myanmar. See 2G, 3G, and 4G LTE coverage by operator across the country."
+>
+  <div class="max-w-5xl mx-auto px-4 py-12">
+    <div class="font-mono text-xs text-[color:var(--color-accent)] mb-4 tracking-widest uppercase">Tools</div>
+    <h1 class="font-headline text-3xl md:text-4xl mb-4">Myanmar Mobile Coverage Map</h1>
+    <p class="opacity-70 mb-8 max-w-2xl">
+      Interactive coverage map showing 2G, 3G, and 4G LTE signal availability by operator
+      across Myanmar. Based on crowdsourced nPerf measurement data.
+    </p>
+
+    <div class="border border-white/10 rounded-lg overflow-hidden mb-4" style="min-height: 500px;">
+      <script src="https://ws.nperf.com/partner/js-map?l=77aa4e1b-4be2-4a58-a3be-36061b78f2fe" is:inline></script>
+    </div>
+
+    <div class="text-xs font-mono opacity-40 mt-4">
+      Coverage map powered by <a href="https://www.nperf.com" target="_blank" rel="noopener noreferrer" class="hover:opacity-100 underline">nPerf</a>.
+      Data is crowdsourced from user measurements and may not reflect recent network changes.
+    </div>
+  </div>
+</Base>

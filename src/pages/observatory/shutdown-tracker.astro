@@ -1,8 +1,20 @@
 ---
 import Observatory from '../../layouts/Observatory.astro'
 import stats from '../../content/observatory/stats.json'
+import history from '../../data/ooni-history.json'
 
 export const prerender = false
+
+const keyEvents = [
+  { date: '2021-02', label: 'Military coup — mass shutdowns begin' },
+  { date: '2021-03', label: 'Social media blocked (Facebook, Twitter, Instagram)' },
+  { date: '2021-07', label: 'Nightly internet curfews imposed (1–9 AM)' },
+  { date: '2022-02', label: 'Coup anniversary — major network outage' },
+  { date: '2023-01', label: 'Telenor sold to military-linked KBZMS, General License revoked' },
+  { date: '2024-05', label: 'Escalating restrictions in conflict zones' },
+]
+
+const totalMeasurements = history.reduce((s, r) => s + r.measurement_count, 0)
 ---
 <Observatory
   title="Myanmar Internet Shutdown Tracker"
@@ -17,15 +29,111 @@ export const prerender = false
       The Myanmar military junta has used internet shutdowns as a tool of political repression since the February 2021 coup.
     </p>
 
-    <div class="border border-[color:var(--color-warning)]/40 bg-[color:var(--color-warning)]/5 rounded-lg p-6 mb-8">
+    <div class="border border-[color:var(--color-warning)]/40 bg-[color:var(--color-warning)]/5 rounded-lg p-6 mb-10">
       <div class="font-mono text-xs text-[color:var(--color-warning)] mb-2 uppercase tracking-widest">Current status</div>
       <div class="text-2xl font-bold mb-1">{stats.activeShutdowns} active shutdown{stats.activeShutdowns !== 1 ? 's' : ''}</div>
-      <div class="text-sm opacity-60">As of {stats.lastUpdated} · Updated every 12 hours via OONI API</div>
+      <div class="text-sm opacity-60">
+        As of {new Date(stats.lastUpdated).toLocaleDateString('en-US', { year:'numeric', month:'long', day:'numeric' })}
+        · Updated every 12 hours via OONI API
+      </div>
     </div>
 
-    <div class="text-center py-16 border border-white/10 rounded-lg opacity-50">
-      <div class="font-mono text-sm mb-2">Historical timeline coming soon</div>
-      <div class="text-xs">OONI watcher agent populates this data automatically</div>
+    <div class="mb-10">
+      <h2 class="font-headline text-xl mb-2">OONI Anomaly Rate — Monthly (Feb 2021 – present)</h2>
+      <p class="text-sm opacity-50 mb-4">
+        Percentage of Myanmar web_connectivity tests flagged as anomalous. Spikes indicate censorship events or network disruptions.
+        Red = severe (&gt;30%), amber = elevated (&gt;15%), teal = low.
+      </p>
+      <div class="border border-white/10 rounded-lg p-4 overflow-x-auto">
+        <div id="ooni-chart" class="w-full" style="min-height: 200px;"></div>
+      </div>
+      <div class="text-xs font-mono opacity-30 mt-2">
+        Source: <a href="https://api.ooni.io" target="_blank" rel="noopener" class="hover:opacity-100 underline">OONI API</a>
+        · {history.length} months · {totalMeasurements.toLocaleString()} total measurements
+      </div>
+    </div>
+
+    <div class="mb-10">
+      <h2 class="font-headline text-xl mb-4">Key Events</h2>
+      <div class="space-y-0">
+        {keyEvents.map((event) => (
+          <div class="flex gap-4 items-start border-l-2 border-[color:var(--color-warning)]/30 pl-4 pb-6 relative">
+            <div class="absolute -left-[5px] top-0 w-2 h-2 rounded-full bg-[color:var(--color-warning)]"></div>
+            <div class="font-mono text-xs text-[color:var(--color-warning)] mt-0.5 whitespace-nowrap">{event.date}</div>
+            <div class="text-sm">{event.label}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <div>
+      <h2 class="font-headline text-xl mb-4">Recent Monthly Measurements</h2>
+      <div class="overflow-x-auto">
+        <table class="w-full text-sm font-mono">
+          <thead>
+            <tr class="border-b border-white/10 text-left opacity-50">
+              <th class="pb-2 pr-6">Month</th>
+              <th class="pb-2 pr-6 text-right">Measurements</th>
+              <th class="pb-2 pr-6 text-right">Anomalies</th>
+              <th class="pb-2 pr-6 text-right">Confirmed</th>
+              <th class="pb-2 text-right">Anomaly Rate</th>
+            </tr>
+          </thead>
+          <tbody>
+            {[...history].reverse().slice(0, 12).map((row) => (
+              <tr class="border-b border-white/5 hover:bg-white/2">
+                <td class="py-2 pr-6">{row.month}</td>
+                <td class="py-2 pr-6 text-right opacity-60">{row.measurement_count.toLocaleString()}</td>
+                <td class="py-2 pr-6 text-right" style={row.anomaly_rate > 20 ? 'color:var(--color-danger)' : row.anomaly_rate > 10 ? 'color:var(--color-warning)' : ''}>
+                  {row.anomaly_count.toLocaleString()}
+                </td>
+                <td class="py-2 pr-6 text-right opacity-60">{row.confirmed_count.toLocaleString()}</td>
+                <td class="py-2 text-right" style={row.anomaly_rate > 20 ? 'color:var(--color-danger)' : row.anomaly_rate > 10 ? 'color:var(--color-warning)' : ''}>
+                  {row.anomaly_rate}%
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
     </div>
   </div>
+
+  <script define:vars={{ chartData: history }}>
+    const el = document.getElementById('ooni-chart')
+    if (!el || !chartData.length) { if(el) el.innerHTML='<p style="opacity:.4;font-size:.75rem;padding:1rem">No data</p>'; return }
+
+    const W = Math.max(el.clientWidth || 900, 600)
+    const H = 200
+    const pad = { top: 10, right: 10, bottom: 30, left: 36 }
+    const innerW = W - pad.left - pad.right
+    const innerH = H - pad.top - pad.bottom
+    const maxRate = Math.max(...chartData.map(d => d.anomaly_rate), 40)
+    const barW = innerW / chartData.length
+
+    const bars = chartData.map((d, i) => {
+      const h = Math.max(1, (d.anomaly_rate / maxRate) * innerH)
+      const x = pad.left + i * barW
+      const y = pad.top + innerH - h
+      const color = d.anomaly_rate > 30 ? '#EF4444' : d.anomaly_rate > 15 ? '#F59E0B' : '#00D4C8'
+      const tip = `${d.month}: ${d.anomaly_rate}% (${d.anomaly_count.toLocaleString()} anomalies / ${d.measurement_count.toLocaleString()} total)`
+      return `<rect x="${x+0.5}" y="${y}" width="${Math.max(barW-1,0.5)}" height="${h}" fill="${color}" opacity="0.8"><title>${tip}</title></rect>`
+    }).join('')
+
+    const seenYears = new Set()
+    const xLabels = chartData.map((d, i) => {
+      const yr = d.month.slice(0,4)
+      if (seenYears.has(yr)) return ''
+      seenYears.add(yr)
+      const x = pad.left + i * barW + barW / 2
+      return `<text x="${x}" y="${H-6}" fill="#E2E8F0" opacity="0.4" font-size="10" font-family="monospace" text-anchor="middle">${yr}</text>`
+    }).join('')
+
+    const yLabels = [0,25,50,75,100].filter(v=>v<=maxRate+5).map(v=>{
+      const y = pad.top + innerH - (v/maxRate)*innerH
+      return `<text x="${pad.left-4}" y="${y+3}" fill="#E2E8F0" opacity="0.4" font-size="9" font-family="monospace" text-anchor="end">${v}%</text><line x1="${pad.left}" y1="${y}" x2="${pad.left+innerW}" y2="${y}" stroke="white" opacity="0.05"/>`
+    }).join('')
+
+    el.innerHTML = `<svg viewBox="0 0 ${W} ${H}" width="100%" style="display:block;overflow:visible">${yLabels}${bars}${xLabels}</svg>`
+  </script>
 </Observatory>
