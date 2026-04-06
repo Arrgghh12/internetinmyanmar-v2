@@ -14,6 +14,7 @@ import asyncio
 import json
 import logging
 import os
+import re
 from datetime import datetime, timezone, timedelta
 from pathlib import Path
 
@@ -59,17 +60,11 @@ async def fetch_routed_asns(client: httpx.AsyncClient) -> list[dict]:
         resp = await client.get(url, params={"resource": "MM", "lod": 1}, timeout=20)
         resp.raise_for_status()
         data = resp.json().get("data", {})
-        routed = data.get("routed", [])
-        result = []
-        for entry in routed:
-            asn_num = entry.get("asn") or entry  # API may return int or dict
-            if isinstance(entry, dict):
-                asn_str = f"AS{entry['asn']}"
-                name = entry.get("name", asn_str)
-            else:
-                asn_str = f"AS{entry}"
-                name = asn_str
-            result.append({"asn": asn_str, "name": name})
+        # API returns routed as a string: "{AsnSingle(9988), AsnSingle(132167), ...}"
+        countries = data.get("countries", [])
+        routed_str = countries[0].get("routed", "") if countries else ""
+        asn_numbers = re.findall(r'AsnSingle\((\d+)\)', routed_str)
+        result = [{"asn": f"AS{n}", "name": f"AS{n}"} for n in asn_numbers]
         log.info("RIPEstat returned %d routed MM ASNs", len(result))
         return result
     except Exception as e:
@@ -354,6 +349,38 @@ async def run(args):
         log.info("Full run: %d routed MM ASNs", len(asn_list))
 
     await check_asns(asn_list)
+
+    # Push updated JSON to git so Cloudflare rebuilds the frontend
+    _git_push_data()
+
+
+def _git_push_data():
+    """Commit and push updated BGP JSON files to git."""
+    import subprocess
+    repo = Path(__file__).parent.parent  # ~/agents/../ = repo root
+    files = [
+        str(ASN_STATUS_FILE.resolve()),
+        str(OUTAGES_FILE.resolve()),
+        str(HISTORY_FILE.resolve()),
+    ]
+    try:
+        subprocess.run(["git", "-C", str(repo), "add"] + files, check=True)
+        result = subprocess.run(
+            ["git", "-C", str(repo), "diff", "--cached", "--quiet"],
+            capture_output=True
+        )
+        if result.returncode == 0:
+            log.info("BGP data unchanged — no git commit needed")
+            return
+        subprocess.run(
+            ["git", "-C", str(repo), "commit", "-m",
+             f"data: BGP status update {datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M UTC')}"],
+            check=True
+        )
+        subprocess.run(["git", "-C", str(repo), "push"], check=True)
+        log.info("BGP data pushed to git")
+    except Exception as e:
+        log.error("git push failed: %s", e)
 
 
 if __name__ == "__main__":
