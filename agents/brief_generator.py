@@ -22,11 +22,11 @@ import uuid
 from datetime import date, timedelta
 from pathlib import Path
 
-import anthropic
 import httpx
 import yaml
 from bs4 import BeautifulSoup
 from dotenv import load_dotenv
+from openai import OpenAI
 from tenacity import retry, stop_after_attempt, wait_exponential
 
 load_dotenv(Path(__file__).parent / ".env")
@@ -36,7 +36,10 @@ logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(mess
 AGENTS_DIR = Path(__file__).parent
 CONFIG_FILE = AGENTS_DIR / "config.yaml"
 CONFIG = yaml.safe_load(CONFIG_FILE.read_text()) if CONFIG_FILE.exists() else {}
-CLIENT = anthropic.Anthropic(api_key=os.environ.get("ANTHROPIC_API_KEY", ""))
+CLIENT = OpenAI(
+    base_url="https://api.deepseek.com/v1",
+    api_key=os.environ.get("DEEPSEEK_API_KEY", ""),
+)
 
 BRIEFS_DIR = AGENTS_DIR / "briefs"
 MONITOR_OUTPUT = AGENTS_DIR / "monitor_output.json"
@@ -181,11 +184,10 @@ def generate_brief(item: dict) -> dict:
     )
     # Remove internal keys before sending to LLM
     clean_item = {k: v for k, v in item.items() if not k.startswith("_")}
-    response = CLIENT.messages.create(
+    response = CLIENT.chat.completions.create(
         model=_get_model("brief"),
         max_tokens=_get_max_tokens("brief"),
-        system=BRIEF_SYSTEM,
-        messages=[{
+        messages=[{"role": "system", "content": BRIEF_SYSTEM}, {
             "role": "user",
             "content": (
                 f"Create a brief for this news item:\n\n{json.dumps(clean_item, indent=2)}\n\n"
@@ -194,7 +196,7 @@ def generate_brief(item: dict) -> dict:
             ),
         }],
     )
-    return json.loads(response.content[0].text)
+    return json.loads(response.choices[0].message.content)
 
 
 def _save_brief(brief: dict) -> Path:
@@ -273,11 +275,10 @@ def cmd_manual(args_text: str) -> None:
     if notes:
         combined = f"EDITOR NOTES: {notes}\n\n" + combined
 
-    response = CLIENT.messages.create(
+    response = CLIENT.chat.completions.create(
         model=_get_model("brief"),
         max_tokens=_get_max_tokens("brief"),
-        system=BRIEF_SYSTEM,
-        messages=[{
+        messages=[{"role": "system", "content": BRIEF_SYSTEM}, {
             "role": "user",
             "content": (
                 "Create an article brief for Internet in Myanmar from these sources.\n\n"
@@ -286,7 +287,7 @@ def cmd_manual(args_text: str) -> None:
             ),
         }],
     )
-    brief = json.loads(response.content[0].text)
+    brief = json.loads(response.choices[0].message.content)
     path = _save_brief(brief)
     print(f"Brief saved: {path}", file=sys.stderr)
 
@@ -315,11 +316,10 @@ def cmd_topic(topic: str) -> None:
     else:
         prompt_content += "(No sources fetched — generate brief based on topic knowledge)\n\n"
 
-    response = CLIENT.messages.create(
+    response = CLIENT.chat.completions.create(
         model=_get_model("brief"),
         max_tokens=_get_max_tokens("brief"),
-        system=BRIEF_SYSTEM,
-        messages=[{
+        messages=[{"role": "system", "content": BRIEF_SYSTEM}, {
             "role": "user",
             "content": (
                 "Create an article brief for Internet in Myanmar on this topic.\n\n"
@@ -329,7 +329,7 @@ def cmd_topic(topic: str) -> None:
             ),
         }],
     )
-    brief = json.loads(response.content[0].text)
+    brief = json.loads(response.choices[0].message.content)
     path = _save_brief(brief)
     print(f"Brief saved: {path}", file=sys.stderr)
 
@@ -344,11 +344,10 @@ def cmd_amend(brief_path: str, instructions: str) -> None:
         sys.exit(1)
 
     original = path.read_text(encoding="utf-8")
-    response = CLIENT.messages.create(
+    response = CLIENT.chat.completions.create(
         model=_get_model("brief"),
         max_tokens=_get_max_tokens("brief"),
-        system=BRIEF_SYSTEM,
-        messages=[{
+        messages=[{"role": "system", "content": BRIEF_SYSTEM}, {
             "role": "user",
             "content": (
                 "Regenerate this brief with the following instructions. "
@@ -359,7 +358,7 @@ def cmd_amend(brief_path: str, instructions: str) -> None:
             ),
         }],
     )
-    brief = json.loads(response.content[0].text)
+    brief = json.loads(response.choices[0].message.content)
     # Overwrite in place (versioning via git history)
     new_path = _save_brief(brief)
     # Also overwrite original path to keep active_brief_path valid
@@ -380,11 +379,10 @@ def cmd_merge(path1: str, path2: str) -> None:
     b1 = p1.read_text(encoding="utf-8")
     b2 = p2.read_text(encoding="utf-8")
 
-    response = CLIENT.messages.create(
+    response = CLIENT.chat.completions.create(
         model=_get_model("brief"),
         max_tokens=_get_max_tokens("brief"),
-        system=BRIEF_SYSTEM,
-        messages=[{
+        messages=[{"role": "system", "content": BRIEF_SYSTEM}, {
             "role": "user",
             "content": (
                 "Merge these two briefs into one stronger brief. "
@@ -395,7 +393,7 @@ def cmd_merge(path1: str, path2: str) -> None:
             ),
         }],
     )
-    brief = json.loads(response.content[0].text)
+    brief = json.loads(response.choices[0].message.content)
     merged_path = _save_brief(brief)
     # Remove the two originals from pending (rename with .merged suffix)
     p1.rename(p1.with_suffix(".merged"))

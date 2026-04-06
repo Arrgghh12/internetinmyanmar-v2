@@ -36,6 +36,36 @@ load_dotenv(Path(__file__).parent / ".env")
 log = logging.getLogger(__name__)
 
 
+def _notify_telegram_briefs() -> None:
+    """Send today's generated briefs as a Telegram digest."""
+    today = date.today().isoformat()
+    today_dir = BRIEFS_DIR / today
+    if not today_dir.exists():
+        _notify_telegram("✅ Brief generator ran but no new briefs were saved today.")
+        return
+
+    briefs = sorted(today_dir.glob("*.md"))
+    if not briefs:
+        _notify_telegram("✅ Brief generator ran but no new briefs were saved today.")
+        return
+
+    lines = [f"📰 *{len(briefs)} brief{'s' if len(briefs) > 1 else ''} ready — {today}*\n"]
+    for i, brief_path in enumerate(briefs, 1):
+        text = brief_path.read_text(encoding="utf-8")
+        # Extract title from first line (# Title)
+        title_line = next((l for l in text.splitlines() if l.startswith("# ")), "")
+        title = title_line[2:].strip() or brief_path.stem
+        # Extract category
+        cat_line = next((l for l in text.splitlines() if l.startswith("**Category:**")), "")
+        cat = cat_line.replace("**Category:**", "").strip()
+        lines.append(f"{i}. {title}")
+        if cat:
+            lines.append(f"   _{cat}_")
+    lines.append(f"\n📂 Briefs saved to: `{today_dir}`")
+    lines.append("Reply /list to see all · /pick N to approve one · /approve N to write")
+    _notify_telegram("\n".join(lines))
+
+
 def _notify_telegram(text: str) -> None:
     """Send a plain text message to Anna's Telegram chat."""
     token = os.environ.get("TELEGRAM_BOT_TOKEN")
@@ -53,6 +83,7 @@ def _notify_telegram(text: str) -> None:
         log.warning(f"Telegram notify failed: {e}")
 
 AGENTS_DIR = Path(__file__).parent
+BRIEFS_DIR = AGENTS_DIR / "briefs"
 CONFIG = yaml.safe_load((AGENTS_DIR / "config.yaml").read_text())
 VENV_PYTHON = AGENTS_DIR / "venv" / "bin" / "python"
 CLIENT: OpenAI | None = None  # initialized in run()
@@ -245,10 +276,12 @@ def run(dry_run: bool = False):
         )
         if result.returncode != 0:
             log.error(f"brief_generator.py failed:\n{result.stderr}")
+            _notify_telegram(f"⚠️ Brief generator failed:\n{result.stderr[:400]}")
         else:
             log.info("brief_generator.py completed")
+            _notify_telegram_briefs()
     else:
-        msg = CONFIG.get("scoring", {}).get("no_news_message", "No noteworthy news today — no brief generated.")
+        msg = "📭 No noteworthy news today — no brief generated."
         log.info(msg)
         _notify_telegram(msg)
 
