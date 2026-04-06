@@ -161,8 +161,16 @@ def _check_overlap(item_title: str, item_summary: str, coverage_index: list[dict
 
 
 def _get_model(task: str) -> str:
-    models = CONFIG.get("anthropic", {}).get("models", {})
-    return models.get(task, "claude-sonnet-4-6")
+    return "deepseek-chat"
+
+
+def _parse_json(text: str) -> dict:
+    """Parse JSON from LLM output, stripping markdown fences if present."""
+    text = text.strip()
+    # Strip ```json ... ``` or ``` ... ``` fences
+    text = re.sub(r'^```(?:json)?\s*', '', text)
+    text = re.sub(r'\s*```$', '', text)
+    return json.loads(text.strip())
 
 
 def _get_max_tokens(task: str) -> int:
@@ -196,7 +204,7 @@ def generate_brief(item: dict) -> dict:
             ),
         }],
     )
-    return json.loads(response.choices[0].message.content)
+    return _parse_json(response.choices[0].message.content)
 
 
 def _save_brief(brief: dict) -> Path:
@@ -287,7 +295,7 @@ def cmd_manual(args_text: str) -> None:
             ),
         }],
     )
-    brief = json.loads(response.choices[0].message.content)
+    brief = _parse_json(response.choices[0].message.content)
     path = _save_brief(brief)
     print(f"Brief saved: {path}", file=sys.stderr)
 
@@ -329,7 +337,7 @@ def cmd_topic(topic: str) -> None:
             ),
         }],
     )
-    brief = json.loads(response.choices[0].message.content)
+    brief = _parse_json(response.choices[0].message.content)
     path = _save_brief(brief)
     print(f"Brief saved: {path}", file=sys.stderr)
 
@@ -358,7 +366,7 @@ def cmd_amend(brief_path: str, instructions: str) -> None:
             ),
         }],
     )
-    brief = json.loads(response.choices[0].message.content)
+    brief = _parse_json(response.choices[0].message.content)
     # Overwrite in place (versioning via git history)
     new_path = _save_brief(brief)
     # Also overwrite original path to keep active_brief_path valid
@@ -393,7 +401,7 @@ def cmd_merge(path1: str, path2: str) -> None:
             ),
         }],
     )
-    brief = json.loads(response.choices[0].message.content)
+    brief = _parse_json(response.choices[0].message.content)
     merged_path = _save_brief(brief)
     # Remove the two originals from pending (rename with .merged suffix)
     p1.rename(p1.with_suffix(".merged"))

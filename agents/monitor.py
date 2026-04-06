@@ -93,24 +93,31 @@ CLIENT: OpenAI | None = None  # initialized in run()
 # Fetching
 # ---------------------------------------------------------------------------
 
-async def fetch_feed(name: str, url: str, client: httpx.AsyncClient) -> list[dict]:
-    """Fetch an RSS feed and return normalised items."""
+async def fetch_feed(name: str, url: str, client: httpx.AsyncClient,
+                     max_age_days: int = 180) -> list[dict]:
+    """Fetch an RSS feed and return normalised items within max_age_days."""
     try:
         resp = await client.get(url, timeout=15, follow_redirects=True)
         resp.raise_for_status()
         feed = feedparser.parse(resp.text)
+        cutoff = datetime.now(timezone.utc).replace(tzinfo=timezone.utc)
+        from datetime import timedelta as _td
+        cutoff = cutoff - _td(days=max_age_days)
         items = []
-        for entry in feed.entries[:20]:  # cap per source
+        for entry in feed.entries[:50]:  # fetch more, filter by age
             published = entry.get("published_parsed") or entry.get("updated_parsed")
+            pub_dt = datetime(*published[:6], tzinfo=timezone.utc) if published else None
+            # Skip items older than max_age_days
+            if pub_dt and pub_dt < cutoff:
+                continue
             items.append({
                 "source": name,
                 "title": entry.get("title", ""),
                 "url": entry.get("link", ""),
                 "summary": entry.get("summary", "")[:500],
-                "published": datetime(*published[:6], tzinfo=timezone.utc).isoformat()
-                if published else None,
+                "published": pub_dt.isoformat() if pub_dt else None,
             })
-        log.info(f"{name}: {len(items)} items")
+        log.info(f"{name}: {len(items)} items (max_age={max_age_days}d)")
         return items
     except Exception as e:
         log.warning(f"{name}: fetch failed — {e}")
@@ -164,11 +171,11 @@ def _rss_sources() -> list[tuple[str, str]]:
     return pairs
 
 
-async def fetch_all() -> list[dict]:
+async def fetch_all(max_age_days: int = 180) -> list[dict]:
     """Fetch all sources concurrently."""
     rss_pairs = _rss_sources()
     async with httpx.AsyncClient(headers={"User-Agent": "IIMBot/1.0"}) as client:
-        tasks = [fetch_feed(name, url, client) for name, url in rss_pairs]
+        tasks = [fetch_feed(name, url, client, max_age_days=max_age_days) for name, url in rss_pairs]
         tasks.append(fetch_ooni(client))
         results = await asyncio.gather(*tasks)
     items = [item for batch in results for item in batch]
@@ -241,8 +248,9 @@ def run(dry_run: bool = False):
         api_key=os.getenv("DEEPSEEK_API_KEY"),
     )
 
-    log.info("=== Monitor starting ===")
-    items = asyncio.run(fetch_all())
+    max_age_days = CONFIG.get("scoring", {}).get("max_age_days", 180)
+    log.info(f"=== Monitor starting (lookback {max_age_days} days) ===")
+    items = asyncio.run(fetch_all(max_age_days=max_age_days))
     items = deduplicate(items)
     log.info(f"After dedup: {len(items)} items")
 

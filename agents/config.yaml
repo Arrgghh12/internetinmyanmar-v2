@@ -347,6 +347,9 @@ scoring:
   wire_boost: 0.5
   # Burmese-language sources confirm local impact — add bonus
   burmese_source_bonus: 0.5
+  # Lookback window: fetch items published within this many days.
+  # Start at 180 to backfill uncovered stories; reduce to 14 once caught up.
+  max_age_days: 180
   # Fresh news filter: if no items reach min_score, skip brief generation
   # Bot sends "No noteworthy news today" message instead
   no_news_message: "No noteworthy news today — no brief generated."
