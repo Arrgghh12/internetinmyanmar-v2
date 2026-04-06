@@ -21,7 +21,7 @@ from dotenv import load_dotenv
 from github import Github, GithubException
 from tenacity import retry, stop_after_attempt, wait_exponential
 
-load_dotenv()
+load_dotenv(Path(__file__).parent / ".env")
 log = logging.getLogger(__name__)
 
 AGENTS_DIR = Path(__file__).parent

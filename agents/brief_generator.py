@@ -29,7 +29,7 @@ from bs4 import BeautifulSoup
 from dotenv import load_dotenv
 from tenacity import retry, stop_after_attempt, wait_exponential
 
-load_dotenv()
+load_dotenv(Path(__file__).parent / ".env")
 log = logging.getLogger(__name__)
 logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(message)s")
 

@@ -1,8 +1,16 @@
 ---
 import Observatory from '../../layouts/Observatory.astro'
 import stats from '../../content/observatory/stats.json'
+import asnStatusRaw from '../../data/asn-status.json'
+import bgpOutagesRaw from '../../data/bgp-outages.json'
 
 export const prerender = false
+
+const asnStatus: Record<string, any> = asnStatusRaw as any
+const bgpOutages: any[] = bgpOutagesRaw as any
+
+const bgpTotal = Object.keys(asnStatus).length
+const bgpDown  = Object.values(asnStatus).filter((a: any) => a.status === 'RED').length
 ---
 <Observatory
   title="Internet Observatory — Myanmar"
@@ -56,11 +64,29 @@ export const prerender = false
         <h2 class="font-headline text-2xl mb-2 group-hover:text-[color:var(--color-accent)] transition-colors">Blocked Sites Monitor</h2>
         <p class="opacity-60 text-sm">Confirmed blocked domains across Myanmar ISPs — updated from OONI measurement data.</p>
       </a>
+      <a href="/observatory/bgp/" class="border border-white/10 rounded-lg p-6 hover:border-[color:var(--color-accent)] transition-colors group">
+        <div class="font-mono text-xs text-[color:var(--color-accent)] mb-2 uppercase tracking-widest">BGP routing</div>
+        <h2 class="font-headline text-2xl mb-2 group-hover:text-[color:var(--color-accent)] transition-colors">BGP Network Status</h2>
+        <p class="opacity-60 text-sm mb-3">
+          Real-time BGP visibility for {bgpTotal > 0 ? bgpTotal : 'all'} Myanmar autonomous systems.
+          Detects shutdowns within minutes via 800+ global route collectors.
+        </p>
+        {bgpDown > 0 && (
+          <div class="font-mono text-xs text-[color:var(--color-danger)]">
+            ⚠ {bgpDown} network{bgpDown !== 1 ? 's' : ''} currently down
+          </div>
+        )}
+        {bgpDown === 0 && bgpTotal > 0 && (
+          <div class="font-mono text-xs" style="color:#22c55e">
+            ✓ All networks operational
+          </div>
+        )}
+      </a>
     </div>
 
     <!-- Attribution -->
     <div class="mt-12 pt-8 border-t border-white/10 text-xs font-mono opacity-40">
-      Data sources: OONI Explorer · Cloudflare Radar · NetBlocks ·
+      Data sources: OONI Explorer · Cloudflare Radar · NetBlocks · RIPEstat · IODA ·
       <a href="https://ooni.org/country/MM" target="_blank" rel="noopener" class="hover:opacity-100">ooni.org/country/MM</a>
     </div>
   </div>

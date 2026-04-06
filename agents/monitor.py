@@ -22,16 +22,17 @@ import sys
 from datetime import date, datetime, timezone
 from pathlib import Path
 
-import anthropic
 import feedparser
 import httpx
 import yaml
 from dotenv import load_dotenv
+from openai import OpenAI
 from tenacity import retry, stop_after_attempt, wait_exponential
 
 import requests
 
-load_dotenv()
+# Load .env from the agents directory so cron (which has no env) picks it up
+load_dotenv(Path(__file__).parent / ".env")
 log = logging.getLogger(__name__)
 
 
@@ -54,7 +55,7 @@ def _notify_telegram(text: str) -> None:
 AGENTS_DIR = Path(__file__).parent
 CONFIG = yaml.safe_load((AGENTS_DIR / "config.yaml").read_text())
 VENV_PYTHON = AGENTS_DIR / "venv" / "bin" / "python"
-CLIENT: anthropic.Anthropic | None = None  # initialized in run()
+CLIENT: OpenAI | None = None  # initialized in run()
 
 
 # ---------------------------------------------------------------------------
@@ -171,13 +172,15 @@ Low score (<4): crypto, travel, unrelated Myanmar news, too vague."""
 @retry(stop=stop_after_attempt(2), wait=wait_exponential(min=1, max=5))
 def score_item(item: dict) -> dict:
     text = f"Title: {item['title']}\nSource: {item['source']}\nSummary: {item['summary']}"
-    response = CLIENT.messages.create(
-        model=CONFIG["anthropic"]["models"]["score"],
+    response = CLIENT.chat.completions.create(
+        model="deepseek-chat",
         max_tokens=CONFIG["anthropic"]["max_tokens"]["score"],
-        system="Respond with JSON only. No preamble.",
-        messages=[{"role": "user", "content": f"{SCORE_PROMPT}\n\nItem:\n{text}"}],
+        messages=[
+            {"role": "system", "content": "Respond with JSON only. No preamble."},
+            {"role": "user", "content": f"{SCORE_PROMPT}\n\nItem:\n{text}"},
+        ],
     )
-    scored = json.loads(response.content[0].text)
+    scored = json.loads(response.choices[0].message.content)
     return {**item, **scored}
 
 
@@ -202,7 +205,10 @@ def run(dry_run: bool = False):
         level=logging.INFO,
         format="%(asctime)s %(levelname)s %(message)s",
     )
-    CLIENT = anthropic.Anthropic(api_key=os.environ["ANTHROPIC_API_KEY"])
+    CLIENT = OpenAI(
+        base_url="https://api.deepseek.com/v1",
+        api_key=os.getenv("DEEPSEEK_API_KEY"),
+    )
 
     log.info("=== Monitor starting ===")
     items = asyncio.run(fetch_all())

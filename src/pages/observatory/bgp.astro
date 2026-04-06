@@ -1,0 +1,293 @@
+---
+import Observatory from '../../layouts/Observatory.astro'
+import asnStatusRaw from '../../data/asn-status.json'
+import outagesRaw from '../../data/bgp-outages.json'
+import stats from '../../content/observatory/stats.json'
+
+export const prerender = false
+
+const asnStatus: Record<string, any> = asnStatusRaw as any
+const outages: any[] = outagesRaw as any
+
+const allASNs = Object.values(asnStatus)
+
+// Sort: RED first, YELLOW, GREEN, UNKNOWN last
+const sortOrder: Record<string, number> = { RED: 0, YELLOW: 1, GREEN: 2, UNKNOWN: 3 }
+allASNs.sort((a, b) => (sortOrder[a.status] ?? 3) - (sortOrder[b.status] ?? 3))
+
+const downCount    = allASNs.filter(a => a.status === 'RED').length
+const yellowCount  = allASNs.filter(a => a.status === 'YELLOW').length
+const totalCount   = allASNs.length
+
+const thirtyDaysAgo = new Date(Date.now() - 30 * 24 * 3600 * 1000)
+const recentOutages = [...outages]
+  .filter(o => new Date(o.started_at) > thirtyDaysAgo)
+  .sort((a, b) => new Date(b.started_at).getTime() - new Date(a.started_at).getTime())
+  .slice(0, 20)
+
+function statusColor(status: string) {
+  if (status === 'GREEN')  return '#22c55e'
+  if (status === 'YELLOW') return '#f59e0b'
+  if (status === 'RED')    return '#ef4444'
+  return '#64748b'
+}
+
+function statusLabel(status: string) {
+  if (status === 'GREEN')  return 'UP'
+  if (status === 'YELLOW') return 'RECOVERING'
+  if (status === 'RED')    return 'DOWN'
+  return 'UNKNOWN'
+}
+
+function formatSince(iso: string | undefined) {
+  if (!iso) return '—'
+  const d = new Date(iso)
+  const diffMs = Date.now() - d.getTime()
+  const diffH  = Math.floor(diffMs / 3600000)
+  const diffM  = Math.floor((diffMs % 3600000) / 60000)
+  if (diffH > 48) return `${Math.floor(diffH / 24)}d ago`
+  if (diffH > 0)  return `${diffH}h ${diffM}min ago`
+  return `${diffM}min ago`
+}
+
+function formatDuration(min: number | null | undefined) {
+  if (min == null) return '⚡ Ongoing'
+  const h = Math.floor(min / 60)
+  const m = min % 60
+  return h > 0 ? `${h}h ${m}min` : `${m}min`
+}
+---
+
+<Observatory
+  title="BGP Network Status — Myanmar ASNs"
+  seoTitle="Myanmar BGP Network Status | Internet in Myanmar Observatory"
+  metaDescription={`Real-time BGP routing status for ${totalCount} Myanmar autonomous systems. Detects internet shutdowns via global route collector data.`}
+  lastUpdated={stats.lastUpdated}
+>
+  <div class="max-w-6xl mx-auto px-4 py-12">
+
+    <h1 class="font-headline text-3xl md:text-4xl mb-4">BGP Network Status</h1>
+    <p class="opacity-70 mb-2 max-w-3xl">
+      Real-time BGP routing visibility for all Myanmar autonomous systems (ASNs),
+      sourced from <a href="https://stat.ripe.net" target="_blank" rel="noopener" class="underline hover:opacity-100">RIPEstat</a>'s
+      800+ global route collectors. When a Myanmar ISP is ordered offline, its BGP prefixes
+      withdraw within minutes — before any news report.
+    </p>
+    <p class="text-xs font-mono opacity-40 mb-10">
+      🟢 Stable (up &gt;1h) &nbsp;·&nbsp; 🟡 Recovering (up &lt;1h) &nbsp;·&nbsp; 🔴 Down or severely degraded &nbsp;·&nbsp;
+      Updated every 5–30 min via VPS cron
+    </p>
+
+    <!-- Stats row -->
+    <div class="grid grid-cols-3 gap-4 mb-10">
+      <div class="border border-white/10 rounded-lg p-5">
+        <div class="font-mono text-xs opacity-40 uppercase tracking-widest mb-1">Monitored</div>
+        <div class="text-3xl font-bold">{totalCount}</div>
+        <div class="text-xs opacity-50 mt-1">Myanmar ASNs</div>
+      </div>
+      <div class={`border rounded-lg p-5 ${downCount > 0 ? 'border-[#ef4444]/40 bg-[#ef4444]/5' : 'border-white/10'}`}>
+        <div class="font-mono text-xs opacity-40 uppercase tracking-widest mb-1">Currently down</div>
+        <div class="text-3xl font-bold" style={downCount > 0 ? 'color:#ef4444' : ''}>{downCount}</div>
+        <div class="text-xs opacity-50 mt-1">BGP withdrawal detected</div>
+      </div>
+      <div class={`border rounded-lg p-5 ${yellowCount > 0 ? 'border-[#f59e0b]/40 bg-[#f59e0b]/5' : 'border-white/10'}`}>
+        <div class="font-mono text-xs opacity-40 uppercase tracking-widest mb-1">Recovering</div>
+        <div class="text-3xl font-bold" style={yellowCount > 0 ? 'color:#f59e0b' : ''}>{yellowCount}</div>
+        <div class="text-xs opacity-50 mt-1">Back online, monitoring</div>
+      </div>
+    </div>
+
+    <!-- ASN table -->
+    {totalCount === 0 ? (
+      <div class="border border-white/10 rounded-lg p-8 text-center opacity-50 mb-12">
+        <p class="font-mono text-sm">No data yet — run <code>bgp_monitor.py</code> to populate.</p>
+      </div>
+    ) : (
+      <div class="mb-12">
+        <h2 class="font-headline text-xl mb-4">All Myanmar Networks</h2>
+        <div class="overflow-x-auto">
+          <table class="w-full text-sm">
+            <thead>
+              <tr class="border-b border-white/10 text-left">
+                <th class="pb-2 pr-4 font-mono text-xs opacity-40 uppercase tracking-widest">Network</th>
+                <th class="pb-2 pr-4 font-mono text-xs opacity-40 uppercase tracking-widest">ASN</th>
+                <th class="pb-2 pr-4 font-mono text-xs opacity-40 uppercase tracking-widest text-center">Status</th>
+                <th class="pb-2 pr-4 font-mono text-xs opacity-40 uppercase tracking-widest text-right">Visibility</th>
+                <th class="pb-2 pr-4 font-mono text-xs opacity-40 uppercase tracking-widest text-right">Since</th>
+                <th class="pb-2 font-mono text-xs opacity-40 uppercase tracking-widest"></th>
+              </tr>
+            </thead>
+            <tbody>
+              {allASNs.map(asn => (
+                <tr class="border-b border-white/5 hover:bg-white/2">
+                  <td class="py-2 pr-4 max-w-[200px] truncate" title={asn.name}>{asn.name || asn.asn}</td>
+                  <td class="py-2 pr-4 font-mono text-xs opacity-60">{asn.asn}</td>
+                  <td class="py-2 pr-4 text-center">
+                    <span class="inline-flex items-center gap-1.5">
+                      <span
+                        class="inline-block w-2.5 h-2.5 rounded-full"
+                        style={`background:${statusColor(asn.status)};box-shadow:0 0 6px ${statusColor(asn.status)}80`}
+                      />
+                      <span class="font-mono text-xs" style={`color:${statusColor(asn.status)}`}>
+                        {statusLabel(asn.status)}
+                      </span>
+                    </span>
+                  </td>
+                  <td class="py-2 pr-4 text-right font-mono text-xs">
+                    {asn.visibility_pct != null
+                      ? `${Math.round(asn.visibility_pct * 100)}%`
+                      : '—'}
+                  </td>
+                  <td class="py-2 pr-4 text-right font-mono text-xs opacity-50">
+                    {formatSince(asn.status_since)}
+                  </td>
+                  <td class="py-2 text-right">
+                    <a
+                      href={`/observatory/bgp/${asn.asn}`}
+                      class="font-mono text-xs opacity-40 hover:opacity-100 hover:text-[color:var(--color-accent)] underline"
+                    >
+                      history →
+                    </a>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    )}
+
+    <!-- Outage history chart -->
+    <div class="mb-10">
+      <h2 class="font-headline text-xl mb-2">Outage Events — Last 12 Months</h2>
+      <p class="text-sm opacity-50 mb-4">
+        Number of BGP withdrawal events per month across all Myanmar ASNs.
+        Each bar represents one calendar month.
+      </p>
+      <div class="border border-white/10 rounded-lg p-4 overflow-x-auto">
+        <div id="bgp-chart" class="w-full" style="min-height:180px"></div>
+      </div>
+      <div class="text-xs font-mono opacity-30 mt-2">
+        Source: <a href="https://stat.ripe.net" target="_blank" rel="noopener" class="hover:opacity-100 underline">RIPEstat</a>
+        + <a href="https://ioda.inetintel.cc.gatech.edu" target="_blank" rel="noopener" class="hover:opacity-100 underline">IODA</a>
+        · {outages.length} total outage events recorded
+      </div>
+    </div>
+
+    <!-- Outage event log -->
+    <div>
+      <h2 class="font-headline text-xl mb-4">Recent Outage Events (30 days)</h2>
+      {recentOutages.length === 0 ? (
+        <p class="opacity-40 text-sm font-mono">No outage events in the last 30 days.</p>
+      ) : (
+        <div class="overflow-x-auto">
+          <table class="w-full text-sm font-mono">
+            <thead>
+              <tr class="border-b border-white/10 text-left opacity-50">
+                <th class="pb-2 pr-4">Network</th>
+                <th class="pb-2 pr-4">ASN</th>
+                <th class="pb-2 pr-4">Started (UTC)</th>
+                <th class="pb-2 pr-4 text-right">Duration</th>
+                <th class="pb-2 pr-4 text-center">IODA</th>
+                <th class="pb-2 text-center">Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              {recentOutages.map(outage => (
+                <tr class={`border-b border-white/5 hover:bg-white/2 ${!outage.resolved ? 'bg-[#ef4444]/5' : ''}`}>
+                  <td class="py-2 pr-4 max-w-[180px] truncate" title={outage.name}>{outage.name}</td>
+                  <td class="py-2 pr-4 text-xs opacity-60">
+                    <a href={`/observatory/bgp/${outage.asn}`} class="underline hover:opacity-100">{outage.asn}</a>
+                  </td>
+                  <td class="py-2 pr-4 text-xs opacity-70">
+                    {new Date(outage.started_at).toISOString().replace('T', ' ').slice(0, 16)}
+                  </td>
+                  <td class="py-2 pr-4 text-right text-xs" style={!outage.resolved ? 'color:#ef4444' : ''}>
+                    {formatDuration(outage.duration_minutes)}
+                  </td>
+                  <td class="py-2 pr-4 text-center text-xs">
+                    {outage.ioda_confirmed ? '✅' : '—'}
+                  </td>
+                  <td class="py-2 text-center">
+                    <span class={`text-xs px-2 py-0.5 rounded ${outage.resolved ? 'bg-white/10 opacity-50' : 'bg-[#ef4444]/20 text-[#ef4444]'}`}>
+                      {outage.resolved ? 'resolved' : 'active'}
+                    </span>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      )}
+    </div>
+
+  </div>
+
+  <script define:vars={{ chartOutages: outages }}>
+    const el = document.getElementById('bgp-chart')
+    if (!el) return
+
+    if (!chartOutages.length) {
+      el.innerHTML = '<p style="opacity:.4;font-size:.75rem;padding:1rem;font-family:monospace">No outage data yet.</p>'
+      return
+    }
+
+    // Build last 12 months array
+    const months = []
+    const now = new Date()
+    for (let i = 11; i >= 0; i--) {
+      const d = new Date(now.getFullYear(), now.getMonth() - i, 1)
+      months.push(d.toISOString().slice(0, 7)) // "YYYY-MM"
+    }
+
+    // Count outages per month
+    const counts = {}
+    months.forEach(m => counts[m] = 0)
+    chartOutages.forEach(o => {
+      const m = o.started_at.slice(0, 7)
+      if (counts[m] !== undefined) counts[m]++
+    })
+
+    const data = months.map(m => ({ month: m, count: counts[m] }))
+    const maxCount = Math.max(...data.map(d => d.count), 1)
+    const avg = data.reduce((s, d) => s + d.count, 0) / data.length
+
+    const W = Math.max(el.clientWidth || 900, 400)
+    const H = 180
+    const pad = { top: 10, right: 16, bottom: 28, left: 32 }
+    const innerW = W - pad.left - pad.right
+    const innerH = H - pad.top - pad.bottom
+    const barW = innerW / data.length
+
+    const bars = data.map((d, i) => {
+      const h = Math.max(d.count > 0 ? 2 : 0, (d.count / maxCount) * innerH)
+      const x = pad.left + i * barW + 1
+      const y = pad.top + innerH - h
+      const tip = `${d.month}: ${d.count} outage event${d.count !== 1 ? 's' : ''}`
+      return `<rect x="${x}" y="${y}" width="${Math.max(barW - 2, 1)}" height="${h}" fill="#ef4444" opacity="0.75" rx="2"><title>${tip}</title></rect>`
+    }).join('')
+
+    // X labels — month name
+    const xLabels = data.map((d, i) => {
+      const x = pad.left + i * barW + barW / 2
+      const label = new Date(d.month + '-15').toLocaleDateString('en-US', { month: 'short' })
+      return `<text x="${x}" y="${H - 4}" fill="#E2E8F0" opacity="0.35" font-size="9" font-family="monospace" text-anchor="middle">${label}</text>`
+    }).join('')
+
+    // Y labels
+    const ySteps = [0, Math.ceil(maxCount / 2), maxCount]
+    const yLabels = ySteps.map(v => {
+      const y = pad.top + innerH - (v / maxCount) * innerH
+      return `<text x="${pad.left - 4}" y="${y + 3}" fill="#E2E8F0" opacity="0.35" font-size="9" font-family="monospace" text-anchor="end">${v}</text><line x1="${pad.left}" y1="${y}" x2="${pad.left + innerW}" y2="${y}" stroke="white" opacity="0.05"/>`
+    }).join('')
+
+    // Average line
+    const avgY = pad.top + innerH - (avg / maxCount) * innerH
+    const avgLine = avg > 0
+      ? `<line x1="${pad.left}" y1="${avgY}" x2="${pad.left + innerW}" y2="${avgY}" stroke="#f59e0b" stroke-dasharray="4,4" stroke-width="1" opacity="0.6"/>
+         <text x="${pad.left + innerW - 4}" y="${avgY - 4}" fill="#f59e0b" font-size="9" font-family="monospace" text-anchor="end" opacity="0.8">avg ${avg.toFixed(1)}/mo</text>`
+      : ''
+
+    el.innerHTML = `<svg viewBox="0 0 ${W} ${H}" width="100%" style="display:block;overflow:visible">${yLabels}${bars}${xLabels}${avgLine}</svg>`
+  </script>
+</Observatory>
