@@ -376,17 +376,35 @@ async def cmd_approve(update: Update, context: ContextTypes.DEFAULT_TYPE) -> Non
         preview_url = result.get("preview_url", "")
         preview_slug = result.get("preview_slug", "")
         real_slug = result.get("real_slug", slug)
+        mdx_path = result.get("mdx_path", "")
+
+        # Validate source links — remove dead ones automatically
+        link_note = ""
+        if mdx_path:
+            try:
+                sys.path.insert(0, str(AGENTS_DIR / "utils"))
+                from link_validator import validate_article_sources, remove_broken_sources
+                link_result = validate_article_sources(mdx_path)
+                broken = link_result.get("broken", [])
+                if broken:
+                    removed = remove_broken_sources(mdx_path, [r["url"] for r in broken])
+                    dead_list = "\n".join(f"  • {r['url']}" for r in broken)
+                    link_note = f"\n\n⚠️ {removed} dead source link(s) removed:\n{dead_list}"
+                    log.info(f"Removed {removed} dead links from {mdx_path}")
+            except Exception as e:
+                log.warning(f"Link validation failed: {e}")
 
         # Store mapping so /publish knows what to rename
         await db_set("pending_preview_slug", preview_slug)
         await db_set("pending_real_slug", real_slug)
-        await db_set("pending_mdx_path", result.get("mdx_path", ""))
+        await db_set("pending_mdx_path", mdx_path)
 
         if preview_url:
             await update.message.reply_text(
                 f"✅ Draft ready — preview link (secret, share only with Anna):\n\n"
                 f"{preview_url}\n\n"
-                f"Reply /publish to push to GitHub with slug `{real_slug}`, or send revision notes.",
+                f"Reply /publish to push to GitHub with slug `{real_slug}`, or send revision notes."
+                f"{link_note}",
             )
         else:
             await update.message.reply_text(f"✅ Done:\n```\n{out[-600:]}\n```", parse_mode="Markdown")

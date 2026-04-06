@@ -1,44 +1,121 @@
 ---
 import Observatory from '../../layouts/Observatory.astro'
 import stats from '../../content/observatory/stats.json'
+import blockedData from '../../data/blocked-sites.json'
 
 export const prerender = false
+
+const categoryColors: Record<string, string> = {
+  'Social Media':       'var(--color-danger)',
+  'News & Media':       'var(--color-warning)',
+  'Civil Society':      '#a78bfa',
+  'VPN & Circumvention':'var(--color-accent)',
+}
 ---
 <Observatory
   title="Blocked Sites Monitor — Myanmar"
   seoTitle="Myanmar Blocked Sites Monitor | Internet in Myanmar"
-  metaDescription="Confirmed blocked domains across Myanmar ISPs. Updated from OONI measurement data."
-  lastUpdated={stats.lastUpdated}
+  metaDescription="Confirmed blocked domains across Myanmar ISPs based on OONI measurements. Updated twice daily."
+  lastUpdated={blockedData.lastUpdated}
 >
   <div class="max-w-5xl mx-auto px-4 py-12">
     <h1 class="font-headline text-3xl md:text-4xl mb-4">Blocked Sites Monitor</h1>
     <p class="opacity-70 mb-8 max-w-2xl">
-      Domains confirmed blocked across Myanmar ISPs based on OONI measurement data.
-      A site is listed only when blocking is confirmed by multiple independent measurements.
+      Domains with high censorship anomaly rates across Myanmar ISPs, based on
+      <a href="https://ooni.org/country/MM" target="_blank" rel="noopener" class="text-[color:var(--color-accent)] hover:underline">OONI Explorer</a>
+      web_connectivity measurements since January 2024.
+      A domain is listed when ≥60% of tests return anomalous results across ≥10 measurements.
     </p>
 
-    <div class="grid grid-cols-2 md:grid-cols-3 gap-4 mb-8">
+    <!-- Summary stats -->
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10">
       <div class="border border-white/10 rounded-lg p-4 text-center">
-        <div class="font-mono text-2xl font-bold text-[color:var(--color-danger)]">{stats.blockedSites}</div>
-        <div class="text-xs opacity-60 mt-1">Confirmed blocked</div>
+        <div class="font-mono text-2xl font-bold text-[color:var(--color-danger)] mb-1">{stats.blockedSites}</div>
+        <div class="text-xs opacity-60">Total monitored</div>
       </div>
-      <div class="border border-white/10 rounded-lg p-4 text-center">
-        <div class="font-mono text-2xl font-bold text-[color:var(--color-warning)]">4</div>
-        <div class="text-xs opacity-60 mt-1">ISPs monitored</div>
-      </div>
-      <div class="border border-white/10 rounded-lg p-4 text-center">
-        <div class="font-mono text-2xl font-bold text-[color:var(--color-accent)]">MM</div>
-        <div class="text-xs opacity-60 mt-1">Country</div>
-      </div>
+      {blockedData.categories.map(cat => (
+        <div class="border border-white/10 rounded-lg p-4 text-center">
+          <div class="font-mono text-2xl font-bold mb-1" style={`color: ${categoryColors[cat.name] ?? 'var(--color-accent)'}`}>{cat.count}</div>
+          <div class="text-xs opacity-60">{cat.name}</div>
+        </div>
+      ))}
     </div>
 
-    <div class="text-center py-16 border border-white/10 rounded-lg opacity-50">
-      <div class="font-mono text-sm mb-2">Blocked sites database coming soon</div>
-      <div class="text-xs">OONI watcher agent populates this automatically</div>
+    <!-- Category filter tabs -->
+    <div id="filter-tabs" class="flex flex-wrap gap-2 mb-6">
+      <button data-cat="all" class="filter-btn active px-3 py-1.5 rounded font-mono text-xs border border-white/20 bg-white/10">
+        All ({blockedData.totalDomains})
+      </button>
+      {blockedData.categories.map(cat => (
+        <button data-cat={cat.name} class="filter-btn px-3 py-1.5 rounded font-mono text-xs border border-white/10 hover:border-white/30 transition-colors"
+          style={`color: ${categoryColors[cat.name] ?? '#fff'}`}>
+          {cat.name} ({cat.count})
+        </button>
+      ))}
     </div>
 
-    <div class="mt-8 text-xs font-mono opacity-40">
-      Source: <a href="https://ooni.org/country/MM" target="_blank" rel="noopener" class="hover:opacity-100">OONI Explorer — Myanmar</a>
+    <!-- Blocked sites table -->
+    <div class="overflow-x-auto">
+      <table class="w-full text-sm" id="blocked-table">
+        <thead>
+          <tr class="border-b border-white/10 text-left font-mono text-xs opacity-50">
+            <th class="pb-2 pr-4">Domain</th>
+            <th class="pb-2 pr-4">Category</th>
+            <th class="pb-2 pr-4 text-right">Anomaly Rate</th>
+            <th class="pb-2 pr-4 text-right">Tests</th>
+            <th class="pb-2">OONI</th>
+          </tr>
+        </thead>
+        <tbody>
+          {blockedData.sites.map(site => (
+            <tr class="border-b border-white/5 hover:bg-white/2 site-row" data-cat={site.category}>
+              <td class="py-2 pr-4 font-mono text-xs">{site.domain}</td>
+              <td class="py-2 pr-4">
+                <span class="text-xs px-2 py-0.5 rounded-full border" style={`color: ${categoryColors[site.category] ?? '#fff'}; border-color: ${categoryColors[site.category] ?? '#fff'}40`}>
+                  {site.category}
+                </span>
+              </td>
+              <td class="py-2 pr-4 text-right font-mono text-xs">
+                <!-- Inline bar -->
+                <span class="inline-flex items-center gap-2">
+                  <span class="block h-1.5 rounded" style={`width:${Math.round(site.rate * 0.6)}px; background:${site.rate > 80 ? 'var(--color-danger)' : site.rate > 60 ? 'var(--color-warning)' : 'var(--color-accent)'}`}></span>
+                  <span style={site.rate > 80 ? 'color:var(--color-danger)' : site.rate > 60 ? 'color:var(--color-warning)' : ''}>{site.rate}%</span>
+                </span>
+              </td>
+              <td class="py-2 pr-4 text-right font-mono text-xs opacity-50">{site.total.toLocaleString()}</td>
+              <td class="py-2">
+                <a href={`https://explorer.ooni.org/chart/mat?probe_cc=MM&test_name=web_connectivity&domain=${site.domain}&since=2024-01-01`}
+                  target="_blank" rel="noopener"
+                  class="text-[color:var(--color-accent)] font-mono text-xs hover:underline opacity-60 hover:opacity-100">
+                  chart →
+                </a>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+
+    <div class="mt-8 text-xs font-mono opacity-30">
+      Source: <a href="https://api.ooni.io/api/v1/aggregation?probe_cc=MM&test_name=web_connectivity&since=2024-01-01" target="_blank" rel="noopener" class="hover:opacity-100 underline">OONI API aggregation</a>
+      · Period: {blockedData.periodStart} – present · Updated by ooni_watcher.py agent
     </div>
   </div>
+
+  <script>
+    // Category filter
+    const tabs = document.querySelectorAll<HTMLButtonElement>('.filter-btn')
+    const rows = document.querySelectorAll<HTMLTableRowElement>('.site-row')
+
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        tabs.forEach(t => t.classList.remove('active', 'bg-white/10'))
+        tab.classList.add('active', 'bg-white/10')
+        const cat = tab.dataset.cat
+        rows.forEach(row => {
+          row.style.display = (cat === 'all' || row.dataset.cat === cat) ? '' : 'none'
+        })
+      })
+    })
+  </script>
 </Observatory>

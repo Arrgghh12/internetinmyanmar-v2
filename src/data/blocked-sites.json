@@ -1,0 +1,319 @@
+{
+  "lastUpdated": "2026-04-05T00:00:00Z",
+  "totalDomains": 42,
+  "periodStart": "2024-01-01",
+  "categories": [
+    {
+      "name": "News & Media",
+      "count": 13
+    },
+    {
+      "name": "VPN & Circumvention",
+      "count": 13
+    },
+    {
+      "name": "Civil Society",
+      "count": 9
+    },
+    {
+      "name": "Social Media",
+      "count": 7
+    }
+  ],
+  "sites": [
+    {
+      "domain": "www.facebook.com",
+      "category": "Social Media",
+      "anomaly_count": 17280,
+      "total": 19328,
+      "rate": 89
+    },
+    {
+      "domain": "www.instagram.com",
+      "category": "Social Media",
+      "anomaly_count": 12360,
+      "total": 19068,
+      "rate": 65
+    },
+    {
+      "domain": "twitter.com",
+      "category": "Social Media",
+      "anomaly_count": 11873,
+      "total": 19336,
+      "rate": 61
+    },
+    {
+      "domain": "x.com",
+      "category": "Social Media",
+      "anomaly_count": 1441,
+      "total": 1904,
+      "rate": 76
+    },
+    {
+      "domain": "www.whatsapp.com",
+      "category": "Social Media",
+      "anomaly_count": 1848,
+      "total": 2237,
+      "rate": 83
+    },
+    {
+      "domain": "www.messenger.com",
+      "category": "Social Media",
+      "anomaly_count": 652,
+      "total": 737,
+      "rate": 88
+    },
+    {
+      "domain": "signal.org",
+      "category": "Social Media",
+      "anomaly_count": 1437,
+      "total": 2209,
+      "rate": 65
+    },
+    {
+      "domain": "burma.irrawaddy.com",
+      "category": "News & Media",
+      "anomaly_count": 1153,
+      "total": 1495,
+      "rate": 77
+    },
+    {
+      "domain": "myanmar-now.org",
+      "category": "News & Media",
+      "anomaly_count": 841,
+      "total": 1081,
+      "rate": 78
+    },
+    {
+      "domain": "mizzima.com",
+      "category": "News & Media",
+      "anomaly_count": 854,
+      "total": 1140,
+      "rate": 75
+    },
+    {
+      "domain": "burmese.dvb.no",
+      "category": "News & Media",
+      "anomaly_count": 843,
+      "total": 1277,
+      "rate": 66
+    },
+    {
+      "domain": "www.rfa.org",
+      "category": "News & Media",
+      "anomaly_count": 727,
+      "total": 930,
+      "rate": 78
+    },
+    {
+      "domain": "7day.news",
+      "category": "News & Media",
+      "anomaly_count": 1126,
+      "total": 1716,
+      "rate": 66
+    },
+    {
+      "domain": "hiburma.net",
+      "category": "News & Media",
+      "anomaly_count": 906,
+      "total": 1127,
+      "rate": 80
+    },
+    {
+      "domain": "burmese.narinjara.com",
+      "category": "News & Media",
+      "anomaly_count": 895,
+      "total": 1261,
+      "rate": 71
+    },
+    {
+      "domain": "www.mizzimaburmese.com",
+      "category": "News & Media",
+      "anomaly_count": 642,
+      "total": 789,
+      "rate": 81
+    },
+    {
+      "domain": "www.dmgburmese.com",
+      "category": "News & Media",
+      "anomaly_count": 670,
+      "total": 862,
+      "rate": 78
+    },
+    {
+      "domain": "www.bnionline.net",
+      "category": "News & Media",
+      "anomaly_count": 654,
+      "total": 811,
+      "rate": 81
+    },
+    {
+      "domain": "www.boommyanmar.com",
+      "category": "News & Media",
+      "anomaly_count": 715,
+      "total": 906,
+      "rate": 79
+    },
+    {
+      "domain": "www.monnews.org",
+      "category": "News & Media",
+      "anomaly_count": 642,
+      "total": 791,
+      "rate": 81
+    },
+    {
+      "domain": "burmacampaign.org.uk",
+      "category": "Civil Society",
+      "anomaly_count": 1040,
+      "total": 1292,
+      "rate": 80
+    },
+    {
+      "domain": "www.savemyanmar.org",
+      "category": "Civil Society",
+      "anomaly_count": 978,
+      "total": 997,
+      "rate": 98
+    },
+    {
+      "domain": "www.athanmyanmar.org",
+      "category": "Civil Society",
+      "anomaly_count": 678,
+      "total": 845,
+      "rate": 80
+    },
+    {
+      "domain": "progressivevoicemyanmar.org",
+      "category": "Civil Society",
+      "anomaly_count": 716,
+      "total": 926,
+      "rate": 77
+    },
+    {
+      "domain": "khrg.org",
+      "category": "Civil Society",
+      "anomaly_count": 762,
+      "total": 1119,
+      "rate": 68
+    },
+    {
+      "domain": "www.phandeeyar.org",
+      "category": "Civil Society",
+      "anomaly_count": 700,
+      "total": 787,
+      "rate": 89
+    },
+    {
+      "domain": "can-myanmar.org",
+      "category": "Civil Society",
+      "anomaly_count": 1029,
+      "total": 1163,
+      "rate": 88
+    },
+    {
+      "domain": "nwayoomyanmar.com",
+      "category": "Civil Society",
+      "anomaly_count": 1054,
+      "total": 1214,
+      "rate": 87
+    },
+    {
+      "domain": "birmanie.ch",
+      "category": "Civil Society",
+      "anomaly_count": 1052,
+      "total": 1360,
+      "rate": 77
+    },
+    {
+      "domain": "api.protonvpn.ch",
+      "category": "VPN & Circumvention",
+      "anomaly_count": 1010,
+      "total": 1386,
+      "rate": 73
+    },
+    {
+      "domain": "getoutline.org",
+      "category": "VPN & Circumvention",
+      "anomaly_count": 778,
+      "total": 1011,
+      "rate": 77
+    },
+    {
+      "domain": "hide.me",
+      "category": "VPN & Circumvention",
+      "anomaly_count": 899,
+      "total": 1173,
+      "rate": 77
+    },
+    {
+      "domain": "psiphon.ca",
+      "category": "VPN & Circumvention",
+      "anomaly_count": 690,
+      "total": 919,
+      "rate": 75
+    },
+    {
+      "domain": "openvpn.net",
+      "category": "VPN & Circumvention",
+      "anomaly_count": 710,
+      "total": 995,
+      "rate": 71
+    },
+    {
+      "domain": "hola.org",
+      "category": "VPN & Circumvention",
+      "anomaly_count": 750,
+      "total": 955,
+      "rate": 79
+    },
+    {
+      "domain": "surfshark.com",
+      "category": "VPN & Circumvention",
+      "anomaly_count": 639,
+      "total": 917,
+      "rate": 70
+    },
+    {
+      "domain": "www.tunnelbear.com",
+      "category": "VPN & Circumvention",
+      "anomaly_count": 651,
+      "total": 789,
+      "rate": 83
+    },
+    {
+      "domain": "safervpn.com",
+      "category": "VPN & Circumvention",
+      "anomaly_count": 683,
+      "total": 986,
+      "rate": 69
+    },
+    {
+      "domain": "www.vpngate.net",
+      "category": "VPN & Circumvention",
+      "anomaly_count": 636,
+      "total": 730,
+      "rate": 87
+    },
+    {
+      "domain": "www.hotspotshield.com",
+      "category": "VPN & Circumvention",
+      "anomaly_count": 668,
+      "total": 856,
+      "rate": 78
+    },
+    {
+      "domain": "www.ipvanish.com",
+      "category": "VPN & Circumvention",
+      "anomaly_count": 633,
+      "total": 837,
+      "rate": 76
+    },
+    {
+      "domain": "privatevpn.com",
+      "category": "VPN & Circumvention",
+      "anomaly_count": 637,
+      "total": 886,
+      "rate": 72
+    }
+  ]
+}
