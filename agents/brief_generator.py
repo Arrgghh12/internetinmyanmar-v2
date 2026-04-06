@@ -16,9 +16,10 @@ Usage:
 import json
 import logging
 import os
+import re
 import sys
 import uuid
-from datetime import date
+from datetime import date, timedelta
 from pathlib import Path
 
 import anthropic
@@ -39,6 +40,7 @@ CLIENT = anthropic.Anthropic(api_key=os.environ.get("ANTHROPIC_API_KEY", ""))
 
 BRIEFS_DIR = AGENTS_DIR / "briefs"
 MONITOR_OUTPUT = AGENTS_DIR / "monitor_output.json"
+ARTICLES_DIR = AGENTS_DIR.parent / "src" / "content" / "articles"
 
 BRIEF_SYSTEM = (
     "You are a senior editorial assistant for Internet in Myanmar, "
@@ -61,6 +63,100 @@ BRIEF_JSON_SPEC = (
 )
 
 
+# ── Coverage deduplication ────────────────────────────────────────────────────
+
+def _build_coverage_index(days: int = 30) -> list[dict]:
+    """
+    Return a compact list of recent coverage: briefs from the last N days
+    and all published articles. Each entry: {title, excerpt, source}.
+    """
+    index = []
+    cutoff = date.today() - timedelta(days=days)
+
+    # Recent briefs (scan YYYY-MM-DD subdirs within window)
+    if BRIEFS_DIR.exists():
+        for day_dir in sorted(BRIEFS_DIR.iterdir()):
+            if not day_dir.is_dir():
+                continue
+            try:
+                dir_date = date.fromisoformat(day_dir.name)
+            except ValueError:
+                continue
+            if dir_date < cutoff:
+                continue
+            for brief_file in day_dir.glob("*.md"):
+                text = brief_file.read_text(encoding="utf-8")
+                title_match = re.search(r'^# (.+)', text, re.MULTILINE)
+                excerpt_match = re.search(r'## Excerpt\n(.+?)(?=\n##|\Z)', text, re.DOTALL)
+                if title_match:
+                    index.append({
+                        "title": title_match.group(1).strip(),
+                        "excerpt": (excerpt_match.group(1).strip()[:200] if excerpt_match else ""),
+                        "source": f"brief:{brief_file.name}",
+                        "date": day_dir.name,
+                    })
+
+    # Published articles (all .mdx files — read frontmatter title + excerpt)
+    if ARTICLES_DIR.exists():
+        for mdx in ARTICLES_DIR.glob("*.mdx"):
+            text = mdx.read_text(encoding="utf-8")
+            fm_match = re.match(r'^---\n(.*?)\n---', text, re.DOTALL)
+            if not fm_match:
+                continue
+            fm_text = fm_match.group(1)
+            title_match = re.search(r'^title:\s*["\']?(.+?)["\']?\s*$', fm_text, re.MULTILINE)
+            excerpt_match = re.search(r'^excerpt:\s*["\'](.+?)["\']', fm_text, re.MULTILINE)
+            draft_match = re.search(r'^draft:\s*(true|false)', fm_text, re.MULTILINE)
+            if title_match and (not draft_match or draft_match.group(1) == "false"):
+                index.append({
+                    "title": title_match.group(1).strip(),
+                    "excerpt": (excerpt_match.group(1).strip()[:200] if excerpt_match else ""),
+                    "source": f"article:{mdx.stem}",
+                    "date": "published",
+                })
+
+    return index
+
+
+def _check_overlap(item_title: str, item_summary: str, coverage_index: list[dict]) -> dict:
+    """
+    Ask Groq whether this item duplicates existing coverage.
+    Returns {"verdict": "DUPLICATE"|"NEW_DEVELOPMENT"|"UNIQUE", "reason": str, "related": str|None}
+    """
+    if not coverage_index:
+        return {"verdict": "UNIQUE", "reason": "no prior coverage", "related": None}
+
+    from utils.model_router import call as model_call
+
+    # Compact coverage list for the prompt
+    coverage_lines = "\n".join(
+        f"- [{e['date']}] {e['title']} | {e['excerpt'][:100]}"
+        for e in coverage_index[:40]  # cap at 40 to stay within token budget
+    )
+
+    prompt = (
+        "You are a deduplication filter for a Myanmar internet freedom news site.\n\n"
+        "NEW ITEM:\n"
+        f"Title: {item_title}\n"
+        f"Summary: {item_summary[:300]}\n\n"
+        "RECENT COVERAGE (briefs + published articles):\n"
+        f"{coverage_lines}\n\n"
+        "Is the new item:\n"
+        "A) DUPLICATE — same story, no new facts (another outlet covering what we already covered)\n"
+        "B) NEW_DEVELOPMENT — same ongoing story but with genuinely new information or escalation\n"
+        "C) UNIQUE — distinct topic not covered before\n\n"
+        "JSON only: {\"verdict\": \"DUPLICATE\"|\"NEW_DEVELOPMENT\"|\"UNIQUE\", "
+        "\"reason\": \"one sentence\", \"related\": \"title of most similar piece or null\"}"
+    )
+
+    try:
+        result = model_call("classify", prompt, max_tokens=120)
+        return json.loads(result)
+    except Exception as e:
+        log.warning(f"Overlap check failed: {e} — treating as UNIQUE")
+        return {"verdict": "UNIQUE", "reason": "check failed", "related": None}
+
+
 def _get_model(task: str) -> str:
     models = CONFIG.get("anthropic", {}).get("models", {})
     return models.get(task, "claude-sonnet-4-6")
@@ -76,6 +172,15 @@ def _get_max_tokens(task: str) -> int:
 @retry(stop=stop_after_attempt(3), wait=wait_exponential(min=2, max=10))
 def generate_brief(item: dict) -> dict:
     """Turn a scored monitor item into a brief (cron path)."""
+    prior = item.get("_prior_coverage")
+    development_note = (
+        f"\nNOTE: This is a NEW DEVELOPMENT on an ongoing story. "
+        f"Our most recent related coverage: '{prior}'. "
+        "The brief angle must focus on what is genuinely new — do not repeat what was already covered.\n"
+        if prior else ""
+    )
+    # Remove internal keys before sending to LLM
+    clean_item = {k: v for k, v in item.items() if not k.startswith("_")}
     response = CLIENT.messages.create(
         model=_get_model("brief"),
         max_tokens=_get_max_tokens("brief"),
@@ -83,7 +188,8 @@ def generate_brief(item: dict) -> dict:
         messages=[{
             "role": "user",
             "content": (
-                f"Create a brief for this news item:\n\n{json.dumps(item, indent=2)}\n\n"
+                f"Create a brief for this news item:\n\n{json.dumps(clean_item, indent=2)}\n\n"
+                + development_note
                 + BRIEF_JSON_SPEC
             ),
         }],
@@ -341,7 +447,31 @@ def run(dry_run: bool = False):
 
     log.info(f"{len(eligible)} items above score threshold {min_score}")
 
+    # Build coverage index once for the whole run
+    coverage_index = _build_coverage_index(days=30)
+    log.info(f"Coverage index: {len(coverage_index)} recent briefs/articles loaded")
+
     for item in eligible:
+        title = item.get("title", "")
+        summary = item.get("summary", item.get("description", ""))
+
+        overlap = _check_overlap(title, summary, coverage_index)
+        verdict = overlap.get("verdict", "UNIQUE")
+
+        if verdict == "DUPLICATE":
+            log.info(
+                f"SKIP (duplicate) — {title!r} | "
+                f"Reason: {overlap.get('reason')} | "
+                f"Related: {overlap.get('related')}"
+            )
+            continue
+
+        if verdict == "NEW_DEVELOPMENT":
+            log.info(f"NEW DEVELOPMENT — {title!r} | Related: {overlap.get('related')}")
+            # Flag in the item so the brief prompt can reference prior coverage
+            item["_prior_coverage"] = overlap.get("related")
+            item["_is_new_development"] = True
+
         try:
             brief = generate_brief(item)
             brief["id"] = str(uuid.uuid4())

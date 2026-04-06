@@ -39,6 +39,12 @@ sources:
       reliability: high
       note: "Cloudflare traffic anomalies Myanmar — requires CF API token"
 
+    ioda_api:
+      url: "https://api.ioda.inetintel.cc.gatech.edu/v2/outages/country/MM"
+      type: api
+      reliability: high
+      note: "Georgia Tech IODA — internet outage detection, complements OONI"
+
   # TIER 2 — Wire services (Reuters/AP/BBC via Google News RSS)
   tier2_wire:
     reuters_myanmar:
@@ -135,6 +141,12 @@ sources:
       url: "https://www.article19.org/tag/myanmar/feed/"
       type: rss
       reliability: high
+
+    amnesty_myanmar:
+      url: "https://www.amnesty.org/en/tag/myanmar/feed/"
+      type: rss
+      reliability: high
+      note: "Amnesty International Myanmar — human rights alerts"
 
   # TIER 2 — Digital rights organizations
   tier2_rights:

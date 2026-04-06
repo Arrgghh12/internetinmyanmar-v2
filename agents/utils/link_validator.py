@@ -20,15 +20,15 @@ import yaml
 
 log = logging.getLogger(__name__)
 
-TIMEOUT = 10
-MAX_CONCURRENT = 10
-# Some domains block bots — treat as valid if they return these (not 404)
+TIMEOUT = 12
+MAX_CONCURRENT = 8
+# Treat these HTTP codes as "site exists, just bot-blocking" — NOT dead
 TREAT_AS_OK = {301, 302, 303, 307, 308, 401, 403, 405, 429}
-# Known paywalls/blocks that are legitimate
-ALWAYS_VALID_DOMAINS = {
+# These domains aggressively block bots but are reliable — only skip
+# if they return ≥400 but NOT 404. A 404 still means dead page.
+BOT_BLOCKING_DOMAINS = {
     "freedomhouse.org", "rsf.org", "hrw.org", "cpj.org",
-    "article19.org", "accessnow.org", "citizenlab.ca",
-    "ooni.org", "netblocks.org",
+    "article19.org", "citizenlab.ca", "netblocks.org",
 }
 
 
@@ -36,15 +36,21 @@ async def check_url(client: httpx.AsyncClient, url: str) -> dict:
     """Check a single URL. Returns {url, status, ok, error}."""
     from urllib.parse import urlparse
     domain = urlparse(url).netloc.lstrip("www.")
-    if any(domain.endswith(d) or domain == d for d in ALWAYS_VALID_DOMAINS):
-        return {"url": url, "status": 200, "ok": True, "error": None, "skipped": True}
+    is_bot_blocking = any(domain.endswith(d) or domain == d for d in BOT_BLOCKING_DOMAINS)
     try:
         resp = await client.head(url, timeout=TIMEOUT, follow_redirects=True)
-        if resp.status_code == 405:
-            # HEAD not allowed — try GET
+        status = resp.status_code
+        if status == 405:
             resp = await client.get(url, timeout=TIMEOUT, follow_redirects=True)
-        ok = resp.status_code < 400 or resp.status_code in TREAT_AS_OK
-        return {"url": url, "status": resp.status_code, "ok": ok, "error": None}
+            status = resp.status_code
+        # 404 is always dead — even on bot-blocking domains
+        if status == 404:
+            return {"url": url, "status": status, "ok": False, "error": "404 Not Found"}
+        # Bot-blocking domains: 403/429 etc = site exists, just blocking crawlers
+        if is_bot_blocking and status in TREAT_AS_OK:
+            return {"url": url, "status": status, "ok": True, "error": None}
+        ok = status < 400 or status in TREAT_AS_OK
+        return {"url": url, "status": status, "ok": ok, "error": None}
     except httpx.TimeoutException:
         return {"url": url, "status": None, "ok": False, "error": "timeout"}
     except httpx.ConnectError:
@@ -95,11 +101,9 @@ def validate_article_sources(mdx_path: str) -> dict:
 
     results = asyncio.run(validate_urls(urls))
 
-    valid, broken, skipped = [], [], []
+    valid, broken = [], []
     for r in results:
-        if r.get("skipped"):
-            skipped.append(r)
-        elif r["ok"]:
+        if r["ok"]:
             valid.append(r)
         else:
             broken.append(r)
@@ -108,7 +112,7 @@ def validate_article_sources(mdx_path: str) -> dict:
     return {
         "valid": valid,
         "broken": broken,
-        "skipped": skipped,
+        "skipped": [],
         "urls_checked": len(urls),
     }
 

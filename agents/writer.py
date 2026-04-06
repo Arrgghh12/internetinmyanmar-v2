@@ -44,7 +44,15 @@ SYSTEM_PROMPT = (
     "Target 1200–1800 words. "
     "Include 3–5 internal links with descriptive anchor text. "
     "No keyword stuffing. No sensationalism. "
-    "First character of your response = first character of the article body."
+    "First character of your response = first character of the article body.\n\n"
+    "CRITICAL — SOURCE LINKS:\n"
+    "When you mention external organizations or reports inline, embed a real hyperlink using markdown: "
+    "[anchor text](URL). Only use URLs you are certain exist. Prefer top-level or well-known "
+    "section URLs (e.g. https://explorer.ooni.org/country/MM, https://rsf.org/en/myanmar, "
+    "https://freedomhouse.org/country/myanmar/freedom-net/2025, "
+    "https://citizenlab.ca/tag/myanmar/, https://www.accessnow.org/issue/internet-shutdowns/). "
+    "NEVER invent URL paths. If unsure of the exact URL, use only the root domain "
+    "(e.g. https://rsf.org) or omit the link entirely. A missing link is better than a 404."
 )
 
 
