@@ -26,21 +26,21 @@
     "name": "YTCL-AS-AP Yatanarpon Teleport Company Limited",
     "status": "DOWN",
     "started_at": "2026-04-07T07:03:10.572510+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-07T07:32:52.057865+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS149487",
     "name": "MCLOCCL-AS-AP MOC COMPANY LIMITED",
     "status": "DOWN",
     "started_at": "2026-04-07T07:03:27.691827+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-07T07:32:54.321939+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   }
 ]
