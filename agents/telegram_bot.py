@@ -34,7 +34,7 @@ from telegram.ext import (
     filters,
 )
 
-load_dotenv()
+load_dotenv(Path(__file__).parent / ".env")
 
 # ── Config ─────────────────────────────────────────────────────────────────
 
@@ -279,17 +279,40 @@ async def cmd_list(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
         await auth_reply(update, "📋 No pending briefs.\nUse `/draft [url]` or `/topic [description]` to create one.")
         return
 
-    lines = [f"📋 *Pending briefs ({len(briefs)}):*\n"]
-    for i, b in enumerate(briefs, 1):
-        lines.append(f"[{i}] {b['title']} _{b['date']}_")
-    lines.append("\nUse `/pick [n]` to select one.")
+    # Support pagination: /list [page]  (10 per page)
+    PAGE_SIZE = 10
+    try:
+        page = int(context.args[0]) if context.args else 1
+    except (ValueError, IndexError):
+        page = 1
+    page = max(1, page)
+    total_pages = (len(briefs) + PAGE_SIZE - 1) // PAGE_SIZE
+    page = min(page, total_pages)
+
+    start = (page - 1) * PAGE_SIZE
+    end   = start + PAGE_SIZE
+    page_briefs = briefs[start:end]
 
     active = await db_get("active_brief_path")
-    if active:
-        lines.append(f"Current active: `{Path(active).stem}`")
-    else:
-        lines.append("Current active: none")
+    active_stem = Path(active).stem if active else None
 
+    header = f"📋 *Pending briefs — {len(briefs)} total"
+    if total_pages > 1:
+        header += f" (page {page}/{total_pages})"
+    header += ":*\n"
+
+    lines = [header]
+    for i, b in enumerate(page_briefs, start + 1):
+        marker = "▶️ " if active_stem and b["slug"] == active_stem else ""
+        lines.append(f"{marker}[{i}] {b['title']}")
+
+    if total_pages > 1:
+        nav = []
+        if page > 1: nav.append(f"`/list {page - 1}` ←")
+        if page < total_pages: nav.append(f"→ `/list {page + 1}`")
+        lines.append("\n" + "  ".join(nav))
+
+    lines.append(f"\nUse `/pick [n]` to read and activate a brief.")
     await auth_reply(update, "\n".join(lines))
 
 
@@ -298,20 +321,33 @@ async def cmd_list(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
 async def cmd_pick(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     if not authorized(update): return
     if not context.args or not context.args[0].isdigit():
-        await auth_reply(update, "Usage: `/pick [number]`\nUse `/list` first.")
+        await auth_reply(update, "Usage: `/pick [number]`\nUse `/list` to see numbers.")
         return
 
     n = int(context.args[0])
     briefs = get_pending_briefs()
     if n < 1 or n > len(briefs):
-        await auth_reply(update, f"❌ No brief #{n}. Use `/list` to see options.")
+        await auth_reply(
+            update,
+            f"❌ No brief #{n} — there are {len(briefs)} pending.\n"
+            f"Use `/list` to see them (10 per page)."
+        )
         return
 
     brief = briefs[n - 1]
     await db_set("active_brief_path", brief["path"])
     content = _read_brief(brief["path"])
-    await update.message.reply_text(f"📋 *Brief #{n} — now active:*\n\n{content[:3000]}", parse_mode="Markdown")
-    await update.message.reply_text("→ `/approve` · `/amend [notes]` · `/reject [reason]`", parse_mode="Markdown")
+    # Send in two chunks if needed — Telegram 4096 char limit
+    header = f"📋 *Brief #{n} of {len(briefs)} — {brief['title']}*\n\n"
+    body = content[:3800]
+    await update.message.reply_text(header + body, parse_mode="Markdown")
+    await update.message.reply_text(
+        f"✅ Brief #{n} active  ({n}/{len(briefs)} pending)\n"
+        f"→ `/approve` to write  · `/amend [notes]` to adjust  · `/reject` to skip\n"
+        f"→ `/pick {n + 1}` for next" if n < len(briefs) else
+        "→ `/approve` to write  · `/amend [notes]` to adjust  · `/reject` to skip",
+        parse_mode="Markdown",
+    )
 
 
 # ── /show ───────────────────────────────────────────────────────────────────
