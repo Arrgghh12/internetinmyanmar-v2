@@ -301,21 +301,21 @@
     "name": "GCL-AS-AP GIGA-NET",
     "status": "DOWN",
     "started_at": "2026-04-07T17:32:07.234008+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-07T18:02:08.628959+00:00",
+    "duration_minutes": 30,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS138158",
     "name": "SPAL-AS-AP Serge Pun & Associate Myanmar Ltd.",
     "status": "DOWN",
     "started_at": "2026-04-07T17:32:49.401073+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-07T18:02:41.501499+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   }
 ]
