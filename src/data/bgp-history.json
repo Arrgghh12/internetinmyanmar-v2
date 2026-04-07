@@ -19213,5 +19213,26 @@
         "visibility_pct": 1.0
       }
     }
+  },
+  {
+    "timestamp": "2026-04-07T01:45:25.605952+00:00",
+    "statuses": {
+      "AS132167": {
+        "status": "YELLOW",
+        "visibility_pct": 1.0
+      },
+      "AS58952": {
+        "status": "YELLOW",
+        "visibility_pct": 1.0
+      },
+      "AS9988": {
+        "status": "YELLOW",
+        "visibility_pct": 1.0
+      },
+      "AS136480": {
+        "status": "YELLOW",
+        "visibility_pct": 1.0
+      }
+    }
   }
 ]
