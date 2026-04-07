@@ -984,9 +984,10 @@ def main() -> None:
     if not ALLOWED_CHAT:
         sys.exit("TELEGRAM_CHAT_ID not set in .env")
 
-    BRIEFS_DIR.mkdir(parents=True, exist_ok=True)
-    APPROVED_DIR.mkdir(parents=True, exist_ok=True)
-    REJECTED_DIR.mkdir(parents=True, exist_ok=True)
+    # Only mkdir if not already a symlink or existing dir
+    for d in (BRIEFS_DIR, APPROVED_DIR, REJECTED_DIR):
+        if not d.exists() and not d.is_symlink():
+            d.mkdir(parents=True, exist_ok=True)
 
     app = (
         Application.builder()
