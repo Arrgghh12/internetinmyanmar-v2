@@ -1,1 +1,13 @@
-[]
+[
+  {
+    "asn": "AS135433",
+    "name": "CGCL-AS-AP Connect Gateway Company Limited",
+    "status": "DOWN",
+    "started_at": "2026-04-07T06:02:15.270858+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
+  }
+]
