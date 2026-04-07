@@ -257,43 +257,43 @@
     "name": "ATOMMYANMAR-AS-AP Atom Myanmar Limited",
     "status": "DOWN",
     "started_at": "2026-04-07T15:01:56.952980+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-07T15:32:09.974041+00:00",
+    "duration_minutes": 30,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS134484",
     "name": "VDCNET-AS-AP Ultra Net",
     "status": "DOWN",
     "started_at": "2026-04-07T15:02:27.537651+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-07T15:32:29.137908+00:00",
+    "duration_minutes": 30,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS151965",
     "name": "HATG-AS-AP Hepta Alliance Technology Group",
     "status": "DOWN",
     "started_at": "2026-04-07T15:02:43.257058+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-07T15:32:52.605562+00:00",
+    "duration_minutes": 30,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS63998",
     "name": "KMTCL-MM Kinetic Myanmar Technology",
     "status": "DOWN",
     "started_at": "2026-04-07T15:03:19.761641+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-07T15:33:18.342100+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   }
 ]
