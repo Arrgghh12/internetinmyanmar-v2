@@ -177,6 +177,9 @@ def run(brief_path: str, adjustments: str = "", force_deepseek: bool = False) ->
 
     preview_url = f"{SITE_URL}/preview/{token}/"
 
+    # Push to git so Cloudflare builds the preview
+    _git_push_preview(mdx_path, preview_slug)
+
     result = {
         "preview_url": preview_url,
         "preview_slug": preview_slug,
@@ -187,6 +190,29 @@ def run(brief_path: str, adjustments: str = "", force_deepseek: bool = False) ->
     log.info(f"Article written (preview): {mdx_path}")
     log.info(f"Preview URL: {preview_url}")
     return result
+
+
+def _git_push_preview(mdx_path: Path, preview_slug: str) -> None:
+    """Commit and push the preview MDX so Cloudflare builds it."""
+    import subprocess
+    repo = mdx_path.parent
+    while repo != repo.parent:
+        if (repo / ".git").exists():
+            break
+        repo = repo.parent
+    if not (repo / ".git").exists():
+        log.warning("git push: could not find repo root")
+        return
+    try:
+        subprocess.run(["git", "-C", str(repo), "add", str(mdx_path)], check=True)
+        subprocess.run(
+            ["git", "-C", str(repo), "commit", "-m", f"draft: {preview_slug}"],
+            check=True,
+        )
+        subprocess.run(["git", "-C", str(repo), "push"], check=True)
+        log.info(f"Preview pushed to git → Cloudflare will build {preview_slug}")
+    except Exception as e:
+        log.warning(f"git push preview failed: {e}")
 
 
 if __name__ == "__main__":

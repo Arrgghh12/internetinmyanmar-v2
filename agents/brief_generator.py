@@ -19,7 +19,7 @@ import os
 import re
 import sys
 import uuid
-from datetime import date, timedelta
+from datetime import date, datetime, timedelta
 from pathlib import Path
 
 import httpx
@@ -178,7 +178,143 @@ def _get_max_tokens(task: str) -> int:
     return tokens.get(task, 800)
 
 
+def _days_old(item: dict) -> float:
+    """Return how many days old this item is. None published → 999."""
+    pub = item.get("published")
+    if not pub:
+        return 999.0
+    try:
+        from datetime import timezone as _tz
+        pub_dt = datetime.fromisoformat(pub.replace("Z", "+00:00"))
+        return (datetime.now(_tz.utc) - pub_dt).total_seconds() / 86400
+    except Exception:
+        return 999.0
+
+
+def _cluster_items(items: list[dict]) -> list[list[dict]]:
+    """
+    Group items by topic. Returns a list of clusters (each is a list of items).
+    Uses DeepSeek to find groups; falls back to one-item clusters on failure.
+    Items older than SOLO_MAX_AGE_DAYS only appear if in a multi-source cluster
+    that also contains a recent item.
+    """
+    SOLO_MAX_AGE_DAYS = 30   # solo brief only if published within this window
+    CLUSTER_MAX_AGE_DAYS = 180  # can be in cluster even if older
+
+    if not items:
+        return []
+
+    # Build compact index for clustering prompt
+    index_lines = "\n".join(
+        f"{i}: {it.get('title', '')[:100]} [{it.get('source','')}]"
+        for i, it in enumerate(items)
+    )
+
+    prompt = (
+        "You are grouping Myanmar internet-freedom news items by topic.\n\n"
+        "Rules:\n"
+        "- Items about the SAME specific event/story go in the same group\n"
+        "- Items about DIFFERENT aspects of a broad theme (e.g. VPN law vs VPN usage) are separate groups\n"
+        "- Each item appears in exactly one group\n"
+        "- Singletons (no related items) are their own group\n\n"
+        "Items:\n"
+        f"{index_lines}\n\n"
+        "Return JSON array of arrays of integers (item indices), e.g. [[0,3,7],[1],[2,5]].\n"
+        "JSON only, no preamble."
+    )
+
+    try:
+        response = CLIENT.chat.completions.create(
+            model=_get_model("brief"),
+            max_tokens=600,
+            messages=[
+                {"role": "system", "content": "Output JSON only."},
+                {"role": "user", "content": prompt},
+            ],
+        )
+        groups = _parse_json(response.choices[0].message.content)
+        if not isinstance(groups, list):
+            raise ValueError("not a list")
+
+        # Validate and build clusters
+        seen = set()
+        clusters = []
+        for group in groups:
+            if not isinstance(group, list):
+                continue
+            cluster = []
+            for idx in group:
+                if isinstance(idx, int) and 0 <= idx < len(items) and idx not in seen:
+                    seen.add(idx)
+                    cluster.append(items[idx])
+            if cluster:
+                clusters.append(cluster)
+
+        # Add any items missed by the LLM
+        for i, item in enumerate(items):
+            if i not in seen:
+                clusters.append([item])
+
+    except Exception as e:
+        log.warning(f"Clustering failed ({e}) — one brief per item")
+        clusters = [[item] for item in items]
+
+    # Filter: drop clusters where all items are old (no recent anchor)
+    fresh_clusters = []
+    for cluster in clusters:
+        has_recent = any(_days_old(it) <= SOLO_MAX_AGE_DAYS for it in cluster)
+        multi_source = len(cluster) > 1
+        if has_recent or (multi_source and any(_days_old(it) <= CLUSTER_MAX_AGE_DAYS for it in cluster)):
+            fresh_clusters.append(cluster)
+        else:
+            titles = [it.get("title", "")[:50] for it in cluster]
+            log.info(f"SKIP (too old, no recent anchor): {titles}")
+
+    log.info(f"Clustered {len(items)} items → {len(fresh_clusters)} briefs "
+             f"({sum(len(c) for c in fresh_clusters if len(c)>1)} items aggregated)")
+    return fresh_clusters
+
+
 # ── Core brief generation ────────────────────────────────────────────────────
+
+@retry(stop=stop_after_attempt(3), wait=wait_exponential(min=2, max=10))
+def generate_brief_from_cluster(cluster: list[dict], prior_coverage: str | None = None) -> dict:
+    """Generate one brief from one or more related items."""
+    prior_note = (
+        f"\nNOTE: NEW DEVELOPMENT on an existing story. Prior coverage: '{prior_coverage}'. "
+        "Focus on what is genuinely new.\n"
+        if prior_coverage else ""
+    )
+
+    if len(cluster) == 1:
+        clean = {k: v for k, v in cluster[0].items() if not k.startswith("_")}
+        user_content = f"Create a brief for this news item:\n\n{json.dumps(clean, indent=2)}\n\n{prior_note}{BRIEF_JSON_SPEC}"
+    else:
+        # Multi-source: cap at 8 sources (pick highest-scored) to stay within token budget
+        top = sorted(cluster, key=lambda x: x.get("score", 0), reverse=True)[:8]
+        sources_digest = "\n\n".join(
+            f"SOURCE {i+1} [{it.get('source','')}]:\n"
+            f"Title: {it.get('title','')}\n"
+            f"Published: {it.get('published','unknown')}\n"
+            f"Summary: {it.get('summary','')[:300]}"
+            for i, it in enumerate(top)
+        )
+        user_content = (
+            f"Multiple sources cover the same topic. Synthesize them into ONE powerful brief "
+            f"citing all {len(top)} sources (out of {len(cluster)} found).\n\n"
+            f"{sources_digest}\n\n{prior_note}{BRIEF_JSON_SPEC}"
+        )
+
+    response = CLIENT.chat.completions.create(
+        model=_get_model("brief"),
+        max_tokens=_get_max_tokens("brief"),
+        messages=[
+            {"role": "system", "content": BRIEF_SYSTEM},
+            {"role": "user", "content": user_content},
+        ],
+    )
+    return _parse_json(response.choices[0].message.content)
+
 
 @retry(stop=stop_after_attempt(3), wait=wait_exponential(min=2, max=10))
 def generate_brief(item: dict) -> dict:
@@ -457,9 +593,14 @@ def run(dry_run: bool = False):
     coverage_index = _build_coverage_index(days=30)
     log.info(f"Coverage index: {len(coverage_index)} recent briefs/articles loaded")
 
-    for item in eligible:
-        title = item.get("title", "")
-        summary = item.get("summary", item.get("description", ""))
+    # Cluster related items so multi-source stories become one brief
+    clusters = _cluster_items(eligible)
+
+    for cluster in clusters:
+        # Use highest-scored item's title for overlap check
+        rep = max(cluster, key=lambda x: x.get("score", 0))
+        title = rep.get("title", "")
+        summary = rep.get("summary", rep.get("description", ""))
 
         overlap = _check_overlap(title, summary, coverage_index)
         verdict = overlap.get("verdict", "UNIQUE")
@@ -472,18 +613,20 @@ def run(dry_run: bool = False):
             )
             continue
 
+        prior = overlap.get("related") if verdict == "NEW_DEVELOPMENT" else None
         if verdict == "NEW_DEVELOPMENT":
-            log.info(f"NEW DEVELOPMENT — {title!r} | Related: {overlap.get('related')}")
-            # Flag in the item so the brief prompt can reference prior coverage
-            item["_prior_coverage"] = overlap.get("related")
-            item["_is_new_development"] = True
+            log.info(f"NEW DEVELOPMENT — {title!r} | Related: {prior}")
 
+        src_count = len(cluster)
+        log.info(f"Generating brief from {src_count} source(s): {title[:60]}")
         try:
-            brief = generate_brief(item)
+            brief = generate_brief_from_cluster(cluster, prior_coverage=prior)
             brief["id"] = str(uuid.uuid4())
+            if src_count > 1:
+                brief["source_count"] = src_count
             _save_brief(brief)
         except Exception as e:
-            log.error(f"Failed for item {item.get('title', '?')}: {e}")
+            log.error(f"Failed for cluster '{title[:50]}': {e}")
 
 
 # ── Entry point ───────────────────────────────────────────────────────────────
