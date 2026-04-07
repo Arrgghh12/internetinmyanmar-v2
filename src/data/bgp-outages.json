@@ -152,5 +152,27 @@
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
     "resolved": true
+  },
+  {
+    "asn": "AS150692",
+    "name": "GD2CL-AS-AP Golden Dragon 2000",
+    "status": "DOWN",
+    "started_at": "2026-04-07T13:01:50.999715+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
+  },
+  {
+    "asn": "AS151802",
+    "name": "FSAS-AS-MM FIND SOLUTION AND SERVICES CO.",
+    "status": "DOWN",
+    "started_at": "2026-04-07T13:02:17.567266+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
   }
 ]
