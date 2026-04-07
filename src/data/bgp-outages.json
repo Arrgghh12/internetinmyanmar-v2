@@ -48,32 +48,32 @@
     "name": "ACS-AS-AP Amara Communications",
     "status": "DOWN",
     "started_at": "2026-04-07T08:01:29.145274+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-07T08:31:18.714587+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS135371",
     "name": "FORTUNEINTERNATIONAL-AS-AP Fortune Broadband",
     "status": "DOWN",
     "started_at": "2026-04-07T08:02:00.546597+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-07T08:31:35.106128+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS139206",
     "name": "PAMEL-AS-AP Pan Asia Majestic Eagle Ltd",
     "status": "DOWN",
     "started_at": "2026-04-07T08:03:09.820157+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-07T08:32:32.412716+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   }
 ]
