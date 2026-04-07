@@ -136,32 +136,21 @@
     "name": "AMCL-AS-AP ADS Myanmar Company Limited",
     "status": "DOWN",
     "started_at": "2026-04-07T12:01:57.513655+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-07T12:31:52.597028+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS134105",
     "name": "STLMC-AS-AP Shwe Than Lwin Media Co.",
     "status": "DOWN",
     "started_at": "2026-04-07T12:03:21.515126+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-07T12:32:51.467061+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
-  },
-  {
-    "asn": "AS58952",
-    "name": "FRONTIIRCOLTD-MM Frontiir Co. Ltd",
-    "status": "DOWN",
-    "started_at": "2026-04-07T12:30:33.157656+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
-    "min_visibility_pct": 0.0,
-    "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   }
 ]
