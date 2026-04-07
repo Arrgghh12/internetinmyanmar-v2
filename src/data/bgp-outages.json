@@ -130,5 +130,27 @@
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
     "resolved": true
+  },
+  {
+    "asn": "AS153790",
+    "name": "AMCL-AS-AP ADS Myanmar Company Limited",
+    "status": "DOWN",
+    "started_at": "2026-04-07T12:01:57.513655+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
+  },
+  {
+    "asn": "AS134105",
+    "name": "STLMC-AS-AP Shwe Than Lwin Media Co.",
+    "status": "DOWN",
+    "started_at": "2026-04-07T12:03:21.515126+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
   }
 ]
