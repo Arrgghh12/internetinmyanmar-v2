@@ -1,0 +1,98 @@
+---
+import { getCollection } from 'astro:content'
+import Base from '../../layouts/Base.astro'
+
+export async function getStaticPaths() {
+  const entries = await getCollection('digest', ({ data }) => !data.draft)
+  return entries.map((entry) => ({
+    params: { slug: entry.slug },
+    props: { entry },
+  }))
+}
+
+const { entry } = Astro.props
+const { Content } = await entry.render()
+
+const {
+  title, source, sourceUrl, canonical, publishedAt, addedAt,
+  sourceScore, sourceTier, sourceLabel, category, tags,
+} = entry.data
+
+const tierColour: Record<string, string> = {
+  A: 'text-green-400',
+  B: 'text-yellow-400',
+  C: 'text-orange-400',
+  D: 'text-red-400',
+}
+
+const seoTitle   = title.slice(0, 60)
+const metaDesc   = `${source} reported: ${title}`.slice(0, 155)
+---
+
+<Base
+  {title}
+  seoTitle={seoTitle}
+  metaDescription={metaDesc}
+  canonicalUrl={canonical}
+  ogType="article"
+>
+  <article class="max-w-2xl mx-auto px-4 py-12">
+
+    <!-- Breadcrumb -->
+    <nav class="text-xs opacity-50 mb-6 font-mono">
+      <a href="/" class="hover:opacity-100">Home</a>
+      <span class="mx-2">›</span>
+      <a href="/digest/" class="hover:opacity-100">Digest</a>
+      <span class="mx-2">›</span>
+      <span>{category}</span>
+    </nav>
+
+    <!-- Category + date -->
+    <div class="flex items-center gap-3 text-xs font-mono opacity-50 mb-4">
+      <span class="uppercase tracking-wider">{category}</span>
+      <span>·</span>
+      <time datetime={publishedAt.toISOString()}>
+        {publishedAt.toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' })}
+      </time>
+    </div>
+
+    <!-- Title -->
+    <h1 class="font-headline text-2xl md:text-3xl leading-tight mb-6">{title}</h1>
+
+    <!-- Source credibility badge -->
+    <div class="flex items-center gap-3 mb-8 px-4 py-3 rounded border border-white/10 bg-white/5 text-sm">
+      <span class="opacity-60">Source:</span>
+      <a href={sourceUrl} target="_blank" rel="noopener noreferrer"
+         class="text-[color:var(--color-accent)] hover:underline font-medium">
+        {source}
+      </a>
+      <span class="opacity-20">·</span>
+      <span class={tierColour[sourceTier] ?? 'text-gray-400'}>
+        Tier {sourceTier} · {sourceLabel} · {sourceScore}/100
+      </span>
+    </div>
+
+    <!-- Excerpt + outbound link (the MDX body) -->
+    <div class="prose prose-invert max-w-none
+      prose-a:text-[color:var(--color-accent)]
+      prose-blockquote:border-l-[color:var(--color-accent)]
+      prose-blockquote:opacity-90">
+      <Content />
+    </div>
+
+    <!-- Tags -->
+    {tags.length > 0 && (
+      <div class="flex flex-wrap gap-2 mt-8">
+        {tags.map((tag) => (
+          <span class="text-xs font-mono px-2 py-1 rounded bg-white/5 opacity-60">{tag}</span>
+        ))}
+      </div>
+    )}
+
+    <!-- Added to digest notice -->
+    <p class="mt-10 text-xs opacity-30 font-mono">
+      Added to digest: {addedAt.toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' })}
+    </p>
+
+  </article>
+</Base>

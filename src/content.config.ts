@@ -47,4 +47,25 @@ const observatory = defineCollection({
   }),
 })
 
-export const collections = { articles, observatory }
+const digest = defineCollection({
+  type: 'content',
+  schema: z.object({
+    title:       z.string(),
+    sourceTitle: z.string(),
+    source:      z.string(),
+    sourceUrl:   z.string().url(),
+    canonical:   z.string().url(),
+    publishedAt: z.coerce.date(),
+    addedAt:     z.coerce.date(),
+    excerpt:     z.string().max(500),
+    category:    z.enum(['Shutdown', 'Censorship', 'Arrest', 'Policy', 'Data', 'Surveillance', 'Other']),
+    tags:        z.array(z.string()),
+    sourceScore: z.number().min(0).max(100),
+    sourceTier:  z.enum(['A', 'B', 'C', 'D']),
+    sourceLabel: z.string(),
+    type:        z.literal('digest').default('digest'),
+    draft:       z.boolean().default(false),
+  }),
+})
+
+export const collections = { articles, observatory, digest }

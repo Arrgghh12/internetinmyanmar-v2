@@ -1,0 +1,2535 @@
+{
+  "AS132100": {
+    "type": "ISP",
+    "is_mno": false,
+    "is_igw": false,
+    "foreign_upstreams": [],
+    "note": "Domestic ISP — all significant upstreams are Myanmar ASNs"
+  },
+  "AS136205": {
+    "type": "ISP",
+    "is_mno": false,
+    "is_igw": false,
+    "foreign_upstreams": [],
+    "note": "Domestic ISP — all significant upstreams are Myanmar ASNs"
+  },
+  "AS149521": {
+    "type": "ISP",
+    "is_mno": false,
+    "is_igw": false,
+    "foreign_upstreams": [],
+    "note": "Domestic ISP — all significant upstreams are Myanmar ASNs"
+  },
+  "AS136210": {
+    "type": "ISP",
+    "is_mno": false,
+    "is_igw": false,
+    "foreign_upstreams": [],
+    "note": "Domestic ISP — all significant upstreams are Myanmar ASNs"
+  },
+  "AS139804": {
+    "type": "ISP",
+    "is_mno": false,
+    "is_igw": false,
+    "foreign_upstreams": [],
+    "note": "Domestic ISP — all significant upstreams are Myanmar ASNs"
+  },
+  "AS136229": {
+    "type": "ISP",
+    "is_mno": false,
+    "is_igw": false,
+    "foreign_upstreams": [],
+    "note": "Domestic ISP — all significant upstreams are Myanmar ASNs"
+  },
+  "AS137259": {
+    "type": "ISP",
+    "is_mno": false,
+    "is_igw": false,
+    "foreign_upstreams": [],
+    "note": "Domestic ISP — all significant upstreams are Myanmar ASNs"
+  },
+  "AS139822": {
+    "type": "ISP",
+    "is_mno": false,
+    "is_igw": false,
+    "foreign_upstreams": [],
+    "note": "Domestic ISP — all significant upstreams are Myanmar ASNs"
+  },
+  "AS149038": {
+    "type": "ISP",
+    "is_mno": false,
+    "is_igw": false,
+    "foreign_upstreams": [],
+    "note": "Domestic ISP — all significant upstreams are Myanmar ASNs"
+  },
+  "AS132148": {
+    "type": "ISP",
+    "is_mno": false,
+    "is_igw": false,
+    "foreign_upstreams": [],
+    "note": "Domestic ISP — all significant upstreams are Myanmar ASNs"
+  },
+  "AS151606": {
+    "type": "ISP",
+    "is_mno": false,
+    "is_igw": false,
+    "foreign_upstreams": [],
+    "note": "Domestic ISP — all significant upstreams are Myanmar ASNs"
+  },
+  "AS134714": {
+    "type": "ISP",
+    "is_mno": false,
+    "is_igw": false,
+    "foreign_upstreams": [],
+    "note": "Domestic ISP — all significant upstreams are Myanmar ASNs"
+  },
+  "AS152634": {
+    "type": "ISP",
+    "is_mno": false,
+    "is_igw": false,
+    "foreign_upstreams": [],
+    "note": "Domestic ISP — all significant upstreams are Myanmar ASNs"
+  },
+  "AS136255": {
+    "type": "IGW",
+    "is_mno": false,
+    "is_igw": true,
+    "foreign_upstreams": [
+      {
+        "asn": "AS132876",
+        "path_count": 53972
+      },
+      {
+        "asn": "AS137409",
+        "path_count": 59
+      },
+      {
+        "asn": "AS137557",
+        "path_count": 10359
+      },
+      {
+        "asn": "AS140867",
+        "path_count": 25
+      },
+      {
+        "asn": "AS15802",
+        "path_count": 19
+      },
+      {
+        "asn": "AS174",
+        "path_count": 11304
+      },
+      {
+        "asn": "AS17557",
+        "path_count": 11
+      },
+      {
+        "asn": "AS24115",
+        "path_count": 12
+      },
+      {
+        "asn": "AS33891",
+        "path_count": 40
+      },
+      {
+        "asn": "AS4229",
+        "path_count": 15322
+      },
+      {
+        "asn": "AS45629",
+        "path_count": 3158
+      },
+      {
+        "asn": "AS58453",
+        "path_count": 15607
+      },
+      {
+        "asn": "AS6939",
+        "path_count": 504
+      },
+      {
+        "asn": "AS8966",
+        "path_count": 96
+      },
+      {
+        "asn": "AS133210",
+        "path_count": 58
+      },
+      {
+        "asn": "AS142271",
+        "path_count": 57
+      },
+      {
+        "asn": "AS14907",
+        "path_count": 57
+      },
+      {
+        "asn": "AS17639",
+        "path_count": 58
+      },
+      {
+        "asn": "AS1828",
+        "path_count": 58
+      },
+      {
+        "asn": "AS199524",
+        "path_count": 12
+      },
+      {
+        "asn": "AS24482",
+        "path_count": 148
+      },
+      {
+        "asn": "AS35280",
+        "path_count": 60
+      },
+      {
+        "asn": "AS36236",
+        "path_count": 58
+      },
+      {
+        "asn": "AS38001",
+        "path_count": 58
+      },
+      {
+        "asn": "AS45489",
+        "path_count": 58
+      },
+      {
+        "asn": "AS45896",
+        "path_count": 57
+      },
+      {
+        "asn": "AS49544",
+        "path_count": 58
+      }
+    ],
+    "note": "Peers internationally via AS132876, AS137409, AS137557"
+  },
+  "AS132167": {
+    "type": "MNO",
+    "is_mno": true,
+    "is_igw": false,
+    "foreign_upstreams": [],
+    "note": "Licensed mobile network operator"
+  },
+  "AS58952": {
+    "type": "IGW",
+    "is_mno": false,
+    "is_igw": true,
+    "foreign_upstreams": [
+      {
+        "asn": "AS132132",
+        "path_count": 309
+      },
+      {
+        "asn": "AS132876",
+        "path_count": 951
+      },
+      {
+        "asn": "AS137409",
+        "path_count": 7952
+      },
+      {
+        "asn": "AS15802",
+        "path_count": 803
+      },
+      {
+        "asn": "AS17557",
+        "path_count": 3260
+      },
+      {
+        "asn": "AS24115",
+        "path_count": 132
+      },
+      {
+        "asn": "AS33891",
+        "path_count": 8557
+      },
+      {
+        "asn": "AS45430",
+        "path_count": 101737
+      },
+      {
+        "asn": "AS45629",
+        "path_count": 477
+      },
+      {
+        "asn": "AS58453",
+        "path_count": 6197
+      },
+      {
+        "asn": "AS6762",
+        "path_count": 17516
+      },
+      {
+        "asn": "AS6939",
+        "path_count": 6069
+      },
+      {
+        "asn": "AS8966",
+        "path_count": 1703
+      },
+      {
+        "asn": "AS133210",
+        "path_count": 381
+      },
+      {
+        "asn": "AS142271",
+        "path_count": 84
+      },
+      {
+        "asn": "AS14907",
+        "path_count": 312
+      },
+      {
+        "asn": "AS17639",
+        "path_count": 359
+      },
+      {
+        "asn": "AS18106",
+        "path_count": 324
+      },
+      {
+        "asn": "AS1828",
+        "path_count": 383
+      },
+      {
+        "asn": "AS199524",
+        "path_count": 61
+      },
+      {
+        "asn": "AS24482",
+        "path_count": 639
+      },
+      {
+        "asn": "AS35280",
+        "path_count": 322
+      },
+      {
+        "asn": "AS36236",
+        "path_count": 334
+      },
+      {
+        "asn": "AS38001",
+        "path_count": 322
+      },
+      {
+        "asn": "AS45489",
+        "path_count": 296
+      },
+      {
+        "asn": "AS45896",
+        "path_count": 86
+      },
+      {
+        "asn": "AS48237",
+        "path_count": 34
+      },
+      {
+        "asn": "AS49544",
+        "path_count": 382
+      },
+      {
+        "asn": "AS8529",
+        "path_count": 712
+      },
+      {
+        "asn": "AS9002",
+        "path_count": 67
+      },
+      {
+        "asn": "AS10024",
+        "path_count": 100
+      },
+      {
+        "asn": "AS10075",
+        "path_count": 1353
+      },
+      {
+        "asn": "AS10094",
+        "path_count": 217
+      },
+      {
+        "asn": "AS10099",
+        "path_count": 26
+      },
+      {
+        "asn": "AS10122",
+        "path_count": 194
+      },
+      {
+        "asn": "AS10226",
+        "path_count": 42
+      },
+      {
+        "asn": "AS10310",
+        "path_count": 225
+      },
+      {
+        "asn": "AS12684",
+        "path_count": 12
+      },
+      {
+        "asn": "AS131219",
+        "path_count": 60
+      },
+      {
+        "asn": "AS131267",
+        "path_count": 72
+      },
+      {
+        "asn": "AS131314",
+        "path_count": 61
+      },
+      {
+        "asn": "AS132203",
+        "path_count": 197
+      },
+      {
+        "asn": "AS132337",
+        "path_count": 75
+      },
+      {
+        "asn": "AS132602",
+        "path_count": 684
+      },
+      {
+        "asn": "AS133210",
+        "path_count": 59
+      },
+      {
+        "asn": "AS13335",
+        "path_count": 7032
+      },
+      {
+        "asn": "AS133372",
+        "path_count": 457
+      },
+      {
+        "asn": "AS133840",
+        "path_count": 292
+      },
+      {
+        "asn": "AS13445",
+        "path_count": 28
+      },
+      {
+        "asn": "AS134654",
+        "path_count": 379
+      },
+      {
+        "asn": "AS134734",
+        "path_count": 29
+      },
+      {
+        "asn": "AS135025",
+        "path_count": 12
+      },
+      {
+        "asn": "AS135391",
+        "path_count": 53
+      },
+      {
+        "asn": "AS135423",
+        "path_count": 64
+      },
+      {
+        "asn": "AS135607",
+        "path_count": 546
+      },
+      {
+        "asn": "AS135636",
+        "path_count": 16
+      },
+      {
+        "asn": "AS136106",
+        "path_count": 2656
+      },
+      {
+        "asn": "AS136557",
+        "path_count": 252
+      },
+      {
+        "asn": "AS136749",
+        "path_count": 17
+      },
+      {
+        "asn": "AS136838",
+        "path_count": 10
+      },
+      {
+        "asn": "AS136907",
+        "path_count": 85
+      },
+      {
+        "asn": "AS137236",
+        "path_count": 21
+      },
+      {
+        "asn": "AS137367",
+        "path_count": 819
+      },
+      {
+        "asn": "AS137491",
+        "path_count": 160
+      },
+      {
+        "asn": "AS137557",
+        "path_count": 129
+      },
+      {
+        "asn": "AS137831",
+        "path_count": 199
+      },
+      {
+        "asn": "AS137991",
+        "path_count": 36
+      },
+      {
+        "asn": "AS138089",
+        "path_count": 91
+      },
+      {
+        "asn": "AS138128",
+        "path_count": 255
+      },
+      {
+        "asn": "AS138699",
+        "path_count": 16
+      },
+      {
+        "asn": "AS138840",
+        "path_count": 1092
+      },
+      {
+        "asn": "AS138915",
+        "path_count": 382
+      },
+      {
+        "asn": "AS13896",
+        "path_count": 20
+      },
+      {
+        "asn": "AS138997",
+        "path_count": 151
+      },
+      {
+        "asn": "AS139009",
+        "path_count": 1061
+      },
+      {
+        "asn": "AS139057",
+        "path_count": 14
+      },
+      {
+        "asn": "AS139341",
+        "path_count": 34
+      },
+      {
+        "asn": "AS139628",
+        "path_count": 95
+      },
+      {
+        "asn": "AS139831",
+        "path_count": 43
+      },
+      {
+        "asn": "AS139901",
+        "path_count": 398
+      },
+      {
+        "asn": "AS140443",
+        "path_count": 15
+      },
+      {
+        "asn": "AS140570",
+        "path_count": 388
+      },
+      {
+        "asn": "AS14061",
+        "path_count": 86
+      },
+      {
+        "asn": "AS141137",
+        "path_count": 19
+      },
+      {
+        "asn": "AS14537",
+        "path_count": 21
+      },
+      {
+        "asn": "AS14593",
+        "path_count": 13
+      },
+      {
+        "asn": "AS150161",
+        "path_count": 16
+      },
+      {
+        "asn": "AS150178",
+        "path_count": 316
+      },
+      {
+        "asn": "AS150436",
+        "path_count": 81
+      },
+      {
+        "asn": "AS150748",
+        "path_count": 98
+      },
+      {
+        "asn": "AS151326",
+        "path_count": 26
+      },
+      {
+        "asn": "AS152144",
+        "path_count": 322
+      },
+      {
+        "asn": "AS152194",
+        "path_count": 407
+      },
+      {
+        "asn": "AS15695",
+        "path_count": 12
+      },
+      {
+        "asn": "AS15830",
+        "path_count": 117
+      },
+      {
+        "asn": "AS15967",
+        "path_count": 50
+      },
+      {
+        "asn": "AS16265",
+        "path_count": 104
+      },
+      {
+        "asn": "AS16276",
+        "path_count": 49
+      },
+      {
+        "asn": "AS16509",
+        "path_count": 5076
+      },
+      {
+        "asn": "AS16552",
+        "path_count": 121
+      },
+      {
+        "asn": "AS17451",
+        "path_count": 471
+      },
+      {
+        "asn": "AS17494",
+        "path_count": 323
+      },
+      {
+        "asn": "AS17497",
+        "path_count": 195
+      },
+      {
+        "asn": "AS17511",
+        "path_count": 94
+      },
+      {
+        "asn": "AS17547",
+        "path_count": 91
+      },
+      {
+        "asn": "AS17639",
+        "path_count": 782
+      },
+      {
+        "asn": "AS17660",
+        "path_count": 52
+      },
+      {
+        "asn": "AS17666",
+        "path_count": 37
+      },
+      {
+        "asn": "AS17806",
+        "path_count": 127
+      },
+      {
+        "asn": "AS17922",
+        "path_count": 41
+      },
+      {
+        "asn": "AS17978",
+        "path_count": 10
+      },
+      {
+        "asn": "AS18001",
+        "path_count": 177
+      },
+      {
+        "asn": "AS18106",
+        "path_count": 119
+      },
+      {
+        "asn": "AS18186",
+        "path_count": 48
+      },
+      {
+        "asn": "AS1828",
+        "path_count": 2453
+      },
+      {
+        "asn": "AS18403",
+        "path_count": 5671
+      },
+      {
+        "asn": "AS19229",
+        "path_count": 174
+      },
+      {
+        "asn": "AS19551",
+        "path_count": 668
+      },
+      {
+        "asn": "AS19679",
+        "path_count": 15
+      },
+      {
+        "asn": "AS199524",
+        "path_count": 92
+      },
+      {
+        "asn": "AS199610",
+        "path_count": 11
+      },
+      {
+        "asn": "AS20473",
+        "path_count": 353
+      },
+      {
+        "asn": "AS20940",
+        "path_count": 257
+      },
+      {
+        "asn": "AS215859",
+        "path_count": 80
+      },
+      {
+        "asn": "AS216211",
+        "path_count": 16
+      },
+      {
+        "asn": "AS21859",
+        "path_count": 489
+      },
+      {
+        "asn": "AS22697",
+        "path_count": 17
+      },
+      {
+        "asn": "AS23576",
+        "path_count": 84
+      },
+      {
+        "asn": "AS23673",
+        "path_count": 137
+      },
+      {
+        "asn": "AS23764",
+        "path_count": 1691
+      },
+      {
+        "asn": "AS23856",
+        "path_count": 118
+      },
+      {
+        "asn": "AS23889",
+        "path_count": 254
+      },
+      {
+        "asn": "AS23947",
+        "path_count": 2393
+      },
+      {
+        "asn": "AS24028",
+        "path_count": 110
+      },
+      {
+        "asn": "AS24173",
+        "path_count": 62
+      },
+      {
+        "asn": "AS24198",
+        "path_count": 54
+      },
+      {
+        "asn": "AS24203",
+        "path_count": 918
+      },
+      {
+        "asn": "AS24429",
+        "path_count": 72
+      },
+      {
+        "asn": "AS24441",
+        "path_count": 18
+      },
+      {
+        "asn": "AS24482",
+        "path_count": 827
+      },
+      {
+        "asn": "AS24492",
+        "path_count": 130
+      },
+      {
+        "asn": "AS2635",
+        "path_count": 28
+      },
+      {
+        "asn": "AS26464",
+        "path_count": 15
+      },
+      {
+        "asn": "AS26496",
+        "path_count": 60
+      },
+      {
+        "asn": "AS2687",
+        "path_count": 451
+      },
+      {
+        "asn": "AS2906",
+        "path_count": 119
+      },
+      {
+        "asn": "AS29802",
+        "path_count": 19
+      },
+      {
+        "asn": "AS30058",
+        "path_count": 31
+      },
+      {
+        "asn": "AS30081",
+        "path_count": 141
+      },
+      {
+        "asn": "AS30999",
+        "path_count": 168
+      },
+      {
+        "asn": "AS31898",
+        "path_count": 191
+      },
+      {
+        "asn": "AS32787",
+        "path_count": 6751
+      },
+      {
+        "asn": "AS327885",
+        "path_count": 19
+      },
+      {
+        "asn": "AS32934",
+        "path_count": 133
+      },
+      {
+        "asn": "AS3303",
+        "path_count": 576
+      },
+      {
+        "asn": "AS33353",
+        "path_count": 84
+      },
+      {
+        "asn": "AS35280",
+        "path_count": 2239
+      },
+      {
+        "asn": "AS36236",
+        "path_count": 652
+      },
+      {
+        "asn": "AS36351",
+        "path_count": 566
+      },
+      {
+        "asn": "AS36692",
+        "path_count": 50
+      },
+      {
+        "asn": "AS37342",
+        "path_count": 540
+      },
+      {
+        "asn": "AS38001",
+        "path_count": 156
+      },
+      {
+        "asn": "AS38040",
+        "path_count": 815
+      },
+      {
+        "asn": "AS38082",
+        "path_count": 3218
+      },
+      {
+        "asn": "AS38158",
+        "path_count": 2574
+      },
+      {
+        "asn": "AS38182",
+        "path_count": 145
+      },
+      {
+        "asn": "AS38193",
+        "path_count": 2405
+      },
+      {
+        "asn": "AS38195",
+        "path_count": 1294
+      },
+      {
+        "asn": "AS38235",
+        "path_count": 199
+      },
+      {
+        "asn": "AS38278",
+        "path_count": 19
+      },
+      {
+        "asn": "AS38466",
+        "path_count": 39
+      },
+      {
+        "asn": "AS38496",
+        "path_count": 12
+      },
+      {
+        "asn": "AS38553",
+        "path_count": 36
+      },
+      {
+        "asn": "AS38623",
+        "path_count": 505
+      },
+      {
+        "asn": "AS38740",
+        "path_count": 27
+      },
+      {
+        "asn": "AS38753",
+        "path_count": 22
+      },
+      {
+        "asn": "AS38757",
+        "path_count": 593
+      },
+      {
+        "asn": "AS38880",
+        "path_count": 115
+      },
+      {
+        "asn": "AS39386",
+        "path_count": 3015
+      },
+      {
+        "asn": "AS396986",
+        "path_count": 11
+      },
+      {
+        "asn": "AS399077",
+        "path_count": 66
+      },
+      {
+        "asn": "AS4058",
+        "path_count": 23
+      },
+      {
+        "asn": "AS40627",
+        "path_count": 11
+      },
+      {
+        "asn": "AS4229",
+        "path_count": 1261
+      },
+      {
+        "asn": "AS42649",
+        "path_count": 11
+      },
+      {
+        "asn": "AS42",
+        "path_count": 153
+      },
+      {
+        "asn": "AS44444",
+        "path_count": 21
+      },
+      {
+        "asn": "AS45102",
+        "path_count": 193
+      },
+      {
+        "asn": "AS45250",
+        "path_count": 12
+      },
+      {
+        "asn": "AS45352",
+        "path_count": 336
+      },
+      {
+        "asn": "AS45474",
+        "path_count": 106
+      },
+      {
+        "asn": "AS45489",
+        "path_count": 669
+      },
+      {
+        "asn": "AS45701",
+        "path_count": 53
+      },
+      {
+        "asn": "AS45796",
+        "path_count": 524
+      },
+      {
+        "asn": "AS45896",
+        "path_count": 90
+      },
+      {
+        "asn": "AS45899",
+        "path_count": 1108
+      },
+      {
+        "asn": "AS45903",
+        "path_count": 342
+      },
+      {
+        "asn": "AS45960",
+        "path_count": 158
+      },
+      {
+        "asn": "AS4621",
+        "path_count": 68
+      },
+      {
+        "asn": "AS4628",
+        "path_count": 685
+      },
+      {
+        "asn": "AS4648",
+        "path_count": 795
+      },
+      {
+        "asn": "AS4651",
+        "path_count": 3571
+      },
+      {
+        "asn": "AS4761",
+        "path_count": 768
+      },
+      {
+        "asn": "AS4764",
+        "path_count": 891
+      },
+      {
+        "asn": "AS4773",
+        "path_count": 70
+      },
+      {
+        "asn": "AS4775",
+        "path_count": 1775
+      },
+      {
+        "asn": "AS4800",
+        "path_count": 2493
+      },
+      {
+        "asn": "AS4818",
+        "path_count": 28
+      },
+      {
+        "asn": "AS48237",
+        "path_count": 213
+      },
+      {
+        "asn": "AS4826",
+        "path_count": 5380
+      },
+      {
+        "asn": "AS4862",
+        "path_count": 110
+      },
+      {
+        "asn": "AS49544",
+        "path_count": 32
+      },
+      {
+        "asn": "AS50010",
+        "path_count": 584
+      },
+      {
+        "asn": "AS51847",
+        "path_count": 17
+      },
+      {
+        "asn": "AS53813",
+        "path_count": 55
+      },
+      {
+        "asn": "AS54113",
+        "path_count": 161
+      },
+      {
+        "asn": "AS54825",
+        "path_count": 29
+      },
+      {
+        "asn": "AS54994",
+        "path_count": 84
+      },
+      {
+        "asn": "AS55329",
+        "path_count": 337
+      },
+      {
+        "asn": "AS55655",
+        "path_count": 567
+      },
+      {
+        "asn": "AS5580",
+        "path_count": 1006
+      },
+      {
+        "asn": "AS55818",
+        "path_count": 526
+      },
+      {
+        "asn": "AS55821",
+        "path_count": 34
+      },
+      {
+        "asn": "AS55850",
+        "path_count": 275
+      },
+      {
+        "asn": "AS55944",
+        "path_count": 15
+      },
+      {
+        "asn": "AS56099",
+        "path_count": 10
+      },
+      {
+        "asn": "AS56258",
+        "path_count": 92
+      },
+      {
+        "asn": "AS56286",
+        "path_count": 59
+      },
+      {
+        "asn": "AS56308",
+        "path_count": 81
+      },
+      {
+        "asn": "AS57463",
+        "path_count": 36
+      },
+      {
+        "asn": "AS58381",
+        "path_count": 19
+      },
+      {
+        "asn": "AS58389",
+        "path_count": 839
+      },
+      {
+        "asn": "AS58430",
+        "path_count": 85
+      },
+      {
+        "asn": "AS58511",
+        "path_count": 458
+      },
+      {
+        "asn": "AS58715",
+        "path_count": 364
+      },
+      {
+        "asn": "AS58717",
+        "path_count": 6282
+      },
+      {
+        "asn": "AS58807",
+        "path_count": 538
+      },
+      {
+        "asn": "AS58945",
+        "path_count": 105
+      },
+      {
+        "asn": "AS59139",
+        "path_count": 19
+      },
+      {
+        "asn": "AS59318",
+        "path_count": 108
+      },
+      {
+        "asn": "AS59322",
+        "path_count": 13
+      },
+      {
+        "asn": "AS59378",
+        "path_count": 30
+      },
+      {
+        "asn": "AS59796",
+        "path_count": 227
+      },
+      {
+        "asn": "AS60068",
+        "path_count": 401
+      },
+      {
+        "asn": "AS62955",
+        "path_count": 27
+      },
+      {
+        "asn": "AS63199",
+        "path_count": 74
+      },
+      {
+        "asn": "AS63516",
+        "path_count": 119
+      },
+      {
+        "asn": "AS63916",
+        "path_count": 10
+      },
+      {
+        "asn": "AS63927",
+        "path_count": 196
+      },
+      {
+        "asn": "AS63949",
+        "path_count": 21
+      },
+      {
+        "asn": "AS63956",
+        "path_count": 348
+      },
+      {
+        "asn": "AS64049",
+        "path_count": 7224
+      },
+      {
+        "asn": "AS64050",
+        "path_count": 370
+      },
+      {
+        "asn": "AS64096",
+        "path_count": 21
+      },
+      {
+        "asn": "AS6424",
+        "path_count": 372
+      },
+      {
+        "asn": "AS64315",
+        "path_count": 108
+      },
+      {
+        "asn": "AS6461",
+        "path_count": 22
+      },
+      {
+        "asn": "AS6648",
+        "path_count": 148
+      },
+      {
+        "asn": "AS6660",
+        "path_count": 63
+      },
+      {
+        "asn": "AS6774",
+        "path_count": 944
+      },
+      {
+        "asn": "AS714",
+        "path_count": 2109
+      },
+      {
+        "asn": "AS7387",
+        "path_count": 11
+      },
+      {
+        "asn": "AS7545",
+        "path_count": 169
+      },
+      {
+        "asn": "AS7552",
+        "path_count": 4394
+      },
+      {
+        "asn": "AS7632",
+        "path_count": 349
+      },
+      {
+        "asn": "AS7642",
+        "path_count": 154
+      },
+      {
+        "asn": "AS7713",
+        "path_count": 4836
+      },
+      {
+        "asn": "AS7979",
+        "path_count": 73
+      },
+      {
+        "asn": "AS8075",
+        "path_count": 1342
+      },
+      {
+        "asn": "AS8529",
+        "path_count": 351
+      },
+      {
+        "asn": "AS8674",
+        "path_count": 13
+      },
+      {
+        "asn": "AS8849",
+        "path_count": 87
+      },
+      {
+        "asn": "AS8888",
+        "path_count": 17
+      },
+      {
+        "asn": "AS9002",
+        "path_count": 5444
+      },
+      {
+        "asn": "AS9009",
+        "path_count": 214
+      },
+      {
+        "asn": "AS9231",
+        "path_count": 171
+      },
+      {
+        "asn": "AS9269",
+        "path_count": 753
+      },
+      {
+        "asn": "AS9299",
+        "path_count": 647
+      },
+      {
+        "asn": "AS9318",
+        "path_count": 2543
+      },
+      {
+        "asn": "AS9381",
+        "path_count": 538
+      },
+      {
+        "asn": "AS9498",
+        "path_count": 23286
+      },
+      {
+        "asn": "AS9505",
+        "path_count": 3582
+      },
+      {
+        "asn": "AS9507",
+        "path_count": 375
+      },
+      {
+        "asn": "AS9534",
+        "path_count": 333
+      },
+      {
+        "asn": "AS9541",
+        "path_count": 533
+      },
+      {
+        "asn": "AS9583",
+        "path_count": 1991
+      },
+      {
+        "asn": "AS9584",
+        "path_count": 10
+      },
+      {
+        "asn": "AS9658",
+        "path_count": 498
+      },
+      {
+        "asn": "AS983",
+        "path_count": 54
+      },
+      {
+        "asn": "AS984",
+        "path_count": 79
+      },
+      {
+        "asn": "AS9873",
+        "path_count": 131
+      },
+      {
+        "asn": "AS9886",
+        "path_count": 54
+      },
+      {
+        "asn": "AS9902",
+        "path_count": 532
+      },
+      {
+        "asn": "AS9924",
+        "path_count": 217
+      },
+      {
+        "asn": "AS9930",
+        "path_count": 152
+      }
+    ],
+    "note": "Peers internationally via AS132132, AS132876, AS137409"
+  },
+  "AS139849": {
+    "type": "ISP",
+    "is_mno": false,
+    "is_igw": false,
+    "foreign_upstreams": [],
+    "note": "Domestic ISP — all significant upstreams are Myanmar ASNs"
+  },
+  "AS136780": {
+    "type": "IGW",
+    "is_mno": false,
+    "is_igw": true,
+    "foreign_upstreams": [
+      {
+        "asn": "AS45796",
+        "path_count": 3964
+      }
+    ],
+    "note": "Peers internationally via AS45796"
+  },
+  "AS152140": {
+    "type": "ISP",
+    "is_mno": false,
+    "is_igw": false,
+    "foreign_upstreams": [],
+    "note": "Domestic ISP — all significant upstreams are Myanmar ASNs"
+  },
+  "AS132686": {
+    "type": "ISP",
+    "is_mno": false,
+    "is_igw": false,
+    "foreign_upstreams": [],
+    "note": "Domestic ISP — all significant upstreams are Myanmar ASNs"
+  },
+  "AS134736": {
+    "type": "ISP",
+    "is_mno": false,
+    "is_igw": false,
+    "foreign_upstreams": [],
+    "note": "Domestic ISP — all significant upstreams are Myanmar ASNs"
+  },
+  "AS136786": {
+    "type": "IGW",
+    "is_mno": false,
+    "is_igw": true,
+    "foreign_upstreams": [
+      {
+        "asn": "AS20473",
+        "path_count": 50
+      },
+      {
+        "asn": "AS6939",
+        "path_count": 670
+      }
+    ],
+    "note": "Peers internationally via AS20473, AS6939"
+  },
+  "AS134739": {
+    "type": "ISP",
+    "is_mno": false,
+    "is_igw": false,
+    "foreign_upstreams": [],
+    "note": "Domestic ISP — all significant upstreams are Myanmar ASNs"
+  },
+  "AS136789": {
+    "type": "ISP",
+    "is_mno": false,
+    "is_igw": false,
+    "foreign_upstreams": [],
+    "note": "Domestic ISP — all significant upstreams are Myanmar ASNs"
+  },
+  "AS137826": {
+    "type": "ISP",
+    "is_mno": false,
+    "is_igw": false,
+    "foreign_upstreams": [],
+    "note": "Domestic ISP — all significant upstreams are Myanmar ASNs"
+  },
+  "AS135300": {
+    "type": "IGW",
+    "is_mno": false,
+    "is_igw": true,
+    "foreign_upstreams": [
+      {
+        "asn": "AS10099",
+        "path_count": 82
+      },
+      {
+        "asn": "AS137409",
+        "path_count": 13
+      },
+      {
+        "asn": "AS23764",
+        "path_count": 357
+      },
+      {
+        "asn": "AS38082",
+        "path_count": 346
+      },
+      {
+        "asn": "AS4229",
+        "path_count": 335
+      },
+      {
+        "asn": "AS6939",
+        "path_count": 6810
+      },
+      {
+        "asn": "AS8966",
+        "path_count": 66
+      },
+      {
+        "asn": "AS9002",
+        "path_count": 16
+      },
+      {
+        "asn": "AS133210",
+        "path_count": 14
+      },
+      {
+        "asn": "AS142271",
+        "path_count": 13
+      },
+      {
+        "asn": "AS14907",
+        "path_count": 14
+      },
+      {
+        "asn": "AS17639",
+        "path_count": 13
+      },
+      {
+        "asn": "AS1828",
+        "path_count": 14
+      },
+      {
+        "asn": "AS199524",
+        "path_count": 14
+      },
+      {
+        "asn": "AS24482",
+        "path_count": 24
+      },
+      {
+        "asn": "AS35280",
+        "path_count": 24
+      },
+      {
+        "asn": "AS36236",
+        "path_count": 14
+      },
+      {
+        "asn": "AS38001",
+        "path_count": 14
+      },
+      {
+        "asn": "AS45489",
+        "path_count": 14
+      },
+      {
+        "asn": "AS45896",
+        "path_count": 13
+      },
+      {
+        "asn": "AS49544",
+        "path_count": 14
+      }
+    ],
+    "note": "Peers internationally via AS10099, AS137409, AS23764"
+  },
+  "AS137861": {
+    "type": "ISP",
+    "is_mno": false,
+    "is_igw": false,
+    "foreign_upstreams": [],
+    "note": "Domestic ISP — all significant upstreams are Myanmar ASNs"
+  },
+  "AS150153": {
+    "type": "ISP",
+    "is_mno": false,
+    "is_igw": false,
+    "foreign_upstreams": [],
+    "note": "Domestic ISP — all significant upstreams are Myanmar ASNs"
+  },
+  "AS135307": {
+    "type": "ISP",
+    "is_mno": false,
+    "is_igw": false,
+    "foreign_upstreams": [],
+    "note": "Domestic ISP — all significant upstreams are Myanmar ASNs"
+  },
+  "AS150159": {
+    "type": "ISP",
+    "is_mno": false,
+    "is_igw": false,
+    "foreign_upstreams": [],
+    "note": "Domestic ISP — all significant upstreams are Myanmar ASNs"
+  },
+  "AS149660": {
+    "type": "ISP",
+    "is_mno": false,
+    "is_igw": false,
+    "foreign_upstreams": [],
+    "note": "Domestic ISP — all significant upstreams are Myanmar ASNs"
+  },
+  "AS137888": {
+    "type": "ISP",
+    "is_mno": false,
+    "is_igw": false,
+    "foreign_upstreams": [],
+    "note": "Domestic ISP — all significant upstreams are Myanmar ASNs"
+  },
+  "AS137891": {
+    "type": "ISP",
+    "is_mno": false,
+    "is_igw": false,
+    "foreign_upstreams": [],
+    "note": "Domestic ISP — all significant upstreams are Myanmar ASNs"
+  },
+  "AS150692": {
+    "type": "ISP",
+    "is_mno": false,
+    "is_igw": false,
+    "foreign_upstreams": [],
+    "note": "Domestic ISP — all significant upstreams are Myanmar ASNs"
+  },
+  "AS151210": {
+    "type": "IGW",
+    "is_mno": false,
+    "is_igw": true,
+    "foreign_upstreams": [
+      {
+        "asn": "AS137557",
+        "path_count": 3407
+      },
+      {
+        "asn": "AS140867",
+        "path_count": 230
+      },
+      {
+        "asn": "AS2914",
+        "path_count": 5317
+      },
+      {
+        "asn": "AS6939",
+        "path_count": 2189
+      },
+      {
+        "asn": "AS24482",
+        "path_count": 30
+      }
+    ],
+    "note": "Peers internationally via AS137557, AS140867, AS2914"
+  },
+  "AS153777": {
+    "type": "ISP",
+    "is_mno": false,
+    "is_igw": false,
+    "foreign_upstreams": [],
+    "note": "Domestic ISP — all significant upstreams are Myanmar ASNs"
+  },
+  "AS134840": {
+    "type": "ISP",
+    "is_mno": false,
+    "is_igw": false,
+    "foreign_upstreams": [],
+    "note": "Domestic ISP — all significant upstreams are Myanmar ASNs"
+  },
+  "AS153790": {
+    "type": "ISP",
+    "is_mno": false,
+    "is_igw": false,
+    "foreign_upstreams": [],
+    "note": "Domestic ISP — all significant upstreams are Myanmar ASNs"
+  },
+  "AS150721": {
+    "type": "ISP",
+    "is_mno": false,
+    "is_igw": false,
+    "foreign_upstreams": [],
+    "note": "Domestic ISP — all significant upstreams are Myanmar ASNs"
+  },
+  "AS135371": {
+    "type": "ISP",
+    "is_mno": false,
+    "is_igw": false,
+    "foreign_upstreams": [],
+    "note": "Domestic ISP — all significant upstreams are Myanmar ASNs"
+  },
+  "AS137424": {
+    "type": "ISP",
+    "is_mno": false,
+    "is_igw": false,
+    "foreign_upstreams": [],
+    "note": "Domestic ISP — all significant upstreams are Myanmar ASNs"
+  },
+  "AS136919": {
+    "type": "ISP",
+    "is_mno": false,
+    "is_igw": false,
+    "foreign_upstreams": [],
+    "note": "Domestic ISP — all significant upstreams are Myanmar ASNs"
+  },
+  "AS137431": {
+    "type": "ISP",
+    "is_mno": false,
+    "is_igw": false,
+    "foreign_upstreams": [],
+    "note": "Domestic ISP — all significant upstreams are Myanmar ASNs"
+  },
+  "AS141015": {
+    "type": "ISP",
+    "is_mno": false,
+    "is_igw": false,
+    "foreign_upstreams": [],
+    "note": "Domestic ISP — all significant upstreams are Myanmar ASNs"
+  },
+  "AS137955": {
+    "type": "IXP",
+    "is_mno": false,
+    "is_igw": true,
+    "foreign_upstreams": [],
+    "note": "Internet exchange point"
+  },
+  "AS151783": {
+    "type": "ISP",
+    "is_mno": false,
+    "is_igw": false,
+    "foreign_upstreams": [],
+    "note": "Domestic ISP — all significant upstreams are Myanmar ASNs"
+  },
+  "AS153319": {
+    "type": "IGW",
+    "is_mno": false,
+    "is_igw": true,
+    "foreign_upstreams": [
+      {
+        "asn": "AS20473",
+        "path_count": 336
+      }
+    ],
+    "note": "Peers internationally via AS20473"
+  },
+  "AS135405": {
+    "type": "ISP",
+    "is_mno": false,
+    "is_igw": false,
+    "foreign_upstreams": [],
+    "note": "Domestic ISP — all significant upstreams are Myanmar ASNs"
+  },
+  "AS153837": {
+    "type": "ISP",
+    "is_mno": false,
+    "is_igw": false,
+    "foreign_upstreams": [],
+    "note": "Domestic ISP — all significant upstreams are Myanmar ASNs"
+  },
+  "AS132344": {
+    "type": "ISP",
+    "is_mno": false,
+    "is_igw": false,
+    "foreign_upstreams": [],
+    "note": "Domestic ISP — all significant upstreams are Myanmar ASNs"
+  },
+  "AS136442": {
+    "type": "ISP",
+    "is_mno": false,
+    "is_igw": false,
+    "foreign_upstreams": [],
+    "note": "Domestic ISP — all significant upstreams are Myanmar ASNs"
+  },
+  "AS151802": {
+    "type": "ISP",
+    "is_mno": false,
+    "is_igw": false,
+    "foreign_upstreams": [],
+    "note": "Domestic ISP — all significant upstreams are Myanmar ASNs"
+  },
+  "AS131322": {
+    "type": "ISP",
+    "is_mno": false,
+    "is_igw": false,
+    "foreign_upstreams": [],
+    "note": "Domestic ISP — all significant upstreams are Myanmar ASNs"
+  },
+  "AS139003": {
+    "type": "ISP",
+    "is_mno": false,
+    "is_igw": false,
+    "foreign_upstreams": [],
+    "note": "Domestic ISP — all significant upstreams are Myanmar ASNs"
+  },
+  "AS135427": {
+    "type": "ISP",
+    "is_mno": false,
+    "is_igw": false,
+    "foreign_upstreams": [],
+    "note": "Domestic ISP — all significant upstreams are Myanmar ASNs"
+  },
+  "AS9988": {
+    "type": "MNO",
+    "is_mno": true,
+    "is_igw": false,
+    "foreign_upstreams": [],
+    "note": "Licensed mobile network operator"
+  },
+  "AS133384": {
+    "type": "ISP",
+    "is_mno": false,
+    "is_igw": false,
+    "foreign_upstreams": [],
+    "note": "Domestic ISP — all significant upstreams are Myanmar ASNs"
+  },
+  "AS133385": {
+    "type": "MNO",
+    "is_mno": true,
+    "is_igw": false,
+    "foreign_upstreams": [],
+    "note": "Licensed mobile network operator"
+  },
+  "AS135433": {
+    "type": "ISP",
+    "is_mno": false,
+    "is_igw": false,
+    "foreign_upstreams": [],
+    "note": "Domestic ISP — all significant upstreams are Myanmar ASNs"
+  },
+  "AS140552": {
+    "type": "ISP",
+    "is_mno": false,
+    "is_igw": false,
+    "foreign_upstreams": [],
+    "note": "Domestic ISP — all significant upstreams are Myanmar ASNs"
+  },
+  "AS152329": {
+    "type": "ISP",
+    "is_mno": false,
+    "is_igw": false,
+    "foreign_upstreams": [],
+    "note": "Domestic ISP — all significant upstreams are Myanmar ASNs"
+  },
+  "AS150285": {
+    "type": "ISP",
+    "is_mno": false,
+    "is_igw": false,
+    "foreign_upstreams": [],
+    "note": "Domestic ISP — all significant upstreams are Myanmar ASNs"
+  },
+  "AS150797": {
+    "type": "ISP",
+    "is_mno": false,
+    "is_igw": false,
+    "foreign_upstreams": [],
+    "note": "Domestic ISP — all significant upstreams are Myanmar ASNs"
+  },
+  "AS136975": {
+    "type": "IGW",
+    "is_mno": false,
+    "is_igw": true,
+    "foreign_upstreams": [
+      {
+        "asn": "AS132876",
+        "path_count": 13012
+      },
+      {
+        "asn": "AS137557",
+        "path_count": 6331
+      },
+      {
+        "asn": "AS140867",
+        "path_count": 28
+      },
+      {
+        "asn": "AS174",
+        "path_count": 267
+      },
+      {
+        "asn": "AS49544",
+        "path_count": 46
+      }
+    ],
+    "note": "Peers internationally via AS132876, AS137557, AS140867"
+  },
+  "AS136465": {
+    "type": "ISP",
+    "is_mno": false,
+    "is_igw": false,
+    "foreign_upstreams": [],
+    "note": "Domestic ISP — all significant upstreams are Myanmar ASNs"
+  },
+  "AS151826": {
+    "type": "ISP",
+    "is_mno": false,
+    "is_igw": false,
+    "foreign_upstreams": [],
+    "note": "Domestic ISP — all significant upstreams are Myanmar ASNs"
+  },
+  "AS150297": {
+    "type": "ISP",
+    "is_mno": false,
+    "is_igw": false,
+    "foreign_upstreams": [],
+    "note": "Domestic ISP — all significant upstreams are Myanmar ASNs"
+  },
+  "AS136474": {
+    "type": "ISP",
+    "is_mno": false,
+    "is_igw": false,
+    "foreign_upstreams": [],
+    "note": "Domestic ISP — all significant upstreams are Myanmar ASNs"
+  },
+  "AS150812": {
+    "type": "ISP",
+    "is_mno": false,
+    "is_igw": false,
+    "foreign_upstreams": [],
+    "note": "Domestic ISP — all significant upstreams are Myanmar ASNs"
+  },
+  "AS136480": {
+    "type": "MNO",
+    "is_mno": true,
+    "is_igw": false,
+    "foreign_upstreams": [],
+    "note": "Licensed mobile network operator"
+  },
+  "AS150309": {
+    "type": "ISP",
+    "is_mno": false,
+    "is_igw": false,
+    "foreign_upstreams": [],
+    "note": "Domestic ISP — all significant upstreams are Myanmar ASNs"
+  },
+  "AS150310": {
+    "type": "ISP",
+    "is_mno": false,
+    "is_igw": false,
+    "foreign_upstreams": [],
+    "note": "Domestic ISP — all significant upstreams are Myanmar ASNs"
+  },
+  "AS139051": {
+    "type": "ISP",
+    "is_mno": false,
+    "is_igw": false,
+    "foreign_upstreams": [],
+    "note": "Domestic ISP — all significant upstreams are Myanmar ASNs"
+  },
+  "AS151341": {
+    "type": "ISP",
+    "is_mno": false,
+    "is_igw": false,
+    "foreign_upstreams": [],
+    "note": "Domestic ISP — all significant upstreams are Myanmar ASNs"
+  },
+  "AS142126": {
+    "type": "ISP",
+    "is_mno": false,
+    "is_igw": false,
+    "foreign_upstreams": [],
+    "note": "Domestic ISP — all significant upstreams are Myanmar ASNs"
+  },
+  "AS151342": {
+    "type": "ISP",
+    "is_mno": false,
+    "is_igw": false,
+    "foreign_upstreams": [],
+    "note": "Domestic ISP — all significant upstreams are Myanmar ASNs"
+  },
+  "AS139058": {
+    "type": "ISP",
+    "is_mno": false,
+    "is_igw": false,
+    "foreign_upstreams": [],
+    "note": "Domestic ISP — all significant upstreams are Myanmar ASNs"
+  },
+  "AS149810": {
+    "type": "ISP",
+    "is_mno": false,
+    "is_igw": false,
+    "foreign_upstreams": [],
+    "note": "Domestic ISP — all significant upstreams are Myanmar ASNs"
+  },
+  "AS142644": {
+    "type": "ISP",
+    "is_mno": false,
+    "is_igw": false,
+    "foreign_upstreams": [],
+    "note": "Domestic ISP — all significant upstreams are Myanmar ASNs"
+  },
+  "AS133433": {
+    "type": "ISP",
+    "is_mno": false,
+    "is_igw": false,
+    "foreign_upstreams": [],
+    "note": "Domestic ISP — all significant upstreams are Myanmar ASNs"
+  },
+  "AS140091": {
+    "type": "ISP",
+    "is_mno": false,
+    "is_igw": false,
+    "foreign_upstreams": [],
+    "note": "Domestic ISP — all significant upstreams are Myanmar ASNs"
+  },
+  "AS133440": {
+    "type": "ISP",
+    "is_mno": false,
+    "is_igw": false,
+    "foreign_upstreams": [],
+    "note": "Domestic ISP — all significant upstreams are Myanmar ASNs"
+  },
+  "AS134976": {
+    "type": "ISP",
+    "is_mno": false,
+    "is_igw": false,
+    "foreign_upstreams": [],
+    "note": "Domestic ISP — all significant upstreams are Myanmar ASNs"
+  },
+  "AS140617": {
+    "type": "IGW",
+    "is_mno": false,
+    "is_igw": true,
+    "foreign_upstreams": [
+      {
+        "asn": "AS139014",
+        "path_count": 776
+      }
+    ],
+    "note": "Peers internationally via AS139014"
+  },
+  "AS139595": {
+    "type": "ISP",
+    "is_mno": false,
+    "is_igw": false,
+    "foreign_upstreams": [],
+    "note": "Domestic ISP — all significant upstreams are Myanmar ASNs"
+  },
+  "AS134484": {
+    "type": "ISP",
+    "is_mno": false,
+    "is_igw": false,
+    "foreign_upstreams": [],
+    "note": "Domestic ISP — all significant upstreams are Myanmar ASNs"
+  },
+  "AS149855": {
+    "type": "IGW",
+    "is_mno": false,
+    "is_igw": true,
+    "foreign_upstreams": [
+      {
+        "asn": "AS10099",
+        "path_count": 6556
+      }
+    ],
+    "note": "Peers internationally via AS10099"
+  },
+  "AS139620": {
+    "type": "IGW",
+    "is_mno": false,
+    "is_igw": true,
+    "foreign_upstreams": [
+      {
+        "asn": "AS38082",
+        "path_count": 1586
+      },
+      {
+        "asn": "AS4651",
+        "path_count": 1883
+      }
+    ],
+    "note": "Peers internationally via AS38082, AS4651"
+  },
+  "AS63852": {
+    "type": "ISP",
+    "is_mno": false,
+    "is_igw": false,
+    "foreign_upstreams": [],
+    "note": "Domestic ISP — all significant upstreams are Myanmar ASNs"
+  },
+  "AS137069": {
+    "type": "IGW",
+    "is_mno": false,
+    "is_igw": true,
+    "foreign_upstreams": [
+      {
+        "asn": "AS7473",
+        "path_count": 229
+      }
+    ],
+    "note": "Peers internationally via AS7473"
+  },
+  "AS154481": {
+    "type": "ISP",
+    "is_mno": false,
+    "is_igw": false,
+    "foreign_upstreams": [],
+    "note": "Domestic ISP — all significant upstreams are Myanmar ASNs"
+  },
+  "AS152447": {
+    "type": "ISP",
+    "is_mno": false,
+    "is_igw": false,
+    "foreign_upstreams": [],
+    "note": "Domestic ISP — all significant upstreams are Myanmar ASNs"
+  },
+  "AS134528": {
+    "type": "IGW",
+    "is_mno": false,
+    "is_igw": true,
+    "foreign_upstreams": [
+      {
+        "asn": "AS38082",
+        "path_count": 356
+      }
+    ],
+    "note": "Peers internationally via AS38082"
+  },
+  "AS141704": {
+    "type": "ISP",
+    "is_mno": false,
+    "is_igw": false,
+    "foreign_upstreams": [],
+    "note": "Domestic ISP — all significant upstreams are Myanmar ASNs"
+  },
+  "AS153998": {
+    "type": "ISP",
+    "is_mno": false,
+    "is_igw": false,
+    "foreign_upstreams": [],
+    "note": "Domestic ISP — all significant upstreams are Myanmar ASNs"
+  },
+  "AS141199": {
+    "type": "ISP",
+    "is_mno": false,
+    "is_igw": false,
+    "foreign_upstreams": [],
+    "note": "Domestic ISP — all significant upstreams are Myanmar ASNs"
+  },
+  "AS152466": {
+    "type": "ISP",
+    "is_mno": false,
+    "is_igw": false,
+    "foreign_upstreams": [],
+    "note": "Domestic ISP — all significant upstreams are Myanmar ASNs"
+  },
+  "AS133524": {
+    "type": "IGW",
+    "is_mno": false,
+    "is_igw": true,
+    "foreign_upstreams": [
+      {
+        "asn": "AS132876",
+        "path_count": 6098
+      },
+      {
+        "asn": "AS137557",
+        "path_count": 1081
+      },
+      {
+        "asn": "AS4651",
+        "path_count": 803
+      }
+    ],
+    "note": "Peers internationally via AS132876, AS137557, AS4651"
+  },
+  "AS151965": {
+    "type": "ISP",
+    "is_mno": false,
+    "is_igw": false,
+    "foreign_upstreams": [],
+    "note": "Domestic ISP — all significant upstreams are Myanmar ASNs"
+  },
+  "AS141216": {
+    "type": "ISP",
+    "is_mno": false,
+    "is_igw": false,
+    "foreign_upstreams": [],
+    "note": "Domestic ISP — all significant upstreams are Myanmar ASNs"
+  },
+  "AS154020": {
+    "type": "ISP",
+    "is_mno": false,
+    "is_igw": false,
+    "foreign_upstreams": [],
+    "note": "Domestic ISP — all significant upstreams are Myanmar ASNs"
+  },
+  "AS135589": {
+    "type": "IGW",
+    "is_mno": false,
+    "is_igw": true,
+    "foreign_upstreams": [
+      {
+        "asn": "AS45629",
+        "path_count": 4553
+      },
+      {
+        "asn": "AS4651",
+        "path_count": 1709
+      }
+    ],
+    "note": "Peers internationally via AS45629, AS4651"
+  },
+  "AS136613": {
+    "type": "ISP",
+    "is_mno": false,
+    "is_igw": false,
+    "foreign_upstreams": [],
+    "note": "Domestic ISP — all significant upstreams are Myanmar ASNs"
+  },
+  "AS136617": {
+    "type": "ISP",
+    "is_mno": false,
+    "is_igw": false,
+    "foreign_upstreams": [],
+    "note": "Domestic ISP — all significant upstreams are Myanmar ASNs"
+  },
+  "AS139692": {
+    "type": "ISP",
+    "is_mno": false,
+    "is_igw": false,
+    "foreign_upstreams": [],
+    "note": "Domestic ISP — all significant upstreams are Myanmar ASNs"
+  },
+  "AS138158": {
+    "type": "ISP",
+    "is_mno": false,
+    "is_igw": false,
+    "foreign_upstreams": [],
+    "note": "Domestic ISP — all significant upstreams are Myanmar ASNs"
+  },
+  "AS141236": {
+    "type": "ISP",
+    "is_mno": false,
+    "is_igw": false,
+    "foreign_upstreams": [],
+    "note": "Domestic ISP — all significant upstreams are Myanmar ASNs"
+  },
+  "AS138166": {
+    "type": "IGW",
+    "is_mno": false,
+    "is_igw": true,
+    "foreign_upstreams": [
+      {
+        "asn": "AS10099",
+        "path_count": 395
+      }
+    ],
+    "note": "Peers internationally via AS10099"
+  },
+  "AS138167": {
+    "type": "ISP",
+    "is_mno": false,
+    "is_igw": false,
+    "foreign_upstreams": [],
+    "note": "Domestic ISP — all significant upstreams are Myanmar ASNs"
+  },
+  "AS138168": {
+    "type": "ISP",
+    "is_mno": false,
+    "is_igw": false,
+    "foreign_upstreams": [],
+    "note": "Domestic ISP — all significant upstreams are Myanmar ASNs"
+  },
+  "AS132537": {
+    "type": "IGW",
+    "is_mno": false,
+    "is_igw": true,
+    "foreign_upstreams": [
+      {
+        "asn": "AS17497",
+        "path_count": 124
+      }
+    ],
+    "note": "Peers internationally via AS17497"
+  },
+  "AS139704": {
+    "type": "ISP",
+    "is_mno": false,
+    "is_igw": false,
+    "foreign_upstreams": [],
+    "note": "Domestic ISP — all significant upstreams are Myanmar ASNs"
+  },
+  "AS151482": {
+    "type": "ISP",
+    "is_mno": false,
+    "is_igw": false,
+    "foreign_upstreams": [],
+    "note": "Domestic ISP — all significant upstreams are Myanmar ASNs"
+  },
+  "AS139711": {
+    "type": "ISP",
+    "is_mno": false,
+    "is_igw": false,
+    "foreign_upstreams": [],
+    "note": "Domestic ISP — all significant upstreams are Myanmar ASNs"
+  },
+  "AS151491": {
+    "type": "ISP",
+    "is_mno": false,
+    "is_igw": false,
+    "foreign_upstreams": [],
+    "note": "Domestic ISP — all significant upstreams are Myanmar ASNs"
+  },
+  "AS132038": {
+    "type": "ISP",
+    "is_mno": false,
+    "is_igw": false,
+    "foreign_upstreams": [],
+    "note": "Domestic ISP — all significant upstreams are Myanmar ASNs"
+  },
+  "AS135111": {
+    "type": "ISP",
+    "is_mno": false,
+    "is_igw": false,
+    "foreign_upstreams": [],
+    "note": "Domestic ISP — all significant upstreams are Myanmar ASNs"
+  },
+  "AS139206": {
+    "type": "ISP",
+    "is_mno": false,
+    "is_igw": false,
+    "foreign_upstreams": [],
+    "note": "Domestic ISP — all significant upstreams are Myanmar ASNs"
+  },
+  "AS139719": {
+    "type": "ISP",
+    "is_mno": false,
+    "is_igw": false,
+    "foreign_upstreams": [],
+    "note": "Domestic ISP — all significant upstreams are Myanmar ASNs"
+  },
+  "AS153549": {
+    "type": "ISP",
+    "is_mno": false,
+    "is_igw": false,
+    "foreign_upstreams": [],
+    "note": "Domestic ISP — all significant upstreams are Myanmar ASNs"
+  },
+  "AS153044": {
+    "type": "ISP",
+    "is_mno": false,
+    "is_igw": false,
+    "foreign_upstreams": [],
+    "note": "Domestic ISP — all significant upstreams are Myanmar ASNs"
+  },
+  "AS134105": {
+    "type": "ISP",
+    "is_mno": false,
+    "is_igw": false,
+    "foreign_upstreams": [],
+    "note": "Domestic ISP — all significant upstreams are Myanmar ASNs"
+  },
+  "AS132060": {
+    "type": "ISP",
+    "is_mno": false,
+    "is_igw": false,
+    "foreign_upstreams": [],
+    "note": "Domestic ISP — all significant upstreams are Myanmar ASNs"
+  },
+  "AS18399": {
+    "type": "ISP",
+    "is_mno": false,
+    "is_igw": false,
+    "foreign_upstreams": [],
+    "note": "Domestic ISP — all significant upstreams are Myanmar ASNs"
+  },
+  "AS136168": {
+    "type": "IGW",
+    "is_mno": false,
+    "is_igw": true,
+    "foreign_upstreams": [
+      {
+        "asn": "AS137409",
+        "path_count": 134
+      },
+      {
+        "asn": "AS137557",
+        "path_count": 73
+      },
+      {
+        "asn": "AS140867",
+        "path_count": 32
+      },
+      {
+        "asn": "AS15802",
+        "path_count": 57
+      },
+      {
+        "asn": "AS174",
+        "path_count": 13661
+      },
+      {
+        "asn": "AS17557",
+        "path_count": 42
+      },
+      {
+        "asn": "AS23764",
+        "path_count": 164
+      },
+      {
+        "asn": "AS24115",
+        "path_count": 58
+      },
+      {
+        "asn": "AS2914",
+        "path_count": 24671
+      },
+      {
+        "asn": "AS33891",
+        "path_count": 125
+      },
+      {
+        "asn": "AS35280",
+        "path_count": 237
+      },
+      {
+        "asn": "AS45629",
+        "path_count": 289
+      },
+      {
+        "asn": "AS6453",
+        "path_count": 531
+      },
+      {
+        "asn": "AS6939",
+        "path_count": 11462
+      },
+      {
+        "asn": "AS8966",
+        "path_count": 26
+      },
+      {
+        "asn": "AS133210",
+        "path_count": 100
+      },
+      {
+        "asn": "AS142271",
+        "path_count": 95
+      },
+      {
+        "asn": "AS14907",
+        "path_count": 124
+      },
+      {
+        "asn": "AS17639",
+        "path_count": 71
+      },
+      {
+        "asn": "AS18106",
+        "path_count": 307
+      },
+      {
+        "asn": "AS1828",
+        "path_count": 95
+      },
+      {
+        "asn": "AS199524",
+        "path_count": 66
+      },
+      {
+        "asn": "AS24482",
+        "path_count": 612
+      },
+      {
+        "asn": "AS36236",
+        "path_count": 70
+      },
+      {
+        "asn": "AS38001",
+        "path_count": 277
+      },
+      {
+        "asn": "AS45489",
+        "path_count": 54
+      },
+      {
+        "asn": "AS45896",
+        "path_count": 93
+      },
+      {
+        "asn": "AS49544",
+        "path_count": 91
+      },
+      {
+        "asn": "AS8529",
+        "path_count": 251
+      },
+      {
+        "asn": "AS9002",
+        "path_count": 57
+      }
+    ],
+    "note": "Peers internationally via AS137409, AS137557, AS140867"
+  },
+  "AS135149": {
+    "type": "ISP",
+    "is_mno": false,
+    "is_igw": false,
+    "foreign_upstreams": [],
+    "note": "Domestic ISP — all significant upstreams are Myanmar ASNs"
+  },
+  "AS149487": {
+    "type": "IGW",
+    "is_mno": false,
+    "is_igw": true,
+    "foreign_upstreams": [
+      {
+        "asn": "AS137567",
+        "path_count": 1008
+      }
+    ],
+    "note": "Peers internationally via AS137567"
+  },
+  "AS136177": {
+    "type": "ISP",
+    "is_mno": false,
+    "is_igw": false,
+    "foreign_upstreams": [],
+    "note": "Domestic ISP — all significant upstreams are Myanmar ASNs"
+  },
+  "AS45558": {
+    "type": "IXP",
+    "is_mno": false,
+    "is_igw": true,
+    "foreign_upstreams": [],
+    "note": "Internet exchange point"
+  },
+  "AS63998": {
+    "type": "ISP",
+    "is_mno": false,
+    "is_igw": false,
+    "foreign_upstreams": [],
+    "note": "Domestic ISP — all significant upstreams are Myanmar ASNs"
+  }
+}
