@@ -411,10 +411,10 @@
     "name": "EBECL-AS-AP East Boy Engineering Company Limited",
     "status": "DOWN",
     "started_at": "2026-04-08T12:32:25.588047+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-08T13:02:00.791507+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   }
 ]
