@@ -284,6 +284,7 @@ def git_push_data():
              f"data: BGP status {datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M UTC')}"],
             check=True
         )
+        subprocess.run(["git", "-C", str(repo), "pull", "--rebase"], check=True)
         subprocess.run(["git", "-C", str(repo), "push"], check=True)
         log.info("BGP data pushed to git → Cloudflare rebuild triggered")
     except Exception as e:

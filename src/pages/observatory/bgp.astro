@@ -2,12 +2,46 @@
 import Observatory from '../../layouts/Observatory.astro'
 import asnStatusRaw from '../../data/asn-status.json'
 import outagesRaw from '../../data/bgp-outages.json'
+import historyRaw from '../../data/bgp-history.json'
 import stats from '../../content/observatory/stats.json'
 
 export const prerender = false
 
 const asnStatus: Record<string, any> = asnStatusRaw as any
 const outages: any[] = outagesRaw as any
+const history: any[] = historyRaw as any
+
+// Derive status-change events from history snapshots
+interface StatusEvent {
+  timestamp: string
+  asn: string
+  name: string
+  from: string
+  to: string
+  visibility_pct: number
+}
+const statusEvents: StatusEvent[] = []
+for (let i = 1; i < history.length; i++) {
+  const prev = history[i - 1].statuses ?? {}
+  const curr = history[i].statuses ?? {}
+  for (const asn of Object.keys(curr)) {
+    const prevStatus = prev[asn]?.status ?? 'UNKNOWN'
+    const currStatus = curr[asn]?.status
+    if (currStatus && currStatus !== prevStatus) {
+      statusEvents.push({
+        timestamp: history[i].timestamp,
+        asn,
+        name: asnStatus[asn]?.name ?? asn,
+        from: prevStatus,
+        to: currStatus,
+        visibility_pct: curr[asn]?.visibility_pct ?? 0,
+      })
+    }
+  }
+}
+// Most recent first, cap at 60
+statusEvents.sort((a, b) => b.timestamp.localeCompare(a.timestamp))
+const recentEvents = statusEvents.slice(0, 60)
 
 const allASNs = Object.values(asnStatus)
 
@@ -55,6 +89,25 @@ function formatDuration(min: number | null | undefined) {
   const h = Math.floor(min / 60)
   const m = min % 60
   return h > 0 ? `${h}h ${m}min` : `${m}min`
+}
+
+function fmtTimestamp(iso: string) {
+  return iso.replace('T', ' ').slice(0, 16) + ' UTC'
+}
+
+function eventIcon(from: string, to: string) {
+  if (to === 'RED')    return '🔴'
+  if (to === 'GREEN')  return '🟢'
+  if (to === 'YELLOW') return '🟡'
+  return '⚪'
+}
+
+function eventVerb(from: string, to: string) {
+  if (to === 'RED' && from !== 'RED')    return 'went DOWN'
+  if (to === 'GREEN' && from === 'RED')  return 'recovered'
+  if (to === 'YELLOW' && from === 'RED') return 'partially recovered'
+  if (to === 'GREEN' && from === 'YELLOW') return 'stabilised'
+  return `→ ${to}`
 }
 ---
 
@@ -172,6 +225,40 @@ function formatDuration(min: number | null | undefined) {
         + <a href="https://ioda.inetintel.cc.gatech.edu" target="_blank" rel="noopener" class="hover:opacity-100 underline">IODA</a>
         · {outages.length} total outage events recorded
       </div>
+    </div>
+
+    <!-- Status change event log -->
+    <div class="mb-10">
+      <h2 class="font-headline text-xl mb-2">Status Change Log</h2>
+      <p class="text-sm opacity-50 mb-4">
+        Every time an ASN changes status — up, down, or recovering — it appears here in real time.
+      </p>
+      {recentEvents.length === 0 ? (
+        <p class="opacity-40 text-sm font-mono">No status changes recorded yet. Log builds automatically.</p>
+      ) : (
+        <div class="border border-white/10 rounded-lg overflow-hidden">
+          <div class="overflow-y-auto" style="max-height:360px">
+            <table class="w-full text-xs font-mono">
+              <tbody>
+                {recentEvents.map(ev => (
+                  <tr class={`border-b border-white/5 hover:bg-white/2 ${ev.to === 'RED' ? 'bg-[#ef4444]/5' : ev.to === 'GREEN' ? 'bg-[#22c55e]/3' : ''}`}>
+                    <td class="py-1.5 pl-3 pr-2 opacity-40 whitespace-nowrap">{fmtTimestamp(ev.timestamp)}</td>
+                    <td class="py-1.5 pr-2">{eventIcon(ev.from, ev.to)}</td>
+                    <td class="py-1.5 pr-3 max-w-[200px] truncate" title={ev.name}>
+                      <a href={`/observatory/bgp/${ev.asn}`} class="hover:underline opacity-80">{ev.name || ev.asn}</a>
+                    </td>
+                    <td class="py-1.5 pr-3 opacity-50 text-[10px]">{ev.asn}</td>
+                    <td class="py-1.5 pr-3" style={ev.to === 'RED' ? 'color:#ef4444' : ev.to === 'GREEN' ? 'color:#22c55e' : 'color:#f59e0b'}>
+                      {eventVerb(ev.from, ev.to)}
+                    </td>
+                    <td class="py-1.5 pr-3 opacity-40">{Math.round(ev.visibility_pct * 100)}%</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      )}
     </div>
 
     <!-- Outage event log -->
