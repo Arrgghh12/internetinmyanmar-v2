@@ -276,22 +276,9 @@ def run(dry_run: bool = False):
             log.info(f"  [{item.get('score', 0):.1f}] {item['title'][:70]}")
         return
 
-    if above_threshold:
-        log.info("Triggering brief_generator.py…")
-        result = subprocess.run(
-            [str(VENV_PYTHON), str(AGENTS_DIR / "brief_generator.py")],
-            capture_output=True, text=True,
-        )
-        if result.returncode != 0:
-            log.error(f"brief_generator.py failed:\n{result.stderr}")
-            _notify_telegram(f"⚠️ Brief generator failed:\n{result.stderr[:400]}")
-        else:
-            log.info("brief_generator.py completed")
-            _notify_telegram_briefs()
-    else:
-        msg = "📭 No noteworthy news today — no brief generated."
-        log.info(msg)
-        _notify_telegram(msg)
+    # Brief generation pipeline removed — digest_scanner.py handles daily article discovery.
+    log.info("Monitor complete — %d items above threshold (digest_scanner.py handles publishing)",
+             len(above_threshold))
 
     log.info("=== Monitor done ===")
 
