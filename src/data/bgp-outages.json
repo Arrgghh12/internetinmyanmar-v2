@@ -515,5 +515,16 @@
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
     "resolved": false
+  },
+  {
+    "asn": "AS9988",
+    "name": "MPT-AP Myanma Posts and Telecommunications",
+    "status": "DOWN",
+    "started_at": "2026-04-09T01:40:29.973268+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
   }
 ]
