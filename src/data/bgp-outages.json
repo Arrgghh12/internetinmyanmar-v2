@@ -763,10 +763,10 @@
     "name": "SPAL-AS-AP Serge Pun & Associate Myanmar Ltd.",
     "status": "DOWN",
     "started_at": "2026-04-09T18:02:42.346656+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-09T18:32:35.431274+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   }
 ]
