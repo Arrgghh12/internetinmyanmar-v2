@@ -752,10 +752,10 @@
     "name": "YSOMCL-AS-AP YAM Success of Myanmar Co.",
     "status": "DOWN",
     "started_at": "2026-04-09T17:01:21.386690+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-09T17:31:16.663291+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   }
 ]
