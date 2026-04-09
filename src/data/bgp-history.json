@@ -82969,5 +82969,89 @@
         "visibility_pct": 0.997
       }
     }
+  },
+  {
+    "timestamp": "2026-04-09T02:35:04.711195+00:00",
+    "statuses": {
+      "AS132167": {
+        "status": "GREEN",
+        "visibility_pct": 1.0
+      },
+      "AS58952": {
+        "status": "GREEN",
+        "visibility_pct": 1.0
+      },
+      "AS9988": {
+        "status": "YELLOW",
+        "visibility_pct": 1.0
+      },
+      "AS136480": {
+        "status": "GREEN",
+        "visibility_pct": 1.0
+      }
+    }
+  },
+  {
+    "timestamp": "2026-04-09T02:40:18.360853+00:00",
+    "statuses": {
+      "AS132167": {
+        "status": "GREEN",
+        "visibility_pct": 1.0
+      },
+      "AS58952": {
+        "status": "GREEN",
+        "visibility_pct": 1.0
+      },
+      "AS9988": {
+        "status": "YELLOW",
+        "visibility_pct": 1.0
+      },
+      "AS136480": {
+        "status": "GREEN",
+        "visibility_pct": 1.0
+      }
+    }
+  },
+  {
+    "timestamp": "2026-04-09T02:45:08.678587+00:00",
+    "statuses": {
+      "AS132167": {
+        "status": "GREEN",
+        "visibility_pct": 1.0
+      },
+      "AS58952": {
+        "status": "GREEN",
+        "visibility_pct": 1.0
+      },
+      "AS9988": {
+        "status": "YELLOW",
+        "visibility_pct": 1.0
+      },
+      "AS136480": {
+        "status": "GREEN",
+        "visibility_pct": 1.0
+      }
+    }
+  },
+  {
+    "timestamp": "2026-04-09T02:50:04.932963+00:00",
+    "statuses": {
+      "AS132167": {
+        "status": "GREEN",
+        "visibility_pct": 1.0
+      },
+      "AS58952": {
+        "status": "GREEN",
+        "visibility_pct": 1.0
+      },
+      "AS9988": {
+        "status": "GREEN",
+        "visibility_pct": 1.0
+      },
+      "AS136480": {
+        "status": "GREEN",
+        "visibility_pct": 1.0
+      }
+    }
   }
 ]
