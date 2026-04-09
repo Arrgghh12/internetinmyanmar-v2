@@ -1,0 +1,49 @@
+---
+import { getCollection } from 'astro:content'
+import Base from '../../layouts/Base.astro'
+
+export const prerender = false
+
+const entries = (await getCollection('digest', ({ data }) => !data.draft))
+  .sort((a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf())
+
+const categoryColor: Record<string, string> = {
+  Shutdown:    'var(--color-danger)',
+  Censorship:  'var(--color-danger)',
+  Arrest:      'var(--color-danger)',
+  Policy:      'var(--color-warning)',
+  Data:        'var(--color-accent)',
+  Surveillance:'var(--color-warning)',
+  Other:       'var(--color-accent)',
+}
+---
+<Base
+  title="News Digest — Myanmar Internet Freedom"
+  seoTitle="Myanmar Internet Freedom Digest | Internet in Myanmar"
+  metaDescription="Curated news digest: censorship, shutdowns, arrests, and surveillance in Myanmar from verified sources worldwide."
+>
+  <div class="max-w-5xl mx-auto px-4 py-12">
+    <div class="font-mono text-xs text-[color:var(--color-accent)] mb-3 uppercase tracking-widest">Digest</div>
+    <h1 class="font-headline text-3xl md:text-4xl mb-4">News Digest</h1>
+    <p class="opacity-70 mb-10 max-w-2xl">
+      Curated articles on Myanmar internet freedom, censorship, arrests, and surveillance from verified international sources.
+    </p>
+
+    <div class="space-y-3">
+      {entries.map((entry) => (
+        <a href={`/digest/${entry.slug}/`}
+           class="flex items-start gap-4 p-4 border border-white/10 rounded hover:border-white/30 transition-colors block">
+          <div class="shrink-0 font-mono text-xs opacity-40 pt-0.5 w-24">
+            {entry.data.publishedAt.toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' })}
+          </div>
+          <div class="flex-1 min-w-0">
+            <div class="font-mono text-xs mb-1" style={`color: ${categoryColor[entry.data.category] ?? 'var(--color-accent)'}`}>
+              {entry.data.category} · {entry.data.source}
+            </div>
+            <div class="text-sm font-semibold leading-snug">{entry.data.title}</div>
+          </div>
+        </a>
+      ))}
+    </div>
+  </div>
+</Base>
