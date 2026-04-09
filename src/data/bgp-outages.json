@@ -587,6 +587,28 @@
     "name": "INFORMATIONTECHNOLOGYCYBERSECURITY-AS-AP Dept. of Information Technology & Cyber Security",
     "status": "DOWN",
     "started_at": "2026-04-09T09:31:48.841495+00:00",
+    "ended_at": "2026-04-09T10:02:30.826543+00:00",
+    "duration_minutes": 30,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": true
+  },
+  {
+    "asn": "AS141236",
+    "name": "MCDC-AS-AP Mandalay City Development Committee",
+    "status": "DOWN",
+    "started_at": "2026-04-09T09:32:33.516005+00:00",
+    "ended_at": "2026-04-09T10:04:08.156964+00:00",
+    "duration_minutes": 31,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": true
+  },
+  {
+    "asn": "AS132148",
+    "name": "HTI-AS-AP HORIZON TELECOM INTERNATIONAL COMPANY LIMITED",
+    "status": "DOWN",
+    "started_at": "2026-04-09T10:01:34.745416+00:00",
     "ended_at": null,
     "duration_minutes": null,
     "min_visibility_pct": 0.0,
@@ -594,10 +616,21 @@
     "resolved": false
   },
   {
-    "asn": "AS141236",
-    "name": "MCDC-AS-AP Mandalay City Development Committee",
+    "asn": "AS133385",
+    "name": "ATOMMYANMAR-AS-AP Atom Myanmar Limited",
     "status": "DOWN",
-    "started_at": "2026-04-09T09:32:33.516005+00:00",
+    "started_at": "2026-04-09T10:02:24.812146+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
+  },
+  {
+    "asn": "AS136617",
+    "name": "FTCL-AS-AP Fortune Telecom Company Limited",
+    "status": "DOWN",
+    "started_at": "2026-04-09T10:04:06.150741+00:00",
     "ended_at": null,
     "duration_minutes": null,
     "min_visibility_pct": 0.0,
