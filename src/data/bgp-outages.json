@@ -488,10 +488,10 @@
     "name": "IMNCL-AS-AP Internet Maekhong Network Company Limited",
     "status": "DOWN",
     "started_at": "2026-04-08T23:32:32.948142+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-09T00:02:31.983007+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   }
 ]
