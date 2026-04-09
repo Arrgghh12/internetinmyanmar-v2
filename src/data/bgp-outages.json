@@ -669,5 +669,16 @@
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
     "resolved": true
+  },
+  {
+    "asn": "AS136210",
+    "name": "ITSPECTRUM-AS-AP IT Spectrum Company Limited",
+    "status": "DOWN",
+    "started_at": "2026-04-09T13:01:27.378835+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
   }
 ]
