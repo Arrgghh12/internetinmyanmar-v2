@@ -14,6 +14,7 @@ Usage:
 
 import argparse
 import asyncio
+import hashlib
 import json
 import logging
 import os
@@ -251,9 +252,33 @@ def update_history(current_statuses: dict):
 
 # ─── Git push ─────────────────────────────────────────────────────────────────
 
-def git_push_data():
-    """Commit and push updated BGP JSON to git so Cloudflare rebuilds."""
-    # Walk up from agents/ to find the repo root (contains .git or src/)
+def _status_hash(status_file: Path) -> str:
+    """Hash only the meaningful fields (status, visibility_pct, status_since) — ignore timestamps."""
+    if not status_file.exists():
+        return ""
+    data = json.loads(status_file.read_text())
+    entries = data if isinstance(data, list) else list(data.values())
+    key = json.dumps(
+        [{"asn": e.get("asn"), "status": e.get("status"),
+          "visibility_pct": e.get("visibility_pct"),
+          "status_since": e.get("status_since")}
+         for e in entries],
+        sort_keys=True
+    )
+    return hashlib.md5(key.encode()).hexdigest()
+
+
+def git_push_data(prev_hash: str) -> str:
+    """
+    Commit and push updated BGP JSON only if meaningful status changed.
+    Returns the new hash (or prev_hash if nothing was pushed).
+    """
+    new_hash = _status_hash(ASN_STATUS_FILE)
+    if new_hash == prev_hash:
+        log.info("BGP data unchanged (status/visibility stable) — skipping push")
+        return prev_hash
+
+    # Walk up from agents/ to find the repo root
     here = Path(__file__).parent
     candidates = [here.parent, here.parent.parent, Path("/root/dev/iimv2")]
     repo = None
@@ -263,7 +288,7 @@ def git_push_data():
             break
     if repo is None:
         log.error("git push: could not find repo root")
-        return
+        return prev_hash
 
     files = [
         str(ASN_STATUS_FILE.resolve()),
@@ -278,7 +303,7 @@ def git_push_data():
         )
         if diff.returncode == 0:
             log.info("BGP data unchanged — no git commit")
-            return
+            return prev_hash
         subprocess.run(
             ["git", "-C", str(repo), "commit", "-m",
              f"data: BGP status {datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M UTC')}"],
@@ -287,8 +312,10 @@ def git_push_data():
         subprocess.run(["git", "-C", str(repo), "pull", "--rebase"], check=True)
         subprocess.run(["git", "-C", str(repo), "push"], check=True)
         log.info("BGP data pushed to git → Cloudflare rebuild triggered")
+        return new_hash
     except Exception as e:
         log.error("git push failed: %s", e)
+        return prev_hash
 
 
 # ─── Main check loop ──────────────────────────────────────────────────────────
@@ -354,6 +381,8 @@ async def check_asns(asn_list: list[dict], test_mode: bool = False):
     if test_mode:
         return
 
+    prev_hash = _status_hash(ASN_STATUS_FILE)
+
     merged = {**previous, **current_statuses}
     save_json(ASN_STATUS_FILE, merged)
     save_json(OUTAGES_FILE, outages)
@@ -367,7 +396,7 @@ async def check_asns(asn_list: list[dict], test_mode: bool = False):
     log.info("Done: %d GREEN  %d YELLOW  %d RED  (of %d checked)",
              len(green), len(yellow), len(down), checked)
 
-    git_push_data()
+    git_push_data(prev_hash)
 
 
 # ─── Entry point ──────────────────────────────────────────────────────────────
