@@ -719,21 +719,21 @@
     "name": "TIMCL-AS-AP Telecom International Myanmar Co.",
     "status": "DOWN",
     "started_at": "2026-04-09T15:01:48.416500+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-09T15:31:28.635090+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS150285",
     "name": "LMHCC-AS-AP Long Mao Home Center Co.ltd.",
     "status": "DOWN",
     "started_at": "2026-04-09T15:02:57.164189+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-09T15:32:11.669519+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   }
 ]
