@@ -96640,5 +96640,110 @@
         "visibility_pct": 0.997
       }
     }
+  },
+  {
+    "timestamp": "2026-04-09T13:05:05.189755+00:00",
+    "statuses": {
+      "AS132167": {
+        "status": "GREEN",
+        "visibility_pct": 1.0
+      },
+      "AS58952": {
+        "status": "GREEN",
+        "visibility_pct": 1.0
+      },
+      "AS9988": {
+        "status": "GREEN",
+        "visibility_pct": 1.0
+      },
+      "AS136480": {
+        "status": "GREEN",
+        "visibility_pct": 1.0
+      }
+    }
+  },
+  {
+    "timestamp": "2026-04-09T13:10:23.267602+00:00",
+    "statuses": {
+      "AS132167": {
+        "status": "GREEN",
+        "visibility_pct": 1.0
+      },
+      "AS58952": {
+        "status": "GREEN",
+        "visibility_pct": 1.0
+      },
+      "AS9988": {
+        "status": "GREEN",
+        "visibility_pct": 1.0
+      },
+      "AS136480": {
+        "status": "GREEN",
+        "visibility_pct": 1.0
+      }
+    }
+  },
+  {
+    "timestamp": "2026-04-09T13:15:13.175949+00:00",
+    "statuses": {
+      "AS132167": {
+        "status": "GREEN",
+        "visibility_pct": 1.0
+      },
+      "AS58952": {
+        "status": "GREEN",
+        "visibility_pct": 1.0
+      },
+      "AS9988": {
+        "status": "GREEN",
+        "visibility_pct": 1.0
+      },
+      "AS136480": {
+        "status": "GREEN",
+        "visibility_pct": 1.0
+      }
+    }
+  },
+  {
+    "timestamp": "2026-04-09T13:20:05.515412+00:00",
+    "statuses": {
+      "AS132167": {
+        "status": "GREEN",
+        "visibility_pct": 1.0
+      },
+      "AS58952": {
+        "status": "GREEN",
+        "visibility_pct": 1.0
+      },
+      "AS9988": {
+        "status": "GREEN",
+        "visibility_pct": 1.0
+      },
+      "AS136480": {
+        "status": "GREEN",
+        "visibility_pct": 1.0
+      }
+    }
+  },
+  {
+    "timestamp": "2026-04-09T13:25:34.175149+00:00",
+    "statuses": {
+      "AS132167": {
+        "status": "GREEN",
+        "visibility_pct": 1.0
+      },
+      "AS58952": {
+        "status": "RED",
+        "visibility_pct": 0.0
+      },
+      "AS9988": {
+        "status": "GREEN",
+        "visibility_pct": 1.0
+      },
+      "AS136480": {
+        "status": "GREEN",
+        "visibility_pct": 1.0
+      }
+    }
   }
 ]
