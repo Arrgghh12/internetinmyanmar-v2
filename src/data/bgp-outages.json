@@ -642,10 +642,10 @@
     "name": "FRONTIIRCOLTD-MM Frontiir Co. Ltd",
     "status": "DOWN",
     "started_at": "2026-04-09T11:10:21.365377+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-09T11:15:07.866954+00:00",
+    "duration_minutes": 4,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   }
 ]
