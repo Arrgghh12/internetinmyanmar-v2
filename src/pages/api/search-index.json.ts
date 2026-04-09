@@ -8,14 +8,30 @@ export const GET: APIRoute = async () => {
     !data.draft && !data.archived && data.lang === 'en'
   )
 
-  const index = articles.map((a) => ({
-    slug: a.slug,
-    title: a.data.title,
-    excerpt: a.data.excerpt ?? '',
-    categories: a.data.categories,
-    tags: a.data.tags,
-    publishedAt: a.data.publishedAt.toISOString().slice(0, 10),
-  }))
+  const digest = await getCollection('digest', ({ data }) => !data.draft)
+
+  const index = [
+    ...articles.map((a) => ({
+      slug: a.slug,
+      title: a.data.title,
+      excerpt: a.data.excerpt ?? '',
+      categories: a.data.categories,
+      tags: a.data.tags,
+      publishedAt: a.data.publishedAt.toISOString().slice(0, 10),
+      type: 'article',
+      href: `/articles/${a.slug}/`,
+    })),
+    ...digest.map((d) => ({
+      slug: d.slug,
+      title: d.data.title,
+      excerpt: '',
+      categories: [d.data.category],
+      tags: d.data.tags,
+      publishedAt: d.data.publishedAt.toISOString().slice(0, 10),
+      type: 'digest',
+      href: `/digest/${d.slug}/`,
+    })),
+  ]
 
   return new Response(JSON.stringify(index), {
     headers: { 'Content-Type': 'application/json' },
