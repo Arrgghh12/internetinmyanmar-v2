@@ -581,5 +581,27 @@
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
     "resolved": true
+  },
+  {
+    "asn": "AS136465",
+    "name": "INFORMATIONTECHNOLOGYCYBERSECURITY-AS-AP Dept. of Information Technology & Cyber Security",
+    "status": "DOWN",
+    "started_at": "2026-04-09T09:31:48.841495+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
+  },
+  {
+    "asn": "AS141236",
+    "name": "MCDC-AS-AP Mandalay City Development Committee",
+    "status": "DOWN",
+    "started_at": "2026-04-09T09:32:33.516005+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
   }
 ]
