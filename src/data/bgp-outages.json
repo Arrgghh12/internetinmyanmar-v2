@@ -675,19 +675,19 @@
     "name": "ITSPECTRUM-AS-AP IT Spectrum Company Limited",
     "status": "DOWN",
     "started_at": "2026-04-09T13:01:27.378835+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-09T13:31:23.276458+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS58952",
     "name": "FRONTIIRCOLTD-MM Frontiir Co. Ltd",
     "status": "DOWN",
     "started_at": "2026-04-09T13:25:30.394550+00:00",
-    "ended_at": "2026-04-09T13:30:05.202967+00:00",
-    "duration_minutes": 4,
+    "ended_at": "2026-04-09T13:31:30.484574+00:00",
+    "duration_minutes": 6,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
     "resolved": true
