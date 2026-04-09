@@ -7,7 +7,7 @@ interface Props {
   seoTitle: string
   metaDescription: string
   slug: string          // passed from [slug].astro params (filename-based)
-  category: string
+  categories: string[]
   author: string
   publishedAt: Date
   updatedAt?: Date
@@ -25,7 +25,7 @@ const {
   seoTitle,
   metaDescription,
   slug,
-  category,
+  categories,
   author,
   publishedAt,
   updatedAt,
@@ -42,14 +42,15 @@ const canonicalUrl = originalUrl ?? new URL(`/articles/${slug}/`, Astro.site).hr
 const isStale = (Date.now() - publishedAt.valueOf()) > 1000 * 60 * 60 * 24 * 548 // 18 months
 
 const categoryHref: Record<string, string> = {
-  'Censorship & Shutdowns':   '/analysis/censorship/',
-  'Telecom & Infrastructure': '/analysis/infrastructure/',
-  'Digital Economy':          '/analysis/digital-economy/',
-  'Guides & Tools':           '/guides/vpn-circumvention/',
-  'News - Mobile':            '/news/mobile/',
-  'News - Broadband':         '/news/broadband/',
-  'News - Policy':            '/news/policy/',
+  'Censorship & Shutdowns':   '/censorship/',
+  'VPN & Security':           '/security/',
+  'ISP & Broadband':          '/broadband/',
+  'Mobile & Data Plans':      '/mobile/',
+  'Telecom & Infrastructure': '/infrastructure/',
+  'Digital Services':         '/digital-services/',
+  'Policy & Regulation':      '/policy/',
 }
+const primaryCategory = categories[0]
 ---
 <Base
   {title}
@@ -72,13 +73,13 @@ const categoryHref: Record<string, string> = {
     slot="head"
   />
 
-  <article class="max-w-3xl mx-auto px-4 py-12">
+  <article class="max-w-3xl mx-auto px-4 py-12" data-pagefind-body>
 
     <!-- Breadcrumb -->
     <nav class="text-xs opacity-50 mb-6 font-mono">
       <a href="/" class="hover:opacity-100">Home</a>
       <span class="mx-2">›</span>
-      <a href={categoryHref[category] ?? '/'} class="hover:opacity-100">{category}</a>
+      <a href={categoryHref[primaryCategory] ?? '/'} class="hover:opacity-100">{primaryCategory}</a>
     </nav>
 
     <!-- Stale notice -->

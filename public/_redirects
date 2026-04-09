@@ -197,3 +197,14 @@
 /yangon-wifi-map/ /articles/yangon-wifi-map 301
 /yatanarpon-lte-ftth/ /articles/yatanarpon-lte-ftth 301
 /exploring-best-crypto-exchange-myanmar-binance/ / 301
+
+# Category page redirects — old structure → new flat URLs
+/analysis/censorship/       /censorship/       301
+/analysis/infrastructure/   /infrastructure/   301
+/analysis/digital-economy/  /digital-services/ 301
+/guides/vpn-circumvention/  /security/         301
+/guides/digital-security/   /security/         301
+/guides/connectivity/       /mobile/           301
+/news/mobile/               /mobile/           301
+/news/broadband/            /broadband/        301
+/news/policy/               /policy/           301

@@ -1,6 +1,6 @@
 # CLAUDE.md — Internet in Myanmar v2
 # Project context — read entirely before any action
-# Last updated: 2026-04-05
+# Last updated: 2026-04-07
 
 ---
 
@@ -87,8 +87,8 @@ swap=2GB
 # Windows access: \\wsl$\Ubuntu\home\[user]\dev\iimv2
 
 # 7. Git identity
-git config --global user.name "[YOUR_NAME]"
-git config --global user.email "[YOUR_EMAIL]"
+git config --global user.name "Arrgghh12"
+git config --global user.email "mploton@gmail.com"
 ```
 
 ---
@@ -160,7 +160,7 @@ Development:
   Dev server: localhost:4321
 
 Version control:
-  GitHub:     [GITHUB_USERNAME]/internetinmyanmar-v2
+  GitHub:     Arrgghh12/internetinmyanmar-v2
   Branches:
     main    → auto-deploy to Cloudflare Pages (production)
     dev     → dev.internetinmyanmar.com (Cloudflare Pages preview)
@@ -177,28 +177,27 @@ Cloudflare Pages:
 
 VPS (CloudPanel, Ubuntu 22):
   Purpose:     Python agents ONLY — not the website itself
-  Agents user: [AGENTS_USER]
-  Agents path: /home/[AGENTS_USER]/agents/
-  Logs:        /home/[AGENTS_USER]/logs/
+  Agents user: root
+  Agents path: /root/agents/
+  Logs:        /root/logs/
 
 SSH ACCESS (how Claude Code connects to VPS):
-  Key location: /mnt/c/dev/woot-watcher/[DEPLOY_KEY_FILENAME]
-  The SSH private key lives in the woot-watcher project on the Windows drive.
-  Claude Code accesses it via WSL at that /mnt/c/ path.
-  DO NOT copy the key elsewhere. DO NOT commit it. Read it in place.
+  Key location: ~/.ssh/iim_vps
+  SSH key is ed25519, already on disk in WSL home.
+  DO NOT copy the key elsewhere. DO NOT commit it.
 
   SSH command pattern:
-    ssh -i /mnt/c/dev/woot-watcher/[DEPLOY_KEY_FILENAME] \
+    ssh -i ~/.ssh/iim_vps \
         -o StrictHostKeyChecking=no \
-        [AGENTS_USER]@[VPS_IP]
+        root@157.180.83.168
 
   SCP command pattern (push files to VPS):
-    scp -i /mnt/c/dev/woot-watcher/[DEPLOY_KEY_FILENAME] \
+    scp -i ~/.ssh/iim_vps \
         -r ~/dev/iimv2/agents/ \
-        [AGENTS_USER]@[VPS_IP]:/home/[AGENTS_USER]/agents/
+        root@157.180.83.168:/root/agents/
 
   Before using SSH, verify key permissions (WSL requires this):
-    chmod 600 /mnt/c/dev/woot-watcher/[DEPLOY_KEY_FILENAME]
+    chmod 600 ~/.ssh/iim_vps
 
 MySQL (VPS — WordPress DB):
   Host:     127.0.0.1  ← use IP, not localhost, for Python mysql connector
@@ -218,21 +217,21 @@ configures the environment remotely via SSH. Do this in sequence:
 
 ```bash
 # Step 1 — Fix SSH key permissions (WSL requirement)
-chmod 600 /mnt/c/dev/woot-watcher/[DEPLOY_KEY_FILENAME]
+chmod 600 ~/.ssh/iim_vps
 
 # Step 2 — Push agents folder to VPS
-scp -i /mnt/c/dev/woot-watcher/[DEPLOY_KEY_FILENAME] \
+scp -i ~/.ssh/iim_vps \
     -r ~/dev/iimv2/agents/ \
-    [AGENTS_USER]@[VPS_IP]:/home/[AGENTS_USER]/agents/
+    root@157.180.83.168:/root/agents/
 
 # Step 3 — Push .env to VPS (agents need it, never in repo)
-scp -i /mnt/c/dev/woot-watcher/[DEPLOY_KEY_FILENAME] \
+scp -i ~/.ssh/iim_vps \
     ~/dev/iimv2/.env \
-    [AGENTS_USER]@[VPS_IP]:/home/[AGENTS_USER]/agents/.env
+    root@157.180.83.168:/root/agents/.env
 
 # Step 4 — Remote setup via SSH (run once)
-ssh -i /mnt/c/dev/woot-watcher/[DEPLOY_KEY_FILENAME] \
-    [AGENTS_USER]@[VPS_IP] << 'EOF'
+ssh -i ~/.ssh/iim_vps \
+    root@157.180.83.168 << 'EOF'
 
   # Create venv and install dependencies
   cd ~/agents
@@ -265,8 +264,8 @@ ssh -i /mnt/c/dev/woot-watcher/[DEPLOY_KEY_FILENAME] \
 EOF
 
 # Step 5 — Verify agents run correctly
-ssh -i /mnt/c/dev/woot-watcher/[DEPLOY_KEY_FILENAME] \
-    [AGENTS_USER]@[VPS_IP] \
+ssh -i ~/.ssh/iim_vps \
+    root@157.180.83.168 \
     "cd ~/agents && source venv/bin/activate && python ooni_watcher.py --test"
 ```
 
@@ -276,13 +275,13 @@ When you modify agent scripts locally, push the update:
 
 ```bash
 # Quick update — agents folder only
-scp -i /mnt/c/dev/woot-watcher/[DEPLOY_KEY_FILENAME] \
+scp -i ~/.ssh/iim_vps \
     -r ~/dev/iimv2/agents/*.py \
-    [AGENTS_USER]@[VPS_IP]:/home/[AGENTS_USER]/agents/
+    root@157.180.83.168:/root/agents/
 
 # If requirements.txt changed, also run pip install remotely:
-ssh -i /mnt/c/dev/woot-watcher/[DEPLOY_KEY_FILENAME] \
-    [AGENTS_USER]@[VPS_IP] \
+ssh -i ~/.ssh/iim_vps \
+    root@157.180.83.168 \
     "cd ~/agents && source venv/bin/activate && pip install -q -r requirements.txt"
 ```
 
@@ -300,10 +299,10 @@ Use an SSH tunnel to forward the remote port locally:
 
 ```bash
 # Open tunnel in background (run once per session)
-ssh -i /mnt/c/dev/woot-watcher/[DEPLOY_KEY_FILENAME] \
+ssh -i ~/.ssh/iim_vps \
     -L 3307:127.0.0.1:3306 \
     -N -f \
-    [AGENTS_USER]@[VPS_IP]
+    root@157.180.83.168
 
 # Now connect locally on port 3307
 # migration scripts use: host=127.0.0.1, port=3307
@@ -368,13 +367,13 @@ Add to `~/.bashrc` in WSL — Claude Code can do this during setup:
 
 ```bash
 # ~/.bashrc additions
-VPS_KEY="/mnt/c/dev/woot-watcher/[DEPLOY_KEY_FILENAME]"
-VPS_HOST="[AGENTS_USER]@[VPS_IP]"
+VPS_KEY="~/.ssh/iim_vps"
+VPS_HOST="root@157.180.83.168"
 
 alias iim-tunnel-open="ssh -i $VPS_KEY -L 3307:127.0.0.1:3306 -N -f $VPS_HOST && echo 'Tunnel open on port 3307'"
 alias iim-tunnel-close="pkill -f 'L 3307' && echo 'Tunnel closed'"
 alias iim-ssh="ssh -i $VPS_KEY $VPS_HOST"
-alias iim-push-agents="scp -i $VPS_KEY -r ~/dev/iimv2/agents/*.py $VPS_HOST:/home/[AGENTS_USER]/agents/"
+alias iim-push-agents="scp -i $VPS_KEY -r ~/dev/iimv2/agents/*.py $VPS_HOST:/root/agents/"
 ```
 
 Usage:
@@ -643,7 +642,7 @@ article:
   internal_links: [3, 5]
 
 github:
-  repo:         "[GITHUB_USERNAME]/internetinmyanmar-v2"
+  repo:         "Arrgghh12/internetinmyanmar-v2"
   base_branch:  "dev"
   draft_prefix: "draft/"
 
@@ -764,7 +763,8 @@ npm install -g @modelcontextprotocol/server-sequential-thinking
       "command": "npx",
       "args": ["-y", "@benborla29/mcp-server-mysql"],
       "env": {
-        "MYSQL_HOST": "localhost",
+        "MYSQL_HOST": "127.0.0.1",
+        "MYSQL_PORT": "3307",
         "MYSQL_USER": "iim_readonly",
         "MYSQL_PASS": "${WP_DB_PASSWORD_READONLY}",
         "MYSQL_DB": "${WP_DB_NAME}",

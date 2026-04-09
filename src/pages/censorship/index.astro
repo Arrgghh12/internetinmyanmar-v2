@@ -1,0 +1,25 @@
+---
+import { getCollection } from 'astro:content'
+import Base from '../../layouts/Base.astro'
+import ArticleList from '../../components/ArticleList.astro'
+
+export const prerender = false
+
+const articles = (await getCollection('articles', ({ data }) =>
+  !data.draft && !data.archived && data.categories.includes('Censorship & Shutdowns') && data.lang === 'en'
+)).sort((a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf())
+---
+<Base
+  title="Censorship & Shutdowns — Myanmar"
+  seoTitle="Myanmar Internet Censorship & Shutdowns | Internet in Myanmar"
+  metaDescription="In-depth analysis of internet censorship, website blocking, and service shutdowns in Myanmar since the 2021 military coup."
+>
+  <div class="max-w-5xl mx-auto px-4 py-12">
+    <div class="font-mono text-xs text-[color:var(--color-danger)] mb-3 uppercase tracking-widest">Censorship & Shutdowns</div>
+    <h1 class="font-headline text-3xl md:text-4xl mb-4">Censorship & Shutdowns</h1>
+    <p class="opacity-70 mb-10 max-w-2xl">
+      Documenting the Myanmar military junta's systematic use of internet censorship, website blocking, and connectivity shutdowns as instruments of political repression.
+    </p>
+    <ArticleList {articles} emptyMessage="No articles published yet in this category." />
+  </div>
+</Base>

@@ -1,0 +1,25 @@
+---
+import { getCollection } from 'astro:content'
+import Base from '../../layouts/Base.astro'
+import ArticleList from '../../components/ArticleList.astro'
+
+export const prerender = false
+
+const articles = (await getCollection('articles', ({ data }) =>
+  !data.draft && !data.archived && data.categories.includes('ISP & Broadband') && data.lang === 'en'
+)).sort((a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf())
+---
+<Base
+  title="ISP & Broadband — Myanmar"
+  seoTitle="Myanmar ISP & Home Broadband Guide | Internet in Myanmar"
+  metaDescription="Reviews and comparisons of home internet providers, fiber broadband, and WISP services in Myanmar. Choose the best ISP for your location."
+>
+  <div class="max-w-5xl mx-auto px-4 py-12">
+    <div class="font-mono text-xs text-[color:var(--color-accent)] mb-3 uppercase tracking-widest">ISP & Broadband</div>
+    <h1 class="font-headline text-3xl md:text-4xl mb-4">ISP & Broadband</h1>
+    <p class="opacity-70 mb-10 max-w-2xl">
+      Comparisons and reviews of Myanmar's home internet providers, fiber broadband plans, and wireless ISPs (WISP) to help you choose the best connection.
+    </p>
+    <ArticleList {articles} emptyMessage="No articles published yet in this category." />
+  </div>
+</Base>

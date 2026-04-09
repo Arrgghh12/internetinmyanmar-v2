@@ -43,36 +43,29 @@ function getLocalePath(targetLang: string): string {
 }
 
 const nav = [
+  { label: 'Censorship', href: '/censorship/' },
   {
-    label: 'Reports & Analysis',
+    label: 'Connectivity',
     children: [
-      { label: 'Censorship & Shutdowns', href: '/analysis/censorship/' },
-      { label: 'Telecom & Infrastructure', href: '/analysis/infrastructure/' },
-      { label: 'Digital Economy', href: '/analysis/digital-economy/' },
+      { label: 'ISP & Broadband',          href: '/broadband/' },
+      { label: 'Mobile & Data Plans',      href: '/mobile/' },
+      { label: 'Telecom & Infrastructure', href: '/infrastructure/' },
     ],
   },
   {
-    label: 'Guides & Tools',
+    label: 'Guides',
     children: [
-      { label: 'VPN & Circumvention', href: '/guides/vpn-circumvention/' },
-      { label: 'Digital Security', href: '/guides/digital-security/' },
-      { label: 'Connectivity & SIM Cards', href: '/guides/connectivity/' },
+      { label: 'VPN & Security',  href: '/security/' },
+      { label: 'Digital Services', href: '/digital-services/' },
     ],
   },
+  { label: 'Policy', href: '/policy/' },
   {
     label: 'Observatory',
     children: [
-      { label: 'Shutdown Tracker', href: '/observatory/shutdown-tracker/' },
+      { label: 'BGP Network Status',    href: '/observatory/bgp/' },
       { label: 'Blocked Sites Monitor', href: '/observatory/blocked-sites/' },
-      { label: 'Quarterly Reports', href: '/observatory/' },
-    ],
-  },
-  {
-    label: 'News',
-    children: [
-      { label: 'Mobile Networks', href: '/news/mobile/' },
-      { label: 'Broadband', href: '/news/broadband/' },
-      { label: 'Policy & Regulation', href: '/news/policy/' },
+      { label: 'Shutdown Tracker',      href: '/observatory/shutdown-tracker/' },
     ],
   },
   { label: 'About', href: '/about/mission/' },
@@ -149,35 +142,46 @@ const nav = [
         <a href="/" class="font-headline text-xl font-bold tracking-tight">
           Internet in <span class="text-[color:var(--color-accent)]">Myanmar</span>
         </a>
-        <nav class="hidden md:flex gap-6 text-sm">
-          {nav.map((item) => (
-            <div class="relative group">
-              {item.href ? (
-                <a href={item.href} class="hover:text-[color:var(--color-accent)] transition-colors">
-                  {item.label}
-                </a>
-              ) : (
-                <>
-                  <button class="hover:text-[color:var(--color-accent)] transition-colors cursor-default">
-                    {item.label} ▾
-                  </button>
-                  <div class="absolute top-full left-0 pt-2 hidden group-hover:block z-50">
-                    <div class="bg-[#0f1e35] border border-white/10 rounded shadow-xl min-w-48 py-1">
-                      {item.children?.map((child) => (
-                        <a
-                          href={child.href}
-                          class="block px-4 py-2 text-sm hover:bg-white/5 hover:text-[color:var(--color-accent)]"
-                        >
-                          {child.label}
-                        </a>
-                      ))}
+        <div class="hidden md:flex items-center gap-6 text-sm">
+          <nav class="flex gap-6">
+            {nav.map((item) => (
+              <div class="relative group">
+                {item.href ? (
+                  <a href={item.href} class="hover:text-[color:var(--color-accent)] transition-colors">
+                    {item.label}
+                  </a>
+                ) : (
+                  <>
+                    <button class="hover:text-[color:var(--color-accent)] transition-colors cursor-default">
+                      {item.label} ▾
+                    </button>
+                    <div class="absolute top-full left-0 pt-2 hidden group-hover:block z-50">
+                      <div class="bg-[#0f1e35] border border-white/10 rounded shadow-xl min-w-48 py-1">
+                        {item.children?.map((child) => (
+                          <a
+                            href={child.href}
+                            class="block px-4 py-2 text-sm hover:bg-white/5 hover:text-[color:var(--color-accent)]"
+                          >
+                            {child.label}
+                          </a>
+                        ))}
+                      </div>
                     </div>
-                  </div>
-                </>
-              )}
-            </div>
-          ))}
-        </nav>
+                  </>
+                )}
+              </div>
+            ))}
+          </nav>
+          <button id="search-trigger"
+            class="font-mono text-xs px-3 py-1.5 border border-white/20 rounded hover:border-white/50 flex items-center gap-2 transition-colors opacity-70 hover:opacity-100"
+            aria-label="Search articles"
+          >
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+            </svg>
+            Search
+          </button>
+        </div>
       </div>
     </header>
 
@@ -214,6 +218,100 @@ const nav = [
         © {new Date().getFullYear()} Internet in Myanmar. Content licensed CC BY 4.0.
       </div>
     </footer>
+
+    <!-- Search overlay -->
+    <div id="search-overlay" class="fixed inset-0 z-50 hidden bg-black/80 backdrop-blur-sm p-4 md:p-20">
+      <div class="max-w-2xl mx-auto bg-[#0d1f38] border border-white/10 rounded-xl p-6">
+        <div class="flex justify-between items-center mb-4">
+          <span class="font-mono text-xs opacity-50">Search articles</span>
+          <button id="search-close" class="opacity-50 hover:opacity-100 text-xl leading-none" aria-label="Close search">✕</button>
+        </div>
+        <input
+          id="search-input"
+          type="search"
+          placeholder="Search articles…"
+          class="w-full bg-white/5 border border-white/20 rounded px-4 py-3 text-sm font-mono placeholder-white/30 focus:outline-none focus:border-[color:var(--color-accent)] mb-4"
+          autocomplete="off"
+        />
+        <div id="search-results" class="max-h-96 overflow-y-auto space-y-2"></div>
+      </div>
+    </div>
+    <script>
+      import Fuse from 'fuse.js'
+
+      type Article = {
+        slug: string
+        title: string
+        excerpt: string
+        categories: string[]
+        tags: string[]
+        publishedAt: string
+      }
+
+      const overlay   = document.getElementById('search-overlay')!
+      const trigger   = document.getElementById('search-trigger')!
+      const closeBtn  = document.getElementById('search-close')!
+      const input     = document.getElementById('search-input') as HTMLInputElement
+      const resultsEl = document.getElementById('search-results')!
+
+      let fuse: Fuse<Article> | null = null
+
+      async function initSearch() {
+        if (fuse) return
+        const res = await fetch('/api/search-index.json')
+        const articles: Article[] = await res.json()
+        fuse = new Fuse(articles, {
+          keys: [
+            { name: 'title',      weight: 0.5 },
+            { name: 'excerpt',    weight: 0.3 },
+            { name: 'tags',       weight: 0.15 },
+            { name: 'categories', weight: 0.05 },
+          ],
+          threshold: 0.35,
+          minMatchCharLength: 2,
+        })
+      }
+
+      function renderResults(query: string) {
+        if (!fuse || !query.trim()) {
+          resultsEl.innerHTML = ''
+          return
+        }
+        const hits = fuse.search(query, { limit: 8 })
+        if (!hits.length) {
+          resultsEl.innerHTML = '<p class="text-sm opacity-40 font-mono py-2">No results found.</p>'
+          return
+        }
+        resultsEl.innerHTML = hits.map(({ item }) => `
+          <a href="/articles/${item.slug}/"
+             class="block px-4 py-3 rounded border border-white/5 hover:border-white/20 hover:bg-white/3 transition-colors">
+            <div class="font-mono text-xs text-[color:var(--color-accent)] mb-1">${item.categories[0] ?? ''}</div>
+            <div class="text-sm font-semibold leading-snug mb-1">${item.title}</div>
+            <div class="text-xs opacity-50 line-clamp-1">${item.excerpt}</div>
+          </a>
+        `).join('')
+      }
+
+      function openSearch() {
+        overlay.classList.remove('hidden')
+        input.focus()
+        initSearch()
+      }
+
+      trigger.addEventListener('click', openSearch)
+      closeBtn.addEventListener('click', () => overlay.classList.add('hidden'))
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') overlay.classList.add('hidden')
+        if ((e.key === 'k' || e.key === 'K') && (e.metaKey || e.ctrlKey)) {
+          e.preventDefault()
+          openSearch()
+        }
+      })
+      overlay.addEventListener('click', (e) => {
+        if (e.target === overlay) overlay.classList.add('hidden')
+      })
+      input.addEventListener('input', () => renderResults(input.value))
+    </script>
 
   </body>
 </html>

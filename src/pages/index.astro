@@ -7,26 +7,28 @@ const allArticles = await getCollection('articles', ({ data }) =>
   !data.draft && data.lang === 'en'
 )
 
-// Featured: Censorship & Shutdowns or Telecom, newest first
+// Featured: Censorship or Policy, newest first
 const featured = allArticles
-  .filter(a => a.data.category === 'Censorship & Shutdowns' || a.data.category === 'Telecom & Infrastructure')
+  .filter(a => a.data.categories.includes('Censorship & Shutdowns') || a.data.categories.includes('Policy & Regulation'))
   .sort((a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf())
   .slice(0, 2)
 
-// Latest news: News-* categories, newest first
+// Latest news: connectivity/mobile/broadband, newest first
 const latestNews = allArticles
-  .filter(a => a.data.category.startsWith('News'))
+  .filter(a => a.data.categories.some(c =>
+    ['Mobile & Data Plans', 'ISP & Broadband', 'Policy & Regulation'].includes(c)
+  ))
   .sort((a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf())
   .slice(0, 3)
 
 const categoryColor: Record<string, string> = {
   'Censorship & Shutdowns':   'var(--color-danger)',
+  'VPN & Security':           'var(--color-accent)',
+  'ISP & Broadband':          'var(--color-accent)',
+  'Mobile & Data Plans':      'var(--color-warning)',
   'Telecom & Infrastructure': 'var(--color-accent)',
-  'Digital Economy':          'var(--color-warning)',
-  'Guides & Tools':           'var(--color-accent)',
-  'News - Mobile':            'var(--color-warning)',
-  'News - Broadband':         'var(--color-warning)',
-  'News - Policy':            'var(--color-warning)',
+  'Digital Services':         'var(--color-warning)',
+  'Policy & Regulation':      'var(--color-warning)',
 }
 ---
 <Base
@@ -98,8 +100,8 @@ const categoryColor: Record<string, string> = {
         <div class="grid md:grid-cols-2 gap-6">
           {featured.map((article) => (
             <a href={`/articles/${article.slug}/`} class="border border-white/10 rounded p-6 hover:border-white/30 transition-colors block">
-              <div class="font-mono text-xs mb-3" style={`color: ${categoryColor[article.data.category] ?? 'var(--color-accent)'}`}>
-                {article.data.category}
+              <div class="font-mono text-xs mb-3" style={`color: ${categoryColor[article.data.categories[0]] ?? 'var(--color-accent)'}`}>
+                {article.data.categories[0]}
               </div>
               <h3 class="font-headline text-xl mb-3 leading-snug">{article.data.title}</h3>
               <p class="text-sm opacity-60 mb-4 line-clamp-3">{article.data.excerpt}</p>
@@ -126,8 +128,8 @@ const categoryColor: Record<string, string> = {
         <div class="grid md:grid-cols-3 gap-4">
           {latestNews.map((article) => (
             <a href={`/articles/${article.slug}/`} class="border border-white/10 rounded p-5 hover:border-white/30 transition-colors block">
-              <div class="font-mono text-xs mb-2" style={`color: ${categoryColor[article.data.category] ?? 'var(--color-warning)'}`}>
-                {article.data.category}
+              <div class="font-mono text-xs mb-2" style={`color: ${categoryColor[article.data.categories[0]] ?? 'var(--color-warning)'}`}>
+                {article.data.categories[0]}
               </div>
               <h3 class="font-headline text-base leading-snug mb-3">{article.data.title}</h3>
               <div class="text-xs opacity-40 font-mono">
