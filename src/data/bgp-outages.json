@@ -609,32 +609,32 @@
     "name": "HTI-AS-AP HORIZON TELECOM INTERNATIONAL COMPANY LIMITED",
     "status": "DOWN",
     "started_at": "2026-04-09T10:01:34.745416+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-09T10:31:22.375060+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS133385",
     "name": "ATOMMYANMAR-AS-AP Atom Myanmar Limited",
     "status": "DOWN",
     "started_at": "2026-04-09T10:02:24.812146+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-09T10:32:08.591644+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS136617",
     "name": "FTCL-AS-AP Fortune Telecom Company Limited",
     "status": "DOWN",
     "started_at": "2026-04-09T10:04:06.150741+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-09T10:32:42.431412+00:00",
+    "duration_minutes": 28,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   }
 ]
