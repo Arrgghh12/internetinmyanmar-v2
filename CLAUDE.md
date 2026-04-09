@@ -219,10 +219,12 @@ configures the environment remotely via SSH. Do this in sequence:
 # Step 1 — Fix SSH key permissions (WSL requirement)
 chmod 600 ~/.ssh/iim_vps
 
-# Step 2 — Push agents folder to VPS
-scp -i ~/.ssh/iim_vps \
-    -r ~/dev/iimv2/agents/ \
-    root@157.180.83.168:/root/agents/
+# Step 2 — Push agents folder to VPS (compress → scp → decompress)
+cd ~/dev/iimv2 && tar czf /tmp/agents.tar.gz agents/ \
+  && scp -i ~/.ssh/iim_vps /tmp/agents.tar.gz root@157.180.83.168:/tmp/ \
+  && ssh -i ~/.ssh/iim_vps root@157.180.83.168 \
+       'tar xzf /tmp/agents.tar.gz -C /root/ && rm /tmp/agents.tar.gz' \
+  && rm /tmp/agents.tar.gz
 
 # Step 3 — Push .env to VPS (agents need it, never in repo)
 scp -i ~/.ssh/iim_vps \
@@ -274,10 +276,12 @@ ssh -i ~/.ssh/iim_vps \
 When you modify agent scripts locally, push the update:
 
 ```bash
-# Quick update — agents folder only
-scp -i ~/.ssh/iim_vps \
-    -r ~/dev/iimv2/agents/*.py \
-    root@157.180.83.168:/root/agents/
+# Quick update — compress → scp → decompress
+cd ~/dev/iimv2 && tar czf /tmp/agents.tar.gz agents/ \
+  && scp -i ~/.ssh/iim_vps /tmp/agents.tar.gz root@157.180.83.168:/tmp/ \
+  && ssh -i ~/.ssh/iim_vps root@157.180.83.168 \
+       'tar xzf /tmp/agents.tar.gz -C /root/ && rm /tmp/agents.tar.gz' \
+  && rm /tmp/agents.tar.gz
 
 # If requirements.txt changed, also run pip install remotely:
 ssh -i ~/.ssh/iim_vps \
@@ -373,7 +377,7 @@ VPS_HOST="root@157.180.83.168"
 alias iim-tunnel-open="ssh -i $VPS_KEY -L 3307:127.0.0.1:3306 -N -f $VPS_HOST && echo 'Tunnel open on port 3307'"
 alias iim-tunnel-close="pkill -f 'L 3307' && echo 'Tunnel closed'"
 alias iim-ssh="ssh -i $VPS_KEY $VPS_HOST"
-alias iim-push-agents="scp -i $VPS_KEY -r ~/dev/iimv2/agents/*.py $VPS_HOST:/root/agents/"
+alias iim-push-agents="cd ~/dev/iimv2 && tar czf /tmp/agents.tar.gz agents/ && scp -i $VPS_KEY /tmp/agents.tar.gz $VPS_HOST:/tmp/ && ssh -i $VPS_KEY $VPS_HOST 'tar xzf /tmp/agents.tar.gz -C /root/ && rm /tmp/agents.tar.gz' && rm /tmp/agents.tar.gz"
 ```
 
 Usage:
