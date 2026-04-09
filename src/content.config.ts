@@ -57,7 +57,7 @@ const digest = defineCollection({
     canonical:   z.string().url(),
     publishedAt: z.coerce.date(),
     addedAt:     z.coerce.date(),
-    excerpt:     z.string().max(500),
+    excerpt:     z.string().max(500).optional(),
     category:    z.enum(['Shutdown', 'Censorship', 'Arrest', 'Policy', 'Data', 'Surveillance', 'Other']),
     tags:        z.array(z.string()),
     sourceScore: z.number().min(0).max(100),

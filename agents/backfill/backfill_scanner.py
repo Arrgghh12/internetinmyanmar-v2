@@ -134,6 +134,8 @@ Excerpt: {excerpt}
 Source: {source}
 Date: {date}
 
+category MUST be one of exactly: Shutdown | Censorship | Arrest | Policy | Data | Surveillance | Other
+
 JSON only:
 {{
   "relevance_score": 0,

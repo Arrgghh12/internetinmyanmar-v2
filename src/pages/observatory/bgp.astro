@@ -7,14 +7,14 @@ import metadataRaw    from '../../data/asn-metadata.json'
 import stats          from '../../content/observatory/stats.json'
 import { buildChartData }   from '../../lib/chart-data'
 import { buildLeaderboards } from '../../lib/leaderboard'
-import { BADGES, isCritical } from '../../lib/asn-utils'
+import { BADGES } from '../../lib/asn-utils'
 import type { NetworkType, AsnMeta } from '../../lib/asn-utils'
 
 export const prerender = false
 
-const asnStatus: Record<string, any>   = asnStatusRaw as any
-const outages:   any[]                 = outagesRaw   as any
-const history:   any[]                 = historyRaw   as any
+const asnStatus: Record<string, any>    = asnStatusRaw as any
+const outages:   any[]                  = outagesRaw   as any
+const history:   any[]                  = historyRaw   as any
 const metadata:  Record<string, AsnMeta> = metadataRaw as any
 
 // ── Status helpers ────────────────────────────────────────────────────────────
@@ -28,7 +28,7 @@ function isOff(asn: any): boolean {
 }
 
 function statusColor(asn: any): string {
-  if (isOff(asn))          return '#475569'  // slate-600 — long-term offline
+  if (isOff(asn))              return '#475569'
   if (asn.status === 'GREEN')  return '#22c55e'
   if (asn.status === 'YELLOW') return '#f59e0b'
   if (asn.status === 'RED')    return '#ef4444'
@@ -36,90 +36,115 @@ function statusColor(asn: any): string {
 }
 
 function statusLabel(asn: any): string {
-  if (isOff(asn))          return 'OFF'
+  if (isOff(asn))              return 'OFF'
   if (asn.status === 'GREEN')  return 'UP'
   if (asn.status === 'YELLOW') return 'RECOVERING'
   if (asn.status === 'RED')    return 'DOWN'
   return 'UNKNOWN'
 }
 
-// ── Sort order: DOWN → RECOVERING → UP → OFF → UNKNOWN ───────────────────────
-
-function sortKey(asn: any): number {
+function statusPriority(asn: any): number {
   if (isOff(asn)) return 4
   const m: Record<string, number> = { RED: 0, YELLOW: 1, GREEN: 2, UNKNOWN: 5 }
   return m[asn.status] ?? 5
 }
 
-// ── Derive status-change events from history ──────────────────────────────────
+// ── Derive status-change events with downtime ─────────────────────────────────
 
 interface StatusEvent {
-  timestamp: string; asn: string; name: string
+  timestamp: string; asn: string; name: string; description: string
   from: string; to: string; visibility_pct: number
+  downtime_minutes: number | null   // null = went down, not yet recovered
 }
+
 const statusEvents: StatusEvent[] = []
+const lastDown: Record<string, string> = {}   // asn → timestamp when it went RED
+
 for (let i = 1; i < history.length; i++) {
   const prev = history[i - 1].statuses ?? {}
   const curr = history[i].statuses   ?? {}
   for (const asn of Object.keys(curr)) {
     const prevStatus = prev[asn]?.status ?? 'UNKNOWN'
     const currStatus = curr[asn]?.status
-    if (currStatus && currStatus !== prevStatus) {
-      statusEvents.push({
-        timestamp: history[i].timestamp, asn,
-        name: asnStatus[asn]?.name ?? asn,
-        from: prevStatus, to: currStatus,
-        visibility_pct: curr[asn]?.visibility_pct ?? 0,
-      })
+    if (!currStatus || currStatus === prevStatus) continue
+
+    let downtime_minutes: number | null = null
+
+    if (currStatus === 'RED') {
+      lastDown[asn] = history[i].timestamp
+    } else if ((currStatus === 'GREEN' || currStatus === 'YELLOW') && prevStatus === 'RED') {
+      if (lastDown[asn]) {
+        const downMs  = new Date(history[i].timestamp).getTime() - new Date(lastDown[asn]).getTime()
+        downtime_minutes = Math.round(downMs / 60000)
+        delete lastDown[asn]
+      }
     }
+
+    const meta = metadata[asn]
+    statusEvents.push({
+      timestamp: history[i].timestamp, asn,
+      name: asnStatus[asn]?.name ?? asn,
+      description: meta?.description ?? asnStatus[asn]?.name ?? asn,
+      from: prevStatus, to: currStatus,
+      visibility_pct: curr[asn]?.visibility_pct ?? 0,
+      downtime_minutes,
+    })
   }
 }
 statusEvents.sort((a, b) => b.timestamp.localeCompare(a.timestamp))
-const recentEvents = statusEvents.slice(0, 60)
+const recentEvents = statusEvents.slice(0, 100)
 
-// ── Build ASN arrays ──────────────────────────────────────────────────────────
+// ── Build ASN rows for client-side table ──────────────────────────────────────
 
 const allASNs = Object.values(asnStatus)
-allASNs.sort((a, b) => sortKey(a) - sortKey(b))
+allASNs.sort((a, b) => statusPriority(a) - statusPriority(b))
 
-const criticalASNs = allASNs.filter(a => {
-  const t = metadata[a.asn]?.type
-  return t && isCritical(t)
+interface TableRow {
+  asn: string; asName: string; description: string
+  type: string; status: string; statusLabel: string
+  statusPriority: number; statusColor: string
+  visibility: number | null; since: string; off: boolean
+}
+
+const tableRows: TableRow[] = allASNs.map(asn => {
+  const meta    = metadata[asn.asn]
+  const netType = (meta?.type ?? 'ISP') as NetworkType
+  const off     = isOff(asn)
+  return {
+    asn:           asn.asn,
+    asName:        asn.name ?? asn.asn,
+    description:   meta?.description ?? asn.name ?? asn.asn,
+    type:          netType,
+    status:        asn.status ?? 'UNKNOWN',
+    statusLabel:   statusLabel(asn),
+    statusPriority: statusPriority(asn),
+    statusColor:   statusColor(asn),
+    visibility:    asn.visibility_pct != null ? Math.round(asn.visibility_pct * 100) : null,
+    since:         asn.status_since ?? '',
+    off,
+  }
 })
 
-const downCount    = allASNs.filter(a => a.status === 'RED' && !isOff(a)).length
-const yellowCount  = allASNs.filter(a => a.status === 'YELLOW').length
-const offCount     = allASNs.filter(a => isOff(a)).length
-const totalCount   = allASNs.length
+const downCount   = allASNs.filter(a => a.status === 'RED' && !isOff(a)).length
+const yellowCount = allASNs.filter(a => a.status === 'YELLOW').length
+const offCount    = allASNs.filter(a => isOff(a)).length
+const totalCount  = allASNs.length
 
-// ── Chart + leaderboard data (build-time) ─────────────────────────────────────
+// ── Chart + leaderboard ───────────────────────────────────────────────────────
 
-const chartData      = buildChartData(outages)
-const leaderboards   = buildLeaderboards(outages, metadata)
+const chartData    = buildChartData(outages)
+const leaderboards = buildLeaderboards(outages, metadata)
 
 // ── Misc helpers ──────────────────────────────────────────────────────────────
 
-function formatSince(asn: any): string {
-  const iso = asn.status_since
-  if (!iso) return '—'
-  const d = new Date(iso)
-  const diffMs = Date.now() - d.getTime()
-  const diffH  = Math.floor(diffMs / 3600000)
-  const diffM  = Math.floor((diffMs % 3600000) / 60000)
-  const diffD  = Math.floor(diffH / 24)
-  if (diffD > 1)  return `${diffD}d ago`
-  if (diffH > 0)  return `${diffH}h ${diffM}m ago`
-  return `${diffM}m ago`
-}
-
-function formatDuration(min: number | null | undefined): string {
-  if (min == null) return '⚡ Ongoing'
-  const h = Math.floor(min / 60); const m = min % 60
-  return h > 0 ? `${h}h ${m}m` : `${m}m`
-}
-
 function fmtTs(iso: string): string {
   return iso.replace('T', ' ').slice(0, 16) + ' UTC'
+}
+
+function fmtDowntime(min: number | null): string {
+  if (min === null) return '—'
+  const h = Math.floor(min / 60); const m = min % 60
+  return h > 0 ? `${h}h ${m}m` : `${m}m`
 }
 
 function eventIcon(from: string, to: string): string {
@@ -130,13 +155,47 @@ function eventIcon(from: string, to: string): string {
 }
 
 function eventVerb(from: string, to: string): string {
-  if (to === 'RED'    && from !== 'RED')    return 'went DOWN'
-  if (to === 'GREEN'  && from === 'RED')    return 'recovered'
-  if (to === 'YELLOW' && from === 'RED')    return 'partially recovered'
-  if (to === 'GREEN'  && from === 'YELLOW') return 'stabilised'
+  if (to === 'RED'    && from !== 'RED')    return 'went offline'
+  if (to === 'GREEN'  && from === 'RED')    return 'back online'
+  if (to === 'YELLOW' && from === 'RED')    return 'partially recovering'
+  if (to === 'GREEN'  && from === 'YELLOW') return 'fully stabilised'
   return `→ ${to}`
 }
 ---
+
+<style>
+  /* Tooltip on column headers */
+  [data-tip] {
+    position: relative; cursor: help;
+  }
+  [data-tip]::after {
+    content: attr(data-tip);
+    position: absolute; bottom: calc(100% + 6px); left: 50%;
+    transform: translateX(-50%);
+    background: #1e293b; color: #e2e8f0;
+    font-size: 11px; font-family: 'IBM Plex Mono', monospace;
+    font-weight: normal; text-transform: none; letter-spacing: 0;
+    white-space: nowrap; padding: 5px 8px; border-radius: 4px;
+    border: 1px solid rgba(255,255,255,0.1);
+    pointer-events: none; opacity: 0; transition: opacity 0.15s;
+    z-index: 50;
+  }
+  [data-tip]:hover::after { opacity: 1; }
+
+  /* Active filter/sort button */
+  .btn-active {
+    background: rgba(0,212,200,0.12) !important;
+    border-color: rgba(0,212,200,0.4) !important;
+    color: #00D4C8 !important;
+  }
+
+  /* Sort arrows */
+  th.sortable { cursor: pointer; user-select: none; }
+  th.sortable:hover { opacity: 1 !important; }
+  th .sort-arrow { opacity: 0.3; margin-left: 3px; font-size: 9px; }
+  th.sort-asc  .sort-arrow::after { content: '▲'; opacity: 1; }
+  th.sort-desc .sort-arrow::after { content: '▼'; opacity: 1; }
+</style>
 
 <Observatory
   title="BGP Network Status — Myanmar ASNs"
@@ -146,9 +205,10 @@ function eventVerb(from: string, to: string): string {
   dataSource="RIPEstat (RIPE NCC), IODA (Georgia Tech)"
 >
 
-  <!-- Embedded data for client-side toggles -->
-  <script id="chart-data"   type="application/json" set:html={JSON.stringify(chartData)}    />
-  <script id="lb-data"      type="application/json" set:html={JSON.stringify(leaderboards)} />
+  <!-- Embedded data for client-side rendering -->
+  <script id="chart-data"  type="application/json" set:html={JSON.stringify(chartData)}    />
+  <script id="lb-data"     type="application/json" set:html={JSON.stringify(leaderboards)} />
+  <script id="table-data"  type="application/json" set:html={JSON.stringify(tableRows)}    />
 
   <div class="space-y-12">
 
@@ -190,71 +250,6 @@ function eventVerb(from: string, to: string): string {
         <div class="text-3xl font-bold" style={offCount > 0 ? 'color:#475569' : ''}>{offCount}</div>
         <div class="text-xs opacity-50 mt-1">Dark &gt;7 days</div>
       </div>
-    </div>
-
-    <!-- ── Critical Networks (MNO + IGW + IXP) ─────────────────────────────── -->
-    <div>
-      <h2 class="font-headline text-xl mb-1">Critical Networks</h2>
-      <p class="text-sm opacity-50 mb-4">Mobile operators, international gateways, and exchange points only.</p>
-
-      {criticalASNs.length === 0 ? (
-        <p class="opacity-40 text-sm font-mono">No classification data yet — run <code>bgp_classifier.py</code>.</p>
-      ) : (
-        <div class="overflow-x-auto">
-          <table class="w-full text-sm">
-            <thead>
-              <tr class="border-b border-white/10 text-left">
-                <th class="pb-2 pr-4 font-mono text-xs opacity-40 uppercase tracking-widest">Network</th>
-                <th class="pb-2 pr-4 font-mono text-xs opacity-40 uppercase tracking-widest">ASN</th>
-                <th class="pb-2 pr-3 font-mono text-xs opacity-40 uppercase tracking-widest">Type</th>
-                <th class="pb-2 pr-4 font-mono text-xs opacity-40 uppercase tracking-widest text-center">Status</th>
-                <th class="pb-2 pr-4 font-mono text-xs opacity-40 uppercase tracking-widest text-right">Visibility</th>
-                <th class="pb-2 pr-4 font-mono text-xs opacity-40 uppercase tracking-widest text-right">Since</th>
-                <th class="pb-2 font-mono text-xs opacity-40 uppercase tracking-widest"></th>
-              </tr>
-            </thead>
-            <tbody>
-              {criticalASNs.map(asn => {
-                const meta  = metadata[asn.asn]
-                const badge = BADGES[meta?.type as NetworkType] ?? BADGES.ISP
-                const off   = isOff(asn)
-                return (
-                  <tr class={`border-b border-white/5 hover:bg-white/2 ${asn.status === 'RED' && !off ? 'bg-[#ef4444]/5' : ''} ${off ? 'opacity-40' : ''}`}>
-                    <td class="py-2.5 pr-4 max-w-[220px] truncate font-medium" title={asn.name}>{asn.name || asn.asn}</td>
-                    <td class="py-2.5 pr-4 font-mono text-xs opacity-60">{asn.asn}</td>
-                    <td class="py-2.5 pr-3">
-                      <span class="inline-block text-xs font-mono px-1.5 py-0.5 rounded"
-                            style={`background:${badge.bg};color:${badge.color}`}
-                            title={badge.tooltip}>
-                        {badge.label}
-                      </span>
-                    </td>
-                    <td class="py-2.5 pr-4 text-center">
-                      <span class="inline-flex items-center gap-1.5">
-                        <span class={`inline-block w-2.5 h-2.5 rounded-full ${asn.status === 'RED' && !off ? 'animate-pulse' : ''}`}
-                              style={`background:${statusColor(asn)};box-shadow:0 0 6px ${statusColor(asn)}80`} />
-                        <span class="font-mono text-xs" style={`color:${statusColor(asn)}`}>
-                          {statusLabel(asn)}
-                        </span>
-                      </span>
-                    </td>
-                    <td class="py-2.5 pr-4 text-right font-mono text-xs">
-                      {asn.visibility_pct != null ? `${Math.round(asn.visibility_pct * 100)}%` : '—'}
-                    </td>
-                    <td class="py-2.5 pr-4 text-right font-mono text-xs opacity-50">{formatSince(asn)}</td>
-                    <td class="py-2.5 text-right">
-                      <a href={`/observatory/bgp/${asn.asn}`}
-                         class="font-mono text-xs opacity-30 hover:opacity-100 hover:text-[color:var(--color-accent)] underline">
-                        history →
-                      </a>
-                    </td>
-                  </tr>
-                )
-              })}
-            </tbody>
-          </table>
-        </div>
-      )}
     </div>
 
     <!-- ── Leaderboard ──────────────────────────────────────────────────────── -->
@@ -320,28 +315,56 @@ function eventVerb(from: string, to: string): string {
     <!-- ── Status Change Log ────────────────────────────────────────────────── -->
     <div>
       <h2 class="font-headline text-xl mb-1">Status Change Log</h2>
-      <p class="text-sm opacity-50 mb-4">Every status transition recorded in real time from BGP route collector data.</p>
+      <p class="text-sm opacity-50 mb-4">Every status transition detected from BGP route collector data, newest first.</p>
       {recentEvents.length === 0 ? (
         <p class="opacity-40 text-sm font-mono">No status changes recorded yet.</p>
       ) : (
         <div class="border border-white/10 rounded-lg overflow-hidden">
-          <div class="overflow-y-auto" style="max-height:320px">
+          <div class="overflow-x-auto overflow-y-auto" style="max-height:380px">
             <table class="w-full text-xs font-mono">
+              <thead class="sticky top-0 bg-[#0A1628] z-10">
+                <tr class="border-b border-white/10">
+                  <th class="py-2 pl-3 pr-3 text-left opacity-50 font-mono text-[10px] uppercase tracking-widest whitespace-nowrap"
+                      data-tip="UTC timestamp when this status change was detected by RIPE route collectors">
+                    Time <span class="opacity-50">ⓘ</span>
+                  </th>
+                  <th class="py-2 pr-3 text-left opacity-50 font-mono text-[10px] uppercase tracking-widest"
+                      data-tip="Commercial name of the autonomous system">
+                    Network <span class="opacity-50">ⓘ</span>
+                  </th>
+                  <th class="py-2 pr-3 text-left opacity-50 font-mono text-[10px] uppercase tracking-widest"
+                      data-tip="Autonomous System Number — unique BGP identifier assigned by IANA">
+                    ASN <span class="opacity-50">ⓘ</span>
+                  </th>
+                  <th class="py-2 pr-3 text-left opacity-50 font-mono text-[10px] uppercase tracking-widest"
+                      data-tip="Status transition. 'went offline' = BGP routes withdrawn from global routing table. 'back online' = routes re-announced.">
+                    Event <span class="opacity-50">ⓘ</span>
+                  </th>
+                  <th class="py-2 pr-3 text-right opacity-50 font-mono text-[10px] uppercase tracking-widest whitespace-nowrap"
+                      data-tip="How long the network was offline before this recovery. Only shown on recovery events — empty when a network first goes down.">
+                    Downtime <span class="opacity-50">ⓘ</span>
+                  </th>
+                </tr>
+              </thead>
               <tbody>
                 {recentEvents.map(ev => (
                   <tr class={`border-b border-white/5 hover:bg-white/2
                     ${ev.to === 'RED' ? 'bg-[#ef4444]/5' : ev.to === 'GREEN' ? 'bg-[#22c55e]/3' : ''}`}>
-                    <td class="py-1.5 pl-3 pr-2 opacity-40 whitespace-nowrap">{fmtTs(ev.timestamp)}</td>
-                    <td class="py-1.5 pr-2">{eventIcon(ev.from, ev.to)}</td>
-                    <td class="py-1.5 pr-3 max-w-[200px] truncate" title={ev.name}>
-                      <a href={`/observatory/bgp/${ev.asn}`} class="hover:underline opacity-80">{ev.name || ev.asn}</a>
+                    <td class="py-1.5 pl-3 pr-3 opacity-40 whitespace-nowrap">{fmtTs(ev.timestamp)}</td>
+                    <td class="py-1.5 pr-3 max-w-[200px] truncate" title={ev.description}>
+                      <a href={`/observatory/bgp/${ev.asn}`} class="hover:underline opacity-80">{ev.description}</a>
                     </td>
-                    <td class="py-1.5 pr-3 opacity-50 text-[10px]">{ev.asn}</td>
-                    <td class="py-1.5 pr-3"
+                    <td class="py-1.5 pr-3 opacity-40 text-[10px]">{ev.asn}</td>
+                    <td class="py-1.5 pr-3 whitespace-nowrap"
                         style={ev.to === 'RED' ? 'color:#ef4444' : ev.to === 'GREEN' ? 'color:#22c55e' : 'color:#f59e0b'}>
-                      {eventVerb(ev.from, ev.to)}
+                      {eventIcon(ev.from, ev.to)} {eventVerb(ev.from, ev.to)}
                     </td>
-                    <td class="py-1.5 pr-3 opacity-40">{Math.round(ev.visibility_pct * 100)}%</td>
+                    <td class="py-1.5 pr-3 text-right opacity-50 whitespace-nowrap">
+                      {ev.downtime_minutes !== null
+                        ? fmtDowntime(ev.downtime_minutes)
+                        : <span class="opacity-20">—</span>
+                      }
+                    </td>
                   </tr>
                 ))}
               </tbody>
@@ -353,81 +376,151 @@ function eventVerb(from: string, to: string): string {
 
     <!-- ── All Myanmar Networks ─────────────────────────────────────────────── -->
     <div>
-      <h2 class="font-headline text-xl mb-3">All Myanmar Networks</h2>
-
-      <!-- Filter bar -->
-      <div class="flex flex-wrap gap-2 mb-4">
-        {(['ALL','MNO','IGW','IXP','ISP','DOWN'] as const).map(f => (
-          <button class="net-filter-btn font-mono text-xs px-3 py-1 rounded border border-white/10 hover:border-white/30 transition-colors"
-                  data-filter={f} data-active={f === 'ALL' ? 'true' : undefined}>
-            {f === 'DOWN' ? '🔴 DOWN' : f}
-          </button>
-        ))}
+      <div class="flex flex-wrap items-center justify-between gap-3 mb-4">
+        <h2 class="font-headline text-xl">All Myanmar Networks</h2>
+        <div class="flex gap-2">
+          <a href="/api/bgp/export.csv"
+             class="font-mono text-xs px-3 py-1.5 rounded border border-white/10 hover:border-white/30 transition-colors opacity-60 hover:opacity-100">
+            ↓ CSV
+          </a>
+          <a href="/api/bgp/status.json" target="_blank" rel="noopener"
+             class="font-mono text-xs px-3 py-1.5 rounded border border-white/10 hover:border-white/30 transition-colors opacity-60 hover:opacity-100">
+            { } JSON
+          </a>
+        </div>
       </div>
 
-      {totalCount === 0 ? (
-        <p class="opacity-40 text-sm font-mono">No data yet — run bgp_monitor.py.</p>
-      ) : (
-        <div class="overflow-x-auto">
-          <table class="w-full text-sm" id="all-networks-table">
-            <thead>
-              <tr class="border-b border-white/10 text-left">
-                <th class="pb-2 pr-4 font-mono text-xs opacity-40 uppercase tracking-widest">Network</th>
-                <th class="pb-2 pr-4 font-mono text-xs opacity-40 uppercase tracking-widest">ASN</th>
-                <th class="pb-2 pr-3 font-mono text-xs opacity-40 uppercase tracking-widest">Type</th>
-                <th class="pb-2 pr-4 font-mono text-xs opacity-40 uppercase tracking-widest text-center">Status</th>
-                <th class="pb-2 pr-4 font-mono text-xs opacity-40 uppercase tracking-widest text-right">Visibility</th>
-                <th class="pb-2 pr-4 font-mono text-xs opacity-40 uppercase tracking-widest text-right">Since</th>
-                <th class="pb-2 font-mono text-xs opacity-40 uppercase tracking-widest"></th>
-              </tr>
-            </thead>
-            <tbody>
-              {allASNs.map(asn => {
-                const meta    = metadata[asn.asn]
-                const netType = (meta?.type ?? 'ISP') as NetworkType
-                const badge   = BADGES[netType]
-                const off     = isOff(asn)
-                return (
-                  <tr class={`border-b border-white/5 hover:bg-white/2
-                    ${asn.status === 'RED' && !off ? 'bg-[#ef4444]/5' : ''}
-                    ${off ? 'opacity-35' : ''}`}
-                      data-type={netType}
-                      data-status={asn.status}
-                      data-off={off ? 'true' : 'false'}>
-                    <td class="py-2 pr-4 max-w-[200px] truncate" title={asn.name}>{asn.name || asn.asn}</td>
-                    <td class="py-2 pr-4 font-mono text-xs opacity-60">{asn.asn}</td>
-                    <td class="py-2 pr-3">
-                      <span class="inline-block text-xs font-mono px-1.5 py-0.5 rounded"
-                            style={`background:${badge.bg};color:${badge.color}`}>
-                        {badge.label}
-                      </span>
-                    </td>
-                    <td class="py-2 pr-4 text-center">
-                      <span class="inline-flex items-center gap-1.5">
-                        <span class={`inline-block w-2 h-2 rounded-full ${asn.status === 'RED' && !off ? 'animate-pulse' : ''}`}
-                              style={`background:${statusColor(asn)}`} />
-                        <span class="font-mono text-xs" style={`color:${statusColor(asn)}`}>
-                          {statusLabel(asn)}
-                        </span>
-                      </span>
-                    </td>
-                    <td class="py-2 pr-4 text-right font-mono text-xs">
-                      {asn.visibility_pct != null ? `${Math.round(asn.visibility_pct * 100)}%` : '—'}
-                    </td>
-                    <td class="py-2 pr-4 text-right font-mono text-xs opacity-50">{formatSince(asn)}</td>
-                    <td class="py-2 text-right">
-                      <a href={`/observatory/bgp/${asn.asn}`}
-                         class="font-mono text-xs opacity-30 hover:opacity-100 hover:text-[color:var(--color-accent)] underline">
-                        →
-                      </a>
-                    </td>
-                  </tr>
-                )
-              })}
-            </tbody>
-          </table>
+      <!-- Controls bar -->
+      <div class="flex flex-wrap gap-2 mb-3 items-center">
+        <!-- Search -->
+        <input id="net-search" type="search" placeholder="Search network…"
+               class="font-mono text-xs px-3 py-1.5 rounded border border-white/10 bg-white/5 focus:outline-none focus:border-white/30 w-44" />
+
+        <!-- Status filter -->
+        <select id="net-status-filter"
+                class="font-mono text-xs px-3 py-1.5 rounded border border-white/10 bg-[#0A1628] focus:outline-none focus:border-white/30">
+          <option value="ALL">All statuses</option>
+          <option value="DOWN">🔴 DOWN</option>
+          <option value="RECOVERING">🟡 RECOVERING</option>
+          <option value="UP">🟢 UP</option>
+          <option value="OFF">⬛ OFF</option>
+        </select>
+
+        <!-- Type filter -->
+        <select id="net-type-filter"
+                class="font-mono text-xs px-3 py-1.5 rounded border border-white/10 bg-[#0A1628] focus:outline-none focus:border-white/30">
+          <option value="ALL">All types</option>
+          <option value="MNO">MNO</option>
+          <option value="IGW">IGW</option>
+          <option value="IXP">IXP</option>
+          <option value="ISP">ISP</option>
+        </select>
+
+        <!-- Column toggle -->
+        <div class="relative" id="col-toggle-wrapper">
+          <button id="col-toggle-btn"
+                  class="font-mono text-xs px-3 py-1.5 rounded border border-white/10 hover:border-white/30 transition-colors">
+            Columns ▾
+          </button>
+          <div id="col-toggle-menu"
+               class="absolute left-0 top-full mt-1 hidden z-20 bg-[#0d1f38] border border-white/10 rounded-lg p-3 space-y-1.5 min-w-[160px] shadow-xl">
+            <label class="flex items-center gap-2 font-mono text-xs cursor-pointer">
+              <input type="checkbox" data-col="description" checked class="col-checkbox" /> Description
+            </label>
+            <label class="flex items-center gap-2 font-mono text-xs cursor-pointer">
+              <input type="checkbox" data-col="asName" class="col-checkbox" /> AS Name
+            </label>
+            <label class="flex items-center gap-2 font-mono text-xs cursor-pointer">
+              <input type="checkbox" data-col="asn" checked class="col-checkbox" /> ASN
+            </label>
+            <label class="flex items-center gap-2 font-mono text-xs cursor-pointer">
+              <input type="checkbox" data-col="type" checked class="col-checkbox" /> Type
+            </label>
+            <label class="flex items-center gap-2 font-mono text-xs cursor-pointer">
+              <input type="checkbox" data-col="status" checked class="col-checkbox" /> Status
+            </label>
+            <label class="flex items-center gap-2 font-mono text-xs cursor-pointer">
+              <input type="checkbox" data-col="visibility" checked class="col-checkbox" /> Visibility
+            </label>
+            <label class="flex items-center gap-2 font-mono text-xs cursor-pointer">
+              <input type="checkbox" data-col="since" checked class="col-checkbox" /> Since
+            </label>
+          </div>
         </div>
-      )}
+
+        <!-- Spacer -->
+        <div class="flex-1"></div>
+
+        <!-- Page size -->
+        <div class="flex items-center gap-2 font-mono text-xs opacity-60">
+          Rows:
+          <select id="net-page-size"
+                  class="px-2 py-1 rounded border border-white/10 bg-[#0A1628] focus:outline-none">
+            <option value="10">10</option>
+            <option value="25" selected>25</option>
+            <option value="100">100</option>
+            <option value="all">All</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Table -->
+      <div class="overflow-x-auto">
+        <table class="w-full text-sm" id="net-table">
+          <thead>
+            <tr class="border-b border-white/10 text-left">
+              <th class="pb-2 pr-4 font-mono text-xs opacity-40 uppercase tracking-widest sortable"
+                  data-col="description" data-sort="description"
+                  data-tip="Human-readable commercial name. For ISPs without a known brand, falls back to WHOIS name.">
+                Description <span class="opacity-50">ⓘ</span><span class="sort-arrow"></span>
+              </th>
+              <th class="pb-2 pr-4 font-mono text-xs opacity-40 uppercase tracking-widest sortable hidden"
+                  data-col="asName" data-sort="asName"
+                  data-tip="Raw WHOIS name from the BGP routing registry (APNIC).">
+                AS Name <span class="opacity-50">ⓘ</span><span class="sort-arrow"></span>
+              </th>
+              <th class="pb-2 pr-4 font-mono text-xs opacity-40 uppercase tracking-widest sortable"
+                  data-col="asn" data-sort="asn"
+                  data-tip="Autonomous System Number — unique identifier in the global BGP routing table.">
+                ASN <span class="opacity-50">ⓘ</span><span class="sort-arrow"></span>
+              </th>
+              <th class="pb-2 pr-3 font-mono text-xs opacity-40 uppercase tracking-widest sortable"
+                  data-col="type" data-sort="type"
+                  data-tip="MNO = Mobile Network Operator · IGW = International Gateway · IXP = Internet Exchange Point · ISP = Domestic ISP">
+                Type <span class="opacity-50">ⓘ</span><span class="sort-arrow"></span>
+              </th>
+              <th class="pb-2 pr-4 font-mono text-xs opacity-40 uppercase tracking-widest text-center sortable"
+                  data-col="status" data-sort="statusPriority"
+                  data-tip="Current BGP routing status. DOWN = routes withdrawn from global table. RECOVERING = routes re-announced within the last hour.">
+                Status <span class="opacity-50">ⓘ</span><span class="sort-arrow"></span>
+              </th>
+              <th class="pb-2 pr-4 font-mono text-xs opacity-40 uppercase tracking-widest text-right sortable"
+                  data-col="visibility" data-sort="visibility"
+                  data-tip="Percentage of RIPE route collectors worldwide that can see this network's routes. 100% = fully visible. 0% = withdrawn/invisible.">
+                Visibility <span class="opacity-50">ⓘ</span><span class="sort-arrow"></span>
+              </th>
+              <th class="pb-2 pr-4 font-mono text-xs opacity-40 uppercase tracking-widest text-right sortable"
+                  data-col="since" data-sort="since"
+                  data-tip="Time elapsed since the current status began.">
+                Since <span class="opacity-50">ⓘ</span><span class="sort-arrow"></span>
+              </th>
+              <th class="pb-2 font-mono text-xs opacity-40 uppercase tracking-widest"></th>
+            </tr>
+          </thead>
+          <tbody id="net-tbody">
+            <!-- Rendered by JS -->
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Pagination bar -->
+      <div class="flex items-center justify-between mt-3 font-mono text-xs opacity-50">
+        <span id="net-pagination-info"></span>
+        <div class="flex gap-1">
+          <button id="net-prev" class="px-3 py-1 rounded border border-white/10 hover:border-white/30 disabled:opacity-20">← Prev</button>
+          <button id="net-next" class="px-3 py-1 rounded border border-white/10 hover:border-white/30 disabled:opacity-20">Next →</button>
+        </div>
+      </div>
     </div>
 
   </div><!-- /space-y-12 -->
@@ -443,6 +536,7 @@ function eventVerb(from: string, to: string): string {
 
   const chartData = JSON.parse(document.getElementById('chart-data')!.textContent!)
   const lbData    = JSON.parse(document.getElementById('lb-data')!.textContent!)
+  const tableData = JSON.parse(document.getElementById('table-data')!.textContent!)
 
   // ── Toggle helpers ──────────────────────────────────────────────────────────
 
@@ -450,24 +544,22 @@ function eventVerb(from: string, to: string): string {
     document.querySelectorAll(`.${group}`).forEach(btn => {
       const el = btn as HTMLElement
       const active = el.dataset.win === value || el.dataset.filter === value
-      el.style.background     = active ? 'rgba(0,212,200,0.12)' : ''
-      el.style.borderColor    = active ? 'rgba(0,212,200,0.4)'  : ''
-      el.style.color          = active ? '#00D4C8'              : ''
+      el.style.background  = active ? 'rgba(0,212,200,0.12)' : ''
+      el.style.borderColor = active ? 'rgba(0,212,200,0.4)'  : ''
+      el.style.color       = active ? '#00D4C8'              : ''
     })
   }
 
   // ── Chart ───────────────────────────────────────────────────────────────────
 
   let chart: any = null
-  let chartWin  = '1w'
-  let chartFlap = 'all'
+  let chartWin   = '1w'
+  let chartFlap  = 'all'
 
-  function initChart() {
-    renderChart()
-  }
+  function initChart() { renderChart() }
 
   function renderChart() {
-    const d = (chartData as any)[chartFlap][chartWin]
+    const d   = (chartData as any)[chartFlap][chartWin]
     const ctx = (document.getElementById('outage-chart') as HTMLCanvasElement)?.getContext('2d')
     if (!ctx) return
     if (chart) chart.destroy()
@@ -479,34 +571,22 @@ function eventVerb(from: string, to: string): string {
       type: 'bar',
       data: {
         labels: d.labels,
-        datasets: [{
-          data: d.data,
+        datasets: [{ data: d.data,
           backgroundColor: d.data.map((v: number) => v > 0 ? accent : empty),
-          borderRadius: 3,
-          borderSkipped: false,
-        }]
+          borderRadius: 3, borderSkipped: false }]
       },
       options: {
-        responsive: true,
-        maintainAspectRatio: false,
+        responsive: true, maintainAspectRatio: false,
         plugins: {
           legend: { display: false },
-          tooltip: {
-            callbacks: {
-              label: (ctx: any) => `${ctx.parsed.y} outage event${ctx.parsed.y !== 1 ? 's' : ''}`
-            }
-          }
+          tooltip: { callbacks: { label: (c: any) => `${c.parsed.y} outage event${c.parsed.y !== 1 ? 's' : ''}` } }
         },
         scales: {
-          x: {
-            ticks: { color: '#64748b', font: { size: 10 }, maxRotation: 45, autoSkip: false },
-            grid:  { color: 'rgba(255,255,255,0.04)' }
-          },
-          y: {
-            beginAtZero: true,
-            ticks: { color: '#64748b', font: { size: 10 }, stepSize: 1, precision: 0 },
-            grid:  { color: 'rgba(255,255,255,0.04)' }
-          }
+          x: { ticks: { color: '#64748b', font: { size: 10 }, maxRotation: 45, autoSkip: false },
+               grid:  { color: 'rgba(255,255,255,0.04)' } },
+          y: { beginAtZero: true,
+               ticks: { color: '#64748b', font: { size: 10 }, stepSize: 1, precision: 0 },
+               grid:  { color: 'rgba(255,255,255,0.04)' } }
         }
       }
     })
@@ -517,17 +597,12 @@ function eventVerb(from: string, to: string): string {
 
   document.querySelectorAll('.chart-win-btn').forEach(btn => {
     btn.addEventListener('click', function(this: HTMLElement) {
-      chartWin = this.dataset.win!
-      setActive('chart-win-btn', chartWin)
-      renderChart()
+      chartWin = this.dataset.win!; setActive('chart-win-btn', chartWin); renderChart()
     })
   })
-
   document.querySelectorAll('.chart-flap-btn').forEach(btn => {
     btn.addEventListener('click', function(this: HTMLElement) {
-      chartFlap = this.dataset.filter!
-      setActive('chart-flap-btn', chartFlap)
-      renderChart()
+      chartFlap = this.dataset.filter!; setActive('chart-flap-btn', chartFlap); renderChart()
     })
   })
 
@@ -537,29 +612,27 @@ function eventVerb(from: string, to: string): string {
   let lbFlap = 'all'
 
   const TYPE_STYLE: Record<string, {bg: string; color: string}> = {
-    MNO: { bg: 'rgba(239,68,68,0.15)',    color: '#fca5a5' },
-    IGW: { bg: 'rgba(245,158,11,0.15)',   color: '#fcd34d' },
-    IXP: { bg: 'rgba(59,130,246,0.15)',   color: '#93c5fd' },
-    ISP: { bg: 'rgba(148,163,184,0.10)',  color: '#94a3b8' },
+    MNO: { bg: 'rgba(239,68,68,0.15)',   color: '#fca5a5' },
+    IGW: { bg: 'rgba(245,158,11,0.15)',  color: '#fcd34d' },
+    IXP: { bg: 'rgba(59,130,246,0.15)',  color: '#93c5fd' },
+    ISP: { bg: 'rgba(148,163,184,0.10)', color: '#94a3b8' },
   }
 
   function renderLeaderboard() {
-    const entries = (lbData as any)[lbFlap][lbWin]
+    const entries   = (lbData as any)[lbFlap][lbWin]
     const container = document.getElementById('leaderboard-rows')!
     if (!entries.length) {
       container.innerHTML = '<p class="text-sm font-mono opacity-40">No outage events in this window.</p>'
       return
     }
     const max = entries[0]?.outage_count || 1
-
     container.innerHTML = entries.map((e: any) => {
-      const pct   = Math.round((e.outage_count / max) * 100)
-      const bar   = pct > 66 ? '#E24B4A' : pct > 33 ? '#f59e0b' : '#22c55e'
-      const ts    = TYPE_STYLE[e.type] ?? TYPE_STYLE.ISP
-      const h     = Math.floor(e.total_downtime_minutes / 60)
-      const m     = e.total_downtime_minutes % 60
-      const dt    = h > 0 ? `${h}h ${m}m` : `${m}m`
-
+      const pct = Math.round((e.outage_count / max) * 100)
+      const bar = pct > 66 ? '#E24B4A' : pct > 33 ? '#f59e0b' : '#22c55e'
+      const ts  = TYPE_STYLE[e.type] ?? TYPE_STYLE.ISP
+      const h   = Math.floor(e.total_downtime_minutes / 60)
+      const m   = e.total_downtime_minutes % 60
+      const dt  = h > 0 ? `${h}h ${m}m` : `${m}m`
       return `<div class="flex items-center gap-3 py-2 px-3 rounded hover:bg-white/3 group">
         <span class="font-mono text-xs opacity-40 w-5 text-right shrink-0">${e.rank}</span>
         <span class="font-mono text-xs px-1.5 py-0.5 rounded shrink-0"
@@ -573,7 +646,7 @@ function eventVerb(from: string, to: string): string {
           </div>
         </div>
         <span class="font-mono text-xs w-6 text-right shrink-0" style="color:${bar}">${e.outage_count}</span>
-        <span class="font-mono text-xs opacity-40 w-14 text-right shrink-0" title="Total downtime">${dt}</span>
+        <span class="font-mono text-xs opacity-40 w-14 text-right shrink-0">${dt}</span>
         <a href="/observatory/bgp/${e.asn}" class="font-mono text-xs opacity-0 group-hover:opacity-40 hover:!opacity-100 underline shrink-0">→</a>
       </div>`
     }).join('')
@@ -581,44 +654,204 @@ function eventVerb(from: string, to: string): string {
 
   document.querySelectorAll('.lb-win-btn').forEach(btn => {
     btn.addEventListener('click', function(this: HTMLElement) {
-      lbWin = this.dataset.win!
-      setActive('lb-win-btn', lbWin)
-      renderLeaderboard()
+      lbWin = this.dataset.win!; setActive('lb-win-btn', lbWin); renderLeaderboard()
     })
   })
-
   document.querySelectorAll('.lb-flap-btn').forEach(btn => {
     btn.addEventListener('click', function(this: HTMLElement) {
-      lbFlap = this.dataset.filter!
-      setActive('lb-flap-btn', lbFlap)
-      renderLeaderboard()
+      lbFlap = this.dataset.filter!; setActive('lb-flap-btn', lbFlap); renderLeaderboard()
     })
   })
 
-  // ── Network table filter ────────────────────────────────────────────────────
+  // ── Network table ────────────────────────────────────────────────────────────
 
-  let netFilter = 'ALL'
+  interface Row {
+    asn: string; asName: string; description: string
+    type: string; status: string; statusLabel: string
+    statusPriority: number; statusColor: string
+    visibility: number | null; since: string; off: boolean
+  }
 
-  function applyNetFilter() {
-    document.querySelectorAll<HTMLElement>('#all-networks-table tbody tr').forEach(row => {
-      const type   = row.dataset.type ?? ''
-      const status = row.dataset.status ?? ''
-      const off    = row.dataset.off === 'true'
+  const TYPE_BADGE: Record<string, {bg: string; color: string}> = TYPE_STYLE
 
-      const show =
-        netFilter === 'ALL'  ? true :
-        netFilter === 'DOWN' ? (status === 'RED' && !off) :
-        type === netFilter
+  let ntSearch    = ''
+  let ntStatus    = 'ALL'
+  let ntType      = 'ALL'
+  let ntPage      = 1
+  let ntPageSize: number | 'all' = 25
+  let ntSortCol   = 'statusPriority'
+  let ntSortDir   = 1   // 1 = asc, -1 = desc
+  let hiddenCols  = new Set<string>(['asName'])
 
-      row.style.display = show ? '' : 'none'
+  function formatSince(since: string, off: boolean): string {
+    if (!since) return '—'
+    const diffMs = Date.now() - new Date(since).getTime()
+    const diffH  = Math.floor(diffMs / 3600000)
+    const diffM  = Math.floor((diffMs % 3600000) / 60000)
+    const diffD  = Math.floor(diffH / 24)
+    if (diffD > 1)  return `${diffD}d ago`
+    if (diffH > 0)  return `${diffH}h ${diffM}m ago`
+    return `${diffM}m ago`
+  }
+
+  function getVal(row: Row, col: string): any {
+    if (col === 'statusPriority') return row.statusPriority
+    if (col === 'description')    return row.description.toLowerCase()
+    if (col === 'asName')         return row.asName.toLowerCase()
+    if (col === 'asn')            return parseInt(row.asn.replace('AS',''))
+    if (col === 'type') {
+      const order: Record<string,number> = { MNO:0, IGW:1, IXP:2, ISP:3 }
+      return order[row.type] ?? 9
+    }
+    if (col === 'visibility') return row.visibility ?? -1
+    if (col === 'since')      return row.since || ''
+    return ''
+  }
+
+  function filterRows(): Row[] {
+    return (tableData as Row[]).filter(r => {
+      if (ntStatus !== 'ALL' && r.statusLabel !== ntStatus) return false
+      if (ntType   !== 'ALL' && r.type         !== ntType)  return false
+      if (ntSearch) {
+        const q = ntSearch.toLowerCase()
+        if (!r.description.toLowerCase().includes(q) &&
+            !r.asName.toLowerCase().includes(q) &&
+            !r.asn.toLowerCase().includes(q)) return false
+      }
+      return true
     })
   }
 
-  document.querySelectorAll('.net-filter-btn').forEach(btn => {
-    btn.addEventListener('click', function(this: HTMLElement) {
-      netFilter = this.dataset.filter!
-      setActive('net-filter-btn', netFilter)
-      applyNetFilter()
+  function sortRows(rows: Row[]): Row[] {
+    return [...rows].sort((a, b) => {
+      const av = getVal(a, ntSortCol)
+      const bv = getVal(b, ntSortCol)
+      if (av < bv) return -ntSortDir
+      if (av > bv) return  ntSortDir
+      return 0
+    })
+  }
+
+  function renderTable() {
+    const filtered  = filterRows()
+    const sorted    = sortRows(filtered)
+    const total     = sorted.length
+    const pageSize  = ntPageSize === 'all' ? total : ntPageSize
+    const totalPages = Math.max(1, Math.ceil(total / pageSize))
+    if (ntPage > totalPages) ntPage = totalPages
+    const start  = (ntPage - 1) * pageSize
+    const slice  = sorted.slice(start, start + pageSize)
+
+    const tbody = document.getElementById('net-tbody')!
+    tbody.innerHTML = slice.map(r => {
+      const badge = TYPE_BADGE[r.type] ?? TYPE_BADGE.ISP
+      const pulseClass = r.status === 'RED' && !r.off ? 'animate-pulse' : ''
+      const rowClass   = r.status === 'RED' && !r.off ? 'bg-[#ef4444]/5' : r.off ? 'opacity-35' : ''
+      const cols: string[] = []
+
+      if (!hiddenCols.has('description'))
+        cols.push(`<td class="py-2 pr-4 truncate max-w-[200px]" title="${esc(r.description)}">${esc(r.description)}</td>`)
+      if (!hiddenCols.has('asName'))
+        cols.push(`<td class="py-2 pr-4 font-mono text-xs opacity-50 truncate max-w-[180px]" title="${esc(r.asName)}">${esc(r.asName)}</td>`)
+      if (!hiddenCols.has('asn'))
+        cols.push(`<td class="py-2 pr-4 font-mono text-xs opacity-60">${r.asn}</td>`)
+      if (!hiddenCols.has('type'))
+        cols.push(`<td class="py-2 pr-3">
+          <span class="inline-block text-xs font-mono px-1.5 py-0.5 rounded"
+                style="background:${badge.bg};color:${badge.color}">${r.type}</span>
+        </td>`)
+      if (!hiddenCols.has('status'))
+        cols.push(`<td class="py-2 pr-4 text-center">
+          <span class="inline-flex items-center gap-1.5">
+            <span class="inline-block w-2 h-2 rounded-full ${pulseClass}"
+                  style="background:${r.statusColor}"></span>
+            <span class="font-mono text-xs" style="color:${r.statusColor}">${r.statusLabel}</span>
+          </span>
+        </td>`)
+      if (!hiddenCols.has('visibility'))
+        cols.push(`<td class="py-2 pr-4 text-right font-mono text-xs">${r.visibility !== null ? r.visibility + '%' : '—'}</td>`)
+      if (!hiddenCols.has('since'))
+        cols.push(`<td class="py-2 pr-4 text-right font-mono text-xs opacity-50">${formatSince(r.since, r.off)}</td>`)
+
+      cols.push(`<td class="py-2 text-right">
+        <a href="/observatory/bgp/${r.asn}" class="font-mono text-xs opacity-30 hover:opacity-100 hover:text-[#00D4C8] underline">→</a>
+      </td>`)
+
+      return `<tr class="border-b border-white/5 hover:bg-white/2 ${rowClass}">${cols.join('')}</tr>`
+    }).join('')
+
+    // Pagination info
+    const info = document.getElementById('net-pagination-info')!
+    info.textContent = total === 0
+      ? 'No results'
+      : `Showing ${start + 1}–${Math.min(start + pageSize, total)} of ${total}`
+
+    const prevBtn = document.getElementById('net-prev') as HTMLButtonElement
+    const nextBtn = document.getElementById('net-next') as HTMLButtonElement
+    prevBtn.disabled = ntPage <= 1
+    nextBtn.disabled = ntPage >= totalPages
+
+    // Update column header sort indicators
+    document.querySelectorAll<HTMLElement>('#net-table th[data-sort]').forEach(th => {
+      th.classList.remove('sort-asc', 'sort-desc')
+      if (th.dataset.sort === ntSortCol) {
+        th.classList.add(ntSortDir === 1 ? 'sort-asc' : 'sort-desc')
+      }
+    })
+
+    // Sync column visibility on headers
+    document.querySelectorAll<HTMLElement>('#net-table th[data-col]').forEach(th => {
+      const col = th.dataset.col!
+      th.style.display = hiddenCols.has(col) ? 'none' : ''
+    })
+  }
+
+  function esc(s: string): string {
+    return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;')
+  }
+
+  // Wire up controls
+  document.getElementById('net-search')!.addEventListener('input', function(this: HTMLInputElement) {
+    ntSearch = this.value; ntPage = 1; renderTable()
+  })
+  document.getElementById('net-status-filter')!.addEventListener('change', function(this: HTMLSelectElement) {
+    ntStatus = this.value; ntPage = 1; renderTable()
+  })
+  document.getElementById('net-type-filter')!.addEventListener('change', function(this: HTMLSelectElement) {
+    ntType = this.value; ntPage = 1; renderTable()
+  })
+  document.getElementById('net-page-size')!.addEventListener('change', function(this: HTMLSelectElement) {
+    ntPageSize = this.value === 'all' ? 'all' : parseInt(this.value)
+    ntPage = 1; renderTable()
+  })
+  document.getElementById('net-prev')!.addEventListener('click', () => { ntPage--; renderTable() })
+  document.getElementById('net-next')!.addEventListener('click', () => { ntPage++; renderTable() })
+
+  // Sort on header click
+  document.querySelectorAll<HTMLElement>('#net-table th[data-sort]').forEach(th => {
+    th.addEventListener('click', () => {
+      const col = th.dataset.sort!
+      if (ntSortCol === col) ntSortDir = -ntSortDir
+      else { ntSortCol = col; ntSortDir = 1 }
+      ntPage = 1; renderTable()
+    })
+  })
+
+  // Column toggle dropdown
+  const colBtn  = document.getElementById('col-toggle-btn')!
+  const colMenu = document.getElementById('col-toggle-menu')!
+  colBtn.addEventListener('click', e => {
+    e.stopPropagation()
+    colMenu.classList.toggle('hidden')
+  })
+  document.addEventListener('click', () => colMenu.classList.add('hidden'))
+  colMenu.addEventListener('click', e => e.stopPropagation())
+
+  document.querySelectorAll<HTMLInputElement>('.col-checkbox').forEach(cb => {
+    cb.addEventListener('change', function() {
+      if (this.checked) hiddenCols.delete(this.dataset.col!)
+      else              hiddenCols.add(this.dataset.col!)
+      renderTable()
     })
   })
 
@@ -628,7 +861,7 @@ function eventVerb(from: string, to: string): string {
   setActive('chart-flap-btn', 'all')
   setActive('lb-win-btn',     '7d')
   setActive('lb-flap-btn',    'all')
-  setActive('net-filter-btn', 'ALL')
   renderLeaderboard()
+  renderTable()
   // Chart renders in s.onload after Chart.js CDN loads
 </script>

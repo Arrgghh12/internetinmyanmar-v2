@@ -4,91 +4,91 @@
     "is_mno": false,
     "is_igw": false,
     "foreign_upstreams": [],
-    "note": "Domestic ISP — all significant upstreams are Myanmar ASNs"
+    "note": "Domestic ISP \u2014 all significant upstreams are Myanmar ASNs"
   },
   "AS136205": {
     "type": "ISP",
     "is_mno": false,
     "is_igw": false,
     "foreign_upstreams": [],
-    "note": "Domestic ISP — all significant upstreams are Myanmar ASNs"
+    "note": "Domestic ISP \u2014 all significant upstreams are Myanmar ASNs"
   },
   "AS149521": {
     "type": "ISP",
     "is_mno": false,
     "is_igw": false,
     "foreign_upstreams": [],
-    "note": "Domestic ISP — all significant upstreams are Myanmar ASNs"
+    "note": "Domestic ISP \u2014 all significant upstreams are Myanmar ASNs"
   },
   "AS136210": {
     "type": "ISP",
     "is_mno": false,
     "is_igw": false,
     "foreign_upstreams": [],
-    "note": "Domestic ISP — all significant upstreams are Myanmar ASNs"
+    "note": "Domestic ISP \u2014 all significant upstreams are Myanmar ASNs"
   },
   "AS139804": {
     "type": "ISP",
     "is_mno": false,
     "is_igw": false,
     "foreign_upstreams": [],
-    "note": "Domestic ISP — all significant upstreams are Myanmar ASNs"
+    "note": "Domestic ISP \u2014 all significant upstreams are Myanmar ASNs"
   },
   "AS136229": {
     "type": "ISP",
     "is_mno": false,
     "is_igw": false,
     "foreign_upstreams": [],
-    "note": "Domestic ISP — all significant upstreams are Myanmar ASNs"
+    "note": "Domestic ISP \u2014 all significant upstreams are Myanmar ASNs"
   },
   "AS137259": {
     "type": "ISP",
     "is_mno": false,
     "is_igw": false,
     "foreign_upstreams": [],
-    "note": "Domestic ISP — all significant upstreams are Myanmar ASNs"
+    "note": "Domestic ISP \u2014 all significant upstreams are Myanmar ASNs"
   },
   "AS139822": {
     "type": "ISP",
     "is_mno": false,
     "is_igw": false,
     "foreign_upstreams": [],
-    "note": "Domestic ISP — all significant upstreams are Myanmar ASNs"
+    "note": "Domestic ISP \u2014 all significant upstreams are Myanmar ASNs"
   },
   "AS149038": {
     "type": "ISP",
     "is_mno": false,
     "is_igw": false,
     "foreign_upstreams": [],
-    "note": "Domestic ISP — all significant upstreams are Myanmar ASNs"
+    "note": "Domestic ISP \u2014 all significant upstreams are Myanmar ASNs"
   },
   "AS132148": {
     "type": "ISP",
     "is_mno": false,
     "is_igw": false,
     "foreign_upstreams": [],
-    "note": "Domestic ISP — all significant upstreams are Myanmar ASNs"
+    "note": "Domestic ISP \u2014 all significant upstreams are Myanmar ASNs"
   },
   "AS151606": {
     "type": "ISP",
     "is_mno": false,
     "is_igw": false,
     "foreign_upstreams": [],
-    "note": "Domestic ISP — all significant upstreams are Myanmar ASNs"
+    "note": "Domestic ISP \u2014 all significant upstreams are Myanmar ASNs"
   },
   "AS134714": {
     "type": "ISP",
     "is_mno": false,
     "is_igw": false,
     "foreign_upstreams": [],
-    "note": "Domestic ISP — all significant upstreams are Myanmar ASNs"
+    "note": "Domestic ISP \u2014 all significant upstreams are Myanmar ASNs"
   },
   "AS152634": {
     "type": "ISP",
     "is_mno": false,
     "is_igw": false,
     "foreign_upstreams": [],
-    "note": "Domestic ISP — all significant upstreams are Myanmar ASNs"
+    "note": "Domestic ISP \u2014 all significant upstreams are Myanmar ASNs"
   },
   "AS136255": {
     "type": "IGW",
@@ -204,14 +204,16 @@
         "path_count": 58
       }
     ],
-    "note": "Peers internationally via AS132876, AS137409, AS137557"
+    "note": "Peers internationally via AS132876, AS137409, AS137557",
+    "description": "Telecom International Myanmar (TIMCL)"
   },
   "AS132167": {
     "type": "MNO",
     "is_mno": true,
     "is_igw": false,
     "foreign_upstreams": [],
-    "note": "Licensed mobile network operator"
+    "note": "Licensed mobile network operator",
+    "description": "9 Mobile (Nine Communications)"
   },
   "AS58952": {
     "type": "IGW",
@@ -1399,14 +1401,15 @@
         "path_count": 152
       }
     ],
-    "note": "Peers internationally via AS132132, AS132876, AS137409"
+    "note": "Peers internationally via AS132132, AS132876, AS137409",
+    "description": "Frontiir Co."
   },
   "AS139849": {
     "type": "ISP",
     "is_mno": false,
     "is_igw": false,
     "foreign_upstreams": [],
-    "note": "Domestic ISP — all significant upstreams are Myanmar ASNs"
+    "note": "Domestic ISP \u2014 all significant upstreams are Myanmar ASNs"
   },
   "AS136780": {
     "type": "IGW",
@@ -1418,28 +1421,29 @@
         "path_count": 3964
       }
     ],
-    "note": "Peers internationally via AS45796"
+    "note": "Peers internationally via AS45796",
+    "description": "Myanmar Information Highway (MIHL)"
   },
   "AS152140": {
     "type": "ISP",
     "is_mno": false,
     "is_igw": false,
     "foreign_upstreams": [],
-    "note": "Domestic ISP — all significant upstreams are Myanmar ASNs"
+    "note": "Domestic ISP \u2014 all significant upstreams are Myanmar ASNs"
   },
   "AS132686": {
     "type": "ISP",
     "is_mno": false,
     "is_igw": false,
     "foreign_upstreams": [],
-    "note": "Domestic ISP — all significant upstreams are Myanmar ASNs"
+    "note": "Domestic ISP \u2014 all significant upstreams are Myanmar ASNs"
   },
   "AS134736": {
     "type": "ISP",
     "is_mno": false,
     "is_igw": false,
     "foreign_upstreams": [],
-    "note": "Domestic ISP — all significant upstreams are Myanmar ASNs"
+    "note": "Domestic ISP \u2014 all significant upstreams are Myanmar ASNs"
   },
   "AS136786": {
     "type": "IGW",
@@ -1455,28 +1459,29 @@
         "path_count": 670
       }
     ],
-    "note": "Peers internationally via AS20473, AS6939"
+    "note": "Peers internationally via AS20473, AS6939",
+    "description": "Information Beam"
   },
   "AS134739": {
     "type": "ISP",
     "is_mno": false,
     "is_igw": false,
     "foreign_upstreams": [],
-    "note": "Domestic ISP — all significant upstreams are Myanmar ASNs"
+    "note": "Domestic ISP \u2014 all significant upstreams are Myanmar ASNs"
   },
   "AS136789": {
     "type": "ISP",
     "is_mno": false,
     "is_igw": false,
     "foreign_upstreams": [],
-    "note": "Domestic ISP — all significant upstreams are Myanmar ASNs"
+    "note": "Domestic ISP \u2014 all significant upstreams are Myanmar ASNs"
   },
   "AS137826": {
     "type": "ISP",
     "is_mno": false,
     "is_igw": false,
     "foreign_upstreams": [],
-    "note": "Domestic ISP — all significant upstreams are Myanmar ASNs"
+    "note": "Domestic ISP \u2014 all significant upstreams are Myanmar ASNs"
   },
   "AS135300": {
     "type": "IGW",
@@ -1568,63 +1573,64 @@
         "path_count": 14
       }
     ],
-    "note": "Peers internationally via AS10099, AS137409, AS23764"
+    "note": "Peers internationally via AS10099, AS137409, AS23764",
+    "description": "Myanmar Broadband Telecom (MBTCL)"
   },
   "AS137861": {
     "type": "ISP",
     "is_mno": false,
     "is_igw": false,
     "foreign_upstreams": [],
-    "note": "Domestic ISP — all significant upstreams are Myanmar ASNs"
+    "note": "Domestic ISP \u2014 all significant upstreams are Myanmar ASNs"
   },
   "AS150153": {
     "type": "ISP",
     "is_mno": false,
     "is_igw": false,
     "foreign_upstreams": [],
-    "note": "Domestic ISP — all significant upstreams are Myanmar ASNs"
+    "note": "Domestic ISP \u2014 all significant upstreams are Myanmar ASNs"
   },
   "AS135307": {
     "type": "ISP",
     "is_mno": false,
     "is_igw": false,
     "foreign_upstreams": [],
-    "note": "Domestic ISP — all significant upstreams are Myanmar ASNs"
+    "note": "Domestic ISP \u2014 all significant upstreams are Myanmar ASNs"
   },
   "AS150159": {
     "type": "ISP",
     "is_mno": false,
     "is_igw": false,
     "foreign_upstreams": [],
-    "note": "Domestic ISP — all significant upstreams are Myanmar ASNs"
+    "note": "Domestic ISP \u2014 all significant upstreams are Myanmar ASNs"
   },
   "AS149660": {
     "type": "ISP",
     "is_mno": false,
     "is_igw": false,
     "foreign_upstreams": [],
-    "note": "Domestic ISP — all significant upstreams are Myanmar ASNs"
+    "note": "Domestic ISP \u2014 all significant upstreams are Myanmar ASNs"
   },
   "AS137888": {
     "type": "ISP",
     "is_mno": false,
     "is_igw": false,
     "foreign_upstreams": [],
-    "note": "Domestic ISP — all significant upstreams are Myanmar ASNs"
+    "note": "Domestic ISP \u2014 all significant upstreams are Myanmar ASNs"
   },
   "AS137891": {
     "type": "ISP",
     "is_mno": false,
     "is_igw": false,
     "foreign_upstreams": [],
-    "note": "Domestic ISP — all significant upstreams are Myanmar ASNs"
+    "note": "Domestic ISP \u2014 all significant upstreams are Myanmar ASNs"
   },
   "AS150692": {
     "type": "ISP",
     "is_mno": false,
     "is_igw": false,
     "foreign_upstreams": [],
-    "note": "Domestic ISP — all significant upstreams are Myanmar ASNs"
+    "note": "Domestic ISP \u2014 all significant upstreams are Myanmar ASNs"
   },
   "AS151210": {
     "type": "IGW",
@@ -1652,84 +1658,86 @@
         "path_count": 30
       }
     ],
-    "note": "Peers internationally via AS137557, AS140867, AS2914"
+    "note": "Peers internationally via AS137557, AS140867, AS2914",
+    "description": "NexgeNet"
   },
   "AS153777": {
     "type": "ISP",
     "is_mno": false,
     "is_igw": false,
     "foreign_upstreams": [],
-    "note": "Domestic ISP — all significant upstreams are Myanmar ASNs"
+    "note": "Domestic ISP \u2014 all significant upstreams are Myanmar ASNs"
   },
   "AS134840": {
     "type": "ISP",
     "is_mno": false,
     "is_igw": false,
     "foreign_upstreams": [],
-    "note": "Domestic ISP — all significant upstreams are Myanmar ASNs"
+    "note": "Domestic ISP \u2014 all significant upstreams are Myanmar ASNs"
   },
   "AS153790": {
     "type": "ISP",
     "is_mno": false,
     "is_igw": false,
     "foreign_upstreams": [],
-    "note": "Domestic ISP — all significant upstreams are Myanmar ASNs"
+    "note": "Domestic ISP \u2014 all significant upstreams are Myanmar ASNs"
   },
   "AS150721": {
     "type": "ISP",
     "is_mno": false,
     "is_igw": false,
     "foreign_upstreams": [],
-    "note": "Domestic ISP — all significant upstreams are Myanmar ASNs"
+    "note": "Domestic ISP \u2014 all significant upstreams are Myanmar ASNs"
   },
   "AS135371": {
     "type": "ISP",
     "is_mno": false,
     "is_igw": false,
     "foreign_upstreams": [],
-    "note": "Domestic ISP — all significant upstreams are Myanmar ASNs"
+    "note": "Domestic ISP \u2014 all significant upstreams are Myanmar ASNs"
   },
   "AS137424": {
     "type": "ISP",
     "is_mno": false,
     "is_igw": false,
     "foreign_upstreams": [],
-    "note": "Domestic ISP — all significant upstreams are Myanmar ASNs"
+    "note": "Domestic ISP \u2014 all significant upstreams are Myanmar ASNs"
   },
   "AS136919": {
     "type": "ISP",
     "is_mno": false,
     "is_igw": false,
     "foreign_upstreams": [],
-    "note": "Domestic ISP — all significant upstreams are Myanmar ASNs"
+    "note": "Domestic ISP \u2014 all significant upstreams are Myanmar ASNs"
   },
   "AS137431": {
     "type": "ISP",
     "is_mno": false,
     "is_igw": false,
     "foreign_upstreams": [],
-    "note": "Domestic ISP — all significant upstreams are Myanmar ASNs"
+    "note": "Domestic ISP \u2014 all significant upstreams are Myanmar ASNs"
   },
   "AS141015": {
     "type": "ISP",
     "is_mno": false,
     "is_igw": false,
     "foreign_upstreams": [],
-    "note": "Domestic ISP — all significant upstreams are Myanmar ASNs"
+    "note": "Domestic ISP \u2014 all significant upstreams are Myanmar ASNs"
   },
   "AS137955": {
     "type": "IXP",
     "is_mno": false,
     "is_igw": true,
     "foreign_upstreams": [],
-    "note": "Internet exchange point"
+    "note": "Internet exchange point",
+    "description": "MMIX \u2014 Myanmar Internet Exchange"
   },
   "AS151783": {
     "type": "ISP",
     "is_mno": false,
     "is_igw": false,
     "foreign_upstreams": [],
-    "note": "Domestic ISP — all significant upstreams are Myanmar ASNs"
+    "note": "Domestic ISP \u2014 all significant upstreams are Myanmar ASNs"
   },
   "AS153319": {
     "type": "IGW",
@@ -1741,119 +1749,122 @@
         "path_count": 336
       }
     ],
-    "note": "Peers internationally via AS20473"
+    "note": "Peers internationally via AS20473",
+    "description": "Information Beam Australia"
   },
   "AS135405": {
     "type": "ISP",
     "is_mno": false,
     "is_igw": false,
     "foreign_upstreams": [],
-    "note": "Domestic ISP — all significant upstreams are Myanmar ASNs"
+    "note": "Domestic ISP \u2014 all significant upstreams are Myanmar ASNs"
   },
   "AS153837": {
     "type": "ISP",
     "is_mno": false,
     "is_igw": false,
     "foreign_upstreams": [],
-    "note": "Domestic ISP — all significant upstreams are Myanmar ASNs"
+    "note": "Domestic ISP \u2014 all significant upstreams are Myanmar ASNs"
   },
   "AS132344": {
     "type": "ISP",
     "is_mno": false,
     "is_igw": false,
     "foreign_upstreams": [],
-    "note": "Domestic ISP — all significant upstreams are Myanmar ASNs"
+    "note": "Domestic ISP \u2014 all significant upstreams are Myanmar ASNs"
   },
   "AS136442": {
     "type": "ISP",
     "is_mno": false,
     "is_igw": false,
     "foreign_upstreams": [],
-    "note": "Domestic ISP — all significant upstreams are Myanmar ASNs"
+    "note": "Domestic ISP \u2014 all significant upstreams are Myanmar ASNs"
   },
   "AS151802": {
     "type": "ISP",
     "is_mno": false,
     "is_igw": false,
     "foreign_upstreams": [],
-    "note": "Domestic ISP — all significant upstreams are Myanmar ASNs"
+    "note": "Domestic ISP \u2014 all significant upstreams are Myanmar ASNs"
   },
   "AS131322": {
     "type": "ISP",
     "is_mno": false,
     "is_igw": false,
     "foreign_upstreams": [],
-    "note": "Domestic ISP — all significant upstreams are Myanmar ASNs"
+    "note": "Domestic ISP \u2014 all significant upstreams are Myanmar ASNs"
   },
   "AS139003": {
     "type": "ISP",
     "is_mno": false,
     "is_igw": false,
     "foreign_upstreams": [],
-    "note": "Domestic ISP — all significant upstreams are Myanmar ASNs"
+    "note": "Domestic ISP \u2014 all significant upstreams are Myanmar ASNs"
   },
   "AS135427": {
     "type": "ISP",
     "is_mno": false,
     "is_igw": false,
     "foreign_upstreams": [],
-    "note": "Domestic ISP — all significant upstreams are Myanmar ASNs"
+    "note": "Domestic ISP \u2014 all significant upstreams are Myanmar ASNs"
   },
   "AS9988": {
     "type": "MNO",
     "is_mno": true,
     "is_igw": false,
     "foreign_upstreams": [],
-    "note": "Licensed mobile network operator"
+    "note": "Licensed mobile network operator",
+    "description": "MPT \u2014 Myanma Posts and Telecommunications (state telecom)"
   },
   "AS133384": {
     "type": "ISP",
     "is_mno": false,
     "is_igw": false,
     "foreign_upstreams": [],
-    "note": "Domestic ISP — all significant upstreams are Myanmar ASNs"
+    "note": "Domestic ISP \u2014 all significant upstreams are Myanmar ASNs"
   },
   "AS133385": {
     "type": "MNO",
     "is_mno": true,
     "is_igw": false,
     "foreign_upstreams": [],
-    "note": "Licensed mobile network operator"
+    "note": "Licensed mobile network operator",
+    "description": "Atom Myanmar (formerly Telenor Myanmar)"
   },
   "AS135433": {
     "type": "ISP",
     "is_mno": false,
     "is_igw": false,
     "foreign_upstreams": [],
-    "note": "Domestic ISP — all significant upstreams are Myanmar ASNs"
+    "note": "Domestic ISP \u2014 all significant upstreams are Myanmar ASNs"
   },
   "AS140552": {
     "type": "ISP",
     "is_mno": false,
     "is_igw": false,
     "foreign_upstreams": [],
-    "note": "Domestic ISP — all significant upstreams are Myanmar ASNs"
+    "note": "Domestic ISP \u2014 all significant upstreams are Myanmar ASNs"
   },
   "AS152329": {
     "type": "ISP",
     "is_mno": false,
     "is_igw": false,
     "foreign_upstreams": [],
-    "note": "Domestic ISP — all significant upstreams are Myanmar ASNs"
+    "note": "Domestic ISP \u2014 all significant upstreams are Myanmar ASNs"
   },
   "AS150285": {
     "type": "ISP",
     "is_mno": false,
     "is_igw": false,
     "foreign_upstreams": [],
-    "note": "Domestic ISP — all significant upstreams are Myanmar ASNs"
+    "note": "Domestic ISP \u2014 all significant upstreams are Myanmar ASNs"
   },
   "AS150797": {
     "type": "ISP",
     "is_mno": false,
     "is_igw": false,
     "foreign_upstreams": [],
-    "note": "Domestic ISP — all significant upstreams are Myanmar ASNs"
+    "note": "Domestic ISP \u2014 all significant upstreams are Myanmar ASNs"
   },
   "AS136975": {
     "type": "IGW",
@@ -1881,140 +1892,142 @@
         "path_count": 46
       }
     ],
-    "note": "Peers internationally via AS132876, AS137557, AS140867"
+    "note": "Peers internationally via AS132876, AS137557, AS140867",
+    "description": "G-Net (Global Technology)"
   },
   "AS136465": {
     "type": "ISP",
     "is_mno": false,
     "is_igw": false,
     "foreign_upstreams": [],
-    "note": "Domestic ISP — all significant upstreams are Myanmar ASNs"
+    "note": "Domestic ISP \u2014 all significant upstreams are Myanmar ASNs"
   },
   "AS151826": {
     "type": "ISP",
     "is_mno": false,
     "is_igw": false,
     "foreign_upstreams": [],
-    "note": "Domestic ISP — all significant upstreams are Myanmar ASNs"
+    "note": "Domestic ISP \u2014 all significant upstreams are Myanmar ASNs"
   },
   "AS150297": {
     "type": "ISP",
     "is_mno": false,
     "is_igw": false,
     "foreign_upstreams": [],
-    "note": "Domestic ISP — all significant upstreams are Myanmar ASNs"
+    "note": "Domestic ISP \u2014 all significant upstreams are Myanmar ASNs"
   },
   "AS136474": {
     "type": "ISP",
     "is_mno": false,
     "is_igw": false,
     "foreign_upstreams": [],
-    "note": "Domestic ISP — all significant upstreams are Myanmar ASNs"
+    "note": "Domestic ISP \u2014 all significant upstreams are Myanmar ASNs"
   },
   "AS150812": {
     "type": "ISP",
     "is_mno": false,
     "is_igw": false,
     "foreign_upstreams": [],
-    "note": "Domestic ISP — all significant upstreams are Myanmar ASNs"
+    "note": "Domestic ISP \u2014 all significant upstreams are Myanmar ASNs"
   },
   "AS136480": {
     "type": "MNO",
     "is_mno": true,
     "is_igw": false,
     "foreign_upstreams": [],
-    "note": "Licensed mobile network operator"
+    "note": "Licensed mobile network operator",
+    "description": "Mytel (Viettel Myanmar \u2014 military-linked)"
   },
   "AS150309": {
     "type": "ISP",
     "is_mno": false,
     "is_igw": false,
     "foreign_upstreams": [],
-    "note": "Domestic ISP — all significant upstreams are Myanmar ASNs"
+    "note": "Domestic ISP \u2014 all significant upstreams are Myanmar ASNs"
   },
   "AS150310": {
     "type": "ISP",
     "is_mno": false,
     "is_igw": false,
     "foreign_upstreams": [],
-    "note": "Domestic ISP — all significant upstreams are Myanmar ASNs"
+    "note": "Domestic ISP \u2014 all significant upstreams are Myanmar ASNs"
   },
   "AS139051": {
     "type": "ISP",
     "is_mno": false,
     "is_igw": false,
     "foreign_upstreams": [],
-    "note": "Domestic ISP — all significant upstreams are Myanmar ASNs"
+    "note": "Domestic ISP \u2014 all significant upstreams are Myanmar ASNs"
   },
   "AS151341": {
     "type": "ISP",
     "is_mno": false,
     "is_igw": false,
     "foreign_upstreams": [],
-    "note": "Domestic ISP — all significant upstreams are Myanmar ASNs"
+    "note": "Domestic ISP \u2014 all significant upstreams are Myanmar ASNs"
   },
   "AS142126": {
     "type": "ISP",
     "is_mno": false,
     "is_igw": false,
     "foreign_upstreams": [],
-    "note": "Domestic ISP — all significant upstreams are Myanmar ASNs"
+    "note": "Domestic ISP \u2014 all significant upstreams are Myanmar ASNs"
   },
   "AS151342": {
     "type": "ISP",
     "is_mno": false,
     "is_igw": false,
     "foreign_upstreams": [],
-    "note": "Domestic ISP — all significant upstreams are Myanmar ASNs"
+    "note": "Domestic ISP \u2014 all significant upstreams are Myanmar ASNs"
   },
   "AS139058": {
     "type": "ISP",
     "is_mno": false,
     "is_igw": false,
     "foreign_upstreams": [],
-    "note": "Domestic ISP — all significant upstreams are Myanmar ASNs"
+    "note": "Domestic ISP \u2014 all significant upstreams are Myanmar ASNs"
   },
   "AS149810": {
     "type": "ISP",
     "is_mno": false,
     "is_igw": false,
     "foreign_upstreams": [],
-    "note": "Domestic ISP — all significant upstreams are Myanmar ASNs"
+    "note": "Domestic ISP \u2014 all significant upstreams are Myanmar ASNs"
   },
   "AS142644": {
     "type": "ISP",
     "is_mno": false,
     "is_igw": false,
     "foreign_upstreams": [],
-    "note": "Domestic ISP — all significant upstreams are Myanmar ASNs"
+    "note": "Domestic ISP \u2014 all significant upstreams are Myanmar ASNs"
   },
   "AS133433": {
     "type": "ISP",
     "is_mno": false,
     "is_igw": false,
     "foreign_upstreams": [],
-    "note": "Domestic ISP — all significant upstreams are Myanmar ASNs"
+    "note": "Domestic ISP \u2014 all significant upstreams are Myanmar ASNs"
   },
   "AS140091": {
     "type": "ISP",
     "is_mno": false,
     "is_igw": false,
     "foreign_upstreams": [],
-    "note": "Domestic ISP — all significant upstreams are Myanmar ASNs"
+    "note": "Domestic ISP \u2014 all significant upstreams are Myanmar ASNs"
   },
   "AS133440": {
     "type": "ISP",
     "is_mno": false,
     "is_igw": false,
     "foreign_upstreams": [],
-    "note": "Domestic ISP — all significant upstreams are Myanmar ASNs"
+    "note": "Domestic ISP \u2014 all significant upstreams are Myanmar ASNs"
   },
   "AS134976": {
     "type": "ISP",
     "is_mno": false,
     "is_igw": false,
     "foreign_upstreams": [],
-    "note": "Domestic ISP — all significant upstreams are Myanmar ASNs"
+    "note": "Domestic ISP \u2014 all significant upstreams are Myanmar ASNs"
   },
   "AS140617": {
     "type": "IGW",
@@ -2026,21 +2039,22 @@
         "path_count": 776
       }
     ],
-    "note": "Peers internationally via AS139014"
+    "note": "Peers internationally via AS139014",
+    "description": "Than Phyo Thu Mining Network"
   },
   "AS139595": {
     "type": "ISP",
     "is_mno": false,
     "is_igw": false,
     "foreign_upstreams": [],
-    "note": "Domestic ISP — all significant upstreams are Myanmar ASNs"
+    "note": "Domestic ISP \u2014 all significant upstreams are Myanmar ASNs"
   },
   "AS134484": {
     "type": "ISP",
     "is_mno": false,
     "is_igw": false,
     "foreign_upstreams": [],
-    "note": "Domestic ISP — all significant upstreams are Myanmar ASNs"
+    "note": "Domestic ISP \u2014 all significant upstreams are Myanmar ASNs"
   },
   "AS149855": {
     "type": "IGW",
@@ -2052,7 +2066,8 @@
         "path_count": 6556
       }
     ],
-    "note": "Peers internationally via AS10099"
+    "note": "Peers internationally via AS10099",
+    "description": "AGB Communication"
   },
   "AS139620": {
     "type": "IGW",
@@ -2068,14 +2083,15 @@
         "path_count": 1883
       }
     ],
-    "note": "Peers internationally via AS38082, AS4651"
+    "note": "Peers internationally via AS38082, AS4651",
+    "description": "Myanmar Telecom Network (MTN)"
   },
   "AS63852": {
     "type": "ISP",
     "is_mno": false,
     "is_igw": false,
     "foreign_upstreams": [],
-    "note": "Domestic ISP — all significant upstreams are Myanmar ASNs"
+    "note": "Domestic ISP \u2014 all significant upstreams are Myanmar ASNs"
   },
   "AS137069": {
     "type": "IGW",
@@ -2087,21 +2103,22 @@
         "path_count": 229
       }
     ],
-    "note": "Peers internationally via AS7473"
+    "note": "Peers internationally via AS7473",
+    "description": "POSCO International Myanmar E&P"
   },
   "AS154481": {
     "type": "ISP",
     "is_mno": false,
     "is_igw": false,
     "foreign_upstreams": [],
-    "note": "Domestic ISP — all significant upstreams are Myanmar ASNs"
+    "note": "Domestic ISP \u2014 all significant upstreams are Myanmar ASNs"
   },
   "AS152447": {
     "type": "ISP",
     "is_mno": false,
     "is_igw": false,
     "foreign_upstreams": [],
-    "note": "Domestic ISP — all significant upstreams are Myanmar ASNs"
+    "note": "Domestic ISP \u2014 all significant upstreams are Myanmar ASNs"
   },
   "AS134528": {
     "type": "IGW",
@@ -2113,35 +2130,36 @@
         "path_count": 356
       }
     ],
-    "note": "Peers internationally via AS38082"
+    "note": "Peers internationally via AS38082",
+    "description": "Myanmar Pi Technology"
   },
   "AS141704": {
     "type": "ISP",
     "is_mno": false,
     "is_igw": false,
     "foreign_upstreams": [],
-    "note": "Domestic ISP — all significant upstreams are Myanmar ASNs"
+    "note": "Domestic ISP \u2014 all significant upstreams are Myanmar ASNs"
   },
   "AS153998": {
     "type": "ISP",
     "is_mno": false,
     "is_igw": false,
     "foreign_upstreams": [],
-    "note": "Domestic ISP — all significant upstreams are Myanmar ASNs"
+    "note": "Domestic ISP \u2014 all significant upstreams are Myanmar ASNs"
   },
   "AS141199": {
     "type": "ISP",
     "is_mno": false,
     "is_igw": false,
     "foreign_upstreams": [],
-    "note": "Domestic ISP — all significant upstreams are Myanmar ASNs"
+    "note": "Domestic ISP \u2014 all significant upstreams are Myanmar ASNs"
   },
   "AS152466": {
     "type": "ISP",
     "is_mno": false,
     "is_igw": false,
     "foreign_upstreams": [],
-    "note": "Domestic ISP — all significant upstreams are Myanmar ASNs"
+    "note": "Domestic ISP \u2014 all significant upstreams are Myanmar ASNs"
   },
   "AS133524": {
     "type": "IGW",
@@ -2161,28 +2179,29 @@
         "path_count": 803
       }
     ],
-    "note": "Peers internationally via AS132876, AS137557, AS4651"
+    "note": "Peers internationally via AS132876, AS137557, AS4651",
+    "description": "Global Technology Co. (GT)"
   },
   "AS151965": {
     "type": "ISP",
     "is_mno": false,
     "is_igw": false,
     "foreign_upstreams": [],
-    "note": "Domestic ISP — all significant upstreams are Myanmar ASNs"
+    "note": "Domestic ISP \u2014 all significant upstreams are Myanmar ASNs"
   },
   "AS141216": {
     "type": "ISP",
     "is_mno": false,
     "is_igw": false,
     "foreign_upstreams": [],
-    "note": "Domestic ISP — all significant upstreams are Myanmar ASNs"
+    "note": "Domestic ISP \u2014 all significant upstreams are Myanmar ASNs"
   },
   "AS154020": {
     "type": "ISP",
     "is_mno": false,
     "is_igw": false,
     "foreign_upstreams": [],
-    "note": "Domestic ISP — all significant upstreams are Myanmar ASNs"
+    "note": "Domestic ISP \u2014 all significant upstreams are Myanmar ASNs"
   },
   "AS135589": {
     "type": "IGW",
@@ -2198,42 +2217,43 @@
         "path_count": 1709
       }
     ],
-    "note": "Peers internationally via AS45629, AS4651"
+    "note": "Peers internationally via AS45629, AS4651",
+    "description": "Internet Maekhong Network (IMN)"
   },
   "AS136613": {
     "type": "ISP",
     "is_mno": false,
     "is_igw": false,
     "foreign_upstreams": [],
-    "note": "Domestic ISP — all significant upstreams are Myanmar ASNs"
+    "note": "Domestic ISP \u2014 all significant upstreams are Myanmar ASNs"
   },
   "AS136617": {
     "type": "ISP",
     "is_mno": false,
     "is_igw": false,
     "foreign_upstreams": [],
-    "note": "Domestic ISP — all significant upstreams are Myanmar ASNs"
+    "note": "Domestic ISP \u2014 all significant upstreams are Myanmar ASNs"
   },
   "AS139692": {
     "type": "ISP",
     "is_mno": false,
     "is_igw": false,
     "foreign_upstreams": [],
-    "note": "Domestic ISP — all significant upstreams are Myanmar ASNs"
+    "note": "Domestic ISP \u2014 all significant upstreams are Myanmar ASNs"
   },
   "AS138158": {
     "type": "ISP",
     "is_mno": false,
     "is_igw": false,
     "foreign_upstreams": [],
-    "note": "Domestic ISP — all significant upstreams are Myanmar ASNs"
+    "note": "Domestic ISP \u2014 all significant upstreams are Myanmar ASNs"
   },
   "AS141236": {
     "type": "ISP",
     "is_mno": false,
     "is_igw": false,
     "foreign_upstreams": [],
-    "note": "Domestic ISP — all significant upstreams are Myanmar ASNs"
+    "note": "Domestic ISP \u2014 all significant upstreams are Myanmar ASNs"
   },
   "AS138166": {
     "type": "IGW",
@@ -2245,21 +2265,22 @@
         "path_count": 395
       }
     ],
-    "note": "Peers internationally via AS10099"
+    "note": "Peers internationally via AS10099",
+    "description": "MaxxB Fiber Internet"
   },
   "AS138167": {
     "type": "ISP",
     "is_mno": false,
     "is_igw": false,
     "foreign_upstreams": [],
-    "note": "Domestic ISP — all significant upstreams are Myanmar ASNs"
+    "note": "Domestic ISP \u2014 all significant upstreams are Myanmar ASNs"
   },
   "AS138168": {
     "type": "ISP",
     "is_mno": false,
     "is_igw": false,
     "foreign_upstreams": [],
-    "note": "Domestic ISP — all significant upstreams are Myanmar ASNs"
+    "note": "Domestic ISP \u2014 all significant upstreams are Myanmar ASNs"
   },
   "AS132537": {
     "type": "IGW",
@@ -2271,98 +2292,99 @@
         "path_count": 124
       }
     ],
-    "note": "Peers internationally via AS17497"
+    "note": "Peers internationally via AS17497",
+    "description": "Myanmar LG (MLGCL)"
   },
   "AS139704": {
     "type": "ISP",
     "is_mno": false,
     "is_igw": false,
     "foreign_upstreams": [],
-    "note": "Domestic ISP — all significant upstreams are Myanmar ASNs"
+    "note": "Domestic ISP \u2014 all significant upstreams are Myanmar ASNs"
   },
   "AS151482": {
     "type": "ISP",
     "is_mno": false,
     "is_igw": false,
     "foreign_upstreams": [],
-    "note": "Domestic ISP — all significant upstreams are Myanmar ASNs"
+    "note": "Domestic ISP \u2014 all significant upstreams are Myanmar ASNs"
   },
   "AS139711": {
     "type": "ISP",
     "is_mno": false,
     "is_igw": false,
     "foreign_upstreams": [],
-    "note": "Domestic ISP — all significant upstreams are Myanmar ASNs"
+    "note": "Domestic ISP \u2014 all significant upstreams are Myanmar ASNs"
   },
   "AS151491": {
     "type": "ISP",
     "is_mno": false,
     "is_igw": false,
     "foreign_upstreams": [],
-    "note": "Domestic ISP — all significant upstreams are Myanmar ASNs"
+    "note": "Domestic ISP \u2014 all significant upstreams are Myanmar ASNs"
   },
   "AS132038": {
     "type": "ISP",
     "is_mno": false,
     "is_igw": false,
     "foreign_upstreams": [],
-    "note": "Domestic ISP — all significant upstreams are Myanmar ASNs"
+    "note": "Domestic ISP \u2014 all significant upstreams are Myanmar ASNs"
   },
   "AS135111": {
     "type": "ISP",
     "is_mno": false,
     "is_igw": false,
     "foreign_upstreams": [],
-    "note": "Domestic ISP — all significant upstreams are Myanmar ASNs"
+    "note": "Domestic ISP \u2014 all significant upstreams are Myanmar ASNs"
   },
   "AS139206": {
     "type": "ISP",
     "is_mno": false,
     "is_igw": false,
     "foreign_upstreams": [],
-    "note": "Domestic ISP — all significant upstreams are Myanmar ASNs"
+    "note": "Domestic ISP \u2014 all significant upstreams are Myanmar ASNs"
   },
   "AS139719": {
     "type": "ISP",
     "is_mno": false,
     "is_igw": false,
     "foreign_upstreams": [],
-    "note": "Domestic ISP — all significant upstreams are Myanmar ASNs"
+    "note": "Domestic ISP \u2014 all significant upstreams are Myanmar ASNs"
   },
   "AS153549": {
     "type": "ISP",
     "is_mno": false,
     "is_igw": false,
     "foreign_upstreams": [],
-    "note": "Domestic ISP — all significant upstreams are Myanmar ASNs"
+    "note": "Domestic ISP \u2014 all significant upstreams are Myanmar ASNs"
   },
   "AS153044": {
     "type": "ISP",
     "is_mno": false,
     "is_igw": false,
     "foreign_upstreams": [],
-    "note": "Domestic ISP — all significant upstreams are Myanmar ASNs"
+    "note": "Domestic ISP \u2014 all significant upstreams are Myanmar ASNs"
   },
   "AS134105": {
     "type": "ISP",
     "is_mno": false,
     "is_igw": false,
     "foreign_upstreams": [],
-    "note": "Domestic ISP — all significant upstreams are Myanmar ASNs"
+    "note": "Domestic ISP \u2014 all significant upstreams are Myanmar ASNs"
   },
   "AS132060": {
     "type": "ISP",
     "is_mno": false,
     "is_igw": false,
     "foreign_upstreams": [],
-    "note": "Domestic ISP — all significant upstreams are Myanmar ASNs"
+    "note": "Domestic ISP \u2014 all significant upstreams are Myanmar ASNs"
   },
   "AS18399": {
     "type": "ISP",
     "is_mno": false,
     "is_igw": false,
     "foreign_upstreams": [],
-    "note": "Domestic ISP — all significant upstreams are Myanmar ASNs"
+    "note": "Domestic ISP \u2014 all significant upstreams are Myanmar ASNs"
   },
   "AS136168": {
     "type": "IGW",
@@ -2490,14 +2512,15 @@
         "path_count": 57
       }
     ],
-    "note": "Peers internationally via AS137409, AS137557, AS140867"
+    "note": "Peers internationally via AS137409, AS137557, AS140867",
+    "description": "Campana MYTHIC"
   },
   "AS135149": {
     "type": "ISP",
     "is_mno": false,
     "is_igw": false,
     "foreign_upstreams": [],
-    "note": "Domestic ISP — all significant upstreams are Myanmar ASNs"
+    "note": "Domestic ISP \u2014 all significant upstreams are Myanmar ASNs"
   },
   "AS149487": {
     "type": "IGW",
@@ -2509,27 +2532,29 @@
         "path_count": 1008
       }
     ],
-    "note": "Peers internationally via AS137567"
+    "note": "Peers internationally via AS137567",
+    "description": "MOC Company"
   },
   "AS136177": {
     "type": "ISP",
     "is_mno": false,
     "is_igw": false,
     "foreign_upstreams": [],
-    "note": "Domestic ISP — all significant upstreams are Myanmar ASNs"
+    "note": "Domestic ISP \u2014 all significant upstreams are Myanmar ASNs"
   },
   "AS45558": {
     "type": "IXP",
     "is_mno": false,
     "is_igw": true,
     "foreign_upstreams": [],
-    "note": "Internet exchange point"
+    "note": "Internet exchange point",
+    "description": "MPT \u2014 National Internet Exchange Node"
   },
   "AS63998": {
     "type": "ISP",
     "is_mno": false,
     "is_igw": false,
     "foreign_upstreams": [],
-    "note": "Domestic ISP — all significant upstreams are Myanmar ASNs"
+    "note": "Domestic ISP \u2014 all significant upstreams are Myanmar ASNs"
   }
 }

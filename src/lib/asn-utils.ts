@@ -2,6 +2,7 @@ export type NetworkType = 'MNO' | 'IGW' | 'IXP' | 'ISP'
 
 export interface AsnMeta {
   type: NetworkType
+  description?: string
   is_mno: boolean
   is_igw: boolean
   foreign_upstreams: { asn: string; path_count: number }[]
