@@ -160,7 +160,7 @@
     "visibility_pct": 1.0,
     "visible_collectors": 329,
     "total_collectors": 329,
-    "timestamp": "2026-04-10T19:15:06.605752+00:00",
+    "timestamp": "2026-04-10T19:20:04.328153+00:00",
     "status": "GREEN",
     "status_since": "2026-04-10T09:10:05.363140+00:00"
   },
@@ -171,7 +171,7 @@
     "visibility_pct": 1.0,
     "visible_collectors": 329,
     "total_collectors": 329,
-    "timestamp": "2026-04-10T19:15:16.866622+00:00",
+    "timestamp": "2026-04-10T19:20:04.672330+00:00",
     "status": "GREEN",
     "status_since": "2026-04-10T18:10:03.713907+00:00"
   },
@@ -612,7 +612,7 @@
     "visibility_pct": 1.0,
     "visible_collectors": 329,
     "total_collectors": 329,
-    "timestamp": "2026-04-10T19:15:19.066521+00:00",
+    "timestamp": "2026-04-10T19:20:05.017896+00:00",
     "status": "GREEN",
     "status_since": "2026-04-10T15:45:18.649337+00:00"
   },
@@ -763,16 +763,13 @@
   "AS136480": {
     "asn": "AS136480",
     "name": "MMUNILINK-AS-AP Myanmar Unilink Communication Company Limited",
-    "announced": false,
-    "visibility_pct": 0.0,
-    "visible_collectors": 0,
-    "total_collectors": 0,
-    "status": "RED",
-    "status_since": "2026-04-10T19:15:34.380945+00:00",
-    "timestamp": "2026-04-10T19:15:34.380945+00:00",
-    "error": "",
-    "ioda_outages": 0,
-    "ioda_confirmed": false
+    "announced": true,
+    "visibility_pct": 1.0,
+    "visible_collectors": 329,
+    "total_collectors": 329,
+    "timestamp": "2026-04-10T19:20:05.368933+00:00",
+    "status": "YELLOW",
+    "status_since": "2026-04-10T19:20:05.368933+00:00"
   },
   "AS150309": {
     "asn": "AS150309",
