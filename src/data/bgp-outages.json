@@ -862,6 +862,17 @@
     "name": "FORTUNEINTERNATIONAL-AS-AP Fortune Broadband",
     "status": "DOWN",
     "started_at": "2026-04-10T13:02:04.634940+00:00",
+    "ended_at": "2026-04-10T13:31:50.127587+00:00",
+    "duration_minutes": 29,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": true
+  },
+  {
+    "asn": "AS134105",
+    "name": "STLMC-AS-AP Shwe Than Lwin Media Co.",
+    "status": "DOWN",
+    "started_at": "2026-04-10T13:33:16.373695+00:00",
     "ended_at": null,
     "duration_minutes": null,
     "min_visibility_pct": 0.0,
