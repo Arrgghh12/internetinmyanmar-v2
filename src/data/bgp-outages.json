@@ -1038,6 +1038,28 @@
     "name": "PAMEL-AS-AP Pan Asia Majestic Eagle Ltd",
     "status": "DOWN",
     "started_at": "2026-04-10T20:33:57.447876+00:00",
+    "ended_at": "2026-04-10T21:03:23.007093+00:00",
+    "duration_minutes": 29,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": true
+  },
+  {
+    "asn": "AS140617",
+    "name": "TPTNET-AS-AP THAN PHYO THU MINING COMPANY LIMITED",
+    "status": "DOWN",
+    "started_at": "2026-04-10T21:02:35.638595+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
+  },
+  {
+    "asn": "AS63852",
+    "name": "FMG-MM Myanmar Net",
+    "status": "DOWN",
+    "started_at": "2026-04-10T21:02:53.928085+00:00",
     "ended_at": null,
     "duration_minutes": null,
     "min_visibility_pct": 0.0,
