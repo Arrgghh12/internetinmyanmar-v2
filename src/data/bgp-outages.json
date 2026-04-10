@@ -988,5 +988,38 @@
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
     "resolved": true
+  },
+  {
+    "asn": "AS137424",
+    "name": "ISMC-AS-AP Integral Solutions Myanmar Co.",
+    "status": "DOWN",
+    "started_at": "2026-04-10T19:01:57.701732+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
+  },
+  {
+    "asn": "AS150812",
+    "name": "MFGCL-AS-AP Myanmar Fortune Global Company Limited",
+    "status": "DOWN",
+    "started_at": "2026-04-10T19:02:47.952995+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
+  },
+  {
+    "asn": "AS135589",
+    "name": "IMNCL-AS-AP Internet Maekhong Network Company Limited",
+    "status": "DOWN",
+    "started_at": "2026-04-10T19:03:31.177895+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
   }
 ]
