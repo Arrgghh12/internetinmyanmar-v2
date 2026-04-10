@@ -1,19 +1,21 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=Padauk:wght@400;700&family=Noto+Sans+Myanmar:wght@400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Padauk:wght@400;700&family=Noto+Sans+Myanmar:wght@400;500;700&display=swap');
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
 
 :root {
-  --color-bg-dark:    #0A1628;
-  --color-bg-light:   #F8FAFC;
-  --color-accent:     #00D4C8;
+  --color-bg-dark:    #08090a;
+  --color-bg-light:   #f7f8f8;
+  --color-accent:     #7170ff;
+  --color-accent-bg:  #5e6ad2;
   --color-warning:    #F59E0B;
   --color-danger:     #EF4444;
-  --color-text-dark:  #E2E8F0;
+  --color-text-dark:  #f7f8f8;
+  --color-text-muted: #8a8f98;
   --color-text-light: #1E293B;
 
-  --font-headline: 'DM Serif Display', Georgia, serif;
-  --font-body:     'IBM Plex Sans', system-ui, sans-serif;
-  --font-mono:     'IBM Plex Mono', 'Courier New', monospace;
+  --font-headline: 'Inter', system-ui, sans-serif;
+  --font-body:     'Inter', system-ui, sans-serif;
+  --font-mono:     'Berkeley Mono', ui-monospace, 'SF Mono', Menlo, monospace;
   /* Burmese: Padauk first (best hinting), Noto Sans Myanmar as fallback */
   --font-myanmar:  'Padauk', 'Noto Sans Myanmar', sans-serif;
 }
@@ -23,6 +25,7 @@ html {
   background-color: var(--color-bg-dark);
   color: var(--color-text-dark);
   font-family: var(--font-body);
+  font-feature-settings: "cv01", "ss03";
 }
 
 html.light {
@@ -34,11 +37,21 @@ html.light {
 /* Burmese content */
 :lang(my), .myanmar-text {
   font-family: var(--font-myanmar);
-  line-height: 2;       /* Burmese needs more line height */
+  font-feature-settings: normal;
+  line-height: 2;
   letter-spacing: 0.02em;
 }
 
-h1, h2, h3 { font-family: var(--font-headline); }
+h1, h2, h3 {
+  font-family: var(--font-headline);
+  font-weight: 510;
+  letter-spacing: -0.02em;
+}
+
+h1 { font-size: 3rem;   letter-spacing: -0.022em; line-height: 1.0; }
+h2 { font-size: 1.5rem; letter-spacing: -0.012em; line-height: 1.33; }
+h3 { font-size: 1.25rem; font-weight: 590; letter-spacing: -0.012em; }
+
 code, pre, .mono { font-family: var(--font-mono); }
 
 /* Article Burmese titles */
@@ -47,4 +60,5 @@ code, pre, .mono { font-family: var(--font-mono); }
 [lang="my"] h3 {
   font-family: var(--font-myanmar);
   font-weight: 700;
+  font-feature-settings: normal;
 }

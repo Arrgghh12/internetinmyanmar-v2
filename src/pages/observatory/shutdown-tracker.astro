@@ -115,7 +115,7 @@ const totalMeasurements = history.reduce((s, r) => s + r.measurement_count, 0)
       const h = Math.max(1, (d.anomaly_rate / maxRate) * innerH)
       const x = pad.left + i * barW
       const y = pad.top + innerH - h
-      const color = d.anomaly_rate > 30 ? '#EF4444' : d.anomaly_rate > 15 ? '#F59E0B' : '#00D4C8'
+      const color = d.anomaly_rate > 30 ? '#EF4444' : d.anomaly_rate > 15 ? '#F59E0B' : '#7170ff'
       const tip = `${d.month}: ${d.anomaly_rate}% (${d.anomaly_count.toLocaleString()} anomalies / ${d.measurement_count.toLocaleString()} total)`
       return `<rect x="${x+0.5}" y="${y}" width="${Math.max(barW-1,0.5)}" height="${h}" fill="${color}" opacity="0.8"><title>${tip}</title></rect>`
     }).join('')

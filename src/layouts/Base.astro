@@ -140,7 +140,7 @@ const nav = [
     <!-- Main nav -->
     <header class="border-b border-white/10">
       <div class="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
-        <a href="/" class="font-headline text-xl font-bold tracking-tight">
+        <a href="/" class="font-headline text-xl tracking-tight" style="font-weight:510;letter-spacing:-0.02em">
           Internet in <span class="text-[color:var(--color-accent)]">Myanmar</span>
         </a>
         <div class="hidden md:flex items-center gap-6 text-sm">
@@ -157,7 +157,7 @@ const nav = [
                       {item.label} ▾
                     </button>
                     <div class="absolute top-full left-0 pt-2 hidden group-hover:block z-50">
-                      <div class="bg-[#0f1e35] border border-white/10 rounded shadow-xl min-w-48 py-1">
+                      <div class="bg-[#0f1011] border border-white/10 rounded shadow-xl min-w-48 py-1">
                         {item.children?.map((child) => (
                           <a
                             href={child.href}
@@ -222,7 +222,7 @@ const nav = [
 
     <!-- Search overlay -->
     <div id="search-overlay" class="fixed inset-0 z-50 hidden bg-black/80 backdrop-blur-sm p-4 md:p-20">
-      <div class="max-w-2xl mx-auto bg-[#0d1f38] border border-white/10 rounded-xl p-6">
+      <div class="max-w-2xl mx-auto bg-[#0f1011] border border-white/10 rounded-xl p-6">
         <div class="flex justify-between items-center mb-4">
           <span class="font-mono text-xs opacity-50">Search articles</span>
           <button id="search-close" class="opacity-50 hover:opacity-100 text-xl leading-none" aria-label="Close search">✕</button>

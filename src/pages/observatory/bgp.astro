@@ -176,7 +176,7 @@ function eventVerb(from: string, to: string): string {
     position: absolute; bottom: calc(100% + 6px); left: 50%;
     transform: translateX(-50%);
     background: #1e293b; color: #e2e8f0;
-    font-size: 11px; font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px; font-family: 'Berkeley Mono', ui-monospace, 'SF Mono', Menlo, monospace;
     font-weight: normal; text-transform: none; letter-spacing: 0;
     white-space: nowrap; padding: 5px 8px; border-radius: 4px;
     border: 1px solid rgba(255,255,255,0.1);
@@ -189,7 +189,7 @@ function eventVerb(from: string, to: string): string {
   .btn-active {
     background: rgba(0,212,200,0.12) !important;
     border-color: rgba(0,212,200,0.4) !important;
-    color: #00D4C8 !important;
+    color: #7170ff !important;
   }
 
   /* Sort arrows */
@@ -347,7 +347,7 @@ function eventVerb(from: string, to: string): string {
       <div class="border border-white/10 rounded-lg overflow-hidden">
         <div class="overflow-x-auto overflow-y-auto" style="max-height:460px">
           <table class="w-full text-xs font-mono" id="log-table">
-            <thead class="sticky top-0 bg-[#0A1628] z-10">
+            <thead class="sticky top-0 bg-[#08090a] z-10">
               <tr class="border-b border-white/10">
                 <th class="py-2 pl-3 pr-3 text-left opacity-50 text-[10px] uppercase tracking-widest w-8">#</th>
                 <th class="py-2 pr-3 text-left opacity-50 text-[10px] uppercase tracking-widest whitespace-nowrap">Date / Time (UTC)</th>
@@ -392,7 +392,7 @@ function eventVerb(from: string, to: string): string {
 
         <!-- Status filter -->
         <select id="net-status-filter"
-                class="font-mono text-xs px-3 py-1.5 rounded border border-white/10 bg-[#0A1628] focus:outline-none focus:border-white/30">
+                class="font-mono text-xs px-3 py-1.5 rounded border border-white/10 bg-[#08090a] focus:outline-none focus:border-white/30">
           <option value="ALL">All statuses</option>
           <option value="DOWN">🔴 DOWN</option>
           <option value="RECOVERING">🟡 RECOVERING</option>
@@ -402,7 +402,7 @@ function eventVerb(from: string, to: string): string {
 
         <!-- Type filter -->
         <select id="net-type-filter"
-                class="font-mono text-xs px-3 py-1.5 rounded border border-white/10 bg-[#0A1628] focus:outline-none focus:border-white/30">
+                class="font-mono text-xs px-3 py-1.5 rounded border border-white/10 bg-[#08090a] focus:outline-none focus:border-white/30">
           <option value="ALL">All types</option>
           <option value="MNO">MNO</option>
           <option value="IGW">IGW</option>
@@ -417,7 +417,7 @@ function eventVerb(from: string, to: string): string {
             Columns ▾
           </button>
           <div id="col-toggle-menu"
-               class="absolute left-0 top-full mt-1 hidden z-20 bg-[#0d1f38] border border-white/10 rounded-lg p-3 space-y-1.5 min-w-[160px] shadow-xl">
+               class="absolute left-0 top-full mt-1 hidden z-20 bg-[#0f1011] border border-white/10 rounded-lg p-3 space-y-1.5 min-w-[160px] shadow-xl">
             <label class="flex items-center gap-2 font-mono text-xs cursor-pointer">
               <input type="checkbox" data-col="description" checked class="col-checkbox" /> Description
             </label>
@@ -449,7 +449,7 @@ function eventVerb(from: string, to: string): string {
         <div class="flex items-center gap-2 font-mono text-xs opacity-60">
           Rows:
           <select id="net-page-size"
-                  class="px-2 py-1 rounded border border-white/10 bg-[#0A1628] focus:outline-none">
+                  class="px-2 py-1 rounded border border-white/10 bg-[#08090a] focus:outline-none">
             <option value="10">10</option>
             <option value="25" selected>25</option>
             <option value="100">100</option>
@@ -540,7 +540,7 @@ function eventVerb(from: string, to: string): string {
       const active = el.dataset.win === value || el.dataset.filter === value
       el.style.background  = active ? 'rgba(0,212,200,0.12)' : ''
       el.style.borderColor = active ? 'rgba(0,212,200,0.4)'  : ''
-      el.style.color       = active ? '#00D4C8'              : ''
+      el.style.color       = active ? '#7170ff'              : ''
     })
   }
 
@@ -768,7 +768,7 @@ function eventVerb(from: string, to: string): string {
         cols.push(`<td class="py-2 pr-4 text-right font-mono text-xs opacity-50">${formatSince(r.since, r.off)}</td>`)
 
       cols.push(`<td class="py-2 text-right">
-        <a href="/observatory/bgp/${r.asn}" class="font-mono text-xs opacity-30 hover:opacity-100 hover:text-[#00D4C8] underline">→</a>
+        <a href="/observatory/bgp/${r.asn}" class="font-mono text-xs opacity-30 hover:opacity-100 hover:text-[#7170ff] underline">→</a>
       </td>`)
 
       return `<tr class="border-b border-white/5 hover:bg-white/2 ${rowClass}">${cols.join('')}</tr>`
