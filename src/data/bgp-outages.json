@@ -829,11 +829,11 @@
     "name": "UCGCL-AS-AP UNIQUE COMM GROUP COMPANY LIMITED",
     "status": "DOWN",
     "started_at": "2026-04-10T11:31:04.400594+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-10T21:31:07.866625+00:00",
+    "duration_minutes": 600,
     "min_visibility_pct": 0.38,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS63852",
@@ -1049,21 +1049,21 @@
     "name": "TPTNET-AS-AP THAN PHYO THU MINING COMPANY LIMITED",
     "status": "DOWN",
     "started_at": "2026-04-10T21:02:35.638595+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-10T21:32:06.492121+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS63852",
     "name": "FMG-MM Myanmar Net",
     "status": "DOWN",
     "started_at": "2026-04-10T21:02:53.928085+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-10T21:32:09.670961+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   }
 ]
