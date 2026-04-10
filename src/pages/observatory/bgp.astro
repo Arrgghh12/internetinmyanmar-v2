@@ -71,6 +71,8 @@ for (let i = 1; i < history.length; i++) {
     let downtime_minutes: number | null = null
 
     if (currStatus === 'RED') {
+      // Only record a new offline event if not already tracking this ASN as down
+      if (lastDown[asn]) continue
       lastDown[asn] = history[i].timestamp
     } else if ((currStatus === 'GREEN' || currStatus === 'YELLOW') && prevStatus === 'RED') {
       if (lastDown[asn]) {
