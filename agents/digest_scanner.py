@@ -2,8 +2,8 @@
 agents/digest_scanner.py
 
 Daily digest scanner.
-Fetches from RSS + Tavily, scores for relevance, deduplicates,
-saves a pending JSON file, and sends a Telegram notification for approval.
+Fetches from RSS feeds (feeds.yaml), scores for relevance, deduplicates,
+saves a pending JSON file, and sends a Telegram notification with title + URL.
 
 Cron: 0 8 * * *   →  8:00 AM daily
   0 8 * * * ~/agents/venv/bin/python ~/agents/digest_scanner.py >> ~/logs/digest_scanner.log 2>&1
@@ -19,10 +19,10 @@ import hashlib
 import json
 import logging
 import os
-import re
 import sys
 from datetime import date, datetime, timedelta, timezone
 from pathlib import Path
+from urllib.parse import urlparse
 
 import feedparser
 import httpx
@@ -38,18 +38,10 @@ logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(mess
 # ── Paths & config ─────────────────────────────────────────────────────────────
 
 AGENTS_DIR  = Path(__file__).parent
-CONFIG      = yaml.safe_load((AGENTS_DIR / "config.yaml").read_text())
+FEEDS       = yaml.safe_load((AGENTS_DIR / "feeds.yaml").read_text()).get("feeds", [])
 PENDING_DIR = AGENTS_DIR / "digest"
 PENDING_DIR.mkdir(exist_ok=True)
 SEEN_FILE   = AGENTS_DIR / "backfill" / "seen_urls.txt"   # shared with backfill scanner
-
-# ── Source scoring / credibility ───────────────────────────────────────────────
-
-TIER_LABEL: dict[str, str] = {}   # source_name → tier key (populated from config)
-for _tier_key, _tier_val in CONFIG.get("sources", {}).items():
-    if isinstance(_tier_val, dict):
-        for _src_name in _tier_val:
-            TIER_LABEL[f"{_tier_key}:{_src_name}"] = _tier_key
 
 # ── Seen-URL dedup ─────────────────────────────────────────────────────────────
 
@@ -126,11 +118,17 @@ async def fetch_rss_source(name: str, url: str, cutoff: datetime,
             pub_dt    = datetime(*published[:6], tzinfo=timezone.utc) if published else None
             if pub_dt and pub_dt < cutoff:
                 continue
+            raw_summary = entry.get("summary") or ""
+            # Strip HTML before truncating so we never cut inside a tag
+            import re as _re, html as _html
+            clean_summary = _re.sub(r"<[^>]+>", "", raw_summary)
+            clean_summary = _re.sub(r"<[^>]*$", "", clean_summary)  # truncated tags
+            clean_summary = _html.unescape(clean_summary).strip()
             items.append({
                 "source":    name,
                 "title":     entry.get("title", ""),
                 "url":       entry.get("link", ""),
-                "summary":   (entry.get("summary") or "")[:500],
+                "summary":   clean_summary[:500],
                 "published": pub_dt.isoformat() if pub_dt else "",
             })
         log.info("%s: %d items", name, len(items))
@@ -141,54 +139,18 @@ async def fetch_rss_source(name: str, url: str, cutoff: datetime,
 
 
 async def fetch_all_rss(cutoff: datetime) -> list[dict]:
-    """Fetch RSS from tier2 sources only (skip tier3/manual/scrape)."""
+    """Fetch RSS from all feeds in feeds.yaml."""
     pairs: list[tuple[str, str]] = []
-    for tier_key, tier_val in CONFIG.get("sources", {}).items():
-        if not isinstance(tier_val, dict):
+    for feed in FEEDS:
+        if feed.get("type") != "rss":
             continue
-        if "tier3" in tier_key:
-            continue
-        for src_name, src_cfg in tier_val.items():
-            if not isinstance(src_cfg, dict):
-                continue
-            if src_cfg.get("fetch") in ("manual", "scrape", "tavily"):
-                continue
-            if src_cfg.get("lang") == "my":
-                continue   # skip Burmese-language feeds (needs translation)
-            url = src_cfg.get("url", "")
-            if url and src_cfg.get("type", "rss") == "rss":
-                pairs.append((f"{tier_key}:{src_name}", url))
+        pairs.append((feed["key"], feed["url"]))
 
     async with httpx.AsyncClient(headers={"User-Agent": "IIMBot/1.0"}) as http:
         results = await asyncio.gather(*[
             fetch_rss_source(name, url, cutoff, http) for name, url in pairs
         ])
     return [item for batch in results for item in batch]
-
-
-def fetch_tavily(queries: list[str], max_results: int = 8) -> list[dict]:
-    """Run Tavily search queries and return normalised items."""
-    from tavily import TavilyClient
-    api_key = os.getenv("TAVILY_API_KEY")
-    if not api_key:
-        log.warning("TAVILY_API_KEY not set — skipping Tavily fetch")
-        return []
-    client  = TavilyClient(api_key=api_key)
-    items: list[dict] = []
-    for query in queries:
-        try:
-            results = client.search(query=query, search_depth="basic", max_results=max_results)
-            for r in results.get("results", []):
-                items.append({
-                    "source":    "tavily",
-                    "title":     r.get("title", ""),
-                    "url":       r.get("url", ""),
-                    "summary":   r.get("content", "")[:500],
-                    "published": r.get("published_date", "")[:10] if r.get("published_date") else "",
-                })
-        except Exception as e:
-            log.warning("Tavily query failed '%s': %s", query[:50], e)
-    return items
 
 # ── Telegram ───────────────────────────────────────────────────────────────────
 
@@ -210,29 +172,23 @@ def telegram_send(text: str) -> None:
 
 
 def build_telegram_message(candidates: list[dict], today: str) -> str:
-    lines = [f"📰 *IIM Daily Digest — {today}*\n"]
-    lines.append(f"{len(candidates)} article{'s' if len(candidates) != 1 else ''} found:\n")
+    lines = [f"📰 *IIM Daily Digest — {today}*"]
+    lines.append(f"{len(candidates)} article{'s' if len(candidates) != 1 else ''} matched\n")
 
     for i, c in enumerate(candidates, 1):
-        score = c.get("relevance_score", "?")
-        cat   = c.get("category", "Other")
-        src   = c.get("source_name", c.get("source", "?"))
-        title = c.get("your_title") or c.get("title", "")
+        title = c.get("title", "")
         url   = c.get("url", "")
-        date_ = c.get("published", "")[:10] or "—"
-        lines.append(f"*{i}.* [{src}] · {cat} · {score}/10 · {date_}")
-        lines.append(f"_{title}_")
+        lines.append(f"*{i}.* {title}")
         lines.append(url)
         lines.append("")
 
-    lines.append('Reply with numbers to publish (e.g. `1 3 5`), `all` or `skip`')
     return "\n".join(lines)
 
 # ── Main ───────────────────────────────────────────────────────────────────────
 
 def run(dry_run: bool = False):
     today   = date.today().isoformat()
-    cutoff  = datetime.now(timezone.utc) - timedelta(days=7)
+    cutoff  = datetime.now(timezone.utc) - timedelta(hours=48)
     seen    = load_seen()
 
     client = OpenAI(
@@ -242,10 +198,7 @@ def run(dry_run: bool = False):
 
     # 1. Fetch
     log.info("=== Digest scanner starting (%s) ===", today)
-    rss_items    = asyncio.run(fetch_all_rss(cutoff))
-    daily_queries = CONFIG.get("tavily_queries", {}).get("daily", [])
-    tavily_items  = fetch_tavily(daily_queries)
-    all_items     = rss_items + tavily_items
+    all_items = asyncio.run(fetch_all_rss(cutoff))
     log.info("Total fetched: %d items", len(all_items))
 
     # 2. Deduplicate
@@ -274,7 +227,6 @@ def run(dry_run: bool = False):
             continue
 
         # Resolve source name from source_scores if available
-        from urllib.parse import urlparse
         domain = urlparse(item["url"]).netloc.replace("www.", "")
         source_db_path = AGENTS_DIR / "data" / "source_scores.json"
         source_name = domain

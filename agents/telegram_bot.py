@@ -72,9 +72,12 @@ def latest_pending() -> tuple[Path | None, list[dict]]:
 # ── MDX builder (mirrors backfill_publisher.py logic) ─────────────────────────
 
 def strip_html(text: str) -> str:
-    """Remove HTML tags and decode common entities."""
+    """Remove HTML tags (including truncated/unclosed ones) and decode entities."""
     import re, html
+    # Remove complete tags
     text = re.sub(r"<[^>]+>", "", text)
+    # Remove any truncated tag remnant (e.g. "<img alt=..." cut before closing >)
+    text = re.sub(r"<[^>]*$", "", text)
     return html.unescape(text).strip()
 
 
