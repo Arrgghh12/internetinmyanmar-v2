@@ -47,7 +47,7 @@ AGENTS_DIR   = Path(__file__).parent
 PENDING_DIR  = AGENTS_DIR / "digest"
 GITHUB_TOKEN = os.environ["GITHUB_TOKEN"]
 REPO_NAME    = "Arrgghh12/internetinmyanmar-v2"
-BRANCH       = "main"
+BRANCH       = os.environ.get("PUBLISH_BRANCH", "dev")   # switch to "main" after DNS cutover
 DIGEST_PATH  = "src/content/digest"
 
 
@@ -71,10 +71,17 @@ def latest_pending() -> tuple[Path | None, list[dict]]:
 
 # ── MDX builder (mirrors backfill_publisher.py logic) ─────────────────────────
 
+def strip_html(text: str) -> str:
+    """Remove HTML tags and decode common entities."""
+    import re, html
+    text = re.sub(r"<[^>]+>", "", text)
+    return html.unescape(text).strip()
+
+
 def make_mdx(c: dict, added_at: str) -> str:
     tags      = [t.strip() for t in c.get("tags", [])]
     tags_yaml = "\n".join([f'  - "{t}"' for t in tags])
-    excerpt   = (c.get("summary") or "").strip()
+    excerpt   = strip_html(c.get("summary") or "").strip()
     if excerpt and not excerpt.endswith((".", "...", "?", "!")):
         excerpt = excerpt.rsplit(" ", 1)[0] + "..."
 
