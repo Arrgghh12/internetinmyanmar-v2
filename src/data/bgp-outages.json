@@ -961,22 +961,22 @@
     "name": "GMBECL-AS-AP Golden Myanmar Business Exchange Co. Ltd",
     "status": "DOWN",
     "started_at": "2026-04-10T18:02:24.367914+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-10T18:32:40.648011+00:00",
+    "duration_minutes": 30,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS142126",
     "name": "SCSKMYANMARLTD-AS SCSK Myanmar Ltd",
     "status": "DOWN",
     "started_at": "2026-04-10T18:02:43.840339+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-10T18:32:50.130348+00:00",
+    "duration_minutes": 30,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS58952",
