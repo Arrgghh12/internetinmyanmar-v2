@@ -7,21 +7,44 @@ const allArticles = await getCollection('articles', ({ data }) =>
   !data.draft && data.lang === 'en'
 )
 
-// Featured: Censorship or Policy, newest first
+// Featured analysis: Censorship or Policy, newest first
 const featured = allArticles
   .filter(a => a.data.categories.includes('Censorship & Shutdowns') || a.data.categories.includes('Policy & Regulation'))
   .sort((a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf())
   .slice(0, 2)
 
-// Latest news: connectivity/mobile/broadband, newest first
-const latestNews = allArticles
-  .filter(a => a.data.categories.some(c =>
-    ['Mobile & Data Plans', 'ISP & Broadband', 'Policy & Regulation'].includes(c)
-  ))
+// Digest — all entries sorted newest first
+const allDigest = (await getCollection('digest', ({ data }) => !data.draft))
   .sort((a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf())
-  .slice(0, 3)
 
-const categoryColor: Record<string, string> = {
+const tickerItems  = allDigest.slice(0, 6)
+const latestDigest = allDigest.slice(0, 6)
+
+// Source stats
+const sourceCounts: Record<string, number> = {}
+for (const d of allDigest) {
+  sourceCounts[d.data.source] = (sourceCounts[d.data.source] || 0) + 1
+}
+const topSources = Object.entries(sourceCounts)
+  .sort((a, b) => b[1] - a[1])
+  .slice(0, 9)
+
+// Category snapshots
+const shutdownItems    = allDigest.filter(d => d.data.category === 'Shutdown').slice(0, 3)
+const censorshipItems  = allDigest.filter(d => d.data.category === 'Censorship').slice(0, 3)
+const surveillanceItems = allDigest.filter(d => d.data.category === 'Surveillance').slice(0, 3)
+
+const digestCategoryColor: Record<string, string> = {
+  Shutdown:     'var(--color-danger)',
+  Censorship:   'var(--color-danger)',
+  Arrest:       'var(--color-warning)',
+  Surveillance: 'var(--color-danger)',
+  Data:         'var(--color-accent)',
+  Policy:       'var(--color-warning)',
+  Other:        'rgba(255,255,255,0.3)',
+}
+
+const articleCategoryColor: Record<string, string> = {
   'Censorship & Shutdowns':   'var(--color-danger)',
   'VPN & Security':           'var(--color-accent)',
   'ISP & Broadband':          'var(--color-accent)',
@@ -29,6 +52,14 @@ const categoryColor: Record<string, string> = {
   'Telecom & Infrastructure': 'var(--color-accent)',
   'Digital Services':         'var(--color-warning)',
   'Policy & Regulation':      'var(--color-warning)',
+}
+
+const tierLabel: Record<string, string> = { A: 'Tier A', B: 'Tier B', C: 'Tier C', D: 'Tier D' }
+const tierColor: Record<string, string> = {
+  A: 'var(--color-accent)',
+  B: 'var(--color-warning)',
+  C: 'rgba(255,255,255,0.4)',
+  D: 'rgba(255,255,255,0.25)',
 }
 ---
 <Base
@@ -92,15 +123,181 @@ const categoryColor: Record<string, string> = {
     </div>
   </section>
 
-  <!-- Featured analysis -->
+  <!-- Digest ticker -->
+  {tickerItems.length > 0 && (
+    <section class="border-b border-white/10 py-3 px-0 overflow-hidden bg-white/[0.02]">
+      <style>{`
+        .ticker-track {
+          display: flex;
+          gap: 0;
+          width: max-content;
+          animation: ticker-scroll 40s linear infinite;
+        }
+        .ticker-track:hover {
+          animation-play-state: paused;
+        }
+        @keyframes ticker-scroll {
+          0%   { transform: translateX(0); }
+          100% { transform: translateX(-50%); }
+        }
+      `}</style>
+      <div class="ticker-track">
+        {[...tickerItems, ...tickerItems].map((item) => (
+          <a
+            href={`/digest/${item.slug}/`}
+            class="flex items-center gap-3 px-6 py-1 whitespace-nowrap hover:opacity-80 transition-opacity border-r border-white/10"
+          >
+            <span
+              class="font-mono text-[10px] tracking-widest uppercase px-2 py-0.5 rounded"
+              style={`color: ${digestCategoryColor[item.data.category] ?? 'rgba(255,255,255,0.4)'}; border: 1px solid currentColor; opacity: 0.85`}
+            >
+              {item.data.category}
+            </span>
+            <span class="text-xs opacity-50">{item.data.source}</span>
+            <span class="text-sm opacity-80">{item.data.title}</span>
+            <span class="text-xs opacity-30 ml-1">→</span>
+          </a>
+        ))}
+      </div>
+    </section>
+  )}
+
+  <!-- Latest from the Digest -->
   <section class="py-16 px-4 border-b border-white/10">
     <div class="max-w-7xl mx-auto">
-      <h2 class="font-headline text-2xl mb-8">Featured Analysis</h2>
+      <div class="flex items-center justify-between mb-2">
+        <div>
+          <div class="font-mono text-xs text-[color:var(--color-accent)] tracking-widest uppercase mb-1">Digest</div>
+          <h2 class="font-headline text-2xl">Latest from our sources</h2>
+        </div>
+        <a href="/digest/" class="text-xs font-mono opacity-50 hover:opacity-100 transition-opacity">All {allDigest.length} entries →</a>
+      </div>
+      <p class="text-sm opacity-40 mb-8">Curated from {topSources.length}+ trusted sources on Myanmar's digital environment</p>
+
+      {latestDigest.length > 0 ? (
+        <div class="grid md:grid-cols-3 gap-4">
+          {latestDigest.map((item) => (
+            <a href={`/digest/${item.slug}/`} class="border border-white/10 rounded p-5 hover:border-white/30 transition-colors block group">
+              <div class="flex items-center justify-between mb-3">
+                <span
+                  class="font-mono text-[10px] tracking-widest uppercase"
+                  style={`color: ${digestCategoryColor[item.data.category] ?? 'rgba(255,255,255,0.4)'}`}
+                >
+                  {item.data.category}
+                </span>
+                <span
+                  class="font-mono text-[10px] px-1.5 py-0.5 rounded"
+                  style={`color: ${tierColor[item.data.sourceTier] ?? 'rgba(255,255,255,0.3)'}; border: 1px solid currentColor`}
+                >
+                  {tierLabel[item.data.sourceTier] ?? item.data.sourceTier}
+                </span>
+              </div>
+              <h3 class="font-headline text-base leading-snug mb-3 group-hover:opacity-80 transition-opacity">
+                {item.data.title}
+              </h3>
+              <div class="flex items-center justify-between text-xs opacity-40 font-mono mt-auto">
+                <span>{item.data.source}</span>
+                <span>{item.data.publishedAt.toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}</span>
+              </div>
+            </a>
+          ))}
+        </div>
+      ) : (
+        <p class="opacity-40 text-sm font-mono">No digest entries yet.</p>
+      )}
+    </div>
+  </section>
+
+  <!-- Source stats bar -->
+  {topSources.length > 0 && (
+    <section class="border-b border-white/10 py-6 px-4 bg-white/[0.015]">
+      <div class="max-w-7xl mx-auto">
+        <div class="font-mono text-[10px] text-[color:var(--color-accent)] tracking-widest uppercase mb-3">Coverage — tracked sources</div>
+        <div class="flex flex-wrap gap-x-6 gap-y-2 items-baseline">
+          {topSources.map(([source, count], i) => (
+            <span class="flex items-baseline gap-2">
+              <span class="text-sm opacity-70">{source}</span>
+              <span class="font-mono text-xs font-bold text-[color:var(--color-accent)]">{count}</span>
+              {i < topSources.length - 1 && <span class="opacity-20 hidden md:inline">·</span>}
+            </span>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <!-- Category digest snapshot -->
+  <section class="py-16 px-4 border-b border-white/10">
+    <div class="max-w-7xl mx-auto">
+      <div class="font-mono text-xs text-[color:var(--color-accent)] tracking-widest uppercase mb-2">By topic</div>
+      <h2 class="font-headline text-2xl mb-8">Tracking key threats</h2>
+      <div class="grid md:grid-cols-3 gap-8">
+
+        <!-- Shutdowns -->
+        <div>
+          <div class="flex items-center gap-2 mb-4 pb-3 border-b border-[color:var(--color-danger)]/30">
+            <span class="w-2 h-2 rounded-full bg-[color:var(--color-danger)]"></span>
+            <span class="font-mono text-xs text-[color:var(--color-danger)] tracking-widest uppercase">Shutdowns</span>
+          </div>
+          <div class="space-y-4">
+            {shutdownItems.map(item => (
+              <a href={`/digest/${item.slug}/`} class="block group">
+                <div class="text-sm leading-snug mb-1 group-hover:opacity-70 transition-opacity">{item.data.title}</div>
+                <div class="font-mono text-[10px] opacity-35">{item.data.source} · {item.data.publishedAt.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}</div>
+              </a>
+            ))}
+            {shutdownItems.length === 0 && <p class="text-xs opacity-30 font-mono">No entries yet</p>}
+          </div>
+        </div>
+
+        <!-- Censorship -->
+        <div>
+          <div class="flex items-center gap-2 mb-4 pb-3 border-b border-[color:var(--color-danger)]/30">
+            <span class="w-2 h-2 rounded-full bg-[color:var(--color-danger)]"></span>
+            <span class="font-mono text-xs text-[color:var(--color-danger)] tracking-widest uppercase">Censorship</span>
+          </div>
+          <div class="space-y-4">
+            {censorshipItems.map(item => (
+              <a href={`/digest/${item.slug}/`} class="block group">
+                <div class="text-sm leading-snug mb-1 group-hover:opacity-70 transition-opacity">{item.data.title}</div>
+                <div class="font-mono text-[10px] opacity-35">{item.data.source} · {item.data.publishedAt.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}</div>
+              </a>
+            ))}
+            {censorshipItems.length === 0 && <p class="text-xs opacity-30 font-mono">No entries yet</p>}
+          </div>
+        </div>
+
+        <!-- Surveillance -->
+        <div>
+          <div class="flex items-center gap-2 mb-4 pb-3 border-b border-[color:var(--color-danger)]/30">
+            <span class="w-2 h-2 rounded-full bg-[color:var(--color-danger)]"></span>
+            <span class="font-mono text-xs text-[color:var(--color-danger)] tracking-widest uppercase">Surveillance</span>
+          </div>
+          <div class="space-y-4">
+            {surveillanceItems.map(item => (
+              <a href={`/digest/${item.slug}/`} class="block group">
+                <div class="text-sm leading-snug mb-1 group-hover:opacity-70 transition-opacity">{item.data.title}</div>
+                <div class="font-mono text-[10px] opacity-35">{item.data.source} · {item.data.publishedAt.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}</div>
+              </a>
+            ))}
+            {surveillanceItems.length === 0 && <p class="text-xs opacity-30 font-mono">No entries yet</p>}
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- In-depth analysis -->
+  <section class="py-16 px-4 border-b border-white/10">
+    <div class="max-w-7xl mx-auto">
+      <div class="font-mono text-xs text-[color:var(--color-accent)] tracking-widest uppercase mb-2">Analysis</div>
+      <h2 class="font-headline text-2xl mb-8">In-Depth Analysis</h2>
       {featured.length > 0 ? (
         <div class="grid md:grid-cols-2 gap-6">
           {featured.map((article) => (
             <a href={`/articles/${article.slug}/`} class="border border-white/10 rounded p-6 hover:border-white/30 transition-colors block">
-              <div class="font-mono text-xs mb-3" style={`color: ${categoryColor[article.data.categories[0]] ?? 'var(--color-accent)'}`}>
+              <div class="font-mono text-xs mb-3" style={`color: ${articleCategoryColor[article.data.categories[0]] ?? 'var(--color-accent)'}`}>
                 {article.data.categories[0]}
               </div>
               <h3 class="font-headline text-xl mb-3 leading-snug">{article.data.title}</h3>
@@ -113,33 +310,6 @@ const categoryColor: Record<string, string> = {
         </div>
       ) : (
         <p class="opacity-40 text-sm font-mono">Analysis articles coming soon.</p>
-      )}
-    </div>
-  </section>
-
-  <!-- Latest news -->
-  <section class="py-16 px-4 border-b border-white/10">
-    <div class="max-w-7xl mx-auto">
-      <div class="flex items-center justify-between mb-8">
-        <h2 class="font-headline text-2xl">Latest News</h2>
-        <a href="/news/policy/" class="text-xs font-mono opacity-50 hover:opacity-100 transition-opacity">All news →</a>
-      </div>
-      {latestNews.length > 0 ? (
-        <div class="grid md:grid-cols-3 gap-4">
-          {latestNews.map((article) => (
-            <a href={`/articles/${article.slug}/`} class="border border-white/10 rounded p-5 hover:border-white/30 transition-colors block">
-              <div class="font-mono text-xs mb-2" style={`color: ${categoryColor[article.data.categories[0]] ?? 'var(--color-warning)'}`}>
-                {article.data.categories[0]}
-              </div>
-              <h3 class="font-headline text-base leading-snug mb-3">{article.data.title}</h3>
-              <div class="text-xs opacity-40 font-mono">
-                {article.data.publishedAt.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })}
-              </div>
-            </a>
-          ))}
-        </div>
-      ) : (
-        <p class="opacity-40 text-sm font-mono">News articles coming soon.</p>
       )}
     </div>
   </section>
