@@ -171,6 +171,16 @@ def push_to_github(stats: dict, history: list[dict] | None = None):
     if history:
         files_to_update["src/data/ooni-history.json"] = json.dumps(history, indent=2)
 
+    # Update lastUpdated in blocked-sites.json without touching the curated domain list
+    try:
+        blocked_sites_path = "src/data/blocked-sites.json"
+        existing_blocked = repo.get_contents(blocked_sites_path, ref="main")
+        blocked_data = json.loads(existing_blocked.decoded_content)
+        blocked_data["lastUpdated"] = datetime.now(timezone.utc).strftime('%Y-%m-%dT%H:%M:%SZ')
+        files_to_update[blocked_sites_path] = json.dumps(blocked_data, indent=2)
+    except Exception as e:
+        log.warning(f"Could not update blocked-sites.json lastUpdated: {e}")
+
     for path, content in files_to_update.items():
         try:
             try:

@@ -5,14 +5,29 @@ import history from '../../data/ooni-history.json'
 
 export const prerender = false
 
-const keyEvents = [
-  { date: '2021-02', label: 'Military coup — mass shutdowns begin' },
-  { date: '2021-03', label: 'Social media blocked (Facebook, Twitter, Instagram)' },
-  { date: '2021-07', label: 'Nightly internet curfews imposed (1–9 AM)' },
-  { date: '2022-02', label: 'Coup anniversary — major network outage' },
-  { date: '2023-01', label: 'Telenor sold to military-linked KBZMS, General License revoked' },
-  { date: '2024-05', label: 'Escalating restrictions in conflict zones' },
-]
+// Narrative events with contextual labels — merged with actual anomaly data from history
+const narrativeEvents: Record<string, string> = {
+  '2021-02': 'Military coup — mass shutdowns begin',
+  '2021-03': 'Social media blocked (Facebook, Twitter, Instagram)',
+  '2021-07': 'Nightly internet curfews imposed (1–9 AM)',
+  '2022-02': 'Coup anniversary — major network outage',
+  '2022-09': 'Arakan Army offensive — regional blackouts',
+  '2023-01': 'Telenor sold to military-linked KBZMS, General License revoked',
+  '2023-10': 'Three Brotherhood Alliance offensive — Shan State blackouts',
+  '2024-04': 'Operation 1027 fallout — Mandalay region disruptions',
+  '2024-05': 'Escalating restrictions in conflict zones',
+}
+
+// Build enriched key events: narrative events augmented with measured anomaly rate
+const historyMap = Object.fromEntries(history.map(r => [r.month, r]))
+const keyEvents = Object.entries(narrativeEvents)
+  .map(([date, label]) => ({
+    date,
+    label,
+    rate: historyMap[date]?.anomaly_rate ?? null,
+    anomalies: historyMap[date]?.anomaly_count ?? null,
+  }))
+  .sort((a, b) => a.date.localeCompare(b.date))
 
 const totalMeasurements = history.reduce((s, r) => s + r.measurement_count, 0)
 ---
@@ -21,6 +36,9 @@ const totalMeasurements = history.reduce((s, r) => s + r.measurement_count, 0)
   seoTitle="Myanmar Shutdown Tracker | Internet in Myanmar"
   metaDescription="Documented timeline of internet shutdowns and service disruptions in Myanmar since the 2021 military coup."
   lastUpdated={stats.lastUpdated}
+  datasetName="Myanmar Internet Shutdown Timeline"
+  datasetDescription="Documented timeline of internet shutdowns and service disruptions in Myanmar since the 2021 military coup, sourced from OONI, NetBlocks, and Cloudflare Radar."
+  pageUrl="https://www.internetinmyanmar.com/observatory/shutdown-tracker/"
 >
   <div class="max-w-5xl mx-auto px-4 py-12">
     <h1 class="font-headline text-3xl md:text-4xl mb-4">Shutdown Tracker</h1>
@@ -31,10 +49,13 @@ const totalMeasurements = history.reduce((s, r) => s + r.measurement_count, 0)
 
     <div class="border border-[color:var(--color-warning)]/40 bg-[color:var(--color-warning)]/5 rounded-lg p-6 mb-10">
       <div class="font-mono text-xs text-[color:var(--color-warning)] mb-2 uppercase tracking-widest">Current status</div>
-      <div class="text-2xl font-bold mb-1">{stats.activeShutdowns} active shutdown{stats.activeShutdowns !== 1 ? 's' : ''}</div>
+      {stats.activeShutdowns > 0
+        ? <div class="text-2xl font-bold mb-1 text-[color:var(--color-danger)]">{stats.activeShutdowns} active shutdown{stats.activeShutdowns !== 1 ? 's' : ''} detected</div>
+        : <div class="text-2xl font-bold mb-1 opacity-70">No active shutdowns detected</div>
+      }
       <div class="text-sm opacity-60">
         As of {new Date(stats.lastUpdated).toLocaleDateString('en-US', { year:'numeric', month:'long', day:'numeric' })}
-        · Updated every 12 hours via OONI API
+        · {stats.rawAnomaliesLast24h} anomal{stats.rawAnomaliesLast24h !== 1 ? 'ies' : 'y'} in last 24h across {stats.totalMeasurementsScanned} measurements
       </div>
     </div>
 
@@ -59,8 +80,15 @@ const totalMeasurements = history.reduce((s, r) => s + r.measurement_count, 0)
         {keyEvents.map((event) => (
           <div class="flex gap-4 items-start border-l-2 border-[color:var(--color-warning)]/30 pl-4 pb-6 relative">
             <div class="absolute -left-[5px] top-0 w-2 h-2 rounded-full bg-[color:var(--color-warning)]"></div>
-            <div class="font-mono text-xs text-[color:var(--color-warning)] mt-0.5 whitespace-nowrap">{event.date}</div>
-            <div class="text-sm">{event.label}</div>
+            <div class="font-mono text-xs text-[color:var(--color-warning)] mt-0.5 whitespace-nowrap min-w-[4rem]">{event.date}</div>
+            <div>
+              <div class="text-sm">{event.label}</div>
+              {event.rate !== null && (
+                <div class="font-mono text-xs mt-0.5 opacity-50">
+                  {event.rate}% anomaly rate · {(event.anomalies ?? 0).toLocaleString()} anomalies measured
+                </div>
+              )}
+            </div>
           </div>
         ))}
       </div>
