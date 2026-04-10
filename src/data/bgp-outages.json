@@ -1065,5 +1065,27 @@
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
     "resolved": true
+  },
+  {
+    "asn": "AS134714",
+    "name": "ETPCL-AS-AP Elite Telecom Public Company Limited",
+    "status": "DOWN",
+    "started_at": "2026-04-10T22:01:27.515230+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
+  },
+  {
+    "asn": "AS134976",
+    "name": "MATL-AS-AP Myint & Associates Telecommunications Ltd",
+    "status": "DOWN",
+    "started_at": "2026-04-10T22:03:26.568073+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
   }
 ]
