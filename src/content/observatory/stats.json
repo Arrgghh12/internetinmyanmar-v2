@@ -1,7 +1,8 @@
 {
-  "lastUpdated": "2026-04-05T08:00:00Z",
-  "activeShutdowns": 3,
-  "blockedSites": 847,
-  "daysSinceLastMajorOutage": 12,
-  "note": "Placeholder data — replaced by ooni_watcher.py agent"
+  "lastUpdated": "2026-04-10T20:52:51.135298+00:00",
+  "activeShutdowns": 0,
+  "blockedSites": 119,
+  "daysSinceLastMajorOutage": 0,
+  "rawAnomaliesLast24h": 2,
+  "totalMeasurementsScanned": 200
 }
