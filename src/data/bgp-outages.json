@@ -873,10 +873,10 @@
     "name": "STLMC-AS-AP Shwe Than Lwin Media Co.",
     "status": "DOWN",
     "started_at": "2026-04-10T13:33:16.373695+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-10T14:03:02.645284+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   }
 ]
