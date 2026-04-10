@@ -92,7 +92,8 @@ for (let i = 1; i < history.length; i++) {
   }
 }
 statusEvents.sort((a, b) => b.timestamp.localeCompare(a.timestamp))
-const recentEvents = statusEvents.slice(0, 100)
+// Pass all events to client (filtered client-side by time window)
+const allEvents = statusEvents
 
 // ── Build ASN rows for client-side table ──────────────────────────────────────
 
@@ -209,6 +210,7 @@ function eventVerb(from: string, to: string): string {
   <script id="chart-data"  type="application/json" set:html={JSON.stringify(chartData)}    />
   <script id="lb-data"     type="application/json" set:html={JSON.stringify(leaderboards)} />
   <script id="table-data"  type="application/json" set:html={JSON.stringify(tableRows)}    />
+  <script id="events-data" type="application/json" set:html={JSON.stringify(allEvents)}    />
 
   <div class="space-y-12">
 
@@ -314,64 +316,54 @@ function eventVerb(from: string, to: string): string {
 
     <!-- ── Status Change Log ────────────────────────────────────────────────── -->
     <div>
-      <h2 class="font-headline text-xl mb-1">Status Change Log</h2>
-      <p class="text-sm opacity-50 mb-4">Every status transition detected from BGP route collector data, newest first.</p>
-      {recentEvents.length === 0 ? (
-        <p class="opacity-40 text-sm font-mono">No status changes recorded yet.</p>
-      ) : (
-        <div class="border border-white/10 rounded-lg overflow-hidden">
-          <div class="overflow-x-auto overflow-y-auto" style="max-height:380px">
-            <table class="w-full text-xs font-mono">
-              <thead class="sticky top-0 bg-[#0A1628] z-10">
-                <tr class="border-b border-white/10">
-                  <th class="py-2 pl-3 pr-3 text-left opacity-50 font-mono text-[10px] uppercase tracking-widest whitespace-nowrap"
-                      data-tip="UTC timestamp when this status change was detected by RIPE route collectors">
-                    Time <span class="opacity-50">ⓘ</span>
-                  </th>
-                  <th class="py-2 pr-3 text-left opacity-50 font-mono text-[10px] uppercase tracking-widest"
-                      data-tip="Commercial name of the autonomous system">
-                    Network <span class="opacity-50">ⓘ</span>
-                  </th>
-                  <th class="py-2 pr-3 text-left opacity-50 font-mono text-[10px] uppercase tracking-widest"
-                      data-tip="Autonomous System Number — unique BGP identifier assigned by IANA">
-                    ASN <span class="opacity-50">ⓘ</span>
-                  </th>
-                  <th class="py-2 pr-3 text-left opacity-50 font-mono text-[10px] uppercase tracking-widest"
-                      data-tip="Status transition. 'went offline' = BGP routes withdrawn from global routing table. 'back online' = routes re-announced.">
-                    Event <span class="opacity-50">ⓘ</span>
-                  </th>
-                  <th class="py-2 pr-3 text-right opacity-50 font-mono text-[10px] uppercase tracking-widest whitespace-nowrap"
-                      data-tip="How long the network was offline before this recovery. Only shown on recovery events — empty when a network first goes down.">
-                    Downtime <span class="opacity-50">ⓘ</span>
-                  </th>
-                </tr>
-              </thead>
-              <tbody>
-                {recentEvents.map(ev => (
-                  <tr class={`border-b border-white/5 hover:bg-white/2
-                    ${ev.to === 'RED' ? 'bg-[#ef4444]/5' : ev.to === 'GREEN' ? 'bg-[#22c55e]/3' : ''}`}>
-                    <td class="py-1.5 pl-3 pr-3 opacity-40 whitespace-nowrap">{fmtTs(ev.timestamp)}</td>
-                    <td class="py-1.5 pr-3 max-w-[200px] truncate" title={ev.description}>
-                      <a href={`/observatory/bgp/${ev.asn}`} class="hover:underline opacity-80">{ev.description}</a>
-                    </td>
-                    <td class="py-1.5 pr-3 opacity-40 text-[10px]">{ev.asn}</td>
-                    <td class="py-1.5 pr-3 whitespace-nowrap"
-                        style={ev.to === 'RED' ? 'color:#ef4444' : ev.to === 'GREEN' ? 'color:#22c55e' : 'color:#f59e0b'}>
-                      {eventIcon(ev.from, ev.to)} {eventVerb(ev.from, ev.to)}
-                    </td>
-                    <td class="py-1.5 pr-3 text-right opacity-50 whitespace-nowrap">
-                      {ev.downtime_minutes !== null
-                        ? fmtDowntime(ev.downtime_minutes)
-                        : <span class="opacity-20">—</span>
-                      }
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
+      <div class="flex flex-wrap items-center justify-between gap-3 mb-1">
+        <h2 class="font-headline text-xl">Status Change Log</h2>
+        <div class="flex gap-2">
+          <button id="log-dl-csv"
+                  class="font-mono text-xs px-3 py-1.5 rounded border border-white/10 hover:border-white/30 transition-colors opacity-60 hover:opacity-100">
+            ↓ CSV
+          </button>
+          <button id="log-dl-json"
+                  class="font-mono text-xs px-3 py-1.5 rounded border border-white/10 hover:border-white/30 transition-colors opacity-60 hover:opacity-100">
+            { } JSON
+          </button>
         </div>
-      )}
+      </div>
+      <p class="text-sm opacity-50 mb-4">Offline and recovery events detected from BGP route collector data, newest first.</p>
+
+      <div class="flex gap-1 mb-4">
+        {(['1d','3d','7d'] as const).map(w => (
+          <button class="log-win-btn font-mono text-xs px-3 py-1 rounded border border-white/10 hover:border-white/30 transition-colors"
+                  data-win={w}>
+            {w === '1d' ? '24 hours' : w === '3d' ? '3 days' : '7 days'}
+          </button>
+        ))}
+      </div>
+
+      <div id="log-count" class="font-mono text-xs opacity-40 mb-2"></div>
+
+      <div class="border border-white/10 rounded-lg overflow-hidden">
+        <div class="overflow-x-auto overflow-y-auto" style="max-height:460px">
+          <table class="w-full text-xs font-mono" id="log-table">
+            <thead class="sticky top-0 bg-[#0A1628] z-10">
+              <tr class="border-b border-white/10">
+                <th class="py-2 pl-3 pr-3 text-left opacity-50 text-[10px] uppercase tracking-widest w-8">#</th>
+                <th class="py-2 pr-3 text-left opacity-50 text-[10px] uppercase tracking-widest whitespace-nowrap">Date / Time (UTC)</th>
+                <th class="py-2 pr-3 text-left opacity-50 text-[10px] uppercase tracking-widest">Network</th>
+                <th class="py-2 pr-3 text-left opacity-50 text-[10px] uppercase tracking-widest">ASN</th>
+                <th class="py-2 pr-3 text-left opacity-50 text-[10px] uppercase tracking-widest">Event</th>
+                <th class="py-2 pr-3 text-right opacity-50 text-[10px] uppercase tracking-widest whitespace-nowrap">Outage duration</th>
+              </tr>
+            </thead>
+            <tbody id="log-tbody">
+              <!-- Rendered by JS -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <p class="text-xs font-mono opacity-30 mt-2">
+        Only showing offline (BGP withdrawn) and recovery events. Intermediate flaps filtered out.
+      </p>
     </div>
 
     <!-- ── All Myanmar Networks ─────────────────────────────────────────────── -->
@@ -855,13 +847,113 @@ function eventVerb(from: string, to: string): string {
     })
   })
 
+  // ── Status change log ───────────────────────────────────────────────────────
+
+  const allEventsRaw: any[] = JSON.parse(document.getElementById('events-data')!.textContent!)
+
+  // Only show offline (→RED) and recovery (RED→GREEN or RED→YELLOW) events
+  const logEvents = allEventsRaw.filter(ev =>
+    ev.to === 'RED' || (ev.from === 'RED' && (ev.to === 'GREEN' || ev.to === 'YELLOW'))
+  )
+
+  let logWin = '7d'
+
+  function logCutoff(): number {
+    const days = logWin === '1d' ? 1 : logWin === '3d' ? 3 : 7
+    return Date.now() - days * 86400000
+  }
+
+  function fmtLogDowntime(min: number | null): string {
+    if (min === null) return '—'
+    const h = Math.floor(min / 60); const m = min % 60
+    return h > 0 ? `${h}h ${m}m` : `${m}m`
+  }
+
+  function renderLog() {
+    const cutoff  = logCutoff()
+    const visible = logEvents.filter(ev => new Date(ev.timestamp).getTime() >= cutoff)
+
+    const countEl = document.getElementById('log-count')!
+    countEl.textContent = `${visible.length} event${visible.length !== 1 ? 's' : ''} in this window`
+
+    const tbody = document.getElementById('log-tbody')!
+    if (visible.length === 0) {
+      tbody.innerHTML = '<tr><td colspan="6" class="py-4 pl-3 opacity-40">No events in this window.</td></tr>'
+      return
+    }
+
+    tbody.innerHTML = visible.map((ev, i) => {
+      const isDown     = ev.to === 'RED'
+      const isBack     = ev.from === 'RED' && ev.to === 'GREEN'
+      const isPartial  = ev.from === 'RED' && ev.to === 'YELLOW'
+      const color      = isDown ? '#ef4444' : isBack ? '#22c55e' : '#f59e0b'
+      const icon       = isDown ? '🔴' : isBack ? '🟢' : '🟡'
+      const verb       = isDown ? 'went offline' : isBack ? 'back online' : 'partially recovering'
+      const rowBg      = isDown ? 'background:rgba(239,68,68,0.05)' : isBack ? 'background:rgba(34,197,94,0.03)' : ''
+      const ts         = ev.timestamp.replace('T', ' ').slice(0, 16)
+      const dt         = (isBack || isPartial) ? fmtLogDowntime(ev.downtime_minutes) : ''
+
+      return `<tr class="border-b border-white/5 hover:bg-white/2" style="${rowBg}">
+        <td class="py-1.5 pl-3 pr-2 opacity-30 text-right w-8">${i + 1}</td>
+        <td class="py-1.5 pr-3 opacity-50 whitespace-nowrap">${ts}</td>
+        <td class="py-1.5 pr-3 max-w-[200px] truncate">
+          <a href="/observatory/bgp/${esc(ev.asn)}" class="hover:underline opacity-80" title="${esc(ev.description)}">${esc(ev.description)}</a>
+        </td>
+        <td class="py-1.5 pr-3 opacity-40 text-[10px]">${esc(ev.asn)}</td>
+        <td class="py-1.5 pr-3 whitespace-nowrap" style="color:${color}">${icon} ${verb}</td>
+        <td class="py-1.5 pr-3 text-right opacity-50 whitespace-nowrap">
+          ${dt ? `<span class="px-1.5 py-0.5 rounded text-[10px]" style="background:rgba(255,255,255,0.05)">${dt}</span>` : '<span class="opacity-20">—</span>'}
+        </td>
+      </tr>`
+    }).join('')
+  }
+
+  function logToCSV(): string {
+    const cutoff  = logCutoff()
+    const visible = logEvents.filter(ev => new Date(ev.timestamp).getTime() >= cutoff)
+    const rows = [['#','datetime_utc','network','asn','event','outage_duration_minutes']]
+    visible.forEach((ev, i) => {
+      const isDown    = ev.to === 'RED'
+      const isBack    = ev.from === 'RED' && (ev.to === 'GREEN' || ev.to === 'YELLOW')
+      const verb      = isDown ? 'went_offline' : isBack ? 'back_online' : ev.to.toLowerCase()
+      const dt        = (isBack && ev.downtime_minutes !== null) ? ev.downtime_minutes : ''
+      rows.push([String(i+1), ev.timestamp.slice(0,16), `"${ev.description}"`, ev.asn, verb, String(dt)])
+    })
+    return rows.map(r => r.join(',')).join('\n')
+  }
+
+  function download(content: string, filename: string, mime: string) {
+    const a = document.createElement('a')
+    a.href = URL.createObjectURL(new Blob([content], { type: mime }))
+    a.download = filename
+    a.click()
+    URL.revokeObjectURL(a.href)
+  }
+
+  document.querySelectorAll('.log-win-btn').forEach(btn => {
+    btn.addEventListener('click', function(this: HTMLElement) {
+      logWin = this.dataset.win!; setActive('log-win-btn', logWin); renderLog()
+    })
+  })
+
+  document.getElementById('log-dl-csv')!.addEventListener('click', () => {
+    download(logToCSV(), `myanmar-network-events-${logWin}.csv`, 'text/csv')
+  })
+  document.getElementById('log-dl-json')!.addEventListener('click', () => {
+    const cutoff  = logCutoff()
+    const visible = logEvents.filter(ev => new Date(ev.timestamp).getTime() >= cutoff)
+    download(JSON.stringify(visible, null, 2), `myanmar-network-events-${logWin}.json`, 'application/json')
+  })
+
   // ── Initial render ──────────────────────────────────────────────────────────
 
   setActive('chart-win-btn',  '1w')
   setActive('chart-flap-btn', 'all')
   setActive('lb-win-btn',     '7d')
   setActive('lb-flap-btn',    'all')
+  setActive('log-win-btn',    '7d')
   renderLeaderboard()
   renderTable()
+  renderLog()
   // Chart renders in s.onload after Chart.js CDN loads
 </script>

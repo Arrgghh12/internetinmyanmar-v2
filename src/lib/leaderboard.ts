@@ -35,10 +35,14 @@ export function computeLeaderboard(
     byAsn[o.asn].push(o)
   }
 
+  const nowMs = Date.now()
+
   const entries: LeaderboardEntry[] = Object.entries(byAsn).map(([asn, events]) => {
-    const durations = events
-      .filter(e => e.duration_minutes !== null)
-      .map(e => e.duration_minutes as number)
+    const durations = events.map(e => {
+      if (e.duration_minutes !== null) return e.duration_minutes as number
+      // Ongoing outage — estimate using current time
+      return Math.round((nowMs - new Date(e.started_at).getTime()) / 60000)
+    })
 
     return {
       rank:                   0,
