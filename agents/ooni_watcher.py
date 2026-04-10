@@ -46,7 +46,7 @@ REPO_NAME = CONFIG["github"]["repo"]
 def fetch_recent_measurements(limit: int = 200) -> list[dict]:
     resp = requests.get(
         f"{OONI_API}/measurements",
-        params={"probe_cc": "MM", "limit": limit, "order_by": "test_start_time"},
+        params={"probe_cc": "MM", "limit": limit},
         timeout=20,
     )
     resp.raise_for_status()
