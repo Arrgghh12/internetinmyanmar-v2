@@ -796,10 +796,10 @@
     "name": "APN-AS-AP MyanmarAPN",
     "status": "DOWN",
     "started_at": "2026-04-10T06:32:45.268187+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-10T07:02:27.530959+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   }
 ]
