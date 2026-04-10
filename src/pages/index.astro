@@ -125,31 +125,18 @@ const tierColor: Record<string, string> = {
 
   <!-- Digest ticker -->
   {tickerItems.length > 0 && (
-    <section class="border-b border-white/10 py-3 px-0 overflow-hidden bg-white/[0.02]">
-      <style>{`
-        .ticker-track {
-          display: flex;
-          gap: 0;
-          width: max-content;
-          animation: ticker-scroll 40s linear infinite;
-        }
-        .ticker-track:hover {
-          animation-play-state: paused;
-        }
-        @keyframes ticker-scroll {
-          0%   { transform: translateX(0); }
-          100% { transform: translateX(-50%); }
-        }
-      `}</style>
-      <div class="ticker-track">
+    <section class="border-b border-white/10 py-3 overflow-hidden bg-white/[0.02]">
+      <div id="ticker-track" style="display:flex;width:max-content;animation:ticker-scroll 50s linear infinite">
         {[...tickerItems, ...tickerItems].map((item) => (
           <a
             href={`/digest/${item.slug}/`}
-            class="flex items-center gap-3 px-6 py-1 whitespace-nowrap hover:opacity-80 transition-opacity border-r border-white/10"
+            style="display:flex;align-items:center;gap:12px;padding:4px 24px;white-space:nowrap;border-right:1px solid rgba(255,255,255,0.08);text-decoration:none;opacity:0.85"
+            onmouseenter="document.getElementById('ticker-track').style.animationPlayState='paused'"
+            onmouseleave="document.getElementById('ticker-track').style.animationPlayState='running'"
           >
             <span
               class="font-mono text-[10px] tracking-widest uppercase px-2 py-0.5 rounded"
-              style={`color: ${digestCategoryColor[item.data.category] ?? 'rgba(255,255,255,0.4)'}; border: 1px solid currentColor; opacity: 0.85`}
+              style={`color: ${digestCategoryColor[item.data.category] ?? 'rgba(255,255,255,0.4)'}; border: 1px solid currentColor`}
             >
               {item.data.category}
             </span>
@@ -328,3 +315,10 @@ const tierColor: Record<string, string> = {
   </section>
 
 </Base>
+
+<style is:global>
+  @keyframes ticker-scroll {
+    0%   { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+</style>
