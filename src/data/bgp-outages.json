@@ -1324,28 +1324,39 @@
     "name": "PICME-AS-AP POSCO INTERNATIONAL CORPORATION MYANMAR E&P OFFICE",
     "status": "DOWN",
     "started_at": "2026-04-11T20:02:17.211624+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-11T20:32:23.716537+00:00",
+    "duration_minutes": 30,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS134528",
     "name": "MPTCL-AS-AP MYANMAR PI TECHNOLOGY CO.",
     "status": "DOWN",
     "started_at": "2026-04-11T20:02:19.435057+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-11T20:32:37.207449+00:00",
+    "duration_minutes": 30,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS63998",
     "name": "KMTCL-MM Kinetic Myanmar Technology",
     "status": "DOWN",
     "started_at": "2026-04-11T20:03:03.517999+00:00",
+    "ended_at": "2026-04-11T20:33:07.681733+00:00",
+    "duration_minutes": 30,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": true
+  },
+  {
+    "asn": "AS136975",
+    "name": "GNET-AS-AP Global Technology",
+    "status": "DOWN",
+    "started_at": "2026-04-11T20:32:03.263017+00:00",
     "ended_at": null,
     "duration_minutes": null,
     "min_visibility_pct": 0.0,
