@@ -1214,21 +1214,21 @@
     "name": "MMIX-AS-AP Myanmar Internet Exchange",
     "status": "DOWN",
     "started_at": "2026-04-11T10:01:45.152025+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-11T10:31:53.835807+00:00",
+    "duration_minutes": 30,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS63998",
     "name": "KMTCL-MM Kinetic Myanmar Technology",
     "status": "DOWN",
     "started_at": "2026-04-11T10:03:12.771938+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-11T10:33:09.719668+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   }
 ]
