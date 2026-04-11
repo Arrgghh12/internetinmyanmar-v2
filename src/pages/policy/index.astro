@@ -2,12 +2,23 @@
 import { getCollection } from 'astro:content'
 import Base from '../../layouts/Base.astro'
 import ArticleList from '../../components/ArticleList.astro'
+import { digestToArticle } from '../../utils/digestToArticle'
 
 export const prerender = false
 
-const articles = (await getCollection('articles', ({ data }) =>
-  !data.draft && !data.archived && data.categories.includes('Policy & Regulation') && data.lang === 'en'
-)).sort((a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf())
+const [articleEntries, digestEntries] = await Promise.all([
+  getCollection('articles', ({ data }) =>
+    !data.draft && !data.archived && data.categories.includes('Policy & Regulation') && data.lang === 'en'
+  ),
+  getCollection('digest', ({ data }) =>
+    !data.draft && data.category === 'Policy'
+  ),
+])
+
+const combined = [
+  ...articleEntries,
+  ...digestEntries.map(digestToArticle),
+].sort((a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf())
 ---
 <Base
   title="Policy & Regulation — Myanmar"
@@ -20,6 +31,6 @@ const articles = (await getCollection('articles', ({ data }) =>
     <p class="opacity-70 mb-10 max-w-2xl">
       Tracking Myanmar's digital policy landscape — cyber security laws, telecom regulation, digital economy strategies, and how regulatory decisions shape internet access and freedom.
     </p>
-    <ArticleList {articles} emptyMessage="No articles published yet in this category." />
+    <ArticleList articles={combined} emptyMessage="No articles published yet in this category." />
   </div>
 </Base>

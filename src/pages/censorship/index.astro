@@ -2,12 +2,25 @@
 import { getCollection } from 'astro:content'
 import Base from '../../layouts/Base.astro'
 import ArticleList from '../../components/ArticleList.astro'
+import { digestToArticle } from '../../utils/digestToArticle'
 
 export const prerender = false
 
-const articles = (await getCollection('articles', ({ data }) =>
-  !data.draft && !data.archived && data.categories.includes('Censorship & Shutdowns') && data.lang === 'en'
-)).sort((a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf())
+const DIGEST_CATEGORIES = ['Censorship', 'Shutdown', 'Arrest']
+
+const [articleEntries, digestEntries] = await Promise.all([
+  getCollection('articles', ({ data }) =>
+    !data.draft && !data.archived && data.categories.includes('Censorship & Shutdowns') && data.lang === 'en'
+  ),
+  getCollection('digest', ({ data }) =>
+    !data.draft && DIGEST_CATEGORIES.includes(data.category)
+  ),
+])
+
+const combined = [
+  ...articleEntries,
+  ...digestEntries.map(digestToArticle),
+].sort((a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf())
 ---
 <Base
   title="Censorship & Shutdowns — Myanmar"
@@ -20,6 +33,6 @@ const articles = (await getCollection('articles', ({ data }) =>
     <p class="opacity-70 mb-10 max-w-2xl">
       Documenting the Myanmar military junta's systematic use of internet censorship, website blocking, and connectivity shutdowns as instruments of political repression.
     </p>
-    <ArticleList {articles} emptyMessage="No articles published yet in this category." />
+    <ArticleList articles={combined} emptyMessage="No articles published yet in this category." />
   </div>
 </Base>

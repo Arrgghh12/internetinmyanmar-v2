@@ -1,0 +1,206 @@
+# Daily news feeds — Myanmar monitoring
+# RSS only (ensures fresh articles, not archives)
+# Last updated: 2026-04-10
+
+feeds:
+
+  # --- Google Alerts ---
+  - key: alert_myanmar_internet_freedom
+    url: https://www.google.com/alerts/feeds/12183857840383298321/18134795257176333036
+    type: rss
+    lang: en
+
+  - key: alert_internet_myanmar
+    url: https://www.google.com/alerts/feeds/12183857840383298321/3197998818766288709
+    type: rss
+    lang: en
+
+  - key: alert_myanmar_censorship
+    url: https://www.google.com/alerts/feeds/12183857840383298321/11161773318650287160
+    type: rss
+    lang: en
+
+  - key: alert_myanmar_broadband
+    url: https://www.google.com/alerts/feeds/12183857840383298321/8500262268194651158
+    type: rss
+    lang: en
+
+  - key: alert_myanmar_vpn
+    url: https://www.google.com/alerts/feeds/12183857840383298321/6210526846655107667
+    type: rss
+    lang: en
+
+  - key: alert_myanmar_digital
+    url: https://www.google.com/alerts/feeds/12183857840383298321/14331052449901296814
+    type: rss
+    lang: en
+
+  - key: alert_burma_internet
+    url: https://www.google.com/alerts/feeds/12183857840383298321/61151799541107917
+    type: rss
+    lang: en
+
+  # --- Technical data ---
+  - key: ooni_api
+    url: https://api.ooni.io/api/v1/measurements?probe_cc=MM&limit=100
+    type: api
+    lang: en
+
+  # --- Digital rights & press freedom ---
+  - key: rsf
+    url: https://rsf.org/en/rss/asie-pacifique/myanmar/feed.xml
+    type: rss
+    lang: en
+
+  - key: cpj_myanmar
+    url: https://cpj.org/feed/?region=asia&country=myanmar
+    type: rss
+    lang: en
+
+  - key: athan
+    url: https://athanmyanmar.org/feed/
+    type: rss
+    lang: en
+
+  - key: free_expression_myanmar
+    url: https://freeexpressionmyanmar.org/feed/
+    type: rss
+    lang: en
+
+  - key: burma_campaign_uk
+    url: https://burmacampaign.org.uk/feed
+    type: rss
+    lang: en
+
+  - key: myanmar_internet_project
+    url: https://myanmarinternet.info/blogs/feed
+    type: rss
+    lang: en
+
+  - key: fact_hub_myanmar
+    url: https://blog.facthub-mm.org/feed
+    type: rss
+    lang: en
+
+  - key: insight_myanmar
+    url: https://insightmyanmar.org/insight-myanmar-blog?format=rss
+    type: rss
+    lang: en
+
+  # --- English-language Myanmar media ---
+  - key: dvb_english
+    url: https://english.dvb.no/feed
+    type: rss
+    lang: en
+
+  - key: irrawaddy_english
+    url: https://news.google.com/rss/search?q=site:irrawaddy.com&hl=en-US&gl=US&ceid=US:en
+    type: rss
+    lang: en
+    note: "Google News proxy — direct feed blocked by Cloudflare"
+
+  - key: rfa_english
+    url: https://rfa.org/english/news/myanmar/rss2.xml
+    type: rss
+    lang: en
+
+  - key: myanmar_now_english
+    url: https://myanmar-now.org/en/feed/
+    type: rss
+    lang: en
+
+  - key: mizzima_english
+    url: https://news.google.com/rss/search?q=site:mizzima.com&hl=en-US&gl=US&ceid=US:en
+    type: rss
+    lang: en
+    note: "Google News proxy — direct feed returns 403"
+
+  - key: frontier_myanmar
+    url: https://news.google.com/rss/search?q=site:frontiermyanmar.net&hl=en-US&gl=US&ceid=US:en
+    type: rss
+    lang: en
+    note: "Google News proxy — direct feed returns 526 SSL error"
+
+  - key: shan_news
+    url: https://shannews.org/feed
+    type: rss
+    lang: en
+
+  - key: karen_news
+    url: https://karennews.org/feed
+    type: rss
+    lang: en
+
+  - key: myanmar_responsible_business
+    url: https://www.myanmar-responsiblebusiness.org/news/rss.xml
+    type: rss
+    lang: en
+
+  - key: gnlm
+    url: https://news.google.com/rss/search?q=site:gnlm.com.mm&hl=en-US&gl=US&ceid=US:en
+    type: rss
+    lang: en
+    note: "Google News proxy — direct feed behind Cloudflare"
+
+  - key: myanmar_business_today
+    url: https://mmbiztoday.com/feed
+    type: rss
+    lang: en
+
+  - key: baltimore_cfa
+    url: https://bcfausa.org/focus_area/myanmar/feed/
+    type: rss
+    lang: en
+
+  - key: myanmar_com
+    url: https://myanmar.com/feed
+    type: rss
+    lang: en
+
+  # --- Burmese-language media ---
+  - key: bbc_burmese
+    url: https://feeds.bbci.co.uk/burmese/rss.xml
+    type: rss
+    lang: my
+
+  - key: rfa_burmese
+    url: https://www.rfa.org/arc/outboundfeeds/burmese/rss/
+    type: rss
+    lang: my
+
+  - key: dvb_burmese
+    url: https://burmese.dvb.no/feed
+    type: rss
+    lang: my
+
+  - key: irrawaddy_burmese
+    url: https://news.google.com/rss/search?q=site:burma.irrawaddy.com&hl=en-US&gl=US&ceid=US:en
+    type: rss
+    lang: my
+    note: "Google News proxy — direct feed blocked by Cloudflare"
+
+  - key: myanmar_now_burmese
+    url: https://myanmar-now.org/mm/feed/
+    type: rss
+    lang: my
+
+  - key: mizzima_tv
+    url: https://mizzima.tv/feed/
+    type: rss
+    lang: my
+
+  - key: popular_myanmar
+    url: https://popularmyanmar.com/feed
+    type: rss
+    lang: my
+
+  - key: myanmar_celebrity
+    url: https://myanmarcelebrity.com/feeds/posts/default
+    type: rss
+    lang: my
+
+  - key: ceo_myanmar
+    url: https://ceo-myanmar.com/feed
+    type: rss
+    lang: my
+
