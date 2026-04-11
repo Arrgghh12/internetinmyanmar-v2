@@ -143,6 +143,7 @@ const nav = [
         <a href="/" class="font-headline text-xl tracking-tight" style="font-weight:510;letter-spacing:-0.02em">
           Internet in <span class="text-[color:var(--color-accent)]">Myanmar</span>
         </a>
+        <!-- Desktop nav -->
         <div class="hidden md:flex items-center gap-6 text-sm">
           <nav class="flex gap-6">
             {nav.map((item) => (
@@ -183,6 +184,42 @@ const nav = [
             Search
           </button>
         </div>
+
+        <!-- Mobile hamburger -->
+        <button id="mobile-menu-toggle" class="md:hidden flex flex-col gap-1.5 p-2" aria-label="Open menu">
+          <span class="block w-5 h-0.5 bg-current"></span>
+          <span class="block w-5 h-0.5 bg-current"></span>
+          <span class="block w-5 h-0.5 bg-current"></span>
+        </button>
+      </div>
+
+      <!-- Mobile menu drawer -->
+      <div id="mobile-menu" class="hidden md:hidden border-t border-white/10 px-4 py-4">
+        <nav class="flex flex-col gap-1 text-sm">
+          {nav.map((item) => (
+            <div>
+              {item.href ? (
+                <a href={item.href} class="block py-2 hover:text-[color:var(--color-accent)]">
+                  {item.label}
+                </a>
+              ) : (
+                <details class="group">
+                  <summary class="py-2 cursor-pointer hover:text-[color:var(--color-accent)] list-none flex justify-between items-center">
+                    {item.label}
+                    <span class="opacity-50">▾</span>
+                  </summary>
+                  <div class="pl-3 border-l border-white/10 mt-1 mb-2 flex flex-col gap-1">
+                    {item.children?.map((child) => (
+                      <a href={child.href} class="py-1.5 hover:text-[color:var(--color-accent)]">
+                        {child.label}
+                      </a>
+                    ))}
+                  </div>
+                </details>
+              )}
+            </div>
+          ))}
+        </nav>
       </div>
     </header>
 
@@ -314,6 +351,13 @@ const nav = [
         if (e.target === overlay) overlay.classList.add('hidden')
       })
       input.addEventListener('input', () => renderResults(input.value))
+
+      // Mobile menu toggle
+      const mobileToggle = document.getElementById('mobile-menu-toggle')
+      const mobileMenu   = document.getElementById('mobile-menu')
+      mobileToggle?.addEventListener('click', () => {
+        mobileMenu?.classList.toggle('hidden')
+      })
     </script>
 
   </body>

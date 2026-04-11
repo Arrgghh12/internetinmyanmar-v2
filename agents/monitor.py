@@ -338,7 +338,7 @@ def run(dry_run: bool = False) -> None:
 
     if not items:
         log.info("Nothing fetched — exiting")
-        notify_telegram("📡 *IIM Monitor* — no new items in the last 24 h.")
+        log.info("📡 IIM Monitor — no new items in the last 24 h.")  # Telegram disabled
         return
 
     scored = []
@@ -362,12 +362,10 @@ def run(dry_run: bool = False) -> None:
         return
 
     if not relevant:
-        notify_telegram(
-            f"📡 *IIM Monitor* — {len(scored)} items scanned, none passed the relevance threshold."
-        )
+        log.info(f"📡 IIM Monitor — {len(scored)} items scanned, none above threshold.")  # Telegram disabled
     else:
         digest = build_telegram_digest(relevant, cutoff)
-        notify_telegram(digest)
+        log.info(f"Monitor digest (Telegram disabled): {len(relevant)} items")  # digest_scanner.py sends Telegram
 
     log.info("=== Monitor done ===")
 

@@ -61,12 +61,12 @@ def authorized(update: Update) -> bool:
 # ── Pending file helpers ───────────────────────────────────────────────────────
 
 def latest_pending() -> tuple[Path | None, list[dict]]:
-    """Return the most recent pending JSON and its contents."""
-    files = sorted(PENDING_DIR.glob("pending_*.json"), reverse=True)
-    if not files:
-        return None, []
-    f = files[0]
-    return f, json.loads(f.read_text())
+    """Return today's pending JSON and its contents (today only — avoids publishing stale articles)."""
+    today = date.today().isoformat()
+    today_file = PENDING_DIR / f"pending_{today}.json"
+    if today_file.exists():
+        return today_file, json.loads(today_file.read_text())
+    return None, []
 
 
 # ── MDX builder (mirrors backfill_publisher.py logic) ─────────────────────────
