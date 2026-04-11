@@ -5,6 +5,7 @@ interface ArticleSchema {
   datePublished: string
   dateModified?: string
   authorName: string
+  authorUrl?: string
   image?: string
   url: string
   description: string
@@ -28,11 +29,15 @@ const orgSchema = {
 
 const schema = props.type === 'article' ? {
   '@context': 'https://schema.org',
-  '@type': 'Article',
+  '@type': 'NewsArticle',
   headline: props.headline,
   datePublished: props.datePublished,
   dateModified: props.dateModified ?? props.datePublished,
-  author: { '@type': 'Person', name: props.authorName },
+  author: {
+    '@type': 'Person',
+    name: props.authorName,
+    url: props.authorUrl ?? `${siteUrl}/about/anna-faure-revol/`,
+  },
   image: props.image,
   url: props.url,
   description: props.description,

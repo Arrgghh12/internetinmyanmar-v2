@@ -18,15 +18,15 @@ const {
   seoTitle,
   metaDescription,
   canonicalUrl = Astro.url.href,
-  ogImage = '/og-default.png',
+  ogImage = '/og-default.svg',
   ogType = 'website',
   lang = 'en',
 } = Astro.props
 
 // Build language switcher URLs from the current pathname
 const currentPath = Astro.url.pathname
-const LOCALES = ['en', 'fr', 'es', 'it', 'my'] as const
-const LOCALE_LABELS: Record<string, string> = { en: 'EN', fr: 'FR', es: 'ES', it: 'IT', my: 'MY' }
+const LOCALES = ['en', 'fr', 'es', 'it'] as const
+const LOCALE_LABELS: Record<string, string> = { en: 'EN', fr: 'FR', es: 'ES', it: 'IT' }
 
 function getLocalePath(targetLang: string): string {
   // Strip current locale prefix if present (/fr/..., /es/..., /it/..., /my/...)

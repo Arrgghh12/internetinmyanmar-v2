@@ -202,10 +202,13 @@ function eventVerb(from: string, to: string): string {
 
 <Observatory
   title="BGP Network Status — Myanmar ASNs"
-  seoTitle="Myanmar BGP Network Status | Internet in Myanmar Observatory"
+  seoTitle="Myanmar BGP Network Status | Internet in Myanmar"
   metaDescription={`Real-time BGP routing status for ${totalCount} Myanmar autonomous systems. Detects internet shutdowns via global route collector data.`}
   lastUpdated={stats.lastUpdated}
   dataSource="RIPEstat (RIPE NCC), IODA (Georgia Tech)"
+  datasetName="Myanmar BGP Network Outages"
+  datasetDescription={`Real-time tracking of BGP route withdrawals for ${totalCount} Myanmar autonomous systems (ASNs). Sourced from RIPEstat global route collectors and IODA.`}
+  pageUrl="https://www.internetinmyanmar.com/observatory/bgp/"
 >
 
   <!-- Embedded data for client-side rendering -->

@@ -1,0 +1,38 @@
+# Internet in Myanmar
+> Independent technical monitor of Myanmar's digital environment.
+> Tracks internet shutdowns, censorship, and connectivity in real time.
+> Data sources: OONI, RIPEstat, IODA, Cloudflare Radar, NetBlocks.
+> Editor: Anna Faure Revol — journalist specializing in Myanmar digital rights.
+
+## Observatory (live data)
+- BGP Network Status — 150+ Myanmar ASNs: /observatory/bgp
+- Shutdown Tracker — documented timeline since 2021: /observatory/shutdown-tracker
+- Blocked Sites Monitor — confirmed blocked domains: /observatory/blocked-sites
+
+## Analysis
+- Censorship & Shutdowns: /censorship
+- Telecom & Infrastructure: /infrastructure
+- Digital Economy: /digital-economy (coming soon)
+
+## Guides
+- VPN & Circumvention for Myanmar: /security
+- Digital Security: /guides/digital-security
+- SIM Cards & Connectivity: /guides/connectivity
+
+## News
+- Mobile Networks: /mobile
+- Broadband: /broadband
+- Policy & Regulation: /policy
+
+## Digest
+- Daily curated news from verified sources: /digest
+
+## About
+- Mission & methodology: /about/mission
+- Anna Faure Revol (editor): /about/anna-faure-revol
+
+## Data methodology
+BGP data sourced from RIPEstat (RIPE NCC) and IODA (Georgia Tech).
+Blocking confirmations via OONI Explorer measurement data.
+Shutdown events cross-referenced with NetBlocks and Cloudflare Radar.
+All analysis authored by Anna Faure Revol, Editor-in-Chief.

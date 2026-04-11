@@ -1,229 +1,151 @@
 """
 Monitor
 -------
-Fetches all configured RSS/API sources, scores each item via Claude,
-saves results to monitor_output.json, then triggers brief_generator.py
-for items above the score threshold.
+Fetches all RSS feeds from feeds.yaml, keeps only entries published in the
+last 24 h, scores each for relevance to Myanmar internet freedom, and sends
+a Telegram digest for items that pass the threshold.
 
 Runs daily at 6:30 AM via cron:
   30 6 * * * ~/agents/venv/bin/python ~/agents/monitor.py >> ~/logs/monitor.log 2>&1
 
 Usage:
   python monitor.py              # full run
-  python monitor.py --dry-run    # fetch + score, skip brief generation
+  python monitor.py --dry-run    # fetch + score, skip Telegram
 """
 
 import asyncio
 import json
 import logging
 import os
-import subprocess
 import sys
-from datetime import date, datetime, timezone
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
 import feedparser
 import httpx
+import requests
 import yaml
 from dotenv import load_dotenv
 from openai import OpenAI
 from tenacity import retry, stop_after_attempt, wait_exponential
 
-import requests
-
-# Load .env from the agents directory so cron (which has no env) picks it up
 load_dotenv(Path(__file__).parent / ".env")
 log = logging.getLogger(__name__)
 
+AGENTS_DIR  = Path(__file__).parent
+CONFIG      = yaml.safe_load((AGENTS_DIR / "config.yaml").read_text())
+FEEDS       = yaml.safe_load((AGENTS_DIR / "feeds.yaml").read_text())["feeds"]
+OUTPUT_PATH = AGENTS_DIR / "monitor_output.json"
 
-def _notify_telegram_briefs() -> None:
-    """Send today's generated briefs as a Telegram digest."""
-    today = date.today().isoformat()
-    today_dir = BRIEFS_DIR / today
-    if not today_dir.exists():
-        _notify_telegram("✅ Brief generator ran but no new briefs were saved today.")
-        return
+CLIENT: OpenAI | None = None  # initialised in run()
 
-    briefs = sorted(today_dir.glob("*.md"))
-    if not briefs:
-        _notify_telegram("✅ Brief generator ran but no new briefs were saved today.")
-        return
-
-    lines = [f"📰 *{len(briefs)} brief{'s' if len(briefs) > 1 else ''} ready — {today}*\n"]
-    for i, brief_path in enumerate(briefs, 1):
-        text = brief_path.read_text(encoding="utf-8")
-        # Extract title from first line (# Title)
-        title_line = next((l for l in text.splitlines() if l.startswith("# ")), "")
-        title = title_line[2:].strip() or brief_path.stem
-        # Extract category
-        cat_line = next((l for l in text.splitlines() if l.startswith("**Category:**")), "")
-        cat = cat_line.replace("**Category:**", "").strip()
-        lines.append(f"{i}. {title}")
-        if cat:
-            lines.append(f"   _{cat}_")
-    lines.append(f"\n📂 Briefs saved to: `{today_dir}`")
-    lines.append("Reply /list to see all · /pick N to approve one · /approve N to write")
-    _notify_telegram("\n".join(lines))
-
-
-def _notify_telegram(text: str) -> None:
-    """Send a plain text message to Anna's Telegram chat."""
-    token = os.environ.get("TELEGRAM_BOT_TOKEN")
-    chat_id = os.environ.get("TELEGRAM_CHAT_ID")
-    if not token or not chat_id:
-        log.warning("TELEGRAM_BOT_TOKEN or TELEGRAM_CHAT_ID not set — skipping notification")
-        return
-    try:
-        requests.post(
-            f"https://api.telegram.org/bot{token}/sendMessage",
-            json={"chat_id": chat_id, "text": text},
-            timeout=10,
-        )
-    except Exception as e:
-        log.warning(f"Telegram notify failed: {e}")
-
-AGENTS_DIR = Path(__file__).parent
-BRIEFS_DIR = AGENTS_DIR / "briefs"
-CONFIG = yaml.safe_load((AGENTS_DIR / "config.yaml").read_text())
-VENV_PYTHON = AGENTS_DIR / "venv" / "bin" / "python"
-CLIENT: OpenAI | None = None  # initialized in run()
+MAX_AGE_HOURS   = int(os.getenv("MONITOR_MAX_AGE_HOURS", "24"))
+MIN_SCORE       = float(CONFIG.get("scoring", {}).get("min_score_for_brief", 6.0))
+MAX_ITEMS_PER_FEED = 20   # cap per feed to avoid runaway costs
 
 
 # ---------------------------------------------------------------------------
 # Fetching
 # ---------------------------------------------------------------------------
 
-async def fetch_feed(name: str, url: str, client: httpx.AsyncClient,
-                     max_age_days: int = 180) -> list[dict]:
-    """Fetch an RSS feed and return normalised items within max_age_days."""
+async def fetch_feed(feed_cfg: dict, client: httpx.AsyncClient,
+                     cutoff: datetime) -> list[dict]:
+    key = feed_cfg["key"]
+    url = feed_cfg["url"]
+    lang = feed_cfg.get("lang", "en")
+    keyword_filter = feed_cfg.get("filter", "").lower()
+
     try:
         resp = await client.get(url, timeout=15, follow_redirects=True)
         resp.raise_for_status()
-        feed = feedparser.parse(resp.text)
-        cutoff = datetime.now(timezone.utc).replace(tzinfo=timezone.utc)
-        from datetime import timedelta as _td
-        cutoff = cutoff - _td(days=max_age_days)
+        parsed = feedparser.parse(resp.text)
         items = []
-        for entry in feed.entries[:50]:  # fetch more, filter by age
+        for entry in parsed.entries[:MAX_ITEMS_PER_FEED]:
             published = entry.get("published_parsed") or entry.get("updated_parsed")
             pub_dt = datetime(*published[:6], tzinfo=timezone.utc) if published else None
-            # Skip items older than max_age_days
+
+            # Drop entries older than cutoff
             if pub_dt and pub_dt < cutoff:
                 continue
+
+            title   = entry.get("title", "").strip()
+            summary = entry.get("summary", "").strip()[:500]
+
+            # Apply keyword filter if configured (e.g. access_now → filter: myanmar)
+            if keyword_filter:
+                combined = (title + " " + summary).lower()
+                if keyword_filter not in combined:
+                    continue
+
             items.append({
-                "source": name,
-                "title": entry.get("title", ""),
-                "url": entry.get("link", ""),
-                "summary": entry.get("summary", "")[:500],
+                "source":    key,
+                "lang":      lang,
+                "title":     title,
+                "url":       entry.get("link", ""),
+                "summary":   summary,
                 "published": pub_dt.isoformat() if pub_dt else None,
             })
-        log.info(f"{name}: {len(items)} items (max_age={max_age_days}d)")
+        log.info(f"{key}: {len(items)} fresh items")
         return items
     except Exception as e:
-        log.warning(f"{name}: fetch failed — {e}")
+        log.warning(f"{key}: fetch failed — {e}")
         return []
 
 
-async def fetch_ooni(client: httpx.AsyncClient) -> list[dict]:
-    """Fetch recent OONI anomalies for Myanmar."""
+async def fetch_ooni(client: httpx.AsyncClient, cutoff: datetime) -> list[dict]:
+    ooni_cfg = next((f for f in FEEDS if f["key"] == "ooni_api"), None)
+    if not ooni_cfg:
+        return []
     try:
-        ooni_url = CONFIG["sources"]["tier1"]["ooni_api"]["url"]
-        resp = await client.get(
-            ooni_url,
-            timeout=20,
-            follow_redirects=True,
-        )
+        resp = await client.get(ooni_cfg["url"], timeout=20, follow_redirects=True)
         resp.raise_for_status()
         data = resp.json()
         items = []
-        for m in data.get("results", [])[:20]:
-            if m.get("anomaly"):
-                items.append({
-                    "source": "ooni",
-                    "title": f"OONI anomaly: {m.get('input', 'unknown')} on {m.get('probe_asn', '')}",
-                    "url": f"https://explorer.ooni.org/measurement/{m.get('report_id', '')}",
-                    "summary": f"Test: {m.get('test_name')} | ASN: {m.get('probe_asn')} | "
-                               f"Confirmed blocked: {m.get('confirmed')}",
-                    "published": m.get("measurement_start_time"),
-                })
-        log.info(f"ooni: {len(items)} anomalies")
+        for m in data.get("results", [])[:30]:
+            if not m.get("anomaly"):
+                continue
+            raw_ts = m.get("measurement_start_time", "")
+            try:
+                pub_dt = datetime.fromisoformat(raw_ts.replace("Z", "+00:00"))
+            except Exception:
+                pub_dt = None
+            if pub_dt and pub_dt < cutoff:
+                continue
+            items.append({
+                "source":    "ooni_api",
+                "lang":      "en",
+                "title":     f"OONI anomaly: {m.get('input', 'unknown')} on {m.get('probe_asn', '')}",
+                "url":       f"https://explorer.ooni.org/measurement/{m.get('report_id', '')}",
+                "summary":   (f"Test: {m.get('test_name')} | ASN: {m.get('probe_asn')} | "
+                              f"Confirmed blocked: {m.get('confirmed')}"),
+                "published": raw_ts,
+            })
+        log.info(f"ooni_api: {len(items)} fresh anomalies")
         return items
     except Exception as e:
-        log.warning(f"ooni: fetch failed — {e}")
+        log.warning(f"ooni_api: fetch failed — {e}")
         return []
 
 
-def _rss_sources() -> list[tuple[str, str]]:
-    """Flatten the nested sources config into (name, url) pairs for RSS feeds."""
-    pairs = []
-    for tier_key, tier_val in CONFIG["sources"].items():
-        if not isinstance(tier_val, dict):
-            continue
-        for src_name, src_cfg in tier_val.items():
-            if not isinstance(src_cfg, dict):
-                continue
-            url = src_cfg.get("url", "")
-            fetch_type = src_cfg.get("type", "rss")
-            fetch_method = src_cfg.get("fetch", "rss")
-            # Only auto-fetch RSS/API types (skip manual/tavily/scrape)
-            if fetch_type in ("rss",) and fetch_method not in ("manual", "tavily", "scrape"):
-                pairs.append((f"{tier_key}:{src_name}", url))
-    return pairs
-
-
-async def fetch_all(max_age_days: int = 180) -> list[dict]:
-    """Fetch all sources concurrently."""
-    rss_pairs = _rss_sources()
-    async with httpx.AsyncClient(headers={"User-Agent": "IIMBot/1.0"}) as client:
-        tasks = [fetch_feed(name, url, client, max_age_days=max_age_days) for name, url in rss_pairs]
-        tasks.append(fetch_ooni(client))
+async def fetch_all(cutoff: datetime) -> list[dict]:
+    rss_feeds = [f for f in FEEDS if f.get("type") == "rss"]
+    async with httpx.AsyncClient(
+        headers={"User-Agent": "Mozilla/5.0 (compatible; IIMBot/2.0; +https://internetinmyanmar.com)"},
+        timeout=15,
+    ) as client:
+        tasks = [fetch_feed(f, client, cutoff) for f in rss_feeds]
+        tasks.append(fetch_ooni(client, cutoff))
         results = await asyncio.gather(*tasks)
     items = [item for batch in results for item in batch]
-    log.info(f"Total items fetched: {len(items)}")
+    log.info(f"Total fetched: {len(items)} items")
     return items
 
 
 # ---------------------------------------------------------------------------
-# Scoring
+# Deduplication
 # ---------------------------------------------------------------------------
 
-SCORE_PROMPT = """Score this news item for relevance to Myanmar internet freedom,
-censorship, shutdowns, and digital rights.
-
-Return JSON only:
-{
-  "score": <float 0-10>,
-  "reason": "<one sentence>",
-  "tags": ["tag1", "tag2"],
-  "category": "<one of: Censorship & Shutdowns | Telecom & Infrastructure | Digital Economy | Guides & Tools | News - Mobile | News - Broadband | News - Policy>"
-}
-
-Scoring criteria:
-- 40% relevance to Myanmar internet freedom / censorship / digital rights
-- 25% relevance to telecom / connectivity infrastructure
-- 20% quality: substantive, has a clear news angle
-- 15% not outdated / fits the monitoring mission
-
-Low score (<4): crypto, travel, unrelated Myanmar news, too vague."""
-
-
-@retry(stop=stop_after_attempt(2), wait=wait_exponential(min=1, max=5))
-def score_item(item: dict) -> dict:
-    text = f"Title: {item['title']}\nSource: {item['source']}\nSummary: {item['summary']}"
-    response = CLIENT.chat.completions.create(
-        model="deepseek-chat",
-        max_tokens=CONFIG["anthropic"]["max_tokens"]["score"],
-        messages=[
-            {"role": "system", "content": "Respond with JSON only. No preamble."},
-            {"role": "user", "content": f"{SCORE_PROMPT}\n\nItem:\n{text}"},
-        ],
-    )
-    scored = json.loads(response.choices[0].message.content)
-    return {**item, **scored}
-
-
 def deduplicate(items: list[dict]) -> list[dict]:
-    """Remove near-duplicate titles."""
     seen, out = set(), []
     for item in items:
         key = item["title"].lower()[:60]
@@ -234,25 +156,125 @@ def deduplicate(items: list[dict]) -> list[dict]:
 
 
 # ---------------------------------------------------------------------------
+# Scoring
+# ---------------------------------------------------------------------------
+
+SCORE_PROMPT = """You are a relevance filter for a Myanmar internet-freedom monitoring site.
+
+Score this news item on how relevant it is to:
+- Internet shutdowns, censorship, or network blocking in Myanmar
+- Telecom infrastructure or connectivity in Myanmar
+- Digital rights, press freedom, or surveillance in Myanmar
+- Myanmar military junta's control over communications
+
+Return JSON only — no preamble:
+{
+  "score": <float 0-10>,
+  "reason": "<one sentence max>",
+  "category": "<one of: Censorship & Shutdowns | Telecom & Infrastructure | Digital Economy | News - Mobile | News - Broadband | News - Policy | Not relevant>"
+}
+
+Score guide:
+  8-10  Directly about Myanmar internet freedom / censorship / shutdowns
+  5-7   Related Myanmar digital/telecom news worth monitoring
+  2-4   Tangentially related or very general
+  0-1   Unrelated (travel, crypto, other countries, too vague)"""
+
+
+@retry(stop=stop_after_attempt(2), wait=wait_exponential(min=1, max=5))
+def score_item(item: dict) -> dict:
+    text = f"Title: {item['title']}\nSource: {item['source']}\nSummary: {item['summary']}"
+    response = CLIENT.chat.completions.create(
+        model="deepseek-chat",
+        max_tokens=CONFIG["anthropic"]["max_tokens"]["score"],
+        messages=[
+            {"role": "system", "content": "Respond with JSON only. No preamble."},
+            {"role": "user",   "content": f"{SCORE_PROMPT}\n\nItem:\n{text}"},
+        ],
+    )
+    scored = json.loads(response.choices[0].message.content)
+    return {**item, **scored}
+
+
+# ---------------------------------------------------------------------------
+# Telegram
+# ---------------------------------------------------------------------------
+
+def notify_telegram(text: str) -> None:
+    token   = os.environ.get("TELEGRAM_BOT_TOKEN")
+    chat_id = os.environ.get("TELEGRAM_CHAT_ID")
+    if not token or not chat_id:
+        log.warning("Telegram env vars not set — skipping")
+        return
+    try:
+        requests.post(
+            f"https://api.telegram.org/bot{token}/sendMessage",
+            json={"chat_id": chat_id, "text": text, "parse_mode": "Markdown",
+                  "disable_web_page_preview": True},
+            timeout=10,
+        )
+    except Exception as e:
+        log.warning(f"Telegram failed: {e}")
+
+
+def build_telegram_digest(relevant: list[dict], cutoff: datetime) -> str:
+    since = cutoff.strftime("%Y-%m-%d %H:%M UTC")
+    lines = [f"📡 *IIM Daily Monitor* — {datetime.now(timezone.utc).strftime('%Y-%m-%d')}",
+             f"_{len(relevant)} relevant items in the last {MAX_AGE_HOURS}h (since {since})_\n"]
+
+    # Group by category
+    by_cat: dict[str, list[dict]] = {}
+    for item in relevant:
+        cat = item.get("category", "Uncategorised")
+        by_cat.setdefault(cat, []).append(item)
+
+    CAT_EMOJI = {
+        "Censorship & Shutdowns":   "🔴",
+        "Telecom & Infrastructure": "📶",
+        "Digital Economy":          "💻",
+        "News - Mobile":            "📱",
+        "News - Broadband":         "🌐",
+        "News - Policy":            "🏛",
+    }
+
+    for cat, cat_items in sorted(by_cat.items()):
+        emoji = CAT_EMOJI.get(cat, "📌")
+        lines.append(f"{emoji} *{cat}*")
+        for item in cat_items:
+            score = item.get("score", 0)
+            title = item["title"][:80]
+            url   = item.get("url", "")
+            lang  = f" `[{item['lang']}]`" if item.get("lang") == "my" else ""
+            lines.append(f"  • [{title}]({url}) _{score:.1f}_{lang}")
+        lines.append("")
+
+    return "\n".join(lines)
+
+
+# ---------------------------------------------------------------------------
 # Main
 # ---------------------------------------------------------------------------
 
-def run(dry_run: bool = False):
+def run(dry_run: bool = False) -> None:
     global CLIENT
-    logging.basicConfig(
-        level=logging.INFO,
-        format="%(asctime)s %(levelname)s %(message)s",
-    )
+    logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(message)s")
+
     CLIENT = OpenAI(
         base_url="https://api.deepseek.com/v1",
         api_key=os.getenv("DEEPSEEK_API_KEY"),
     )
 
-    max_age_days = CONFIG.get("scoring", {}).get("max_age_days", 180)
-    log.info(f"=== Monitor starting (lookback {max_age_days} days) ===")
-    items = asyncio.run(fetch_all(max_age_days=max_age_days))
+    cutoff = datetime.now(timezone.utc) - timedelta(hours=MAX_AGE_HOURS)
+    log.info(f"=== Monitor starting — lookback {MAX_AGE_HOURS}h (since {cutoff.isoformat()}) ===")
+
+    items = asyncio.run(fetch_all(cutoff))
     items = deduplicate(items)
     log.info(f"After dedup: {len(items)} items")
+
+    if not items:
+        log.info("Nothing fetched — exiting")
+        notify_telegram("📡 *IIM Monitor* — no new items in the last 24 h.")
+        return
 
     scored = []
     for item in items:
@@ -262,23 +284,25 @@ def run(dry_run: bool = False):
             log.warning(f"Scoring failed for '{item['title'][:50]}': {e}")
 
     scored.sort(key=lambda x: x.get("score", 0), reverse=True)
+    OUTPUT_PATH.write_text(json.dumps(scored, indent=2, ensure_ascii=False))
+    log.info(f"Saved {len(scored)} scored items → {OUTPUT_PATH}")
 
-    output_path = AGENTS_DIR / "monitor_output.json"
-    output_path.write_text(json.dumps(scored, indent=2, ensure_ascii=False))
-    log.info(f"Saved {len(scored)} scored items to {output_path}")
-
-    above_threshold = [s for s in scored if s.get("score", 0) >= CONFIG["scoring"]["min_score_for_brief"]]
-    log.info(f"{len(above_threshold)} items above threshold {CONFIG['scoring']['min_score_for_brief']}")
+    relevant = [s for s in scored if s.get("score", 0) >= MIN_SCORE]
+    log.info(f"{len(relevant)} items above threshold {MIN_SCORE}")
 
     if dry_run:
-        log.info("Dry run — skipping brief generation")
-        for item in above_threshold[:5]:
+        log.info("Dry run — Telegram skipped")
+        for item in relevant[:10]:
             log.info(f"  [{item.get('score', 0):.1f}] {item['title'][:70]}")
         return
 
-    # Brief generation pipeline removed — digest_scanner.py handles daily article discovery.
-    log.info("Monitor complete — %d items above threshold (digest_scanner.py handles publishing)",
-             len(above_threshold))
+    if not relevant:
+        notify_telegram(
+            f"📡 *IIM Monitor* — {len(scored)} items scanned, none passed the relevance threshold."
+        )
+    else:
+        digest = build_telegram_digest(relevant, cutoff)
+        notify_telegram(digest)
 
     log.info("=== Monitor done ===")
 
