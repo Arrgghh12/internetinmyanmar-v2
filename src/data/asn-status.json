@@ -160,20 +160,23 @@
     "visibility_pct": 1.0,
     "visible_collectors": 329,
     "total_collectors": 329,
-    "timestamp": "2026-04-11T11:01:16.597364+00:00",
+    "timestamp": "2026-04-11T11:10:03.536464+00:00",
     "status": "GREEN",
     "status_since": "2026-04-11T02:10:04.798037+00:00"
   },
   "AS58952": {
     "asn": "AS58952",
     "name": "FRONTIIRCOLTD-MM Frontiir Co. Ltd",
-    "announced": true,
-    "visibility_pct": 1.0,
-    "visible_collectors": 329,
-    "total_collectors": 329,
-    "timestamp": "2026-04-11T11:01:16.946491+00:00",
-    "status": "GREEN",
-    "status_since": "2026-04-11T05:45:20.198770+00:00"
+    "announced": false,
+    "visibility_pct": 0.0,
+    "visible_collectors": 0,
+    "total_collectors": 0,
+    "status": "RED",
+    "status_since": "2026-04-11T11:10:18.855853+00:00",
+    "timestamp": "2026-04-11T11:10:18.855853+00:00",
+    "error": "",
+    "ioda_outages": 0,
+    "ioda_confirmed": false
   },
   "AS139849": {
     "asn": "AS139849",
@@ -611,7 +614,7 @@
     "visibility_pct": 1.0,
     "visible_collectors": 329,
     "total_collectors": 329,
-    "timestamp": "2026-04-11T11:01:49.856238+00:00",
+    "timestamp": "2026-04-11T11:10:21.379504+00:00",
     "status": "GREEN",
     "status_since": "2026-04-10T15:45:18.649337+00:00"
   },
@@ -765,7 +768,7 @@
     "visibility_pct": 1.0,
     "visible_collectors": 329,
     "total_collectors": 329,
-    "timestamp": "2026-04-11T11:02:02.993539+00:00",
+    "timestamp": "2026-04-11T11:10:29.203015+00:00",
     "status": "GREEN",
     "status_since": "2026-04-11T05:45:20.885839+00:00"
   },
