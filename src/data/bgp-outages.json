@@ -1307,5 +1307,16 @@
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
     "resolved": true
+  },
+  {
+    "asn": "AS139595",
+    "name": "HTIN-AS-AP HTIN HTIN NETWORK COMPANY LIMITED",
+    "status": "DOWN",
+    "started_at": "2026-04-11T17:32:11.335527+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
   }
 ]
