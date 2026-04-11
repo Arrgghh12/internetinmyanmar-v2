@@ -1186,5 +1186,27 @@
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
     "resolved": true
+  },
+  {
+    "asn": "AS150721",
+    "name": "ANCL-AS-AP ARAKHA NET",
+    "status": "DOWN",
+    "started_at": "2026-04-11T07:02:29.067017+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
+  },
+  {
+    "asn": "AS140552",
+    "name": "CBBANK-AS-AP Co-operative Bank Public Company Limited",
+    "status": "DOWN",
+    "started_at": "2026-04-11T07:02:56.662343+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
   }
 ]
