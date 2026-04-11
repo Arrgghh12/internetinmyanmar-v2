@@ -1318,5 +1318,38 @@
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
     "resolved": true
+  },
+  {
+    "asn": "AS137069",
+    "name": "PICME-AS-AP POSCO INTERNATIONAL CORPORATION MYANMAR E&P OFFICE",
+    "status": "DOWN",
+    "started_at": "2026-04-11T20:02:17.211624+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
+  },
+  {
+    "asn": "AS134528",
+    "name": "MPTCL-AS-AP MYANMAR PI TECHNOLOGY CO.",
+    "status": "DOWN",
+    "started_at": "2026-04-11T20:02:19.435057+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
+  },
+  {
+    "asn": "AS63998",
+    "name": "KMTCL-MM Kinetic Myanmar Technology",
+    "status": "DOWN",
+    "started_at": "2026-04-11T20:03:03.517999+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
   }
 ]
