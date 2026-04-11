@@ -1236,22 +1236,22 @@
     "name": "IQI-AS-AP Innovative Quality Internet Company Limited",
     "status": "DOWN",
     "started_at": "2026-04-11T11:02:45.439100+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-11T11:32:30.570906+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS135111",
     "name": "AML-AS-AP Asia Mega Link",
     "status": "DOWN",
     "started_at": "2026-04-11T11:02:46.657311+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-11T11:32:31.871537+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS58952",
@@ -1263,5 +1263,16 @@
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
     "resolved": true
+  },
+  {
+    "asn": "AS137431",
+    "name": "RPCL-AS-AP ZORRO RITZ PUBLIC COMPANY LIMITED",
+    "status": "DOWN",
+    "started_at": "2026-04-11T11:31:34.922965+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.015,
+    "ioda_confirmed": false,
+    "resolved": false
   }
 ]
