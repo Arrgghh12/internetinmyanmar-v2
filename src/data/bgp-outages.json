@@ -1362,5 +1362,38 @@
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
     "resolved": true
+  },
+  {
+    "asn": "AS134840",
+    "name": "MCCL-AS-AP Myanmar Country Co.",
+    "status": "DOWN",
+    "started_at": "2026-04-11T22:01:55.652414+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
+  },
+  {
+    "asn": "AS153790",
+    "name": "AMCL-AS-AP ADS Myanmar Company Limited",
+    "status": "DOWN",
+    "started_at": "2026-04-11T22:02:03.882936+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
+  },
+  {
+    "asn": "AS63852",
+    "name": "FMG-MM Myanmar Net",
+    "status": "DOWN",
+    "started_at": "2026-04-11T22:03:05.354211+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
   }
 ]
