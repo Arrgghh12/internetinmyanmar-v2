@@ -127,6 +127,69 @@ async def fetch_ooni(client: httpx.AsyncClient, cutoff: datetime) -> list[dict]:
         return []
 
 
+REDDIT_SUBS = [
+    {"subreddit": "myanmar",        "filter": None},
+    {"subreddit": "burma",          "filter": None},
+    {"subreddit": "digitalprivacy", "filter": "myanmar"},
+    {"subreddit": "VPN",            "filter": "myanmar"},
+]
+
+# Minimum quality thresholds — keeps signal, drops shitposts
+REDDIT_MIN_SCORE    = 50   # upvotes
+REDDIT_MIN_COMMENTS = 10
+
+
+async def fetch_reddit(client: httpx.AsyncClient, cutoff: datetime) -> list[dict]:
+    items = []
+    for cfg in REDDIT_SUBS:
+        sub = cfg["subreddit"]
+        kw  = cfg["filter"]
+        url = f"https://www.reddit.com/r/{sub}/new.json?limit=50"
+        try:
+            resp = await client.get(url, timeout=15, follow_redirects=True)
+            resp.raise_for_status()
+            posts = resp.json().get("data", {}).get("children", [])
+            count = 0
+            for child in posts:
+                p = child.get("data", {})
+
+                # Quality gates
+                if p.get("score", 0) < REDDIT_MIN_SCORE:
+                    continue
+                if p.get("num_comments", 0) < REDDIT_MIN_COMMENTS:
+                    continue
+                if p.get("stickied") or p.get("distinguished"):
+                    continue
+
+                # Age gate
+                created = p.get("created_utc")
+                pub_dt  = datetime.fromtimestamp(created, tz=timezone.utc) if created else None
+                if pub_dt and pub_dt < cutoff:
+                    continue
+
+                title   = p.get("title", "").strip()
+                selftext = (p.get("selftext") or "").strip()[:400]
+                combined = (title + " " + selftext).lower()
+
+                # Keyword filter for broad subreddits
+                if kw and kw.lower() not in combined:
+                    continue
+
+                items.append({
+                    "source":    f"reddit_r_{sub}",
+                    "lang":      "en",
+                    "title":     title,
+                    "url":       f"https://reddit.com{p.get('permalink', '')}",
+                    "summary":   selftext or f"r/{sub} · {p.get('score')} upvotes · {p.get('num_comments')} comments",
+                    "published": pub_dt.isoformat() if pub_dt else None,
+                })
+                count += 1
+            log.info(f"reddit r/{sub}: {count} qualifying posts")
+        except Exception as e:
+            log.warning(f"reddit r/{sub}: fetch failed — {e}")
+    return items
+
+
 async def fetch_all(cutoff: datetime) -> list[dict]:
     rss_feeds = [f for f in FEEDS if f.get("type") == "rss"]
     async with httpx.AsyncClient(
@@ -135,6 +198,7 @@ async def fetch_all(cutoff: datetime) -> list[dict]:
     ) as client:
         tasks = [fetch_feed(f, client, cutoff) for f in rss_feeds]
         tasks.append(fetch_ooni(client, cutoff))
+        tasks.append(fetch_reddit(client, cutoff))
         results = await asyncio.gather(*tasks)
     items = [item for batch in results for item in batch]
     log.info(f"Total fetched: {len(items)} items")
@@ -235,6 +299,7 @@ def build_telegram_digest(relevant: list[dict], cutoff: datetime) -> str:
         "News - Mobile":            "📱",
         "News - Broadband":         "🌐",
         "News - Policy":            "🏛",
+        "Not relevant":             "⬜",
     }
 
     for cat, cat_items in sorted(by_cat.items()):
