@@ -149379,5 +149379,47 @@
         "visibility_pct": 0.997
       }
     }
+  },
+  {
+    "timestamp": "2026-04-11T05:35:05.333732+00:00",
+    "statuses": {
+      "AS132167": {
+        "status": "GREEN",
+        "visibility_pct": 1.0
+      },
+      "AS58952": {
+        "status": "GREEN",
+        "visibility_pct": 1.0
+      },
+      "AS9988": {
+        "status": "GREEN",
+        "visibility_pct": 1.0
+      },
+      "AS136480": {
+        "status": "GREEN",
+        "visibility_pct": 1.0
+      }
+    }
+  },
+  {
+    "timestamp": "2026-04-11T05:40:38.221225+00:00",
+    "statuses": {
+      "AS132167": {
+        "status": "GREEN",
+        "visibility_pct": 1.0
+      },
+      "AS58952": {
+        "status": "RED",
+        "visibility_pct": 0.0
+      },
+      "AS9988": {
+        "status": "GREEN",
+        "visibility_pct": 1.0
+      },
+      "AS136480": {
+        "status": "RED",
+        "visibility_pct": 0.0
+      }
+    }
   }
 ]

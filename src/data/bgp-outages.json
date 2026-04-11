@@ -1164,5 +1164,27 @@
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
     "resolved": false
+  },
+  {
+    "asn": "AS58952",
+    "name": "FRONTIIRCOLTD-MM Frontiir Co. Ltd",
+    "status": "DOWN",
+    "started_at": "2026-04-11T05:40:19.871445+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
+  },
+  {
+    "asn": "AS136480",
+    "name": "MMUNILINK-AS-AP Myanmar Unilink Communication Company Limited",
+    "status": "DOWN",
+    "started_at": "2026-04-11T05:40:37.758894+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
   }
 ]
