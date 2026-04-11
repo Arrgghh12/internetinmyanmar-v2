@@ -1137,10 +1137,10 @@
     "name": "U9-MM Nine Communications Company Limited",
     "status": "DOWN",
     "started_at": "2026-04-11T02:05:19.341061+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-11T02:10:05.098600+00:00",
+    "duration_minutes": 4,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   }
 ]
