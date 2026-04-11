@@ -1357,10 +1357,10 @@
     "name": "GNET-AS-AP Global Technology",
     "status": "DOWN",
     "started_at": "2026-04-11T20:32:03.263017+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-11T21:01:54.733554+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   }
 ]
