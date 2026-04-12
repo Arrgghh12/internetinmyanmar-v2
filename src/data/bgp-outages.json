@@ -1511,10 +1511,10 @@
     "name": "SMMCL-AS-AP SAM MOUK MO Company Ltd",
     "status": "DOWN",
     "started_at": "2026-04-12T06:02:53.201328+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-12T06:33:59.839535+00:00",
+    "duration_minutes": 31,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   }
 ]
