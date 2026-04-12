@@ -1478,28 +1478,39 @@
     "name": "ETPCL-AS-AP Elite Telecom Public Company Limited",
     "status": "DOWN",
     "started_at": "2026-04-12T05:31:27.127264+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-12T06:01:30.477197+00:00",
+    "duration_minutes": 30,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS134739",
     "name": "AGBC-AS-AP AGB Communication Co.",
     "status": "DOWN",
     "started_at": "2026-04-12T05:31:53.981269+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-12T06:01:37.514591+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS133385",
     "name": "ATOMMYANMAR-AS-AP Atom Myanmar Limited",
     "status": "DOWN",
     "started_at": "2026-04-12T05:32:50.959746+00:00",
+    "ended_at": "2026-04-12T06:02:07.251875+00:00",
+    "duration_minutes": 29,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": true
+  },
+  {
+    "asn": "AS154020",
+    "name": "SMMCL-AS-AP SAM MOUK MO Company Ltd",
+    "status": "DOWN",
+    "started_at": "2026-04-12T06:02:53.201328+00:00",
     "ended_at": null,
     "duration_minutes": null,
     "min_visibility_pct": 0.0,
