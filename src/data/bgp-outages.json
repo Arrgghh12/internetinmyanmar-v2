@@ -1588,32 +1588,32 @@
     "name": "REDPALM-AS-AP RED PALM COMPANY LIMITED",
     "status": "DOWN",
     "started_at": "2026-04-12T17:01:28.152916+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-12T17:31:07.507856+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS137259",
     "name": "ILINK-AS-AP i-Link",
     "status": "DOWN",
     "started_at": "2026-04-12T17:01:46.496970+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-12T17:31:08.841561+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS150159",
     "name": "BDCL-AS-AP BRAINWAVE DATA COMPANY LIMITED",
     "status": "DOWN",
     "started_at": "2026-04-12T17:02:18.118291+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-12T17:31:24.882396+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   }
 ]
