@@ -1456,21 +1456,21 @@
     "name": "ACL-AS-AP AnyNet",
     "status": "DOWN",
     "started_at": "2026-04-12T04:02:58.325059+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-12T04:32:31.582255+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS135149",
     "name": "MTGCL-AS-AP Myanmar Technology Gateway Co.",
     "status": "DOWN",
     "started_at": "2026-04-12T04:03:35.912550+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-12T04:33:22.698985+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   }
 ]
