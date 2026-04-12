@@ -6,7 +6,7 @@
     "visibility_pct": 1.0,
     "visible_collectors": 329,
     "total_collectors": 329,
-    "timestamp": "2026-04-12T20:31:16.568361+00:00",
+    "timestamp": "2026-04-12T21:01:08.309529+00:00",
     "status": "GREEN",
     "status_since": "2026-04-07T01:04:37.614221+00:00"
   },
@@ -17,7 +17,7 @@
     "visibility_pct": 0.0,
     "visible_collectors": 0,
     "total_collectors": 329,
-    "timestamp": "2026-04-12T20:31:17.152092+00:00",
+    "timestamp": "2026-04-12T21:01:09.034558+00:00",
     "status": "RED",
     "status_since": "2026-04-06T11:31:06.589733+00:00"
   },
@@ -28,7 +28,7 @@
     "visibility_pct": 1.0,
     "visible_collectors": 329,
     "total_collectors": 329,
-    "timestamp": "2026-04-12T20:31:17.704147+00:00",
+    "timestamp": "2026-04-12T21:01:09.779560+00:00",
     "status": "GREEN",
     "status_since": "2026-04-10T17:31:06.701427+00:00"
   },
@@ -39,20 +39,21 @@
     "visibility_pct": 1.0,
     "visible_collectors": 329,
     "total_collectors": 329,
-    "timestamp": "2026-04-12T20:31:18.662696+00:00",
+    "timestamp": "2026-04-12T21:01:10.899448+00:00",
     "status": "GREEN",
     "status_since": "2026-04-11T06:01:39.510097+00:00"
   },
   "AS139804": {
     "asn": "AS139804",
     "name": "REDPALM-AS-AP RED PALM COMPANY LIMITED",
-    "announced": true,
-    "visibility_pct": 1.0,
-    "visible_collectors": 329,
-    "total_collectors": 329,
-    "timestamp": "2026-04-12T20:31:19.314067+00:00",
-    "status": "GREEN",
-    "status_since": "2026-04-12T17:31:07.207201+00:00"
+    "announced": false,
+    "visibility_pct": 0.0,
+    "visible_collectors": 0,
+    "total_collectors": 0,
+    "status": "RED",
+    "status_since": "2026-04-12T21:01:16.333229+00:00",
+    "timestamp": "2026-04-12T21:01:16.333229+00:00",
+    "error": "Server error '500 Internal Server Error' for url 'https://stat.ripe.net/data/rou"
   },
   "AS136229": {
     "asn": "AS136229",
@@ -61,7 +62,7 @@
     "visibility_pct": 1.0,
     "visible_collectors": 329,
     "total_collectors": 329,
-    "timestamp": "2026-04-12T20:31:19.905443+00:00",
+    "timestamp": "2026-04-12T21:01:17.004122+00:00",
     "status": "GREEN",
     "status_since": "2026-04-12T04:01:25.957482+00:00"
   },
@@ -72,7 +73,7 @@
     "visibility_pct": 1.0,
     "visible_collectors": 329,
     "total_collectors": 329,
-    "timestamp": "2026-04-12T20:31:20.613208+00:00",
+    "timestamp": "2026-04-12T21:01:17.823585+00:00",
     "status": "GREEN",
     "status_since": "2026-04-12T17:31:08.540914+00:00"
   },
@@ -83,7 +84,7 @@
     "visibility_pct": 1.0,
     "visible_collectors": 329,
     "total_collectors": 329,
-    "timestamp": "2026-04-12T20:31:21.282569+00:00",
+    "timestamp": "2026-04-12T21:01:18.600339+00:00",
     "status": "GREEN",
     "status_since": "2026-04-07T01:04:40.069878+00:00"
   },
@@ -94,7 +95,7 @@
     "visibility_pct": 0.933,
     "visible_collectors": 307,
     "total_collectors": 329,
-    "timestamp": "2026-04-12T20:31:21.862458+00:00",
+    "timestamp": "2026-04-12T21:01:19.278707+00:00",
     "status": "GREEN",
     "status_since": "2026-04-10T21:31:07.566001+00:00"
   },
@@ -105,7 +106,7 @@
     "visibility_pct": 0.997,
     "visible_collectors": 328,
     "total_collectors": 329,
-    "timestamp": "2026-04-12T20:31:22.701345+00:00",
+    "timestamp": "2026-04-12T21:01:20.201152+00:00",
     "status": "GREEN",
     "status_since": "2026-04-09T10:31:22.074532+00:00"
   },
@@ -116,7 +117,7 @@
     "visibility_pct": 1.0,
     "visible_collectors": 329,
     "total_collectors": 329,
-    "timestamp": "2026-04-12T20:31:23.272492+00:00",
+    "timestamp": "2026-04-12T21:01:20.899276+00:00",
     "status": "GREEN",
     "status_since": "2026-04-08T21:31:11.237993+00:00"
   },
@@ -127,7 +128,7 @@
     "visibility_pct": 1.0,
     "visible_collectors": 329,
     "total_collectors": 329,
-    "timestamp": "2026-04-12T20:31:23.889072+00:00",
+    "timestamp": "2026-04-12T21:01:21.674548+00:00",
     "status": "GREEN",
     "status_since": "2026-04-12T06:01:30.176556+00:00"
   },
@@ -138,7 +139,7 @@
     "visibility_pct": 1.0,
     "visible_collectors": 329,
     "total_collectors": 329,
-    "timestamp": "2026-04-12T20:31:24.479912+00:00",
+    "timestamp": "2026-04-12T21:01:22.324028+00:00",
     "status": "GREEN",
     "status_since": "2026-04-09T04:01:08.602653+00:00"
   },
@@ -149,7 +150,7 @@
     "visibility_pct": 1.0,
     "visible_collectors": 329,
     "total_collectors": 329,
-    "timestamp": "2026-04-12T20:31:24.824720+00:00",
+    "timestamp": "2026-04-12T21:01:22.678992+00:00",
     "status": "GREEN",
     "status_since": "2026-04-11T16:01:13.089761+00:00"
   },
@@ -160,7 +161,7 @@
     "visibility_pct": 1.0,
     "visible_collectors": 329,
     "total_collectors": 329,
-    "timestamp": "2026-04-12T20:31:25.163911+00:00",
+    "timestamp": "2026-04-12T21:01:23.022588+00:00",
     "status": "GREEN",
     "status_since": "2026-04-11T02:10:04.798037+00:00"
   },
@@ -171,7 +172,7 @@
     "visibility_pct": 1.0,
     "visible_collectors": 329,
     "total_collectors": 329,
-    "timestamp": "2026-04-12T20:31:25.504452+00:00",
+    "timestamp": "2026-04-12T21:01:23.367213+00:00",
     "status": "GREEN",
     "status_since": "2026-04-11T11:15:09.702287+00:00"
   },
@@ -182,7 +183,7 @@
     "visibility_pct": 1.0,
     "visible_collectors": 329,
     "total_collectors": 329,
-    "timestamp": "2026-04-12T20:31:26.160889+00:00",
+    "timestamp": "2026-04-12T21:01:24.161755+00:00",
     "status": "GREEN",
     "status_since": "2026-04-07T01:04:43.213545+00:00"
   },
@@ -193,7 +194,7 @@
     "visibility_pct": 1.0,
     "visible_collectors": 329,
     "total_collectors": 329,
-    "timestamp": "2026-04-12T20:31:26.911649+00:00",
+    "timestamp": "2026-04-12T21:01:24.972243+00:00",
     "status": "YELLOW",
     "status_since": "2026-04-12T20:31:26.911649+00:00"
   },
@@ -204,7 +205,7 @@
     "visibility_pct": 1.0,
     "visible_collectors": 329,
     "total_collectors": 329,
-    "timestamp": "2026-04-12T20:31:27.559235+00:00",
+    "timestamp": "2026-04-12T21:01:25.638816+00:00",
     "status": "GREEN",
     "status_since": "2026-04-09T17:31:16.362547+00:00"
   },
@@ -215,7 +216,7 @@
     "visibility_pct": 1.0,
     "visible_collectors": 329,
     "total_collectors": 329,
-    "timestamp": "2026-04-12T20:31:28.146148+00:00",
+    "timestamp": "2026-04-12T21:01:26.355599+00:00",
     "status": "GREEN",
     "status_since": "2026-04-12T08:01:32.946454+00:00"
   },
@@ -226,7 +227,7 @@
     "visibility_pct": 1.0,
     "visible_collectors": 329,
     "total_collectors": 329,
-    "timestamp": "2026-04-12T20:31:28.896505+00:00",
+    "timestamp": "2026-04-12T21:01:27.250216+00:00",
     "status": "GREEN",
     "status_since": "2026-04-10T16:01:44.898550+00:00"
   },
@@ -237,7 +238,7 @@
     "visibility_pct": 0.0,
     "visible_collectors": 0,
     "total_collectors": 329,
-    "timestamp": "2026-04-12T20:31:29.495340+00:00",
+    "timestamp": "2026-04-12T21:01:27.956050+00:00",
     "status": "RED",
     "status_since": "2026-04-06T11:31:14.750939+00:00"
   },
@@ -248,7 +249,7 @@
     "visibility_pct": 1.0,
     "visible_collectors": 329,
     "total_collectors": 329,
-    "timestamp": "2026-04-12T20:31:30.410185+00:00",
+    "timestamp": "2026-04-12T21:01:29.009467+00:00",
     "status": "GREEN",
     "status_since": "2026-04-12T06:01:37.214021+00:00"
   },
@@ -259,20 +260,21 @@
     "visibility_pct": 0.997,
     "visible_collectors": 328,
     "total_collectors": 329,
-    "timestamp": "2026-04-12T20:31:30.940003+00:00",
+    "timestamp": "2026-04-12T21:01:29.676357+00:00",
     "status": "GREEN",
     "status_since": "2026-04-07T01:04:45.640069+00:00"
   },
   "AS137826": {
     "asn": "AS137826",
     "name": "ASTCL-AS-AP AST SYSTEM TECHNOLOGY COMPANY LIMITED",
-    "announced": true,
-    "visibility_pct": 1.0,
-    "visible_collectors": 329,
-    "total_collectors": 329,
-    "timestamp": "2026-04-12T20:31:31.483584+00:00",
-    "status": "GREEN",
-    "status_since": "2026-04-09T02:01:23.238094+00:00"
+    "announced": false,
+    "visibility_pct": 0.0,
+    "visible_collectors": 0,
+    "total_collectors": 0,
+    "status": "RED",
+    "status_since": "2026-04-12T21:01:32.197250+00:00",
+    "timestamp": "2026-04-12T21:01:32.197250+00:00",
+    "error": "Server error '500 Internal Server Error' for url 'https://stat.ripe.net/data/rou"
   },
   "AS135300": {
     "asn": "AS135300",
@@ -281,7 +283,7 @@
     "visibility_pct": 1.0,
     "visible_collectors": 329,
     "total_collectors": 329,
-    "timestamp": "2026-04-12T20:31:32.421511+00:00",
+    "timestamp": "2026-04-12T21:01:33.325836+00:00",
     "status": "GREEN",
     "status_since": "2026-04-10T15:32:01.568066+00:00"
   },
@@ -292,7 +294,7 @@
     "visibility_pct": 1.0,
     "visible_collectors": 329,
     "total_collectors": 329,
-    "timestamp": "2026-04-12T20:31:32.975275+00:00",
+    "timestamp": "2026-04-12T21:01:34.007731+00:00",
     "status": "GREEN",
     "status_since": "2026-04-07T01:04:46.715126+00:00"
   },
@@ -303,7 +305,7 @@
     "visibility_pct": 1.0,
     "visible_collectors": 329,
     "total_collectors": 329,
-    "timestamp": "2026-04-12T20:31:33.773481+00:00",
+    "timestamp": "2026-04-12T21:01:34.888033+00:00",
     "status": "GREEN",
     "status_since": "2026-04-12T15:31:36.501045+00:00"
   },
@@ -314,7 +316,7 @@
     "visibility_pct": 1.0,
     "visible_collectors": 329,
     "total_collectors": 329,
-    "timestamp": "2026-04-12T20:31:34.462186+00:00",
+    "timestamp": "2026-04-12T21:01:35.732592+00:00",
     "status": "GREEN",
     "status_since": "2026-04-07T01:04:47.409422+00:00"
   },
@@ -325,7 +327,7 @@
     "visibility_pct": 1.0,
     "visible_collectors": 329,
     "total_collectors": 329,
-    "timestamp": "2026-04-12T20:31:35.145809+00:00",
+    "timestamp": "2026-04-12T21:01:36.552711+00:00",
     "status": "GREEN",
     "status_since": "2026-04-12T17:31:24.581441+00:00"
   },
@@ -336,7 +338,7 @@
     "visibility_pct": 1.0,
     "visible_collectors": 329,
     "total_collectors": 329,
-    "timestamp": "2026-04-12T20:31:35.762996+00:00",
+    "timestamp": "2026-04-12T21:01:37.270525+00:00",
     "status": "GREEN",
     "status_since": "2026-04-07T01:04:48.114712+00:00"
   },
@@ -347,7 +349,7 @@
     "visibility_pct": 1.0,
     "visible_collectors": 329,
     "total_collectors": 329,
-    "timestamp": "2026-04-12T20:31:36.327061+00:00",
+    "timestamp": "2026-04-12T21:01:37.934327+00:00",
     "status": "GREEN",
     "status_since": "2026-04-07T01:04:48.464941+00:00"
   },
@@ -358,7 +360,7 @@
     "visibility_pct": 1.0,
     "visible_collectors": 329,
     "total_collectors": 329,
-    "timestamp": "2026-04-12T20:31:36.904275+00:00",
+    "timestamp": "2026-04-12T21:01:38.674402+00:00",
     "status": "GREEN",
     "status_since": "2026-04-07T01:04:48.809601+00:00"
   },
@@ -369,7 +371,7 @@
     "visibility_pct": 1.0,
     "visible_collectors": 329,
     "total_collectors": 329,
-    "timestamp": "2026-04-12T20:31:37.861855+00:00",
+    "timestamp": "2026-04-12T21:01:40.740590+00:00",
     "status": "GREEN",
     "status_since": "2026-04-07T19:31:26.476125+00:00"
   },
@@ -380,7 +382,7 @@
     "visibility_pct": 1.0,
     "visible_collectors": 329,
     "total_collectors": 329,
-    "timestamp": "2026-04-12T20:31:38.449635+00:00",
+    "timestamp": "2026-04-12T21:01:41.420466+00:00",
     "status": "GREEN",
     "status_since": "2026-04-07T01:04:49.505376+00:00"
   },
@@ -391,7 +393,7 @@
     "visibility_pct": 1.0,
     "visible_collectors": 329,
     "total_collectors": 329,
-    "timestamp": "2026-04-12T20:31:39.025064+00:00",
+    "timestamp": "2026-04-12T21:01:42.077904+00:00",
     "status": "GREEN",
     "status_since": "2026-04-09T06:31:41.267566+00:00"
   },
@@ -402,7 +404,7 @@
     "visibility_pct": 1.0,
     "visible_collectors": 329,
     "total_collectors": 329,
-    "timestamp": "2026-04-12T20:31:40.124348+00:00",
+    "timestamp": "2026-04-12T21:01:43.418542+00:00",
     "status": "GREEN",
     "status_since": "2026-04-11T22:31:28.529423+00:00"
   },
@@ -413,7 +415,7 @@
     "visibility_pct": 1.0,
     "visible_collectors": 329,
     "total_collectors": 329,
-    "timestamp": "2026-04-12T20:31:40.698244+00:00",
+    "timestamp": "2026-04-12T21:01:44.130989+00:00",
     "status": "GREEN",
     "status_since": "2026-04-11T22:31:29.196742+00:00"
   },
@@ -424,7 +426,7 @@
     "visibility_pct": 1.0,
     "visible_collectors": 329,
     "total_collectors": 329,
-    "timestamp": "2026-04-12T20:31:41.397846+00:00",
+    "timestamp": "2026-04-12T21:01:45.215999+00:00",
     "status": "GREEN",
     "status_since": "2026-04-11T07:31:26.269729+00:00"
   },
@@ -435,7 +437,7 @@
     "visibility_pct": 1.0,
     "visible_collectors": 329,
     "total_collectors": 329,
-    "timestamp": "2026-04-12T20:31:42.280866+00:00",
+    "timestamp": "2026-04-12T21:01:46.137351+00:00",
     "status": "GREEN",
     "status_since": "2026-04-10T13:31:49.826739+00:00"
   },
@@ -446,7 +448,7 @@
     "visibility_pct": 1.0,
     "visible_collectors": 329,
     "total_collectors": 329,
-    "timestamp": "2026-04-12T20:31:42.982752+00:00",
+    "timestamp": "2026-04-12T21:01:47.014930+00:00",
     "status": "GREEN",
     "status_since": "2026-04-10T19:31:43.139719+00:00"
   },
@@ -457,7 +459,7 @@
     "visibility_pct": 0.997,
     "visible_collectors": 328,
     "total_collectors": 329,
-    "timestamp": "2026-04-12T20:31:43.562063+00:00",
+    "timestamp": "2026-04-12T21:01:47.725271+00:00",
     "status": "GREEN",
     "status_since": "2026-04-07T01:04:51.945254+00:00"
   },
@@ -468,7 +470,7 @@
     "visibility_pct": 0.006,
     "visible_collectors": 2,
     "total_collectors": 329,
-    "timestamp": "2026-04-12T20:31:44.169555+00:00",
+    "timestamp": "2026-04-12T21:01:48.442264+00:00",
     "status": "RED",
     "status_since": "2026-04-11T11:31:34.622277+00:00"
   },
@@ -479,7 +481,7 @@
     "visibility_pct": 1.0,
     "visible_collectors": 329,
     "total_collectors": 329,
-    "timestamp": "2026-04-12T20:31:44.832867+00:00",
+    "timestamp": "2026-04-12T21:01:49.192092+00:00",
     "status": "GREEN",
     "status_since": "2026-04-07T01:04:52.635543+00:00"
   },
@@ -490,20 +492,21 @@
     "visibility_pct": 1.0,
     "visible_collectors": 329,
     "total_collectors": 329,
-    "timestamp": "2026-04-12T20:31:45.896692+00:00",
+    "timestamp": "2026-04-12T21:01:49.980673+00:00",
     "status": "GREEN",
     "status_since": "2026-04-11T10:31:53.535171+00:00"
   },
   "AS151783": {
     "asn": "AS151783",
     "name": "ERU-AS-AP EASTERN ROYAL UNICOM ERU TECHNOLOGY COMPANY LIMITED",
-    "announced": true,
-    "visibility_pct": 1.0,
-    "visible_collectors": 329,
-    "total_collectors": 329,
-    "timestamp": "2026-04-12T20:31:46.498825+00:00",
-    "status": "GREEN",
-    "status_since": "2026-04-11T00:31:27.417050+00:00"
+    "announced": false,
+    "visibility_pct": 0.0,
+    "visible_collectors": 0,
+    "total_collectors": 0,
+    "status": "RED",
+    "status_since": "2026-04-12T21:01:55.444897+00:00",
+    "timestamp": "2026-04-12T21:01:55.444897+00:00",
+    "error": "Server error '500 Internal Server Error' for url 'https://stat.ripe.net/data/rou"
   },
   "AS153319": {
     "asn": "AS153319",
@@ -512,7 +515,7 @@
     "visibility_pct": 0.0,
     "visible_collectors": 0,
     "total_collectors": 329,
-    "timestamp": "2026-04-12T20:31:47.023568+00:00",
+    "timestamp": "2026-04-12T21:01:56.113287+00:00",
     "status": "RED",
     "status_since": "2026-04-06T11:31:23.470455+00:00"
   },
@@ -523,7 +526,7 @@
     "visibility_pct": 1.0,
     "visible_collectors": 329,
     "total_collectors": 329,
-    "timestamp": "2026-04-12T20:31:47.890912+00:00",
+    "timestamp": "2026-04-12T21:01:57.155067+00:00",
     "status": "GREEN",
     "status_since": "2026-04-07T01:04:54.022854+00:00"
   },
@@ -534,7 +537,7 @@
     "visibility_pct": 0.0,
     "visible_collectors": 0,
     "total_collectors": 329,
-    "timestamp": "2026-04-12T20:31:48.368455+00:00",
+    "timestamp": "2026-04-12T21:01:57.727724+00:00",
     "status": "RED",
     "status_since": "2026-04-06T11:31:24.165889+00:00"
   },
@@ -545,7 +548,7 @@
     "visibility_pct": 1.0,
     "visible_collectors": 329,
     "total_collectors": 329,
-    "timestamp": "2026-04-12T20:31:48.995500+00:00",
+    "timestamp": "2026-04-12T21:01:58.426573+00:00",
     "status": "GREEN",
     "status_since": "2026-04-07T01:04:54.712480+00:00"
   },
@@ -556,7 +559,7 @@
     "visibility_pct": 1.0,
     "visible_collectors": 329,
     "total_collectors": 329,
-    "timestamp": "2026-04-12T20:31:49.897471+00:00",
+    "timestamp": "2026-04-12T21:01:59.402394+00:00",
     "status": "GREEN",
     "status_since": "2026-04-07T01:04:55.066622+00:00"
   },
@@ -567,7 +570,7 @@
     "visibility_pct": 1.0,
     "visible_collectors": 329,
     "total_collectors": 329,
-    "timestamp": "2026-04-12T20:31:50.572184+00:00",
+    "timestamp": "2026-04-12T21:02:00.098424+00:00",
     "status": "GREEN",
     "status_since": "2026-04-09T16:31:53.223626+00:00"
   },
@@ -578,7 +581,7 @@
     "visibility_pct": 1.0,
     "visible_collectors": 329,
     "total_collectors": 329,
-    "timestamp": "2026-04-12T20:31:51.400978+00:00",
+    "timestamp": "2026-04-12T21:02:01.090193+00:00",
     "status": "GREEN",
     "status_since": "2026-04-07T01:04:55.769469+00:00"
   },
@@ -589,7 +592,7 @@
     "visibility_pct": 1.0,
     "visible_collectors": 329,
     "total_collectors": 329,
-    "timestamp": "2026-04-12T20:31:51.956119+00:00",
+    "timestamp": "2026-04-12T21:02:01.812355+00:00",
     "status": "GREEN",
     "status_since": "2026-04-11T13:32:15.948515+00:00"
   },
@@ -600,7 +603,7 @@
     "visibility_pct": 1.0,
     "visible_collectors": 329,
     "total_collectors": 329,
-    "timestamp": "2026-04-12T20:31:52.583635+00:00",
+    "timestamp": "2026-04-12T21:02:02.524918+00:00",
     "status": "GREEN",
     "status_since": "2026-04-07T10:01:37.459865+00:00"
   },
@@ -611,7 +614,7 @@
     "visibility_pct": 1.0,
     "visible_collectors": 329,
     "total_collectors": 329,
-    "timestamp": "2026-04-12T20:31:52.922981+00:00",
+    "timestamp": "2026-04-12T21:02:02.869339+00:00",
     "status": "GREEN",
     "status_since": "2026-04-12T18:15:11.457615+00:00"
   },
@@ -622,7 +625,7 @@
     "visibility_pct": 1.0,
     "visible_collectors": 329,
     "total_collectors": 329,
-    "timestamp": "2026-04-12T20:31:53.867772+00:00",
+    "timestamp": "2026-04-12T21:02:04.104558+00:00",
     "status": "GREEN",
     "status_since": "2026-04-11T06:02:41.457770+00:00"
   },
@@ -633,7 +636,7 @@
     "visibility_pct": 1.0,
     "visible_collectors": 329,
     "total_collectors": 329,
-    "timestamp": "2026-04-12T20:31:55.896137+00:00",
+    "timestamp": "2026-04-12T21:02:06.295391+00:00",
     "status": "GREEN",
     "status_since": "2026-04-12T06:02:06.951173+00:00"
   },
@@ -644,7 +647,7 @@
     "visibility_pct": 1.0,
     "visible_collectors": 329,
     "total_collectors": 329,
-    "timestamp": "2026-04-12T20:31:56.691858+00:00",
+    "timestamp": "2026-04-12T21:02:07.172212+00:00",
     "status": "GREEN",
     "status_since": "2026-04-11T12:31:51.578124+00:00"
   },
@@ -655,7 +658,7 @@
     "visibility_pct": 1.0,
     "visible_collectors": 329,
     "total_collectors": 329,
-    "timestamp": "2026-04-12T20:31:57.273523+00:00",
+    "timestamp": "2026-04-12T21:02:07.901887+00:00",
     "status": "GREEN",
     "status_since": "2026-04-11T07:31:41.023957+00:00"
   },
@@ -666,7 +669,7 @@
     "visibility_pct": 1.0,
     "visible_collectors": 329,
     "total_collectors": 329,
-    "timestamp": "2026-04-12T20:31:57.829050+00:00",
+    "timestamp": "2026-04-12T21:02:08.536979+00:00",
     "status": "GREEN",
     "status_since": "2026-04-07T01:04:58.571309+00:00"
   },
@@ -677,7 +680,7 @@
     "visibility_pct": 1.0,
     "visible_collectors": 329,
     "total_collectors": 329,
-    "timestamp": "2026-04-12T20:31:58.796482+00:00",
+    "timestamp": "2026-04-12T21:02:09.730449+00:00",
     "status": "GREEN",
     "status_since": "2026-04-09T15:32:11.368957+00:00"
   },
@@ -688,7 +691,7 @@
     "visibility_pct": 1.0,
     "visible_collectors": 329,
     "total_collectors": 329,
-    "timestamp": "2026-04-12T20:31:59.505568+00:00",
+    "timestamp": "2026-04-12T21:02:10.494557+00:00",
     "status": "GREEN",
     "status_since": "2026-04-07T18:02:08.328566+00:00"
   },
@@ -699,7 +702,7 @@
     "visibility_pct": 1.0,
     "visible_collectors": 329,
     "total_collectors": 329,
-    "timestamp": "2026-04-12T20:32:00.278555+00:00",
+    "timestamp": "2026-04-12T21:02:11.364260+00:00",
     "status": "GREEN",
     "status_since": "2026-04-11T21:01:54.432902+00:00"
   },
@@ -710,7 +713,7 @@
     "visibility_pct": 1.0,
     "visible_collectors": 329,
     "total_collectors": 329,
-    "timestamp": "2026-04-12T20:32:00.997404+00:00",
+    "timestamp": "2026-04-12T21:02:12.224747+00:00",
     "status": "GREEN",
     "status_since": "2026-04-09T10:02:30.525932+00:00"
   },
@@ -721,7 +724,7 @@
     "visibility_pct": 0.997,
     "visible_collectors": 328,
     "total_collectors": 329,
-    "timestamp": "2026-04-12T20:32:01.820371+00:00",
+    "timestamp": "2026-04-12T21:02:13.070707+00:00",
     "status": "GREEN",
     "status_since": "2026-04-07T01:05:00.314586+00:00"
   },
@@ -732,7 +735,7 @@
     "visibility_pct": 1.0,
     "visible_collectors": 329,
     "total_collectors": 329,
-    "timestamp": "2026-04-12T20:32:02.428271+00:00",
+    "timestamp": "2026-04-12T21:02:13.790171+00:00",
     "status": "GREEN",
     "status_since": "2026-04-10T18:32:40.347063+00:00"
   },
@@ -743,7 +746,7 @@
     "visibility_pct": 1.0,
     "visible_collectors": 329,
     "total_collectors": 329,
-    "timestamp": "2026-04-12T20:32:03.215731+00:00",
+    "timestamp": "2026-04-12T21:02:14.675376+00:00",
     "status": "GREEN",
     "status_since": "2026-04-07T10:01:48.280943+00:00"
   },
@@ -754,7 +757,7 @@
     "visibility_pct": 1.0,
     "visible_collectors": 329,
     "total_collectors": 329,
-    "timestamp": "2026-04-12T20:32:04.110256+00:00",
+    "timestamp": "2026-04-12T21:02:15.376303+00:00",
     "status": "GREEN",
     "status_since": "2026-04-10T19:32:05.916506+00:00"
   },
@@ -765,7 +768,7 @@
     "visibility_pct": 1.0,
     "visible_collectors": 329,
     "total_collectors": 329,
-    "timestamp": "2026-04-12T20:32:04.455123+00:00",
+    "timestamp": "2026-04-12T21:02:15.742941+00:00",
     "status": "GREEN",
     "status_since": "2026-04-11T05:45:20.885839+00:00"
   },
@@ -776,7 +779,7 @@
     "visibility_pct": 1.0,
     "visible_collectors": 329,
     "total_collectors": 329,
-    "timestamp": "2026-04-12T20:32:05.113311+00:00",
+    "timestamp": "2026-04-12T21:02:16.424309+00:00",
     "status": "GREEN",
     "status_since": "2026-04-07T01:05:02.057944+00:00"
   },
@@ -787,7 +790,7 @@
     "visibility_pct": 1.0,
     "visible_collectors": 329,
     "total_collectors": 329,
-    "timestamp": "2026-04-12T20:32:05.702738+00:00",
+    "timestamp": "2026-04-12T21:02:17.137281+00:00",
     "status": "GREEN",
     "status_since": "2026-04-07T01:05:02.400420+00:00"
   },
@@ -798,7 +801,7 @@
     "visibility_pct": 0.997,
     "visible_collectors": 328,
     "total_collectors": 329,
-    "timestamp": "2026-04-12T20:32:06.245724+00:00",
+    "timestamp": "2026-04-12T21:02:17.775925+00:00",
     "status": "GREEN",
     "status_since": "2026-04-07T01:05:02.742903+00:00"
   },
@@ -809,7 +812,7 @@
     "visibility_pct": 1.0,
     "visible_collectors": 329,
     "total_collectors": 329,
-    "timestamp": "2026-04-12T20:32:06.811016+00:00",
+    "timestamp": "2026-04-12T21:02:18.443399+00:00",
     "status": "GREEN",
     "status_since": "2026-04-07T01:05:03.085623+00:00"
   },
@@ -820,7 +823,7 @@
     "visibility_pct": 0.997,
     "visible_collectors": 328,
     "total_collectors": 329,
-    "timestamp": "2026-04-12T20:32:07.376173+00:00",
+    "timestamp": "2026-04-12T21:02:19.100556+00:00",
     "status": "GREEN",
     "status_since": "2026-04-10T18:32:49.829540+00:00"
   },
@@ -831,7 +834,7 @@
     "visibility_pct": 0.997,
     "visible_collectors": 328,
     "total_collectors": 329,
-    "timestamp": "2026-04-12T20:32:07.920558+00:00",
+    "timestamp": "2026-04-12T21:02:19.813617+00:00",
     "status": "GREEN",
     "status_since": "2026-04-08T13:02:00.490740+00:00"
   },
@@ -842,7 +845,7 @@
     "visibility_pct": 1.0,
     "visible_collectors": 329,
     "total_collectors": 329,
-    "timestamp": "2026-04-12T20:32:08.494193+00:00",
+    "timestamp": "2026-04-12T21:02:20.578201+00:00",
     "status": "GREEN",
     "status_since": "2026-04-07T01:05:04.129082+00:00"
   },
@@ -853,7 +856,7 @@
     "visibility_pct": 1.0,
     "visible_collectors": 329,
     "total_collectors": 329,
-    "timestamp": "2026-04-12T20:32:09.284505+00:00",
+    "timestamp": "2026-04-12T21:02:21.350275+00:00",
     "status": "GREEN",
     "status_since": "2026-04-12T04:32:31.281765+00:00"
   },
@@ -864,7 +867,7 @@
     "visibility_pct": 1.0,
     "visible_collectors": 329,
     "total_collectors": 329,
-    "timestamp": "2026-04-12T20:32:09.871334+00:00",
+    "timestamp": "2026-04-12T21:02:22.083617+00:00",
     "status": "GREEN",
     "status_since": "2026-04-07T01:05:04.818190+00:00"
   },
@@ -875,7 +878,7 @@
     "visibility_pct": 1.0,
     "visible_collectors": 329,
     "total_collectors": 329,
-    "timestamp": "2026-04-12T20:32:10.515886+00:00",
+    "timestamp": "2026-04-12T21:02:22.820811+00:00",
     "status": "GREEN",
     "status_since": "2026-04-09T20:02:20.004315+00:00"
   },
@@ -886,7 +889,7 @@
     "visibility_pct": 1.0,
     "visible_collectors": 329,
     "total_collectors": 329,
-    "timestamp": "2026-04-12T20:32:11.149229+00:00",
+    "timestamp": "2026-04-12T21:02:23.612306+00:00",
     "status": "GREEN",
     "status_since": "2026-04-07T01:05:05.515106+00:00"
   },
@@ -897,7 +900,7 @@
     "visibility_pct": 1.0,
     "visible_collectors": 329,
     "total_collectors": 329,
-    "timestamp": "2026-04-12T20:32:11.715382+00:00",
+    "timestamp": "2026-04-12T21:02:24.282026+00:00",
     "status": "GREEN",
     "status_since": "2026-04-07T01:05:05.857922+00:00"
   },
@@ -908,7 +911,7 @@
     "visibility_pct": 1.0,
     "visible_collectors": 329,
     "total_collectors": 329,
-    "timestamp": "2026-04-12T20:32:12.527388+00:00",
+    "timestamp": "2026-04-12T21:02:25.198408+00:00",
     "status": "GREEN",
     "status_since": "2026-04-10T22:32:20.661371+00:00"
   },
@@ -919,7 +922,7 @@
     "visibility_pct": 1.0,
     "visible_collectors": 329,
     "total_collectors": 329,
-    "timestamp": "2026-04-12T20:32:13.109417+00:00",
+    "timestamp": "2026-04-12T21:02:25.890093+00:00",
     "status": "GREEN",
     "status_since": "2026-04-10T21:32:06.191416+00:00"
   },
@@ -930,7 +933,7 @@
     "visibility_pct": 1.0,
     "visible_collectors": 329,
     "total_collectors": 329,
-    "timestamp": "2026-04-12T20:32:13.729329+00:00",
+    "timestamp": "2026-04-12T21:02:26.600358+00:00",
     "status": "GREEN",
     "status_since": "2026-04-11T18:03:03.012364+00:00"
   },
@@ -941,7 +944,7 @@
     "visibility_pct": 1.0,
     "visible_collectors": 329,
     "total_collectors": 329,
-    "timestamp": "2026-04-12T20:32:14.303023+00:00",
+    "timestamp": "2026-04-12T21:02:27.310690+00:00",
     "status": "GREEN",
     "status_since": "2026-04-07T15:32:28.837368+00:00"
   },
@@ -952,7 +955,7 @@
     "visibility_pct": 1.0,
     "visible_collectors": 329,
     "total_collectors": 329,
-    "timestamp": "2026-04-12T20:32:15.038576+00:00",
+    "timestamp": "2026-04-12T21:02:27.993157+00:00",
     "status": "GREEN",
     "status_since": "2026-04-10T16:32:29.866689+00:00"
   },
@@ -963,7 +966,7 @@
     "visibility_pct": 1.0,
     "visible_collectors": 329,
     "total_collectors": 329,
-    "timestamp": "2026-04-12T20:32:15.619040+00:00",
+    "timestamp": "2026-04-12T21:02:28.719755+00:00",
     "status": "GREEN",
     "status_since": "2026-04-07T01:05:07.944103+00:00"
   },
@@ -974,7 +977,7 @@
     "visibility_pct": 1.0,
     "visible_collectors": 329,
     "total_collectors": 329,
-    "timestamp": "2026-04-12T20:32:16.495055+00:00",
+    "timestamp": "2026-04-12T21:02:29.611513+00:00",
     "status": "GREEN",
     "status_since": "2026-04-12T01:32:03.185364+00:00"
   },
@@ -985,7 +988,7 @@
     "visibility_pct": 1.0,
     "visible_collectors": 329,
     "total_collectors": 329,
-    "timestamp": "2026-04-12T20:32:17.208035+00:00",
+    "timestamp": "2026-04-12T21:02:30.291282+00:00",
     "status": "GREEN",
     "status_since": "2026-04-12T01:32:03.713745+00:00"
   },
@@ -996,7 +999,7 @@
     "visibility_pct": 1.0,
     "visible_collectors": 329,
     "total_collectors": 329,
-    "timestamp": "2026-04-12T20:32:18.033318+00:00",
+    "timestamp": "2026-04-12T21:02:31.160583+00:00",
     "status": "GREEN",
     "status_since": "2026-04-07T01:05:08.977828+00:00"
   },
@@ -1007,7 +1010,7 @@
     "visibility_pct": 1.0,
     "visible_collectors": 329,
     "total_collectors": 329,
-    "timestamp": "2026-04-12T20:32:20.944296+00:00",
+    "timestamp": "2026-04-12T21:02:32.574353+00:00",
     "status": "GREEN",
     "status_since": "2026-04-07T01:05:09.328313+00:00"
   },
@@ -1018,7 +1021,7 @@
     "visibility_pct": 1.0,
     "visible_collectors": 329,
     "total_collectors": 329,
-    "timestamp": "2026-04-12T20:32:21.497890+00:00",
+    "timestamp": "2026-04-12T21:02:33.262673+00:00",
     "status": "GREEN",
     "status_since": "2026-04-12T03:32:39.669143+00:00"
   },
@@ -1029,7 +1032,7 @@
     "visibility_pct": 1.0,
     "visible_collectors": 329,
     "total_collectors": 329,
-    "timestamp": "2026-04-12T20:32:22.135754+00:00",
+    "timestamp": "2026-04-12T21:02:33.957951+00:00",
     "status": "GREEN",
     "status_since": "2026-04-07T14:32:46.372056+00:00"
   },
@@ -1040,7 +1043,7 @@
     "visibility_pct": 0.997,
     "visible_collectors": 328,
     "total_collectors": 329,
-    "timestamp": "2026-04-12T20:32:22.743303+00:00",
+    "timestamp": "2026-04-12T21:02:34.714978+00:00",
     "status": "GREEN",
     "status_since": "2026-04-07T01:05:10.365153+00:00"
   },
@@ -1051,7 +1054,7 @@
     "visibility_pct": 1.0,
     "visible_collectors": 329,
     "total_collectors": 329,
-    "timestamp": "2026-04-12T20:32:23.340622+00:00",
+    "timestamp": "2026-04-12T21:02:35.381873+00:00",
     "status": "GREEN",
     "status_since": "2026-04-07T01:05:10.710544+00:00"
   },
@@ -1062,7 +1065,7 @@
     "visibility_pct": 1.0,
     "visible_collectors": 329,
     "total_collectors": 329,
-    "timestamp": "2026-04-12T20:32:23.895867+00:00",
+    "timestamp": "2026-04-12T21:02:36.151037+00:00",
     "status": "GREEN",
     "status_since": "2026-04-07T01:05:11.060811+00:00"
   },
@@ -1073,7 +1076,7 @@
     "visibility_pct": 1.0,
     "visible_collectors": 329,
     "total_collectors": 329,
-    "timestamp": "2026-04-12T20:32:25.143406+00:00",
+    "timestamp": "2026-04-12T21:02:37.674314+00:00",
     "status": "GREEN",
     "status_since": "2026-04-07T01:05:11.410405+00:00"
   },
@@ -1084,7 +1087,7 @@
     "visibility_pct": 1.0,
     "visible_collectors": 329,
     "total_collectors": 329,
-    "timestamp": "2026-04-12T20:32:26.036210+00:00",
+    "timestamp": "2026-04-12T21:02:38.573201+00:00",
     "status": "GREEN",
     "status_since": "2026-04-07T15:32:52.305057+00:00"
   },
@@ -1095,7 +1098,7 @@
     "visibility_pct": 1.0,
     "visible_collectors": 329,
     "total_collectors": 329,
-    "timestamp": "2026-04-12T20:32:26.718757+00:00",
+    "timestamp": "2026-04-12T21:02:39.298495+00:00",
     "status": "GREEN",
     "status_since": "2026-04-07T01:05:12.114090+00:00"
   },
@@ -1106,7 +1109,7 @@
     "visibility_pct": 1.0,
     "visible_collectors": 329,
     "total_collectors": 329,
-    "timestamp": "2026-04-12T20:32:27.270993+00:00",
+    "timestamp": "2026-04-12T21:02:39.944707+00:00",
     "status": "GREEN",
     "status_since": "2026-04-12T06:33:59.538917+00:00"
   },
@@ -1117,7 +1120,7 @@
     "visibility_pct": 1.0,
     "visible_collectors": 329,
     "total_collectors": 329,
-    "timestamp": "2026-04-12T20:32:27.936132+00:00",
+    "timestamp": "2026-04-12T21:02:40.694436+00:00",
     "status": "GREEN",
     "status_since": "2026-04-10T19:32:38.243574+00:00"
   },
@@ -1128,7 +1131,7 @@
     "visibility_pct": 1.0,
     "visible_collectors": 329,
     "total_collectors": 329,
-    "timestamp": "2026-04-12T20:32:28.534665+00:00",
+    "timestamp": "2026-04-12T21:02:41.382010+00:00",
     "status": "GREEN",
     "status_since": "2026-04-09T04:32:24.964329+00:00"
   },
@@ -1139,7 +1142,7 @@
     "visibility_pct": 1.0,
     "visible_collectors": 329,
     "total_collectors": 329,
-    "timestamp": "2026-04-12T20:32:29.354629+00:00",
+    "timestamp": "2026-04-12T21:02:42.316684+00:00",
     "status": "GREEN",
     "status_since": "2026-04-09T10:32:42.130729+00:00"
   },
@@ -1150,7 +1153,7 @@
     "visibility_pct": 0.997,
     "visible_collectors": 328,
     "total_collectors": 329,
-    "timestamp": "2026-04-12T20:32:29.969883+00:00",
+    "timestamp": "2026-04-12T21:02:43.030958+00:00",
     "status": "GREEN",
     "status_since": "2026-04-08T01:32:11.133758+00:00"
   },
@@ -1161,7 +1164,7 @@
     "visibility_pct": 1.0,
     "visible_collectors": 329,
     "total_collectors": 329,
-    "timestamp": "2026-04-12T20:32:30.565324+00:00",
+    "timestamp": "2026-04-12T21:02:43.699428+00:00",
     "status": "GREEN",
     "status_since": "2026-04-09T18:32:35.130451+00:00"
   },
@@ -1172,7 +1175,7 @@
     "visibility_pct": 1.0,
     "visible_collectors": 329,
     "total_collectors": 329,
-    "timestamp": "2026-04-12T20:32:31.140235+00:00",
+    "timestamp": "2026-04-12T21:02:44.393235+00:00",
     "status": "GREEN",
     "status_since": "2026-04-09T10:04:07.856515+00:00"
   },
@@ -1183,7 +1186,7 @@
     "visibility_pct": 1.0,
     "visible_collectors": 329,
     "total_collectors": 329,
-    "timestamp": "2026-04-12T20:32:31.728336+00:00",
+    "timestamp": "2026-04-12T21:02:45.109600+00:00",
     "status": "GREEN",
     "status_since": "2026-04-12T03:02:37.923278+00:00"
   },
@@ -1194,7 +1197,7 @@
     "visibility_pct": 1.0,
     "visible_collectors": 329,
     "total_collectors": 329,
-    "timestamp": "2026-04-12T20:32:32.697859+00:00",
+    "timestamp": "2026-04-12T21:02:46.248524+00:00",
     "status": "GREEN",
     "status_since": "2026-04-07T01:05:15.234451+00:00"
   },
@@ -1205,7 +1208,7 @@
     "visibility_pct": 1.0,
     "visible_collectors": 329,
     "total_collectors": 329,
-    "timestamp": "2026-04-12T20:32:33.412941+00:00",
+    "timestamp": "2026-04-12T21:02:47.018936+00:00",
     "status": "GREEN",
     "status_since": "2026-04-10T07:02:27.230198+00:00"
   },
@@ -1216,7 +1219,7 @@
     "visibility_pct": 1.0,
     "visible_collectors": 329,
     "total_collectors": 329,
-    "timestamp": "2026-04-12T20:32:34.222598+00:00",
+    "timestamp": "2026-04-12T21:02:47.835080+00:00",
     "status": "GREEN",
     "status_since": "2026-04-07T01:05:15.936309+00:00"
   },
@@ -1227,7 +1230,7 @@
     "visibility_pct": 1.0,
     "visible_collectors": 329,
     "total_collectors": 329,
-    "timestamp": "2026-04-12T20:32:34.890729+00:00",
+    "timestamp": "2026-04-12T21:02:48.582084+00:00",
     "status": "GREEN",
     "status_since": "2026-04-07T01:05:16.286816+00:00"
   },
@@ -1238,7 +1241,7 @@
     "visibility_pct": 1.0,
     "visible_collectors": 329,
     "total_collectors": 329,
-    "timestamp": "2026-04-12T20:32:35.459021+00:00",
+    "timestamp": "2026-04-12T21:02:49.265071+00:00",
     "status": "GREEN",
     "status_since": "2026-04-07T01:05:16.636549+00:00"
   },
@@ -1249,7 +1252,7 @@
     "visibility_pct": 1.0,
     "visible_collectors": 329,
     "total_collectors": 329,
-    "timestamp": "2026-04-12T20:32:36.476273+00:00",
+    "timestamp": "2026-04-12T21:02:49.963140+00:00",
     "status": "GREEN",
     "status_since": "2026-04-07T01:05:16.979311+00:00"
   },
@@ -1260,7 +1263,7 @@
     "visibility_pct": 1.0,
     "visible_collectors": 329,
     "total_collectors": 329,
-    "timestamp": "2026-04-12T20:32:37.090317+00:00",
+    "timestamp": "2026-04-12T21:02:50.641997+00:00",
     "status": "GREEN",
     "status_since": "2026-04-11T11:32:30.270110+00:00"
   },
@@ -1271,7 +1274,7 @@
     "visibility_pct": 1.0,
     "visible_collectors": 329,
     "total_collectors": 329,
-    "timestamp": "2026-04-12T20:32:37.726086+00:00",
+    "timestamp": "2026-04-12T21:02:51.318844+00:00",
     "status": "GREEN",
     "status_since": "2026-04-07T01:05:17.679655+00:00"
   },
@@ -1282,7 +1285,7 @@
     "visibility_pct": 1.0,
     "visible_collectors": 329,
     "total_collectors": 329,
-    "timestamp": "2026-04-12T20:32:38.366022+00:00",
+    "timestamp": "2026-04-12T21:02:52.063713+00:00",
     "status": "GREEN",
     "status_since": "2026-04-11T11:32:31.570852+00:00"
   },
@@ -1293,7 +1296,7 @@
     "visibility_pct": 1.0,
     "visible_collectors": 329,
     "total_collectors": 329,
-    "timestamp": "2026-04-12T20:32:38.911135+00:00",
+    "timestamp": "2026-04-12T21:02:52.731086+00:00",
     "status": "GREEN",
     "status_since": "2026-04-10T21:03:22.706366+00:00"
   },
@@ -1304,7 +1307,7 @@
     "visibility_pct": 1.0,
     "visible_collectors": 329,
     "total_collectors": 329,
-    "timestamp": "2026-04-12T20:32:39.644566+00:00",
+    "timestamp": "2026-04-12T21:02:53.513087+00:00",
     "status": "GREEN",
     "status_since": "2026-04-07T01:05:18.709592+00:00"
   },
@@ -1315,7 +1318,7 @@
     "visibility_pct": 1.0,
     "visible_collectors": 329,
     "total_collectors": 329,
-    "timestamp": "2026-04-12T20:32:40.193221+00:00",
+    "timestamp": "2026-04-12T21:02:54.205078+00:00",
     "status": "GREEN",
     "status_since": "2026-04-07T14:33:05.169084+00:00"
   },
@@ -1326,7 +1329,7 @@
     "visibility_pct": 0.997,
     "visible_collectors": 328,
     "total_collectors": 329,
-    "timestamp": "2026-04-12T20:32:40.731956+00:00",
+    "timestamp": "2026-04-12T21:02:54.830406+00:00",
     "status": "GREEN",
     "status_since": "2026-04-07T01:05:19.402915+00:00"
   },
@@ -1337,7 +1340,7 @@
     "visibility_pct": 0.997,
     "visible_collectors": 328,
     "total_collectors": 329,
-    "timestamp": "2026-04-12T20:32:41.308172+00:00",
+    "timestamp": "2026-04-12T21:02:55.495970+00:00",
     "status": "GREEN",
     "status_since": "2026-04-10T14:03:02.344565+00:00"
   },
@@ -1348,7 +1351,7 @@
     "visibility_pct": 1.0,
     "visible_collectors": 329,
     "total_collectors": 329,
-    "timestamp": "2026-04-12T20:32:41.942826+00:00",
+    "timestamp": "2026-04-12T21:02:56.219100+00:00",
     "status": "GREEN",
     "status_since": "2026-04-07T01:05:20.102943+00:00"
   },
@@ -1359,7 +1362,7 @@
     "visibility_pct": 1.0,
     "visible_collectors": 329,
     "total_collectors": 329,
-    "timestamp": "2026-04-12T20:32:43.476645+00:00",
+    "timestamp": "2026-04-12T21:02:57.883227+00:00",
     "status": "GREEN",
     "status_since": "2026-04-07T20:32:20.955585+00:00"
   },
@@ -1370,7 +1373,7 @@
     "visibility_pct": 1.0,
     "visible_collectors": 329,
     "total_collectors": 329,
-    "timestamp": "2026-04-12T20:32:44.486811+00:00",
+    "timestamp": "2026-04-12T21:02:59.103294+00:00",
     "status": "GREEN",
     "status_since": "2026-04-12T14:33:06.882890+00:00"
   },
@@ -1381,7 +1384,7 @@
     "visibility_pct": 1.0,
     "visible_collectors": 329,
     "total_collectors": 329,
-    "timestamp": "2026-04-12T20:32:45.096452+00:00",
+    "timestamp": "2026-04-12T21:02:59.904136+00:00",
     "status": "GREEN",
     "status_since": "2026-04-12T04:33:22.398488+00:00"
   },
@@ -1392,7 +1395,7 @@
     "visibility_pct": 1.0,
     "visible_collectors": 329,
     "total_collectors": 329,
-    "timestamp": "2026-04-12T20:32:45.683106+00:00",
+    "timestamp": "2026-04-12T21:03:00.719226+00:00",
     "status": "GREEN",
     "status_since": "2026-04-10T16:04:06.677480+00:00"
   },
@@ -1403,7 +1406,7 @@
     "visibility_pct": 1.0,
     "visible_collectors": 329,
     "total_collectors": 329,
-    "timestamp": "2026-04-12T20:32:46.390841+00:00",
+    "timestamp": "2026-04-12T21:03:01.472669+00:00",
     "status": "GREEN",
     "status_since": "2026-04-12T12:32:24.348936+00:00"
   },
@@ -1414,7 +1417,7 @@
     "visibility_pct": 1.0,
     "visible_collectors": 329,
     "total_collectors": 329,
-    "timestamp": "2026-04-12T20:32:47.183178+00:00",
+    "timestamp": "2026-04-12T21:03:02.334632+00:00",
     "status": "GREEN",
     "status_since": "2026-04-12T16:02:40.414048+00:00"
   },
@@ -1425,7 +1428,7 @@
     "visibility_pct": 0.997,
     "visible_collectors": 328,
     "total_collectors": 329,
-    "timestamp": "2026-04-12T20:32:47.940097+00:00",
+    "timestamp": "2026-04-12T21:03:03.205405+00:00",
     "status": "GREEN",
     "status_since": "2026-04-11T20:33:07.380924+00:00"
   },
