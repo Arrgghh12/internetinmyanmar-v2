@@ -1434,6 +1434,17 @@
     "name": "MPTCL-AS-AP MYANMAR PI TECHNOLOGY CO.",
     "status": "DOWN",
     "started_at": "2026-04-12T03:02:27.900006+00:00",
+    "ended_at": "2026-04-12T03:32:39.969827+00:00",
+    "duration_minutes": 30,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": true
+  },
+  {
+    "asn": "AS136229",
+    "name": "TCLC-AS-AP Treasure Chindwin Land Co.",
+    "status": "DOWN",
+    "started_at": "2026-04-12T03:31:17.006656+00:00",
     "ended_at": null,
     "duration_minutes": null,
     "min_visibility_pct": 0.0,
