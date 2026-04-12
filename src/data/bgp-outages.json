@@ -1626,5 +1626,16 @@
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
     "resolved": true
+  },
+  {
+    "asn": "AS136780",
+    "name": "MIHL-AS-AP MYANMAR INFORMATION HIGHWAY LIMITED",
+    "status": "DOWN",
+    "started_at": "2026-04-12T20:01:30.574293+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
   }
 ]
