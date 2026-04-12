@@ -1533,21 +1533,21 @@
     "name": "CAMPANA-AS-AP Campana MYTHIC Co. Ltd.",
     "status": "DOWN",
     "started_at": "2026-04-12T12:03:16.116872+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-12T12:32:22.896645+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS136177",
     "name": "YOMABANKLIMITED-AS-AP Yoma Bank Limited",
     "status": "DOWN",
     "started_at": "2026-04-12T12:03:18.041456+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-12T12:32:24.649492+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   }
 ]
