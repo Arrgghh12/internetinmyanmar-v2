@@ -1401,21 +1401,21 @@
     "name": "FMG-MM Myanmar Net",
     "status": "DOWN",
     "started_at": "2026-04-12T01:02:33.686925+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-12T01:32:03.486179+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS137069",
     "name": "PICME-AS-AP POSCO INTERNATIONAL CORPORATION MYANMAR E&P OFFICE",
     "status": "DOWN",
     "started_at": "2026-04-12T01:02:34.780998+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-12T01:32:04.014987+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   }
 ]
