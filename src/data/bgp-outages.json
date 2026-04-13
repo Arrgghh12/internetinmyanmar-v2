@@ -2028,10 +2028,10 @@
     "name": "ACL-AS-AP AnyNet",
     "status": "DOWN",
     "started_at": "2026-04-13T09:02:13.064440+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-13T09:32:03.710994+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   }
 ]
