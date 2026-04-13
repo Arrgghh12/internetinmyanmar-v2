@@ -1764,28 +1764,39 @@
     "name": "ROYALESPRIT-AS-AP Royal Esprit Company Limited",
     "status": "DOWN",
     "started_at": "2026-04-13T03:02:19.982374+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-13T03:31:28.012067+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS149660",
     "name": "HSCL-AS-AP Horizon Sources Company Limited",
     "status": "DOWN",
     "started_at": "2026-04-13T03:02:51.368168+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-13T03:31:41.538160+00:00",
+    "duration_minutes": 28,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS141704",
     "name": "GALAXIANET-AS-AP Galaxia @ Net",
     "status": "DOWN",
     "started_at": "2026-04-13T03:03:51.630997+00:00",
+    "ended_at": "2026-04-13T03:33:00.187599+00:00",
+    "duration_minutes": 29,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": true
+  },
+  {
+    "asn": "AS140617",
+    "name": "TPTNET-AS-AP THAN PHYO THU MINING COMPANY LIMITED",
+    "status": "DOWN",
+    "started_at": "2026-04-13T03:32:53.390379+00:00",
     "ended_at": null,
     "duration_minutes": null,
     "min_visibility_pct": 0.0,
