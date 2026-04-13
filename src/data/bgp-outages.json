@@ -2182,10 +2182,10 @@
     "name": "THENEXTSUCCESS-AS-AP The Next Success",
     "status": "DOWN",
     "started_at": "2026-04-13T19:32:25.047667+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-13T20:02:03.448956+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   }
 ]
