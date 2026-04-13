@@ -1808,6 +1808,17 @@
     "name": "FACE24COLTD-AS-AP FACE24 Co.",
     "status": "DOWN",
     "started_at": "2026-04-13T04:04:06.391674+00:00",
+    "ended_at": "2026-04-13T04:33:13.169662+00:00",
+    "duration_minutes": 29,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": true
+  },
+  {
+    "asn": "AS135307",
+    "name": "GTMH-AS-AP Golden TMH Telecom Co. Ltd",
+    "status": "DOWN",
+    "started_at": "2026-04-13T04:32:36.783048+00:00",
     "ended_at": null,
     "duration_minutes": null,
     "min_visibility_pct": 0.0,
@@ -1815,25 +1826,80 @@
     "resolved": false
   },
   {
-    "asn": "AS9988",
-    "name": "MPT-AP Myanma Posts and Telecommunications",
+    "asn": "AS150159",
+    "name": "BDCL-AS-AP BRAINWAVE DATA COMPANY LIMITED",
     "status": "DOWN",
-    "started_at": "2026-04-13T04:30:34.355057+00:00",
-    "ended_at": "2026-04-13T04:35:04.523947+00:00",
-    "duration_minutes": 4,
+    "started_at": "2026-04-13T04:32:52.101163+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": true
+    "resolved": false
   },
   {
-    "asn": "AS136480",
-    "name": "MMUNILINK-AS-AP Myanmar Unilink Communication Company Limited",
+    "asn": "AS133385",
+    "name": "ATOMMYANMAR-AS-AP Atom Myanmar Limited",
     "status": "DOWN",
-    "started_at": "2026-04-13T04:30:50.131049+00:00",
-    "ended_at": "2026-04-13T04:35:04.872664+00:00",
-    "duration_minutes": 4,
+    "started_at": "2026-04-13T04:33:49.273037+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": true
+    "resolved": false
+  },
+  {
+    "asn": "AS152329",
+    "name": "AKNCL-AS-AP Aon Kham Network Company Limited",
+    "status": "DOWN",
+    "started_at": "2026-04-13T04:34:06.454267+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
+  },
+  {
+    "asn": "AS140091",
+    "name": "SHWE-AS-AP SHWE MAHAR MAE KHONG INDUSTRIAL COMPANY LIMITED",
+    "status": "DOWN",
+    "started_at": "2026-04-13T04:34:35.147497+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
+  },
+  {
+    "asn": "AS140617",
+    "name": "TPTNET-AS-AP THAN PHYO THU MINING COMPANY LIMITED",
+    "status": "DOWN",
+    "started_at": "2026-04-13T04:34:52.178946+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
+  },
+  {
+    "asn": "AS138158",
+    "name": "SPAL-AS-AP Serge Pun & Associate Myanmar Ltd.",
+    "status": "DOWN",
+    "started_at": "2026-04-13T04:35:22.139479+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
+  },
+  {
+    "asn": "AS139704",
+    "name": "AS-AGBC AGB Communication Co.",
+    "status": "DOWN",
+    "started_at": "2026-04-13T04:35:41.624588+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
   }
 ]
