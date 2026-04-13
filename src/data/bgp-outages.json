@@ -2165,5 +2165,27 @@
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
     "resolved": true
+  },
+  {
+    "asn": "AS149038",
+    "name": "UCGCL-AS-AP UNIQUE COMM GROUP COMPANY LIMITED",
+    "status": "DOWN",
+    "started_at": "2026-04-13T19:31:25.776953+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.353,
+    "ioda_confirmed": false,
+    "resolved": false
+  },
+  {
+    "asn": "AS151341",
+    "name": "THENEXTSUCCESS-AS-AP The Next Success",
+    "status": "DOWN",
+    "started_at": "2026-04-13T19:32:25.047667+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
   }
 ]
