@@ -2094,10 +2094,10 @@
     "name": "MMUNILINK-AS-AP Myanmar Unilink Communication Company Limited",
     "status": "DOWN",
     "started_at": "2026-04-13T15:25:33.656895+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-13T15:30:41.405950+00:00",
+    "duration_minutes": 5,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   }
 ]
