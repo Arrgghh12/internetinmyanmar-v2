@@ -2193,21 +2193,21 @@
     "name": "BDCL-AS-AP BRAINWAVE DATA COMPANY LIMITED",
     "status": "DOWN",
     "started_at": "2026-04-13T20:31:37.704405+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-13T21:01:31.516754+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS136177",
     "name": "YOMABANKLIMITED-AS-AP Yoma Bank Limited",
     "status": "DOWN",
     "started_at": "2026-04-13T20:33:05.171656+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-13T21:02:53.968923+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   }
 ]
