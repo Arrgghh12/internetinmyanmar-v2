@@ -2061,10 +2061,10 @@
     "name": "GTMH-AS-AP Golden TMH Telecom Co. Ltd",
     "status": "DOWN",
     "started_at": "2026-04-13T12:31:50.116925+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-13T13:01:25.171649+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   }
 ]
