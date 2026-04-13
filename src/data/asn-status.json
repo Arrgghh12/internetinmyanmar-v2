@@ -160,7 +160,7 @@
     "visibility_pct": 1.0,
     "visible_collectors": 329,
     "total_collectors": 329,
-    "timestamp": "2026-04-13T04:02:49.250013+00:00",
+    "timestamp": "2026-04-13T04:30:07.992375+00:00",
     "status": "GREEN",
     "status_since": "2026-04-11T02:10:04.798037+00:00"
   },
@@ -171,7 +171,7 @@
     "visibility_pct": 1.0,
     "visible_collectors": 329,
     "total_collectors": 329,
-    "timestamp": "2026-04-13T04:02:49.596082+00:00",
+    "timestamp": "2026-04-13T04:30:18.734445+00:00",
     "status": "GREEN",
     "status_since": "2026-04-11T11:15:09.702287+00:00"
   },
@@ -609,13 +609,16 @@
   "AS9988": {
     "asn": "AS9988",
     "name": "MPT-AP Myanma Posts and Telecommunications",
-    "announced": true,
-    "visibility_pct": 1.0,
-    "visible_collectors": 329,
-    "total_collectors": 329,
-    "timestamp": "2026-04-13T04:04:24.476062+00:00",
-    "status": "GREEN",
-    "status_since": "2026-04-12T18:15:11.457615+00:00"
+    "announced": false,
+    "visibility_pct": 0.0,
+    "visible_collectors": 0,
+    "total_collectors": 0,
+    "status": "RED",
+    "status_since": "2026-04-13T04:30:34.054417+00:00",
+    "timestamp": "2026-04-13T04:30:34.054417+00:00",
+    "error": "",
+    "ioda_outages": 0,
+    "ioda_confirmed": false
   },
   "AS133384": {
     "asn": "AS133384",
@@ -763,13 +766,16 @@
   "AS136480": {
     "asn": "AS136480",
     "name": "MMUNILINK-AS-AP Myanmar Unilink Communication Company Limited",
-    "announced": true,
-    "visibility_pct": 1.0,
-    "visible_collectors": 329,
-    "total_collectors": 329,
-    "timestamp": "2026-04-13T04:04:52.471131+00:00",
-    "status": "GREEN",
-    "status_since": "2026-04-11T05:45:20.885839+00:00"
+    "announced": false,
+    "visibility_pct": 0.0,
+    "visible_collectors": 0,
+    "total_collectors": 0,
+    "status": "RED",
+    "status_since": "2026-04-13T04:30:49.830155+00:00",
+    "timestamp": "2026-04-13T04:30:49.830155+00:00",
+    "error": "",
+    "ioda_outages": 0,
+    "ioda_confirmed": false
   },
   "AS150309": {
     "asn": "AS150309",
