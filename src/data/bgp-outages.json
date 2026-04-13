@@ -1951,19 +1951,19 @@
     "name": "MFGCL-AS-AP Myanmar Fortune Global Company Limited",
     "status": "DOWN",
     "started_at": "2026-04-13T06:02:31.474044+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-13T06:32:24.412508+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS132167",
     "name": "U9-MM Nine Communications Company Limited",
     "status": "DOWN",
     "started_at": "2026-04-13T06:25:18.857914+00:00",
-    "ended_at": "2026-04-13T06:30:07.684006+00:00",
-    "duration_minutes": 4,
+    "ended_at": "2026-04-13T06:31:21.342945+00:00",
+    "duration_minutes": 6,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
     "resolved": true
