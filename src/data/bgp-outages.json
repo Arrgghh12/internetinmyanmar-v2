@@ -2809,10 +2809,10 @@
     "name": "MGTL-AS-AP Marga Global Telecom Limited",
     "status": "DOWN",
     "started_at": "2026-04-14T22:32:26.098085+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-14T23:01:43.417489+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   }
 ]
