@@ -2347,32 +2347,32 @@
     "name": "ITSPECTRUM-AS-AP IT Spectrum Company Limited",
     "status": "DOWN",
     "started_at": "2026-04-14T08:31:37.313895+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-14T09:01:07.219170+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS132148",
     "name": "HTI-AS-AP HORIZON TELECOM INTERNATIONAL COMPANY LIMITED",
     "status": "DOWN",
     "started_at": "2026-04-14T08:31:46.768669+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-14T09:01:12.390166+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS63998",
     "name": "KMTCL-MM Kinetic Myanmar Technology",
     "status": "DOWN",
     "started_at": "2026-04-14T08:34:01.876609+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-14T09:02:52.280955+00:00",
+    "duration_minutes": 28,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   }
 ]
