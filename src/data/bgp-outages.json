@@ -2226,6 +2226,28 @@
     "name": "MMCL-AS-AP My Mandalay Company Limited",
     "status": "DOWN",
     "started_at": "2026-04-14T03:32:36.716590+00:00",
+    "ended_at": "2026-04-14T04:02:36.310994+00:00",
+    "duration_minutes": 29,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": true
+  },
+  {
+    "asn": "AS153998",
+    "name": "MCBPCL-AS-AP Myanmar Citizens Bank Public Company Limited",
+    "status": "DOWN",
+    "started_at": "2026-04-14T03:32:44.519141+00:00",
+    "ended_at": "2026-04-14T04:02:38.456558+00:00",
+    "duration_minutes": 29,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": true
+  },
+  {
+    "asn": "AS132344",
+    "name": "STMCL-AS-AP SEANET",
+    "status": "DOWN",
+    "started_at": "2026-04-14T04:01:51.146077+00:00",
     "ended_at": null,
     "duration_minutes": null,
     "min_visibility_pct": 0.0,
@@ -2233,10 +2255,10 @@
     "resolved": false
   },
   {
-    "asn": "AS153998",
-    "name": "MCBPCL-AS-AP Myanmar Citizens Bank Public Company Limited",
+    "asn": "AS139704",
+    "name": "AS-AGBC AGB Communication Co.",
     "status": "DOWN",
-    "started_at": "2026-04-14T03:32:44.519141+00:00",
+    "started_at": "2026-04-14T04:03:15.196760+00:00",
     "ended_at": null,
     "duration_minutes": null,
     "min_visibility_pct": 0.0,
