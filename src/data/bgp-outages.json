@@ -2171,11 +2171,11 @@
     "name": "UCGCL-AS-AP UNIQUE COMM GROUP COMPANY LIMITED",
     "status": "DOWN",
     "started_at": "2026-04-13T19:31:25.776953+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-14T03:31:15.056591+00:00",
+    "duration_minutes": 479,
     "min_visibility_pct": 0.353,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS151341",
@@ -2220,5 +2220,27 @@
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
     "resolved": true
+  },
+  {
+    "asn": "AS152447",
+    "name": "MMCL-AS-AP My Mandalay Company Limited",
+    "status": "DOWN",
+    "started_at": "2026-04-14T03:32:36.716590+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
+  },
+  {
+    "asn": "AS153998",
+    "name": "MCBPCL-AS-AP Myanmar Citizens Bank Public Company Limited",
+    "status": "DOWN",
+    "started_at": "2026-04-14T03:32:44.519141+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
   }
 ]
