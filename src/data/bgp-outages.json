@@ -2303,6 +2303,28 @@
     "name": "HSCL-AS-AP Horizon Sources Company Limited",
     "status": "DOWN",
     "started_at": "2026-04-14T07:31:45.039291+00:00",
+    "ended_at": "2026-04-14T08:01:38.038846+00:00",
+    "duration_minutes": 29,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": true
+  },
+  {
+    "asn": "AS150692",
+    "name": "GD2CL-AS-AP Golden Dragon 2000",
+    "status": "DOWN",
+    "started_at": "2026-04-14T07:31:47.075613+00:00",
+    "ended_at": "2026-04-14T08:01:41.874126+00:00",
+    "duration_minutes": 29,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": true
+  },
+  {
+    "asn": "AS132344",
+    "name": "STMCL-AS-AP SEANET",
+    "status": "DOWN",
+    "started_at": "2026-04-14T08:02:04.874568+00:00",
     "ended_at": null,
     "duration_minutes": null,
     "min_visibility_pct": 0.0,
@@ -2310,10 +2332,10 @@
     "resolved": false
   },
   {
-    "asn": "AS150692",
-    "name": "GD2CL-AS-AP Golden Dragon 2000",
+    "asn": "AS131322",
+    "name": "YTCL-AS-AP Yatanarpon Teleport Company Limited",
     "status": "DOWN",
-    "started_at": "2026-04-14T07:31:47.075613+00:00",
+    "started_at": "2026-04-14T08:02:07.485353+00:00",
     "ended_at": null,
     "duration_minutes": null,
     "min_visibility_pct": 0.0,
