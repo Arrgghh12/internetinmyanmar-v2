@@ -2374,5 +2374,82 @@
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
     "resolved": true
+  },
+  {
+    "asn": "AS150153",
+    "name": "AWSCL-AS-AP A W S MYANMAR COMPANY LIMITED",
+    "status": "DOWN",
+    "started_at": "2026-04-14T09:31:47.556880+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
+  },
+  {
+    "asn": "AS140552",
+    "name": "CBBANK-AS-AP Co-operative Bank Public Company Limited",
+    "status": "DOWN",
+    "started_at": "2026-04-14T09:32:55.155989+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
+  },
+  {
+    "asn": "AS139051",
+    "name": "AUNGGABAR-AS-AP AUNG GABAR COMPANY LIMITED",
+    "status": "DOWN",
+    "started_at": "2026-04-14T09:33:09.929282+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
+  },
+  {
+    "asn": "AS139620",
+    "name": "MTNPCL-AS-AP MYANMAR TELECOMMUNICATION NETWORK PUBLIC COMPANY LIMITED",
+    "status": "DOWN",
+    "started_at": "2026-04-14T09:33:26.085353+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
+  },
+  {
+    "asn": "AS136613",
+    "name": "AYEYARWADYBANK-AS-AP Ayeyarwady Bank",
+    "status": "DOWN",
+    "started_at": "2026-04-14T09:34:07.402011+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
+  },
+  {
+    "asn": "AS141236",
+    "name": "MCDC-AS-AP Mandalay City Development Committee",
+    "status": "DOWN",
+    "started_at": "2026-04-14T09:34:27.866903+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
+  },
+  {
+    "asn": "AS138168",
+    "name": "APN-AS-AP MyanmarAPN",
+    "status": "DOWN",
+    "started_at": "2026-04-14T09:34:34.657081+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
   }
 ]
