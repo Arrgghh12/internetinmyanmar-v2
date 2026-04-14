@@ -2468,43 +2468,43 @@
     "name": "AMCL-AS-AP ADS Myanmar Company Limited",
     "status": "DOWN",
     "started_at": "2026-04-14T12:02:23.509570+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-14T12:31:24.748801+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS135405",
     "name": "TMHTTWTL-AS-AP WELINK",
     "status": "DOWN",
     "started_at": "2026-04-14T12:02:48.354537+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-14T12:31:31.754949+00:00",
+    "duration_minutes": 28,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS154020",
     "name": "SMMCL-AS-AP SAM MOUK MO Company Ltd",
     "status": "DOWN",
     "started_at": "2026-04-14T12:03:58.302222+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-14T12:32:12.134773+00:00",
+    "duration_minutes": 28,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS141236",
     "name": "MCDC-AS-AP Mandalay City Development Committee",
     "status": "DOWN",
     "started_at": "2026-04-14T12:04:26.815695+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-14T12:32:16.668161+00:00",
+    "duration_minutes": 27,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   }
 ]
