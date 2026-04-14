@@ -2286,5 +2286,16 @@
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
     "resolved": true
+  },
+  {
+    "asn": "AS141216",
+    "name": "GREATGOLDENHORSE-AS-AP GREAT GOLDEN HORSE COMPANY LIMITED",
+    "status": "DOWN",
+    "started_at": "2026-04-14T07:03:19.700632+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
   }
 ]
