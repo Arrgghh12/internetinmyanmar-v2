@@ -2512,65 +2512,65 @@
     "name": "TMC-AS-AP Trustforce Myanmar Company Limited trading as Nationet",
     "status": "DOWN",
     "started_at": "2026-04-14T13:02:30.344293+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-14T13:32:18.670613+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS151341",
     "name": "THENEXTSUCCESS-AS-AP The Next Success",
     "status": "DOWN",
     "started_at": "2026-04-14T13:02:46.387470+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-14T13:32:20.441611+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS139595",
     "name": "HTIN-AS-AP HTIN HTIN NETWORK COMPANY LIMITED",
     "status": "DOWN",
     "started_at": "2026-04-14T13:03:16.323750+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-14T13:32:32.093082+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS136617",
     "name": "FTCL-AS-AP Fortune Telecom Company Limited",
     "status": "DOWN",
     "started_at": "2026-04-14T13:03:37.059578+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-14T13:32:49.875436+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS138166",
     "name": "MTATCL-AS-AP MaxxB Fiber Internet",
     "status": "DOWN",
     "started_at": "2026-04-14T13:03:43.763429+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-14T13:32:55.691088+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS132038",
     "name": "ROYALESPRIT-MM Royal Esprit Company Limited",
     "status": "DOWN",
     "started_at": "2026-04-14T13:04:06.339295+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-14T13:33:03.132214+00:00",
+    "duration_minutes": 28,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   }
 ]
