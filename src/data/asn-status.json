@@ -160,7 +160,7 @@
     "visibility_pct": 1.0,
     "visible_collectors": 328,
     "total_collectors": 328,
-    "timestamp": "2026-04-14T15:01:14.140234+00:00",
+    "timestamp": "2026-04-14T15:15:08.232618+00:00",
     "status": "GREEN",
     "status_since": "2026-04-13T19:20:32.203581+00:00"
   },
@@ -171,7 +171,7 @@
     "visibility_pct": 1.0,
     "visible_collectors": 328,
     "total_collectors": 328,
-    "timestamp": "2026-04-14T15:01:24.354225+00:00",
+    "timestamp": "2026-04-14T15:15:18.927450+00:00",
     "status": "GREEN",
     "status_since": "2026-04-14T06:20:04.278942+00:00"
   },
@@ -609,14 +609,12 @@
     "asn": "AS9988",
     "name": "MPT-AP Myanma Posts and Telecommunications",
     "announced": true,
-    "visibility_pct": 0.0,
-    "visible_collectors": 0,
-    "total_collectors": 0,
-    "timestamp": "2026-04-14T15:02:04.745153+00:00",
-    "status": "RED",
-    "status_since": "2026-04-14T15:02:04.745153+00:00",
-    "ioda_outages": 0,
-    "ioda_confirmed": false
+    "visibility_pct": 1.0,
+    "visible_collectors": 328,
+    "total_collectors": 328,
+    "timestamp": "2026-04-14T15:15:20.883665+00:00",
+    "status": "YELLOW",
+    "status_since": "2026-04-14T15:15:20.883665+00:00"
   },
   "AS133384": {
     "asn": "AS133384",
@@ -765,14 +763,12 @@
     "asn": "AS136480",
     "name": "MMUNILINK-AS-AP Myanmar Unilink Communication Company Limited",
     "announced": true,
-    "visibility_pct": 0.0,
-    "visible_collectors": 0,
-    "total_collectors": 0,
-    "timestamp": "2026-04-14T15:02:19.078532+00:00",
-    "status": "RED",
-    "status_since": "2026-04-14T15:02:19.078532+00:00",
-    "ioda_outages": 0,
-    "ioda_confirmed": false
+    "visibility_pct": 1.0,
+    "visible_collectors": 328,
+    "total_collectors": 328,
+    "timestamp": "2026-04-14T15:15:22.458213+00:00",
+    "status": "YELLOW",
+    "status_since": "2026-04-14T15:15:22.458213+00:00"
   },
   "AS150309": {
     "asn": "AS150309",

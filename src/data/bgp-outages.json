@@ -2721,22 +2721,22 @@
     "name": "MPT-AP Myanma Posts and Telecommunications",
     "status": "DOWN",
     "started_at": "2026-04-14T15:02:05.045861+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-14T15:15:21.184395+00:00",
+    "duration_minutes": 13,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS136480",
     "name": "MMUNILINK-AS-AP Myanmar Unilink Communication Company Limited",
     "status": "DOWN",
     "started_at": "2026-04-14T15:02:19.378935+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-14T15:15:22.758928+00:00",
+    "duration_minutes": 13,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS136613",
