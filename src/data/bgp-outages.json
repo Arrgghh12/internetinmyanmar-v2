@@ -3485,5 +3485,49 @@
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
     "resolved": true
+  },
+  {
+    "asn": "AS132100",
+    "name": "MSN-AS-AP Myanmar Speed Net Co.",
+    "status": "DOWN",
+    "started_at": "2026-04-15T17:02:00.927741+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
+  },
+  {
+    "asn": "AS142126",
+    "name": "SCSKMYANMARLTD-AS SCSK Myanmar Ltd",
+    "status": "DOWN",
+    "started_at": "2026-04-15T17:03:23.538944+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
+  },
+  {
+    "asn": "AS139058",
+    "name": "TACHILEIKNET-AS-AP TCL Net",
+    "status": "DOWN",
+    "started_at": "2026-04-15T17:03:39.547584+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
+  },
+  {
+    "asn": "AS149487",
+    "name": "MCLOCCL-AS-AP MOC COMPANY LIMITED",
+    "status": "DOWN",
+    "started_at": "2026-04-15T17:04:50.961421+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
   }
 ]
