@@ -3634,17 +3634,39 @@
     "name": "ITSPECTRUM-AS-AP IT Spectrum Company Limited",
     "status": "DOWN",
     "started_at": "2026-04-15T19:01:41.668746+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-15T19:31:07.393055+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS136255",
     "name": "TIMCL-AS-AP Telecom International Myanmar Co.",
     "status": "DOWN",
     "started_at": "2026-04-15T19:02:03.892353+00:00",
+    "ended_at": "2026-04-15T19:31:14.037724+00:00",
+    "duration_minutes": 29,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": true
+  },
+  {
+    "asn": "AS150797",
+    "name": "GCL-AS-AP GIGA-NET",
+    "status": "DOWN",
+    "started_at": "2026-04-15T19:03:23.170567+00:00",
+    "ended_at": "2026-04-15T19:32:10.489156+00:00",
+    "duration_minutes": 28,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": true
+  },
+  {
+    "asn": "AS134840",
+    "name": "MCCL-AS-AP Myanmar Country Co.",
+    "status": "DOWN",
+    "started_at": "2026-04-15T19:31:50.128079+00:00",
     "ended_at": null,
     "duration_minutes": null,
     "min_visibility_pct": 0.0,
@@ -3652,10 +3674,10 @@
     "resolved": false
   },
   {
-    "asn": "AS150797",
-    "name": "GCL-AS-AP GIGA-NET",
+    "asn": "AS139051",
+    "name": "AUNGGABAR-AS-AP AUNG GABAR COMPANY LIMITED",
     "status": "DOWN",
-    "started_at": "2026-04-15T19:03:23.170567+00:00",
+    "started_at": "2026-04-15T19:32:18.787966+00:00",
     "ended_at": null,
     "duration_minutes": null,
     "min_visibility_pct": 0.0,
