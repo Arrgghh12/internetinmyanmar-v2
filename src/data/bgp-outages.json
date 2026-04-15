@@ -2825,5 +2825,27 @@
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
     "resolved": true
+  },
+  {
+    "asn": "AS134736",
+    "name": "NMCL-AS-AP NTT MYANMAR CO.",
+    "status": "DOWN",
+    "started_at": "2026-04-15T02:31:23.498075+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
+  },
+  {
+    "asn": "AS136789",
+    "name": "LOTUS-AS-AP LOTUS MUDRA COMPANY LIMITED",
+    "status": "DOWN",
+    "started_at": "2026-04-15T02:31:25.716653+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
   }
 ]
