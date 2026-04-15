@@ -3601,32 +3601,32 @@
     "name": "GTMH-AS-AP Golden TMH Telecom Co. Ltd",
     "status": "DOWN",
     "started_at": "2026-04-15T18:02:25.977561+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-15T18:31:52.497665+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS150721",
     "name": "ANCL-AS-AP ARAKHA NET",
     "status": "DOWN",
     "started_at": "2026-04-15T18:02:56.482189+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-15T18:31:59.609704+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS154020",
     "name": "SMMCL-AS-AP SAM MOUK MO Company Ltd",
     "status": "DOWN",
     "started_at": "2026-04-15T18:04:18.944711+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-15T18:32:47.607547+00:00",
+    "duration_minutes": 28,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   }
 ]
