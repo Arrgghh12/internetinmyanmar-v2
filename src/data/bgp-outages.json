@@ -3183,50 +3183,61 @@
     "name": "MSPACL-AS-AP MYANMAR SHWE PYI AYE COMPANY LIMITED",
     "status": "DOWN",
     "started_at": "2026-04-15T11:32:48.994510+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-15T12:01:18.909826+00:00",
+    "duration_minutes": 28,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS139849",
     "name": "ROYALESPRIT-AS-AP Royal Esprit Company Limited",
     "status": "DOWN",
     "started_at": "2026-04-15T11:33:06.823729+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-15T12:01:22.440651+00:00",
+    "duration_minutes": 28,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS150309",
     "name": "ERSTCL-AS-AP E R S TECHNOLOGY",
     "status": "DOWN",
     "started_at": "2026-04-15T11:34:12.586082+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-15T12:03:33.856942+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS152466",
     "name": "TLINKGROUP-AS-AP T-Link Group Company Limited",
     "status": "DOWN",
     "started_at": "2026-04-15T11:34:54.397029+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-15T12:04:12.032468+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS139692",
     "name": "CHEN-AS-AP CHEN GUANG COMPANY LIMITED",
     "status": "DOWN",
     "started_at": "2026-04-15T11:35:29.704159+00:00",
+    "ended_at": "2026-04-15T12:04:23.405110+00:00",
+    "duration_minutes": 28,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": true
+  },
+  {
+    "asn": "AS134736",
+    "name": "NMCL-AS-AP NTT MYANMAR CO.",
+    "status": "DOWN",
+    "started_at": "2026-04-15T12:01:53.258406+00:00",
     "ended_at": null,
     "duration_minutes": null,
     "min_visibility_pct": 0.0,
@@ -3234,10 +3245,21 @@
     "resolved": false
   },
   {
-    "asn": "AS132167",
-    "name": "U9-MM Nine Communications Company Limited",
+    "asn": "AS131322",
+    "name": "YTCL-AS-AP Yatanarpon Teleport Company Limited",
     "status": "DOWN",
-    "started_at": "2026-04-15T12:00:23.336047+00:00",
+    "started_at": "2026-04-15T12:03:09.370644+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
+  },
+  {
+    "asn": "AS139620",
+    "name": "MTNPCL-AS-AP MYANMAR TELECOMMUNICATION NETWORK PUBLIC COMPANY LIMITED",
+    "status": "DOWN",
+    "started_at": "2026-04-15T12:04:03.216472+00:00",
     "ended_at": null,
     "duration_minutes": null,
     "min_visibility_pct": 0.0,
