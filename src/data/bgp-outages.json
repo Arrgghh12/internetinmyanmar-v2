@@ -3491,39 +3491,61 @@
     "name": "MSN-AS-AP Myanmar Speed Net Co.",
     "status": "DOWN",
     "started_at": "2026-04-15T17:02:00.927741+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-15T17:31:24.016171+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS142126",
     "name": "SCSKMYANMARLTD-AS SCSK Myanmar Ltd",
     "status": "DOWN",
     "started_at": "2026-04-15T17:03:23.538944+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-15T17:34:01.094665+00:00",
+    "duration_minutes": 30,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS139058",
     "name": "TACHILEIKNET-AS-AP TCL Net",
     "status": "DOWN",
     "started_at": "2026-04-15T17:03:39.547584+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-15T17:34:02.278332+00:00",
+    "duration_minutes": 30,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS149487",
     "name": "MCLOCCL-AS-AP MOC COMPANY LIMITED",
     "status": "DOWN",
     "started_at": "2026-04-15T17:04:50.961421+00:00",
+    "ended_at": "2026-04-15T17:34:58.531590+00:00",
+    "duration_minutes": 30,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": true
+  },
+  {
+    "asn": "AS136480",
+    "name": "MMUNILINK-AS-AP Myanmar Unilink Communication Company Limited",
+    "status": "DOWN",
+    "started_at": "2026-04-15T17:25:21.459966+00:00",
+    "ended_at": "2026-04-15T17:33:58.160065+00:00",
+    "duration_minutes": 8,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": true
+  },
+  {
+    "asn": "AS132686",
+    "name": "ACS-AS-AP Amara Communications",
+    "status": "DOWN",
+    "started_at": "2026-04-15T17:31:55.423043+00:00",
     "ended_at": null,
     "duration_minutes": null,
     "min_visibility_pct": 0.0,
@@ -3531,14 +3553,36 @@
     "resolved": false
   },
   {
-    "asn": "AS136480",
-    "name": "MMUNILINK-AS-AP Myanmar Unilink Communication Company Limited",
+    "asn": "AS141015",
+    "name": "MYANMARLINK-AS-AP Myanmar Link Telecommunication Ltd",
     "status": "DOWN",
-    "started_at": "2026-04-15T17:25:21.459966+00:00",
-    "ended_at": "2026-04-15T17:30:20.901732+00:00",
-    "duration_minutes": 4,
+    "started_at": "2026-04-15T17:32:58.873159+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": true
+    "resolved": false
+  },
+  {
+    "asn": "AS151802",
+    "name": "FSAS-AS-MM FIND SOLUTION AND SERVICES CO.",
+    "status": "DOWN",
+    "started_at": "2026-04-15T17:33:28.669485+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
+  },
+  {
+    "asn": "AS151826",
+    "name": "FASTSPEED-AS-AP Fast Speed",
+    "status": "DOWN",
+    "started_at": "2026-04-15T17:33:55.684072+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
   }
 ]
