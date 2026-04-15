@@ -3304,11 +3304,11 @@
     "name": "UCGCL-AS-AP UNIQUE COMM GROUP COMPANY LIMITED",
     "status": "DOWN",
     "started_at": "2026-04-15T13:32:14.700041+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-15T21:31:04.624985+00:00",
+    "duration_minutes": 478,
     "min_visibility_pct": 0.255,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS58952",
