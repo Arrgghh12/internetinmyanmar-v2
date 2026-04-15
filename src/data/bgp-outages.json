@@ -2979,5 +2979,38 @@
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
     "resolved": true
+  },
+  {
+    "asn": "AS136465",
+    "name": "INFORMATIONTECHNOLOGYCYBERSECURITY-AS-AP Dept. of Information Technology & Cyber Security",
+    "status": "DOWN",
+    "started_at": "2026-04-15T09:02:53.835207+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
+  },
+  {
+    "asn": "AS151826",
+    "name": "FASTSPEED-AS-AP Fast Speed",
+    "status": "DOWN",
+    "started_at": "2026-04-15T09:03:09.226727+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
+  },
+  {
+    "asn": "AS151341",
+    "name": "THENEXTSUCCESS-AS-AP The Next Success",
+    "status": "DOWN",
+    "started_at": "2026-04-15T09:03:31.663662+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
   }
 ]
