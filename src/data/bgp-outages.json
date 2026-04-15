@@ -2864,54 +2864,54 @@
     "name": "MSN-AS-AP Myanmar Speed Net Co.",
     "status": "DOWN",
     "started_at": "2026-04-15T06:31:57.647100+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-15T07:01:30.553766+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS133384",
     "name": "GTCL-AS-AP Global Technology Co.",
     "status": "DOWN",
     "started_at": "2026-04-15T06:32:59.787725+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-15T07:02:37.057319+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS140552",
     "name": "CBBANK-AS-AP Co-operative Bank Public Company Limited",
     "status": "DOWN",
     "started_at": "2026-04-15T06:33:20.740154+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-15T07:02:41.121658+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS136975",
     "name": "GNET-AS-AP Global Technology",
     "status": "DOWN",
     "started_at": "2026-04-15T06:33:46.268289+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-15T07:02:44.730356+00:00",
+    "duration_minutes": 28,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS135111",
     "name": "AML-AS-AP Asia Mega Link",
     "status": "DOWN",
     "started_at": "2026-04-15T06:34:44.816977+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-15T07:03:30.760766+00:00",
+    "duration_minutes": 28,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   }
 ]
