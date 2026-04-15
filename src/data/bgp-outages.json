@@ -3722,33 +3722,33 @@
     "name": "PAMEL-AS-AP Pan Asia Majestic Eagle Ltd",
     "status": "DOWN",
     "started_at": "2026-04-15T23:03:13.095100+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-15T23:32:47.112305+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS153549",
     "name": "MTC-AS-AP MUI Technology Company Limited",
     "status": "DOWN",
     "started_at": "2026-04-15T23:03:14.325134+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-15T23:32:48.782605+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS135149",
     "name": "MTGCL-AS-AP Myanmar Technology Gateway Co.",
     "status": "DOWN",
     "started_at": "2026-04-15T23:03:23.366161+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-15T23:32:56.238599+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS149487",
@@ -3766,10 +3766,10 @@
     "name": "MPT-MM-AS-AP MYANMA POSTS AND TELECOMMUNICATIONS",
     "status": "DOWN",
     "started_at": "2026-04-15T23:03:25.189121+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-15T23:33:13.249539+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   }
 ]
