@@ -3689,10 +3689,10 @@
     "name": "STMCL-AS-AP SEANET",
     "status": "DOWN",
     "started_at": "2026-04-15T20:32:10.645671+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-15T21:01:46.316962+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   }
 ]
