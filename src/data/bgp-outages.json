@@ -3029,22 +3029,22 @@
     "name": "MYANMARNETWORK-AS-AP Myanmar Network Company Limited",
     "status": "DOWN",
     "started_at": "2026-04-15T09:32:59.531103+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-15T10:03:22.592370+00:00",
+    "duration_minutes": 30,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS141199",
     "name": "CLPC-AS-AP Century Link Plus",
     "status": "DOWN",
     "started_at": "2026-04-15T09:34:00.875171+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-15T10:04:33.323014+00:00",
+    "duration_minutes": 30,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS132167",
@@ -3056,5 +3056,16 @@
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
     "resolved": true
+  },
+  {
+    "asn": "AS151606",
+    "name": "MSPACL-AS-AP MYANMAR SHWE PYI AYE COMPANY LIMITED",
+    "status": "DOWN",
+    "started_at": "2026-04-15T10:01:46.405035+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
   }
 ]
