@@ -2926,10 +2926,32 @@
     "resolved": true
   },
   {
-    "asn": "AS9988",
-    "name": "MPT-AP Myanma Posts and Telecommunications",
+    "asn": "AS139595",
+    "name": "HTIN-AS-AP HTIN HTIN NETWORK COMPANY LIMITED",
     "status": "DOWN",
-    "started_at": "2026-04-15T07:30:31.071522+00:00",
+    "started_at": "2026-04-15T07:33:39.551698+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
+  },
+  {
+    "asn": "AS133524",
+    "name": "GTCL-AS-AP Global Technology Co.",
+    "status": "DOWN",
+    "started_at": "2026-04-15T07:34:11.599076+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
+  },
+  {
+    "asn": "AS63998",
+    "name": "KMTCL-MM Kinetic Myanmar Technology",
+    "status": "DOWN",
+    "started_at": "2026-04-15T07:34:49.973930+00:00",
     "ended_at": null,
     "duration_minutes": null,
     "min_visibility_pct": 0.0,
