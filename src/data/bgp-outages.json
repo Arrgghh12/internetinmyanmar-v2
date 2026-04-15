@@ -3326,10 +3326,10 @@
     "name": "MWT-AS-AP Myanmar World Distribution Telecommunication Company Limited",
     "status": "DOWN",
     "started_at": "2026-04-15T14:02:59.983160+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-15T14:31:51.486844+00:00",
+    "duration_minutes": 28,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   }
 ]
