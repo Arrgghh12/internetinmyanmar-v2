@@ -3667,21 +3667,21 @@
     "name": "MCCL-AS-AP Myanmar Country Co.",
     "status": "DOWN",
     "started_at": "2026-04-15T19:31:50.128079+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-15T20:01:23.390845+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS139051",
     "name": "AUNGGABAR-AS-AP AUNG GABAR COMPANY LIMITED",
     "status": "DOWN",
     "started_at": "2026-04-15T19:32:18.787966+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-15T20:01:48.545879+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   }
 ]
