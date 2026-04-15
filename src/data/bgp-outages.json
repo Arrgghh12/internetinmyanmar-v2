@@ -3238,39 +3238,39 @@
     "name": "NMCL-AS-AP NTT MYANMAR CO.",
     "status": "DOWN",
     "started_at": "2026-04-15T12:01:53.258406+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-15T12:32:27.941749+00:00",
+    "duration_minutes": 30,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS131322",
     "name": "YTCL-AS-AP Yatanarpon Teleport Company Limited",
     "status": "DOWN",
     "started_at": "2026-04-15T12:03:09.370644+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-15T12:32:55.739016+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS139620",
     "name": "MTNPCL-AS-AP MYANMAR TELECOMMUNICATION NETWORK PUBLIC COMPANY LIMITED",
     "status": "DOWN",
     "started_at": "2026-04-15T12:04:03.216472+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-15T12:33:48.979128+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
-    "asn": "AS132167",
-    "name": "U9-MM Nine Communications Company Limited",
+    "asn": "AS133440",
+    "name": "STIGW-AS-AP ST.Net",
     "status": "DOWN",
-    "started_at": "2026-04-15T12:30:27.054340+00:00",
+    "started_at": "2026-04-15T12:33:45.015430+00:00",
     "ended_at": null,
     "duration_minutes": null,
     "min_visibility_pct": 0.0,
