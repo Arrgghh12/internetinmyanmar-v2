@@ -2985,17 +2985,39 @@
     "name": "INFORMATIONTECHNOLOGYCYBERSECURITY-AS-AP Dept. of Information Technology & Cyber Security",
     "status": "DOWN",
     "started_at": "2026-04-15T09:02:53.835207+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-15T09:33:12.472251+00:00",
+    "duration_minutes": 30,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS151826",
     "name": "FASTSPEED-AS-AP Fast Speed",
     "status": "DOWN",
     "started_at": "2026-04-15T09:03:09.226727+00:00",
+    "ended_at": "2026-04-15T09:33:13.233304+00:00",
+    "duration_minutes": 30,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": true
+  },
+  {
+    "asn": "AS151341",
+    "name": "THENEXTSUCCESS-AS-AP The Next Success",
+    "status": "DOWN",
+    "started_at": "2026-04-15T09:03:31.663662+00:00",
+    "ended_at": "2026-04-15T09:33:18.139423+00:00",
+    "duration_minutes": 29,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": true
+  },
+  {
+    "asn": "AS135405",
+    "name": "TMHTTWTL-AS-AP WELINK",
+    "status": "DOWN",
+    "started_at": "2026-04-15T09:32:39.202625+00:00",
     "ended_at": null,
     "duration_minutes": null,
     "min_visibility_pct": 0.0,
@@ -3003,10 +3025,21 @@
     "resolved": false
   },
   {
-    "asn": "AS151341",
-    "name": "THENEXTSUCCESS-AS-AP The Next Success",
+    "asn": "AS135427",
+    "name": "MYANMARNETWORK-AS-AP Myanmar Network Company Limited",
     "status": "DOWN",
-    "started_at": "2026-04-15T09:03:31.663662+00:00",
+    "started_at": "2026-04-15T09:32:59.531103+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
+  },
+  {
+    "asn": "AS141199",
+    "name": "CLPC-AS-AP Century Link Plus",
+    "status": "DOWN",
+    "started_at": "2026-04-15T09:34:00.875171+00:00",
     "ended_at": null,
     "duration_minutes": null,
     "min_visibility_pct": 0.0,
