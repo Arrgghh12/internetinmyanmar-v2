@@ -3018,11 +3018,11 @@
     "name": "TMHTTWTL-AS-AP WELINK",
     "status": "DOWN",
     "started_at": "2026-04-15T09:32:39.202625+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-15T10:33:32.696582+00:00",
+    "duration_minutes": 60,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS135427",
@@ -3078,5 +3078,82 @@
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
     "resolved": true
+  },
+  {
+    "asn": "AS149521",
+    "name": "FLC-AS-AP Fiber Life Internet",
+    "status": "DOWN",
+    "started_at": "2026-04-15T10:32:01.739840+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
+  },
+  {
+    "asn": "AS139849",
+    "name": "ROYALESPRIT-AS-AP Royal Esprit Company Limited",
+    "status": "DOWN",
+    "started_at": "2026-04-15T10:32:51.855610+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
+  },
+  {
+    "asn": "AS137891",
+    "name": "BETHEFIRST-AS-AP Be The First",
+    "status": "DOWN",
+    "started_at": "2026-04-15T10:33:19.200648+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
+  },
+  {
+    "asn": "AS140552",
+    "name": "CBBANK-AS-AP Co-operative Bank Public Company Limited",
+    "status": "DOWN",
+    "started_at": "2026-04-15T10:33:59.645040+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
+  },
+  {
+    "asn": "AS150309",
+    "name": "ERSTCL-AS-AP E R S TECHNOLOGY",
+    "status": "DOWN",
+    "started_at": "2026-04-15T10:34:23.116405+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
+  },
+  {
+    "asn": "AS141216",
+    "name": "GREATGOLDENHORSE-AS-AP GREAT GOLDEN HORSE COMPANY LIMITED",
+    "status": "DOWN",
+    "started_at": "2026-04-15T10:35:26.676835+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
+  },
+  {
+    "asn": "AS138158",
+    "name": "SPAL-AS-AP Serge Pun & Associate Myanmar Ltd.",
+    "status": "DOWN",
+    "started_at": "2026-04-15T10:35:45.509832+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
   }
 ]
