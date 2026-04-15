@@ -160,7 +160,7 @@
     "visibility_pct": 1.0,
     "visible_collectors": 330,
     "total_collectors": 330,
-    "timestamp": "2026-04-15T16:02:16.231495+00:00",
+    "timestamp": "2026-04-15T16:30:08.896641+00:00",
     "status": "GREEN",
     "status_since": "2026-04-15T09:45:09.991924+00:00"
   },
@@ -171,7 +171,7 @@
     "visibility_pct": 1.0,
     "visible_collectors": 330,
     "total_collectors": 330,
-    "timestamp": "2026-04-15T16:02:16.578347+00:00",
+    "timestamp": "2026-04-15T16:30:20.585775+00:00",
     "status": "GREEN",
     "status_since": "2026-04-15T13:50:03.873760+00:00"
   },
@@ -607,13 +607,16 @@
   "AS9988": {
     "asn": "AS9988",
     "name": "MPT-AP Myanma Posts and Telecommunications",
-    "announced": true,
-    "visibility_pct": 1.0,
-    "visible_collectors": 330,
-    "total_collectors": 330,
-    "timestamp": "2026-04-15T16:03:27.727947+00:00",
-    "status": "GREEN",
-    "status_since": "2026-04-15T07:50:04.369944+00:00"
+    "announced": false,
+    "visibility_pct": 0.0,
+    "visible_collectors": 0,
+    "total_collectors": 0,
+    "status": "RED",
+    "status_since": "2026-04-15T16:30:35.904102+00:00",
+    "timestamp": "2026-04-15T16:30:35.904102+00:00",
+    "error": "",
+    "ioda_outages": 0,
+    "ioda_confirmed": false
   },
   "AS133384": {
     "asn": "AS133384",
@@ -765,7 +768,7 @@
     "visibility_pct": 1.0,
     "visible_collectors": 330,
     "total_collectors": 330,
-    "timestamp": "2026-04-15T16:03:43.294572+00:00",
+    "timestamp": "2026-04-15T16:30:36.693561+00:00",
     "status": "GREEN",
     "status_since": "2026-04-15T13:25:10.879486+00:00"
   },
