@@ -3546,44 +3546,44 @@
     "name": "ACS-AS-AP Amara Communications",
     "status": "DOWN",
     "started_at": "2026-04-15T17:31:55.423043+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-15T18:01:58.688663+00:00",
+    "duration_minutes": 30,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS141015",
     "name": "MYANMARLINK-AS-AP Myanmar Link Telecommunication Ltd",
     "status": "DOWN",
     "started_at": "2026-04-15T17:32:58.873159+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-15T18:03:00.893079+00:00",
+    "duration_minutes": 30,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS151802",
     "name": "FSAS-AS-MM FIND SOLUTION AND SERVICES CO.",
     "status": "DOWN",
     "started_at": "2026-04-15T17:33:28.669485+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-15T18:03:17.267185+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS151826",
     "name": "FASTSPEED-AS-AP Fast Speed",
     "status": "DOWN",
     "started_at": "2026-04-15T17:33:55.684072+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-15T18:03:32.360256+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS58952",
@@ -3595,5 +3595,38 @@
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
     "resolved": true
+  },
+  {
+    "asn": "AS135307",
+    "name": "GTMH-AS-AP Golden TMH Telecom Co. Ltd",
+    "status": "DOWN",
+    "started_at": "2026-04-15T18:02:25.977561+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
+  },
+  {
+    "asn": "AS150721",
+    "name": "ANCL-AS-AP ARAKHA NET",
+    "status": "DOWN",
+    "started_at": "2026-04-15T18:02:56.482189+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
+  },
+  {
+    "asn": "AS154020",
+    "name": "SMMCL-AS-AP SAM MOUK MO Company Ltd",
+    "status": "DOWN",
+    "started_at": "2026-04-15T18:04:18.944711+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
   }
 ]
