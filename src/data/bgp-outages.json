@@ -3887,6 +3887,17 @@
     "name": "FORTUNEINTERNATIONAL-AS-AP Fortune Broadband",
     "status": "DOWN",
     "started_at": "2026-04-16T10:01:55.157080+00:00",
+    "ended_at": "2026-04-16T10:32:06.604970+00:00",
+    "duration_minutes": 30,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": true
+  },
+  {
+    "asn": "AS152466",
+    "name": "TLINKGROUP-AS-AP T-Link Group Company Limited",
+    "status": "DOWN",
+    "started_at": "2026-04-16T10:33:13.038538+00:00",
     "ended_at": null,
     "duration_minutes": null,
     "min_visibility_pct": 0.0,
