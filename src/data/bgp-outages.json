@@ -3903,5 +3903,27 @@
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
     "resolved": false
+  },
+  {
+    "asn": "AS137259",
+    "name": "ILINK-AS-AP i-Link",
+    "status": "DOWN",
+    "started_at": "2026-04-16T11:01:31.749503+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
+  },
+  {
+    "asn": "AS134714",
+    "name": "ETPCL-AS-AP Elite Telecom Public Company Limited",
+    "status": "DOWN",
+    "started_at": "2026-04-16T11:01:40.480553+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
   }
 ]
