@@ -3755,11 +3755,11 @@
     "name": "MCLOCCL-AS-AP MOC COMPANY LIMITED",
     "status": "DOWN",
     "started_at": "2026-04-15T23:03:23.790891+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-16T00:02:53.249637+00:00",
+    "duration_minutes": 59,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS45558",
