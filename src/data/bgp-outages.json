@@ -4123,5 +4123,27 @@
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
     "resolved": true
+  },
+  {
+    "asn": "AS136210",
+    "name": "ITSPECTRUM-AS-AP IT Spectrum Company Limited",
+    "status": "DOWN",
+    "started_at": "2026-04-16T16:01:14.001832+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
+  },
+  {
+    "asn": "AS134739",
+    "name": "AGBC-AS-AP AGB Communication Co.",
+    "status": "DOWN",
+    "started_at": "2026-04-16T16:01:50.127820+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
   }
 ]
