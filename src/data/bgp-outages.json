@@ -4211,5 +4211,38 @@
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
     "resolved": true
+  },
+  {
+    "asn": "AS150309",
+    "name": "ERSTCL-AS-AP E R S TECHNOLOGY",
+    "status": "DOWN",
+    "started_at": "2026-04-16T19:32:14.937633+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
+  },
+  {
+    "asn": "AS152466",
+    "name": "TLINKGROUP-AS-AP T-Link Group Company Limited",
+    "status": "DOWN",
+    "started_at": "2026-04-16T19:33:06.496558+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
+  },
+  {
+    "asn": "AS136168",
+    "name": "CAMPANA-AS-AP Campana MYTHIC Co. Ltd.",
+    "status": "DOWN",
+    "started_at": "2026-04-16T19:33:46.119093+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
   }
 ]
