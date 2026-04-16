@@ -3826,5 +3826,16 @@
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
     "resolved": true
+  },
+  {
+    "asn": "AS139051",
+    "name": "AUNGGABAR-AS-AP AUNG GABAR COMPANY LIMITED",
+    "status": "DOWN",
+    "started_at": "2026-04-16T08:32:54.502334+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
   }
 ]
