@@ -4162,17 +4162,28 @@
     "name": "MIHL-AS-AP MYANMAR INFORMATION HIGHWAY LIMITED",
     "status": "DOWN",
     "started_at": "2026-04-16T17:01:38.367127+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-16T17:31:33.977034+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS136919",
     "name": "FACE24COLTD-AS-AP FACE24 Co.",
     "status": "DOWN",
     "started_at": "2026-04-16T17:02:02.157720+00:00",
+    "ended_at": "2026-04-16T17:31:54.131586+00:00",
+    "duration_minutes": 29,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": true
+  },
+  {
+    "asn": "AS152447",
+    "name": "MMCL-AS-AP My Mandalay Company Limited",
+    "status": "DOWN",
+    "started_at": "2026-04-16T17:33:00.610306+00:00",
     "ended_at": null,
     "duration_minutes": null,
     "min_visibility_pct": 0.0,
