@@ -4261,6 +4261,28 @@
     "name": "TPTNET-AS-AP THAN PHYO THU MINING COMPANY LIMITED",
     "status": "DOWN",
     "started_at": "2026-04-16T22:02:38.452704+00:00",
+    "ended_at": "2026-04-16T22:32:46.203526+00:00",
+    "duration_minutes": 30,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": true
+  },
+  {
+    "asn": "AS134484",
+    "name": "VDCNET-AS-AP Ultra Net",
+    "status": "DOWN",
+    "started_at": "2026-04-16T22:02:39.998120+00:00",
+    "ended_at": "2026-04-16T22:32:51.863266+00:00",
+    "duration_minutes": 30,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": true
+  },
+  {
+    "asn": "AS138166",
+    "name": "MTATCL-AS-AP MaxxB Fiber Internet",
+    "status": "DOWN",
+    "started_at": "2026-04-16T22:33:30.053595+00:00",
     "ended_at": null,
     "duration_minutes": null,
     "min_visibility_pct": 0.0,
@@ -4268,10 +4290,10 @@
     "resolved": false
   },
   {
-    "asn": "AS134484",
-    "name": "VDCNET-AS-AP Ultra Net",
+    "asn": "AS151491",
+    "name": "IQI-AS-AP Innovative Quality Internet Company Limited",
     "status": "DOWN",
-    "started_at": "2026-04-16T22:02:39.998120+00:00",
+    "started_at": "2026-04-16T22:33:40.879416+00:00",
     "ended_at": null,
     "duration_minutes": null,
     "min_visibility_pct": 0.0,
