@@ -3777,10 +3777,10 @@
     "name": "PICME-AS-AP POSCO INTERNATIONAL CORPORATION MYANMAR E&P OFFICE",
     "status": "DOWN",
     "started_at": "2026-04-16T00:32:46.203705+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-16T01:01:58.691580+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   }
 ]
