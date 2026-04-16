@@ -4041,22 +4041,22 @@
     "name": "BETHEFIRST-AS-AP Be The First",
     "status": "DOWN",
     "started_at": "2026-04-16T14:32:25.548203+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-16T15:01:29.505579+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS153777",
     "name": "MMC-AS-AP Mandalar Mandalay Company Limited",
     "status": "DOWN",
     "started_at": "2026-04-16T14:32:42.746099+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-16T15:01:31.804293+00:00",
+    "duration_minutes": 28,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS132167",
@@ -4101,5 +4101,27 @@
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
     "resolved": true
+  },
+  {
+    "asn": "AS134976",
+    "name": "MATL-AS-AP Myint & Associates Telecommunications Ltd",
+    "status": "DOWN",
+    "started_at": "2026-04-16T15:02:15.710428+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
+  },
+  {
+    "asn": "AS132038",
+    "name": "ROYALESPRIT-MM Royal Esprit Company Limited",
+    "status": "DOWN",
+    "started_at": "2026-04-16T15:03:08.687867+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
   }
 ]
