@@ -3788,21 +3788,21 @@
     "name": "STMCL-AS-AP SEANET",
     "status": "DOWN",
     "started_at": "2026-04-16T03:32:33.683931+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-16T04:01:49.291499+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS133385",
     "name": "ATOMMYANMAR-AS-AP Atom Myanmar Limited",
     "status": "DOWN",
     "started_at": "2026-04-16T03:33:00.383079+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-16T04:01:57.253157+00:00",
+    "duration_minutes": 28,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   }
 ]
