@@ -3848,5 +3848,27 @@
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
     "resolved": true
+  },
+  {
+    "asn": "AS141704",
+    "name": "GALAXIANET-AS-AP Galaxia @ Net",
+    "status": "DOWN",
+    "started_at": "2026-04-16T09:02:45.798592+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
+  },
+  {
+    "asn": "AS134105",
+    "name": "STLMC-AS-AP Shwe Than Lwin Media Co.",
+    "status": "DOWN",
+    "started_at": "2026-04-16T09:03:14.577391+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
   }
 ]
