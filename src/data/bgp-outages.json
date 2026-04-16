@@ -3931,6 +3931,17 @@
     "name": "VDCNET-AS-AP Ultra Net",
     "status": "DOWN",
     "started_at": "2026-04-16T11:32:30.212740+00:00",
+    "ended_at": "2026-04-16T12:03:45.186575+00:00",
+    "duration_minutes": 31,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": true
+  },
+  {
+    "asn": "AS154481",
+    "name": "TACHILEIK1-AS-AP Tachileik Jade Dragon Company Limited",
+    "status": "DOWN",
+    "started_at": "2026-04-16T11:32:48.112524+00:00",
     "ended_at": null,
     "duration_minutes": null,
     "min_visibility_pct": 0.0,
@@ -3938,10 +3949,21 @@
     "resolved": false
   },
   {
-    "asn": "AS154481",
-    "name": "TACHILEIK1-AS-AP Tachileik Jade Dragon Company Limited",
+    "asn": "AS150297",
+    "name": "GMBECL-AS-AP Golden Myanmar Business Exchange Co. Ltd",
     "status": "DOWN",
-    "started_at": "2026-04-16T11:32:48.112524+00:00",
+    "started_at": "2026-04-16T12:03:30.658835+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
+  },
+  {
+    "asn": "AS138167",
+    "name": "TRUENET-AS-AP TrueNET",
+    "status": "DOWN",
+    "started_at": "2026-04-16T12:04:29.476940+00:00",
     "ended_at": null,
     "duration_minutes": null,
     "min_visibility_pct": 0.0,
