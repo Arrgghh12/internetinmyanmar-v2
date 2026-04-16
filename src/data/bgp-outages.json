@@ -3832,11 +3832,11 @@
     "name": "AUNGGABAR-AS-AP AUNG GABAR COMPANY LIMITED",
     "status": "DOWN",
     "started_at": "2026-04-16T08:32:54.502334+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-16T09:33:27.645198+00:00",
+    "duration_minutes": 60,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS58952",
@@ -3854,17 +3854,28 @@
     "name": "GALAXIANET-AS-AP Galaxia @ Net",
     "status": "DOWN",
     "started_at": "2026-04-16T09:02:45.798592+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-16T09:33:43.675964+00:00",
+    "duration_minutes": 30,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS134105",
     "name": "STLMC-AS-AP Shwe Than Lwin Media Co.",
     "status": "DOWN",
     "started_at": "2026-04-16T09:03:14.577391+00:00",
+    "ended_at": "2026-04-16T09:34:06.971411+00:00",
+    "duration_minutes": 30,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": true
+  },
+  {
+    "asn": "AS133385",
+    "name": "ATOMMYANMAR-AS-AP Atom Myanmar Limited",
+    "status": "DOWN",
+    "started_at": "2026-04-16T09:33:00.938152+00:00",
     "ended_at": null,
     "duration_minutes": null,
     "min_visibility_pct": 0.0,
