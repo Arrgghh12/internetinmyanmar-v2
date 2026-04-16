@@ -4250,21 +4250,10 @@
     "name": "MPT-AP Myanma Posts and Telecommunications",
     "status": "DOWN",
     "started_at": "2026-04-16T20:25:29.222544+00:00",
-    "ended_at": "2026-04-16T20:30:15.725558+00:00",
-    "duration_minutes": 4,
+    "ended_at": "2026-04-16T20:32:28.836171+00:00",
+    "duration_minutes": 6,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
     "resolved": true
-  },
-  {
-    "asn": "AS132167",
-    "name": "U9-MM Nine Communications Company Limited",
-    "status": "DOWN",
-    "started_at": "2026-04-16T20:30:14.496237+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
-    "min_visibility_pct": 0.0,
-    "ioda_confirmed": false,
-    "resolved": false
   }
 ]
