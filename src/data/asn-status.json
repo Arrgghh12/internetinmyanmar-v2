@@ -156,28 +156,24 @@
   "AS132167": {
     "asn": "AS132167",
     "name": "U9-MM Nine Communications Company Limited",
-    "announced": false,
-    "visibility_pct": 0.0,
-    "visible_collectors": 0,
-    "total_collectors": 0,
-    "status": "RED",
-    "status_since": "2026-04-16T14:40:34.798845+00:00",
-    "timestamp": "2026-04-16T14:45:07.269312+00:00",
-    "error": "Server error '502 Bad Gateway' for url 'https://stat.ripe.net/data/routing-statu"
+    "announced": true,
+    "visibility_pct": 1.0,
+    "visible_collectors": 329,
+    "total_collectors": 329,
+    "timestamp": "2026-04-16T14:50:04.227139+00:00",
+    "status": "YELLOW",
+    "status_since": "2026-04-16T14:50:04.227139+00:00"
   },
   "AS58952": {
     "asn": "AS58952",
     "name": "FRONTIIRCOLTD-MM Frontiir Co. Ltd",
-    "announced": false,
-    "visibility_pct": 0.0,
-    "visible_collectors": 0,
-    "total_collectors": 0,
-    "status": "RED",
-    "status_since": "2026-04-16T14:45:07.607288+00:00",
-    "timestamp": "2026-04-16T14:45:07.607288+00:00",
-    "error": "Server error '502 Bad Gateway' for url 'https://stat.ripe.net/data/routing-statu",
-    "ioda_outages": 0,
-    "ioda_confirmed": false
+    "announced": true,
+    "visibility_pct": 1.0,
+    "visible_collectors": 329,
+    "total_collectors": 329,
+    "timestamp": "2026-04-16T14:50:04.572096+00:00",
+    "status": "YELLOW",
+    "status_since": "2026-04-16T14:50:04.572096+00:00"
   },
   "AS139849": {
     "asn": "AS139849",
@@ -613,16 +609,13 @@
   "AS9988": {
     "asn": "AS9988",
     "name": "MPT-AP Myanma Posts and Telecommunications",
-    "announced": false,
-    "visibility_pct": 0.0,
-    "visible_collectors": 0,
-    "total_collectors": 0,
-    "status": "RED",
-    "status_since": "2026-04-16T14:45:08.309742+00:00",
-    "timestamp": "2026-04-16T14:45:08.309742+00:00",
-    "error": "Server error '502 Bad Gateway' for url 'https://stat.ripe.net/data/routing-statu",
-    "ioda_outages": 0,
-    "ioda_confirmed": false
+    "announced": true,
+    "visibility_pct": 1.0,
+    "visible_collectors": 329,
+    "total_collectors": 329,
+    "timestamp": "2026-04-16T14:50:04.917637+00:00",
+    "status": "YELLOW",
+    "status_since": "2026-04-16T14:50:04.917637+00:00"
   },
   "AS133384": {
     "asn": "AS133384",
@@ -770,16 +763,13 @@
   "AS136480": {
     "asn": "AS136480",
     "name": "MMUNILINK-AS-AP Myanmar Unilink Communication Company Limited",
-    "announced": false,
-    "visibility_pct": 0.0,
-    "visible_collectors": 0,
-    "total_collectors": 0,
-    "status": "RED",
-    "status_since": "2026-04-16T14:45:08.768106+00:00",
-    "timestamp": "2026-04-16T14:45:08.768106+00:00",
-    "error": "Server error '502 Bad Gateway' for url 'https://stat.ripe.net/data/routing-statu",
-    "ioda_outages": 0,
-    "ioda_confirmed": false
+    "announced": true,
+    "visibility_pct": 1.0,
+    "visible_collectors": 329,
+    "total_collectors": 329,
+    "timestamp": "2026-04-16T14:50:05.266466+00:00",
+    "status": "YELLOW",
+    "status_since": "2026-04-16T14:50:05.266466+00:00"
   },
   "AS150309": {
     "asn": "AS150309",
