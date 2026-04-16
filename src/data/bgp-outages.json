@@ -3942,32 +3942,32 @@
     "name": "TACHILEIK1-AS-AP Tachileik Jade Dragon Company Limited",
     "status": "DOWN",
     "started_at": "2026-04-16T11:32:48.112524+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-16T12:32:21.581959+00:00",
+    "duration_minutes": 59,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS150297",
     "name": "GMBECL-AS-AP Golden Myanmar Business Exchange Co. Ltd",
     "status": "DOWN",
     "started_at": "2026-04-16T12:03:30.658835+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-16T12:32:02.648858+00:00",
+    "duration_minutes": 28,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS138167",
     "name": "TRUENET-AS-AP TrueNET",
     "status": "DOWN",
     "started_at": "2026-04-16T12:04:29.476940+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-16T12:32:36.781771+00:00",
+    "duration_minutes": 28,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   }
 ]
