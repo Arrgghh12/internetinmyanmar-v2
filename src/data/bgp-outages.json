@@ -4107,21 +4107,21 @@
     "name": "MATL-AS-AP Myint & Associates Telecommunications Ltd",
     "status": "DOWN",
     "started_at": "2026-04-16T15:02:15.710428+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-16T15:32:39.818915+00:00",
+    "duration_minutes": 30,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS132038",
     "name": "ROYALESPRIT-MM Royal Esprit Company Limited",
     "status": "DOWN",
     "started_at": "2026-04-16T15:03:08.687867+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-16T15:33:24.766879+00:00",
+    "duration_minutes": 30,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   }
 ]
