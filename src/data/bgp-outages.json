@@ -3898,17 +3898,39 @@
     "name": "TLINKGROUP-AS-AP T-Link Group Company Limited",
     "status": "DOWN",
     "started_at": "2026-04-16T10:33:13.038538+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-16T11:32:52.882197+00:00",
+    "duration_minutes": 59,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS137259",
     "name": "ILINK-AS-AP i-Link",
     "status": "DOWN",
     "started_at": "2026-04-16T11:01:31.749503+00:00",
+    "ended_at": "2026-04-16T11:31:09.104463+00:00",
+    "duration_minutes": 29,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": true
+  },
+  {
+    "asn": "AS134714",
+    "name": "ETPCL-AS-AP Elite Telecom Public Company Limited",
+    "status": "DOWN",
+    "started_at": "2026-04-16T11:01:40.480553+00:00",
+    "ended_at": "2026-04-16T11:31:12.507318+00:00",
+    "duration_minutes": 29,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": true
+  },
+  {
+    "asn": "AS134484",
+    "name": "VDCNET-AS-AP Ultra Net",
+    "status": "DOWN",
+    "started_at": "2026-04-16T11:32:30.212740+00:00",
     "ended_at": null,
     "duration_minutes": null,
     "min_visibility_pct": 0.0,
@@ -3916,10 +3938,10 @@
     "resolved": false
   },
   {
-    "asn": "AS134714",
-    "name": "ETPCL-AS-AP Elite Telecom Public Company Limited",
+    "asn": "AS154481",
+    "name": "TACHILEIK1-AS-AP Tachileik Jade Dragon Company Limited",
     "status": "DOWN",
-    "started_at": "2026-04-16T11:01:40.480553+00:00",
+    "started_at": "2026-04-16T11:32:48.112524+00:00",
     "ended_at": null,
     "duration_minutes": null,
     "min_visibility_pct": 0.0,
