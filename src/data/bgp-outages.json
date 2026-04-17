@@ -4899,21 +4899,32 @@
     "name": "SHWE-AS-AP SHWE MAHAR MAE KHONG INDUSTRIAL COMPANY LIMITED",
     "status": "DOWN",
     "started_at": "2026-04-17T17:03:18.121253+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-17T17:32:18.387425+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS58952",
     "name": "FRONTIIRCOLTD-MM Frontiir Co. Ltd",
     "status": "DOWN",
     "started_at": "2026-04-17T17:25:21.238461+00:00",
-    "ended_at": "2026-04-17T17:30:07.882097+00:00",
-    "duration_minutes": 4,
+    "ended_at": "2026-04-17T17:31:14.028703+00:00",
+    "duration_minutes": 5,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
     "resolved": true
+  },
+  {
+    "asn": "AS133524",
+    "name": "GTCL-AS-AP Global Technology Co.",
+    "status": "DOWN",
+    "started_at": "2026-04-17T17:32:59.229290+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
   }
 ]
