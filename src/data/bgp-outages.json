@@ -5020,21 +5020,21 @@
     "name": "TACHILEIKNET-AS-AP TCL Net",
     "status": "DOWN",
     "started_at": "2026-04-17T22:03:37.008089+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-17T22:32:11.876171+00:00",
+    "duration_minutes": 28,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS151482",
     "name": "MKTN-AS-AP MKTN ENGINEERING GROUP COMPANY LIMITED",
     "status": "DOWN",
     "started_at": "2026-04-17T22:04:34.293739+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-17T22:32:37.375973+00:00",
+    "duration_minutes": 28,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   }
 ]
