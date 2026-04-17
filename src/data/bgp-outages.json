@@ -4514,39 +4514,50 @@
     "name": "MYANMARLINK-AS-AP Myanmar Link Telecommunication Ltd",
     "status": "DOWN",
     "started_at": "2026-04-17T09:03:03.811243+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-17T09:31:44.056998+00:00",
+    "duration_minutes": 28,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS152329",
     "name": "AKNCL-AS-AP Aon Kham Network Company Limited",
     "status": "DOWN",
     "started_at": "2026-04-17T09:03:40.561016+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-17T09:32:03.782373+00:00",
+    "duration_minutes": 28,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS133524",
     "name": "GTCL-AS-AP Global Technology Co.",
     "status": "DOWN",
     "started_at": "2026-04-17T09:04:57.489394+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-17T09:32:32.860772+00:00",
+    "duration_minutes": 27,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS135589",
     "name": "IMNCL-AS-AP Internet Maekhong Network Company Limited",
     "status": "DOWN",
     "started_at": "2026-04-17T09:05:14.883049+00:00",
+    "ended_at": "2026-04-17T09:32:36.113773+00:00",
+    "duration_minutes": 27,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": true
+  },
+  {
+    "asn": "AS45558",
+    "name": "MPT-MM-AS-AP MYANMA POSTS AND TELECOMMUNICATIONS",
+    "status": "DOWN",
+    "started_at": "2026-04-17T09:33:13.967220+00:00",
     "ended_at": null,
     "duration_minutes": null,
     "min_visibility_pct": 0.0,
