@@ -4811,17 +4811,17 @@
     "name": "HTIN-AS-AP HTIN HTIN NETWORK COMPANY LIMITED",
     "status": "DOWN",
     "started_at": "2026-04-17T15:02:23.361906+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-17T15:33:19.243960+00:00",
+    "duration_minutes": 30,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
-    "asn": "AS136480",
-    "name": "MMUNILINK-AS-AP Myanmar Unilink Communication Company Limited",
+    "asn": "AS139822",
+    "name": "GNE-AS-MM GNE Company Limited",
     "status": "DOWN",
-    "started_at": "2026-04-17T15:30:37.776232+00:00",
+    "started_at": "2026-04-17T15:31:51.656578+00:00",
     "ended_at": null,
     "duration_minutes": null,
     "min_visibility_pct": 0.0,
