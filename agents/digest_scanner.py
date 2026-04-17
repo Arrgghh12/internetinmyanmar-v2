@@ -45,8 +45,23 @@ SEEN_FILE   = AGENTS_DIR / "backfill" / "seen_urls.txt"   # shared with backfill
 
 # ── Seen-URL dedup ─────────────────────────────────────────────────────────────
 
+def normalize_url(url: str) -> str:
+    """Strip Google News redirect wrapper to get the real destination URL."""
+    from urllib.parse import urlparse, parse_qs
+    parsed = urlparse(url)
+    if "google.com" in parsed.netloc and parsed.path == "/url":
+        qs = parse_qs(parsed.query)
+        real = qs.get("url", [url])[0]
+        return urlparse(real).netloc + urlparse(real).path
+    return parsed.netloc + parsed.path
+
 def url_hash(url: str) -> str:
-    return hashlib.md5(url.encode()).hexdigest()[:12]
+    return hashlib.md5(normalize_url(url).encode()).hexdigest()[:12]
+
+def title_key(title: str) -> str:
+    """Normalize title for same-story dedup across sources."""
+    import re
+    return re.sub(r"[^a-z0-9]", "", title.lower())[:50]
 
 def load_seen() -> set:
     if not SEEN_FILE.exists():
@@ -62,16 +77,22 @@ def mark_seen(url: str, seen: set, dry_run: bool):
 
 # ── Relevance scoring ──────────────────────────────────────────────────────────
 
-SCORE_PROMPT = """Score this article for relevance to Myanmar internet freedom,
-digital censorship, network shutdowns, VPN/social media blocking,
-journalist digital safety, or surveillance technology.
+SCORE_PROMPT = """Score this article for relevance to Myanmar internet and telecommunications:
+- Internet shutdowns, network outages, connectivity disruptions
+- Website/app/VPN blocking and censorship
+- Telecom infrastructure (MPT, Mytel, Ooredoo, fibre, mobile data)
+- Surveillance technology and digital monitoring
+- Regulations or policies directly affecting internet access
+
+Score 0 if: journalist arrests (not digital), political news, military operations,
+humanitarian issues, elections, economy — unless they explicitly involve internet/telecom.
 
 Title: {title}
 Source: {source}
 Excerpt: {excerpt}
 Date: {date}
 
-category MUST be exactly one of: Shutdown | Censorship | Arrest | Policy | Data | Surveillance | Other
+category MUST be exactly one of: Shutdown | Censorship | Telecom | Policy | Surveillance | Other
 
 Return JSON only:
 {{
@@ -201,8 +222,9 @@ def run(dry_run: bool = False):
     all_items = asyncio.run(fetch_all_rss(cutoff))
     log.info("Total fetched: %d items", len(all_items))
 
-    # 2. Deduplicate
+    # 2. Deduplicate — by URL and by title (catches same story from multiple sources)
     unique: list[dict] = []
+    seen_titles: set[str] = set()
     for item in all_items:
         url = item.get("url", "")
         if not url:
@@ -210,6 +232,11 @@ def run(dry_run: bool = False):
         h = url_hash(url)
         if h in seen:
             continue
+        tk = title_key(item.get("title", ""))
+        if tk in seen_titles:
+            log.info("  dedup (title): %s", item.get("title", "")[:60])
+            continue
+        seen_titles.add(tk)
         mark_seen(url, seen, dry_run)
         unique.append(item)
 
