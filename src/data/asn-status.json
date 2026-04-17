@@ -160,7 +160,7 @@
     "visibility_pct": 1.0,
     "visible_collectors": 329,
     "total_collectors": 329,
-    "timestamp": "2026-04-16T23:31:34.268742+00:00",
+    "timestamp": "2026-04-17T00:00:12.012465+00:00",
     "status": "GREEN",
     "status_since": "2026-04-16T14:50:04.227139+00:00"
   },
@@ -171,7 +171,7 @@
     "visibility_pct": 1.0,
     "visible_collectors": 329,
     "total_collectors": 329,
-    "timestamp": "2026-04-16T23:31:34.612378+00:00",
+    "timestamp": "2026-04-17T00:00:22.177330+00:00",
     "status": "GREEN",
     "status_since": "2026-04-16T14:50:04.572096+00:00"
   },
@@ -608,13 +608,16 @@
   "AS9988": {
     "asn": "AS9988",
     "name": "MPT-AP Myanma Posts and Telecommunications",
-    "announced": true,
-    "visibility_pct": 1.0,
-    "visible_collectors": 329,
-    "total_collectors": 329,
-    "timestamp": "2026-04-16T23:32:21.564056+00:00",
-    "status": "GREEN",
-    "status_since": "2026-04-16T20:32:28.535822+00:00"
+    "announced": false,
+    "visibility_pct": 0.0,
+    "visible_collectors": 0,
+    "total_collectors": 0,
+    "status": "RED",
+    "status_since": "2026-04-17T00:00:22.841286+00:00",
+    "timestamp": "2026-04-17T00:00:22.841286+00:00",
+    "error": "Server error '502 Bad Gateway' for url 'https://stat.ripe.net/data/routing-statu",
+    "ioda_outages": 0,
+    "ioda_confirmed": false
   },
   "AS133384": {
     "asn": "AS133384",
@@ -766,7 +769,7 @@
     "visibility_pct": 1.0,
     "visible_collectors": 329,
     "total_collectors": 329,
-    "timestamp": "2026-04-16T23:32:34.373758+00:00",
+    "timestamp": "2026-04-17T00:00:25.005662+00:00",
     "status": "GREEN",
     "status_since": "2026-04-16T14:50:05.266466+00:00"
   },
