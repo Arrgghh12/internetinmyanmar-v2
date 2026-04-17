@@ -4305,21 +4305,10 @@
     "name": "MBTCL-AS-AP Myanmar Broadband Telecom Co.",
     "status": "DOWN",
     "started_at": "2026-04-16T23:31:59.811158+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-17T00:01:37.151345+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
-  },
-  {
-    "asn": "AS9988",
-    "name": "MPT-AP Myanma Posts and Telecommunications",
-    "status": "DOWN",
-    "started_at": "2026-04-17T00:00:23.142003+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
-    "min_visibility_pct": 0.0,
-    "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   }
 ]
