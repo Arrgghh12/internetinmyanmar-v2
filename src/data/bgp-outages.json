@@ -4492,21 +4492,21 @@
     "name": "VDCNET-AS-AP Ultra Net",
     "status": "DOWN",
     "started_at": "2026-04-17T07:32:11.980032+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-17T08:02:40.110135+00:00",
+    "duration_minutes": 30,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS151965",
     "name": "HATG-AS-AP Hepta Alliance Technology Group",
     "status": "DOWN",
     "started_at": "2026-04-17T07:32:27.758432+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-17T08:02:51.127832+00:00",
+    "duration_minutes": 30,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   }
 ]
