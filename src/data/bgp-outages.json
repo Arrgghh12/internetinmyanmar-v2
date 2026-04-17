@@ -4635,65 +4635,43 @@
     "name": "ITSPECTRUM-AS-AP IT Spectrum Company Limited",
     "status": "DOWN",
     "started_at": "2026-04-17T12:01:33.121583+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-17T12:31:11.891984+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS150159",
     "name": "BDCL-AS-AP BRAINWAVE DATA COMPANY LIMITED",
     "status": "DOWN",
     "started_at": "2026-04-17T12:02:08.281008+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-17T12:31:46.215910+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS63852",
     "name": "FMG-MM Myanmar Net",
     "status": "DOWN",
     "started_at": "2026-04-17T12:03:21.566409+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-17T12:32:44.771075+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS18399",
     "name": "YTCL-AS-AP Yatanarpon Teleport Company Limited",
     "status": "DOWN",
     "started_at": "2026-04-17T12:04:24.401817+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-17T12:33:11.087573+00:00",
+    "duration_minutes": 28,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
-  },
-  {
-    "asn": "AS58952",
-    "name": "FRONTIIRCOLTD-MM Frontiir Co. Ltd",
-    "status": "DOWN",
-    "started_at": "2026-04-17T12:30:22.678388+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
-    "min_visibility_pct": 0.0,
-    "ioda_confirmed": false,
-    "resolved": false
-  },
-  {
-    "asn": "AS136480",
-    "name": "MMUNILINK-AS-AP Myanmar Unilink Communication Company Limited",
-    "status": "DOWN",
-    "started_at": "2026-04-17T12:30:40.607705+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
-    "min_visibility_pct": 0.0,
-    "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   }
 ]
