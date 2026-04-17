@@ -4316,50 +4316,61 @@
     "name": "MGTL-AS-AP Marga Global Telecom Limited",
     "status": "DOWN",
     "started_at": "2026-04-17T01:02:52.668049+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-17T01:32:20.578835+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS150309",
     "name": "ERSTCL-AS-AP E R S TECHNOLOGY",
     "status": "DOWN",
     "started_at": "2026-04-17T01:02:59.283983+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-17T01:32:22.640359+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS133440",
     "name": "STIGW-AS-AP ST.Net",
     "status": "DOWN",
     "started_at": "2026-04-17T01:03:24.311741+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-17T01:32:29.995048+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS134976",
     "name": "MATL-AS-AP Myint & Associates Telecommunications Ltd",
     "status": "DOWN",
     "started_at": "2026-04-17T01:03:24.755320+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-17T01:32:30.830942+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS149855",
     "name": "AS-AGBC AGB Communication Co.",
     "status": "DOWN",
     "started_at": "2026-04-17T01:03:27.161209+00:00",
+    "ended_at": "2026-04-17T01:32:33.417941+00:00",
+    "duration_minutes": 29,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": true
+  },
+  {
+    "asn": "AS151606",
+    "name": "MSPACL-AS-AP MYANMAR SHWE PYI AYE COMPANY LIMITED",
+    "status": "DOWN",
+    "started_at": "2026-04-17T01:31:34.425706+00:00",
     "ended_at": null,
     "duration_minutes": null,
     "min_visibility_pct": 0.0,
@@ -4367,10 +4378,21 @@
     "resolved": false
   },
   {
-    "asn": "AS9988",
-    "name": "MPT-AP Myanma Posts and Telecommunications",
+    "asn": "AS134714",
+    "name": "ETPCL-AS-AP Elite Telecom Public Company Limited",
     "status": "DOWN",
-    "started_at": "2026-04-17T01:30:24.005181+00:00",
+    "started_at": "2026-04-17T01:31:34.906954+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
+  },
+  {
+    "asn": "AS135111",
+    "name": "AML-AS-AP Asia Mega Link",
+    "status": "DOWN",
+    "started_at": "2026-04-17T01:33:01.583037+00:00",
     "ended_at": null,
     "duration_minutes": null,
     "min_visibility_pct": 0.0,
