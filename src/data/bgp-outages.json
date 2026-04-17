@@ -4442,5 +4442,16 @@
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
     "resolved": true
+  },
+  {
+    "asn": "AS136229",
+    "name": "TCLC-AS-AP Treasure Chindwin Land Co.",
+    "status": "DOWN",
+    "started_at": "2026-04-17T05:01:26.092253+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
   }
 ]
