@@ -5003,5 +5003,16 @@
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
     "resolved": true
+  },
+  {
+    "asn": "AS134105",
+    "name": "STLMC-AS-AP Shwe Than Lwin Media Co.",
+    "status": "DOWN",
+    "started_at": "2026-04-17T21:33:11.795830+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
   }
 ]
