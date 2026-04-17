@@ -2,8 +2,7 @@
 Article Writer
 --------------
 Generates a full MDX article from an approved brief.
-Uses DeepSeek-V3 (no Anthropic credits) for non-sensitive content,
-Claude Sonnet for sensitive content (China-related, named individuals).
+Uses DeepSeek-V3 for all content generation.
 
 Usage:
   python writer.py /path/to/brief.md [--adjustments "focus more on telecom impact"]
@@ -83,7 +82,7 @@ def _read_brief(path: str) -> tuple[dict, str]:
 
 
 def _write_with_deepseek(brief_text: str, adjustments: str) -> str:
-    """Use DeepSeek-V3 directly (cheap, no Anthropic credits)."""
+    """Use DeepSeek-V3 for article generation."""
     from openai import OpenAI
     client = OpenAI(
         base_url="https://api.deepseek.com/v1",
@@ -102,22 +101,8 @@ def _write_with_deepseek(brief_text: str, adjustments: str) -> str:
     return resp.choices[0].message.content
 
 
-def _write_with_claude(brief_text: str, adjustments: str) -> str:
-    """Use Claude Sonnet for sensitive content (China, named individuals)."""
-    import anthropic
-    client = anthropic.Anthropic(api_key=os.getenv("ANTHROPIC_API_KEY"))
-    adj_note = f"\n\nEditor adjustments: {adjustments}" if adjustments else ""
-    resp = client.messages.create(
-        model="claude-sonnet-4-6",
-        max_tokens=3000,
-        system=SYSTEM_PROMPT,
-        messages=[{"role": "user", "content": f"Write the article from this brief:\n\n{brief_text}{adj_note}"}],
-    )
-    return resp.content[0].text
-
-
-def write_article(brief_text: str, adjustments: str = "", force_deepseek: bool = False) -> str:
-    """Always use DeepSeek-V3. Claude routing disabled until API credits confirmed."""
+def write_article(brief_text: str, adjustments: str = "") -> str:
+    """Use DeepSeek-V3 for all article generation."""
     log.info("Using DeepSeek-V3 for article generation")
     return _write_with_deepseek(brief_text, adjustments)
 

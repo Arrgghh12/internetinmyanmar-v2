@@ -174,7 +174,7 @@ def _parse_json(text: str) -> dict:
 
 
 def _get_max_tokens(task: str) -> int:
-    tokens = CONFIG.get("anthropic", {}).get("max_tokens", {})
+    tokens = CONFIG.get("models", {}).get("max_tokens", {})
     return tokens.get(task, 800)
 
 

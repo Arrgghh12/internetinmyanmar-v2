@@ -128,15 +128,13 @@ async def fetch_ooni(client: httpx.AsyncClient, cutoff: datetime) -> list[dict]:
 
 
 REDDIT_SUBS = [
-    {"subreddit": "myanmar",        "filter": None},
-    {"subreddit": "burma",          "filter": None},
-    {"subreddit": "digitalprivacy", "filter": "myanmar"},
-    {"subreddit": "VPN",            "filter": "myanmar"},
+    {"subreddit": "myanmar", "filter": None},
 ]
 
 # Minimum quality thresholds — keeps signal, drops shitposts
-REDDIT_MIN_SCORE    = 50   # upvotes
-REDDIT_MIN_COMMENTS = 10
+# r/myanmar and r/burma are small communities; lower bar than general subs
+REDDIT_MIN_SCORE    = 3    # upvotes (net positive is enough)
+REDDIT_MIN_COMMENTS = 2
 
 
 async def fetch_reddit(client: httpx.AsyncClient, cutoff: datetime) -> list[dict]:
@@ -144,7 +142,7 @@ async def fetch_reddit(client: httpx.AsyncClient, cutoff: datetime) -> list[dict
     for cfg in REDDIT_SUBS:
         sub = cfg["subreddit"]
         kw  = cfg["filter"]
-        url = f"https://www.reddit.com/r/{sub}/new.json?limit=50"
+        url = f"https://www.reddit.com/r/{sub}.json?limit=50"
         try:
             resp = await client.get(url, timeout=15, follow_redirects=True)
             resp.raise_for_status()
@@ -171,8 +169,15 @@ async def fetch_reddit(client: httpx.AsyncClient, cutoff: datetime) -> list[dict
                 selftext = (p.get("selftext") or "").strip()[:400]
                 combined = (title + " " + selftext).lower()
 
-                # Keyword filter for broad subreddits
-                if kw and kw.lower() not in combined:
+                # Keyword filter — broad subs use explicit filter word;
+                # myanmar/burma subs require at least one topic keyword
+                TOPIC_KEYWORDS = [
+                    "internet", "vpn", "censorship", "blocked", "shutdown",
+                    "telecom", "mpt", "ooredoo", "mytel", "network", "firewall",
+                    "digital", "surveillance", "junta", "connectivity", "bandwidth",
+                    "social media", "facebook", "twitter", "telegram",
+                ]
+                if not any(k in combined for k in TOPIC_KEYWORDS):
                     continue
 
                 items.append({
@@ -250,7 +255,7 @@ def score_item(item: dict) -> dict:
     text = f"Title: {item['title']}\nSource: {item['source']}\nSummary: {item['summary']}"
     response = CLIENT.chat.completions.create(
         model="deepseek-chat",
-        max_tokens=CONFIG["anthropic"]["max_tokens"]["score"],
+        max_tokens=CONFIG.get("models", {}).get("max_tokens", {}).get("score", 150),
         messages=[
             {"role": "system", "content": "Respond with JSON only. No preamble."},
             {"role": "user",   "content": f"{SCORE_PROMPT}\n\nItem:\n{text}"},

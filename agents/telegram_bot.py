@@ -30,8 +30,8 @@ from pathlib import Path
 import requests
 from dotenv import load_dotenv
 from github import Github, GithubException
-from telegram import Update
-from telegram.ext import Application, CommandHandler, ContextTypes, MessageHandler, filters
+from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
+from telegram.ext import Application, CallbackQueryHandler, CommandHandler, ContextTypes, MessageHandler, filters
 
 load_dotenv(Path(__file__).parent / ".env")
 
@@ -267,6 +267,72 @@ async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
     lines.append("\nCloudflare Pages rebuild triggered automatically.")
     await update.message.reply_text("\n".join(lines), parse_mode="Markdown")
 
+    # Offer social posting for the first published article
+    first = selected[0]
+    slug = slugify(first.get("your_title") or first.get("title", ""))
+    keyboard = InlineKeyboardMarkup([[
+        InlineKeyboardButton("Post to Twitter + Facebook",
+                             callback_data=f"social:{slug}"),
+        InlineKeyboardButton("Skip", callback_data=f"social_skip:{slug}"),
+    ]])
+    await update.message.reply_text(
+        "Post to social media?",
+        reply_markup=keyboard,
+    )
+
+
+# ── Social posting callback ────────────────────────────────────────────────────
+
+async def handle_social_callback(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    query = update.callback_query
+    await query.answer()
+
+    if not (query.message.chat and query.message.chat.id == ALLOWED_CHAT):
+        return
+
+    data = query.data
+    if data.startswith("social_skip:"):
+        await query.edit_message_text("Skipped social posting.")
+        return
+
+    if data.startswith("social:"):
+        slug = data.split(":", 1)[1]
+
+        # Find the article in today's pending list by slug
+        _, candidates = latest_pending()
+        article = next(
+            (c for c in candidates
+             if slugify(c.get("your_title") or c.get("title", "")) == slug),
+            None,
+        )
+        if not article:
+            await query.edit_message_text("Could not find article metadata.")
+            return
+
+        await query.edit_message_text("Posting to Twitter + Facebook…")
+
+        try:
+            from distribution.social_poster import post_all
+            pub_date = (article.get("published") or date.today().isoformat())[:10]
+            results = post_all({
+                "title": article.get("your_title") or article.get("title", ""),
+                "excerpt": strip_html(article.get("summary") or "")[:300],
+                "category": article.get("category", ""),
+                "source": article.get("source_name") or article.get("source", ""),
+                "slug": f"{pub_date}-{slug}",
+            })
+        except Exception as e:
+            log.error("Social posting failed: %s", e)
+            await query.edit_message_text(f"Failed: {e}")
+            return
+
+        posted = list(results["posted"].keys())
+        errors = results["errors"]
+        msg = f"Posted to: {', '.join(posted)}" if posted else "Nothing posted."
+        if errors:
+            msg += f"\nFailed: {', '.join(f'{p}: {e}' for p, e in errors.items())}"
+        await query.edit_message_text(msg)
+
 
 # ── Entry point ────────────────────────────────────────────────────────────────
 
@@ -275,6 +341,7 @@ def main():
     app.add_handler(CommandHandler("pending", cmd_pending))
     app.add_handler(CommandHandler("help",    cmd_help))
     app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, handle_message))
+    app.add_handler(CallbackQueryHandler(handle_social_callback))
 
     log.info("IIM Digest Bot starting (polling)…")
     app.run_polling(allowed_updates=Update.ALL_TYPES)

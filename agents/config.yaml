@@ -1,16 +1,12 @@
-anthropic:
-  models:
-    score:   claude-haiku-4-5
-    monitor: claude-haiku-4-5
-    brief:   claude-sonnet-4-6
-    write:   claude-sonnet-4-6
-    seo:     claude-haiku-4-5
+models:
+  default: deepseek-chat
   max_tokens:
     score:   150
     monitor: 300
     brief:   800
     write:   3000
     seo:     200
+    copy:    300
 
 # ── Sources by tier ───────────────────────────────────────────────────────────
 # Tier 1: Technical data — primary, high reliability

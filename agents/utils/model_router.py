@@ -2,38 +2,28 @@
 Central model routing — agents/utils/model_router.py
 Every agent imports this. Never hardcode model names elsewhere.
 
-5-level stack:
+4-level stack:
   L1  Tavily       — web search ($0.005/search)
   L2  Groq Llama   — free classification, language detection
   L3  Qwen 2.5 72B — neutral Burmese translation only
-  L4  DeepSeek-V3  — public data consolidation
-  L5  Claude       — all editorial + any sensitive content
+  L4  DeepSeek-V3  — everything else: editorial, copy, sensitive content
 
-Safety rule: is_sensitive() = True → Claude only, always.
+Safety rule: is_sensitive() = True → DeepSeek, always.
 """
 
 import json
 import os
 
-from anthropic import Anthropic
 from dotenv import load_dotenv
 
 load_dotenv()
 
 # ── Lazy client init ──────────────────────────────────────────────────────────
 
-_claude      = None
 _groq        = None
 _together    = None
 _openrouter  = None
 _tavily      = None
-
-
-def _get_claude():
-    global _claude
-    if _claude is None:
-        _claude = Anthropic(api_key=os.getenv("ANTHROPIC_API_KEY"))
-    return _claude
 
 
 def _get_groq():
@@ -106,7 +96,7 @@ SOURCE_SIGNALS = [
 
 def is_sensitive(content: str, metadata: dict | None = None) -> bool:
     """
-    True → Claude only.
+    True → DeepSeek only (never a cheaper model).
     Covers: China-related content, at-risk individuals, private sources.
     When in doubt, return True.
     """
@@ -128,12 +118,6 @@ def is_sensitive(content: str, metadata: dict | None = None) -> bool:
 
 # ── Task routing ──────────────────────────────────────────────────────────────
 
-# Tasks always on Claude regardless of sensitivity
-ALWAYS_CLAUDE = {
-    "brief_generate", "article_write", "amend_brief",
-    "translate_fr", "translate_es", "translate_it",
-}
-
 # Routeable tasks: (provider, default_max_tokens)
 ROUTEABLE = {
     "classify":       ("groq",      150),
@@ -143,7 +127,15 @@ ROUTEABLE = {
     "anomaly_detect": ("deepseek",  500),
     "translate_mm":   ("qwen",     1000),
     "summarize_mm":   ("qwen",      400),
-    "seo_generate":   ("haiku",     200),
+    "seo_generate":   ("deepseek",  200),
+    "copy":           ("deepseek",  300),
+    # Editorial tasks — DeepSeek
+    "brief_generate": ("deepseek", 1000),
+    "article_write":  ("deepseek", 3000),
+    "amend_brief":    ("deepseek", 1000),
+    "translate_fr":   ("deepseek", 3000),
+    "translate_es":   ("deepseek", 3000),
+    "translate_it":   ("deepseek", 3000),
 }
 
 
@@ -157,7 +149,7 @@ def call(
     """
     Route a task to the correct model and return the text response.
 
-    task:     key from ALWAYS_CLAUDE or ROUTEABLE
+    task:     key from ROUTEABLE
     prompt:   instruction to the model
     content:  the text being processed
     metadata: dict with optional flags (source_tier, has_names, telegram_origin)
@@ -167,12 +159,9 @@ def call(
 
     full_text = (prompt + " " + content).strip()
 
-    if task in ALWAYS_CLAUDE:
-        return _call_claude("sonnet", prompt, content, max_tokens or 3000)
-
+    # Sensitive content always goes to DeepSeek regardless of task
     if is_sensitive(full_text, metadata):
-        tier = "haiku" if task in ("seo_generate", "classify") else "sonnet"
-        return _call_claude(tier, prompt, content, max_tokens or 1000)
+        return _call_deepseek(prompt, content, max_tokens or 1000)
 
     if task in ROUTEABLE:
         provider, default_tok = ROUTEABLE[task]
@@ -184,11 +173,9 @@ def call(
             return _call_qwen(prompt, content, tokens)
         elif provider == "deepseek":
             return _call_deepseek(prompt, content, tokens)
-        elif provider == "haiku":
-            return _call_claude("haiku", prompt, content, tokens)
 
     # Fallback
-    return _call_claude("sonnet", prompt, content, max_tokens or 1000)
+    return _call_deepseek(prompt, content, max_tokens or 1000)
 
 
 # ── Web search (not an LLM) ────────────────────────────────────────────────────
@@ -219,21 +206,6 @@ def search(query: str, max_results: int = 5, trusted_only: bool = True) -> list[
 
 # ── Provider implementations ──────────────────────────────────────────────────
 
-def _call_claude(tier: str, prompt: str, content: str, max_tokens: int) -> str:
-    model = {"haiku": "claude-haiku-4-5", "sonnet": "claude-sonnet-4-6"}[tier]
-    client = _get_claude()
-    resp = client.messages.create(
-        model=model,
-        max_tokens=max_tokens,
-        system=(
-            "Respond with the exact requested output only. "
-            "No preamble. No explanation. No markdown fences unless output is code."
-        ),
-        messages=[{"role": "user", "content": f"{prompt}\n\n{content}".strip()}],
-    )
-    return resp.content[0].text
-
-
 def _call_groq(prompt: str, content: str, max_tokens: int) -> str:
     client = _get_groq()
     resp = client.chat.completions.create(
@@ -248,7 +220,6 @@ def _call_groq(prompt: str, content: str, max_tokens: int) -> str:
 
 def _call_qwen(prompt: str, content: str, max_tokens: int) -> str:
     client = _get_together()
-    # DashScope uses different model name format than Together AI
     model = "qwen-plus" if os.getenv("DASHSCOPE_API_KEY") else "Qwen/Qwen2.5-72B-Instruct-Turbo"
     resp = client.chat.completions.create(
         model=model,
@@ -264,13 +235,12 @@ def _call_qwen(prompt: str, content: str, max_tokens: int) -> str:
 
 def _call_deepseek(prompt: str, content: str, max_tokens: int) -> str:
     client = _get_openrouter()
-    # Direct DeepSeek API uses "deepseek-chat", OpenRouter uses "deepseek/deepseek-chat"
     model = "deepseek-chat" if os.getenv("DEEPSEEK_API_KEY") else "deepseek/deepseek-chat"
     resp = client.chat.completions.create(
         model=model,
         messages=[
-            {"role": "system", "content": "Respond with JSON only. No preamble."},
-            {"role": "user", "content": f"{prompt}\n\n{content}"},
+            {"role": "system", "content": "Respond with the exact requested output only. No preamble. No markdown fences unless output is code."},
+            {"role": "user", "content": f"{prompt}\n\n{content}".strip()},
         ],
         max_tokens=max_tokens,
         temperature=0,
