@@ -4310,5 +4310,60 @@
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
     "resolved": true
+  },
+  {
+    "asn": "AS136474",
+    "name": "MGTL-AS-AP Marga Global Telecom Limited",
+    "status": "DOWN",
+    "started_at": "2026-04-17T01:02:52.668049+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
+  },
+  {
+    "asn": "AS150309",
+    "name": "ERSTCL-AS-AP E R S TECHNOLOGY",
+    "status": "DOWN",
+    "started_at": "2026-04-17T01:02:59.283983+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
+  },
+  {
+    "asn": "AS133440",
+    "name": "STIGW-AS-AP ST.Net",
+    "status": "DOWN",
+    "started_at": "2026-04-17T01:03:24.311741+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
+  },
+  {
+    "asn": "AS134976",
+    "name": "MATL-AS-AP Myint & Associates Telecommunications Ltd",
+    "status": "DOWN",
+    "started_at": "2026-04-17T01:03:24.755320+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
+  },
+  {
+    "asn": "AS149855",
+    "name": "AS-AGBC AGB Communication Co.",
+    "status": "DOWN",
+    "started_at": "2026-04-17T01:03:27.161209+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
   }
 ]
