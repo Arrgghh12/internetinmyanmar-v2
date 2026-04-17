@@ -4822,6 +4822,17 @@
     "name": "GNE-AS-MM GNE Company Limited",
     "status": "DOWN",
     "started_at": "2026-04-17T15:31:51.656578+00:00",
+    "ended_at": "2026-04-17T16:01:41.780582+00:00",
+    "duration_minutes": 29,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": true
+  },
+  {
+    "asn": "AS150285",
+    "name": "LMHCC-AS-AP Long Mao Home Center Co.ltd.",
+    "status": "DOWN",
+    "started_at": "2026-04-17T16:03:03.277377+00:00",
     "ended_at": null,
     "duration_minutes": null,
     "min_visibility_pct": 0.0,
@@ -4829,14 +4840,14 @@
     "resolved": false
   },
   {
-    "asn": "AS58952",
-    "name": "FRONTIIRCOLTD-MM Frontiir Co. Ltd",
+    "asn": "AS134484",
+    "name": "VDCNET-AS-AP Ultra Net",
     "status": "DOWN",
-    "started_at": "2026-04-17T16:00:22.399606+00:00",
-    "ended_at": "2026-04-17T16:05:04.971526+00:00",
-    "duration_minutes": 4,
+    "started_at": "2026-04-17T16:04:01.181301+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": true
+    "resolved": false
   }
 ]
