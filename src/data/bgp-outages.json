@@ -4629,5 +4629,49 @@
     "min_visibility_pct": 0.091,
     "ioda_confirmed": false,
     "resolved": false
+  },
+  {
+    "asn": "AS136210",
+    "name": "ITSPECTRUM-AS-AP IT Spectrum Company Limited",
+    "status": "DOWN",
+    "started_at": "2026-04-17T12:01:33.121583+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
+  },
+  {
+    "asn": "AS150159",
+    "name": "BDCL-AS-AP BRAINWAVE DATA COMPANY LIMITED",
+    "status": "DOWN",
+    "started_at": "2026-04-17T12:02:08.281008+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
+  },
+  {
+    "asn": "AS63852",
+    "name": "FMG-MM Myanmar Net",
+    "status": "DOWN",
+    "started_at": "2026-04-17T12:03:21.566409+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
+  },
+  {
+    "asn": "AS18399",
+    "name": "YTCL-AS-AP Yatanarpon Teleport Company Limited",
+    "status": "DOWN",
+    "started_at": "2026-04-17T12:04:24.401817+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
   }
 ]
