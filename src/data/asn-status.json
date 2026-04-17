@@ -161,20 +161,23 @@
     "visibility_pct": 1.0,
     "visible_collectors": 330,
     "total_collectors": 330,
-    "timestamp": "2026-04-17T12:01:44.351267+00:00",
+    "timestamp": "2026-04-17T12:30:07.058278+00:00",
     "status": "GREEN",
     "status_since": "2026-04-16T14:50:04.227139+00:00"
   },
   "AS58952": {
     "asn": "AS58952",
     "name": "FRONTIIRCOLTD-MM Frontiir Co. Ltd",
-    "announced": true,
-    "visibility_pct": 1.0,
-    "visible_collectors": 330,
-    "total_collectors": 330,
-    "timestamp": "2026-04-17T12:01:44.696956+00:00",
-    "status": "GREEN",
-    "status_since": "2026-04-17T02:50:04.456052+00:00"
+    "announced": false,
+    "visibility_pct": 0.0,
+    "visible_collectors": 0,
+    "total_collectors": 0,
+    "status": "RED",
+    "status_since": "2026-04-17T12:30:22.377744+00:00",
+    "timestamp": "2026-04-17T12:30:22.377744+00:00",
+    "error": "",
+    "ioda_outages": 0,
+    "ioda_confirmed": false
   },
   "AS139849": {
     "asn": "AS139849",
@@ -613,7 +616,7 @@
     "visibility_pct": 1.0,
     "visible_collectors": 330,
     "total_collectors": 330,
-    "timestamp": "2026-04-17T12:02:34.343912+00:00",
+    "timestamp": "2026-04-17T12:30:24.987115+00:00",
     "status": "GREEN",
     "status_since": "2026-04-16T20:32:28.535822+00:00"
   },
@@ -763,13 +766,16 @@
   "AS136480": {
     "asn": "AS136480",
     "name": "MMUNILINK-AS-AP Myanmar Unilink Communication Company Limited",
-    "announced": true,
-    "visibility_pct": 1.0,
-    "visible_collectors": 330,
-    "total_collectors": 330,
-    "timestamp": "2026-04-17T12:02:51.496998+00:00",
-    "status": "GREEN",
-    "status_since": "2026-04-17T10:50:05.444175+00:00"
+    "announced": false,
+    "visibility_pct": 0.0,
+    "visible_collectors": 0,
+    "total_collectors": 0,
+    "status": "RED",
+    "status_since": "2026-04-17T12:30:40.307079+00:00",
+    "timestamp": "2026-04-17T12:30:40.307079+00:00",
+    "error": "",
+    "ioda_outages": 0,
+    "ioda_confirmed": false
   },
   "AS150309": {
     "asn": "AS150309",
