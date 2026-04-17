@@ -4954,6 +4954,28 @@
     "name": "INFORMATIONTECHNOLOGYCYBERSECURITY-AS-AP Dept. of Information Technology & Cyber Security",
     "status": "DOWN",
     "started_at": "2026-04-17T19:02:08.472830+00:00",
+    "ended_at": "2026-04-17T19:33:08.562222+00:00",
+    "duration_minutes": 31,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": true
+  },
+  {
+    "asn": "AS139704",
+    "name": "AS-AGBC AGB Communication Co.",
+    "status": "DOWN",
+    "started_at": "2026-04-17T19:03:10.078403+00:00",
+    "ended_at": "2026-04-17T19:33:47.602306+00:00",
+    "duration_minutes": 30,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": true
+  },
+  {
+    "asn": "AS136789",
+    "name": "LOTUS-AS-AP LOTUS MUDRA COMPANY LIMITED",
+    "status": "DOWN",
+    "started_at": "2026-04-17T19:32:04.248921+00:00",
     "ended_at": null,
     "duration_minutes": null,
     "min_visibility_pct": 0.0,
@@ -4961,10 +4983,10 @@
     "resolved": false
   },
   {
-    "asn": "AS139704",
-    "name": "AS-AGBC AGB Communication Co.",
+    "asn": "AS137826",
+    "name": "ASTCL-AS-AP AST SYSTEM TECHNOLOGY COMPANY LIMITED",
     "status": "DOWN",
-    "started_at": "2026-04-17T19:03:10.078403+00:00",
+    "started_at": "2026-04-17T19:32:19.644688+00:00",
     "ended_at": null,
     "duration_minutes": null,
     "min_visibility_pct": 0.0,
