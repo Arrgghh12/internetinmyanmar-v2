@@ -4921,6 +4921,17 @@
     "name": "GTCL-AS-AP Global Technology Co.",
     "status": "DOWN",
     "started_at": "2026-04-17T17:32:59.229290+00:00",
+    "ended_at": "2026-04-17T18:03:31.666379+00:00",
+    "duration_minutes": 30,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": true
+  },
+  {
+    "asn": "AS139704",
+    "name": "AS-AGBC AGB Communication Co.",
+    "status": "DOWN",
+    "started_at": "2026-04-17T18:03:51.635133+00:00",
     "ended_at": null,
     "duration_minutes": null,
     "min_visibility_pct": 0.0,
