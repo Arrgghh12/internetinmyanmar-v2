@@ -4932,6 +4932,17 @@
     "name": "AS-AGBC AGB Communication Co.",
     "status": "DOWN",
     "started_at": "2026-04-17T18:03:51.635133+00:00",
+    "ended_at": "2026-04-17T18:33:16.444951+00:00",
+    "duration_minutes": 29,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": true
+  },
+  {
+    "asn": "AS140552",
+    "name": "CBBANK-AS-AP Co-operative Bank Public Company Limited",
+    "status": "DOWN",
+    "started_at": "2026-04-17T18:32:23.707755+00:00",
     "ended_at": null,
     "duration_minutes": null,
     "min_visibility_pct": 0.0,
