@@ -160,7 +160,7 @@
     "visibility_pct": 1.0,
     "visible_collectors": 330,
     "total_collectors": 330,
-    "timestamp": "2026-04-17T10:31:55.528919+00:00",
+    "timestamp": "2026-04-17T10:45:07.629188+00:00",
     "status": "GREEN",
     "status_since": "2026-04-16T14:50:04.227139+00:00"
   },
@@ -171,7 +171,7 @@
     "visibility_pct": 1.0,
     "visible_collectors": 330,
     "total_collectors": 330,
-    "timestamp": "2026-04-17T10:31:55.873599+00:00",
+    "timestamp": "2026-04-17T10:45:19.110548+00:00",
     "status": "GREEN",
     "status_since": "2026-04-17T02:50:04.456052+00:00"
   },
@@ -611,7 +611,7 @@
     "visibility_pct": 1.0,
     "visible_collectors": 330,
     "total_collectors": 330,
-    "timestamp": "2026-04-17T10:32:40.634865+00:00",
+    "timestamp": "2026-04-17T10:45:21.467989+00:00",
     "status": "GREEN",
     "status_since": "2026-04-16T20:32:28.535822+00:00"
   },
@@ -761,13 +761,16 @@
   "AS136480": {
     "asn": "AS136480",
     "name": "MMUNILINK-AS-AP Myanmar Unilink Communication Company Limited",
-    "announced": true,
-    "visibility_pct": 1.0,
-    "visible_collectors": 330,
-    "total_collectors": 330,
-    "timestamp": "2026-04-17T10:32:54.528661+00:00",
-    "status": "GREEN",
-    "status_since": "2026-04-16T14:50:05.266466+00:00"
+    "announced": false,
+    "visibility_pct": 0.0,
+    "visible_collectors": 0,
+    "total_collectors": 0,
+    "status": "RED",
+    "status_since": "2026-04-17T10:45:22.783056+00:00",
+    "timestamp": "2026-04-17T10:45:22.783056+00:00",
+    "error": "Server error '502 Bad Gateway' for url 'https://stat.ripe.net/data/routing-statu",
+    "ioda_outages": 0,
+    "ioda_confirmed": false
   },
   "AS150309": {
     "asn": "AS150309",
