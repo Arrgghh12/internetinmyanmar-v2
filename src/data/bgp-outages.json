@@ -4404,33 +4404,33 @@
     "name": "FLC-AS-AP Fiber Life Internet",
     "status": "DOWN",
     "started_at": "2026-04-17T02:31:22.423928+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-17T03:01:08.786764+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS139822",
     "name": "GNE-AS-MM GNE Company Limited",
     "status": "DOWN",
     "started_at": "2026-04-17T02:31:26.599479+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-17T03:01:12.978072+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS151606",
     "name": "MSPACL-AS-AP MYANMAR SHWE PYI AYE COMPANY LIMITED",
     "status": "DOWN",
     "started_at": "2026-04-17T02:31:43.622566+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-17T03:01:15.780258+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS58952",
