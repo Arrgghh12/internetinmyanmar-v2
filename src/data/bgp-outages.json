@@ -5223,5 +5223,16 @@
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
     "resolved": true
+  },
+  {
+    "asn": "AS63998",
+    "name": "KMTCL-MM Kinetic Myanmar Technology",
+    "status": "DOWN",
+    "started_at": "2026-04-18T05:32:40.766658+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
   }
 ]
