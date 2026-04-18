@@ -5174,32 +5174,32 @@
     "name": "MSPACL-AS-AP MYANMAR SHWE PYI AYE COMPANY LIMITED",
     "status": "DOWN",
     "started_at": "2026-04-18T04:01:45.932573+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-18T04:31:26.406837+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS134528",
     "name": "MPTCL-AS-AP MYANMAR PI TECHNOLOGY CO.",
     "status": "DOWN",
     "started_at": "2026-04-18T04:03:37.349151+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-18T04:32:46.213358+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS63998",
     "name": "KMTCL-MM Kinetic Myanmar Technology",
     "status": "DOWN",
     "started_at": "2026-04-18T04:04:39.996757+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-18T04:33:28.123403+00:00",
+    "duration_minutes": 28,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   }
 ]
