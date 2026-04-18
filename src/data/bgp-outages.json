@@ -5454,5 +5454,16 @@
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
     "resolved": true
+  },
+  {
+    "asn": "AS134976",
+    "name": "MATL-AS-AP Myint & Associates Telecommunications Ltd",
+    "status": "DOWN",
+    "started_at": "2026-04-18T23:32:52.699076+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
   }
 ]
