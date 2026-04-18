@@ -35,7 +35,7 @@ ARTICLES_DIR = Path(CONFIG.get("paths", {}).get("articles", "~/dev/iimv2/src/con
 
 SYSTEM_PROMPT = (
     "You are writing for Internet in Myanmar, an independent monitor of Myanmar's "
-    "digital censorship and internet freedom. Author: Anna Faure Revol. "
+    "digital censorship and internet freedom. Author: Anna. "
     "Tone: precise, analytical, never sensationalist. "
     "Credible to technical audiences (OONI, Citizen Lab) and institutional ones (RSF, Freedom House).\n\n"
     "Output the article body ONLY — no frontmatter, no markdown code fences. "
@@ -126,7 +126,7 @@ seoTitle: "{seo_title}"
 metaDescription: "{excerpt[:152]}{'…' if len(excerpt) > 152 else ''}"
 category: "{category}"
 tags: {tags_str}
-author: "Anna Faure Revol"
+author: "Anna"
 publishedAt: {today}
 draft: true
 excerpt: "{excerpt}"

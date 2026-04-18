@@ -3,33 +3,32 @@
 > Tracks internet shutdowns, censorship, and connectivity in real time.
 > Data sources: OONI, RIPEstat, IODA, Cloudflare Radar, NetBlocks.
 > Editor: Anna — journalist specializing in Myanmar digital rights.
+> License: https://creativecommons.org/licenses/by/4.0/
 
 ## Observatory (live data)
-- BGP Network Status — 150+ Myanmar ASNs: /observatory/bgp
-- Shutdown Tracker — documented timeline since 2021: /observatory/shutdown-tracker
-- Blocked Sites Monitor — confirmed blocked domains: /observatory/blocked-sites
+- BGP Network Status — 150+ Myanmar ASNs: https://www.internetinmyanmar.com/observatory/bgp
+- Shutdown Tracker — documented timeline since 2021: https://www.internetinmyanmar.com/observatory/shutdown-tracker
+- Blocked Sites Monitor — confirmed blocked domains: https://www.internetinmyanmar.com/observatory/blocked-sites
 
 ## Analysis
-- Censorship & Shutdowns: /censorship
-- Telecom & Infrastructure: /infrastructure
-- Digital Economy: /digital-economy (coming soon)
+- Censorship & Shutdowns: https://www.internetinmyanmar.com/censorship
+- Telecom & Infrastructure: https://www.internetinmyanmar.com/infrastructure
+- Policy & Regulation: https://www.internetinmyanmar.com/policy
 
 ## Guides
-- VPN & Circumvention for Myanmar: /security
-- Digital Security: /guides/digital-security
-- SIM Cards & Connectivity: /guides/connectivity
+- VPN & Circumvention for Myanmar: https://www.internetinmyanmar.com/security
+- Digital Services: https://www.internetinmyanmar.com/digital-services
 
-## News
-- Mobile Networks: /mobile
-- Broadband: /broadband
-- Policy & Regulation: /policy
+## Connectivity
+- ISP & Broadband: https://www.internetinmyanmar.com/broadband
+- Mobile & Data Plans: https://www.internetinmyanmar.com/mobile
 
 ## Digest
-- Daily curated news from verified sources: /digest
+- Daily curated news from verified sources: https://www.internetinmyanmar.com/digest
 
 ## About
-- Mission & methodology: /about/mission
-- Anna (editor): /about/anna
+- Mission & methodology: https://www.internetinmyanmar.com/about/mission
+- Anna (editor): https://www.internetinmyanmar.com/about/anna
 
 ## Data methodology
 BGP data sourced from RIPEstat (RIPE NCC) and IODA (Georgia Tech).

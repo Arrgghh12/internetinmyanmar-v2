@@ -16,7 +16,7 @@ const articles = defineCollection({
       'Policy & Regulation',
     ])).min(1),
     tags:             z.array(z.string()),
-    author:           z.string().default('Anna Faure Revol'),
+    author:           z.string().default('Anna'),
     publishedAt:      z.coerce.date(),
     updatedAt:        z.coerce.date().optional(),
     draft:            z.boolean().default(true),

@@ -1,14 +1,16 @@
 ---
-import { getEntry } from 'astro:content'
+import { getCollection } from 'astro:content'
 import Base from '../../layouts/Base.astro'
 
-export const prerender = false
+export const prerender = true
+
+export async function getStaticPaths() {
+  const entries = await getCollection('digest', (d) => !d.data.draft)
+  return entries.map((d) => ({ params: { slug: d.id.replace(/\.mdx$/, '') }, props: { entry: d } }))
+}
 
 const { slug } = Astro.params
-if (!slug) return new Response(null, { status: 404 })
-
-const entry = await getEntry('digest', slug)
-if (!entry || entry.data.draft) return new Response(null, { status: 404 })
+const { entry } = Astro.props
 
 const { Content } = await entry.render()
 

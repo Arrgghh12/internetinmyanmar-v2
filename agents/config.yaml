@@ -351,7 +351,7 @@ scoring:
   no_news_message: "No noteworthy news today — no brief generated."
 
 article:
-  author:         "Anna Faure Revol"
+  author:         "Anna"
   default_lang:   "en"
   target_words:   [1200, 1800]
   internal_links: [3, 5]

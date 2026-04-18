@@ -40,7 +40,7 @@ export default config({
           fields.text({ label: 'Tag' }),
           { label: 'Tags', itemLabel: (props) => props.value },
         ),
-        author: fields.text({ label: 'Author', defaultValue: 'Anna Faure Revol' }),
+        author: fields.text({ label: 'Author', defaultValue: 'Anna' }),
         publishedAt: fields.date({ label: 'Published At', validation: { isRequired: true } }),
         updatedAt: fields.date({ label: 'Updated At' }),
         draft: fields.checkbox({ label: 'Draft', defaultValue: true }),
