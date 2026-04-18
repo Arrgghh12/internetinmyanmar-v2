@@ -38,8 +38,19 @@ html.light {
 :lang(my), .myanmar-text {
   font-family: var(--font-myanmar);
   font-feature-settings: normal;
-  line-height: 2;
-  letter-spacing: 0.02em;
+  line-height: 2.2;
+  letter-spacing: 0.01em;
+  word-spacing: 0.05em;
+  font-size: 1.05rem;
+}
+
+/* Burmese prose overrides — Tailwind Typography resets need re-applying */
+:lang(my) .prose p,
+:lang(my) .prose li,
+:lang(my) .prose blockquote {
+  font-family: var(--font-myanmar);
+  line-height: 2.2;
+  font-size: 1.05rem;
 }
 
 h1, h2, h3 {
