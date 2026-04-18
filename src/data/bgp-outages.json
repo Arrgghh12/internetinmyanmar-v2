@@ -5344,5 +5344,16 @@
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
     "resolved": true
+  },
+  {
+    "asn": "AS133524",
+    "name": "GTCL-AS-AP Global Technology Co.",
+    "status": "DOWN",
+    "started_at": "2026-04-18T14:02:26.113139+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
   }
 ]
