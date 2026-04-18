@@ -5075,21 +5075,21 @@
     "name": "WCCCOMPANYLIMITED-AS-AP Goal Link ISP",
     "status": "DOWN",
     "started_at": "2026-04-18T02:01:33.390680+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-18T02:31:26.436583+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS134484",
     "name": "VDCNET-AS-AP Ultra Net",
     "status": "DOWN",
     "started_at": "2026-04-18T02:02:54.828863+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-18T02:32:28.482929+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   }
 ]
