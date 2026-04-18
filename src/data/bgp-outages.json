@@ -5355,5 +5355,38 @@
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
     "resolved": true
+  },
+  {
+    "asn": "AS133524",
+    "name": "GTCL-AS-AP Global Technology Co.",
+    "status": "DOWN",
+    "started_at": "2026-04-18T16:02:45.086463+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
+  },
+  {
+    "asn": "AS136177",
+    "name": "YOMABANKLIMITED-AS-AP Yoma Bank Limited",
+    "status": "DOWN",
+    "started_at": "2026-04-18T16:03:33.867128+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
+  },
+  {
+    "asn": "AS63998",
+    "name": "KMTCL-MM Kinetic Myanmar Technology",
+    "status": "DOWN",
+    "started_at": "2026-04-18T16:03:37.179367+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
   }
 ]
