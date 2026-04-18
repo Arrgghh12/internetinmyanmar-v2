@@ -5438,6 +5438,17 @@
     "name": "PAMEL-AS-AP Pan Asia Majestic Eagle Ltd",
     "status": "DOWN",
     "started_at": "2026-04-18T21:32:45.564981+00:00",
+    "ended_at": "2026-04-18T22:02:43.296550+00:00",
+    "duration_minutes": 29,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": true
+  },
+  {
+    "asn": "AS137826",
+    "name": "ASTCL-AS-AP AST SYSTEM TECHNOLOGY COMPANY LIMITED",
+    "status": "DOWN",
+    "started_at": "2026-04-18T22:01:21.613547+00:00",
     "ended_at": null,
     "duration_minutes": null,
     "min_visibility_pct": 0.0,
