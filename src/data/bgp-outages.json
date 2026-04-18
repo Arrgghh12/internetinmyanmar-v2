@@ -5394,6 +5394,17 @@
     "name": "PAMEL-AS-AP Pan Asia Majestic Eagle Ltd",
     "status": "DOWN",
     "started_at": "2026-04-18T16:32:50.433621+00:00",
+    "ended_at": "2026-04-18T17:03:03.536011+00:00",
+    "duration_minutes": 30,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": true
+  },
+  {
+    "asn": "AS135300",
+    "name": "MBTCL-AS-AP Myanmar Broadband Telecom Co.",
+    "status": "DOWN",
+    "started_at": "2026-04-18T17:01:43.054709+00:00",
     "ended_at": null,
     "duration_minutes": null,
     "min_visibility_pct": 0.0,
@@ -5401,10 +5412,10 @@
     "resolved": false
   },
   {
-    "asn": "AS132167",
-    "name": "U9-MM Nine Communications Company Limited",
+    "asn": "AS132344",
+    "name": "STMCL-AS-AP SEANET",
     "status": "DOWN",
-    "started_at": "2026-04-18T17:00:15.352012+00:00",
+    "started_at": "2026-04-18T17:02:07.704745+00:00",
     "ended_at": null,
     "duration_minutes": null,
     "min_visibility_pct": 0.0,
