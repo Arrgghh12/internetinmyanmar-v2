@@ -1,450 +1,183 @@
-# SEO Action Plan — dev.internetinmyanmar.com
-**Generated:** 2026-04-10
-**Based on:** FULL-AUDIT-REPORT.md
+# SEO Action Plan — internetinmyanmar.com
+**Generated:** 2026-04-17 | **Based on:** 6-agent audit (Technical · Content · Schema · Sitemap · Performance · GEO)
 
 ---
 
 ## CRITICAL — Fix before DNS cutover
 
-### C1 · Fix robots.txt sitemap URL
-**File:** `public/robots.txt`
-**Effort:** 5 min
+### C1. Draft 7 rule-violating articles — 15 min
+Set `draft: true` in frontmatter on:
+- `ai-journey-d0-b0-journey-in-the-company-of-a-developer.mdx`
+- `impact-myanmar-smart-city-privacy.mdx` ← TurnOnVPN guest post under Anna's byline
+- `digital-services-travel-myanmar.mdx`
+- `yangon-wifi-map.mdx`
+- `yangon-internet-tour-airport.mdx`
+- `yangon-internet-people-park.mdx`
+- `yangon-internet-ocean-tamwe.mdx`
 
-```
-User-agent: *
-Allow: /
-Sitemap: https://www.internetinmyanmar.com/sitemap-index.xml
-```
+### C2. Fix sitemap — include all articles + digest — 2–4 hrs
+`astro.config.mjs` → `output: 'hybrid'`. Add `getStaticPaths()` + `export const prerender = true` to `src/pages/articles/[slug].astro` and `src/pages/digest/[slug].astro`. Without this, 168 articles and 121 digest entries are invisible to Google's bulk indexing.
 
-→ The sitemap URL must match the deployment domain. Use Astro's `site` variable:
-
-```
-# public/robots.txt — replace hardcoded URL with Astro-generated sitemap
-User-agent: *
-Allow: /
-Sitemap: https://www.internetinmyanmar.com/sitemap-index.xml
-```
-
-**For dev branch**, add a `_headers` rule or Cloudflare Pages rule to override the sitemap URL, OR generate robots.txt dynamically in `src/pages/robots.txt.ts`:
-
-```ts
-// src/pages/robots.txt.ts
-import type { APIRoute } from 'astro';
-export const GET: APIRoute = ({ site }) => {
-  return new Response(
-    `User-agent: *\nAllow: /\nSitemap: ${site}sitemap-index.xml\n`
-  );
-};
-```
-
----
-
-### C2 · Fix sitemap generation
-**File:** `astro.config.mjs`
-**Effort:** 10 min
-
-Ensure `@astrojs/sitemap` is installed and `site` is set:
-
-```js
-import { defineConfig } from 'astro/config';
-import sitemap from '@astrojs/sitemap';
-
-export default defineConfig({
-  site: process.env.SITE_URL ?? 'https://www.internetinmyanmar.com',
-  integrations: [sitemap()],
-});
-```
-
-Set `SITE_URL=https://dev.internetinmyanmar.com` in Cloudflare Pages → dev branch environment variables.
-
----
-
-### C3 · Fix Organization schema URL typo on BGP page
-**File:** Wherever Organization schema is defined (likely `src/layouts/Base.astro` or a shared schema component)
-**Effort:** 5 min
-
-Find and fix:
-```diff
-- "url": "https://www.internetinmynam.com"
-+ "url": "https://www.internetinmyanmar.com"
-```
-
-Grep for it: `grep -r "internetinmynam.com" src/`
-
----
-
-### C4 · Add noindex to dev/staging deployment
-**File:** `src/layouts/BaseHead.astro` (or equivalent)
-**Effort:** 10 min
-
+### C3. Emit NewsArticle schema on article pages — 30 min
+In `src/layouts/Article.astro`, add to head slot:
 ```astro
----
-const isProduction = import.meta.env.SITE_URL?.includes('internetinmyanmar.com')
-  && !import.meta.env.SITE_URL?.includes('dev.');
----
-{!isProduction && <meta name="robots" content="noindex, nofollow" />}
+<SchemaOrg
+  type="article"
+  headline={title}
+  datePublished={publishedAt.toISOString()}
+  dateModified={(updatedAt ?? publishedAt).toISOString()}
+  authorName="Anna Faure Revol"
+  authorUrl={`${siteUrl}/about/anna/`}
+  image={featuredImage ?? `${siteUrl}/og-default.png`}
+  url={canonicalUrl}
+  description={metaDescription}
+  articleSection={primaryCategory}
+/>
 ```
 
-Or use a Cloudflare Pages `_headers` file for the dev deployment:
-```
-# public/_headers  (apply only when deploying to dev branch)
-/*
-  X-Robots-Tag: noindex
-```
+### C4. Fix HSTS — 2 min
+Cloudflare dashboard → SSL/TLS → Edge Certificates → HSTS → `max-age=31536000`, `includeSubDomains` on.
+
+### C5. Remove/disclose affiliate link in vpn-myanmar.mdx — 10 min
+Remove `billing.purevpn.com/aff.php?aff=38474` or add explicit disclosure notice. Google September 2025 QRG violation.
 
 ---
 
-### C5 · Build the About / Anna page
-**File:** `src/pages/about/index.astro` + `src/pages/about/anna-faure-revol.astro`
-**Effort:** 2–4 hours
+## HIGH — Fix within 1 week
 
-The About page returns 404. This is the E-E-A-T anchor for the entire site.
-Minimum required before launch:
-- `/about` — mission page with Organization schema
-- `/about/anna-faure-revol` — author page with Person schema (see H5 below)
+### H1. Move Google Fonts out of CSS @import — 1 hr
+**LCP impact: 400–900ms improvement**
 
----
+`src/styles/global.css`: remove the `@import` line entirely.
 
-## HIGH — Fix within 1 week of launch
-
-### H1 · Write unique meta descriptions for every page
-**File:** Each page's frontmatter or layout props
-**Effort:** 1 hour
-
-Current: all pages share `"Independent technical monitor of Myanmar's digital environment."`
-
-| Page | Suggested meta description (≤155 chars) |
-|------|----------------------------------------|
-| Homepage | Track Myanmar's internet shutdowns, censorship, and connectivity in real time. Independent data from OONI, RIPEstat, and Cloudflare Radar. |
-| Observatory | Live dashboard: Myanmar internet shutdowns, BGP outages, and blocked sites. Updated every 12 hours from OONI, RIPEstat, and IODA. |
-| Digest | Curated daily digest of Myanmar internet freedom news from RSF, Access Now, Citizen Lab, OONI, and international press. |
-| BGP page | Real-time BGP route monitoring for 150+ Myanmar autonomous systems. Tracks network outages, ISP disruptions, and military-ordered shutdowns. |
-| Blocked Sites | Database of 847+ websites blocked by Myanmar ISPs, with confirmation dates and blocking methods. |
-| Shutdown Tracker | Timeline of internet shutdowns in Myanmar since 2021: duration, affected regions, and documented human rights impact. |
-
----
-
-### H2 · Add Open Graph and Twitter Card meta tags
-**File:** `src/layouts/BaseHead.astro`
-**Effort:** 30 min
-
-```astro
----
-const { title, description, image, url } = Astro.props;
-const ogImage = image ?? '/images/og-default.png';
----
-
-<!-- Open Graph -->
-<meta property="og:type" content="website" />
-<meta property="og:url" content={url ?? Astro.url} />
-<meta property="og:title" content={title} />
-<meta property="og:description" content={description} />
-<meta property="og:image" content={new URL(ogImage, Astro.site)} />
-<meta property="og:site_name" content="Internet in Myanmar" />
-
-<!-- Twitter Card -->
-<meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content={title} />
-<meta name="twitter:description" content={description} />
-<meta name="twitter:image" content={new URL(ogImage, Astro.site)} />
-```
-
-Create a default OG image at `public/images/og-default.png` (1200×630px, dark background, logo, tagline).
-
----
-
-### H3 · Create /public/llms.txt
-**File:** `public/llms.txt`
-**Effort:** 15 min
-
-```
-# Internet in Myanmar
-> Independent technical monitor of Myanmar's digital environment.
-> Tracks internet shutdowns, censorship, and connectivity in real time.
-> Data sources: OONI, RIPEstat, IODA, Cloudflare Radar, NetBlocks.
-> Editor: Anna Faure Revol — journalist specializing in Myanmar digital rights.
-
-## Observatory (live data)
-- BGP Network Status — 150+ Myanmar ASNs: /observatory/bgp
-- Shutdown Tracker — timeline since 2021: /observatory/shutdown-tracker
-- Blocked Sites Monitor — 847+ confirmed blocked domains: /observatory/blocked-sites
-
-## Analysis
-- Censorship & Shutdowns: /censorship
-- Telecom & Infrastructure: /connectivity
-- Digital Economy: /digital-economy
-
-## Guides
-- VPN & Circumvention for Myanmar: /guides/vpn
-- Digital Security: /guides/digital-security
-- SIM Cards & Connectivity: /guides/connectivity
-
-## About
-- Mission & methodology: /about
-- Anna Faure Revol (editor): /about/anna-faure-revol
-- Contact: /contact
-
-## Data methodology
-- BGP data sourced from RIPEstat (RIPE NCC) and IODA (Georgia Tech)
-- Blocking confirmations via OONI Explorer measurement data
-- Shutdown events cross-referenced with NetBlocks and Cloudflare Radar
-```
-
----
-
-### H4 · Add Dataset schema to Observatory pages
-**File:** `src/pages/observatory/bgp.astro`, `src/pages/observatory/shutdown-tracker.astro`, `src/pages/observatory/blocked-sites.astro`
-**Effort:** 1 hour
-
-```astro
----
-const datasetSchema = {
-  "@context": "https://schema.org",
-  "@type": "Dataset",
-  "name": "Myanmar BGP Network Outages",
-  "description": "Real-time tracking of BGP route withdrawals for Myanmar autonomous systems (ASNs), sourced from RIPEstat and IODA.",
-  "url": "https://www.internetinmyanmar.com/observatory/bgp",
-  "creator": {
-    "@type": "Organization",
-    "name": "Internet in Myanmar",
-    "url": "https://www.internetinmyanmar.com"
-  },
-  "publisher": {
-    "@type": "Organization",
-    "name": "Internet in Myanmar"
-  },
-  "temporalCoverage": "2021/..",
-  "spatialCoverage": {
-    "@type": "Place",
-    "name": "Myanmar"
-  },
-  "license": "https://creativecommons.org/licenses/by/4.0/",
-  "isAccessibleForFree": true,
-  "keywords": ["Myanmar", "internet shutdown", "BGP", "censorship", "ASN"]
-}
----
-<script type="application/ld+json" set:html={JSON.stringify(datasetSchema)} />
-```
-
----
-
-### H5 · Add Person schema for Anna Faure Revol
-**File:** `src/pages/about/anna-faure-revol.astro`
-**Effort:** 30 min
-
-```json
-{
-  "@context": "https://schema.org",
-  "@type": "Person",
-  "name": "Anna Faure Revol",
-  "jobTitle": "Editor-in-Chief",
-  "description": "Journalist specializing in Myanmar's media landscape, digital rights, and internet freedom.",
-  "url": "https://www.internetinmyanmar.com/about/anna-faure-revol",
-  "worksFor": {
-    "@type": "Organization",
-    "name": "Internet in Myanmar",
-    "url": "https://www.internetinmyanmar.com"
-  },
-  "knowsAbout": ["Myanmar", "internet censorship", "digital rights", "media freedom", "Southeast Asia"]
-}
-```
-
-Reference this Person in every NewsArticle schema:
-```json
-"author": {
-  "@type": "Person",
-  "name": "Anna Faure Revol",
-  "url": "https://www.internetinmyanmar.com/about/anna-faure-revol"
-}
-```
-
----
-
-### H6 · Fix H1 mismatch on Homepage
-**File:** `src/pages/index.astro`
-**Effort:** 5 min
-
-Current H1: `"Monitoring Myanmar's Digital Crackdown"`
-Title tag: `"Myanmar Internet Censorship Monitor | Internet in Myanmar"`
-
-H1 and title tag should share primary keywords. Options:
-- H1: `"Myanmar Internet Censorship Monitor"` (matches title exactly)
-- H1: `"Myanmar's Internet Censorship — Live Monitor"` (more editorial, still keyword-aligned)
-
----
-
-### H7 · Fix generic H1 on Digest page
-**File:** `src/pages/digest/index.astro` (or equivalent)
-**Effort:** 5 min
-
-```diff
-- <h1>Digest</h1>
-+ <h1>Myanmar Internet Freedom Digest</h1>
-```
-
----
-
-## MEDIUM — Fix within 1 month
-
-### M1 · Add BreadcrumbList schema
-**File:** `src/layouts/Base.astro` or a `Breadcrumb.astro` component
-**Effort:** 1 hour
-
-Add breadcrumb nav + schema to all pages below homepage:
-```json
-{
-  "@type": "BreadcrumbList",
-  "itemListElement": [
-    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.internetinmyanmar.com" },
-    { "@type": "ListItem", "position": 2, "name": "Observatory", "item": "https://www.internetinmyanmar.com/observatory" },
-    { "@type": "ListItem", "position": 3, "name": "BGP Network Status", "item": "https://www.internetinmyanmar.com/observatory/bgp" }
-  ]
-}
-```
-
----
-
-### M2 · Add WebSite schema with SearchAction
-**File:** `src/layouts/BaseHead.astro` — homepage only
-**Effort:** 15 min
-
-```json
-{
-  "@context": "https://schema.org",
-  "@type": "WebSite",
-  "name": "Internet in Myanmar",
-  "url": "https://www.internetinmyanmar.com",
-  "potentialAction": {
-    "@type": "SearchAction",
-    "target": {
-      "@type": "EntryPoint",
-      "urlTemplate": "https://www.internetinmyanmar.com/search?q={search_term_string}"
-    },
-    "query-input": "required name=search_term_string"
-  }
-}
-```
-
-Note: Only add if search functionality exists or is planned.
-
----
-
-### M3 · Add NewsArticle schema to Digest entries
-**File:** Digest article component
-**Effort:** 2 hours
-
-Each digest item should render with NewsArticle schema including `datePublished`, `author`, `publisher`, `headline`, `url`, `description`.
-
----
-
-### M4 · Add editorial introductions to Observatory sub-pages
-**Files:** `src/pages/observatory/bgp.astro`, `shutdown-tracker.astro`, `blocked-sites.astro`
-**Effort:** 3 hours (writing)
-
-Each page needs 150–250 words of editorial context:
-- **BGP page:** Explain what BGP is, why route withdrawals indicate shutdowns, what Myanmar's ASN landscape looks like
-- **Shutdown Tracker:** Brief methodology note — what counts as a shutdown, data sources, confidence levels
-- **Blocked Sites:** Explain OONI measurement methodology, what "confirmed blocked" means
-
-This text is also what AI search engines and LLMs quote when users ask about Myanmar internet shutdowns.
-
----
-
-### M5 · Trim BGP page title tag
-**File:** `src/pages/observatory/bgp.astro`
-**Effort:** 2 min
-
-```diff
-- "Myanmar BGP Network Status | Internet in Myanmar Observatory"  (62 chars)
-+ "Myanmar BGP Network Status | Internet in Myanmar"              (49 chars)
-```
-
----
-
-### M6 · Fix all-caps H2 markup
-**File:** Homepage component
-**Effort:** 5 min
-
-```diff
-- <h2>LIVE OBSERVATORY DATA</h2>
-+ <h2>Live Observatory Data</h2>
-```
-
-Use CSS `text-transform: uppercase` if the visual style requires all-caps.
-
----
-
-### M7 · Verify x-default hreflang
-**File:** `src/layouts/BaseHead.astro`
-**Effort:** 10 min
-
-Ensure this tag is present on all pages alongside the language variants:
+`src/layouts/Base.astro` `<head>`:
 ```html
-<link rel="alternate" hreflang="x-default" href="https://www.internetinmyanmar.com/" />
+<link rel="preload" as="style"
+  href="https://fonts.googleapis.com/css2?family=Inter:wght@400;510;590;700&display=swap" />
+<link rel="stylesheet"
+  href="https://fonts.googleapis.com/css2?family=Inter:wght@400;510;590;700&display=swap"
+  media="print" onload="this.media='all'" />
+```
+Load Padauk + Noto Sans Myanmar only on Myanmar pages:
+```astro
+{lang === 'my' && (
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Padauk:wght@400;700&family=Noto+Sans+Myanmar:wght@400;500;700&display=swap" />
+)}
+```
+
+### H2. Dynamic import Fuse.js — 30 min
+**Removes 25 kB from every page's JS critical path**
+
+In `Base.astro` search script, replace direct Fuse import with:
+```javascript
+trigger.addEventListener('click', async () => {
+  const { default: Fuse } = await import('fuse.js')
+  // rest of initSearch
+})
+```
+
+### H3. Switch to output: 'hybrid', prerender static pages — 2–3 hrs
+`astro.config.mjs` → `output: 'hybrid'`. Mark article, digest, and all static pages `prerender = true`. Reserve SSR only for `/api/*`, Keystatic routes, live Observatory endpoints. Eliminates 50–200ms cold-start TTFB on every article load.
+
+### H4. Fix Organization schema — 45 min
+`src/components/SchemaOrg.astro`:
+- `@type: NewsMediaOrganization`
+- `@id: "https://www.internetinmyanmar.com/#organization"`
+- Add `logo: { "@type": "ImageObject", "url": "https://www.internetinmyanmar.com/og-default.png" }`
+- Remove `sameAs: ["https://www.internetinmyanmar.com"]` (self-referential)
+
+### H5. Fix Person schema for Anna — 20 min
+`src/pages/about/anna.astro`:
+- `name: 'Anna Faure Revol'`
+- `@id: "https://www.internetinmyanmar.com/about/anna/#person"`
+- `worksFor` → `NewsMediaOrganization` with `@id`
+
+`src/layouts/Article.astro` byline: render full name, populate bio paragraph.
+
+### H6. Replace SVG OG fallback with PNG — 30 min
+Generate `/public/og-default.png` at 1200×630. Update `Base.astro` OG image default reference.
+
+### H7. Add hreflang to `<head>` — 1 hr
+`Base.astro`: loop locales, emit `<link rel="alternate" hreflang>` for en/fr/es/it + `x-default` using existing `getLocalePath()`.
+
+### H8. Fix llms.txt — 20 min
+`public/llms.txt`:
+- `Editor: Anna` → `Editor: Anna Faure Revol`
+- Convert relative URLs to absolute (`/observatory/bgp` → `https://www.internetinmyanmar.com/observatory/bgp`)
+- Add `License: https://creativecommons.org/licenses/by/4.0/`
+
+### H9. Add featured image dimensions + fetchpriority — 15 min
+`src/layouts/Article.astro` featured `<img>`:
+```astro
+width="1200" height="675" fetchpriority="high"
 ```
 
 ---
 
-### M8 · Handle /my/ (Burmese) path
-**File:** Astro i18n config
-**Effort:** 30 min
+## MEDIUM — Within 1 month
 
-Until Burmese content is published, either:
-- Remove `/my/` from hreflang tags entirely
-- Add `<meta name="robots" content="noindex">` to all `/my/` pages
+### M1. Add BreadcrumbList schema to articles — 1 hr
+`Article.astro`: generate JSON-LD `BreadcrumbList` from existing `primaryCategory` + `categoryHref` + `slug` variables. Already rendered visually — just needs schema.
 
-Having language variants that resolve to empty pages is an indexation quality signal.
+### M2. Add WebSite schema to Base.astro — 30 min
+Add `WebSite` JSON-LD with `@id` and publisher reference. Enables Sitelinks Searchbox eligibility.
+
+### M3. Create public/_headers — 1 hr
+```
+/*
+  X-Frame-Options: SAMEORIGIN
+  Referrer-Policy: strict-origin-when-cross-origin
+  X-Content-Type-Options: nosniff
+  Permissions-Policy: camera=(), microphone=(), geolocation=()
+  Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
+```
+
+### M4. Rewrite vpn-myanmar.mdx — 2–3 hrs editorial
+Full rewrite: post-coup VPN landscape, Tor/Psiphon/Lantern focus, safety warnings for activists under junta surveillance. Remove all 2018 affiliate recommendations.
+
+### M5. Fix seoTitle truncations — 30 min
+```bash
+grep 'seoTitle.*…' src/content/articles/*.mdx
+```
+Rewrite to proper ≤60 char titles without ellipsis character.
+
+### M6. Fix lang field on remaining Burmese articles — 10 min
+Set `lang: "my"` on `bypass-country-google-play-store-mm.mdx` and `cookie-tv-app-myanmar.mdx`.
+
+### M7. Add `updatedAt` to stale evergreen articles — ongoing editorial
+Priority: `ixp-internet-exchange-myanmar`, `internet-myanmar-expensive`, `myanmar-internet-censorship`. Set when Anna reviews and updates.
+
+### M8. Add question-based headings to top articles — editorial
+Restructure 5–10 key articles with question-headed H2/H3 + self-contained 134–167 word answer blocks. Enables Google AI Overviews and Featured Snippets extraction.
+Priority articles: `myanmar-digital-repression-2026`, `myanmar-internet-censorship`, and the vpn rewrite.
+
+### M9. Deduplicate metaDescriptions across language pairs — 30 min
+Write unique metaDescriptions for: `fiber-broadband-ftth-myanmar` / `fiber-broadband-ftth-myanmar-my` and `spotify-myanmar` / `how-to-use-spotify-myanmar-my`.
+
+### M10. Add `<lastmod>` to sitemap — 1 hr
+After C2 is done, configure `@astrojs/sitemap` `serialize` option to inject `lastmod` from `updatedAt ?? publishedAt` frontmatter values.
 
 ---
 
 ## LOW — Backlog
 
-### L1 · Set up Cloudflare Web Analytics or Plausible
-Needed to get real CWV field data before DNS cutover. Plausible is privacy-compliant and has no consent banner requirement — right choice for this audience.
-
-### L2 · Set up Google Search Console
-Connect GSC to the production domain before DNS cutover. Submit sitemap on day 1. Monitor index coverage weekly for the first month.
-
-### L3 · Verify canonical tags on all pages
-Confirm `<link rel="canonical">` is present in BaseHead. Check for self-referencing canonicals on all pages and correct cross-language canonicals (each language variant should canonicalize to itself, not to English).
-
-### L4 · Build internal cross-links: Digest ↔ Observatory
-When Digest articles mention a shutdown event, link to the relevant Observatory tracker. When Observatory pages mention sources, link to related Digest entries. Target: 3–5 internal links per page.
+- **L1. IndexNow** — Add `/[key].txt` to `public/`, call IndexNow API in `agents/publisher.py` on new article publish
+- **L2. AI crawler directives in robots.txt** — Explicit Allow for GPTBot/PerplexityBot/ClaudeBot; consider Disallow for training-only bots (CCBot, anthropic-ai)
+- **L3. Self-host Inter** — Eliminate Google Fonts third-party DNS lookup for repeat visitors
+- **L4. Anna's LinkedIn + Wikidata** — Add to Person schema `sameAs` once LinkedIn URL confirmed; create Wikidata Q-identifier
+- **L5. Schema keywords** — Inject article `tags` as `keywords` in NewsArticle schema (after cleaning keyword-stuffed tags)
+- **L6. RSS `<link>` in `<head>`** — Add `<link rel="alternate" type="application/rss+xml" href="/rss.xml">` to `Base.astro`
 
 ---
 
-## Summary Checklist
+## Sprint Order
 
-```
-CRITICAL (before DNS cutover):
-[ ] C1 — robots.txt sitemap URL dynamic
-[ ] C2 — sitemap.xml generating on dev domain
-[ ] C3 — Organization schema URL typo fixed
-[ ] C4 — noindex on dev/staging deployment
-[ ] C5 — About page live with author content
-
-HIGH (week 1 post-launch):
-[ ] H1 — Unique meta descriptions on all pages
-[ ] H2 — Open Graph + Twitter Card tags in BaseHead
-[ ] H3 — /public/llms.txt created
-[ ] H4 — Dataset schema on Observatory pages
-[ ] H5 — Person schema for Anna on About page
-[ ] H6 — H1 aligned with title tag on Homepage
-[ ] H7 — Generic "Digest" H1 expanded
-
-MEDIUM (month 1):
-[ ] M1 — BreadcrumbList schema
-[ ] M2 — WebSite + SearchAction schema
-[ ] M3 — NewsArticle schema on Digest
-[ ] M4 — Editorial text on Observatory sub-pages
-[ ] M5 — BGP title tag trimmed
-[ ] M6 — All-caps H2 fixed
-[ ] M7 — x-default hreflang verified
-[ ] M8 — /my/ path handled
-
-LOW (backlog):
-[ ] L1 — Analytics setup
-[ ] L2 — Google Search Console
-[ ] L3 — Canonical tags verified
-[ ] L4 — Internal cross-linking Digest ↔ Observatory
-```
+| Today (30 min) | This week (8 hrs dev) | Next week (6 hrs dev) | Month |
+|---|---|---|---|
+| C1 draft 7 articles | C2 sitemap/prerender | H4 Org schema | M1–M10 rolling |
+| C4 HSTS | C3 NewsArticle schema | H5 Person schema | |
+| C5 affiliate link | H1 Google Fonts | H7 hreflang | |
+| | H2 Fuse.js | H8 llms.txt | |
+| | H6 OG PNG | H9 img dimensions | |
+| | H3 hybrid prerender | M3 _headers | |

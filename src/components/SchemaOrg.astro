@@ -9,6 +9,7 @@ interface ArticleSchema {
   image?: string
   url: string
   description: string
+  articleSection?: string
 }
 interface OrgSchema {
   type: 'organization'
@@ -20,11 +21,32 @@ const siteUrl = 'https://www.internetinmyanmar.com'
 
 const orgSchema = {
   '@context': 'https://schema.org',
-  '@type': 'Organization',
+  '@type': 'NewsMediaOrganization',
+  '@id': `${siteUrl}/#organization`,
   name: 'Internet in Myanmar',
   url: siteUrl,
-  description: 'Independent technical monitor of Myanmar\'s digital environment.',
-  sameAs: [siteUrl],
+  description: 'Independent technical monitor of Myanmar\'s digital environment — tracking censorship, internet shutdowns, and connectivity.',
+  logo: {
+    '@type': 'ImageObject',
+    url: `${siteUrl}/og-default.png`,
+    width: 1200,
+    height: 630,
+  },
+  foundingDate: '2021',
+  areaServed: 'MM',
+  knowsAbout: ['internet censorship', 'internet shutdowns', 'digital rights', 'Myanmar telecom'],
+  sameAs: [],
+}
+
+const websiteSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  '@id': `${siteUrl}/#website`,
+  name: 'Internet in Myanmar',
+  url: siteUrl,
+  description: 'Independent tracking of internet shutdowns, censorship, and connectivity in Myanmar.',
+  inLanguage: ['en', 'fr', 'es', 'it'],
+  publisher: { '@id': `${siteUrl}/#organization` },
 }
 
 const schema = props.type === 'article' ? {
@@ -33,15 +55,35 @@ const schema = props.type === 'article' ? {
   headline: props.headline,
   datePublished: props.datePublished,
   dateModified: props.dateModified ?? props.datePublished,
+  isAccessibleForFree: true,
+  ...(props.articleSection ? { articleSection: props.articleSection } : {}),
+  description: props.description,
+  url: props.url,
+  image: {
+    '@type': 'ImageObject',
+    url: props.image ? new URL(props.image, siteUrl).href : `${siteUrl}/og-default.png`,
+    width: 1200,
+    height: 630,
+  },
   author: {
     '@type': 'Person',
-    name: props.authorName,
+    '@id': `${siteUrl}/about/anna/#person`,
+    name: 'Anna Faure Revol',
     url: props.authorUrl ?? `${siteUrl}/about/anna/`,
   },
-  image: props.image,
-  url: props.url,
-  description: props.description,
-  publisher: orgSchema,
+  publisher: {
+    '@type': 'NewsMediaOrganization',
+    '@id': `${siteUrl}/#organization`,
+    name: 'Internet in Myanmar',
+    url: siteUrl,
+    logo: {
+      '@type': 'ImageObject',
+      url: `${siteUrl}/og-default.png`,
+    },
+  },
 } : orgSchema
 ---
 <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+{props.type === 'organization' && (
+  <script type="application/ld+json" set:html={JSON.stringify(websiteSchema)} />
+)}

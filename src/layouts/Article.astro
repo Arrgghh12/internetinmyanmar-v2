@@ -70,8 +70,18 @@ const primaryCategory = categories[0]
     image={featuredImage}
     url={canonicalUrl}
     description={excerpt}
+    articleSection={primaryCategory}
     slot="head"
   />
+  <script type="application/ld+json" slot="head" set:html={JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.internetinmyanmar.com/' },
+      { '@type': 'ListItem', position: 2, name: primaryCategory, item: `https://www.internetinmyanmar.com${categoryHref[primaryCategory] ?? '/'}` },
+      { '@type': 'ListItem', position: 3, name: title, item: canonicalUrl },
+    ],
+  })} />
 
   <article class="max-w-3xl mx-auto px-4 py-12" data-pagefind-body lang={lang}>
 
@@ -94,8 +104,11 @@ const primaryCategory = categories[0]
       <img
         src={featuredImage}
         alt={featuredImageAlt ?? ''}
+        width="1200"
+        height="675"
         class="w-full rounded mb-8 aspect-video object-cover"
         loading="eager"
+        fetchpriority="high"
       />
     )}
 
@@ -104,7 +117,7 @@ const primaryCategory = categories[0]
 
     <!-- Byline -->
     <div class="flex items-center gap-3 text-sm opacity-60 mb-10 pb-6 border-b border-white/10">
-      <span>By <strong class="opacity-100">{author.split(' ')[0]}</strong></span>
+      <span>By <strong class="opacity-100">{author}</strong></span>
       <span>·</span>
       <time datetime={publishedAt.toISOString()}>
         {publishedAt.toLocaleDateString(lang, { year: 'numeric', month: 'long', day: 'numeric' })}

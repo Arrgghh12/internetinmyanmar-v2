@@ -18,7 +18,7 @@ const {
   seoTitle,
   metaDescription,
   canonicalUrl = Astro.url.href,
-  ogImage = '/og-default.svg',
+  ogImage = '/og-default.png',
   ogType = 'website',
   lang = 'en',
 } = Astro.props
@@ -81,6 +81,19 @@ const nav = [
     <link rel="alternate" type="application/rss+xml" title="Internet in Myanmar" href="/rss.xml" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- Inter — non-blocking load -->
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;510;590;700&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;510;590;700&display=swap" media="print" onload="this.media='all'" />
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;510;590;700&display=swap" /></noscript>
+    <!-- Myanmar fonts — only on lang=my pages -->
+    {lang === 'my' && (
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Padauk:wght@400;700&family=Noto+Sans+Myanmar:wght@400;500;700&display=swap" />
+    )}
+    <!-- hreflang -->
+    {LOCALES.map((loc) => (
+      <link rel="alternate" hreflang={loc} href={new URL(getLocalePath(loc), Astro.site).href} />
+    ))}
+    <link rel="alternate" hreflang="x-default" href={new URL(getLocalePath('en'), Astro.site).href} />
     <SEO
       title={seoTitle}
       description={metaDescription}
@@ -275,8 +288,6 @@ const nav = [
       </div>
     </div>
     <script>
-      import Fuse from 'fuse.js'
-
       type Article = {
         slug: string
         title: string
@@ -294,11 +305,14 @@ const nav = [
       const input     = document.getElementById('search-input') as HTMLInputElement
       const resultsEl = document.getElementById('search-results')!
 
-      let fuse: Fuse<Article> | null = null
+      let fuse: import('fuse.js').default<Article> | null = null
 
       async function initSearch() {
         if (fuse) return
-        const res = await fetch('/api/search-index.json')
+        const [{ default: Fuse }, res] = await Promise.all([
+          import('fuse.js'),
+          fetch('/api/search-index.json'),
+        ])
         const articles: Article[] = await res.json()
         fuse = new Fuse(articles, {
           keys: [

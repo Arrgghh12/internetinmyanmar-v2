@@ -9,7 +9,7 @@ import cloudflare from '@astrojs/cloudflare'
 
 export default defineConfig({
   site: 'https://www.internetinmyanmar.com',
-  output: 'server',
+  output: 'static',
   adapter: cloudflare(),
 
   i18n: {

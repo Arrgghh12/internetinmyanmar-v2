@@ -1,328 +1,240 @@
-# Full SEO Audit — dev.internetinmyanmar.com
-**Audit date:** 2026-04-10
-**Business type:** Publisher / NGO monitoring platform
-**Auditor:** claude-seo:seo-audit v1.8.1
+# Full SEO Audit — internetinmyanmar.com
+**Date:** 2026-04-17 | **Stack:** Astro 5, Cloudflare Pages
+**Agents:** Technical · Content · Schema · Sitemap · Performance · GEO
 
 ---
 
-## Executive Summary
+## Overall SEO Health Score: 48 / 100
 
-### SEO Health Score: 54 / 100
-
-| Category | Score | Weight | Weighted |
-|----------|-------|--------|---------|
-| Technical SEO | 52/100 | 22% | 11.4 |
-| Content Quality | 65/100 | 23% | 14.9 |
-| On-Page SEO | 55/100 | 20% | 11.0 |
-| Schema / Structured Data | 35/100 | 10% | 3.5 |
-| Performance (CWV) | 60/100 | 10% | 6.0 |
-| AI Search Readiness | 40/100 | 10% | 4.0 |
-| Images | 50/100 | 5% | 2.5 |
-| **TOTAL** | | | **53.3** |
-
-### Top 5 Critical Issues
-1. **robots.txt points to www — not dev subdomain** — Sitemap URL in robots.txt is `https://www.internetinmyanmar.com/sitemap-index.xml`, not the dev site. Crawlers indexing the dev site get directed to a different domain's sitemap.
-2. **No sitemap at /sitemap.xml or /sitemap-index.xml on dev domain** — Both return 404. The Astro sitemap is not being generated or is misconfigured.
-3. **Schema URL typo on BGP page** — Organization schema has `"url": "https://www.internetinmynam.com"` (missing letters). Will fail Google Rich Results validation.
-4. **No Open Graph / Twitter Card meta tags** — Homepage and all pages checked lack OG tags. Social shares render without image/title preview.
-5. **No llms.txt** — 404. The site is invisible to AI crawlers (Perplexity, ChatGPT). Critical miss for a monitoring platform whose primary audience uses AI search.
-
-### Top 5 Quick Wins
-1. Fix Organization schema `url` typo on BGP page (5 min)
-2. Add Open Graph meta tags to BaseHead component (30 min)
-3. Create `/public/llms.txt` (15 min)
-4. Fix robots.txt sitemap URL to point to dev domain (5 min)
-5. Add unique meta descriptions to Observatory and Digest pages (30 min)
+| Category | Weight | Score | Weighted |
+|---|---|---|---|
+| Technical SEO | 22% | 40/100 | 8.8 |
+| Content Quality | 23% | 38/100 | 8.7 |
+| On-Page SEO | 20% | 55/100 | 11.0 |
+| Schema / Structured Data | 10% | 35/100 | 3.5 |
+| Performance (CWV) | 10% | 55/100 | 5.5 |
+| AI Search Readiness | 10% | 56/100 | 5.6 |
+| Images | 5% | 40/100 | 2.0 |
+| **Total** | | | **48 / 100** |
 
 ---
 
-## Technical SEO — 52/100
+## Top 5 Critical Issues
 
-### Crawlability
-| Check | Status | Detail |
-|-------|--------|--------|
-| robots.txt exists | ✅ Pass | `/robots.txt` returns 200 |
-| All agents allowed | ✅ Pass | `User-agent: * Allow: /` |
-| Sitemap URL in robots.txt | ❌ Fail | Points to `www.internetinmyanmar.com`, not `dev.internetinmyanmar.com` |
-| sitemap.xml reachable | ❌ Fail | `/sitemap.xml` → 404 |
-| sitemap-index.xml reachable | ❌ Fail | `/sitemap-index.xml` → 404 on dev domain |
+1. **168 articles absent from sitemap** — `prerender: false` on `[slug].astro` prevents `@astrojs/sitemap` discovering any article or digest. Google has no sitemap path to content.
+2. **NewsArticle schema never emitted** — `Article.astro` inherits only `Organization` schema from `Base.astro`. Every article page is `@type: Organization`. Rich result eligibility: zero.
+3. **7 rule-violating articles live in production** — TurnOnVPN guest post under Anna's byline; Russian AI conference PR; 5 travel/speedtest articles. All violate CLAUDE.md hard discard rules.
+4. **HSTS max-age=0** — `Strict-Transport-Security: max-age=0; preload` actively removes the site from browser HTTPS enforcement.
+5. **Render-blocking Google Fonts via CSS `@import`** — Three families (incl. Noto Sans Myanmar ~1.5–2 MB) loaded on every page. Direct LCP impact: 400–900ms.
 
-**Finding:** Astro's `@astrojs/sitemap` integration is either not enabled or the `site` config option is set to `www.internetinmyanmar.com`. During dev preview on Cloudflare Pages, the sitemap must be generated relative to the deployment URL.
+## Top 5 Quick Wins
 
-**Fix:** In `astro.config.mjs`, ensure:
-```js
-site: process.env.SITE_URL || 'https://dev.internetinmyanmar.com'
-```
-And set `SITE_URL` as a Cloudflare Pages environment variable per branch.
+1. Fix HSTS in Cloudflare dashboard (2 min)
+2. Set `draft: true` on 7 offending articles (15 min)
+3. Generate `og-default.png` 1200×630 — OG image is currently an SVG (rejected by all social platforms)
+4. Add `<SchemaOrg type="article" />` call in `Article.astro`
+5. Move Google Fonts out of CSS `@import` into `<link>` tags, split Myanmar fonts to `lang="my"` pages only
 
-### Indexability
-| Check | Status | Detail |
-|-------|--------|--------|
-| Canonical tags | ⚠️ Warning | Not confirmed present — not detected in homepage fetch |
-| Hreflang | ✅ Pass | EN/FR/ES/IT/MY language variants present |
-| Robots meta | ⚠️ Warning | Not confirmed present — not detected in fetch |
-| 404 handling | ⚠️ Warning | `/about` returns 404 — About page not yet built |
+---
 
-**Finding:** Dev environment should have `<meta name="robots" content="noindex, nofollow">` to prevent Google from indexing the staging site. This is also a **Critical** issue — if Cloudflare Pages shares the same domain as production, staging content could pollute the index.
+## 1. Technical SEO — 40/100
 
-### Security Headers
+### CRITICAL
+
+**1.1 Sitemap excludes all articles and digest**
+`src/pages/articles/[slug].astro` and `src/pages/digest/[slug].astro` both have `export const prerender = false`. `@astrojs/sitemap` only discovers pre-rendered pages. The sitemap has 27 structural URLs — zero articles, zero digest entries.
+Fix: switch `astro.config.mjs` to `output: 'hybrid'`, add `getStaticPaths()` + `export const prerender = true` to both routes.
+
+**1.2 HSTS max-age=0**
+Header observed: `strict-transport-security: max-age=0; preload`. This tells browsers to stop enforcing HTTPS and removes the site from the HSTS preload cache.
+Fix: Cloudflare → SSL/TLS → Edge Certs → HSTS → set `max-age=31536000`, enable `includeSubDomains`.
+
+**1.3 NewsArticle schema never emitted on article pages**
+`Base.astro` hardcodes `<SchemaOrg type="organization" />` on every page. `Article.astro` does not add a `NewsArticle` schema. Despite `SchemaOrg.astro` having full NewsArticle support, it is never called.
+Fix: in `Article.astro` add `<SchemaOrg slot="head" type="article" headline={title} datePublished=... authorName="Anna Faure Revol" image={featuredImage ?? siteUrl+'/og-default.png'} ... />`.
+
+### HIGH
+
+**1.4 No hreflang in `<head>`**
+Language switcher exists in `<body>` nav but zero `<link rel="alternate" hreflang>` in `<head>`. All four language variants compete as duplicate content.
+Fix: loop locales in `Base.astro`, emit hreflang links + `x-default` using existing `getLocalePath()`.
+
+**1.5 OG image is SVG**
+`/og-default.svg` — Facebook, Twitter/X, LinkedIn, Slack all reject SVG `og:image`. Default fallback shows no social preview on homepage and all imageless articles.
+Fix: generate `/public/og-default.png` 1200×630, update `Base.astro`.
+
+**1.6 Google Fonts render-blocking**
+`src/styles/global.css:1` — `@import url('https://fonts.googleapis.com/css2?family=Inter:..&family=Padauk:..&family=Noto+Sans+Myanmar:..')` is render-blocking. Three families loaded on every page regardless of language.
+Fix: remove `@import`; load Inter via `<link rel="preload" as="style">` in `Base.astro`; load Padauk + Noto Sans Myanmar only when `lang === 'my'`.
+
+**1.7 Author full name not rendered**
+Byline renders "Anna" (first name only). Author bio paragraph is empty. Both damage E-E-A-T.
+
+### MEDIUM
+
+**1.8 No security headers** — No `public/_headers` file. Missing CSP, `X-Frame-Options`, `Referrer-Policy`. Matters for institutional partner credibility (RSF, Freedom House use security scoring tools).
+
+**1.9 Percent-encoded redirect may not match** — `public/_redirects:11` has `/ai-journey-%d0%b0-journey-...`. Cloudflare may normalise encoding before matching. Test with `curl -I`.
+
+**1.10 No IndexNow** — No key file, no submission in `publisher.py`. Instant Bing indexing for new articles.
+
+---
+
+## 2. Content Quality — 38/100
+
+### CRITICAL — Draft immediately (CLAUDE.md rule violations, live in production)
+
+| Slug | Violation |
+|---|---|
+| `ai-journey-d0-b0-journey-in-the-company-of-a-developer` | Russian AI conference PR. Zero Myanmar connection. Images alt-tagged "Myanmar internet censorship" — keyword stuffing. |
+| `impact-myanmar-smart-city-privacy` | TurnOnVPN guest post. Explicitly forbidden in CLAUDE.md. Live under Anna's byline = authorship fraud. |
+| `digital-services-travel-myanmar` | Travel guide. Hard discard rule. |
+| `yangon-wifi-map` | 2017 WiFi app review. Off-mission. |
+| `yangon-internet-tour-airport` | 2016 airport speedtest. Off-mission. |
+| `yangon-internet-people-park` | 2016 park speedtest. Off-mission. |
+| `yangon-internet-ocean-tamwe` | Same series. Off-mission. |
+
+### HIGH — Thin content / trust violations
+
+| Slug | Problem |
+|---|---|
+| `technology-in-myanmar-telecom-cybersecurity-blockchain` | ~350 words, AI-generated. Promotes blockchain in 2025 Myanmar with no acknowledgment of the coup. |
+| `digital-wallets-myanmar` | ~350 words, AI-generated. Discusses Wave Money/KBZPay as if operating normally post-coup. |
+| `how-to-protect-your-online-privacy-in-2023-myanmar` | ~650 words. Undisclosed PureVPN + ExpressVPN affiliate links. Google September 2025 QRG violation. |
+| `vpn-myanmar` | Undisclosed PureVPN affiliate link (`billing.purevpn.com/aff.php?aff=38474`). 2018 recommendations, predating junta-era enforcement. |
+| `cookie-tv-app-myanmar` | Burmese content tagged `lang: "en"`. Service defunct post-coup. |
+
+### MEDIUM — Stale but recoverable
+
+| Slug | Action |
+|---|---|
+| `vpn-myanmar` | Full rewrite: post-coup landscape, Tor/Psiphon/Lantern, activist safety warnings |
+| `ixp-internet-exchange-myanmar` | Add `updatedAt` + MMIX 2025 status note |
+| `internet-myanmar-expensive` | 2016 prices — all operators obsolete |
+| `the-economic-cost-of-internet-censorship-in-myanmar-a-call-for-change` | "Call for change to the government" — that government committed the shutdowns. Reframe. |
+
+### MEDIUM — Frontmatter / SEO rule violations
+
+- `seoTitle` ending with "…" stored in frontmatter (multiple articles) — rendered title will be truncated
+- `lang: "en"` on Burmese articles: `bypass-country-google-play-store-mm`, `cookie-tv-app-myanmar` need `lang: "my"`
+- Duplicate metaDescriptions across EN/Burmese pairs: `fiber-broadband-ftth-myanmar` / `fiber-broadband-ftth-myanmar-my`; `spotify-myanmar` / `how-to-use-spotify-myanmar-my`
+- ~35% of articles have `excerpt` as a character-for-character copy of `metaDescription`
+- Slug violations: `how-to-protect-your-online-privacy-in-2023-myanmar` (stop words), `the-economic-cost-of-internet-censorship-in-myanmar-a-call-for-change` (9 words)
+
+---
+
+## 3. Schema / Structured Data — 35/100
+
+### Current state
+- Homepage: `@type: Organization` ✓ (but weak — see below)
+- Article pages: `@type: Organization` only — **NewsArticle never emitted** ✗
+- `/about/anna/`: `@type: Person` ✓ but `name: "Anna"` (incomplete) ✗
+
+### Gaps
+
+| Issue | Severity |
+|---|---|
+| NewsArticle never emitted on article pages | Critical |
+| `Organization.sameAs` is `["https://www.internetinmyanmar.com"]` — self-referential, meaningless | High |
+| `Organization.logo` missing — required for Google rich results | High |
+| `Person.name` is "Anna" — AI entity resolution fails without full name | High |
+| No `Person.@id` — cannot link author entity from article schemas | High |
+| `NewsArticle.image` undefined when no featuredImage — articles ineligible for rich results | High |
+| No `WebSite` schema — no Sitelinks Searchbox eligibility | Medium |
+| No `BreadcrumbList` schema — visual breadcrumb not processed by Google | Medium |
+
+### Fixes needed by file
+
+**`SchemaOrg.astro`:** Change to `NewsMediaOrganization`, add `@id: "…/#organization"`, add `logo` ImageObject to `/og-default.png`, remove self-referential `sameAs`, fix `image` to always output ImageObject with fallback, add `isAccessibleForFree: true`, `articleSection`.
+
+**`/about/anna.astro`:** `name: 'Anna Faure Revol'`, add `@id: "…/about/anna/#person"`, `worksFor` referencing `#organization`.
+
+**`Base.astro`:** Add `WebSite` JSON-LD block.
+
+**`Article.astro`:** Add `BreadcrumbList` JSON-LD from existing `primaryCategory` + `categoryHref` vars.
+
+---
+
+## 4. Sitemap — 30/100
+
 | Check | Status |
-|-------|--------|
-| Cloudflare proxy | ✅ Detected |
-| HTTPS | ✅ Pass |
-| Security headers (CSP, HSTS) | ⚠️ Not verified — Cloudflare default |
+|---|---|
+| Valid XML structure | ✓ |
+| Under 50,000 URL limit | ✓ (27 URLs) |
+| No deprecated tags | ✓ |
+| Article URLs included | ✗ — 168 published articles absent |
+| Digest URLs included | ✗ — 121 entries absent |
+| `<lastmod>` present | ✗ — no dates on any URL |
+| hreflang alternates | ✗ — none generated |
 
-### URL Structure
-| Check | Status | Detail |
-|-------|--------|--------|
-| Lowercase URLs | ✅ Pass | All paths lowercase |
-| No trailing slash inconsistency | ⚠️ Needs audit | Not confirmed |
-| Clean URL patterns | ✅ Pass | `/observatory/bgp`, `/digest` — logical hierarchy |
-
----
-
-## Content Quality — 65/100
-
-### Business Type Detection
-**Publisher / NGO monitoring platform** — confirmed by:
-- Data dashboards (BGP, shutdown tracker, blocked sites)
-- 100+ digest entries spanning 2013–2026
-- Institutional source citations (OONI, Access Now, RSF, Citizen Lab, HRW)
-- Editorial byline model (Anna Faure Revol)
-
-### E-E-A-T Assessment
-
-| Signal | Status | Detail |
-|--------|--------|--------|
-| Author byline | ⚠️ Partial | Author defined in config but `/about/anna-faure-revol` page likely not live (about/ → 404) |
-| Author credentials | ❌ Missing | No Person schema, no author bio page live |
-| Organization schema | ✅ Present | On all pages checked |
-| External citations | ✅ Strong | OONI, RIPEstat, IODA, Access Now, RSF, Citizen Lab as sources |
-| Original data | ✅ Strong | BGP monitoring, blocked sites tracker — primary data not found elsewhere |
-| Publication dates | ⚠️ Partial | Observatory shows `2026-04-05T08:00:00Z` — appears placeholder |
-
-**Strength:** The Observatory section with live data from RIPEstat and IODA is a significant E-E-A-T asset. No competitor provides this level of real-time Myanmar-specific network monitoring.
-
-**Weakness:** Without a live author page, Google cannot verify the journalist's credentials. Anna's author page must go live before DNS cutover.
-
-### Thin Content Risk
-
-| Page | Risk | Detail |
-|------|------|--------|
-| Homepage | Low | Multiple content sections, live data |
-| Digest | Low | 100+ entries, substantial |
-| Observatory | Medium | Data-heavy but thin editorial narrative |
-| BGP page | Medium | Data table with minimal explanatory text |
-| Individual observatory pages | High | Likely data-only with no 200+ word editorial context |
-
-**Recommendation:** Each Observatory sub-page needs a 150–300 word editorial introduction explaining what the data shows and why it matters. This is the difference between a data dump and a citable resource.
-
-### Meta Description Duplication
-
-**Critical finding:** Multiple pages share the identical meta description:
-> "Independent technical monitor of Myanmar's digital environment."
-
-This is used on: Homepage, Observatory, Digest, BGP page. Google ignores duplicate meta descriptions and writes its own — often poorly. Each page needs a unique 155-char description.
+Root cause: `prerender: false` on dynamic routes. Fix: hybrid prerender (see Technical 1.1). After fixing, configure `serialize` option to inject `lastmod` from `updatedAt ?? publishedAt`.
 
 ---
 
-## On-Page SEO — 55/100
+## 5. Performance — 55/100
 
-### Title Tags
+Static code analysis only (PSI quota exhausted; site below CrUX traffic threshold).
 
-| Page | Title | Issues |
-|------|-------|--------|
-| Homepage | "Myanmar Internet Censorship Monitor \| Internet in Myanmar" | ✅ Good — keyword-first, under 60 chars |
-| Observatory | "Myanmar Internet Observatory \| Censorship Data" | ✅ Good |
-| Digest | "Myanmar Internet Freedom Digest \| Internet in Myanmar" | ✅ Good |
-| BGP | "Myanmar BGP Network Status \| Internet in Myanmar Observatory" | ⚠️ 62 chars — slightly over |
-| About | 404 — not live | ❌ Missing page |
+| Issue | Metric | Impact |
+|---|---|---|
+| CSS `@import` Google Fonts — render-blocking | LCP | 400–900ms |
+| Fuse.js (~25 kB) bundled on every page | INP/TBT | 25 kB JS off critical path if dynamic import |
+| SSR on article pages — Cloudflare Worker cold starts | TTFB/LCP | 50–200ms |
+| Featured image `<img>` missing `width`/`height`/`fetchpriority` | CLS | CLS spike risk |
+| OG image is SVG | Social | No preview on shares |
 
-### H1 Structure
-
-| Page | H1 | Issues |
-|------|----|----|
-| Homepage | "Monitoring Myanmar's Digital Crackdown" | ⚠️ H1 doesn't match title tag — divergence weakens keyword signal |
-| Observatory | "Internet Observatory — Myanmar" | ⚠️ Keyword order weak — "Myanmar Internet Observatory" would be stronger |
-| Digest | "Digest" | ❌ Too generic — "Myanmar Internet Freedom Digest" matches title and adds keyword |
-| BGP | "BGP Network Status — Myanmar ASNs" | ✅ Good |
-
-### H2 Structure (Homepage)
-H2s detected: "LIVE OBSERVATORY DATA", "Digest", "Latest from our sources", "By topic", "Tracking key threats", "Analysis", "In-Depth Analysis", "Track Myanmar's internet in real time"
-
-**Issues:**
-- All-caps H2 ("LIVE OBSERVATORY DATA") — should be title case, all-caps is a CSS concern not markup
-- "Digest" and "Analysis" are too generic as H2s — add context: "Myanmar Internet Digest" / "Myanmar Censorship Analysis"
-- "In-Depth Analysis" duplicates "Analysis" — consolidate or differentiate
-
-### Internal Linking
-**Positive:** Navigation includes logical deep links (Observatory → BGP, Blocked Sites, Shutdown Tracker).
-**Gap:** No breadcrumbs detected — important for Google to understand site hierarchy.
-**Gap:** Digest articles link to external sources but likely lack internal cross-links to relevant Observatory pages.
+**Highest ROI single fix:** move Google Fonts out of `@import`, split Myanmar fonts to `lang="my"` pages only.
 
 ---
 
-## Schema / Structured Data — 35/100
+## 6. GEO / AI Search Readiness — 56/100
 
-### Current Implementation
+| Platform | Score | Key blocker |
+|---|---|---|
+| Google AI Overviews | 35/100 | No question-headed sections, articles not in sitemap |
+| ChatGPT | 40/100 | No full author name in rendered HTML/schema, no Wikipedia entity |
+| Perplexity | 55/100 | Good inline citations; benefits from data freshness |
+| Bing Copilot | 45/100 | Sitemap gap — articles not systematically discoverable |
 
-| Page | Schema Present | Type | Issues |
-|------|---------------|------|--------|
-| Homepage | ✅ | Organization | Minimal — no WebSite, no SearchAction |
-| Observatory | ✅ | Organization | Same org schema — no Dataset schema |
-| Digest | ✅ | Organization | Same org schema — no ItemList, no NewsArticle |
-| BGP | ✅ | Organization | **URL typo** + no Dataset schema |
+### llms.txt issues (`/public/llms.txt` — file exists, returns 200)
 
-### Critical Schema Gaps
+| Issue | Severity |
+|---|---|
+| Author listed as "Anna" not "Anna Faure Revol" | High |
+| All URLs are relative (`/observatory/bgp`) — some parsers fail | Medium |
+| No `License:` field | Medium |
+| No `Contact:` field | Low |
 
-**1. No Dataset schema on Observatory pages**
-The Observatory publishes structured data (BGP outages, blocked domains, shutdown events). Google indexes Dataset schema for the Google Dataset Search tool — used by researchers, the primary audience.
+### Author entity inconsistency
 
-```json
-{
-  "@type": "Dataset",
-  "name": "Myanmar BGP Network Outages",
-  "description": "Real-time tracking of BGP route withdrawals for Myanmar autonomous systems",
-  "url": "https://internetinmyanmar.com/observatory/bgp",
-  "creator": { "@type": "Organization", "name": "Internet in Myanmar" },
-  "temporalCoverage": "2021/..",
-  "spatialCoverage": "Myanmar",
-  "license": "https://creativecommons.org/licenses/by/4.0/"
-}
-```
+"Anna Faure Revol" is in article frontmatter but rendered as "Anna" everywhere in HTML: byline, Person schema, llms.txt, `/about/anna/` page title. AI systems (ChatGPT, Perplexity) cannot build a reliable entity link. Weakens E-E-A-T across all citation platforms.
 
-**2. No NewsArticle schema on Digest entries**
-Digest items are news summaries with dates. NewsArticle schema enables Google News indexation.
+### Citability strengths
 
-**3. No Person schema for Anna Faure Revol**
-Required for E-E-A-T. Must appear on her author page and be referenced via `"author"` property on all NewsArticle schemas.
+`myanmar-digital-repression-2026` is the strongest citation asset: 59-word opening paragraph, specific statistics with source attribution (RSF, OONI, Freedom House), inline hyperlinked citations.
 
-**4. No WebSite schema with SearchAction on Homepage**
-Enables Google Sitelinks Search Box.
+### Citability gaps
 
-**5. Organization schema URL typo on BGP page**
-`"url": "https://www.internetinmynam.com"` → should be `"https://www.internetinmyanmar.com"`
+- No question-based H2/H3 headings anywhere on site ("How many websites are blocked in Myanmar?")
+- No self-contained answer blocks (134–167 word extractable passages)
+- Statistics lack measurement dates ("2,000+ URLs blocked" — as of when?)
+- `dateModified` absent on almost all articles
 
 ---
 
-## Performance (CWV) — 60/100
+## Files Requiring Action
 
-*Note: Lab estimates only — no CrUX field data available (Google Search Console not configured).*
-
-| Signal | Estimate | Detail |
-|--------|----------|--------|
-| LCP | ~1.8s (Good) | Astro SSG + Cloudflare CDN = fast TTFB |
-| INP | ~120ms (Good) | Minimal JS — Astro islands architecture |
-| CLS | Unknown | No layout shift data — need live measurement |
-| Cloudflare Pages | ✅ | Global CDN, HTTP/3, Brotli compression |
-| Image optimization | ⚠️ Unknown | No WebP/AVIF confirmation from fetch |
-
-**Recommendation:** Add Cloudflare Web Analytics or Plausible to get real CWV field data before DNS cutover. The Astro + Cloudflare Pages stack is inherently fast but BGP live data pages with JavaScript rendering need individual testing.
-
----
-
-## Images — 50/100
-
-| Check | Status | Detail |
-|-------|--------|--------|
-| Alt text policy | ✅ Defined | CLAUDE.md enforces descriptive alt text, max 10 words, no keyword stuffing |
-| Alt text verified | ⚠️ Unverified | Cannot confirm alt texts from fetch — manual audit needed |
-| Image formats | ⚠️ Unknown | WebP conversion not confirmed |
-| Lazy loading | ✅ Present | WordPress site had it — Astro should maintain |
-| Featured images | ⚠️ Partial | Articles in content schema have `featuredImage` optional field |
-
----
-
-## AI Search Readiness — 40/100
-
-| Signal | Status | Detail |
-|--------|--------|--------|
-| llms.txt | ❌ Missing | `/llms.txt` → 404 |
-| Structured data depth | ⚠️ Partial | Organization only — no Dataset, NewsArticle |
-| Citability | ⚠️ Partial | External sources cited but no methodology page |
-| AI crawler access | ✅ Pass | robots.txt allows all agents |
-| Brand mention signals | ⚠️ Unknown | Not established yet — new site |
-
-**llms.txt is the highest-priority AI SEO fix.** Perplexity, ChatGPT, and Claude cite sources that publish `llms.txt`. For a Myanmar internet monitoring platform, being cited by AI search when users ask "is the internet shut down in Myanmar?" is the single highest-value SEO outcome possible.
-
-**Recommended `/public/llms.txt`:**
-```
-# Internet in Myanmar
-> Independent technical monitor of Myanmar's digital environment.
-> Tracks internet shutdowns, censorship, and connectivity in real time.
-> Data sources: OONI, RIPEstat, IODA, Cloudflare Radar.
-> Editor: Anna Faure Revol — journalist specializing in Myanmar digital rights.
-
-## Observatory
-- BGP Network Status: /observatory/bgp
-- Shutdown Tracker: /observatory/shutdown-tracker
-- Blocked Sites Monitor: /observatory/blocked-sites
-
-## Analysis
-- Censorship & Shutdowns: /censorship
-- Telecom & Infrastructure: /connectivity
-- Digital Economy: /digital-economy
-
-## Guides
-- VPN & Circumvention: /guides/vpn
-- Digital Security: /guides/digital-security
-
-## About
-- Mission: /about
-- Contact: /contact
-```
-
----
-
-## Multilingual SEO
-
-| Check | Status | Detail |
-|-------|--------|--------|
-| hreflang tags | ✅ Present | EN/FR/ES/IT/MY detected on homepage |
-| Language URLs | ✅ Present | `/fr/`, `/es/`, `/it/` structure |
-| x-default hreflang | ⚠️ Not confirmed | Must be present pointing to `/` (English) |
-| Burmese (MY) | ⚠️ Risky | `/my/` path detected — no Burmese content in scope yet. Should be absent or marked noindex until content exists |
-
----
-
-## Issues Inventory
-
-### Critical (fix before DNS cutover)
-| # | Issue | Page(s) | Impact |
-|---|-------|---------|--------|
-| C1 | robots.txt sitemap URL wrong domain | All | Sitemap not discovered on dev |
-| C2 | No sitemap.xml on dev domain | All | Pages not indexed |
-| C3 | Organization schema URL typo | BGP page | Rich results failure |
-| C4 | Dev site missing noindex meta | All | Staging content may be indexed |
-| C5 | About page returns 404 | /about | Author E-E-A-T not established |
-
-### High (fix within 1 week of launch)
-| # | Issue | Page(s) | Impact |
-|---|-------|---------|--------|
-| H1 | Duplicate meta descriptions | Homepage, Observatory, Digest, BGP | CTR loss |
-| H2 | No Open Graph / Twitter Card tags | All | Poor social sharing |
-| H3 | No llms.txt | Site root | Invisible to AI search |
-| H4 | No Dataset schema on Observatory | Observatory, BGP | Not in Google Dataset Search |
-| H5 | No Person schema for Anna | About (when live) | E-E-A-T weakness |
-| H6 | H1 mismatch on Homepage | Homepage | Keyword signal dilution |
-| H7 | Generic H1 on Digest page | Digest | Keyword signal dilution |
-
-### Medium (fix within 1 month)
-| # | Issue | Page(s) | Impact |
-|---|-------|---------|--------|
-| M1 | No breadcrumb schema | All | Navigation clarity in SERPs |
-| M2 | No SearchAction WebSite schema | Homepage | No Sitelinks Search Box |
-| M3 | No NewsArticle schema on Digest | Digest | Not eligible for Google News |
-| M4 | Thin editorial text on Observatory sub-pages | Observatory/* | Thin content risk |
-| M5 | BGP page title tag 2 chars over limit | BGP | Minor truncation |
-| M6 | All-caps H2 markup | Homepage | Minor accessibility issue |
-| M7 | x-default hreflang not confirmed | All | International routing |
-| M8 | /my/ path without Burmese content | All | Empty language pages |
-
-### Low (backlog)
-| # | Issue | Page(s) | Impact |
-|---|-------|---------|--------|
-| L1 | No CWV field data tracking | All | Can't measure performance |
-| L2 | No Google Search Console setup | All | No indexation visibility |
-| L3 | No canonical tags confirmed | All | Duplicate content risk |
-| L4 | Internal cross-linking between Digest and Observatory | Multiple | Link equity flow |
+| File | Issues |
+|---|---|
+| `src/layouts/Article.astro` | Add NewsArticle schema; fix byline to full name; populate bio; add img dimensions + fetchpriority; add BreadcrumbList |
+| `src/layouts/Base.astro` | Move Google Fonts to `<link>` tags; split Myanmar fonts; add hreflang; add WebSite schema; fix OG default to .png |
+| `src/components/SchemaOrg.astro` | NewsMediaOrganization; add logo; fix sameAs; fix image fallback; add @id throughout |
+| `src/styles/global.css` | Remove `@import` Google Fonts |
+| `src/pages/articles/[slug].astro` | `prerender = true` + `getStaticPaths()` |
+| `src/pages/digest/[slug].astro` | `prerender = true` + `getStaticPaths()` |
+| `src/pages/about/anna.astro` | Fix Person schema name and @id |
+| `astro.config.mjs` | `output: 'hybrid'`; sitemap lastmod config |
+| `public/llms.txt` | Absolute URLs; full author name; License field |
+| `public/_headers` | Create: X-Frame-Options, Referrer-Policy, HSTS, CSP |
+| 7 article MDX files | `draft: true` |
+| `vpn-myanmar.mdx` | Remove/disclose affiliate link |
