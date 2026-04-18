@@ -5284,21 +5284,21 @@
     "name": "ATOMMYANMAR-AS-AP Atom Myanmar Limited",
     "status": "DOWN",
     "started_at": "2026-04-18T09:32:11.421034+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-18T10:02:03.946409+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS151826",
     "name": "FASTSPEED-AS-AP Fast Speed",
     "status": "DOWN",
     "started_at": "2026-04-18T09:32:23.121671+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-18T10:02:12.489527+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   }
 ]
