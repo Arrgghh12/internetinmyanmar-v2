@@ -208,3 +208,64 @@
 /news/mobile/               /mobile/           301
 /news/broadband/            /broadband/        301
 /news/policy/               /policy/           301
+
+# /en/ prefixed WP URLs — article slugs
+/en/lte-internet-myanmar-auction/ /articles/lte-internet-myanmar-auction 301
+/en/ooredoo-facebook-topup/ /articles/ooredoo-facebook-topup 301
+/en/mobile-internet-plans-in-myanmar-october-2016/ /articles/mobile-internet-plans-in-myanmar-october-2016 301
+/en/mpt-4g-review/ /articles/mpt-4g-review 301
+/en/fiber-broadband-ftth-myanmar-my/ /articles/fiber-broadband-ftth-myanmar-my 301
+/en/myanmar-bidder-lte-4g/ /articles/myanmar-bidder-lte-4g 301
+/en/ooredoo-launch-4g-pro-myanmar/ /articles/ooredoo-launch-4g-pro-myanmar 301
+/en/opensignal-myanmar-mobile-coverage/ /articles/opensignal-myanmar-mobile-coverage 301
+/en/internet-volume-plans-myanmar/ /articles/internet-volume-plans-myanmar 301
+/en/ooredoo-telenor-mpt-ussd-memo/ /articles/ooredoo-telenor-mpt-ussd-memo 301
+
+# /en/ prefixed WP URLs — feed, tag, category, misc → homepage
+/en/lte-internet-myanmar-auction/feed/ / 301
+/en/mobile-internet-plans-in-myanmar-october-2016/feed/ / 301
+/en/mpt-4g-review/feed/ / 301
+/en/fiber-broadband-ftth-myanmar-my/feed/ / 301
+/en/myanmar-bidder-lte-4g/feed/ / 301
+/en/ooredoo-launch-4g-pro-myanmar/feed/ / 301
+/en/opensignal-myanmar-mobile-coverage/feed/ / 301
+/en/internet-volume-plans-myanmar/feed/ / 301
+/en/ooredoo-telenor-mpt-ussd-memo/ooredoo-telenor-mpt-shorcode-memo-2/feed/ / 301
+/en/tag/welink/ / 301
+/en/tag/yatanarpon-my/ / 301
+/en/tag/ooredoo-my/ / 301
+/en/tag/access/ / 301
+/en/tag/wisp/ / 301
+/en/tag/yatanarpon/ / 301
+/en/tag/isp/ / 301
+/en/tag/ytp-my/ / 301
+/en/tag/mytel-my/ / 301
+/en/tag/myanmarnet/ / 301
+/en/tag/mpt/ / 301
+/en/tag/welink-my/ / 301
+/en/tag/mpt-my/ / 301
+/en/tag/ftth-my/ / 301
+/en/tag/ooredoo/ / 301
+/en/category/reviews/ / 301
+/en/category/broadband/ /broadband/ 301
+/en/category/analysis/ /censorship/ 301
+/en/category/analysis/page/:page/ /censorship/ 301
+/en/category/mobile/ /mobile/ 301
+/en/category/benchmark/ / 301
+/en/adverts/add-promotion/ / 301
+/en/adverts/manage/ / 301
+
+# AMP URLs → canonical article
+/telenor-announces-unlimited-data-roaming-packs-to-thailand/amp/ /articles/telenor-announces-unlimited-data-roaming-packs-to-thailand 301
+/residential-internet-plans-myanmar-nov-2018/amp/ /articles/residential-internet-plans-myanmar-nov-2018 301
+
+# Misc dead WP pages
+/internet-service-finder-mm/ / 301
+/internet-service-finder-mm / 301
+/internet-service-finder/ / 301
+/internet-provider-service-coverage/ / 301
+/internet-myanmar-2/ / 301
+/member-page-home/ / 301
+
+# Non-www date archive
+https://internetinmyanmar.com/* https://www.internetinmyanmar.com/:splat 301
