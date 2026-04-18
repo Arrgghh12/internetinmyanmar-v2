@@ -1269,11 +1269,11 @@
     "name": "RPCL-AS-AP ZORRO RITZ PUBLIC COMPANY LIMITED",
     "status": "DOWN",
     "started_at": "2026-04-11T11:31:34.922965+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-18T11:31:44.845925+00:00",
+    "duration_minutes": 10080,
     "min_visibility_pct": 0.015,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS135433",
@@ -5097,11 +5097,11 @@
     "name": "UCGCL-AS-AP UNIQUE COMM GROUP COMPANY LIMITED",
     "status": "DOWN",
     "started_at": "2026-04-18T03:01:46.523164+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-18T11:31:17.167727+00:00",
+    "duration_minutes": 509,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS131322",
