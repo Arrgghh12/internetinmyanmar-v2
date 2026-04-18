@@ -269,3 +269,203 @@
 
 # Non-www date archive
 https://internetinmyanmar.com/* https://www.internetinmyanmar.com/:splat 301
+http://www.internetinmyanmar.com/* https://www.internetinmyanmar.com/:splat 301
+
+# WP tag feeds → homepage
+/tag/travel/feed/ / 301
+/tag/datacenter/feed/ / 301
+/tag/smart-cities/feed/ / 301
+/tag/hulu/feed/ / 301
+/tag/pyoneplay/feed/ / 301
+/tag/packages/feed/ / 301
+/tag/myanmar-digital-economy-challenges/feed/ / 301
+/tag/wave/feed/ / 301
+/tag/yatanarpon/feed/ / 301
+/tag/usdt/feed/ / 301
+/tag/wimax/feed/ / 301
+/tag/frontiir/feed/ / 301
+/tag/netflix/feed/ / 301
+/tag/canal/feed/ / 301
+/tag/myanmar-internet-penetration-for-business/feed/ / 301
+/tag/mi11/feed/ / 301
+/tag/viettel/feed/ / 301
+/tag/app/feed/ / 301
+/tag/honor/feed/ / 301
+/tag/ookla/feed/ / 301
+/tag/mmix/feed/ / 301
+/tag/dala/feed/ / 301
+/tag/covid/feed/ / 301
+/tag/kbz/feed/ / 301
+/tag/hotspot/feed/ / 301
+/tag/unlimited/feed/ / 301
+/tag/facebook/feed/ / 301
+/tag/future-of-online-shopping-myanmar/feed/ / 301
+/tag/roaming/feed/ / 301
+/tag/kyat/feed/ / 301
+/tag/suboo/feed/ / 301
+/tag/esports/feed/ / 301
+/tag/cloud/feed/ / 301
+/tag/gold/feed/ / 301
+/tag/music/feed/ / 301
+/tag/bsc/feed/ / 301
+/tag/facebook-my/feed/ / 301
+/tag/e-commerce-growth-in-myanmar-2025/feed/ / 301
+/tag/mytel/feed/ / 301
+/tag/play/feed/ / 301
+/tag/youtube-my/feed/ / 301
+/tag/phone/feed/ / 301
+/tag/day/feed/ / 301
+/tag/bitcoin/feed/ / 301
+/tag/idiscover/feed/ / 301
+/tag/food-delivery-services-my/feed/ / 301
+/tag/online-shopping-trends-myanmar/feed/ / 301
+/tag/aws/feed/ / 301
+/tag/linux/feed/ / 301
+/tag/wireless/feed/ / 301
+/tag/alicloud/feed/ / 301
+/tag/cybersecurity/feed/ / 301
+/tag/vpn-services/feed/ / 301
+/tag/joox/feed/ / 301
+/tag/youtube/feed/ / 301
+/tag/myanmarnet/feed/ / 301
+/tag/service/feed/ / 301
+/tag/unilink-my/feed/ / 301
+/tag/unilink-my-my/feed/ / 301
+/tag/welink/feed/ / 301
+/tag/myanmar/feed/ / 301
+/tag/skynet/feed/ / 301
+/tag/shared/feed/ / 301
+/tag/grab-my/feed/ / 301
+/tag/yangon/feed/ / 301
+/tag/redlink/feed/ / 301
+/tag/internet-my/feed/ / 301
+/tag/trading/feed/ / 301
+/tag/botnet/feed/ / 301
+/tag/laos-sim-card/feed/ / 301
+/tag/virtualization/feed/ / 301
+/tag/pyone-play/feed/ / 301
+/tag/passive-income/feed/ / 301
+/tag/expressvpn/feed/ / 301
+/tag/staking/feed/ / 301
+/tag/binance/feed/ / 301
+/tag/grab-my-my/feed/ / 301
+/tag/p2p/feed/ / 301
+/tag/tagyta ranpon/feed/ / 301
+/tag/hotel/feed/ / 301
+/tag/myanmar-internet-censorship-chinese-technology/feed/ / 301
+/tag/ott/feed/ / 301
+/feed/ / 301
+/feed / 301
+/category/analysis/feed/ / 301
+/category/toolbox/feed/ / 301
+/category/ott/feed/ / 301
+
+# WP tag archive pages (no feed) → homepage
+/tag/gcp/ / 301
+/tag/vmware/ / 301
+/tag/alicloud/ / 301
+/tag/aws/ / 301
+/tag/vpn-services/ / 301
+/tag/cybersecurity/ / 301
+/tag/golden-rock/ / 301
+/tag/password-manager/ / 301
+/tag/presearch/ / 301
+/tag/degen/ / 301
+/tag/bnb/ / 301
+/tag/ooredoo/ / 301
+/tag/news/ / 301
+/tag/5g-internet-mobile-myanmar/ / 301
+/tag/passive-income/ / 301
+/tag/android-find-my-device-myanmar/ / 301
+/tag/p2p/ / 301
+/tag/pubg/ / 301
+/tag/staking/ / 301
+/tag/twante/ / 301
+
+# WP /my/ language prefix paths → homepage
+/my/tag/* / 301
+/my/advertise-with-us/ / 301
+/my/myanmar-mobile-data-plans-comparison/ / 301
+/my/myanmar-mobile-coverage-map/ / 301
+/my/wp-json/ / 301
+/my/5g-နည္းပညာကတကယ္ပဲ-အျမန္ဆံ/ / 301
+/my/* / 301
+
+# WP /en/ missing article slugs
+/en/telenor-launches-suboo/ /articles/telenor-launches-suboo 301
+/en/vpn-myanmar/ /articles/vpn-myanmar 301
+/en/telenor-launch-ftth/ /articles/telenor-launch-ftth 301
+/en/telenor-myanmar-joox/ /articles/telenor-myanmar-joox 301
+/en/yatanarpon-lte-ftth/ /articles/yatanarpon-lte-ftth 301
+/en/netcore-isp-myanmar/ /articles/netcore-isp-myanmar 301
+/en/top-digital-services-myanmar/ /articles/top-digital-services-myanmar 301
+/en/5g-myanmar-future/ /articles/5g-myanmar-future 301
+/en/yangon-wifi-map/ /articles/yangon-wifi-map 301
+/en/4g-telco-myanmar-market/ /articles/4g-telco-myanmar-market 301
+/en/ooredoo-night-packs/ /articles/ooredoo-night-packs 301
+/en/pyone-play-phone/ /articles/pyone-play-phone 301
+/en/telenor-myanmar-data-roaming/ /articles/telenor-myanmar-data-roaming 301
+
+# /en/ catch-all for any remaining /en/ slugs not listed above
+/en/* / 301
+
+# /amp/ URLs → canonical articles
+/amp/telenor-launches-suboo/ /articles/telenor-launches-suboo 301
+/amp/yatanarpon-lte-ftth/ /articles/yatanarpon-lte-ftth 301
+/amp/telenor-myanmar-data-roaming/ /articles/telenor-myanmar-data-roaming 301
+/amp/top-digital-services-myanmar/ /articles/top-digital-services-myanmar 301
+/amp/yangon-wifi-map/ /articles/yangon-wifi-map 301
+/amp/ooredoo-supernet-wireless-ananda-threat/ /articles/ooredoo-supernet-wireless-ananda-threat 301
+/amp/ooredoo-4g-review/ /articles/ooredoo-4g-review 301
+/amp/telenor-home-wireless-internet/ /articles/telenor-home-wireless-internet 301
+/amp/ipv6-deployment-status-in-myanmar/ /articles/ipv6-deployment-status-in-myanmar 301
+/amp/mobile-internet-myanmar-nov16/ /articles/mobile-internet-myanmar-nov16 301
+/amp/myanmar-bidder-lte-4g/ /articles/myanmar-bidder-lte-4g 301
+
+# /test/ WP staging prefix → articles
+/test/telenor-home-wireless-internet/ /articles/telenor-home-wireless-internet 301
+/test/pyone-play-download-offline/ /articles/pyone-play-download-offline 301
+/test/netcore-slash-prices/ /articles/netcore-slash-prices 301
+/test/top-10-ideas-successful-isp-myanmar/ /articles/top-10-ideas-successful-isp-myanmar 301
+/test/top-digital-services-myanmar/ /articles/top-digital-services-myanmar 301
+/test/yangon-wifi-map/ /articles/yangon-wifi-map 301
+/test/ixp-internet-exchange-myanmar/ /articles/ixp-internet-exchange-myanmar 301
+/test/social-marketing-isp-myanmar/ /articles/social-marketing-isp-myanmar 301
+/test/myanmar-bidder-lte-4g/ /articles/myanmar-bidder-lte-4g 301
+
+# WP attachment/sub-pages (slug/image-slug) → parent article
+/myanmar-speednet/myanmar-broadband-compare/ /articles/myanmar-speednet 301
+/top-10-ideas-successful-isp-myanmar/unnamed-5/ /articles/top-10-ideas-successful-isp-myanmar 301
+/redlink-dead-hail-redlink/redlink-myanmar-isp-internet-facebook-5bb/ /articles/redlink-dead-hail-redlink 301
+/redlink-dead-hail-redlink/redlink-myanmar-isp-internet-facebook-5bb-4/ /articles/redlink-dead-hail-redlink 301
+/ooredoo-facebook-topup/fvm-update/ /articles/ooredoo-facebook-topup 301
+/ooredoo-telenor-mpt-ussd-memo/ooredoo-telenor-mpt-shorcode-memo-2/ /articles/ooredoo-telenor-mpt-ussd-memo 301
+/ooredoo-telenor-mpt-ussd-memo/ooredoo-telenor-mpt-shorcode-memo-3/ /articles/ooredoo-telenor-mpt-ussd-memo 301
+/internet-users-myanmar-2017/digital-asia-myanmar-broadband-2017/ /articles/internet-users-myanmar-2017 301
+/residential-broadband-april-2017/5bb-broadband-facebook-review-1/ /articles/residential-broadband-april-2017 301
+/residential-unlimited-broadband-myanmar-december-2017/residential-unlimited-packages-dec17-2/ /articles/residential-unlimited-broadband-myanmar-december-2017 301
+/internet-penetration-sept-17/audience-fb/ /articles/internet-penetration-sept-17 301
+/top-10-ideas-successful-isp-myanmar/asus-rt-ac3200-tri-band-best-ac-router-2015/ /articles/top-10-ideas-successful-isp-myanmar 301
+/yatanarpon-lte-ftth/54063i4e9befc38da5c004/ /articles/yatanarpon-lte-ftth 301
+
+# WP query string / weird URL variants → article or homepage
+/netcore-isp-myanmar / 301
+/choose-business-internet-provider / 301
+/dedicated-internet-access-dia/ / 301
+/advertise-with-us/ / 301
+/business-directory/truenet/ / 301
+/business-directory/* / 301
+/1959-2/ / 301
+/wp-json/ / 301
+/wp-login.php / 301
+/wp-includes/* / 301
+/wp-content/uploads/*.pdf / 301
+/author/* / 301
+/category/english/* / 301
+/category/broadband/* /broadband/ 301
+/category/news/* /mobile/ 301
+/category/mobile/* /mobile/ 301
+/category/ott / 301
+/page/* / 301
+/search/* / 301
+/705ea-news/* / 301
