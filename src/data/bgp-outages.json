@@ -5306,10 +5306,10 @@
     "name": "FRONTIIRCOLTD-MM Frontiir Co. Ltd",
     "status": "DOWN",
     "started_at": "2026-04-18T10:40:11.054123+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-18T10:45:17.697036+00:00",
+    "duration_minutes": 5,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   }
 ]
