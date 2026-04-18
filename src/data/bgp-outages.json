@@ -5042,6 +5042,17 @@
     "name": "FSAS-AS-MM FIND SOLUTION AND SERVICES CO.",
     "status": "DOWN",
     "started_at": "2026-04-17T23:33:08.682316+00:00",
+    "ended_at": "2026-04-18T00:02:43.266127+00:00",
+    "duration_minutes": 29,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": true
+  },
+  {
+    "asn": "AS141199",
+    "name": "CLPC-AS-AP Century Link Plus",
+    "status": "DOWN",
+    "started_at": "2026-04-18T00:03:50.421906+00:00",
     "ended_at": null,
     "duration_minutes": null,
     "min_visibility_pct": 0.0,
