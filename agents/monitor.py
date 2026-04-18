@@ -367,11 +367,9 @@ def run(dry_run: bool = False) -> None:
         return
 
     if not relevant:
-        notify_telegram(f"📡 IIM Monitor — {len(scored)} items scanned, none above threshold.")
+        log.info("📡 IIM Monitor — %d items scanned, none above threshold.", len(scored))
     else:
-        digest = build_telegram_digest(relevant, cutoff)
-        log.info(f"Sending digest: {len(relevant)} items")
-        notify_telegram(digest)
+        log.info("📡 IIM Monitor — %d relevant items found (saved to monitor_output.json)", len(relevant))
 
     log.info("=== Monitor done ===")
 
