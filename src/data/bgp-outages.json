@@ -5207,10 +5207,10 @@
     "name": "MMUNILINK-AS-AP Myanmar Unilink Communication Company Limited",
     "status": "DOWN",
     "started_at": "2026-04-18T04:40:35.043524+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-18T04:45:09.994734+00:00",
+    "duration_minutes": 4,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   }
 ]
