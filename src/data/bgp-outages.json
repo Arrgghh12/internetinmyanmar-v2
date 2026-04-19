@@ -5471,6 +5471,17 @@
     "name": "YTCL-AS-AP Yatanarpon Teleport Company Limited",
     "status": "DOWN",
     "started_at": "2026-04-19T00:31:56.320359+00:00",
+    "ended_at": "2026-04-19T01:01:55.240962+00:00",
+    "duration_minutes": 29,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": true
+  },
+  {
+    "asn": "AS151802",
+    "name": "FSAS-AS-MM FIND SOLUTION AND SERVICES CO.",
+    "status": "DOWN",
+    "started_at": "2026-04-19T01:01:54.346693+00:00",
     "ended_at": null,
     "duration_minutes": null,
     "min_visibility_pct": 0.0,
