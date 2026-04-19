@@ -5493,11 +5493,11 @@
     "name": "AKNCL-AS-AP Aon Kham Network Company Limited",
     "status": "DOWN",
     "started_at": "2026-04-19T03:02:04.779050+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-19T03:32:36.450199+00:00",
+    "duration_minutes": 30,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS58952",
@@ -5509,5 +5509,38 @@
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
     "resolved": true
+  },
+  {
+    "asn": "AS137259",
+    "name": "ILINK-AS-AP i-Link",
+    "status": "DOWN",
+    "started_at": "2026-04-19T03:31:39.951689+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
+  },
+  {
+    "asn": "AS133385",
+    "name": "ATOMMYANMAR-AS-AP Atom Myanmar Limited",
+    "status": "DOWN",
+    "started_at": "2026-04-19T03:32:34.202254+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
+  },
+  {
+    "asn": "AS134528",
+    "name": "MPTCL-AS-AP MYANMAR PI TECHNOLOGY CO.",
+    "status": "DOWN",
+    "started_at": "2026-04-19T03:33:00.671327+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.003,
+    "ioda_confirmed": false,
+    "resolved": false
   }
 ]
