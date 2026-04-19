@@ -5515,22 +5515,22 @@
     "name": "ILINK-AS-AP i-Link",
     "status": "DOWN",
     "started_at": "2026-04-19T03:31:39.951689+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-19T04:01:09.747731+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS133385",
     "name": "ATOMMYANMAR-AS-AP Atom Myanmar Limited",
     "status": "DOWN",
     "started_at": "2026-04-19T03:32:34.202254+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-19T04:01:56.258419+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS134528",
