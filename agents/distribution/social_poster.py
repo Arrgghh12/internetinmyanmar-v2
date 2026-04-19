@@ -29,13 +29,13 @@ Audience: journalists, researchers, NGO staff following Myanmar internet freedom
 Digest title: {TITLE}
 Excerpt: {EXCERPT}
 Category: {CATEGORY}
-URL: {URL}
-Source: {SOURCE}
+Site URL: {URL}
+Original source: {SOURCE}
 
 Write TWO versions. Return JSON only, no markdown fences:
 {{
   "twitter": "max 220 chars, punchy, 2-3 hashtags at end, do NOT include the URL",
-  "facebook": "2-3 sentences of context, source attribution on its own line, URL on its own line, hashtags at end"
+  "facebook": "2-3 sentences of context, via {SOURCE} on its own line, URL on its own line, hashtags at end"
 }}
 
 Rules: sentence case, never start with Breaking:, always include #Myanmar"""
@@ -108,8 +108,7 @@ def post_all(digest_meta: dict) -> dict:
     digest_meta: dict with title, excerpt, category, source, slug, url
     Returns {"posted": {platform: result}, "errors": {platform: msg}}
     """
-    url = digest_meta.get("url") or \
-        f"https://internetinmyanmar.com/digest/{digest_meta['slug']}"
+    url = f"https://internetinmyanmar.com/digest/{digest_meta['slug']}"
 
     copy = generate_copy(
         title=digest_meta["title"],
