@@ -5548,17 +5548,28 @@
     "name": "GD2CL-AS-AP Golden Dragon 2000",
     "status": "DOWN",
     "started_at": "2026-04-19T04:31:36.804591+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-19T05:01:37.645279+00:00",
+    "duration_minutes": 30,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS153777",
     "name": "MMC-AS-AP Mandalar Mandalay Company Limited",
     "status": "DOWN",
     "started_at": "2026-04-19T04:31:37.960335+00:00",
+    "ended_at": "2026-04-19T05:01:39.069596+00:00",
+    "duration_minutes": 30,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": true
+  },
+  {
+    "asn": "AS133433",
+    "name": "ZPC-AS-AP ZOOM PLUS COMPANY LIMITED",
+    "status": "DOWN",
+    "started_at": "2026-04-19T05:02:22.082423+00:00",
     "ended_at": null,
     "duration_minutes": null,
     "min_visibility_pct": 0.0,
