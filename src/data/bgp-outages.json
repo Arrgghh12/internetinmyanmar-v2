@@ -5460,10 +5460,10 @@
     "name": "MATL-AS-AP Myint & Associates Telecommunications Ltd",
     "status": "DOWN",
     "started_at": "2026-04-18T23:32:52.699076+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-19T00:02:17.134711+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   }
 ]
