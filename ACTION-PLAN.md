@@ -1,183 +1,198 @@
 # SEO Action Plan — internetinmyanmar.com
-**Generated:** 2026-04-17 | **Based on:** 6-agent audit (Technical · Content · Schema · Sitemap · Performance · GEO)
+**Generated:** 2026-04-18 | **Score:** 64/100 (+16 from last audit)
 
 ---
 
-## CRITICAL — Fix before DNS cutover
+## CRITICAL — Fix immediately
 
-### C1. Draft 7 rule-violating articles — 15 min
-Set `draft: true` in frontmatter on:
-- `ai-journey-d0-b0-journey-in-the-company-of-a-developer.mdx`
-- `impact-myanmar-smart-city-privacy.mdx` ← TurnOnVPN guest post under Anna's byline
-- `digital-services-travel-myanmar.mdx`
-- `yangon-wifi-map.mdx`
-- `yangon-internet-tour-airport.mdx`
-- `yangon-internet-people-park.mdx`
-- `yangon-internet-ocean-tamwe.mdx`
+### C1. Add `<slot name="head" />` to Base.astro — 5 min
+**All Article/NewsArticle and BreadcrumbList schema is silently dropped** because Base.astro has no named head slot.
 
-### C2. Fix sitemap — include all articles + digest — 2–4 hrs
-`astro.config.mjs` → `output: 'hybrid'`. Add `getStaticPaths()` + `export const prerender = true` to `src/pages/articles/[slug].astro` and `src/pages/digest/[slug].astro`. Without this, 168 articles and 121 digest entries are invisible to Google's bulk indexing.
-
-### C3. Emit NewsArticle schema on article pages — 30 min
-In `src/layouts/Article.astro`, add to head slot:
+In `src/layouts/Base.astro`, inside `<head>` just before `</head>`:
 ```astro
-<SchemaOrg
-  type="article"
-  headline={title}
-  datePublished={publishedAt.toISOString()}
-  dateModified={(updatedAt ?? publishedAt).toISOString()}
-  authorName="Anna Faure Revol"
-  authorUrl={`${siteUrl}/about/anna/`}
-  image={featuredImage ?? `${siteUrl}/og-default.png`}
-  url={canonicalUrl}
-  description={metaDescription}
-  articleSection={primaryCategory}
-/>
+<slot name="head" />
 ```
 
-### C4. Fix HSTS — 2 min
-Cloudflare dashboard → SSL/TLS → Edge Certificates → HSTS → `max-age=31536000`, `includeSubDomains` on.
+This one line fixes all article schema on all 161 live articles simultaneously.
 
-### C5. Remove/disclose affiliate link in vpn-myanmar.mdx — 10 min
-Remove `billing.purevpn.com/aff.php?aff=38474` or add explicit disclosure notice. Google September 2025 QRG violation.
+### C2. Create og-default.png — 30 min
+`og:image` references `/og-default.png` but only `/og-default.svg` exists → 404 on all articles without a featuredImage. Twitter/OG cards broken site-wide.
+
+Install ImageMagick on WSL (`sudo apt install imagemagick`) then:
+```bash
+convert -size 1200x630 xc:"#08090a" \
+  -fill "#7170ff" -font DejaVu-Sans -pointsize 52 \
+  -gravity Center -annotate 0 "Internet in Myanmar" \
+  public/og-default.png
+```
+Or create manually at 1200×630 matching the site's dark navy + accent purple.
+
+### C3. Fix canonical on migrated articles — 1 hr
+~120 migrated articles have `originalUrl` which Article.astro uses as `canonicalUrl`. After DNS cutover this creates a canonical loop (canonical → 301 → same page).
+
+**Decision required:** Choose one of:
+- **Option A (recommended):** Remove `originalUrl` from `canonicalUrl` logic in `Article.astro`. Let canonical always be `/articles/slug/`. The `_redirects` file handles old URL traffic. Add `originalUrl` as a plain `<link rel="original">` meta if needed for reference.
+- **Option B:** Clear `originalUrl` from all migrated article frontmatter (bulk sed).
+
+Change in `src/layouts/Article.astro`:
+```astro
+// Before:
+const canonicalUrl = originalUrl ?? new URL(`/articles/${slug}/`, Astro.site).href
+
+// After:
+const canonicalUrl = new URL(`/articles/${slug}/`, Astro.site).href
+```
 
 ---
 
-## HIGH — Fix within 1 week
+## HIGH — Fix this week
 
-### H1. Move Google Fonts out of CSS @import — 1 hr
-**LCP impact: 400–900ms improvement**
+### H1. Expand Anna bio page — 2 hrs editorial
+Current state: 199 words, no photo, no last name visible in schema, `sameAs: []`.
 
-`src/styles/global.css`: remove the `@import` line entirely.
+Required for QRG trust threshold:
+- Expand to 600+ words: publication history, named affiliations (RSF connections, OONI collaborations), areas covered, methodology
+- Add a real photo (removes "Photo" placeholder text)
+- Add LinkedIn URL to Person schema `sameAs` array
+- Add `jobTitle: "Editor-in-Chief"` and `description` to Person schema
+- seoTitle: "Anna — Editor, Internet in Myanmar" → something with more identity signal
 
-`src/layouts/Base.astro` `<head>`:
-```html
-<link rel="preload" as="style"
-  href="https://fonts.googleapis.com/css2?family=Inter:wght@400;510;590;700&display=swap" />
-<link rel="stylesheet"
-  href="https://fonts.googleapis.com/css2?family=Inter:wght@400;510;590;700&display=swap"
-  media="print" onload="this.media='all'" />
-```
-Load Padauk + Noto Sans Myanmar only on Myanmar pages:
-```astro
-{lang === 'my' && (
-  <link rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=Padauk:wght@400;700&family=Noto+Sans+Myanmar:wght@400;500;700&display=swap" />
-)}
-```
+**Note:** Schema still shows `name: "Anna"`. The privacy decision (first name only in public code) means AI citation will use "Anna" — acceptable but limits disambiguability.
 
-### H2. Dynamic import Fuse.js — 30 min
-**Removes 25 kB from every page's JS critical path**
-
-In `Base.astro` search script, replace direct Fuse import with:
-```javascript
-trigger.addEventListener('click', async () => {
-  const { default: Fuse } = await import('fuse.js')
-  // rest of initSearch
-})
+### H2. Triage 40 thin articles — 2 hrs
+```bash
+# Find articles under 400 words (rough count by file size):
+for f in src/content/articles/*.mdx; do
+  words=$(wc -w < "$f")
+  [ "$words" -lt 400 ] && echo "$words $f"
+done | sort -n | head -20
 ```
 
-### H3. Switch to output: 'hybrid', prerender static pages — 2–3 hrs
-`astro.config.mjs` → `output: 'hybrid'`. Mark article, digest, and all static pages `prerender = true`. Reserve SSR only for `/api/*`, Keystatic routes, live Observatory endpoints. Eliminates 50–200ms cold-start TTFB on every article load.
+Actions:
+- **Under 200 words (11 articles):** Set `draft: true`, add 301 redirect to category page in `_redirects`
+- **200–400 words (29 articles):** Add to editorial backlog for expansion or consolidation
 
-### H4. Fix Organization schema — 45 min
-`src/components/SchemaOrg.astro`:
-- `@type: NewsMediaOrganization`
-- `@id: "https://www.internetinmyanmar.com/#organization"`
-- Add `logo: { "@type": "ImageObject", "url": "https://www.internetinmyanmar.com/og-default.png" }`
-- Remove `sameAs: ["https://www.internetinmyanmar.com"]` (self-referential)
+### H3. Draft 3 hex-slug Burmese articles — 5 min
+Articles at `/articles/e1-80-*/` are published with opaque hex slugs, no SEO value, likely legacy Myanmar Geek content.
 
-### H5. Fix Person schema for Anna — 20 min
-`src/pages/about/anna.astro`:
-- `name: 'Anna Faure Revol'`
-- `@id: "https://www.internetinmyanmar.com/about/anna/#person"`
-- `worksFor` → `NewsMediaOrganization` with `@id`
+```bash
+# Draft all three:
+for slug in \
+  "e1-80-80-e1-80-bc-e1-80-ba-e1-80-94-e1-80-b9-e1-80-b1-e1-80-90-e1-80-ac-e1-80-b9" \
+  "e1-80-9a-e1-80-b1-e1-80-94-e1-82-94-e1-80-b1-e1-80-81-e1-80-90-e1-80-b9-e1-80-9c" \
+  "e1-80-90-e1-80-85-e1-80-b9-e1-80-85-e1-80-91-e1-80-80-e1-80-b9-e1-80-90-e1-80-85"; do
+  sed -i 's/^draft: false/draft: true/' "src/content/articles/${slug}.mdx"
+done
+```
 
-`src/layouts/Article.astro` byline: render full name, populate bio paragraph.
+### H4. Add `updatedAt` to stale evergreen articles — editorial
+Priority articles to update and set `updatedAt: 2026-04-18`:
+- `vpn-myanmar` — 2018, VPN landscape has changed entirely
+- `myanmar-internet-censorship` — 2020 COVID lede, needs refresh
+- `ixp-internet-exchange-myanmar` — infrastructure article
+- `internet-myanmar-expensive` — pricing data stale
 
-### H6. Replace SVG OG fallback with PNG — 30 min
-Generate `/public/og-default.png` at 1200×630. Update `Base.astro` OG image default reference.
+Also: verify `vpn-myanmar` stale notice is rendering on live page (should be — published 2018, threshold is 18 months).
 
-### H7. Add hreflang to `<head>` — 1 hr
-`Base.astro`: loop locales, emit `<link rel="alternate" hreflang>` for en/fr/es/it + `x-default` using existing `getLocalePath()`.
+### H5. Populate `sameAs` arrays — 30 min
+In `src/components/SchemaOrg.astro` and `src/pages/about/anna.astro`:
 
-### H8. Fix llms.txt — 20 min
-`public/llms.txt`:
-- `Editor: Anna` → `Editor: Anna Faure Revol`
-- Convert relative URLs to absolute (`/observatory/bgp` → `https://www.internetinmyanmar.com/observatory/bgp`)
-- Add `License: https://creativecommons.org/licenses/by/4.0/`
+For Organization:
+```json
+"sameAs": [
+  "https://www.linkedin.com/company/internet-in-myanmar",
+  "https://twitter.com/IIMyanmar"
+]
+```
+(add only URLs that actually exist)
 
-### H9. Add featured image dimensions + fetchpriority — 15 min
-`src/layouts/Article.astro` featured `<img>`:
-```astro
-width="1200" height="675" fetchpriority="high"
+For Person — once LinkedIn confirmed:
+```json
+"sameAs": ["https://www.linkedin.com/in/anna-[slug]"]
 ```
 
 ---
 
 ## MEDIUM — Within 1 month
 
-### M1. Add BreadcrumbList schema to articles — 1 hr
-`Article.astro`: generate JSON-LD `BreadcrumbList` from existing `primaryCategory` + `categoryHref` + `slug` variables. Already rendered visually — just needs schema.
-
-### M2. Add WebSite schema to Base.astro — 30 min
-Add `WebSite` JSON-LD with `@id` and publisher reference. Enables Sitelinks Searchbox eligibility.
-
-### M3. Create public/_headers — 1 hr
+### M1. Add AI crawler directives to robots.txt — 10 min
+`public/robots.txt`:
 ```
-/*
-  X-Frame-Options: SAMEORIGIN
-  Referrer-Policy: strict-origin-when-cross-origin
-  X-Content-Type-Options: nosniff
-  Permissions-Policy: camera=(), microphone=(), geolocation=()
-  Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: *
+Allow: /
 ```
 
-### M4. Rewrite vpn-myanmar.mdx — 2–3 hrs editorial
-Full rewrite: post-coup VPN landscape, Tor/Psiphon/Lantern focus, safety warnings for activists under junta surveillance. Remove all 2018 affiliate recommendations.
-
-### M5. Fix seoTitle truncations — 30 min
-```bash
-grep 'seoTitle.*…' src/content/articles/*.mdx
+### M2. Add `masthead` to NewsMediaOrganization schema — 10 min
+Required for Google News publisher trust:
+```json
+"masthead": "https://www.internetinmyanmar.com/about/mission/"
 ```
-Rewrite to proper ≤60 char titles without ellipsis character.
 
-### M6. Fix lang field on remaining Burmese articles — 10 min
-Set `lang: "my"` on `bypass-country-google-play-store-mm.mdx` and `cookie-tv-app-myanmar.mdx`.
+### M3. Add FAQ schema to top articles — 2 hrs
+Start with `vpn-myanmar`, `myanmar-internet-censorship`, `myanmar-digital-repression-2026`.
+Map existing question-format H2s to FAQPage JSON-LD entries.
 
-### M7. Add `updatedAt` to stale evergreen articles — ongoing editorial
-Priority: `ixp-internet-exchange-myanmar`, `internet-myanmar-expensive`, `myanmar-internet-censorship`. Set when Anna reviews and updates.
+### M4. Add WOFF2 preload for Inter — 15 min
+Extract the Inter Latin WOFF2 URL from the Google Fonts CSS response and add to Base.astro head:
+```html
+<link rel="preload" as="font" type="font/woff2"
+  href="https://fonts.gstatic.com/s/inter/v13/[hash].woff2"
+  crossorigin>
+```
 
-### M8. Add question-based headings to top articles — editorial
-Restructure 5–10 key articles with question-headed H2/H3 + self-contained 134–167 word answer blocks. Enables Google AI Overviews and Featured Snippets extraction.
-Priority articles: `myanmar-digital-repression-2026`, `myanmar-internet-censorship`, and the vpn rewrite.
+### M5. Add `will-change: transform` to ticker — 5 min
+In homepage CSS or global.css:
+```css
+#ticker-track { will-change: transform; }
+```
 
-### M9. Deduplicate metaDescriptions across language pairs — 30 min
-Write unique metaDescriptions for: `fiber-broadband-ftth-myanmar` / `fiber-broadband-ftth-myanmar-my` and `spotify-myanmar` / `how-to-use-spotify-myanmar-my`.
+### M6. Add `lastmod` to sitemap — 1 hr
+In `astro.config.mjs` sitemap integration, add a post-build script that patches `dist/sitemap-0.xml` with `<lastmod>` dates read from article frontmatter `publishedAt` values.
 
-### M10. Add `<lastmod>` to sitemap — 1 hr
-After C2 is done, configure `@astrojs/sitemap` `serialize` option to inject `lastmod` from `updatedAt ?? publishedAt` frontmatter values.
+### M7. Extend llms.txt — 20 min
+Add `Preferred citation:` line and 5–10 highest-value article URLs:
+```
+> Preferred citation: Internet in Myanmar (internetinmyanmar.com)
+```
+Then add an `## Key Articles` section with absolute URLs to flagship pieces.
+
+### M8. Rewrite stale metaDescriptions — 30 min
+Priority: `myanmar-internet-censorship` (COVID-era lede), `vpn-myanmar` (2018 framing).
+
+### M9. Expand Mission page — editorial
+Current: 284 words. Target: 500+ with methodology section and data sources explanation.
 
 ---
 
 ## LOW — Backlog
 
-- **L1. IndexNow** — Add `/[key].txt` to `public/`, call IndexNow API in `agents/publisher.py` on new article publish
-- **L2. AI crawler directives in robots.txt** — Explicit Allow for GPTBot/PerplexityBot/ClaudeBot; consider Disallow for training-only bots (CCBot, anthropic-ai)
-- **L3. Self-host Inter** — Eliminate Google Fonts third-party DNS lookup for repeat visitors
-- **L4. Anna's LinkedIn + Wikidata** — Add to Person schema `sameAs` once LinkedIn URL confirmed; create Wikidata Q-identifier
-- **L5. Schema keywords** — Inject article `tags` as `keywords` in NewsArticle schema (after cleaning keyword-stuffed tags)
-- **L6. RSS `<link>` in `<head>`** — Add `<link rel="alternate" type="application/rss+xml" href="/rss.xml">` to `Base.astro`
+- **L1.** Add `potentialAction` SearchAction to WebSite schema (Sitelinks Searchbox)
+- **L2.** Create Wikipedia/Wikidata entry for "Internet in Myanmar", add to `sameAs`
+- **L3.** Add `<link rel="alternate" type="application/rss+xml">` to Base.astro head
+- **L4.** Self-host Inter font to eliminate Google Fonts DNS lookup
+- **L5.** CSS bundle audit — verify Tailwind content paths purging all sources (target <20 KB gz)
+- **L6.** Add `inLanguage`, `wordCount`, `isAccessibleForFree` to NewsArticle schema
 
 ---
 
 ## Sprint Order
 
-| Today (30 min) | This week (8 hrs dev) | Next week (6 hrs dev) | Month |
+| Today (1 hr) | This week | This month | Backlog |
 |---|---|---|---|
-| C1 draft 7 articles | C2 sitemap/prerender | H4 Org schema | M1–M10 rolling |
-| C4 HSTS | C3 NewsArticle schema | H5 Person schema | |
-| C5 affiliate link | H1 Google Fonts | H7 hreflang | |
-| | H2 Fuse.js | H8 llms.txt | |
-| | H6 OG PNG | H9 img dimensions | |
-| | H3 hybrid prerender | M3 _headers | |
+| C1 — head slot fix | C2 — OG PNG | M1 AI crawlers | L1–L6 |
+| C3 — canonical fix | H1 — Anna bio | M2 masthead | |
+| H3 — hex slug draft | H2 — thin content | M3 FAQ schema | |
+| | H4 — updatedAt | M4–M9 | |
+| | H5 — sameAs | | |
