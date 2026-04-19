@@ -5740,5 +5740,27 @@
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
     "resolved": true
+  },
+  {
+    "asn": "AS136255",
+    "name": "TIMCL-AS-AP Telecom International Myanmar Co.",
+    "status": "DOWN",
+    "started_at": "2026-04-19T22:31:37.880327+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
+  },
+  {
+    "asn": "AS149487",
+    "name": "MCLOCCL-AS-AP MOC COMPANY LIMITED",
+    "status": "DOWN",
+    "started_at": "2026-04-19T22:33:12.961714+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
   }
 ]
