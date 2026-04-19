@@ -5762,5 +5762,27 @@
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
     "resolved": true
+  },
+  {
+    "asn": "AS137955",
+    "name": "MMIX-AS-AP Myanmar Internet Exchange",
+    "status": "DOWN",
+    "started_at": "2026-04-19T23:31:41.168950+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
+  },
+  {
+    "asn": "AS139692",
+    "name": "CHEN-AS-AP CHEN GUANG COMPANY LIMITED",
+    "status": "DOWN",
+    "started_at": "2026-04-19T23:32:35.426502+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
   }
 ]
