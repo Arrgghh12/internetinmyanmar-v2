@@ -5592,6 +5592,28 @@
     "name": "CGCL-AS-AP Connect Gateway Company Limited",
     "status": "DOWN",
     "started_at": "2026-04-19T06:32:16.275661+00:00",
+    "ended_at": "2026-04-19T07:02:03.152955+00:00",
+    "duration_minutes": 29,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": true
+  },
+  {
+    "asn": "AS135405",
+    "name": "TMHTTWTL-AS-AP WELINK",
+    "status": "DOWN",
+    "started_at": "2026-04-19T07:01:54.435291+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
+  },
+  {
+    "asn": "AS136442",
+    "name": "OCEANWAVE-AS-AP Ocean Wave Communication Co.",
+    "status": "DOWN",
+    "started_at": "2026-04-19T07:01:55.834994+00:00",
     "ended_at": null,
     "duration_minutes": null,
     "min_visibility_pct": 0.0,
