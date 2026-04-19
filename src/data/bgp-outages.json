@@ -5702,10 +5702,10 @@
     "name": "REDPALM-AS-AP RED PALM COMPANY LIMITED",
     "status": "DOWN",
     "started_at": "2026-04-19T15:01:19.200971+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-19T15:31:07.383102+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   }
 ]
