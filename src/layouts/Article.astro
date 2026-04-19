@@ -38,7 +38,7 @@ const {
   originalUrl,
 } = Astro.props
 
-const canonicalUrl = originalUrl ?? new URL(`/articles/${slug}/`, Astro.site).href
+const canonicalUrl = new URL(`/articles/${slug}/`, Astro.site).href
 const isStale = (Date.now() - publishedAt.valueOf()) > 1000 * 60 * 60 * 24 * 548 // 18 months
 
 const categoryHref: Record<string, string> = {
