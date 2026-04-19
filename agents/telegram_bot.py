@@ -88,7 +88,7 @@ def make_mdx(c: dict, added_at: str) -> str:
     if excerpt and not excerpt.endswith((".", "...", "?", "!")):
         excerpt = excerpt.rsplit(" ", 1)[0] + "..."
 
-    title_safe  = c["your_title"].replace('"', "'")
+    title_safe  = (c.get("your_title") or c.get("title", "")).replace('"', "'")
     source_safe = c["title"].replace('"', "'")
 
     source_db_path = AGENTS_DIR / "data" / "source_scores.json"
