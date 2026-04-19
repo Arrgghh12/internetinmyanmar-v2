@@ -5718,5 +5718,16 @@
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
     "resolved": true
+  },
+  {
+    "asn": "AS18399",
+    "name": "YTCL-AS-AP Yatanarpon Teleport Company Limited",
+    "status": "DOWN",
+    "started_at": "2026-04-19T20:03:29.499181+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
   }
 ]
