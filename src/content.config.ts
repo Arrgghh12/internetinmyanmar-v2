@@ -29,6 +29,7 @@ const articles = defineCollection({
     sources:          z.array(z.string().url()).optional(),
     migrated:         z.boolean().default(false),
     originalUrl:      z.string().url().optional(),
+    faq:              z.array(z.object({ q: z.string(), a: z.string() })).optional(),
     archived:         z.boolean().default(false),
     archivedAt:       z.string().optional(),
     archivedReason:   z.string().optional(),

@@ -18,6 +18,7 @@ interface Props {
   lang?: string
   sources?: string[]
   originalUrl?: string
+  faq?: { q: string; a: string }[]
 }
 
 const {
@@ -36,6 +37,7 @@ const {
   lang = 'en',
   sources = [],
   originalUrl,
+  faq,
 } = Astro.props
 
 const canonicalUrl = new URL(`/articles/${slug}/`, Astro.site).href
@@ -73,6 +75,17 @@ const primaryCategory = categories[0]
     articleSection={primaryCategory}
     slot="head"
   />
+  {faq && faq.length > 0 && (
+    <script type="application/ld+json" slot="head" set:html={JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'FAQPage',
+      mainEntity: faq.map(({ q, a }) => ({
+        '@type': 'Question',
+        name: q,
+        acceptedAnswer: { '@type': 'Answer', text: a },
+      })),
+    })} />
+  )}
   <script type="application/ld+json" slot="head" set:html={JSON.stringify({
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',

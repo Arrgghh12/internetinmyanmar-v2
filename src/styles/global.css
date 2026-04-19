@@ -72,3 +72,5 @@ code, pre, .mono { font-family: var(--font-mono); }
   font-weight: 700;
   font-feature-settings: normal;
 }
+
+#ticker-track { will-change: transform; }

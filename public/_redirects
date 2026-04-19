@@ -469,3 +469,14 @@ http://www.internetinmyanmar.com/* https://www.internetinmyanmar.com/:splat 301
 /page/* / 301
 /search/* / 301
 /705ea-news/* / 301
+
+# Drafted thin articles (sub-200 words, 2016 ISP promotions)
+/articles/bluewave-promotion-isp/ /broadband/ 301
+/bluewave-promotion-isp/ /broadband/ 301
+/articles/netcore-promotion/ /broadband/ 301
+/netcore-promotion/ /broadband/ 301
+
+# Drafted hex-slug off-mission Burmese articles
+/articles/e1-80-80-e1-80-bc-e1-80-ba-e1-80-94-e1-80-b9-e1-80-b1-e1-80-90-e1-80-ac-e1-80-b9/ /digital-services/ 301
+/articles/e1-80-90-e1-80-85-e1-80-b9-e1-80-85-e1-80-91-e1-80-80-e1-80-b9-e1-80-90-e1-80-85/ / 301
+/articles/e1-80-9a-e1-80-b1-e1-80-94-e1-82-94-e1-80-b1-e1-80-81-e1-80-90-e1-80-b9-e1-80-9c/ / 301
