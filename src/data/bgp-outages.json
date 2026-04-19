@@ -5636,55 +5636,55 @@
     "name": "NMCL-AS-AP NTT MYANMAR CO.",
     "status": "DOWN",
     "started_at": "2026-04-19T14:31:43.747872+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-19T15:01:30.928036+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS134739",
     "name": "AGBC-AS-AP AGB Communication Co.",
     "status": "DOWN",
     "started_at": "2026-04-19T14:31:54.208269+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-19T15:01:32.649177+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS139595",
     "name": "HTIN-AS-AP HTIN HTIN NETWORK COMPANY LIMITED",
     "status": "DOWN",
     "started_at": "2026-04-19T14:33:15.152402+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-19T15:02:41.790262+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS149855",
     "name": "AS-AGBC AGB Communication Co.",
     "status": "DOWN",
     "started_at": "2026-04-19T14:33:16.316808+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-19T15:02:43.170972+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS135149",
     "name": "MTGCL-AS-AP Myanmar Technology Gateway Co.",
     "status": "DOWN",
     "started_at": "2026-04-19T14:34:18.830857+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-19T15:03:23.554956+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS58952",
@@ -5696,5 +5696,16 @@
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
     "resolved": true
+  },
+  {
+    "asn": "AS139804",
+    "name": "REDPALM-AS-AP RED PALM COMPANY LIMITED",
+    "status": "DOWN",
+    "started_at": "2026-04-19T15:01:19.200971+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
   }
 ]
