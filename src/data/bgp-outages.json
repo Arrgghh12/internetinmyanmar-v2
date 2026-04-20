@@ -5812,21 +5812,32 @@
     "name": "STIGW-AS-AP ST.Net",
     "status": "DOWN",
     "started_at": "2026-04-20T02:02:23.099494+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-20T02:32:15.517221+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS58952",
     "name": "FRONTIIRCOLTD-MM Frontiir Co. Ltd",
     "status": "DOWN",
     "started_at": "2026-04-20T02:25:11.930123+00:00",
-    "ended_at": "2026-04-20T02:30:20.399995+00:00",
-    "duration_minutes": 5,
+    "ended_at": "2026-04-20T02:31:15.124840+00:00",
+    "duration_minutes": 6,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
     "resolved": true
+  },
+  {
+    "asn": "AS138167",
+    "name": "TRUENET-AS-AP TrueNET",
+    "status": "DOWN",
+    "started_at": "2026-04-20T02:32:41.220922+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
   }
 ]
