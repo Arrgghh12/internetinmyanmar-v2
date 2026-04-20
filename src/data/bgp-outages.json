@@ -5883,5 +5883,27 @@
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
     "resolved": true
+  },
+  {
+    "asn": "AS150797",
+    "name": "GCL-AS-AP GIGA-NET",
+    "status": "DOWN",
+    "started_at": "2026-04-20T09:32:21.909753+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
+  },
+  {
+    "asn": "AS136177",
+    "name": "YOMABANKLIMITED-AS-AP Yoma Bank Limited",
+    "status": "DOWN",
+    "started_at": "2026-04-20T09:33:38.556369+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
   }
 ]
