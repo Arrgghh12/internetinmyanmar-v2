@@ -5911,21 +5911,21 @@
     "name": "MIHL-AS-AP MYANMAR INFORMATION HIGHWAY LIMITED",
     "status": "DOWN",
     "started_at": "2026-04-20T10:01:37.214542+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-20T10:31:21.800583+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS141236",
     "name": "MCDC-AS-AP Mandalay City Development Committee",
     "status": "DOWN",
     "started_at": "2026-04-20T10:03:25.039916+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-20T10:32:45.494410+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   }
 ]
