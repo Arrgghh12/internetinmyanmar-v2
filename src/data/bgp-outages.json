@@ -5768,6 +5768,28 @@
     "name": "MMIX-AS-AP Myanmar Internet Exchange",
     "status": "DOWN",
     "started_at": "2026-04-19T23:31:41.168950+00:00",
+    "ended_at": "2026-04-20T00:01:58.503256+00:00",
+    "duration_minutes": 30,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": true
+  },
+  {
+    "asn": "AS139692",
+    "name": "CHEN-AS-AP CHEN GUANG COMPANY LIMITED",
+    "status": "DOWN",
+    "started_at": "2026-04-19T23:32:35.426502+00:00",
+    "ended_at": "2026-04-20T00:02:54.547268+00:00",
+    "duration_minutes": 30,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": true
+  },
+  {
+    "asn": "AS137888",
+    "name": "BCM-AS-AP Bee Connect Myanmar Co.",
+    "status": "DOWN",
+    "started_at": "2026-04-20T00:01:48.022658+00:00",
     "ended_at": null,
     "duration_minutes": null,
     "min_visibility_pct": 0.0,
@@ -5775,10 +5797,10 @@
     "resolved": false
   },
   {
-    "asn": "AS139692",
-    "name": "CHEN-AS-AP CHEN GUANG COMPANY LIMITED",
+    "asn": "AS136613",
+    "name": "AYEYARWADYBANK-AS-AP Ayeyarwady Bank",
     "status": "DOWN",
-    "started_at": "2026-04-19T23:32:35.426502+00:00",
+    "started_at": "2026-04-20T00:02:52.930848+00:00",
     "ended_at": null,
     "duration_minutes": null,
     "min_visibility_pct": 0.0,
