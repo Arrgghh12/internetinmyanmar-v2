@@ -5878,10 +5878,10 @@
     "name": "TPTNET-AS-AP THAN PHYO THU MINING COMPANY LIMITED",
     "status": "DOWN",
     "started_at": "2026-04-20T06:32:30.072893+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-20T07:02:18.773743+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   }
 ]
