@@ -160,7 +160,7 @@
     "visibility_pct": 1.0,
     "visible_collectors": 331,
     "total_collectors": 331,
-    "timestamp": "2026-04-20T05:01:18.632584+00:00",
+    "timestamp": "2026-04-20T05:10:15.944204+00:00",
     "status": "GREEN",
     "status_since": "2026-04-18T05:01:30.661515+00:00"
   },
@@ -171,7 +171,7 @@
     "visibility_pct": 1.0,
     "visible_collectors": 331,
     "total_collectors": 331,
-    "timestamp": "2026-04-20T05:01:18.978363+00:00",
+    "timestamp": "2026-04-20T05:10:16.304557+00:00",
     "status": "GREEN",
     "status_since": "2026-04-20T02:31:14.824169+00:00"
   },
@@ -607,13 +607,16 @@
   "AS9988": {
     "asn": "AS9988",
     "name": "MPT-AP Myanma Posts and Telecommunications",
-    "announced": true,
-    "visibility_pct": 1.0,
-    "visible_collectors": 331,
-    "total_collectors": 331,
-    "timestamp": "2026-04-20T05:01:48.862685+00:00",
-    "status": "GREEN",
-    "status_since": "2026-04-18T07:02:05.967841+00:00"
+    "announced": false,
+    "visibility_pct": 0.0,
+    "visible_collectors": 0,
+    "total_collectors": 0,
+    "status": "RED",
+    "status_since": "2026-04-20T05:10:22.050242+00:00",
+    "timestamp": "2026-04-20T05:10:22.050242+00:00",
+    "error": "Server error '500 Internal Server Error' for url 'https://stat.ripe.net/data/rou",
+    "ioda_outages": 0,
+    "ioda_confirmed": false
   },
   "AS133384": {
     "asn": "AS133384",
@@ -765,7 +768,7 @@
     "visibility_pct": 1.0,
     "visible_collectors": 331,
     "total_collectors": 331,
-    "timestamp": "2026-04-20T05:02:01.751216+00:00",
+    "timestamp": "2026-04-20T05:10:28.802721+00:00",
     "status": "GREEN",
     "status_since": "2026-04-18T04:45:09.694008+00:00"
   },
