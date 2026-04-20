@@ -6087,6 +6087,17 @@
     "name": "IQI-AS-AP Innovative Quality Internet Company Limited",
     "status": "DOWN",
     "started_at": "2026-04-20T19:33:38.705047+00:00",
+    "ended_at": "2026-04-20T20:03:10.996315+00:00",
+    "duration_minutes": 29,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": true
+  },
+  {
+    "asn": "AS138158",
+    "name": "SPAL-AS-AP Serge Pun & Associate Myanmar Ltd.",
+    "status": "DOWN",
+    "started_at": "2026-04-20T20:03:03.113627+00:00",
     "ended_at": null,
     "duration_minutes": null,
     "min_visibility_pct": 0.0,
