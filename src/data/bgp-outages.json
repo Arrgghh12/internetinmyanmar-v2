@@ -5790,21 +5790,21 @@
     "name": "BCM-AS-AP Bee Connect Myanmar Co.",
     "status": "DOWN",
     "started_at": "2026-04-20T00:01:48.022658+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-20T00:31:24.716944+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS136613",
     "name": "AYEYARWADYBANK-AS-AP Ayeyarwady Bank",
     "status": "DOWN",
     "started_at": "2026-04-20T00:02:52.930848+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-20T00:32:15.762847+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   }
 ]
