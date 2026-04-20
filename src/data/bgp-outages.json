@@ -6010,43 +6010,43 @@
     "name": "HSCL-AS-AP Horizon Sources Company Limited",
     "status": "DOWN",
     "started_at": "2026-04-20T16:02:14.342925+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-20T16:31:29.005894+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS140091",
     "name": "SHWE-AS-AP SHWE MAHAR MAE KHONG INDUSTRIAL COMPANY LIMITED",
     "status": "DOWN",
     "started_at": "2026-04-20T16:03:29.361868+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-20T16:32:16.866514+00:00",
+    "duration_minutes": 28,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS152466",
     "name": "TLINKGROUP-AS-AP T-Link Group Company Limited",
     "status": "DOWN",
     "started_at": "2026-04-20T16:04:05.835897+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-20T16:32:27.685646+00:00",
+    "duration_minutes": 28,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS151965",
     "name": "HATG-AS-AP Hepta Alliance Technology Group",
     "status": "DOWN",
     "started_at": "2026-04-20T16:04:10.107917+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-20T16:32:30.023994+00:00",
+    "duration_minutes": 28,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   }
 ]
