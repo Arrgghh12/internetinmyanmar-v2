@@ -5834,10 +5834,10 @@
     "name": "TRUENET-AS-AP TrueNET",
     "status": "DOWN",
     "started_at": "2026-04-20T02:32:41.220922+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-20T03:02:42.831832+00:00",
+    "duration_minutes": 30,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   }
 ]
