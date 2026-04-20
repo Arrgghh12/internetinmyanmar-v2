@@ -6054,21 +6054,21 @@
     "name": "REDPALM-AS-AP RED PALM COMPANY LIMITED",
     "status": "DOWN",
     "started_at": "2026-04-20T17:01:50.877092+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-20T17:31:17.870907+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS153777",
     "name": "MMC-AS-AP Mandalar Mandalay Company Limited",
     "status": "DOWN",
     "started_at": "2026-04-20T17:02:35.551277+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-20T17:31:44.193026+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   }
 ]
