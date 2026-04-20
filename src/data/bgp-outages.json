@@ -5955,10 +5955,10 @@
     "name": "AGBC-AS-AP AGB Communication Co.",
     "status": "DOWN",
     "started_at": "2026-04-20T13:31:56.915510+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-20T14:01:47.729576+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   }
 ]
