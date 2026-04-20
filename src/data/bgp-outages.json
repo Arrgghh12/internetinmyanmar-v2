@@ -5966,11 +5966,11 @@
     "name": "AKNCL-AS-AP Aon Kham Network Company Limited",
     "status": "DOWN",
     "started_at": "2026-04-20T15:02:14.818873+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-20T15:32:07.912884+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS58952",
@@ -5982,5 +5982,27 @@
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
     "resolved": true
+  },
+  {
+    "asn": "AS151606",
+    "name": "MSPACL-AS-AP MYANMAR SHWE PYI AYE COMPANY LIMITED",
+    "status": "DOWN",
+    "started_at": "2026-04-20T15:31:25.570000+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
+  },
+  {
+    "asn": "AS150310",
+    "name": "TMC-AS-AP Trustforce Myanmar Company Limited trading as Nationet",
+    "status": "DOWN",
+    "started_at": "2026-04-20T15:32:21.636843+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
   }
 ]
