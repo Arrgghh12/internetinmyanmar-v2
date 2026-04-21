@@ -6560,11 +6560,11 @@
     "name": "UCGCL-AS-AP UNIQUE COMM GROUP COMPANY LIMITED",
     "status": "DOWN",
     "started_at": "2026-04-21T11:31:24.379020+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-21T20:01:22.917091+00:00",
+    "duration_minutes": 509,
     "min_visibility_pct": 0.093,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS132148",
@@ -6978,10 +6978,21 @@
     "name": "U9-MM Nine Communications Company Limited",
     "status": "DOWN",
     "started_at": "2026-04-21T19:55:19.115074+00:00",
-    "ended_at": "2026-04-21T20:00:13.157354+00:00",
-    "duration_minutes": 4,
+    "ended_at": "2026-04-21T20:01:31.232579+00:00",
+    "duration_minutes": 6,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
     "resolved": true
+  },
+  {
+    "asn": "AS133440",
+    "name": "STIGW-AS-AP ST.Net",
+    "status": "DOWN",
+    "started_at": "2026-04-21T20:03:16.522275+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
   }
 ]
