@@ -6631,5 +6631,82 @@
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
     "resolved": true
+  },
+  {
+    "asn": "AS133440",
+    "name": "STIGW-AS-AP ST.Net",
+    "status": "DOWN",
+    "started_at": "2026-04-21T13:02:39.575613+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
+  },
+  {
+    "asn": "AS134976",
+    "name": "MATL-AS-AP Myint & Associates Telecommunications Ltd",
+    "status": "DOWN",
+    "started_at": "2026-04-21T13:02:44.091414+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
+  },
+  {
+    "asn": "AS140617",
+    "name": "TPTNET-AS-AP THAN PHYO THU MINING COMPANY LIMITED",
+    "status": "DOWN",
+    "started_at": "2026-04-21T13:02:48.546389+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
+  },
+  {
+    "asn": "AS141216",
+    "name": "GREATGOLDENHORSE-AS-AP GREAT GOLDEN HORSE COMPANY LIMITED",
+    "status": "DOWN",
+    "started_at": "2026-04-21T13:03:15.354080+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
+  },
+  {
+    "asn": "AS154020",
+    "name": "SMMCL-AS-AP SAM MOUK MO Company Ltd",
+    "status": "DOWN",
+    "started_at": "2026-04-21T13:03:19.762238+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
+  },
+  {
+    "asn": "AS138167",
+    "name": "TRUENET-AS-AP TrueNET",
+    "status": "DOWN",
+    "started_at": "2026-04-21T13:03:39.864310+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
+  },
+  {
+    "asn": "AS18399",
+    "name": "YTCL-AS-AP Yatanarpon Teleport Company Limited",
+    "status": "DOWN",
+    "started_at": "2026-04-21T13:04:06.614891+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
   }
 ]
