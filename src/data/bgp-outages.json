@@ -6824,10 +6824,10 @@
     "name": "U9-MM Nine Communications Company Limited",
     "status": "DOWN",
     "started_at": "2026-04-21T16:15:10.427428+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-21T16:20:07.493381+00:00",
+    "duration_minutes": 4,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   }
 ]
