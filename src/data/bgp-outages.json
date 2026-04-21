@@ -6516,6 +6516,28 @@
     "name": "MMIX-AS-AP Myanmar Internet Exchange",
     "status": "DOWN",
     "started_at": "2026-04-21T10:32:01.893216+00:00",
+    "ended_at": "2026-04-21T11:02:14.224067+00:00",
+    "duration_minutes": 30,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": true
+  },
+  {
+    "asn": "AS151342",
+    "name": "EBECL-AS-AP East Boy Engineering Company Limited",
+    "status": "DOWN",
+    "started_at": "2026-04-21T10:32:39.922977+00:00",
+    "ended_at": "2026-04-21T11:02:41.441033+00:00",
+    "duration_minutes": 30,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": true
+  },
+  {
+    "asn": "AS137826",
+    "name": "ASTCL-AS-AP AST SYSTEM TECHNOLOGY COMPANY LIMITED",
+    "status": "DOWN",
+    "started_at": "2026-04-21T11:01:56.133984+00:00",
     "ended_at": null,
     "duration_minutes": null,
     "min_visibility_pct": 0.0,
@@ -6523,10 +6545,10 @@
     "resolved": false
   },
   {
-    "asn": "AS151342",
-    "name": "EBECL-AS-AP East Boy Engineering Company Limited",
+    "asn": "AS137861",
+    "name": "MWT-AS-AP Myanmar World Distribution Telecommunication Company Limited",
     "status": "DOWN",
-    "started_at": "2026-04-21T10:32:39.922977+00:00",
+    "started_at": "2026-04-21T11:01:57.770700+00:00",
     "ended_at": null,
     "duration_minutes": null,
     "min_visibility_pct": 0.0,
