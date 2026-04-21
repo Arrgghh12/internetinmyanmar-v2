@@ -6923,22 +6923,22 @@
     "name": "MCDC-AS-AP Mandalay City Development Committee",
     "status": "DOWN",
     "started_at": "2026-04-21T19:02:52.042063+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-21T19:32:33.643877+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS132537",
     "name": "MLGCL-AS-AP LG",
     "status": "DOWN",
     "started_at": "2026-04-21T19:02:59.398963+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-21T19:32:37.163754+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS136480",
