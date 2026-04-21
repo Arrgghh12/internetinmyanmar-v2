@@ -6318,6 +6318,17 @@
     "name": "HTIN-AS-AP HTIN HTIN NETWORK COMPANY LIMITED",
     "status": "DOWN",
     "started_at": "2026-04-21T06:02:29.393045+00:00",
+    "ended_at": "2026-04-21T06:32:17.990969+00:00",
+    "duration_minutes": 29,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": true
+  },
+  {
+    "asn": "AS134484",
+    "name": "VDCNET-AS-AP Ultra Net",
+    "status": "DOWN",
+    "started_at": "2026-04-21T06:32:23.360617+00:00",
     "ended_at": null,
     "duration_minutes": null,
     "min_visibility_pct": 0.0,
