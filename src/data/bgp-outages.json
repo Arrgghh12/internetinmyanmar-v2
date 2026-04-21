@@ -6758,17 +6758,39 @@
     "name": "ATOMMYANMAR-AS-AP Atom Myanmar Limited",
     "status": "DOWN",
     "started_at": "2026-04-21T15:02:18.004996+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-21T15:32:28.434363+00:00",
+    "duration_minutes": 30,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS142644",
     "name": "LINKFAST-AS-AP Link Fast Company Limited",
     "status": "DOWN",
     "started_at": "2026-04-21T15:02:49.215072+00:00",
+    "ended_at": "2026-04-21T15:32:48.739462+00:00",
+    "duration_minutes": 29,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": true
+  },
+  {
+    "asn": "AS132038",
+    "name": "ROYALESPRIT-MM Royal Esprit Company Limited",
+    "status": "DOWN",
+    "started_at": "2026-04-21T15:03:32.985010+00:00",
+    "ended_at": "2026-04-21T15:33:40.713433+00:00",
+    "duration_minutes": 30,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": true
+  },
+  {
+    "asn": "AS132100",
+    "name": "MSN-AS-AP Myanmar Speed Net Co.",
+    "status": "DOWN",
+    "started_at": "2026-04-21T15:31:08.748313+00:00",
     "ended_at": null,
     "duration_minutes": null,
     "min_visibility_pct": 0.0,
@@ -6776,10 +6798,10 @@
     "resolved": false
   },
   {
-    "asn": "AS132038",
-    "name": "ROYALESPRIT-MM Royal Esprit Company Limited",
+    "asn": "AS141015",
+    "name": "MYANMARLINK-AS-AP Myanmar Link Telecommunication Ltd",
     "status": "DOWN",
-    "started_at": "2026-04-21T15:03:32.985010+00:00",
+    "started_at": "2026-04-21T15:32:01.252297+00:00",
     "ended_at": null,
     "duration_minutes": null,
     "min_visibility_pct": 0.0,
