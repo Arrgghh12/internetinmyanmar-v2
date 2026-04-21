@@ -6950,5 +6950,27 @@
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
     "resolved": true
+  },
+  {
+    "asn": "AS58952",
+    "name": "FRONTIIRCOLTD-MM Frontiir Co. Ltd",
+    "status": "DOWN",
+    "started_at": "2026-04-21T19:45:23.128466+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
+  },
+  {
+    "asn": "AS9988",
+    "name": "MPT-AP Myanma Posts and Telecommunications",
+    "status": "DOWN",
+    "started_at": "2026-04-21T19:45:38.891326+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
   }
 ]
