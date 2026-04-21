@@ -6169,5 +6169,27 @@
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
     "resolved": true
+  },
+  {
+    "asn": "AS133385",
+    "name": "ATOMMYANMAR-AS-AP Atom Myanmar Limited",
+    "status": "DOWN",
+    "started_at": "2026-04-21T00:02:00.543812+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
+  },
+  {
+    "asn": "AS149487",
+    "name": "MCLOCCL-AS-AP MOC COMPANY LIMITED",
+    "status": "DOWN",
+    "started_at": "2026-04-21T00:03:12.353407+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
   }
 ]
