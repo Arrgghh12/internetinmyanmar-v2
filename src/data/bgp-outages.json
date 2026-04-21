@@ -6362,6 +6362,17 @@
     "name": "MSN-AS-AP Myanmar Speed Net Co.",
     "status": "DOWN",
     "started_at": "2026-04-21T08:01:15.518159+00:00",
+    "ended_at": "2026-04-21T08:31:11.151288+00:00",
+    "duration_minutes": 29,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": true
+  },
+  {
+    "asn": "AS150309",
+    "name": "ERSTCL-AS-AP E R S TECHNOLOGY",
+    "status": "DOWN",
+    "started_at": "2026-04-21T08:32:30.761895+00:00",
     "ended_at": null,
     "duration_minutes": null,
     "min_visibility_pct": 0.0,
