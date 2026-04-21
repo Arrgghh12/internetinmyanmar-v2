@@ -6736,11 +6736,11 @@
     "name": "MPTCL-AS-AP MYANMAR PI TECHNOLOGY CO.",
     "status": "DOWN",
     "started_at": "2026-04-21T14:33:43.916316+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-21T15:03:00.457138+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS58952",
@@ -6752,5 +6752,38 @@
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
     "resolved": true
+  },
+  {
+    "asn": "AS133385",
+    "name": "ATOMMYANMAR-AS-AP Atom Myanmar Limited",
+    "status": "DOWN",
+    "started_at": "2026-04-21T15:02:18.004996+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
+  },
+  {
+    "asn": "AS142644",
+    "name": "LINKFAST-AS-AP Link Fast Company Limited",
+    "status": "DOWN",
+    "started_at": "2026-04-21T15:02:49.215072+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
+  },
+  {
+    "asn": "AS132038",
+    "name": "ROYALESPRIT-MM Royal Esprit Company Limited",
+    "status": "DOWN",
+    "started_at": "2026-04-21T15:03:32.985010+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
   }
 ]
