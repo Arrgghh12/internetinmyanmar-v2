@@ -6208,21 +6208,21 @@
     "name": "YSOMCL-AS-AP YAM Success of Myanmar Co.",
     "status": "DOWN",
     "started_at": "2026-04-21T00:31:27.589286+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-21T01:01:18.260729+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS139058",
     "name": "TACHILEIKNET-AS-AP TCL Net",
     "status": "DOWN",
     "started_at": "2026-04-21T00:32:17.745016+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-21T01:02:07.708919+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   }
 ]
