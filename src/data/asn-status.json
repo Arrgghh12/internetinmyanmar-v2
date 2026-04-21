@@ -156,16 +156,13 @@
   "AS132167": {
     "asn": "AS132167",
     "name": "U9-MM Nine Communications Company Limited",
-    "announced": false,
-    "visibility_pct": 0.0,
-    "visible_collectors": 0,
-    "total_collectors": 0,
-    "status": "RED",
-    "status_since": "2026-04-21T19:55:18.814321+00:00",
-    "timestamp": "2026-04-21T19:55:18.814321+00:00",
-    "error": "",
-    "ioda_outages": 0,
-    "ioda_confirmed": false
+    "announced": true,
+    "visibility_pct": 1.0,
+    "visible_collectors": 331,
+    "total_collectors": 331,
+    "timestamp": "2026-04-21T20:00:12.856609+00:00",
+    "status": "YELLOW",
+    "status_since": "2026-04-21T20:00:12.856609+00:00"
   },
   "AS58952": {
     "asn": "AS58952",
@@ -174,7 +171,7 @@
     "visibility_pct": 1.0,
     "visible_collectors": 331,
     "total_collectors": 331,
-    "timestamp": "2026-04-21T19:55:19.587838+00:00",
+    "timestamp": "2026-04-21T20:00:22.976421+00:00",
     "status": "YELLOW",
     "status_since": "2026-04-21T19:50:04.200191+00:00"
   },
@@ -614,7 +611,7 @@
     "visibility_pct": 1.0,
     "visible_collectors": 331,
     "total_collectors": 331,
-    "timestamp": "2026-04-21T19:55:19.934873+00:00",
+    "timestamp": "2026-04-21T20:00:25.497700+00:00",
     "status": "YELLOW",
     "status_since": "2026-04-21T19:50:04.538943+00:00"
   },
@@ -768,7 +765,7 @@
     "visibility_pct": 1.0,
     "visible_collectors": 331,
     "total_collectors": 331,
-    "timestamp": "2026-04-21T19:55:20.286720+00:00",
+    "timestamp": "2026-04-21T20:00:27.029709+00:00",
     "status": "YELLOW",
     "status_since": "2026-04-21T19:20:04.517886+00:00"
   },
