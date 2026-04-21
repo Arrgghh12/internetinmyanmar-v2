@@ -6334,5 +6334,27 @@
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
     "resolved": true
+  },
+  {
+    "asn": "AS137826",
+    "name": "ASTCL-AS-AP AST SYSTEM TECHNOLOGY COMPANY LIMITED",
+    "status": "DOWN",
+    "started_at": "2026-04-21T07:31:58.154530+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
+  },
+  {
+    "asn": "AS138158",
+    "name": "SPAL-AS-AP Serge Pun & Associate Myanmar Ltd.",
+    "status": "DOWN",
+    "started_at": "2026-04-21T07:33:14.327867+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
   }
 ]
