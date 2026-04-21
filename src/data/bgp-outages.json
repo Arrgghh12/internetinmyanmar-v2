@@ -6263,6 +6263,28 @@
     "name": "TPTNET-AS-AP THAN PHYO THU MINING COMPANY LIMITED",
     "status": "DOWN",
     "started_at": "2026-04-21T04:03:02.396838+00:00",
+    "ended_at": "2026-04-21T04:33:02.950985+00:00",
+    "duration_minutes": 30,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": true
+  },
+  {
+    "asn": "AS139704",
+    "name": "AS-AGBC AGB Communication Co.",
+    "status": "DOWN",
+    "started_at": "2026-04-21T04:33:59.076612+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
+  },
+  {
+    "asn": "AS136177",
+    "name": "YOMABANKLIMITED-AS-AP Yoma Bank Limited",
+    "status": "DOWN",
+    "started_at": "2026-04-21T04:34:39.226379+00:00",
     "ended_at": null,
     "duration_minutes": null,
     "min_visibility_pct": 0.0,
