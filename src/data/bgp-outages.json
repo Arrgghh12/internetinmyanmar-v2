@@ -7088,32 +7088,32 @@
     "name": "TELCOSPEEDCOLTD-AS-AP Telcospeed",
     "status": "DOWN",
     "started_at": "2026-04-21T22:02:19.433846+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-21T22:32:28.961234+00:00",
+    "duration_minutes": 30,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS134528",
     "name": "MPTCL-AS-AP MYANMAR PI TECHNOLOGY CO.",
     "status": "DOWN",
     "started_at": "2026-04-21T22:03:05.632994+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-21T22:33:00.904651+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS141199",
     "name": "CLPC-AS-AP Century Link Plus",
     "status": "DOWN",
     "started_at": "2026-04-21T22:03:22.459694+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-21T22:33:03.021065+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   }
 ]
