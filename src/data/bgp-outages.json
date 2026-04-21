@@ -6296,17 +6296,28 @@
     "name": "CGCL-AS-AP Connect Gateway Company Limited",
     "status": "DOWN",
     "started_at": "2026-04-21T05:32:06.716602+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-21T06:01:54.615672+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS140552",
     "name": "CBBANK-AS-AP Co-operative Bank Public Company Limited",
     "status": "DOWN",
     "started_at": "2026-04-21T05:32:22.110958+00:00",
+    "ended_at": "2026-04-21T06:01:55.327486+00:00",
+    "duration_minutes": 29,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": true
+  },
+  {
+    "asn": "AS139595",
+    "name": "HTIN-AS-AP HTIN HTIN NETWORK COMPANY LIMITED",
+    "status": "DOWN",
+    "started_at": "2026-04-21T06:02:29.393045+00:00",
     "ended_at": null,
     "duration_minutes": null,
     "min_visibility_pct": 0.0,
