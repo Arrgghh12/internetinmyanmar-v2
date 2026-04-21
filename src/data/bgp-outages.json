@@ -7066,6 +7066,28 @@
     "name": "AS-AGBC AGB Communication Co.",
     "status": "DOWN",
     "started_at": "2026-04-21T21:33:39.362586+00:00",
+    "ended_at": "2026-04-21T22:03:37.579307+00:00",
+    "duration_minutes": 29,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": true
+  },
+  {
+    "asn": "AS139206",
+    "name": "PAMEL-AS-AP Pan Asia Majestic Eagle Ltd",
+    "status": "DOWN",
+    "started_at": "2026-04-21T21:33:57.956662+00:00",
+    "ended_at": "2026-04-21T22:03:42.079214+00:00",
+    "duration_minutes": 29,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": true
+  },
+  {
+    "asn": "AS139003",
+    "name": "TELCOSPEEDCOLTD-AS-AP Telcospeed",
+    "status": "DOWN",
+    "started_at": "2026-04-21T22:02:19.433846+00:00",
     "ended_at": null,
     "duration_minutes": null,
     "min_visibility_pct": 0.0,
@@ -7073,10 +7095,21 @@
     "resolved": false
   },
   {
-    "asn": "AS139206",
-    "name": "PAMEL-AS-AP Pan Asia Majestic Eagle Ltd",
+    "asn": "AS134528",
+    "name": "MPTCL-AS-AP MYANMAR PI TECHNOLOGY CO.",
     "status": "DOWN",
-    "started_at": "2026-04-21T21:33:57.956662+00:00",
+    "started_at": "2026-04-21T22:03:05.632994+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
+  },
+  {
+    "asn": "AS141199",
+    "name": "CLPC-AS-AP Century Link Plus",
+    "status": "DOWN",
+    "started_at": "2026-04-21T22:03:22.459694+00:00",
     "ended_at": null,
     "duration_minutes": null,
     "min_visibility_pct": 0.0,
