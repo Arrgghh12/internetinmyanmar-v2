@@ -6708,5 +6708,27 @@
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
     "resolved": true
+  },
+  {
+    "asn": "AS149521",
+    "name": "FLC-AS-AP Fiber Life Internet",
+    "status": "DOWN",
+    "started_at": "2026-04-21T14:01:50.465690+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
+  },
+  {
+    "asn": "AS137888",
+    "name": "BCM-AS-AP Bee Connect Myanmar Co.",
+    "status": "DOWN",
+    "started_at": "2026-04-21T14:02:19.450632+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
   }
 ]
