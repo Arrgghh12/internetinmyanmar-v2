@@ -6175,22 +6175,22 @@
     "name": "ATOMMYANMAR-AS-AP Atom Myanmar Limited",
     "status": "DOWN",
     "started_at": "2026-04-21T00:02:00.543812+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-21T00:31:58.457341+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS149487",
     "name": "MCLOCCL-AS-AP MOC COMPANY LIMITED",
     "status": "DOWN",
     "started_at": "2026-04-21T00:03:12.353407+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-21T00:32:53.456047+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS58952",
@@ -6202,5 +6202,27 @@
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
     "resolved": true
+  },
+  {
+    "asn": "AS152140",
+    "name": "YSOMCL-AS-AP YAM Success of Myanmar Co.",
+    "status": "DOWN",
+    "started_at": "2026-04-21T00:31:27.589286+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
+  },
+  {
+    "asn": "AS139058",
+    "name": "TACHILEIKNET-AS-AP TCL Net",
+    "status": "DOWN",
+    "started_at": "2026-04-21T00:32:17.745016+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
   }
 ]
