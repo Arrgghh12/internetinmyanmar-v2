@@ -7121,22 +7121,22 @@
     "name": "MSN-AS-AP Myanmar Speed Net Co.",
     "status": "DOWN",
     "started_at": "2026-04-21T23:01:24.736962+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-21T23:31:01.416866+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS139003",
     "name": "TELCOSPEEDCOLTD-AS-AP Telcospeed",
     "status": "DOWN",
     "started_at": "2026-04-21T23:02:25.430670+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-21T23:32:17.083942+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS136480",
@@ -7148,5 +7148,27 @@
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
     "resolved": true
+  },
+  {
+    "asn": "AS150285",
+    "name": "LMHCC-AS-AP Long Mao Home Center Co.ltd.",
+    "status": "DOWN",
+    "started_at": "2026-04-21T23:32:39.142399+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
+  },
+  {
+    "asn": "AS150297",
+    "name": "GMBECL-AS-AP Golden Myanmar Business Exchange Co. Ltd",
+    "status": "DOWN",
+    "started_at": "2026-04-21T23:32:57.787015+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
   }
 ]
