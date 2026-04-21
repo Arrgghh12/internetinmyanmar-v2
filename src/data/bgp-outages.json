@@ -6472,33 +6472,33 @@
     "name": "STMCL-AS-AP SEANET",
     "status": "DOWN",
     "started_at": "2026-04-21T10:02:09.919021+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-21T10:32:05.026610+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS150309",
     "name": "ERSTCL-AS-AP E R S TECHNOLOGY",
     "status": "DOWN",
     "started_at": "2026-04-21T10:02:40.015058+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-21T10:32:22.065959+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS151341",
     "name": "THENEXTSUCCESS-AS-AP The Next Success",
     "status": "DOWN",
     "started_at": "2026-04-21T10:02:42.031191+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-21T10:32:23.975750+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS58952",
@@ -6510,5 +6510,27 @@
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
     "resolved": true
+  },
+  {
+    "asn": "AS137955",
+    "name": "MMIX-AS-AP Myanmar Internet Exchange",
+    "status": "DOWN",
+    "started_at": "2026-04-21T10:32:01.893216+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
+  },
+  {
+    "asn": "AS151342",
+    "name": "EBECL-AS-AP East Boy Engineering Company Limited",
+    "status": "DOWN",
+    "started_at": "2026-04-21T10:32:39.922977+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
   }
 ]
