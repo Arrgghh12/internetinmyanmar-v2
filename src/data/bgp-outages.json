@@ -6340,17 +6340,28 @@
     "name": "ASTCL-AS-AP AST SYSTEM TECHNOLOGY COMPANY LIMITED",
     "status": "DOWN",
     "started_at": "2026-04-21T07:31:58.154530+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-21T08:01:33.317650+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS138158",
     "name": "SPAL-AS-AP Serge Pun & Associate Myanmar Ltd.",
     "status": "DOWN",
     "started_at": "2026-04-21T07:33:14.327867+00:00",
+    "ended_at": "2026-04-21T08:02:55.588115+00:00",
+    "duration_minutes": 29,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": true
+  },
+  {
+    "asn": "AS132100",
+    "name": "MSN-AS-AP Myanmar Speed Net Co.",
+    "status": "DOWN",
+    "started_at": "2026-04-21T08:01:15.518159+00:00",
     "ended_at": null,
     "duration_minutes": null,
     "min_visibility_pct": 0.0,
