@@ -160,20 +160,23 @@
     "visibility_pct": 1.0,
     "visible_collectors": 332,
     "total_collectors": 332,
-    "timestamp": "2026-04-21T00:01:17.342363+00:00",
+    "timestamp": "2026-04-21T00:15:09.642666+00:00",
     "status": "GREEN",
     "status_since": "2026-04-18T05:01:30.661515+00:00"
   },
   "AS58952": {
     "asn": "AS58952",
     "name": "FRONTIIRCOLTD-MM Frontiir Co. Ltd",
-    "announced": true,
-    "visibility_pct": 1.0,
-    "visible_collectors": 332,
-    "total_collectors": 332,
-    "timestamp": "2026-04-21T00:01:17.689997+00:00",
-    "status": "GREEN",
-    "status_since": "2026-04-20T21:31:28.966510+00:00"
+    "announced": false,
+    "visibility_pct": 0.0,
+    "visible_collectors": 0,
+    "total_collectors": 0,
+    "status": "RED",
+    "status_since": "2026-04-21T00:15:14.049450+00:00",
+    "timestamp": "2026-04-21T00:15:14.049450+00:00",
+    "error": "Server error '500 Internal Server Error' for url 'https://stat.ripe.net/data/rou",
+    "ioda_outages": 0,
+    "ioda_confirmed": false
   },
   "AS139849": {
     "asn": "AS139849",
@@ -611,7 +614,7 @@
     "visibility_pct": 1.0,
     "visible_collectors": 332,
     "total_collectors": 332,
-    "timestamp": "2026-04-21T00:01:54.801672+00:00",
+    "timestamp": "2026-04-21T00:15:14.764317+00:00",
     "status": "GREEN",
     "status_since": "2026-04-20T05:15:17.972590+00:00"
   },
@@ -766,7 +769,7 @@
     "visibility_pct": 1.0,
     "visible_collectors": 332,
     "total_collectors": 332,
-    "timestamp": "2026-04-21T00:02:11.615391+00:00",
+    "timestamp": "2026-04-21T00:15:15.119944+00:00",
     "status": "GREEN",
     "status_since": "2026-04-18T04:45:09.694008+00:00"
   },
