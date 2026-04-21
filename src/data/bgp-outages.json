@@ -6912,6 +6912,28 @@
     "name": "FSAS-AS-MM FIND SOLUTION AND SERVICES CO.",
     "status": "DOWN",
     "started_at": "2026-04-21T18:31:58.353711+00:00",
+    "ended_at": "2026-04-21T19:01:54.468294+00:00",
+    "duration_minutes": 29,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": true
+  },
+  {
+    "asn": "AS141236",
+    "name": "MCDC-AS-AP Mandalay City Development Committee",
+    "status": "DOWN",
+    "started_at": "2026-04-21T19:02:52.042063+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
+  },
+  {
+    "asn": "AS132537",
+    "name": "MLGCL-AS-AP LG",
+    "status": "DOWN",
+    "started_at": "2026-04-21T19:02:59.398963+00:00",
     "ended_at": null,
     "duration_minutes": null,
     "min_visibility_pct": 0.0,
