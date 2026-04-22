@@ -7869,21 +7869,21 @@
     "name": "BETHEFIRST-AS-AP Be The First",
     "status": "DOWN",
     "started_at": "2026-04-22T19:32:05.212044+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-22T20:02:10.049577+00:00",
+    "duration_minutes": 30,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS142644",
     "name": "LINKFAST-AS-AP Link Fast Company Limited",
     "status": "DOWN",
     "started_at": "2026-04-22T19:32:49.584887+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-22T20:03:02.187075+00:00",
+    "duration_minutes": 30,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   }
 ]
