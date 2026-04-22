@@ -7786,5 +7786,27 @@
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
     "resolved": true
+  },
+  {
+    "asn": "AS134528",
+    "name": "MPTCL-AS-AP MYANMAR PI TECHNOLOGY CO.",
+    "status": "DOWN",
+    "started_at": "2026-04-22T17:03:01.490813+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
+  },
+  {
+    "asn": "AS138158",
+    "name": "SPAL-AS-AP Serge Pun & Associate Myanmar Ltd.",
+    "status": "DOWN",
+    "started_at": "2026-04-22T17:03:20.255853+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
   }
 ]
