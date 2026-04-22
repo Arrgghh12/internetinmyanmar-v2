@@ -7209,28 +7209,50 @@
     "name": "MCCL-AS-AP Myanmar Country Co.",
     "status": "DOWN",
     "started_at": "2026-04-22T02:32:27.534356+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-22T03:02:05.895695+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS152447",
     "name": "MMCL-AS-AP My Mandalay Company Limited",
     "status": "DOWN",
     "started_at": "2026-04-22T02:33:48.041554+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-22T03:02:52.701874+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS139692",
     "name": "CHEN-AS-AP CHEN GUANG COMPANY LIMITED",
     "status": "DOWN",
     "started_at": "2026-04-22T02:34:19.888394+00:00",
+    "ended_at": "2026-04-22T03:03:43.698576+00:00",
+    "duration_minutes": 29,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": true
+  },
+  {
+    "asn": "AS136168",
+    "name": "CAMPANA-AS-AP Campana MYTHIC Co. Ltd.",
+    "status": "DOWN",
+    "started_at": "2026-04-22T02:34:39.500506+00:00",
+    "ended_at": "2026-04-22T03:04:00.435710+00:00",
+    "duration_minutes": 29,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": true
+  },
+  {
+    "asn": "AS151210",
+    "name": "NCL-AS-AP NEXGENET COMPANY LIMITED",
+    "status": "DOWN",
+    "started_at": "2026-04-22T03:02:03.357021+00:00",
     "ended_at": null,
     "duration_minutes": null,
     "min_visibility_pct": 0.0,
@@ -7238,10 +7260,10 @@
     "resolved": false
   },
   {
-    "asn": "AS136168",
-    "name": "CAMPANA-AS-AP Campana MYTHIC Co. Ltd.",
+    "asn": "AS136613",
+    "name": "AYEYARWADYBANK-AS-AP Ayeyarwady Bank",
     "status": "DOWN",
-    "started_at": "2026-04-22T02:34:39.500506+00:00",
+    "started_at": "2026-04-22T03:03:30.508561+00:00",
     "ended_at": null,
     "duration_minutes": null,
     "min_visibility_pct": 0.0,
