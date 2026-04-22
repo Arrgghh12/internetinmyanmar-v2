@@ -7176,10 +7176,10 @@
     "name": "FACE24COLTD-AS-AP FACE24 Co.",
     "status": "DOWN",
     "started_at": "2026-04-22T00:02:11.230509+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-22T00:31:59.762661+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   }
 ]
