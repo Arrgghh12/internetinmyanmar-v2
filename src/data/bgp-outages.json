@@ -7825,6 +7825,17 @@
     "name": "TACHILEIK1-AS-AP Tachileik Jade Dragon Company Limited",
     "status": "DOWN",
     "started_at": "2026-04-22T17:33:11.289746+00:00",
+    "ended_at": "2026-04-22T18:03:26.445641+00:00",
+    "duration_minutes": 30,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": true
+  },
+  {
+    "asn": "AS153790",
+    "name": "AMCL-AS-AP ADS Myanmar Company Limited",
+    "status": "DOWN",
+    "started_at": "2026-04-22T18:02:19.965773+00:00",
     "ended_at": null,
     "duration_minutes": null,
     "min_visibility_pct": 0.0,
