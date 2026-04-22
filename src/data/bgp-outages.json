@@ -7676,5 +7676,38 @@
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
     "resolved": true
+  },
+  {
+    "asn": "AS150812",
+    "name": "MFGCL-AS-AP Myanmar Fortune Global Company Limited",
+    "status": "DOWN",
+    "started_at": "2026-04-22T12:02:43.169287+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
+  },
+  {
+    "asn": "AS140617",
+    "name": "TPTNET-AS-AP THAN PHYO THU MINING COMPANY LIMITED",
+    "status": "DOWN",
+    "started_at": "2026-04-22T12:03:09.377049+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
+  },
+  {
+    "asn": "AS152447",
+    "name": "MMCL-AS-AP My Mandalay Company Limited",
+    "status": "DOWN",
+    "started_at": "2026-04-22T12:03:29.426966+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
   }
 ]
