@@ -7203,5 +7203,49 @@
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
     "resolved": true
+  },
+  {
+    "asn": "AS134840",
+    "name": "MCCL-AS-AP Myanmar Country Co.",
+    "status": "DOWN",
+    "started_at": "2026-04-22T02:32:27.534356+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
+  },
+  {
+    "asn": "AS152447",
+    "name": "MMCL-AS-AP My Mandalay Company Limited",
+    "status": "DOWN",
+    "started_at": "2026-04-22T02:33:48.041554+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
+  },
+  {
+    "asn": "AS139692",
+    "name": "CHEN-AS-AP CHEN GUANG COMPANY LIMITED",
+    "status": "DOWN",
+    "started_at": "2026-04-22T02:34:19.888394+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
+  },
+  {
+    "asn": "AS136168",
+    "name": "CAMPANA-AS-AP Campana MYTHIC Co. Ltd.",
+    "status": "DOWN",
+    "started_at": "2026-04-22T02:34:39.500506+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
   }
 ]
