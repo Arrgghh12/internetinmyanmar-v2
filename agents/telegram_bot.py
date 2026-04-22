@@ -334,17 +334,44 @@ async def handle_social_callback(update: Update, context: ContextTypes.DEFAULT_T
         await query.edit_message_text(msg)
 
 
+# ── Single-instance lock ───────────────────────────────────────────────────────
+
+PID_FILE = Path("/tmp/iim_telegram_bot.pid")
+
+def acquire_lock() -> None:
+    """Exit if another instance is already running."""
+    if PID_FILE.exists():
+        existing_pid = PID_FILE.read_text().strip()
+        try:
+            os.kill(int(existing_pid), 0)   # signal 0 = existence check only
+            log.error("Bot already running (PID %s). Exiting.", existing_pid)
+            sys.exit(1)
+        except (ProcessLookupError, ValueError):
+            log.warning("Stale PID file found (PID %s gone). Overwriting.", existing_pid)
+    PID_FILE.write_text(str(os.getpid()))
+
+def release_lock() -> None:
+    try:
+        PID_FILE.unlink()
+    except FileNotFoundError:
+        pass
+
+
 # ── Entry point ────────────────────────────────────────────────────────────────
 
 def main():
-    app = Application.builder().token(BOT_TOKEN).build()
-    app.add_handler(CommandHandler("pending", cmd_pending))
-    app.add_handler(CommandHandler("help",    cmd_help))
-    app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, handle_message))
-    app.add_handler(CallbackQueryHandler(handle_social_callback))
+    acquire_lock()
+    try:
+        app = Application.builder().token(BOT_TOKEN).build()
+        app.add_handler(CommandHandler("pending", cmd_pending))
+        app.add_handler(CommandHandler("help",    cmd_help))
+        app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, handle_message))
+        app.add_handler(CallbackQueryHandler(handle_social_callback))
 
-    log.info("IIM Digest Bot starting (polling)…")
-    app.run_polling(allowed_updates=Update.ALL_TYPES)
+        log.info("IIM Digest Bot starting (polling)… PID=%s", os.getpid())
+        app.run_polling(allowed_updates=Update.ALL_TYPES)
+    finally:
+        release_lock()
 
 
 if __name__ == "__main__":

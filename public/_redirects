@@ -480,3 +480,46 @@ http://www.internetinmyanmar.com/* https://www.internetinmyanmar.com/:splat 301
 /articles/e1-80-80-e1-80-bc-e1-80-ba-e1-80-94-e1-80-b9-e1-80-b1-e1-80-90-e1-80-ac-e1-80-b9/ /digital-services/ 301
 /articles/e1-80-90-e1-80-85-e1-80-b9-e1-80-85-e1-80-91-e1-80-80-e1-80-b9-e1-80-90-e1-80-85/ / 301
 /articles/e1-80-9a-e1-80-b1-e1-80-94-e1-82-94-e1-80-b1-e1-80-81-e1-80-90-e1-80-b9-e1-80-9c/ / 301
+
+
+# --- Article pages that exist (missing redirect rules) ---
+
+# --- Discarded WP pages (no equivalent content) ---
+/newhome-2/ / 301
+/internet-broadband-finder-home/ / 301
+/myanmar-speedtest/ / 301
+/705ea-news/page/10/ / 301
+
+# --- Language prefix ghost pages (no content at these roots yet) ---
+/it/ / 301
+/es/ / 301
+/fr/ / 301
+
+# --- WP /en/ tag and category pages ---
+/en/tag/* / 301
+/en/category/* / 301
+/en/ooredoo-facebook-topup/page/* / 301
+
+# --- AMP pages → canonical ---
+
+# --- WP infrastructure junk ---
+/wp-admin/* / 301
+/wp-content/* / 301
+/wp-content/uploads/* / 301
+/wp-content/plugins/* / 301
+/wp-content/themes/neve/* / 301
+/wp-content/themes/NeveChild/* / 301
+/wp-*.php / 301
+
+# --- Ezoic / CDN / ad-network scripts (dead on Astro site) ---
+/beardeddragon/* / 301
+/detroitchicago/* / 301
+/tardisrocinante/* / 301
+/porpoiseant/* / 301
+/cheetah/* / 301
+/ezoic/* / 301
+/cdn-cgi/* / 301
+
+# --- Burmese / Myanmar-script URLs ---
+/တစ်စထက်-တစ်စ-ပိုမိုလမ်းပ/ / 301
+/my/ကျွန်တော်တိုမြန်မာနိုင/ / 301
