@@ -7517,6 +7517,28 @@
     "name": "TCLC-AS-AP Treasure Chindwin Land Co.",
     "status": "DOWN",
     "started_at": "2026-04-22T06:31:49.254469+00:00",
+    "ended_at": "2026-04-22T07:02:35.593113+00:00",
+    "duration_minutes": 30,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": true
+  },
+  {
+    "asn": "AS149521",
+    "name": "FLC-AS-AP Fiber Life Internet",
+    "status": "DOWN",
+    "started_at": "2026-04-22T07:02:33.401933+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
+  },
+  {
+    "asn": "AS152634",
+    "name": "WCCCOMPANYLIMITED-AS-AP Goal Link ISP",
+    "status": "DOWN",
+    "started_at": "2026-04-22T07:02:56.615679+00:00",
     "ended_at": null,
     "duration_minutes": null,
     "min_visibility_pct": 0.0,
