@@ -108,14 +108,14 @@ researchers, and international organizations.
 
 ## TEAM
 
-### Editor-in-Chief — Anna Faure Revol
+### Editor-in-Chief — Anna
 - Role: Rédactrice en chef / Editor-in-Chief
 - Speciality: Myanmar, Southeast Asia, digital rights, media freedom
 - Languages: French, English, Spanish, Italian
 - LinkedIn: [ANNA_LINKEDIN_URL]
-- **All published articles are bylined: Anna Faure Revol**
+- **All published articles are bylined: Anna** (never "Anna" — surname not used on site)
 - Author bio (article pages + About):
-  "Anna Faure Revol is a journalist specializing in Myanmar's media landscape,
+  "Anna is a journalist specializing in Myanmar's media landscape,
   digital rights, and internet freedom. She has closely followed the military
   junta's systematic censorship of online information since the 2021 coup."
 - Tone: precise, analytical, never sensationalist.
@@ -437,7 +437,7 @@ Main nav:
     → Policy & Regulation
   About
     → Mission
-    → Anna Faure Revol
+    → Anna
     → Partner with Us  [draft:true — activate at month 6]
 
 Utility bar (top):
@@ -505,7 +505,7 @@ const articles = defineCollection({
       'News - Policy',
     ]),
     tags:             z.array(z.string()),
-    author:           z.string().default('Anna Faure Revol'),
+    author:           z.string().default('Anna'),
     publishedAt:      z.date(),
     updatedAt:        z.date().optional(),
     draft:            z.boolean().default(true), // humans publish, never agents
@@ -640,7 +640,7 @@ scoring:
   min_score_for_brief: 6.0
 
 article:
-  author:       "Anna Faure Revol"
+  author:       "Anna"
   default_lang: "en"
   target_words: [1200, 1800]
   internal_links: [3, 5]
@@ -722,7 +722,7 @@ Thresholds:
 → Rewrite ALL alt texts: descriptive, max 10 words, zero keyword stuffing
 → Update internal links to new URL structure
 → Convert image paths → /images/[slug]/[filename].webp
-→ Set author: "Anna Faure Revol" on all migrated articles
+→ Set author: "Anna" on all migrated articles
 → Add stale notice for articles > 18 months old:
   "⚠️ First published in [YEAR]. Some figures may be outdated."
 → Add sources section at bottom from external links found in content
@@ -801,7 +801,7 @@ CLOUDFLARE_ACCOUNT_ID=...
 
 ```
 → draft: false is set only by Anna — never by agents or Claude Code
-→ Author is always "Anna Faure Revol" — never Myanmar Geek, Herbert Kanale
+→ Author is always "Anna" — never Myanmar Geek, Herbert Kanale
 → Never commit .env or any file with secrets
 → Never push directly to main — always via PR
 → Never write keyword-stuffed alt texts
