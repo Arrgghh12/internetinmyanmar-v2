@@ -7885,5 +7885,16 @@
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
     "resolved": true
+  },
+  {
+    "asn": "AS136617",
+    "name": "FTCL-AS-AP Fortune Telecom Company Limited",
+    "status": "DOWN",
+    "started_at": "2026-04-22T20:32:46.564442+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
   }
 ]
