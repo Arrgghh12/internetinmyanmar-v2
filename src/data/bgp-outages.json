@@ -7682,28 +7682,39 @@
     "name": "MFGCL-AS-AP Myanmar Fortune Global Company Limited",
     "status": "DOWN",
     "started_at": "2026-04-22T12:02:43.169287+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-22T12:32:24.435145+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS140617",
     "name": "TPTNET-AS-AP THAN PHYO THU MINING COMPANY LIMITED",
     "status": "DOWN",
     "started_at": "2026-04-22T12:03:09.377049+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-22T12:32:34.078581+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS152447",
     "name": "MMCL-AS-AP My Mandalay Company Limited",
     "status": "DOWN",
     "started_at": "2026-04-22T12:03:29.426966+00:00",
+    "ended_at": "2026-04-22T12:32:39.650440+00:00",
+    "duration_minutes": 29,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": true
+  },
+  {
+    "asn": "AS139822",
+    "name": "GNE-AS-MM GNE Company Limited",
+    "status": "DOWN",
+    "started_at": "2026-04-22T12:31:40.179707+00:00",
     "ended_at": null,
     "duration_minutes": null,
     "min_visibility_pct": 0.0,
