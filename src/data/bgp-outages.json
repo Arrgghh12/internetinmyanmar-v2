@@ -7858,6 +7858,28 @@
     "name": "ILINK-AS-AP i-Link",
     "status": "DOWN",
     "started_at": "2026-04-22T19:01:35.403731+00:00",
+    "ended_at": "2026-04-22T19:31:18.172743+00:00",
+    "duration_minutes": 29,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": true
+  },
+  {
+    "asn": "AS137891",
+    "name": "BETHEFIRST-AS-AP Be The First",
+    "status": "DOWN",
+    "started_at": "2026-04-22T19:32:05.212044+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
+  },
+  {
+    "asn": "AS142644",
+    "name": "LINKFAST-AS-AP Link Fast Company Limited",
+    "status": "DOWN",
+    "started_at": "2026-04-22T19:32:49.584887+00:00",
     "ended_at": null,
     "duration_minutes": null,
     "min_visibility_pct": 0.0,
