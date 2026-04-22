@@ -7473,39 +7473,50 @@
     "name": "REDPALM-AS-AP RED PALM COMPANY LIMITED",
     "status": "DOWN",
     "started_at": "2026-04-22T06:02:02.710673+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-22T06:31:33.935394+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS152447",
     "name": "MMCL-AS-AP My Mandalay Company Limited",
     "status": "DOWN",
     "started_at": "2026-04-22T06:03:56.172031+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-22T06:33:23.527047+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS138166",
     "name": "MTATCL-AS-AP MaxxB Fiber Internet",
     "status": "DOWN",
     "started_at": "2026-04-22T06:04:23.754048+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-22T06:33:37.394933+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS153549",
     "name": "MTC-AS-AP MUI Technology Company Limited",
     "status": "DOWN",
     "started_at": "2026-04-22T06:04:56.454616+00:00",
+    "ended_at": "2026-04-22T06:33:46.663257+00:00",
+    "duration_minutes": 28,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": true
+  },
+  {
+    "asn": "AS136229",
+    "name": "TCLC-AS-AP Treasure Chindwin Land Co.",
+    "status": "DOWN",
+    "started_at": "2026-04-22T06:31:49.254469+00:00",
     "ended_at": null,
     "duration_minutes": null,
     "min_visibility_pct": 0.0,
