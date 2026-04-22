@@ -7929,5 +7929,27 @@
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
     "resolved": true
+  },
+  {
+    "asn": "AS139051",
+    "name": "AUNGGABAR-AS-AP AUNG GABAR COMPANY LIMITED",
+    "status": "DOWN",
+    "started_at": "2026-04-22T23:01:58.581571+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
+  },
+  {
+    "asn": "AS139058",
+    "name": "TACHILEIKNET-AS-AP TCL Net",
+    "status": "DOWN",
+    "started_at": "2026-04-22T23:02:06.025389+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
   }
 ]
