@@ -7418,11 +7418,11 @@
     "name": "UCGCL-AS-AP UNIQUE COMM GROUP COMPANY LIMITED",
     "status": "DOWN",
     "started_at": "2026-04-22T05:31:48.780639+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-22T11:31:18.170684+00:00",
+    "duration_minutes": 359,
     "min_visibility_pct": 0.456,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS150721",
@@ -7671,10 +7671,10 @@
     "name": "SHWE-AS-AP SHWE MAHAR MAE KHONG INDUSTRIAL COMPANY LIMITED",
     "status": "DOWN",
     "started_at": "2026-04-22T11:03:09.517041+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-22T11:32:18.192000+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   }
 ]
