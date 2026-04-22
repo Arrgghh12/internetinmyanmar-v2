@@ -7561,6 +7561,28 @@
     "name": "AKNCL-AS-AP Aon Kham Network Company Limited",
     "status": "DOWN",
     "started_at": "2026-04-22T08:03:04.291969+00:00",
+    "ended_at": "2026-04-22T08:33:37.354005+00:00",
+    "duration_minutes": 30,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": true
+  },
+  {
+    "asn": "AS153044",
+    "name": "MSCNC-AS-AP MYANMAR SKY CITY NETWORK COMMUNICATION Co.",
+    "status": "DOWN",
+    "started_at": "2026-04-22T08:04:40.015990+00:00",
+    "ended_at": "2026-04-22T08:34:52.299611+00:00",
+    "duration_minutes": 30,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": true
+  },
+  {
+    "asn": "AS134739",
+    "name": "AGBC-AS-AP AGB Communication Co.",
+    "status": "DOWN",
+    "started_at": "2026-04-22T08:32:25.729718+00:00",
     "ended_at": null,
     "duration_minutes": null,
     "min_visibility_pct": 0.0,
@@ -7568,10 +7590,10 @@
     "resolved": false
   },
   {
-    "asn": "AS153044",
-    "name": "MSCNC-AS-AP MYANMAR SKY CITY NETWORK COMMUNICATION Co.",
+    "asn": "AS151342",
+    "name": "EBECL-AS-AP East Boy Engineering Company Limited",
     "status": "DOWN",
-    "started_at": "2026-04-22T08:04:40.015990+00:00",
+    "started_at": "2026-04-22T08:34:11.891814+00:00",
     "ended_at": null,
     "duration_minutes": null,
     "min_visibility_pct": 0.0,
