@@ -7924,10 +7924,10 @@
     "name": "MGTL-AS-AP Marga Global Telecom Limited",
     "status": "DOWN",
     "started_at": "2026-04-22T21:32:26.855872+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-22T22:02:03.806915+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   }
 ]
