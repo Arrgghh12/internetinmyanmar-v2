@@ -7429,33 +7429,33 @@
     "name": "ANCL-AS-AP ARAKHA NET",
     "status": "DOWN",
     "started_at": "2026-04-22T05:32:40.521758+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-22T06:02:42.449253+00:00",
+    "duration_minutes": 30,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS135405",
     "name": "TMHTTWTL-AS-AP WELINK",
     "status": "DOWN",
     "started_at": "2026-04-22T05:33:02.161457+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-22T06:02:49.950893+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS133384",
     "name": "GTCL-AS-AP Global Technology Co.",
     "status": "DOWN",
     "started_at": "2026-04-22T05:33:17.417568+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-22T06:03:09.485674+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS132167",
@@ -7467,5 +7467,49 @@
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
     "resolved": true
+  },
+  {
+    "asn": "AS139804",
+    "name": "REDPALM-AS-AP RED PALM COMPANY LIMITED",
+    "status": "DOWN",
+    "started_at": "2026-04-22T06:02:02.710673+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
+  },
+  {
+    "asn": "AS152447",
+    "name": "MMCL-AS-AP My Mandalay Company Limited",
+    "status": "DOWN",
+    "started_at": "2026-04-22T06:03:56.172031+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
+  },
+  {
+    "asn": "AS138166",
+    "name": "MTATCL-AS-AP MaxxB Fiber Internet",
+    "status": "DOWN",
+    "started_at": "2026-04-22T06:04:23.754048+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
+  },
+  {
+    "asn": "AS153549",
+    "name": "MTC-AS-AP MUI Technology Company Limited",
+    "status": "DOWN",
+    "started_at": "2026-04-22T06:04:56.454616+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
   }
 ]
