@@ -7638,6 +7638,28 @@
     "name": "HANTHARNET-AS-AP Hanthar Net",
     "status": "DOWN",
     "started_at": "2026-04-22T09:33:48.428718+00:00",
+    "ended_at": "2026-04-22T10:03:26.551850+00:00",
+    "duration_minutes": 29,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": true
+  },
+  {
+    "asn": "AS137891",
+    "name": "BETHEFIRST-AS-AP Be The First",
+    "status": "DOWN",
+    "started_at": "2026-04-22T10:01:59.384539+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
+  },
+  {
+    "asn": "AS137955",
+    "name": "MMIX-AS-AP Myanmar Internet Exchange",
+    "status": "DOWN",
+    "started_at": "2026-04-22T10:02:24.531007+00:00",
     "ended_at": null,
     "duration_minutes": null,
     "min_visibility_pct": 0.0,
