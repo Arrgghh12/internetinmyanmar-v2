@@ -7748,6 +7748,17 @@
     "name": "MCCL-AS-AP Myanmar Country Co.",
     "status": "DOWN",
     "started_at": "2026-04-22T13:32:44.654549+00:00",
+    "ended_at": "2026-04-22T14:01:32.223012+00:00",
+    "duration_minutes": 28,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": true
+  },
+  {
+    "asn": "AS140552",
+    "name": "CBBANK-AS-AP Co-operative Bank Public Company Limited",
+    "status": "DOWN",
+    "started_at": "2026-04-22T14:02:24.252156+00:00",
     "ended_at": null,
     "duration_minutes": null,
     "min_visibility_pct": 0.0,
