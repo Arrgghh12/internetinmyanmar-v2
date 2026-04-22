@@ -7154,17 +7154,28 @@
     "name": "LMHCC-AS-AP Long Mao Home Center Co.ltd.",
     "status": "DOWN",
     "started_at": "2026-04-21T23:32:39.142399+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-22T00:02:28.590633+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS150297",
     "name": "GMBECL-AS-AP Golden Myanmar Business Exchange Co. Ltd",
     "status": "DOWN",
     "started_at": "2026-04-21T23:32:57.787015+00:00",
+    "ended_at": "2026-04-22T00:02:33.549816+00:00",
+    "duration_minutes": 29,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": true
+  },
+  {
+    "asn": "AS136919",
+    "name": "FACE24COLTD-AS-AP FACE24 Co.",
+    "status": "DOWN",
+    "started_at": "2026-04-22T00:02:11.230509+00:00",
     "ended_at": null,
     "duration_minutes": null,
     "min_visibility_pct": 0.0,
