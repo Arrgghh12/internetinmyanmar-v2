@@ -7275,39 +7275,50 @@
     "name": "AKNCL-AS-AP Aon Kham Network Company Limited",
     "status": "DOWN",
     "started_at": "2026-04-22T03:32:42.529572+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-22T04:02:35.490927+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS63852",
     "name": "FMG-MM Myanmar Net",
     "status": "DOWN",
     "started_at": "2026-04-22T03:33:43.317270+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-22T04:03:05.282561+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS138167",
     "name": "TRUENET-AS-AP TrueNET",
     "status": "DOWN",
     "started_at": "2026-04-22T03:34:27.956247+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-22T04:03:37.658976+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS132038",
     "name": "ROYALESPRIT-MM Royal Esprit Company Limited",
     "status": "DOWN",
     "started_at": "2026-04-22T03:34:49.896326+00:00",
+    "ended_at": "2026-04-22T04:03:42.934997+00:00",
+    "duration_minutes": 28,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": true
+  },
+  {
+    "asn": "AS151965",
+    "name": "HATG-AS-AP Hepta Alliance Technology Group",
+    "status": "DOWN",
+    "started_at": "2026-04-22T04:03:28.169164+00:00",
     "ended_at": null,
     "duration_minutes": null,
     "min_visibility_pct": 0.0,
