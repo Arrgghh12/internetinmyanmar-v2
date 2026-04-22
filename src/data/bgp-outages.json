@@ -7330,39 +7330,61 @@
     "name": "YSOMCL-AS-AP YAM Success of Myanmar Co.",
     "status": "DOWN",
     "started_at": "2026-04-22T04:32:31.531195+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-22T05:02:03.734919+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS150159",
     "name": "BDCL-AS-AP BRAINWAVE DATA COMPANY LIMITED",
     "status": "DOWN",
     "started_at": "2026-04-22T04:33:00.049935+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-22T05:02:12.417487+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS137955",
     "name": "MMIX-AS-AP Myanmar Internet Exchange",
     "status": "DOWN",
     "started_at": "2026-04-22T04:33:41.023730+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-22T05:02:31.766505+00:00",
+    "duration_minutes": 28,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS132038",
     "name": "ROYALESPRIT-MM Royal Esprit Company Limited",
     "status": "DOWN",
     "started_at": "2026-04-22T04:35:25.544973+00:00",
+    "ended_at": "2026-04-22T05:04:17.056353+00:00",
+    "duration_minutes": 28,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": true
+  },
+  {
+    "asn": "AS135149",
+    "name": "MTGCL-AS-AP Myanmar Technology Gateway Co.",
+    "status": "DOWN",
+    "started_at": "2026-04-22T04:35:43.853548+00:00",
+    "ended_at": "2026-04-22T05:04:35.929767+00:00",
+    "duration_minutes": 28,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": true
+  },
+  {
+    "asn": "AS151965",
+    "name": "HATG-AS-AP Hepta Alliance Technology Group",
+    "status": "DOWN",
+    "started_at": "2026-04-22T05:03:45.580866+00:00",
     "ended_at": null,
     "duration_minutes": null,
     "min_visibility_pct": 0.0,
@@ -7370,10 +7392,21 @@
     "resolved": false
   },
   {
-    "asn": "AS135149",
-    "name": "MTGCL-AS-AP Myanmar Technology Gateway Co.",
+    "asn": "AS138158",
+    "name": "SPAL-AS-AP Serge Pun & Associate Myanmar Ltd.",
     "status": "DOWN",
-    "started_at": "2026-04-22T04:35:43.853548+00:00",
+    "started_at": "2026-04-22T05:04:08.024413+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
+  },
+  {
+    "asn": "AS149487",
+    "name": "MCLOCCL-AS-AP MOC COMPANY LIMITED",
+    "status": "DOWN",
+    "started_at": "2026-04-22T05:04:41.332757+00:00",
     "ended_at": null,
     "duration_minutes": null,
     "min_visibility_pct": 0.0,
