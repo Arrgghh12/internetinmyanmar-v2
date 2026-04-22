@@ -7726,28 +7726,28 @@
     "name": "FASTSPEED-AS-AP Fast Speed",
     "status": "DOWN",
     "started_at": "2026-04-22T13:03:00.344215+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-22T13:33:11.467773+00:00",
+    "duration_minutes": 30,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS139206",
     "name": "PAMEL-AS-AP Pan Asia Majestic Eagle Ltd",
     "status": "DOWN",
     "started_at": "2026-04-22T13:04:18.058884+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-22T13:33:54.701469+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
-    "asn": "AS9988",
-    "name": "MPT-AP Myanma Posts and Telecommunications",
+    "asn": "AS134840",
+    "name": "MCCL-AS-AP Myanmar Country Co.",
     "status": "DOWN",
-    "started_at": "2026-04-22T13:30:24.531904+00:00",
+    "started_at": "2026-04-22T13:32:44.654549+00:00",
     "ended_at": null,
     "duration_minutes": null,
     "min_visibility_pct": 0.0,
