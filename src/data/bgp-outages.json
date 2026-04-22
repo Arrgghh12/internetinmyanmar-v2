@@ -7528,21 +7528,21 @@
     "name": "FLC-AS-AP Fiber Life Internet",
     "status": "DOWN",
     "started_at": "2026-04-22T07:02:33.401933+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-22T07:31:45.354489+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS152634",
     "name": "WCCCOMPANYLIMITED-AS-AP Goal Link ISP",
     "status": "DOWN",
     "started_at": "2026-04-22T07:02:56.615679+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-22T07:32:05.436538+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   }
 ]
