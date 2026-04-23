@@ -10311,10 +10311,21 @@
     "name": "U9-MM Nine Communications Company Limited",
     "status": "DOWN",
     "started_at": "2026-04-23T22:25:19.685046+00:00",
-    "ended_at": "2026-04-23T22:30:09.386464+00:00",
-    "duration_minutes": 4,
+    "ended_at": "2026-04-23T22:31:22.730283+00:00",
+    "duration_minutes": 6,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
     "resolved": true
+  },
+  {
+    "asn": "AS141199",
+    "name": "CLPC-AS-AP Century Link Plus",
+    "status": "DOWN",
+    "started_at": "2026-04-23T22:32:23.232344+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
   }
 ]
