@@ -10300,10 +10300,10 @@
     "name": "IQI-AS-AP Innovative Quality Internet Company Limited",
     "status": "DOWN",
     "started_at": "2026-04-23T20:32:58.025555+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-23T21:02:25.575000+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   }
 ]
