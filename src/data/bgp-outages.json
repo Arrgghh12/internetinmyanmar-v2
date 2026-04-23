@@ -9970,39 +9970,61 @@
     "name": "MMIX-AS-AP Myanmar Internet Exchange",
     "status": "DOWN",
     "started_at": "2026-04-23T12:01:49.994996+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-23T12:32:12.947965+00:00",
+    "duration_minutes": 30,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS136465",
     "name": "INFORMATIONTECHNOLOGYCYBERSECURITY-AS-AP Dept. of Information Technology & Cyber Security",
     "status": "DOWN",
     "started_at": "2026-04-23T12:02:12.378972+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-23T12:32:41.160998+00:00",
+    "duration_minutes": 30,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS150297",
     "name": "GMBECL-AS-AP Golden Myanmar Business Exchange Co. Ltd",
     "status": "DOWN",
     "started_at": "2026-04-23T12:02:17.769965+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-23T12:32:42.558953+00:00",
+    "duration_minutes": 30,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS139692",
     "name": "CHEN-AS-AP CHEN GUANG COMPANY LIMITED",
     "status": "DOWN",
     "started_at": "2026-04-23T12:03:12.689970+00:00",
+    "ended_at": "2026-04-23T12:33:08.811710+00:00",
+    "duration_minutes": 29,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": true
+  },
+  {
+    "asn": "AS139704",
+    "name": "AS-AGBC AGB Communication Co.",
+    "status": "DOWN",
+    "started_at": "2026-04-23T12:03:21.814071+00:00",
+    "ended_at": "2026-04-23T12:33:14.320564+00:00",
+    "duration_minutes": 29,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": true
+  },
+  {
+    "asn": "AS139822",
+    "name": "GNE-AS-MM GNE Company Limited",
+    "status": "DOWN",
+    "started_at": "2026-04-23T12:31:32.759473+00:00",
     "ended_at": null,
     "duration_minutes": null,
     "min_visibility_pct": 0.0,
@@ -10010,10 +10032,10 @@
     "resolved": false
   },
   {
-    "asn": "AS139704",
-    "name": "AS-AGBC AGB Communication Co.",
+    "asn": "AS134714",
+    "name": "ETPCL-AS-AP Elite Telecom Public Company Limited",
     "status": "DOWN",
-    "started_at": "2026-04-23T12:03:21.814071+00:00",
+    "started_at": "2026-04-23T12:31:50.241672+00:00",
     "ended_at": null,
     "duration_minutes": null,
     "min_visibility_pct": 0.0,
