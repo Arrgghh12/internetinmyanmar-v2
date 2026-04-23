@@ -8012,43 +8012,43 @@
     "name": "U9-MM Nine Communications Company Limited",
     "status": "DOWN",
     "started_at": "2026-04-23T03:15:04.484110+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-23T03:20:04.032934+00:00",
+    "duration_minutes": 4,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS136480",
     "name": "MMUNILINK-AS-AP Myanmar Unilink Communication Company Limited",
     "status": "DOWN",
     "started_at": "2026-04-23T03:15:05.320097+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-23T03:20:09.717113+00:00",
+    "duration_minutes": 5,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS58952",
     "name": "FRONTIIRCOLTD-MM Frontiir Co. Ltd",
     "status": "DOWN",
     "started_at": "2026-04-23T03:15:06.119973+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-23T03:20:09.031036+00:00",
+    "duration_minutes": 5,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS9988",
     "name": "MPT-AP Myanma Posts and Telecommunications",
     "status": "DOWN",
     "started_at": "2026-04-23T03:15:06.580116+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-23T03:20:09.370668+00:00",
+    "duration_minutes": 5,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   }
 ]
