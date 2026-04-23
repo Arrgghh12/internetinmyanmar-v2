@@ -9915,39 +9915,50 @@
     "name": "ISMC-AS-AP Integral Solutions Myanmar Co.",
     "status": "DOWN",
     "started_at": "2026-04-23T11:01:48.959671+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-23T11:31:43.780490+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS137955",
     "name": "MMIX-AS-AP Myanmar Internet Exchange",
     "status": "DOWN",
     "started_at": "2026-04-23T11:02:05.958745+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-23T11:31:47.102301+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS151965",
     "name": "HATG-AS-AP Hepta Alliance Technology Group",
     "status": "DOWN",
     "started_at": "2026-04-23T11:03:28.219959+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-23T11:32:32.868406+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS135589",
     "name": "IMNCL-AS-AP Internet Maekhong Network Company Limited",
     "status": "DOWN",
     "started_at": "2026-04-23T11:03:29.912331+00:00",
+    "ended_at": "2026-04-23T11:32:34.944713+00:00",
+    "duration_minutes": 29,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": true
+  },
+  {
+    "asn": "AS63852",
+    "name": "FMG-MM Myanmar Net",
+    "status": "DOWN",
+    "started_at": "2026-04-23T11:32:25.256104+00:00",
     "ended_at": null,
     "duration_minutes": null,
     "min_visibility_pct": 0.0,
