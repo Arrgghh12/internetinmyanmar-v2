@@ -9623,5 +9623,27 @@
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
     "resolved": true
+  },
+  {
+    "asn": "AS137861",
+    "name": "MWT-AS-AP Myanmar World Distribution Telecommunication Company Limited",
+    "status": "DOWN",
+    "started_at": "2026-04-23T07:01:37.483162+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
+  },
+  {
+    "asn": "AS132344",
+    "name": "STMCL-AS-AP SEANET",
+    "status": "DOWN",
+    "started_at": "2026-04-23T07:02:11.457165+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
   }
 ]
