@@ -10333,10 +10333,10 @@
     "name": "GTCL-AS-AP Global Technology Co.",
     "status": "DOWN",
     "started_at": "2026-04-23T23:02:34.006031+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-23T23:32:36.090989+00:00",
+    "duration_minutes": 30,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   }
 ]
