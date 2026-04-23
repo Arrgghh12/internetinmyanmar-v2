@@ -9673,17 +9673,28 @@
     "name": "ERU-AS-AP EASTERN ROYAL UNICOM ERU TECHNOLOGY COMPANY LIMITED",
     "status": "DOWN",
     "started_at": "2026-04-23T08:31:55.833266+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-23T09:01:48.817705+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS135433",
     "name": "CGCL-AS-AP Connect Gateway Company Limited",
     "status": "DOWN",
     "started_at": "2026-04-23T08:32:30.527382+00:00",
+    "ended_at": "2026-04-23T09:02:17.902964+00:00",
+    "duration_minutes": 29,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": true
+  },
+  {
+    "asn": "AS132344",
+    "name": "STMCL-AS-AP SEANET",
+    "status": "DOWN",
+    "started_at": "2026-04-23T09:02:06.205933+00:00",
     "ended_at": null,
     "duration_minutes": null,
     "min_visibility_pct": 0.0,
