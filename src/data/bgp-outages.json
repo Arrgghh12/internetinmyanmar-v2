@@ -9629,6 +9629,28 @@
     "name": "MWT-AS-AP Myanmar World Distribution Telecommunication Company Limited",
     "status": "DOWN",
     "started_at": "2026-04-23T07:01:37.483162+00:00",
+    "ended_at": "2026-04-23T07:32:52.256985+00:00",
+    "duration_minutes": 31,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": true
+  },
+  {
+    "asn": "AS132344",
+    "name": "STMCL-AS-AP SEANET",
+    "status": "DOWN",
+    "started_at": "2026-04-23T07:02:11.457165+00:00",
+    "ended_at": "2026-04-23T07:33:17.954996+00:00",
+    "duration_minutes": 31,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": true
+  },
+  {
+    "asn": "AS150153",
+    "name": "AWSCL-AS-AP A W S MYANMAR COMPANY LIMITED",
+    "status": "DOWN",
+    "started_at": "2026-04-23T07:33:00.453204+00:00",
     "ended_at": null,
     "duration_minutes": null,
     "min_visibility_pct": 0.0,
@@ -9636,10 +9658,10 @@
     "resolved": false
   },
   {
-    "asn": "AS132344",
-    "name": "STMCL-AS-AP SEANET",
+    "asn": "AS132537",
+    "name": "MLGCL-AS-AP LG",
     "status": "DOWN",
-    "started_at": "2026-04-23T07:02:11.457165+00:00",
+    "started_at": "2026-04-23T07:34:11.899589+00:00",
     "ended_at": null,
     "duration_minutes": null,
     "min_visibility_pct": 0.0,
