@@ -160,7 +160,7 @@
     "visibility_pct": 1.0,
     "visible_collectors": 332,
     "total_collectors": 332,
-    "timestamp": "2026-04-23T10:01:39.470184+00:00",
+    "timestamp": "2026-04-23T10:30:06.248729+00:00",
     "status": "GREEN",
     "status_since": "2026-04-23T04:31:13.255210+00:00"
   },
@@ -171,7 +171,7 @@
     "visibility_pct": 1.0,
     "visible_collectors": 332,
     "total_collectors": 332,
-    "timestamp": "2026-04-23T10:01:39.815950+00:00",
+    "timestamp": "2026-04-23T10:30:06.592626+00:00",
     "status": "GREEN",
     "status_since": "2026-04-23T04:31:13.598936+00:00"
   },
@@ -607,13 +607,16 @@
   "AS9988": {
     "asn": "AS9988",
     "name": "MPT-AP Myanma Posts and Telecommunications",
-    "announced": true,
-    "visibility_pct": 1.0,
-    "visible_collectors": 332,
-    "total_collectors": 332,
-    "timestamp": "2026-04-23T10:02:12.817264+00:00",
-    "status": "GREEN",
-    "status_since": "2026-04-23T04:31:47.433752+00:00"
+    "announced": false,
+    "visibility_pct": 0.0,
+    "visible_collectors": 0,
+    "total_collectors": 0,
+    "status": "RED",
+    "status_since": "2026-04-23T10:30:06.928839+00:00",
+    "timestamp": "2026-04-23T10:30:06.928839+00:00",
+    "error": "Server error '502 Bad Gateway' for url 'https://stat.ripe.net/data/routing-statu",
+    "ioda_outages": 0,
+    "ioda_confirmed": false
   },
   "AS133384": {
     "asn": "AS133384",
@@ -761,13 +764,16 @@
   "AS136480": {
     "asn": "AS136480",
     "name": "MMUNILINK-AS-AP Myanmar Unilink Communication Company Limited",
-    "announced": true,
-    "visibility_pct": 1.0,
-    "visible_collectors": 332,
-    "total_collectors": 332,
-    "timestamp": "2026-04-23T10:02:26.134539+00:00",
-    "status": "GREEN",
-    "status_since": "2026-04-23T04:32:01.246741+00:00"
+    "announced": false,
+    "visibility_pct": 0.0,
+    "visible_collectors": 0,
+    "total_collectors": 0,
+    "status": "RED",
+    "status_since": "2026-04-23T10:30:07.617429+00:00",
+    "timestamp": "2026-04-23T10:30:07.617429+00:00",
+    "error": "Server error '502 Bad Gateway' for url 'https://stat.ripe.net/data/routing-statu",
+    "ioda_outages": 0,
+    "ioda_confirmed": false
   },
   "AS150309": {
     "asn": "AS150309",
