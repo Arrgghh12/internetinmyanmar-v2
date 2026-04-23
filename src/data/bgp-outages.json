@@ -10256,10 +10256,10 @@
     "name": "HSCL-AS-AP Horizon Sources Company Limited",
     "status": "DOWN",
     "started_at": "2026-04-23T16:31:55.534473+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-23T17:01:23.820992+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   }
 ]
