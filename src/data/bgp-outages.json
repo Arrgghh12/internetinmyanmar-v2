@@ -9651,21 +9651,21 @@
     "name": "AWSCL-AS-AP A W S MYANMAR COMPANY LIMITED",
     "status": "DOWN",
     "started_at": "2026-04-23T07:33:00.453204+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-23T08:02:39.673334+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS132537",
     "name": "MLGCL-AS-AP LG",
     "status": "DOWN",
     "started_at": "2026-04-23T07:34:11.899589+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-23T08:04:06.683487+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   }
 ]
