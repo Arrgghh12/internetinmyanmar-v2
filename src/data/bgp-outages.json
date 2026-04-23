@@ -10289,10 +10289,10 @@
     "name": "MTC-AS-AP MUI Technology Company Limited",
     "status": "DOWN",
     "started_at": "2026-04-23T19:33:02.438228+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-23T20:02:44.078495+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   }
 ]
