@@ -9827,44 +9827,44 @@
     "name": "MSPACL-AS-AP MYANMAR SHWE PYI AYE COMPANY LIMITED",
     "status": "DOWN",
     "started_at": "2026-04-23T10:31:16.515691+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-23T11:01:22.346647+00:00",
+    "duration_minutes": 30,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS134714",
     "name": "ETPCL-AS-AP Elite Telecom Public Company Limited",
     "status": "DOWN",
     "started_at": "2026-04-23T10:31:16.854132+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-23T11:01:23.046995+00:00",
+    "duration_minutes": 30,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS152634",
     "name": "WCCCOMPANYLIMITED-AS-AP Goal Link ISP",
     "status": "DOWN",
     "started_at": "2026-04-23T10:31:17.192534+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-23T11:01:23.665437+00:00",
+    "duration_minutes": 30,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS136255",
     "name": "TIMCL-AS-AP Telecom International Myanmar Co.",
     "status": "DOWN",
     "started_at": "2026-04-23T10:31:17.531750+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-23T11:01:24.014072+00:00",
+    "duration_minutes": 30,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS132167",
@@ -9893,6 +9893,28 @@
     "name": "ROYALESPRIT-AS-AP Royal Esprit Company Limited",
     "status": "DOWN",
     "started_at": "2026-04-23T10:31:19.062479+00:00",
+    "ended_at": "2026-04-23T11:01:25.413436+00:00",
+    "duration_minutes": 30,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": true
+  },
+  {
+    "asn": "AS136780",
+    "name": "MIHL-AS-AP MYANMAR INFORMATION HIGHWAY LIMITED",
+    "status": "DOWN",
+    "started_at": "2026-04-23T10:31:19.402042+00:00",
+    "ended_at": "2026-04-23T11:01:26.352255+00:00",
+    "duration_minutes": 30,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": true
+  },
+  {
+    "asn": "AS137424",
+    "name": "ISMC-AS-AP Integral Solutions Myanmar Co.",
+    "status": "DOWN",
+    "started_at": "2026-04-23T11:01:48.959671+00:00",
     "ended_at": null,
     "duration_minutes": null,
     "min_visibility_pct": 0.0,
@@ -9900,10 +9922,32 @@
     "resolved": false
   },
   {
-    "asn": "AS136780",
-    "name": "MIHL-AS-AP MYANMAR INFORMATION HIGHWAY LIMITED",
+    "asn": "AS137955",
+    "name": "MMIX-AS-AP Myanmar Internet Exchange",
     "status": "DOWN",
-    "started_at": "2026-04-23T10:31:19.402042+00:00",
+    "started_at": "2026-04-23T11:02:05.958745+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
+  },
+  {
+    "asn": "AS151965",
+    "name": "HATG-AS-AP Hepta Alliance Technology Group",
+    "status": "DOWN",
+    "started_at": "2026-04-23T11:03:28.219959+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
+  },
+  {
+    "asn": "AS135589",
+    "name": "IMNCL-AS-AP Internet Maekhong Network Company Limited",
+    "status": "DOWN",
+    "started_at": "2026-04-23T11:03:29.912331+00:00",
     "ended_at": null,
     "duration_minutes": null,
     "min_visibility_pct": 0.0,
