@@ -23,7 +23,7 @@ load_dotenv(os.path.join(os.path.dirname(__file__), "..", ".env"))
 
 from utils.model_router import call
 
-COPY_PROMPT = """Write social media copy for this digest.
+COPY_PROMPT = """Write social media copy for this digest article.
 Audience: journalists, researchers, NGO staff following Myanmar internet freedom.
 
 Digest title: {TITLE}
@@ -34,11 +34,15 @@ Original source: {SOURCE}
 
 Write TWO versions. Return JSON only, no markdown fences:
 {{
-  "twitter": "max 220 chars, punchy, 2-3 hashtags at end, do NOT include the URL",
-  "facebook": "2-3 sentences of context, via {SOURCE} on its own line, URL on its own line, hashtags at end"
+  "twitter": "max 240 chars including URL. Lead with the key fact. Max 2 hashtags at the very end (#Myanmar is mandatory, add one more only if highly relevant). Do NOT use 'Breaking:'. Sentence case. The URL will be appended automatically so do NOT include it in this field.",
+  "facebook": "Hook sentence (the most striking fact). Then 1-2 sentences of context. Then on its own line: 'Via {SOURCE}'. End with 1-2 hashtags. No emojis. Keep under 300 chars total. Do NOT include the URL — it is added automatically as the post link."
 }}
 
-Rules: sentence case, never start with Breaking:, always include #Myanmar"""
+Rules:
+- Sentence case throughout
+- Never start with 'Breaking:', 'BREAKING', or emojis
+- Be factual and precise — this audience is expert, not general public
+- #Myanmar always included"""
 
 
 def generate_copy(title: str, excerpt: str, category: str,
@@ -87,15 +91,19 @@ def post_twitter(text: str, url: str) -> dict:
     return {"platform": "twitter", "id": str(response.data["id"])}
 
 
-def post_facebook(text: str) -> dict:
-    """Post to Facebook Page via Graph API."""
+def post_facebook(text: str, url: str) -> dict:
+    """Post to Facebook Page via Graph API.
+
+    Using the `link` parameter explicitly so Facebook scrapes og:image from the
+    correct URL rather than trying to parse a URL from the message text.
+    """
     page_id = os.environ["FACEBOOK_PAGE_ID"]
     token = os.environ["FACEBOOK_PAGE_ACCESS_TOKEN"]
 
     resp = httpx.post(
         f"https://graph.facebook.com/v19.0/{page_id}/feed",
         params={"access_token": token},
-        json={"message": text},
+        json={"message": text, "link": url},
         timeout=15,
     )
     resp.raise_for_status()
@@ -123,7 +131,7 @@ def post_all(digest_meta: dict) -> dict:
 
     for platform, fn, arg in [
         ("twitter",  post_twitter,  (copy["twitter"], url)),
-        ("facebook", post_facebook, (copy["facebook"],)),
+        ("facebook", post_facebook, (copy["facebook"], url)),
     ]:
         try:
             posted[platform] = fn(*arg)

@@ -26,15 +26,16 @@ const tierColour: Record<string, string> = {
   D: 'text-red-400',
 }
 
-const seoTitle   = title.slice(0, 60)
-const metaDesc   = `${source} reported: ${title}`.slice(0, 155)
+const seoTitle   = title.replace(/<[^>]+>/g, '').replace(/\s*-\s*\S+\.\S+$/, '').trim().slice(0, 60)
+const metaDesc   = `${title.replace(/<[^>]+>/g, '').replace(/\s*-\s*\S+\.\S+$/, '').trim()} — as reported by ${source}.`.slice(0, 155)
+const pageUrl    = Astro.url.href
 ---
 
 <Base
   {title}
   seoTitle={seoTitle}
   metaDescription={metaDesc}
-  canonicalUrl={canonical}
+  canonicalUrl={pageUrl}
   ogType="article"
 >
   <article class="max-w-2xl mx-auto px-4 py-12">
