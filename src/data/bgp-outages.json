@@ -10542,28 +10542,39 @@
     "name": "TCLC-AS-AP Treasure Chindwin Land Co.",
     "status": "DOWN",
     "started_at": "2026-04-24T15:31:42.059139+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-24T16:01:37.092567+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS138166",
     "name": "MTATCL-AS-AP MaxxB Fiber Internet",
     "status": "DOWN",
     "started_at": "2026-04-24T15:33:34.131718+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-24T16:03:43.091410+00:00",
+    "duration_minutes": 30,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS136177",
     "name": "YOMABANKLIMITED-AS-AP Yoma Bank Limited",
     "status": "DOWN",
     "started_at": "2026-04-24T15:33:54.174356+00:00",
+    "ended_at": "2026-04-24T16:04:27.269993+00:00",
+    "duration_minutes": 30,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": true
+  },
+  {
+    "asn": "AS153549",
+    "name": "MTC-AS-AP MUI Technology Company Limited",
+    "status": "DOWN",
+    "started_at": "2026-04-24T16:04:18.743101+00:00",
     "ended_at": null,
     "duration_minutes": null,
     "min_visibility_pct": 0.0,
