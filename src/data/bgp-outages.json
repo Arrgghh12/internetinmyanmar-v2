@@ -10366,11 +10366,11 @@
     "name": "NMCL-AS-AP NTT MYANMAR CO.",
     "status": "DOWN",
     "started_at": "2026-04-24T02:31:29.101015+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-24T03:31:16.135231+00:00",
+    "duration_minutes": 59,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS133385",
@@ -10399,32 +10399,32 @@
     "name": "AWSCL-AS-AP A W S MYANMAR COMPANY LIMITED",
     "status": "DOWN",
     "started_at": "2026-04-24T03:02:45.347113+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-24T03:31:21.445740+00:00",
+    "duration_minutes": 28,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS133384",
     "name": "GTCL-AS-AP Global Technology Co.",
     "status": "DOWN",
     "started_at": "2026-04-24T03:03:30.481028+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-24T03:31:48.031928+00:00",
+    "duration_minutes": 28,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS136465",
     "name": "INFORMATIONTECHNOLOGYCYBERSECURITY-AS-AP Dept. of Information Technology & Cyber Security",
     "status": "DOWN",
     "started_at": "2026-04-24T03:03:53.606901+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-24T03:32:06.360032+00:00",
+    "duration_minutes": 28,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   }
 ]
