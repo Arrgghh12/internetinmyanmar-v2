@@ -10437,5 +10437,27 @@
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
     "resolved": true
+  },
+  {
+    "asn": "AS153549",
+    "name": "MTC-AS-AP MUI Technology Company Limited",
+    "status": "DOWN",
+    "started_at": "2026-04-24T08:33:48.415124+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
+  },
+  {
+    "asn": "AS18399",
+    "name": "YTCL-AS-AP Yatanarpon Teleport Company Limited",
+    "status": "DOWN",
+    "started_at": "2026-04-24T08:34:05.591286+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
   }
 ]
