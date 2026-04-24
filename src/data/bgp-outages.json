@@ -10520,21 +10520,21 @@
     "name": "FASTSPEED-AS-AP Fast Speed",
     "status": "DOWN",
     "started_at": "2026-04-24T14:32:27.685028+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-24T15:02:24.950969+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS150297",
     "name": "GMBECL-AS-AP Golden Myanmar Business Exchange Co. Ltd",
     "status": "DOWN",
     "started_at": "2026-04-24T14:32:30.742930+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-24T15:02:25.734817+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   }
 ]
