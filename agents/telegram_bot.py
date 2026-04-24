@@ -50,6 +50,33 @@ REPO_NAME    = "Arrgghh12/internetinmyanmar-v2"
 BRANCH       = os.environ.get("PUBLISH_BRANCH", "dev")   # switch to "main" after DNS cutover
 DIGEST_PATH  = "src/content/digest"
 
+VALID_DIGEST_CATEGORIES = {"Shutdown", "Censorship", "Arrest", "Policy", "Data", "Surveillance", "Other"}
+
+_CATEGORY_MAP = {
+    "censorship & shutdowns": "Censorship",
+    "telecom & infrastructure": "Other",
+    "digital economy": "Other",
+    "news - mobile": "Other",
+    "news - broadband": "Other",
+    "news - policy": "Policy",
+    "not relevant": "Other",
+    "shutdown": "Shutdown",
+    "censorship": "Censorship",
+    "arrest": "Arrest",
+    "policy": "Policy",
+    "data": "Data",
+    "surveillance": "Surveillance",
+}
+
+def normalize_category(raw: str) -> str:
+    key = (raw or "").strip().lower()
+    if key in _CATEGORY_MAP:
+        return _CATEGORY_MAP[key]
+    for valid in VALID_DIGEST_CATEGORIES:
+        if key == valid.lower():
+            return valid
+    return "Other"
+
 
 # ── Auth ───────────────────────────────────────────────────────────────────────
 
@@ -82,8 +109,8 @@ def strip_html(text: str) -> str:
 
 
 def make_mdx(c: dict, added_at: str) -> str:
-    tags      = [t.strip() for t in c.get("tags", [])]
-    tags_yaml = "\n".join([f'  - "{t}"' for t in tags])
+    tags      = [t.strip() for t in (c.get("tags") or [])]
+    tags_yaml = "\n".join([f'  - "{t}"' for t in tags]) if tags else "  []"
     excerpt   = strip_html(c.get("summary") or "").strip()
     if excerpt and not excerpt.endswith((".", "...", "?", "!")):
         excerpt = excerpt.rsplit(" ", 1)[0] + "..."
@@ -114,7 +141,7 @@ sourceUrl: "{c['url']}"
 canonical: "{c['url']}"
 publishedAt: {published_at}
 addedAt: {added_at}
-category: "{c.get('category', 'Other')}"
+category: "{normalize_category(c.get('category', ''))}"
 tags:
 {tags_yaml}
 sourceScore: {source_score}
