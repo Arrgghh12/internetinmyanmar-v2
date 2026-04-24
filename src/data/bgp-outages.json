@@ -10630,10 +10630,10 @@
     "name": "FASTSPEED-AS-AP Fast Speed",
     "status": "DOWN",
     "started_at": "2026-04-24T20:02:08.813974+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-24T20:32:04.426342+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   }
 ]
