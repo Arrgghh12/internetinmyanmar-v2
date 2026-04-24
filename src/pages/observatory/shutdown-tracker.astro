@@ -1,7 +1,9 @@
 ---
 import Observatory from '../../layouts/Observatory.astro'
+import CfRadarBanner from '../../components/CfRadarBanner.astro'
 import stats from '../../content/observatory/stats.json'
 import history from '../../data/ooni-history.json'
+import cfOutages from '../../data/cf-radar-outages.json'
 
 export const prerender = false
 
@@ -58,6 +60,11 @@ const totalMeasurements = history.reduce((s, r) => s + r.measurement_count, 0)
         · {stats.rawAnomaliesLast24h} anomal{stats.rawAnomaliesLast24h !== 1 ? 'ies' : 'y'} in last 24h across {stats.totalMeasurementsScanned} measurements
       </div>
     </div>
+
+    <CfRadarBanner
+      activeOutages={cfOutages.activeOutages}
+      lastUpdated={cfOutages.lastUpdated}
+    />
 
     <div class="mb-10">
       <h2 class="font-headline text-xl mb-2">OONI Anomaly Rate — Monthly (Feb 2021 – present)</h2>

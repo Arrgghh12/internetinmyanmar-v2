@@ -1,8 +1,10 @@
 ---
 import Observatory from '../../layouts/Observatory.astro'
+import CfRadarBanner from '../../components/CfRadarBanner.astro'
 import stats from '../../content/observatory/stats.json'
 import asnStatusRaw from '../../data/asn-status.json'
 import bgpOutagesRaw from '../../data/bgp-outages.json'
+import cfOutages from '../../data/cf-radar-outages.json'
 
 export const prerender = false
 
@@ -45,6 +47,11 @@ const bgpDown  = Object.values(asnStatus).filter((a: any) => a.status === 'RED')
         <div class="text-sm opacity-60">Country Code</div>
       </div>
     </div>
+
+    <CfRadarBanner
+      activeOutages={cfOutages.activeOutages}
+      lastUpdated={cfOutages.lastUpdated}
+    />
 
     {stats.note && (
       <div class="border-l-4 border-[color:var(--color-warning)] pl-4 mb-12 opacity-80 text-sm">

@@ -29,6 +29,7 @@ from pathlib import Path
 
 import requests
 from dotenv import load_dotenv
+from urllib.parse import quote
 from github import Github, GithubException
 from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
 from telegram.ext import Application, CallbackQueryHandler, CommandHandler, ContextTypes, MessageHandler, filters
@@ -51,6 +52,24 @@ BRANCH       = os.environ.get("PUBLISH_BRANCH", "dev")   # switch to "main" afte
 DIGEST_PATH  = "src/content/digest"
 
 VALID_DIGEST_CATEGORIES = {"Shutdown", "Censorship", "Arrest", "Policy", "Data", "Surveillance", "Other"}
+
+
+def gt_url(url: str) -> str:
+    return f"https://translate.google.com/translate?sl=my&tl=en&u={quote(url, safe='')}"
+
+
+def _translate(text: str, task: str = "translate_mm", max_tokens: int = 200) -> str:
+    try:
+        sys.path.insert(0, str(AGENTS_DIR))
+        from utils.model_router import call
+        if task == "translate_mm" and len(text) < 150:
+            prompt = "Translate this Myanmar/Burmese title to English. Return only the translated title, nothing else."
+        else:
+            prompt = "Translate this Myanmar/Burmese text to English. Return only the translation, nothing else."
+        return call(task, prompt, content=text, max_tokens=max_tokens).strip()
+    except Exception as e:
+        log.warning("Translation failed: %s", e)
+        return text
 
 _CATEGORY_MAP = {
     "censorship & shutdowns": "Censorship",
@@ -127,20 +146,27 @@ def strip_html(text: str) -> str:
 
 
 def make_mdx(c: dict, added_at: str) -> str:
+    is_my   = c.get("lang") == "my"
+    src_url = c["url"]
+    link_url = gt_url(src_url) if is_my else src_url
+
+    title_raw   = c.get("your_title") or c.get("title", "")
+    title_safe  = (_translate(title_raw) if is_my else title_raw).replace('"', "'")
+    source_safe = c["title"].replace('"', "'")
+
     tags      = [t.strip() for t in (c.get("tags") or [])]
     tags_yaml = "\n".join([f'  - "{t}"' for t in tags]) if tags else "  []"
-    excerpt   = strip_html(c.get("summary") or "").strip()
+
+    excerpt_raw = strip_html(c.get("summary") or "").strip()
+    excerpt = (_translate(excerpt_raw, max_tokens=300) if is_my and excerpt_raw else excerpt_raw)
     if excerpt and not excerpt.endswith((".", "...", "?", "!")):
         excerpt = excerpt.rsplit(" ", 1)[0] + "..."
-
-    title_safe  = (c.get("your_title") or c.get("title", "")).replace('"', "'")
-    source_safe = c["title"].replace('"', "'")
 
     source_db_path = AGENTS_DIR / "data" / "source_scores.json"
     source_info: dict = {}
     if source_db_path.exists():
         from urllib.parse import urlparse
-        domain = urlparse(c["url"]).netloc.replace("www.", "")
+        domain = urlparse(src_url).netloc.replace("www.", "")
         db = json.loads(source_db_path.read_text())
         source_info = db.get(domain, {})
 
@@ -151,12 +177,17 @@ def make_mdx(c: dict, added_at: str) -> str:
 
     published_at = (c.get("published") or added_at)[:10]
 
+    myanmar_fields = (
+        f'\noriginalTitle: "{c["title"].replace(chr(34), chr(39))}"\nsourceLang: "my"'
+        if is_my else ""
+    )
+
     return f"""---
 title: "{title_safe}"
 sourceTitle: "{source_safe}"
 source: "{source_name}"
-sourceUrl: "{c['url']}"
-canonical: "{c['url']}"
+sourceUrl: "{link_url}"
+canonical: "{src_url}"
 publishedAt: {published_at}
 addedAt: {added_at}
 category: "{normalize_category(c.get('category', ''))}"
@@ -166,14 +197,14 @@ sourceScore: {source_score}
 sourceTier: "{source_tier}"
 sourceLabel: "{source_label}"
 type: "digest"
-draft: false
+draft: false{myanmar_fields}
 ---
 
-*Originally published by [{source_name}]({c['url']}) on {published_at}.*
+*Originally published by [{source_name}]({link_url}) on {published_at}.*
 
 > {excerpt}
 
-[Read the full article on {source_name} →]({c['url']})
+[Read the full article on {source_name} →]({link_url})
 """
 
 
@@ -238,9 +269,10 @@ async def cmd_pending(update: Update, context: ContextTypes.DEFAULT_TYPE):
         return
     lines = [f"📋 *Pending: {pending_file.stem}*\n"]
     for i, c in enumerate(candidates, 1):
+        display_url = gt_url(c["url"]) if c.get("lang") == "my" else c["url"]
         lines.append(
             f"*{i}.* {c.get('your_title', c.get('title', ''))[:70]}\n"
-            f"   {c['url']}"
+            f"   {display_url}"
         )
     lines.append("\nReply with numbers, `all`, or `skip`")
     await update.message.reply_text("\n".join(lines), parse_mode="Markdown",

@@ -33,9 +33,11 @@ log = logging.getLogger(__name__)
 AGENTS_DIR = Path(__file__).parent
 CONFIG = yaml.safe_load((AGENTS_DIR / "config.yaml").read_text())
 
-OONI_API = "https://api.ooni.io/api/v1"
-GITHUB_TOKEN = os.environ.get("GITHUB_TOKEN", "")
-REPO_NAME = CONFIG["github"]["repo"]
+OONI_API       = "https://api.ooni.io/api/v1"
+CF_RADAR_API   = "https://api.cloudflare.com/client/v4/radar"
+CF_RADAR_TOKEN = os.environ.get("CF_RADAR_API_TOKEN", "")
+GITHUB_TOKEN   = os.environ.get("GITHUB_TOKEN", "")
+REPO_NAME      = CONFIG["github"]["repo"]
 
 
 # ---------------------------------------------------------------------------
@@ -94,6 +96,69 @@ def fetch_monthly_history() -> list[dict]:
         # measurement_start_day is "2021-02-01" format
         row["month"] = row.get("measurement_start_day", "")[:7]  # "2021-02"
     return sorted(result, key=lambda x: x["month"])
+
+
+def fetch_cf_radar_outages() -> dict:
+    """
+    Fetch outage annotations for Myanmar (MM) from Cloudflare Radar.
+    Returns a dict ready to write to cf-radar-outages.json.
+    Gracefully returns empty data if CF_RADAR_API_TOKEN is not configured.
+    """
+    now = datetime.now(timezone.utc)
+    empty = {"lastUpdated": now.isoformat(), "activeOutages": [], "recentOutages": []}
+
+    if not CF_RADAR_TOKEN:
+        log.warning("CF_RADAR_API_TOKEN not set — skipping Cloudflare Radar fetch")
+        return empty
+
+    try:
+        resp = requests.get(
+            f"{CF_RADAR_API}/annotations/outages",
+            params={"location": "MM", "dateRange": "7d", "limit": 20},
+            headers={"Authorization": f"Bearer {CF_RADAR_TOKEN}"},
+            timeout=15,
+        )
+        resp.raise_for_status()
+        annotations = resp.json().get("result", {}).get("annotations", [])
+    except Exception as e:
+        log.error("Cloudflare Radar fetch failed: %s", e)
+        return empty
+
+    active: list[dict] = []
+    recent: list[dict] = []
+
+    for ann in annotations:
+        end   = ann.get("end_date") or ann.get("endDate")
+        start = ann.get("start_date") or ann.get("startDate") or ann.get("start", "")
+
+        normalized = {
+            "id":          ann.get("id", ""),
+            "start":       start,
+            "end":         end,
+            "asns":        ann.get("asns", []),
+            "locations":   ann.get("locations", ["MM"]),
+            "description": ann.get("description", ""),
+            "eventTags":   ann.get("event_tags") or ann.get("eventTags") or [],
+            "linkedUrl":   ann.get("linked_url") or ann.get("linkedUrl") or "",
+            "scope":       ann.get("scope", ""),
+        }
+
+        # Active = no end date, or end date is still in the future
+        try:
+            end_dt = datetime.fromisoformat(end.replace("Z", "+00:00")) if end else None
+        except Exception:
+            end_dt = None
+
+        if end_dt is None or end_dt > now:
+            active.append(normalized)
+        else:
+            recent.append(normalized)
+
+    return {
+        "lastUpdated":   now.isoformat(),
+        "activeOutages": active,
+        "recentOutages": recent[:5],
+    }
 
 
 def compute_stats(measurements: list[dict], blocked: list[dict]) -> dict:
@@ -155,7 +220,7 @@ def compute_stats(measurements: list[dict], blocked: list[dict]) -> dict:
 # GitHub push
 # ---------------------------------------------------------------------------
 
-def push_to_github(stats: dict, history: list[dict] | None = None):
+def push_to_github(stats: dict, history: list[dict] | None = None, cf_outages: dict | None = None):
     """Update observatory/stats.json in the repo to trigger a Cloudflare rebuild."""
     if not GITHUB_TOKEN:
         log.warning("No GITHUB_TOKEN — skipping GitHub push")
@@ -170,6 +235,8 @@ def push_to_github(stats: dict, history: list[dict] | None = None):
     }
     if history:
         files_to_update["src/data/ooni-history.json"] = json.dumps(history, indent=2)
+    if cf_outages:
+        files_to_update["src/data/cf-radar-outages.json"] = json.dumps(cf_outages, indent=2)
 
     # Update lastUpdated in blocked-sites.json without touching the curated domain list
     try:
@@ -224,6 +291,10 @@ def run(test: bool = False):
     history = fetch_monthly_history()
     log.info(f"Fetched {len(history)} months of historical data")
 
+    cf_outages = fetch_cf_radar_outages()
+    active_count = len(cf_outages["activeOutages"])
+    log.info(f"Cloudflare Radar: {active_count} active outage(s) for MM")
+
     stats = compute_stats(measurements, blocked)
     log.info(f"Stats: {json.dumps(stats)}")
 
@@ -237,9 +308,10 @@ def run(test: bool = False):
         print(f"\nHistory sample ({len(history)} months):")
         for row in history[-3:]:
             print(f"  {row['month']}: {row['anomaly_count']} anomalies / {row['measurement_count']} total ({row['anomaly_rate']}%)")
+        print(f"\nCloudflare Radar outages: {json.dumps(cf_outages, indent=2)}")
         return
 
-    push_to_github(stats, history)
+    push_to_github(stats, history, cf_outages)
     log.info("=== OONI Watcher done ===")
 
 

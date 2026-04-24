@@ -17,6 +17,7 @@ const { Content } = await entry.render()
 const {
   title, source, sourceUrl, canonical, publishedAt, addedAt,
   sourceScore, sourceTier, sourceLabel, category, tags,
+  sourceLang,
 } = entry.data
 
 const tierColour: Record<string, string> = {
@@ -73,6 +74,15 @@ const pageUrl    = Astro.url.href
         Tier {sourceTier} · {sourceLabel} · {sourceScore}/100
       </span>
     </div>
+
+    <!-- Myanmar-language notice -->
+    {sourceLang === 'my' && (
+      <p class="text-xs opacity-40 font-mono mb-6 -mt-4">
+        Originally published in Myanmar language · title and excerpt auto-translated ·{' '}
+        <a href={sourceUrl} target="_blank" rel="noopener noreferrer"
+           class="underline hover:opacity-70">read via Google Translate</a>
+      </p>
+    )}
 
     <!-- Excerpt + outbound link (the MDX body) -->
     <div class="prose prose-invert max-w-none

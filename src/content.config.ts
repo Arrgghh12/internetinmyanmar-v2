@@ -64,8 +64,10 @@ const digest = defineCollection({
     sourceScore: z.number().min(0).max(100),
     sourceTier:  z.enum(['A', 'B', 'C', 'D']),
     sourceLabel: z.string(),
-    type:        z.literal('digest').default('digest'),
-    draft:       z.boolean().default(false),
+    type:         z.literal('digest').default('digest'),
+    draft:        z.boolean().default(false),
+    originalTitle: z.string().optional(),
+    sourceLang:   z.string().optional(),
   }),
 })
 

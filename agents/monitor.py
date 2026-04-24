@@ -28,6 +28,7 @@ import yaml
 from dotenv import load_dotenv
 from openai import OpenAI
 from tenacity import retry, stop_after_attempt, wait_exponential
+from urllib.parse import quote
 
 load_dotenv(Path(__file__).parent / ".env")
 log = logging.getLogger(__name__)
@@ -42,6 +43,10 @@ CLIENT: OpenAI | None = None  # initialised in run()
 MAX_AGE_HOURS   = int(os.getenv("MONITOR_MAX_AGE_HOURS", "24"))
 MIN_SCORE       = float(CONFIG.get("scoring", {}).get("min_score_for_brief", 6.0))
 MAX_ITEMS_PER_FEED = 20   # cap per feed to avoid runaway costs
+
+
+def gt_url(url: str) -> str:
+    return f"https://translate.google.com/translate?sl=my&tl=en&u={quote(url, safe='')}"
 
 
 # ---------------------------------------------------------------------------
@@ -314,8 +319,9 @@ def build_telegram_digest(relevant: list[dict], cutoff: datetime) -> str:
             score = item.get("score", 0)
             title = item["title"][:80]
             url   = item.get("url", "")
-            lang  = f" `[{item['lang']}]`" if item.get("lang") == "my" else ""
-            lines.append(f"  • [{title}]({url}) _{score:.1f}_{lang}")
+            lang        = f" `[{item['lang']}]`" if item.get("lang") == "my" else ""
+            display_url = gt_url(url) if item.get("lang") == "my" else url
+            lines.append(f"  • [{title}]({display_url}) _{score:.1f}_{lang}")
         lines.append("")
 
     return "\n".join(lines)

@@ -1,0 +1,92 @@
+---
+/**
+ * CfRadarBanner — shows Cloudflare Radar outage status for Myanmar.
+ * Active outage → red alert banner.
+ * No outage     → small grey "all clear" indicator.
+ */
+interface Outage {
+  id: string
+  start: string
+  end: string | null
+  asns: number[]
+  description: string
+  eventTags: string[]
+  linkedUrl: string
+  scope: string
+}
+
+interface Props {
+  activeOutages: Outage[]
+  lastUpdated:   string
+}
+
+const { activeOutages, lastUpdated } = Astro.props
+const hasActive = activeOutages.length > 0
+
+function fmtDate(iso: string) {
+  try {
+    return new Date(iso).toLocaleDateString('en-US', {
+      month: 'short', day: 'numeric', year: 'numeric',
+      hour: '2-digit', minute: '2-digit',
+      timeZone: 'UTC', timeZoneName: 'short',
+    })
+  } catch {
+    return iso
+  }
+}
+
+function causeLabel(tags: string[]): string {
+  const map: Record<string, string> = {
+    POWER_OUTAGE: 'power outage',
+    WEATHER:      'weather event',
+    CABLE_CUT:    'cable cut',
+    MILITARY:     'military action',
+    GOVERNMENT:   'government order',
+    INCIDENT:     'network incident',
+  }
+  const matched = tags.map(t => map[t]).filter(Boolean)
+  return matched.length > 0 ? matched.join(', ') : ''
+}
+---
+
+{hasActive ? (
+  <div class="border border-[color:var(--color-danger)]/50 bg-[color:var(--color-danger)]/8 rounded-lg px-5 py-4 mb-6">
+    <div class="flex items-start gap-3">
+      <span class="text-[color:var(--color-danger)] text-base leading-5 mt-0.5 shrink-0">⚠</span>
+      <div class="flex-1 min-w-0">
+        <div class="font-mono text-xs text-[color:var(--color-danger)] uppercase tracking-widest mb-2">
+          Cloudflare Radar — Active Disruption Confirmed
+        </div>
+        {activeOutages.map((o) => {
+          const cause = causeLabel(o.eventTags)
+          const asnStr = o.asns.length > 0
+            ? `AS${o.asns.join(', AS')}`
+            : 'Myanmar network'
+          const text = o.description
+            || `Network disruption on ${asnStr}${cause ? ` (${cause})` : ''}`
+          return (
+            <div class="text-sm leading-relaxed">
+              {text}
+              <span class="opacity-50"> · since {fmtDate(o.start)}</span>
+              {o.linkedUrl && (
+                <a href={o.linkedUrl} target="_blank" rel="noopener noreferrer"
+                   class="ml-2 font-mono text-xs underline opacity-50 hover:opacity-100 whitespace-nowrap">
+                  CF report →
+                </a>
+              )}
+            </div>
+          )
+        })}
+      </div>
+    </div>
+  </div>
+) : (
+  <div class="flex items-center gap-2 mb-6 font-mono text-xs opacity-35">
+    <span style="color:#22c55e">●</span>
+    <span>Cloudflare Radar: no active disruption detected in Myanmar</span>
+    <span class="opacity-60">·</span>
+    <span class="opacity-60">
+      updated {new Date(lastUpdated).toLocaleDateString('en-US', { month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit', timeZone: 'UTC', timeZoneName: 'short' })}
+    </span>
+  </div>
+)}

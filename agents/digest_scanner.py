@@ -22,6 +22,7 @@ from pathlib import Path
 
 import requests
 from dotenv import load_dotenv
+from urllib.parse import quote
 
 load_dotenv(Path(__file__).parent / ".env")
 log = logging.getLogger(__name__)
@@ -33,6 +34,25 @@ PENDING_DIR = AGENTS_DIR / "digest"
 PENDING_DIR.mkdir(exist_ok=True)
 
 MIN_SCORE = 6.0
+
+
+def gt_url(url: str) -> str:
+    return f"https://translate.google.com/translate?sl=my&tl=en&u={quote(url, safe='')}"
+
+
+def _translate_title(title: str) -> str:
+    try:
+        import sys
+        sys.path.insert(0, str(AGENTS_DIR))
+        from utils.model_router import call
+        return call(
+            "translate_mm",
+            "Translate this Myanmar/Burmese title to English. Return only the translated title, no explanation.",
+            content=title,
+            max_tokens=120,
+        ).strip()
+    except Exception:
+        return title
 
 
 def telegram_send(text: str) -> None:
@@ -56,8 +76,13 @@ def build_telegram_message(candidates: list[dict], today: str) -> str:
     lines = [f"📰 *IIM Daily Digest — {today}*"]
     lines.append(f"{len(candidates)} article{'s' if len(candidates) != 1 else ''} matched\n")
     for i, c in enumerate(candidates, 1):
-        lines.append(f"*{i}.* {c.get('title', '')}")
-        lines.append(c.get("url", ""))
+        title = c.get("title", "")
+        url   = c.get("url", "")
+        if c.get("lang") == "my":
+            title = f"{_translate_title(title)} `[my→en]`"
+            url   = gt_url(url)
+        lines.append(f"*{i}.* {title}")
+        lines.append(url)
         lines.append("")
     return "\n".join(lines)
 
@@ -85,6 +110,7 @@ def run(dry_run: bool = False):
             "relevance_score": item.get("score", 0),
             "category":        item.get("category", "Other"),
             "reason":          item.get("reason", ""),
+            "lang":            item.get("lang", "en"),
         }
         for item in all_scored
         if item.get("score", 0) >= MIN_SCORE
