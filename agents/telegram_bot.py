@@ -96,6 +96,24 @@ def latest_pending() -> tuple[Path | None, list[dict]]:
     return None, []
 
 
+def find_candidate_by_slug(slug: str) -> dict | None:
+    """Search all pending files (newest first) for a candidate matching slug."""
+    files = sorted(PENDING_DIR.glob("pending_*.json"), reverse=True)
+    for f in files:
+        try:
+            candidates = json.loads(f.read_text())
+            match = next(
+                (c for c in candidates
+                 if slugify(c.get("your_title") or c.get("title", "")) == slug),
+                None,
+            )
+            if match:
+                return match
+        except Exception:
+            continue
+    return None
+
+
 # ── MDX builder (mirrors backfill_publisher.py logic) ─────────────────────────
 
 def strip_html(text: str) -> str:
@@ -325,13 +343,7 @@ async def handle_social_callback(update: Update, context: ContextTypes.DEFAULT_T
     if data.startswith("social:"):
         slug = data.split(":", 1)[1]
 
-        # Find the article in today's pending list by slug
-        _, candidates = latest_pending()
-        article = next(
-            (c for c in candidates
-             if slugify(c.get("your_title") or c.get("title", "")) == slug),
-            None,
-        )
+        article = find_candidate_by_slug(slug)
         if not article:
             await query.edit_message_text("Could not find article metadata.")
             return
