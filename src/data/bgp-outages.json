@@ -10674,6 +10674,28 @@
     "name": "LOTUS-AS-AP LOTUS MUDRA COMPANY LIMITED",
     "status": "DOWN",
     "started_at": "2026-04-24T23:01:40.141272+00:00",
+    "ended_at": "2026-04-24T23:31:40.058925+00:00",
+    "duration_minutes": 29,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": true
+  },
+  {
+    "asn": "AS132060",
+    "name": "HANTHARNET-AS-AP Hanthar Net",
+    "status": "DOWN",
+    "started_at": "2026-04-24T23:03:32.011970+00:00",
+    "ended_at": "2026-04-24T23:32:55.035045+00:00",
+    "duration_minutes": 29,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": true
+  },
+  {
+    "asn": "AS137259",
+    "name": "ILINK-AS-AP i-Link",
+    "status": "DOWN",
+    "started_at": "2026-04-24T23:31:13.746743+00:00",
     "ended_at": null,
     "duration_minutes": null,
     "min_visibility_pct": 0.0,
@@ -10681,10 +10703,10 @@
     "resolved": false
   },
   {
-    "asn": "AS132060",
-    "name": "HANTHARNET-AS-AP Hanthar Net",
+    "asn": "AS152140",
+    "name": "YSOMCL-AS-AP YAM Success of Myanmar Co.",
     "status": "DOWN",
-    "started_at": "2026-04-24T23:03:32.011970+00:00",
+    "started_at": "2026-04-24T23:31:36.310284+00:00",
     "ended_at": null,
     "duration_minutes": null,
     "min_visibility_pct": 0.0,
