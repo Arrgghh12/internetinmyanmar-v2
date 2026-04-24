@@ -10360,5 +10360,38 @@
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
     "resolved": true
+  },
+  {
+    "asn": "AS134736",
+    "name": "NMCL-AS-AP NTT MYANMAR CO.",
+    "status": "DOWN",
+    "started_at": "2026-04-24T02:31:29.101015+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
+  },
+  {
+    "asn": "AS133385",
+    "name": "ATOMMYANMAR-AS-AP Atom Myanmar Limited",
+    "status": "DOWN",
+    "started_at": "2026-04-24T02:32:04.943760+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
+  },
+  {
+    "asn": "AS133524",
+    "name": "GTCL-AS-AP Global Technology Co.",
+    "status": "DOWN",
+    "started_at": "2026-04-24T02:33:00.374710+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
   }
 ]
