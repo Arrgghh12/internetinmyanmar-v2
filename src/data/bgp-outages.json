@@ -11070,10 +11070,10 @@
     "name": "STIGW-AS-AP ST.Net",
     "status": "DOWN",
     "started_at": "2026-04-25T22:32:18.688446+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-25T23:02:12.065363+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   }
 ]
