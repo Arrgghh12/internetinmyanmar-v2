@@ -28,7 +28,9 @@ import yaml
 from dotenv import load_dotenv
 from openai import OpenAI
 from tenacity import retry, stop_after_attempt, wait_exponential
-from urllib.parse import quote
+from html import unescape
+from urllib.parse import quote, urlparse, parse_qs
+import re
 
 load_dotenv(Path(__file__).parent / ".env")
 log = logging.getLogger(__name__)
@@ -47,6 +49,28 @@ MAX_ITEMS_PER_FEED = 20   # cap per feed to avoid runaway costs
 
 def gt_url(url: str) -> str:
     return f"https://translate.google.com/translate?sl=my&tl=en&u={quote(url, safe='')}"
+
+
+def strip_html(text: str) -> str:
+    """Strip HTML tags and decode HTML entities from feed titles/summaries."""
+    if not text:
+        return text
+    text = re.sub(r'<[^>]+>', '', text)
+    return unescape(text).strip()
+
+
+def _resolve_google_url(url: str) -> tuple[str, str]:
+    """
+    For Google Alert / Google News redirect URLs, extract the real article URL
+    and derive a clean source name from its domain.
+    Returns (real_url, source_name). Falls back to (url, "") if not a redirect.
+    """
+    if 'google.com/url' in url:
+        qs = parse_qs(urlparse(url).query)
+        real = qs.get('url', [url])[0]
+        domain = urlparse(real).netloc.replace('www.', '')
+        return real, domain
+    return url, ""
 
 
 # ---------------------------------------------------------------------------
@@ -73,8 +97,8 @@ async def fetch_feed(feed_cfg: dict, client: httpx.AsyncClient,
             if pub_dt and pub_dt < cutoff:
                 continue
 
-            title   = entry.get("title", "").strip()
-            summary = entry.get("summary", "").strip()[:500]
+            title   = strip_html(entry.get("title", ""))
+            summary = strip_html(entry.get("summary", ""))[:500]
 
             # Apply keyword filter if configured (e.g. access_now → filter: myanmar)
             if keyword_filter:
@@ -82,11 +106,16 @@ async def fetch_feed(feed_cfg: dict, client: httpx.AsyncClient,
                 if keyword_filter not in combined:
                     continue
 
+            # Resolve Google redirect URLs → real article URL + real source domain
+            raw_url = entry.get("link", "")
+            real_url, resolved_source = _resolve_google_url(raw_url)
+            source = resolved_source if resolved_source else key
+
             items.append({
-                "source":    key,
+                "source":    source,
                 "lang":      lang,
                 "title":     title,
-                "url":       entry.get("link", ""),
+                "url":       real_url,
                 "summary":   summary,
                 "published": pub_dt.isoformat() if pub_dt else None,
             })
