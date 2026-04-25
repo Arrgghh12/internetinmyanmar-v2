@@ -11020,5 +11020,16 @@
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
     "resolved": true
+  },
+  {
+    "asn": "AS136975",
+    "name": "GNET-AS-AP Global Technology",
+    "status": "DOWN",
+    "started_at": "2026-04-25T10:32:20.788967+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
   }
 ]
