@@ -11015,10 +11015,10 @@
     "name": "FRONTIIRCOLTD-MM Frontiir Co. Ltd",
     "status": "DOWN",
     "started_at": "2026-04-25T09:45:25.721374+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-25T09:50:04.442290+00:00",
+    "duration_minutes": 4,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   }
 ]
