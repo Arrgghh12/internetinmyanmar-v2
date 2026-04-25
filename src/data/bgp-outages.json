@@ -10938,39 +10938,61 @@
     "name": "GCL-AS-AP GIGA-NET",
     "status": "DOWN",
     "started_at": "2026-04-25T09:02:06.014817+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-25T09:32:42.415704+00:00",
+    "duration_minutes": 30,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS151826",
     "name": "FASTSPEED-AS-AP Fast Speed",
     "status": "DOWN",
     "started_at": "2026-04-25T09:02:16.842461+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-25T09:32:45.004902+00:00",
+    "duration_minutes": 30,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS149810",
     "name": "ACL-AS-AP AnyNet",
     "status": "DOWN",
     "started_at": "2026-04-25T09:02:46.066452+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-25T09:32:55.774421+00:00",
+    "duration_minutes": 30,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS152447",
     "name": "MMCL-AS-AP My Mandalay Company Limited",
     "status": "DOWN",
     "started_at": "2026-04-25T09:03:03.266301+00:00",
+    "ended_at": "2026-04-25T09:33:06.035665+00:00",
+    "duration_minutes": 30,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": true
+  },
+  {
+    "asn": "AS139719",
+    "name": "YARCHANG-AS-AP Yar Chang Company Limited",
+    "status": "DOWN",
+    "started_at": "2026-04-25T09:03:51.043911+00:00",
+    "ended_at": "2026-04-25T09:33:34.622681+00:00",
+    "duration_minutes": 29,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": true
+  },
+  {
+    "asn": "AS135371",
+    "name": "FORTUNEINTERNATIONAL-AS-AP Fortune Broadband",
+    "status": "DOWN",
+    "started_at": "2026-04-25T09:32:24.701718+00:00",
     "ended_at": null,
     "duration_minutes": null,
     "min_visibility_pct": 0.0,
@@ -10978,10 +11000,10 @@
     "resolved": false
   },
   {
-    "asn": "AS139719",
-    "name": "YARCHANG-AS-AP Yar Chang Company Limited",
+    "asn": "AS153549",
+    "name": "MTC-AS-AP MUI Technology Company Limited",
     "status": "DOWN",
-    "started_at": "2026-04-25T09:03:51.043911+00:00",
+    "started_at": "2026-04-25T09:33:49.942087+00:00",
     "ended_at": null,
     "duration_minutes": null,
     "min_visibility_pct": 0.0,
