@@ -160,23 +160,20 @@
     "visibility_pct": 1.0,
     "visible_collectors": 331,
     "total_collectors": 331,
-    "timestamp": "2026-04-25T03:55:05.632748+00:00",
+    "timestamp": "2026-04-25T04:00:07.762553+00:00",
     "status": "GREEN",
     "status_since": "2026-04-23T22:31:22.429547+00:00"
   },
   "AS58952": {
     "asn": "AS58952",
     "name": "FRONTIIRCOLTD-MM Frontiir Co. Ltd",
-    "announced": false,
-    "visibility_pct": 0.0,
-    "visible_collectors": 0,
-    "total_collectors": 0,
-    "status": "RED",
-    "status_since": "2026-04-25T03:55:10.430542+00:00",
-    "timestamp": "2026-04-25T03:55:10.430542+00:00",
-    "error": "Server error '502 Bad Gateway' for url 'https://stat.ripe.net/data/routing-statu",
-    "ioda_outages": 0,
-    "ioda_confirmed": false
+    "announced": true,
+    "visibility_pct": 1.0,
+    "visible_collectors": 331,
+    "total_collectors": 331,
+    "timestamp": "2026-04-25T04:00:20.352846+00:00",
+    "status": "YELLOW",
+    "status_since": "2026-04-25T04:00:20.352846+00:00"
   },
   "AS139849": {
     "asn": "AS139849",
@@ -614,7 +611,7 @@
     "visibility_pct": 1.0,
     "visible_collectors": 331,
     "total_collectors": 331,
-    "timestamp": "2026-04-25T03:55:12.707135+00:00",
+    "timestamp": "2026-04-25T04:00:20.699706+00:00",
     "status": "GREEN",
     "status_since": "2026-04-23T04:31:47.433752+00:00"
   },
@@ -768,7 +765,7 @@
     "visibility_pct": 1.0,
     "visible_collectors": 331,
     "total_collectors": 331,
-    "timestamp": "2026-04-25T03:55:14.133922+00:00",
+    "timestamp": "2026-04-25T04:00:21.051489+00:00",
     "status": "GREEN",
     "status_since": "2026-04-24T09:40:09.668216+00:00"
   },

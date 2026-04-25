@@ -10751,10 +10751,10 @@
     "name": "FRONTIIRCOLTD-MM Frontiir Co. Ltd",
     "status": "DOWN",
     "started_at": "2026-04-25T03:55:10.731181+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-25T04:00:20.653631+00:00",
+    "duration_minutes": 5,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   }
 ]
