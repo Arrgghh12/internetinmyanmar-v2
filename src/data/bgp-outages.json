@@ -10844,5 +10844,27 @@
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
     "resolved": true
+  },
+  {
+    "asn": "AS134739",
+    "name": "AGBC-AS-AP AGB Communication Co.",
+    "status": "DOWN",
+    "started_at": "2026-04-25T07:01:37.757230+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
+  },
+  {
+    "asn": "AS133385",
+    "name": "ATOMMYANMAR-AS-AP Atom Myanmar Limited",
+    "status": "DOWN",
+    "started_at": "2026-04-25T07:02:21.028460+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
   }
 ]
