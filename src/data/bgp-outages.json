@@ -10729,10 +10729,10 @@
     "name": "TACHILEIK1-AS-AP Tachileik Jade Dragon Company Limited",
     "status": "DOWN",
     "started_at": "2026-04-25T01:33:02.332422+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-25T02:02:32.097119+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   }
 ]
