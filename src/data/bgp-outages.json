@@ -10740,11 +10740,11 @@
     "name": "MSPACL-AS-AP MYANMAR SHWE PYI AYE COMPANY LIMITED",
     "status": "DOWN",
     "started_at": "2026-04-25T03:31:19.517700+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-25T13:31:14.938439+00:00",
+    "duration_minutes": 599,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS58952",
@@ -11042,5 +11042,16 @@
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
     "resolved": true
+  },
+  {
+    "asn": "AS135307",
+    "name": "GTMH-AS-AP Golden TMH Telecom Co. Ltd",
+    "status": "DOWN",
+    "started_at": "2026-04-25T13:31:32.713358+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
   }
 ]
