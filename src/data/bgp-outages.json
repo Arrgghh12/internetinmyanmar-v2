@@ -10850,6 +10850,28 @@
     "name": "AGBC-AS-AP AGB Communication Co.",
     "status": "DOWN",
     "started_at": "2026-04-25T07:01:37.757230+00:00",
+    "ended_at": "2026-04-25T07:31:19.429863+00:00",
+    "duration_minutes": 29,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": true
+  },
+  {
+    "asn": "AS133385",
+    "name": "ATOMMYANMAR-AS-AP Atom Myanmar Limited",
+    "status": "DOWN",
+    "started_at": "2026-04-25T07:02:21.028460+00:00",
+    "ended_at": "2026-04-25T07:31:53.997905+00:00",
+    "duration_minutes": 29,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": true
+  },
+  {
+    "asn": "AS151965",
+    "name": "HATG-AS-AP Hepta Alliance Technology Group",
+    "status": "DOWN",
+    "started_at": "2026-04-25T07:32:34.233165+00:00",
     "ended_at": null,
     "duration_minutes": null,
     "min_visibility_pct": 0.0,
@@ -10857,10 +10879,21 @@
     "resolved": false
   },
   {
-    "asn": "AS133385",
-    "name": "ATOMMYANMAR-AS-AP Atom Myanmar Limited",
+    "asn": "AS138167",
+    "name": "TRUENET-AS-AP TrueNET",
     "status": "DOWN",
-    "started_at": "2026-04-25T07:02:21.028460+00:00",
+    "started_at": "2026-04-25T07:32:56.020430+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
+  },
+  {
+    "asn": "AS135111",
+    "name": "AML-AS-AP Asia Mega Link",
+    "status": "DOWN",
+    "started_at": "2026-04-25T07:33:18.874301+00:00",
     "ended_at": null,
     "duration_minutes": null,
     "min_visibility_pct": 0.0,
