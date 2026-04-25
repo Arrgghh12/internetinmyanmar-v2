@@ -102,30 +102,32 @@ const tierColor: Record<string, string> = {
         <span class="inline-block w-2 h-2 rounded-full bg-[color:var(--color-accent)] animate-pulse"></span>
         LIVE OBSERVATORY DATA
       </div>
-      <CfRadarBanner
-        activeOutages={cfOutages.activeOutages}
-        lastUpdated={cfOutages.lastUpdated}
-      />
+      <a href="/observatory/shutdown-tracker/">
+        <CfRadarBanner
+          activeOutages={cfOutages.activeOutages}
+          lastUpdated={cfOutages.lastUpdated}
+        />
+      </a>
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <div class="p-6 border border-[color:var(--color-danger)]/30 rounded bg-[color:var(--color-danger)]/5">
+        <a href="/observatory/shutdown-tracker/" class="p-6 border border-[color:var(--color-danger)]/30 rounded bg-[color:var(--color-danger)]/5 hover:border-[color:var(--color-danger)]/60 transition-colors block">
           <div class="font-mono text-4xl font-bold text-[color:var(--color-danger)] mb-1">
             {stats.activeShutdowns}
           </div>
           <div class="text-sm opacity-70">Active regional shutdowns</div>
-        </div>
-        <div class="p-6 border border-white/10 rounded">
+        </a>
+        <a href="/observatory/shutdown-tracker/" class="p-6 border border-white/10 rounded hover:border-white/30 transition-colors block">
           <div class="font-mono text-4xl font-bold text-[color:var(--color-warning)] mb-1">
             {stats.blockedSites.toLocaleString()}
           </div>
           <div class="text-sm opacity-70">Sites blocked by OONI measurement</div>
-        </div>
-        <div class="p-6 border border-white/10 rounded">
+        </a>
+        <a href="/observatory/shutdown-tracker/" class="p-6 border border-white/10 rounded hover:border-white/30 transition-colors block">
           <div class="font-mono text-4xl font-bold text-[color:var(--color-accent)] mb-1">
             {stats.daysSinceLastMajorOutage}
           </div>
           <div class="text-sm opacity-70">Days since last major outage</div>
-        </div>
+        </a>
       </div>
     </div>
   </section>
