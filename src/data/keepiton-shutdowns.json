@@ -1,6 +1,1293 @@
 {
-  "lastUpdated": "2026-04-25T00:00:00Z",
-  "totalEvents": 0,
+  "lastUpdated": "2026-04-25T23:55:11Z",
+  "totalEvents": 95,
   "source": "Access Now STOP Dataset · accessnow.org/keepiton",
-  "events": []
+  "events": [
+    {
+      "id": "",
+      "startDate": "2021-08-20",
+      "endDate": null,
+      "ongoing": true,
+      "type": "full_network",
+      "scope": "Kachin's Hpakant, Sagaing",
+      "perpetrator": "Military",
+      "services": [
+        "Broadband",
+        "Mobile"
+      ],
+      "sourceUrl": "https://www.irrawaddy.com/news/burma/myanmar-junta-cuts-internet-access-in-hpakant.html"
+    },
+    {
+      "id": "",
+      "startDate": "2021-09-14",
+      "endDate": null,
+      "ongoing": true,
+      "type": "full_network",
+      "scope": "Sagaing’s Pale, Yinmarbin, Kani, Budalin, Ayadaw,  Taze, and Ye-U townships, Mandalay’s Mogyoke and Myingyan townships, and Magway's Taungdwingyi townships",
+      "perpetrator": "Military",
+      "services": [
+        "Broadband",
+        "Mobile"
+      ],
+      "sourceUrl": "https://www.myanmar-now.org/en/news/internet-blackout-hits-parts-of-sagaing-and-mandalay-regions"
+    },
+    {
+      "id": "",
+      "startDate": "2021-09-23",
+      "endDate": null,
+      "ongoing": true,
+      "type": "full_network",
+      "scope": "Chin state’s Matupi, Tonzang, Paletwa, Falam, Kanpetlet, Thantlang, Tedim, Mindat townships, Magway's Myaing, Gangaw, and Tilin townships",
+      "perpetrator": "Military",
+      "services": [
+        "Broadband",
+        "Mobile"
+      ],
+      "sourceUrl": "https://www.myanmar-now.org/en/news/military-cuts-off-internet-connection-in-11-more-townships-in-northwestern-myanmar"
+    },
+    {
+      "id": "",
+      "startDate": "2021-09-26",
+      "endDate": null,
+      "ongoing": true,
+      "type": "full_network",
+      "scope": "Sagaing's Pinlebu, Wuntho, Kawlin, Salingyi, Mingin, Kalay townships, Chin's Haka township",
+      "perpetrator": "Military",
+      "services": [
+        "Mobile"
+      ],
+      "sourceUrl": "https://freedomhouse.org/country/myanmar/freedom-net/2021"
+    },
+    {
+      "id": "",
+      "startDate": "2022-01-06",
+      "endDate": null,
+      "ongoing": true,
+      "type": "full_network",
+      "scope": "Loikaw, Demoso, Bawlakhe, Hpasawng, and Mese townships in Kayah State",
+      "perpetrator": "Military",
+      "services": [
+        "Mobile"
+      ],
+      "sourceUrl": "https://progressivevoicemyanmar.org/wp-content/uploads/2022/06/Internet-Shutdown-Athan-May-2022-Eng.pdf"
+    },
+    {
+      "id": "",
+      "startDate": "2022-05-24",
+      "endDate": null,
+      "ongoing": true,
+      "type": "full_network",
+      "scope": "Dawei, Launglong, and Thayetchaung townships, Tanintharyi Region",
+      "perpetrator": "Military",
+      "services": [
+        "Mobile"
+      ],
+      "sourceUrl": "https://www.bnionline.net/en/news/mobile-network-and-internet-cut-some-townships-tanintharyi"
+    },
+    {
+      "id": "",
+      "startDate": "2024-02-16",
+      "endDate": null,
+      "ongoing": true,
+      "type": "mobile",
+      "scope": "Nationwide",
+      "perpetrator": "Military",
+      "services": [
+        "Broadband",
+        "Mobile",
+        "Facebook",
+        "Twitter",
+        "Whatsapp"
+      ],
+      "sourceUrl": "https://explorer.ooni.org/chart/mat?probe_cc=MM&since=2024-01-01&until=2026-02-11&time_grain=day&axis_x=measurement_start_day&test_name=facebook_messenger"
+    },
+    {
+      "id": "",
+      "startDate": "2024-04-06",
+      "endDate": null,
+      "ongoing": true,
+      "type": "full_network",
+      "scope": "Myawaddy township, Kayin State",
+      "perpetrator": "Military",
+      "services": [
+        "Mobile"
+      ],
+      "sourceUrl": "https://athanmyanmar.org/myanmar-communication-blackout-2021-to-present/"
+    },
+    {
+      "id": "",
+      "startDate": "2024-07-14",
+      "endDate": null,
+      "ongoing": true,
+      "type": "mobile",
+      "scope": "Nationwide",
+      "perpetrator": "Military",
+      "services": [
+        "Broadband",
+        "Mobile"
+      ],
+      "sourceUrl": "https://explorer.ooni.org/chart/mat?probe_cc=MM&since=2024-07-01&until=2024-09-20&time_grain=day&axis_x=measurement_start_day&test_name=signal"
+    },
+    {
+      "id": "",
+      "startDate": "2024-07-21",
+      "endDate": null,
+      "ongoing": true,
+      "type": "full_network",
+      "scope": "Kachin State",
+      "perpetrator": "Military",
+      "services": [
+        "Broadband",
+        "Mobile"
+      ],
+      "sourceUrl": "https://engagemedia.org/2024/myanmar-digital-coup-quarterly-may-2024-july-2024/"
+    },
+    {
+      "id": "",
+      "startDate": "2024-11-16",
+      "endDate": null,
+      "ongoing": true,
+      "type": "full_network",
+      "scope": "Rakhine State",
+      "perpetrator": "Unknown",
+      "services": [
+        "Mobile"
+      ],
+      "sourceUrl": "https://t.me/TheWesternNews/16112"
+    },
+    {
+      "id": "",
+      "startDate": "2024-12-20",
+      "endDate": "2025-01-02",
+      "ongoing": false,
+      "type": "full_network",
+      "scope": "Phyu township, Bago Region",
+      "perpetrator": "Military",
+      "services": [
+        "Mobile"
+      ],
+      "sourceUrl": "https://yktnews.com/2024/12/197508/"
+    },
+    {
+      "id": "",
+      "startDate": "2025-01-01",
+      "endDate": null,
+      "ongoing": true,
+      "type": "full_network",
+      "scope": "Townships around Mingaladon Air Force Base, Yangon Region",
+      "perpetrator": "Military",
+      "services": [
+        "Mobile"
+      ],
+      "sourceUrl": "http://ftp.dvb.no/post/686469"
+    },
+    {
+      "id": "",
+      "startDate": "2025-01-02",
+      "endDate": null,
+      "ongoing": true,
+      "type": "full_network",
+      "scope": "Multiple villages along the Pathein River and up the coast, Gwa township, Rakhine State and Thabaung township, Ayeyarwady Region",
+      "perpetrator": "Military",
+      "services": [
+        "Mobile"
+      ],
+      "sourceUrl": "https://www.dmgburmese.com/%E1%80%9E%E1%80%90%E1%80%84%E1%80%BA%E1%80%B8/gwabdntd.html"
+    },
+    {
+      "id": "",
+      "startDate": "2025-01-03",
+      "endDate": null,
+      "ongoing": true,
+      "type": "full_network",
+      "scope": "Rakhine State",
+      "perpetrator": "Military",
+      "services": [
+        "Mobile"
+      ],
+      "sourceUrl": "https://www.facebook.com/photo/?fbid=1062360075903418&set=-%E1%80%9B%E1%80%81%E1%80%AD%E1%80%AF%E1%80%84%E1%80%BA-%E1%80%9E%E1%80%AD%E1%80%99%E1%80%BA%E1%80%B8%E1%80%95%E1%80%AD%E1%80%AF%E1%80%80%E1%80%BA%E1%80%92%E1%80%B1%E1%80%9E%E1%80%99%E1%80%BB%E1%80%AC%E1%80%B8%E1%80%90%E1%80%BD%E1%80%84%E1%80%BA-%E1%80%96%E1%80%AF%E1%80%94%E1%80%BA%E1%80%B8%E1%80%9C%E1%80%AD%E1%80%AF%E1%80%84%E1%80%BA%E1%80%B8%E1%80%94%E1%80%BE%E1%80%84%E1%80%B7%E1%80%BA-%E1%80%A1%E1%80%84%E1%80%BA%E1%80%90%E1%80%AC%E1%80%94%E1%80%80%E1%80%BA%E1%80%9C%E1%80%AD%E1%80%AF%E1%80%84%E1%80%BA%E1%80%B8%E1%80%80%E1%80%AD%E1%80%AF-aa-%E1%80%91%E1%80%AD%E1%80%94%E1%80%BA%E1%80%B8%E1%80%81%E1%80%BB%E1%80%AF%E1%80%95%E1%80%BA%E1%80%91%E1%80%AC"
+    },
+    {
+      "id": "",
+      "startDate": "2025-01-03",
+      "endDate": null,
+      "ongoing": true,
+      "type": "full_network",
+      "scope": "Kanpauk area, Yebyu township, Tanintharyi Region",
+      "perpetrator": "Unknown",
+      "services": [
+        "Broadband",
+        "Mobile"
+      ],
+      "sourceUrl": "https://engagemedia.org/2025/myanmar-digital-coup-quarterly-november-2024-january-2025/"
+    },
+    {
+      "id": "",
+      "startDate": "2025-01-11",
+      "endDate": null,
+      "ongoing": true,
+      "type": "full_network",
+      "scope": "Palaw township, Tanintharyi Region",
+      "perpetrator": "Military",
+      "services": [
+        "Mobile"
+      ],
+      "sourceUrl": "https://www.tntynews.com/15/01/2025/43285/"
+    },
+    {
+      "id": "",
+      "startDate": "2025-01-16",
+      "endDate": "2025-01-18",
+      "ongoing": false,
+      "type": "full_network",
+      "scope": "Bawmi village, Shwethaungyan town, Pathein township, Ayeyarwady Region",
+      "perpetrator": "Military",
+      "services": [
+        "Mobile"
+      ],
+      "sourceUrl": "https://www.bbc.com/burmese/articles/cvgppm26j82o"
+    },
+    {
+      "id": "",
+      "startDate": "2025-01-20",
+      "endDate": "2025-02-01",
+      "ongoing": false,
+      "type": "full_network",
+      "scope": "Chaung Tha, Hainggyi Island, Kyone Pyaw, Labutta, Ngapudaw, Ngayokaung, Ngwe Saung, Pathein, Shwe Thaung Yan, Thabaung, and Yeygi townships, Ayeyarwady Region",
+      "perpetrator": "Military",
+      "services": [
+        "Mobile"
+      ],
+      "sourceUrl": "https://burmese.dvb.no/post/688719"
+    },
+    {
+      "id": "",
+      "startDate": "2025-01-22",
+      "endDate": null,
+      "ongoing": true,
+      "type": "full_network",
+      "scope": "Kyeikdon town, Kawkareik township, Kayin State",
+      "perpetrator": "Military",
+      "services": [
+        "Broadband",
+        "Mobile"
+      ],
+      "sourceUrl": "https://burmese.thanlwintimes.com/2025/01/22/%E1%80%80%E1%80%BB%E1%80%AD%E1%80%AF%E1%80%80%E1%80%BA%E1%80%92%E1%80%AF%E1%80%B6%E1%80%99%E1%80%BC%E1%80%AD%E1%80%AF%E1%80%B7%E1%80%99%E1%80%BE%E1%80%AC-%E1%80%85%E1%80%85%E1%80%BA%E1%80%80%E1%80%B1/"
+    },
+    {
+      "id": "",
+      "startDate": "2025-01-28",
+      "endDate": null,
+      "ongoing": true,
+      "type": "full_network",
+      "scope": "Kyaukme city, Shan State",
+      "perpetrator": "Military",
+      "services": [
+        "Broadband",
+        "Mobile"
+      ],
+      "sourceUrl": "https://t.me/mekongnewsmm/33524"
+    },
+    {
+      "id": "",
+      "startDate": "2025-01-29",
+      "endDate": null,
+      "ongoing": true,
+      "type": "full_network",
+      "scope": "Gangaw town, Magway Division",
+      "perpetrator": "Military",
+      "services": [
+        "Mobile"
+      ],
+      "sourceUrl": "https://burmese.dvb.no/post/688531"
+    },
+    {
+      "id": "",
+      "startDate": "2025-01-29",
+      "endDate": null,
+      "ongoing": true,
+      "type": "full_network",
+      "scope": "Tamu township, Sagaing Division",
+      "perpetrator": "Military",
+      "services": [
+        "Broadband",
+        "Mobile"
+      ],
+      "sourceUrl": "https://nitter.net/dvbburmese/status/1884520570848694781"
+    },
+    {
+      "id": "",
+      "startDate": "2025-02-04",
+      "endDate": null,
+      "ongoing": true,
+      "type": "full_network",
+      "scope": "5 areas across Myawaddy and Kyain Seikgyi townships, Kayin State and Tachileik township, Shan State",
+      "perpetrator": "Non-government",
+      "services": [
+        "Broadband",
+        "Mobile"
+      ],
+      "sourceUrl": "https://engagemedia.org/2025/myanmar-digital-coup-quarterly-february-2025-april-2025/"
+    },
+    {
+      "id": "",
+      "startDate": "2025-02-05",
+      "endDate": null,
+      "ongoing": true,
+      "type": "full_network",
+      "scope": "Coastal villages in Launglon township, Dawei district, Tanintharyi Region",
+      "perpetrator": "Military",
+      "services": [
+        "Broadband",
+        "Mobile"
+      ],
+      "sourceUrl": "https://www.youtube.com/watch?v=G_qTkIB0yC0"
+    },
+    {
+      "id": "",
+      "startDate": "2025-02-06",
+      "endDate": "2025-02-10",
+      "ongoing": false,
+      "type": "full_network",
+      "scope": "Htone Makha and Thabaw-Lake villages, Tanintharyi township, Tanintharyi Region",
+      "perpetrator": "Military",
+      "services": [
+        "Mobile"
+      ],
+      "sourceUrl": "https://engagemedia.org/2025/myanmar-digital-coup-quarterly-february-2025-april-2025/"
+    },
+    {
+      "id": "",
+      "startDate": "2025-02-19",
+      "endDate": null,
+      "ongoing": true,
+      "type": "full_network",
+      "scope": "Paukkaung township, Bago Region",
+      "perpetrator": "Military",
+      "services": [
+        "Broadband",
+        "Mobile"
+      ],
+      "sourceUrl": "https://www.rfa.org/burmese/news/paramotor-airstrike-paukkhaung-02202025005416.html"
+    },
+    {
+      "id": "",
+      "startDate": "2025-02-21",
+      "endDate": null,
+      "ongoing": true,
+      "type": "full_network",
+      "scope": "Payanthonzu, Kyain Seikgyi township, Kayin State",
+      "perpetrator": "Non-government",
+      "services": [
+        "Mobile"
+      ],
+      "sourceUrl": "https://news-eleven.com/article/300503"
+    },
+    {
+      "id": "",
+      "startDate": "2025-02-25",
+      "endDate": "2025-03-05",
+      "ongoing": false,
+      "type": "full_network",
+      "scope": "Namtaw town, Homalin township, Sagaing Division",
+      "perpetrator": "Military",
+      "services": [
+        "Mobile"
+      ],
+      "sourceUrl": "https://www.shannivoice.com/%E1%80%94%E1%80%99%E1%80%B7%E1%80%BA%E1%80%90%E1%80%B1%E1%80%AC%E1%80%92%E1%80%B1%E1%80%9E%E1%80%90%E1%80%BD%E1%80%84%E1%80%BA-%E1%80%96%E1%80%AF%E1%80%94%E1%80%BA%E1%80%B8%E1%80%9C%E1%80%AD%E1%80%AF/"
+    },
+    {
+      "id": "",
+      "startDate": "2025-03-02",
+      "endDate": "2025-03-23",
+      "ongoing": false,
+      "type": "full_network",
+      "scope": "Yesagyo township, Magway Division",
+      "perpetrator": "Military",
+      "services": [
+        "Mobile"
+      ],
+      "sourceUrl": "https://yktnews.com/2025/03/205988/"
+    },
+    {
+      "id": "",
+      "startDate": "2025-03-03",
+      "endDate": null,
+      "ongoing": true,
+      "type": "full_network",
+      "scope": "Myaing township, Magway Division",
+      "perpetrator": "Military",
+      "services": [
+        "Broadband",
+        "Mobile"
+      ],
+      "sourceUrl": "https://mpapress.com/%E1%80%94%E1%80%AD%E1%80%AF%E1%80%84%E1%80%BA%E1%80%84%E1%80%B6%E1%80%9B%E1%80%B1%E1%80%B8/59645/"
+    },
+    {
+      "id": "",
+      "startDate": "2025-03-08",
+      "endDate": null,
+      "ongoing": true,
+      "type": "full_network",
+      "scope": "Teepinkyo checkpoint, Pyay township, Bago Region",
+      "perpetrator": "Military",
+      "services": [
+        "Mobile"
+      ],
+      "sourceUrl": "https://mpapress.com/%E1%80%94%E1%80%AD%E1%80%AF%E1%80%84%E1%80%BA%E1%80%84%E1%80%B6%E1%80%9B%E1%80%B1%E1%80%B8/59801/"
+    },
+    {
+      "id": "",
+      "startDate": "2025-03-16",
+      "endDate": null,
+      "ongoing": true,
+      "type": "full_network",
+      "scope": "Mwe Myaysun village, Madaya township, Mandalay Region and Sinkai North village, Wetlet township, Sagaing Division",
+      "perpetrator": "Military",
+      "services": [
+        "Mobile"
+      ],
+      "sourceUrl": "https://www.dvb.no/post/695322"
+    },
+    {
+      "id": "",
+      "startDate": "2025-03-16",
+      "endDate": null,
+      "ongoing": true,
+      "type": "full_network",
+      "scope": "Gangaw, Saw, and Tilin townships, Yaw region, Magway Division",
+      "perpetrator": "Military",
+      "services": [
+        "Mobile"
+      ],
+      "sourceUrl": "https://web.archive.org/web/20250324081819/https://mpapress.com/%E1%80%85%E1%80%85%E1%80%BA%E1%80%9B%E1%80%B1%E1%80%B8/60216/"
+    },
+    {
+      "id": "",
+      "startDate": "2025-03-17",
+      "endDate": null,
+      "ongoing": true,
+      "type": "full_network",
+      "scope": "Hakha city, Chin State",
+      "perpetrator": "Military",
+      "services": [
+        "Broadband",
+        "Mobile"
+      ],
+      "sourceUrl": "https://www.instagram.com/burmacjplatform/p/DHaorCSx2Be/"
+    },
+    {
+      "id": "",
+      "startDate": "2025-03-20",
+      "endDate": null,
+      "ongoing": true,
+      "type": "full_network",
+      "scope": "Payanthonzu, Kyain Seikgyi township, Kayin State",
+      "perpetrator": "Unknown",
+      "services": [
+        "Mobile"
+      ],
+      "sourceUrl": "https://www.facebook.com/imnaburmese/posts/%E1%80%98%E1%80%AF%E1%80%9B%E1%80%AC%E1%80%B8%E1%80%9E%E1%80%AF%E1%80%B6%E1%80%B8%E1%80%86%E1%80%B0%E1%80%92%E1%80%B1%E1%80%9E%E1%80%81%E1%80%B6%E1%80%90%E1%80%AD%E1%80%AF%E1%80%B7-%E1%80%96%E1%80%AF%E1%80%94%E1%80%BA%E1%80%B8%E1%80%9C%E1%80%AD%E1%80%AF%E1%80%84%E1%80%BA%E1%80%B8%E1%80%94%E1%80%BE%E1%80%84%E1%80%B7%E1%80%BA%E1%80%A1%E1%80%84%E1%80%BA%E1%80%90%E1%80%AC%E1%80%94%E1%80%80%E1%80%BA%E1%80%9B%E1%80%9B%E1%80%BE%E1%80%AD%E1%80%99%E1%80%BE%E1%80%AF-%E1%80%95%E1%80%AD%E1%80%AF%E1%80%99%E1%80%AD%E1%80%AF%E1%80%81%E1%80%80%E1%80%BA%E1%80%81%E1%80%B2-%E1%80%9C%E1%80%BD%E1%80%90%E1%80%BA%E1%80%9C%E1%80%95%E1%80%BA%E1%80%9E%E1%80%B1%E1%80%AC-%E1%80%99%E1%80%BD%E1%80%94%E1%80%BA/1060436172778609/"
+    },
+    {
+      "id": "",
+      "startDate": "2025-03-23",
+      "endDate": null,
+      "ongoing": true,
+      "type": "full_network",
+      "scope": "Lemyethna township, Ayeyarwady Region",
+      "perpetrator": "Military",
+      "services": [
+        "Mobile"
+      ],
+      "sourceUrl": "https://www.ludunwayoo.com/news-mm/2025/03/23/115391/?tztc=1"
+    },
+    {
+      "id": "",
+      "startDate": "2025-03-25",
+      "endDate": null,
+      "ongoing": true,
+      "type": "full_network",
+      "scope": "Chaung Nyi Ko and Yarmpho villages, Tanintharyi township, Tanintharyi Region",
+      "perpetrator": "Military",
+      "services": [
+        "Mobile"
+      ],
+      "sourceUrl": "https://www.daweiwatch.com/26/03/2025/108535/"
+    },
+    {
+      "id": "",
+      "startDate": "2025-04-07",
+      "endDate": null,
+      "ongoing": true,
+      "type": "full_network",
+      "scope": "Pakkoku township, Magway Division",
+      "perpetrator": "Military",
+      "services": [
+        "Broadband",
+        "Mobile"
+      ],
+      "sourceUrl": "https://yktnews.com/2025/04/210565/"
+    },
+    {
+      "id": "",
+      "startDate": "2025-04-11",
+      "endDate": "2025-04-15",
+      "ongoing": false,
+      "type": "full_network",
+      "scope": "Kale township, Sagaing Division",
+      "perpetrator": "Military",
+      "services": [
+        "Broadband",
+        "Mobile"
+      ],
+      "sourceUrl": "https://www.facebook.com/zalen.info/posts/%E1%80%80%E1%80%9C%E1%80%B1%E1%80%B8%E1%80%99%E1%80%BC%E1%80%AD%E1%80%AF%E1%80%B7%E1%80%94%E1%80%9A%E1%80%BA-%E1%80%A1%E1%80%95%E1%80%AB%E1%80%9D%E1%80%84%E1%80%BA-%E1%80%81%E1%80%BB%E1%80%84%E1%80%BA%E1%80%B8%E1%80%95%E1%80%BC%E1%80%8A%E1%80%BA%E1%80%94%E1%80%9A%E1%80%BA%E1%80%90%E1%80%85%E1%80%BA%E1%80%81%E1%80%AF%E1%80%9C%E1%80%AF%E1%80%B6%E1%80%B8%E1%80%94%E1%80%AE%E1%80%B8%E1%80%95%E1%80%AB%E1%80%B8-%E1%80%96%E1%80%AF%E1%80%94%E1%80%BA%E1%80%B8%E1%80%9C%E1%80%AD%E1%80%AF%E1%80%84%E1%80%BA%E1%80%B8%E1%80%99%E1%80%BB%E1%80%AC%E1%80%B8-%E1%80%96%E1%80%BC%E1%80%90%E1%80%BA%E1%80%90%E1%80%B1%E1%80%AC%E1%80%80%E1%80%BA%E1%80%81%E1%80%B6%E1%80%9B-%E1%80%A7%E1%80%95%E1%80%BC/1006220404942459/"
+    },
+    {
+      "id": "",
+      "startDate": "2025-04-14",
+      "endDate": null,
+      "ongoing": true,
+      "type": "full_network",
+      "scope": "Kani township, Sagaing Division",
+      "perpetrator": "Military",
+      "services": [
+        "Mobile"
+      ],
+      "sourceUrl": "https://myanmar-now.org/mm/news/62862/"
+    },
+    {
+      "id": "",
+      "startDate": "2025-04-15",
+      "endDate": null,
+      "ongoing": true,
+      "type": "full_network",
+      "scope": "Tilin township, Magway Division",
+      "perpetrator": "Military",
+      "services": [
+        "Mobile"
+      ],
+      "sourceUrl": "https://www.ludunwayoo.com/news-mm/2025/04/16/118059/"
+    },
+    {
+      "id": "",
+      "startDate": "2025-04-15",
+      "endDate": "2025-04-18",
+      "ongoing": false,
+      "type": "full_network",
+      "scope": "Ywangan township, Shan State",
+      "perpetrator": "Military",
+      "services": [
+        "Mobile"
+      ],
+      "sourceUrl": "https://burmese.shannews.org/archives/47849"
+    },
+    {
+      "id": "",
+      "startDate": "2025-04-17",
+      "endDate": null,
+      "ongoing": true,
+      "type": "full_network",
+      "scope": "Lemyethna township, Ayeyarwady Region",
+      "perpetrator": "Military",
+      "services": [
+        "Mobile"
+      ],
+      "sourceUrl": "https://ayartimes.com/?p=52878"
+    },
+    {
+      "id": "",
+      "startDate": "2025-04-20",
+      "endDate": "2025-04-23",
+      "ongoing": false,
+      "type": "full_network",
+      "scope": "Minthar village tract, Yebyu township, Tanintharyi Region",
+      "perpetrator": "Military",
+      "services": [
+        "Broadband",
+        "Mobile"
+      ],
+      "sourceUrl": "https://ayartimes.com/?p=53149"
+    },
+    {
+      "id": "",
+      "startDate": "2025-04-29",
+      "endDate": "2025-05-03",
+      "ongoing": false,
+      "type": "full_network",
+      "scope": "Kale city, Sagaing Division",
+      "perpetrator": "Military",
+      "services": [
+        "Broadband",
+        "Mobile"
+      ],
+      "sourceUrl": "https://chinworld.org/2025/05/%E1%80%81%E1%80%BB%E1%80%84%E1%80%BA%E1%80%B8%E1%80%95%E1%80%BC%E1%80%8A%E1%80%BA%E1%80%94%E1%80%9A%E1%80%BA%E1%80%94%E1%80%B2%E1%80%B7-%E1%80%80%E1%80%9C%E1%80%B1%E1%80%B8%E1%80%99%E1%80%BC%E1%80%AD/"
+    },
+    {
+      "id": "",
+      "startDate": "2025-05-01",
+      "endDate": "2025-06-01",
+      "ongoing": false,
+      "type": "full_network",
+      "scope": "Mawchi area, Hpasawng township, Kayah State",
+      "perpetrator": "Military",
+      "services": [
+        "Broadband",
+        "Mobile"
+      ],
+      "sourceUrl": "https://web.archive.org/web/20250921165227/https://www.kantarawaddytimes.org/%E1%80%9B%E1%80%94%E1%80%BA%E1%80%9E%E1%80%B0%E1%80%9E%E1%80%90%E1%80%84%E1%80%BA%E1%80%B8%E1%80%95%E1%80%B1%E1%80%B8%E1%80%90%E1%80%BD%E1%80%B1%E1%80%80%E1%80%BC%E1%80%B1%E1%80%AC%E1%80%84%E1%80%B7/"
+    },
+    {
+      "id": "",
+      "startDate": "2025-05-01",
+      "endDate": null,
+      "ongoing": true,
+      "type": "full_network",
+      "scope": "Mahlaing township, Mandalay Region",
+      "perpetrator": "Military",
+      "services": [
+        "Mobile"
+      ],
+      "sourceUrl": "https://web.archive.org/web/20250513193951/https://mpapress.com/%E1%80%94%E1%80%AD%E1%80%AF%E1%80%84%E1%80%BA%E1%80%84%E1%80%B6%E1%80%9B%E1%80%B1%E1%80%B8/62328/"
+    },
+    {
+      "id": "",
+      "startDate": "2025-05-02",
+      "endDate": null,
+      "ongoing": true,
+      "type": "full_network",
+      "scope": "Saw township, Magway Division",
+      "perpetrator": "Military",
+      "services": [
+        "Mobile"
+      ],
+      "sourceUrl": "https://yktnews.com/2025/05/213207/"
+    },
+    {
+      "id": "",
+      "startDate": "2025-05-07",
+      "endDate": null,
+      "ongoing": true,
+      "type": "full_network",
+      "scope": "Gangaw township, Magway Division",
+      "perpetrator": "Military",
+      "services": [
+        "Mobile"
+      ],
+      "sourceUrl": "https://yktnews.com/2025/05/213820/"
+    },
+    {
+      "id": "",
+      "startDate": "2025-05-07",
+      "endDate": "2025-05-31",
+      "ongoing": false,
+      "type": "full_network",
+      "scope": "Hainggyi Island, Hinthada, Kyangin, Kyonpyaw, Lemyethna, Myanaung, Nga Yoke Kaung, Tahbaung, and Yegyi townships, Ayeyarwady Region",
+      "perpetrator": "Military",
+      "services": [
+        "Mobile"
+      ],
+      "sourceUrl": "https://burmese.dvb.no/post/707611"
+    },
+    {
+      "id": "",
+      "startDate": "2025-05-31",
+      "endDate": "2025-06-21",
+      "ongoing": false,
+      "type": "full_network",
+      "scope": "Launglon township, Dawei district, Tanintharyi Region",
+      "perpetrator": "Military",
+      "services": [
+        "Broadband",
+        "Mobile"
+      ],
+      "sourceUrl": "https://www.daweiwatch.com/06/06/2025/113195/"
+    },
+    {
+      "id": "",
+      "startDate": "2025-06-03",
+      "endDate": null,
+      "ongoing": true,
+      "type": "full_network",
+      "scope": "Nyaung-U-Chauk road, Nyaung-U township, Mandalay Region",
+      "perpetrator": "Military",
+      "services": [
+        "Broadband",
+        "Mobile"
+      ],
+      "sourceUrl": "https://www.bbc.com/burmese/articles/cn8z94jy3pzo"
+    },
+    {
+      "id": "",
+      "startDate": "2025-06-06",
+      "endDate": null,
+      "ongoing": true,
+      "type": "full_network",
+      "scope": "Naungcho township, Shan State",
+      "perpetrator": "Military",
+      "services": [
+        "Broadband",
+        "Mobile"
+      ],
+      "sourceUrl": "https://www.ludunwayoo.com/news-mm/2025/06/07/123231/"
+    },
+    {
+      "id": "",
+      "startDate": "2025-06-06",
+      "endDate": null,
+      "ongoing": true,
+      "type": "full_network",
+      "scope": "Rakhine State",
+      "perpetrator": "Military",
+      "services": [
+        "Mobile"
+      ],
+      "sourceUrl": "https://www.facebook.com/rcnanews/posts/pfbid02GJUHEwA4Hm22amVFea6zQ19XTDQhaTJQTntLix84xBnPbJFnE7xyMNQ5WoqDhpQPl"
+    },
+    {
+      "id": "",
+      "startDate": "2025-06-10",
+      "endDate": null,
+      "ongoing": true,
+      "type": "full_network",
+      "scope": "Hsihseng township, Shan State",
+      "perpetrator": "Military",
+      "services": [
+        "Broadband",
+        "Mobile"
+      ],
+      "sourceUrl": "https://myanmar-now.org/mm/news/64263/"
+    },
+    {
+      "id": "",
+      "startDate": "2025-06-11",
+      "endDate": null,
+      "ongoing": true,
+      "type": "full_network",
+      "scope": "Mangyipinin village, Taungoo township, Bago Region",
+      "perpetrator": "Military",
+      "services": [
+        "Mobile"
+      ],
+      "sourceUrl": "https://www.ludunwayoo.com/news-mm/2025/06/11/123708/"
+    },
+    {
+      "id": "",
+      "startDate": "2025-06-24",
+      "endDate": null,
+      "ongoing": true,
+      "type": "full_network",
+      "scope": "Gangaw township, Magway Division",
+      "perpetrator": "Military",
+      "services": [
+        "Broadband",
+        "Mobile"
+      ],
+      "sourceUrl": "https://www.dvb.no/post/711868"
+    },
+    {
+      "id": "",
+      "startDate": "2025-07-08",
+      "endDate": null,
+      "ongoing": true,
+      "type": "full_network",
+      "scope": "Mogok city, Mandalay Region",
+      "perpetrator": "Military",
+      "services": [
+        "Broadband",
+        "Mobile"
+      ],
+      "sourceUrl": "https://www.shannivoice.com/%E1%80%99%E1%80%AD%E1%80%AF%E1%80%B8%E1%80%80%E1%80%AF%E1%80%90%E1%80%BA%E1%80%94%E1%80%B2%E1%80%B7%E1%80%80%E1%80%BB%E1%80%B1%E1%80%AC%E1%80%80%E1%80%BA%E1%80%99%E1%80%B2%E1%80%99%E1%80%BC%E1%80%AD/"
+    },
+    {
+      "id": "",
+      "startDate": "2025-07-14",
+      "endDate": null,
+      "ongoing": true,
+      "type": "full_network",
+      "scope": "Thabeikkyin township, Mandalay Region",
+      "perpetrator": "Unknown",
+      "services": [
+        "Broadband",
+        "Mobile"
+      ],
+      "sourceUrl": "https://www.dvb.no/post/714703"
+    },
+    {
+      "id": "",
+      "startDate": "2025-07-18",
+      "endDate": "2025-07-18",
+      "ongoing": false,
+      "type": "full_network",
+      "scope": "Bahan and Sanchaung townships, Yangon Region",
+      "perpetrator": "Military",
+      "services": [
+        "Broadband",
+        "Mobile"
+      ],
+      "sourceUrl": "https://www.facebook.com/100066528465996/posts/1108594808034791/"
+    },
+    {
+      "id": "",
+      "startDate": "2025-07-23",
+      "endDate": "2025-07-28",
+      "ongoing": false,
+      "type": "full_network",
+      "scope": "Palaw township, Tanintharyi Region",
+      "perpetrator": "Military",
+      "services": [
+        "Mobile"
+      ],
+      "sourceUrl": "https://www.ludunwayoo.com/news-mm/2025/07/28/128961/"
+    },
+    {
+      "id": "",
+      "startDate": "2025-07-24",
+      "endDate": "2025-07-28",
+      "ongoing": false,
+      "type": "full_network",
+      "scope": "Hakha city, Chin State",
+      "perpetrator": "Military",
+      "services": [
+        "Broadband",
+        "Mobile"
+      ],
+      "sourceUrl": "https://www.facebook.com/ayeyarwaddytimes/posts/%E1%80%9F%E1%80%AC%E1%80%B8%E1%80%81%E1%80%AB%E1%80%B8%E1%80%99%E1%80%BC%E1%80%AD%E1%80%AF%E1%80%B7%E1%80%9B%E1%80%BE%E1%80%AD-%E1%80%A1%E1%80%84%E1%80%BA%E1%80%90%E1%80%AC%E1%80%94%E1%80%80%E1%80%BA-%E1%80%9D%E1%80%AD%E1%80%AF%E1%80%84%E1%80%BA%E1%80%96%E1%80%AD%E1%80%AF%E1%80%84%E1%80%BA%E1%80%85%E1%80%80%E1%80%BA%E1%80%99%E1%80%BB%E1%80%AC%E1%80%B8%E1%80%80%E1%80%AD%E1%80%AF-%E1%80%85%E1%80%85%E1%80%BA%E1%80%80%E1%80%B1%E1%80%AC%E1%80%84%E1%80%BA%E1%80%85%E1%80%AE%E1%80%90%E1%80%95%E1%80%BA%E1%80%99%E1%80%BE-%E1%80%9E%E1%80%AD%E1%80%99%E1%80%BA%E1%80%B8%E1%80%86%E1%80%8A%E1%80%BA%E1%80%B8%E1%80%9F%E1%80%AC%E1%80%B8%E1%80%81%E1%80%AB%E1%80%B8%E1%80%A7%E1%80%9B%E1%80%AC%E1%80%9D/1072267511708934/"
+    },
+    {
+      "id": "",
+      "startDate": "2025-07-25",
+      "endDate": null,
+      "ongoing": true,
+      "type": "full_network",
+      "scope": "Dawei township, Tanintharyi Region",
+      "perpetrator": "Military",
+      "services": [
+        "Mobile"
+      ],
+      "sourceUrl": "https://yktnews.com/2025/07/222584/"
+    },
+    {
+      "id": "",
+      "startDate": "2025-08-16",
+      "endDate": null,
+      "ongoing": true,
+      "type": "full_network",
+      "scope": "Kyaukpyu township, Rakhine State",
+      "perpetrator": "Unknown",
+      "services": [
+        "Broadband",
+        "Mobile"
+      ],
+      "sourceUrl": "https://myanmar-now.org/mm/news/66577/"
+    },
+    {
+      "id": "",
+      "startDate": "2025-08-19",
+      "endDate": null,
+      "ongoing": true,
+      "type": "full_network",
+      "scope": "Villages in western Seikphyu township, Magway Division",
+      "perpetrator": "Military",
+      "services": [
+        "Broadband",
+        "Mobile"
+      ],
+      "sourceUrl": "https://www.facebook.com/mandalayfreepress/posts/pfbid0CeoVxRXvSiP6kb7yLixreos92QikCXSFsqVzXUhmvecj4GzJ5nzpkY1PfcB3Geicl/"
+    },
+    {
+      "id": "",
+      "startDate": "2025-08-19",
+      "endDate": null,
+      "ongoing": true,
+      "type": "full_network",
+      "scope": "Kawkareik and Myawaddy townships, Kayin State",
+      "perpetrator": "Military",
+      "services": [
+        "Broadband",
+        "Mobile"
+      ],
+      "sourceUrl": "https://burmese.dvb.no/post/720225"
+    },
+    {
+      "id": "",
+      "startDate": "2025-08-26",
+      "endDate": null,
+      "ongoing": true,
+      "type": "full_network",
+      "scope": "Rakhine State",
+      "perpetrator": "Military",
+      "services": [
+        "Broadband",
+        "Mobile"
+      ],
+      "sourceUrl": "https://burmese.narinjara.com/news/detail/68aee59dffdcb3b2de12478b"
+    },
+    {
+      "id": "",
+      "startDate": "2025-09-01",
+      "endDate": null,
+      "ongoing": true,
+      "type": "full_network",
+      "scope": "Anyarphyar village, Dawei district, Tanintharyi Region",
+      "perpetrator": "Military",
+      "services": [
+        "Mobile"
+      ],
+      "sourceUrl": "https://www.daweiwatch.com/02/09/2025/117941/"
+    },
+    {
+      "id": "",
+      "startDate": "2025-09-01",
+      "endDate": null,
+      "ongoing": true,
+      "type": "full_network",
+      "scope": "Pauk township, Magway Division",
+      "perpetrator": "Military",
+      "services": [
+        "Broadband",
+        "Mobile"
+      ],
+      "sourceUrl": "https://yktnews.com/2025/09/226755/"
+    },
+    {
+      "id": "",
+      "startDate": "2025-09-02",
+      "endDate": null,
+      "ongoing": true,
+      "type": "full_network",
+      "scope": "Budalin township, Sagaing Division",
+      "perpetrator": "Military",
+      "services": [
+        "Broadband",
+        "Mobile"
+      ],
+      "sourceUrl": "https://myanmar-now.org/mm/news/67282/"
+    },
+    {
+      "id": "",
+      "startDate": "2025-09-10",
+      "endDate": null,
+      "ongoing": true,
+      "type": "full_network",
+      "scope": "Conflict areas along Mon State and Tanintharyi Region border",
+      "perpetrator": "Military",
+      "services": [
+        "Broadband",
+        "Mobile"
+      ],
+      "sourceUrl": "https://burmese.monnews.org/2025/09/10/%E1%80%9B%E1%80%BD%E1%80%B1%E1%80%B8%E1%80%80%E1%80%B1%E1%80%AC%E1%80%80%E1%80%BA%E1%80%95%E1%80%BD%E1%80%B2-%E1%80%94%E1%80%BE%E1%80%B1%E1%80%AC%E1%80%84%E1%80%B7%E1%80%BA%E1%80%9A%E1%80%BE%E1%80%80/"
+    },
+    {
+      "id": "",
+      "startDate": "2025-09-12",
+      "endDate": "2025-09-20",
+      "ongoing": false,
+      "type": "full_network",
+      "scope": "Kale township, Sagaing Division",
+      "perpetrator": "Military",
+      "services": [
+        "Broadband",
+        "Mobile"
+      ],
+      "sourceUrl": "https://www.facebook.com/shwepheemyaynews/posts/pfbid02c7y1JU1uEp5bfAKaExDFxky6wubZHbKk6BTGLQLcrzV22rRTpLqaJFZicKgN2gnQl/"
+    },
+    {
+      "id": "",
+      "startDate": "2025-09-15",
+      "endDate": null,
+      "ongoing": true,
+      "type": "full_network",
+      "scope": "Banmauk township, Sagaing Division",
+      "perpetrator": "Military",
+      "services": [
+        "Broadband",
+        "Mobile"
+      ],
+      "sourceUrl": "https://www.shannivoice.com/%E1%80%97%E1%80%94%E1%80%BA%E1%80%B8%E1%80%99%E1%80%B1%E1%80%AC%E1%80%80%E1%80%BA-%E1%80%99%E1%80%BC%E1%80%AD%E1%80%AF%E1%80%B7%E1%80%94%E1%80%9A%E1%80%BA-%E1%80%95-%E1%80%A1-%E1%80%96-%E1%80%A1/"
+    },
+    {
+      "id": "",
+      "startDate": "2025-09-18",
+      "endDate": null,
+      "ongoing": true,
+      "type": "full_network",
+      "scope": "Kani township, Sagaing Division",
+      "perpetrator": "Executive government",
+      "services": [
+        "Broadband",
+        "Mobile"
+      ],
+      "sourceUrl": "https://www.facebook.com/story.php?story_fbid=825352669867453&id=100071781816349"
+    },
+    {
+      "id": "",
+      "startDate": "2025-09-22",
+      "endDate": null,
+      "ongoing": true,
+      "type": "full_network",
+      "scope": "Lansal village, Hsawlaw township and Lumyang village, Waingmaw township, Kachin State",
+      "perpetrator": "Non-government",
+      "services": [
+        "Mobile"
+      ],
+      "sourceUrl": "https://t.me/spmnewsagency2019/21482"
+    },
+    {
+      "id": "",
+      "startDate": "2025-09-26",
+      "endDate": null,
+      "ongoing": true,
+      "type": "full_network",
+      "scope": "Ramree township, Rakhine State",
+      "perpetrator": "Military",
+      "services": [
+        "Mobile"
+      ],
+      "sourceUrl": "https://www.facebook.com/story.php?story_fbid=1353523360120420&id=100063883071441"
+    },
+    {
+      "id": "",
+      "startDate": "2025-10-02",
+      "endDate": "2025-10-07",
+      "ongoing": false,
+      "type": "full_network",
+      "scope": "Namtu town, Shan State",
+      "perpetrator": "Military",
+      "services": [
+        "Mobile"
+      ],
+      "sourceUrl": "https://www.ludunwayoo.com/news-mm/2025/10/03/135573/"
+    },
+    {
+      "id": "",
+      "startDate": "2025-10-03",
+      "endDate": "2025-10-04",
+      "ongoing": false,
+      "type": "full_network",
+      "scope": "Mandalay and Pyinoolwin townships, Mandalay Region",
+      "perpetrator": "Military",
+      "services": [
+        "Broadband",
+        "Mobile"
+      ],
+      "sourceUrl": "https://www.ludunwayoo.com/feature-mm/2025/10/06/135909/"
+    },
+    {
+      "id": "",
+      "startDate": "2025-10-06",
+      "endDate": "2025-10-07",
+      "ongoing": false,
+      "type": "full_network",
+      "scope": "Bonto village, Chaung-U township, Sagaing Division",
+      "perpetrator": "Military",
+      "services": [
+        "Mobile"
+      ],
+      "sourceUrl": "https://www.ludunwayoo.com/news-mm/2025/10/18/137117/"
+    },
+    {
+      "id": "",
+      "startDate": "2025-10-14",
+      "endDate": null,
+      "ongoing": true,
+      "type": "full_network",
+      "scope": "Kawkareik township, Kayin State",
+      "perpetrator": "Military",
+      "services": [
+        "Broadband",
+        "Mobile"
+      ],
+      "sourceUrl": "https://yktnews.com/2025/10/230992/"
+    },
+    {
+      "id": "",
+      "startDate": "2025-10-15",
+      "endDate": null,
+      "ongoing": true,
+      "type": "full_network",
+      "scope": "Man San village tract and Namtu town, Namtu township, Shan State",
+      "perpetrator": "Military",
+      "services": [
+        "Broadband",
+        "Mobile"
+      ],
+      "sourceUrl": "https://www.facebook.com/100066891622617/posts/1140682671504776/"
+    },
+    {
+      "id": "",
+      "startDate": "2025-10-16",
+      "endDate": null,
+      "ongoing": true,
+      "type": "full_network",
+      "scope": "Pale township, Sagaing Division",
+      "perpetrator": "Military",
+      "services": [
+        "Mobile"
+      ],
+      "sourceUrl": "https://burmese.dvb.no/post/733319"
+    },
+    {
+      "id": "",
+      "startDate": "2025-11-01",
+      "endDate": "2025-11-02",
+      "ongoing": false,
+      "type": "full_network",
+      "scope": "Monywa, Sagaing Division",
+      "perpetrator": "Military",
+      "services": [
+        "Broadband",
+        "Mobile"
+      ],
+      "sourceUrl": "https://www.ludunwayoo.com/news-mm/2025/11/03/138591/"
+    },
+    {
+      "id": "",
+      "startDate": "2025-11-04",
+      "endDate": null,
+      "ongoing": true,
+      "type": "full_network",
+      "scope": "Zardi village, Yebyu township, Tanintharyi Region",
+      "perpetrator": "Military",
+      "services": [
+        "Broadband",
+        "Mobile"
+      ],
+      "sourceUrl": "https://www.daweiwatch.com/10/11/2025/121471/"
+    },
+    {
+      "id": "",
+      "startDate": "2025-11-11",
+      "endDate": null,
+      "ongoing": true,
+      "type": "full_network",
+      "scope": "Ywangan township, Shan State",
+      "perpetrator": "Military",
+      "services": [
+        "Broadband",
+        "Mobile"
+      ],
+      "sourceUrl": "https://globalreporter.org/mm/news-details/cmhvdzfwh03oxp9dbfandvhld?from_site=true&country_id=1&news_type=daily"
+    },
+    {
+      "id": "",
+      "startDate": "2025-11-14",
+      "endDate": null,
+      "ongoing": true,
+      "type": "full_network",
+      "scope": "Launglon township, Dawei district, Tanintharyi Region",
+      "perpetrator": "Military",
+      "services": [
+        "Mobile"
+      ],
+      "sourceUrl": "https://yktnews.com/2025/11/233943/"
+    },
+    {
+      "id": "",
+      "startDate": "2025-11-19",
+      "endDate": null,
+      "ongoing": true,
+      "type": "full_network",
+      "scope": "Salingyi township, Sagaing Division",
+      "perpetrator": "Military",
+      "services": [
+        "Mobile"
+      ],
+      "sourceUrl": "https://yktnews.com/2025/11/234403/"
+    },
+    {
+      "id": "",
+      "startDate": "2025-11-23",
+      "endDate": null,
+      "ongoing": true,
+      "type": "full_network",
+      "scope": "Eastern parts of the Mogok area, Shan State",
+      "perpetrator": "Military",
+      "services": [
+        "Broadband",
+        "Mobile"
+      ],
+      "sourceUrl": "https://www.bbc.com/burmese/articles/ckg927k16nwo"
+    },
+    {
+      "id": "",
+      "startDate": "2025-12-08",
+      "endDate": null,
+      "ongoing": true,
+      "type": "full_network",
+      "scope": "Puta-O township, Kachin State",
+      "perpetrator": "Military",
+      "services": [
+        "Broadband",
+        "Mobile"
+      ],
+      "sourceUrl": "https://burmese.kachinnews.com/2025/12/10/zz1-325/"
+    },
+    {
+      "id": "",
+      "startDate": "2025-12-09",
+      "endDate": null,
+      "ongoing": true,
+      "type": "full_network",
+      "scope": "Nattalin township, Bago Region",
+      "perpetrator": "Military",
+      "services": [
+        "Mobile"
+      ],
+      "sourceUrl": "https://burmese.dvb.no/post/737451"
+    },
+    {
+      "id": "",
+      "startDate": "2025-12-15",
+      "endDate": null,
+      "ongoing": true,
+      "type": "full_network",
+      "scope": "Mingaladon and North Okkalapa townships, Yangon Region",
+      "perpetrator": "Military",
+      "services": [
+        "Mobile"
+      ],
+      "sourceUrl": "https://www.facebook.com/PeacockRedBurma/posts/%E1%80%9B%E1%80%94%E1%80%BA%E1%80%80%E1%80%AF%E1%80%94%E1%80%BA%E1%80%99%E1%80%BE%E1%80%AC-%E1%80%96%E1%80%AF%E1%80%94%E1%80%BA%E1%80%B8%E1%80%9C%E1%80%AD%E1%80%AF%E1%80%84%E1%80%BA%E1%80%B8-%E1%80%95%E1%80%BC%E1%80%90%E1%80%BA%E1%80%90%E1%80%B1%E1%80%AC%E1%80%80%E1%80%BA%E1%80%94%E1%80%B1%E1%80%9B%E1%80%94%E1%80%BA%E1%80%80%E1%80%AF%E1%80%94%E1%80%BA-%E1%80%92%E1%80%AE%E1%80%87%E1%80%84%E1%80%BA%E1%80%98%E1%80%AC-%E1%81%81%E1%81%85%E1%80%9B%E1%80%94%E1%80%BA%E1%80%80%E1%80%AF%E1%80%94%E1%80%BA%E1%80%90%E1%80%AD%E1%80%AF%E1%80%84%E1%80%BA%E1%80%B8%E1%80%99%E1%80%BE%E1%80%AC-%E1%80%96%E1%80%AF%E1%80%94%E1%80%BA%E1%80%B8%E1%80%9C%E1%80%AD%E1%80%AF%E1%80%84%E1%80%BA/1277696641061315/"
+    },
+    {
+      "id": "",
+      "startDate": "2025-12-18",
+      "endDate": "2025-12-31",
+      "ongoing": false,
+      "type": "full_network",
+      "scope": "Indaw township, Sagaing Division",
+      "perpetrator": "Military",
+      "services": [
+        "Broadband",
+        "Mobile"
+      ],
+      "sourceUrl": "https://www.facebook.com/LuduNwayOo/posts/အင်းတော်မှာ-starlinkအသုံးပြုမှု-ဒီနှစ်ကုန်အထိပိတ်သိမ်းဖို့-ပအဖ-ထုတ်ပြန်ဒီဇင်ဘာ-၂/1193244099541047/"
+    },
+    {
+      "id": "",
+      "startDate": "2025-12-24",
+      "endDate": null,
+      "ongoing": true,
+      "type": "full_network",
+      "scope": "Thanlyin township, Yangon Region",
+      "perpetrator": "Military",
+      "services": [
+        "Mobile"
+      ],
+      "sourceUrl": "https://www.facebook.com/ayeyarwaddytimes/posts/%E1%80%85%E1%80%85%E1%80%BA%E1%80%81%E1%80%B1%E1%80%AB%E1%80%84%E1%80%BA%E1%80%B8%E1%80%86%E1%80%B1%E1%80%AC%E1%80%84%E1%80%BA%E1%80%9C%E1%80%AC%E1%80%99%E1%80%8A%E1%80%BA%E1%80%9F%E1%80%AF%E1%80%86%E1%80%AD%E1%80%AF%E1%80%80%E1%80%AC-%E1%80%9E%E1%80%94%E1%80%BA%E1%80%9C%E1%80%BB%E1%80%84%E1%80%BA%E1%80%99%E1%80%BC%E1%80%AD%E1%80%AF%E1%80%B7%E1%80%94%E1%80%9A%E1%80%BA%E1%80%A1%E1%80%90%E1%80%BD%E1%80%84%E1%80%BA%E1%80%B8-%E1%80%86%E1%80%80%E1%80%BA%E1%80%9E%E1%80%BD%E1%80%9A%E1%80%BA%E1%80%9B%E1%80%B1%E1%80%B8%E1%80%9C%E1%80%AD%E1%80%AF%E1%80%84%E1%80%BA%E1%80%B8%E1%80%99%E1%80%BB%E1%80%AC%E1%80%B8%E1%80%96%E1%80%BC%E1%80%90%E1%80%BA%E1%80%90%E1%80%B1%E1%80%AC%E1%80%80%E1%80%BA-%E1%80%A7/1190073209928363/"
+    },
+    {
+      "id": "",
+      "startDate": "2025-12-27",
+      "endDate": "2025-12-28",
+      "ongoing": false,
+      "type": "full_network",
+      "scope": "Cities and townships across Myanmar",
+      "perpetrator": "Military",
+      "services": [
+        "Mobile"
+      ],
+      "sourceUrl": ""
+    }
+  ]
 }
