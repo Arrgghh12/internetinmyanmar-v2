@@ -7,6 +7,7 @@ import historyWeekly from '../../data/ooni-history-weekly.json'
 import historyDaily from '../../data/ooni-history-daily.json'
 import cfOutages from '../../data/cf-radar-outages.json'
 import cfTraffic from '../../data/cf-traffic.json'
+import OoniBreakdownChart from '../../components/charts/OoniBreakdownChart.astro'
 
 export const prerender = false
 
@@ -117,6 +118,8 @@ const cfMonthlyMap = Object.fromEntries(
         ))}
       </div>
     </div>
+
+    <OoniBreakdownChart />
 
     <div>
       <h2 class="font-headline text-xl mb-4">Recent Monthly Measurements</h2>

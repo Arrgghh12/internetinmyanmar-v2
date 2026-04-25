@@ -5,6 +5,7 @@ import stats from '../../content/observatory/stats.json'
 import asnStatusRaw from '../../data/asn-status.json'
 import bgpOutagesRaw from '../../data/bgp-outages.json'
 import cfOutages from '../../data/cf-radar-outages.json'
+import LiveSignalChart from '../../components/charts/LiveSignalChart.astro'
 
 export const prerender = false
 
@@ -58,6 +59,9 @@ const bgpDown  = Object.values(asnStatus).filter((a: any) => a.status === 'RED')
         {stats.note}
       </div>
     )}
+
+    <!-- Current conditions: 30-day live signal -->
+    <LiveSignalChart />
 
     <!-- Sub-sections -->
     <div class="grid md:grid-cols-2 gap-6">

@@ -2,6 +2,7 @@
 import Observatory from '../../layouts/Observatory.astro'
 import stats from '../../content/observatory/stats.json'
 import blockedData from '../../data/blocked-sites.json'
+import CategoryBlockChart from '../../components/charts/CategoryBlockChart.astro'
 
 export const prerender = false
 
@@ -43,6 +44,8 @@ const categoryColors: Record<string, string> = {
         </div>
       ))}
     </div>
+
+    <CategoryBlockChart />
 
     <!-- Category filter tabs -->
     <div id="filter-tabs" class="flex flex-wrap gap-2 mb-6">
