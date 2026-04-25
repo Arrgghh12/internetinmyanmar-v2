@@ -10696,21 +10696,21 @@
     "name": "ILINK-AS-AP i-Link",
     "status": "DOWN",
     "started_at": "2026-04-24T23:31:13.746743+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-25T00:01:13.587330+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS152140",
     "name": "YSOMCL-AS-AP YAM Success of Myanmar Co.",
     "status": "DOWN",
     "started_at": "2026-04-24T23:31:36.310284+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-25T00:01:21.799348+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   }
 ]
