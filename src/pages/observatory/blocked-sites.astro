@@ -103,6 +103,76 @@ const categoryColors: Record<string, string> = {
       Source: <a href="https://api.ooni.io/api/v1/aggregation?probe_cc=MM&test_name=web_connectivity&since=2024-01-01" target="_blank" rel="noopener" class="hover:opacity-100 underline">OONI API aggregation</a>
       · Period: {blockedData.periodStart} – present · Updated by ooni_watcher.py agent
     </div>
+
+    <div class="mt-16 border-t border-white/10 pt-10 max-w-3xl">
+      <h2 class="font-headline text-xl mb-6">Measurement Methodology</h2>
+      <div class="space-y-5 text-sm leading-relaxed opacity-80">
+
+        <div>
+          <h3 class="font-mono text-xs text-[color:var(--color-warning)] uppercase tracking-widest mb-2">Domain Inclusion Criteria</h3>
+          <p>
+            A domain is listed when it meets both thresholds across
+            <a href="https://ooni.org" target="_blank" rel="noopener" class="underline hover:opacity-100">OONI</a>'s
+            <code class="font-mono text-xs opacity-70">web_connectivity</code> test measurements
+            for Myanmar since January 2024: an anomaly rate of ≥60% across ≥10 independent test
+            measurements. An anomaly is recorded when an OONI probe detects a discrepancy between
+            the test network result and a control measurement taken outside Myanmar — including DNS
+            lookup failures, TCP connection resets, or HTTP-level interference consistent with
+            transparent proxying or block pages. The <em>confirmed</em> count represents
+            measurements where blocking was unambiguously verified against a known block page
+            fingerprint registered in OONI's database.
+          </p>
+        </div>
+
+        <div>
+          <h3 class="font-mono text-xs text-[color:var(--color-warning)] uppercase tracking-widest mb-2">Test List Curation</h3>
+          <p>
+            OONI tests domains from the
+            <a href="https://github.com/citizenlab/test-lists" target="_blank" rel="noopener" class="underline hover:opacity-100">Citizen Lab Global Test List</a>
+            and the Myanmar country-specific list, supplemented by URLs submitted by local
+            researchers and civil society organizations. The list is not exhaustive: domains
+            absent from the test list cannot be detected regardless of blocking status. Coverage
+            is strongest for high-profile targets — major social media platforms, international
+            news outlets, established circumvention tools — and weaker for smaller independent
+            publishers, community media, and recently launched platforms.
+          </p>
+        </div>
+
+        <div>
+          <h3 class="font-mono text-xs text-[color:var(--color-warning)] uppercase tracking-widest mb-2">Category Taxonomy</h3>
+          <p>
+            Domains are classified into four categories reflecting the primary censorship targets
+            documented since the 2021 military coup:
+            <strong>Social Media</strong> (platforms used for coordination, journalism, and protest
+            organisation — Facebook, Twitter/X, Instagram, TikTok);
+            <strong>News & Media</strong> (independent outlets and international broadcasters
+            including DVB, Irrawaddy, RFA, VOA);
+            <strong>Civil Society</strong> (human rights organisations, advocacy groups, legal aid
+            providers, election monitoring bodies);
+            <strong>VPN & Circumvention</strong> (tools enabling bypass of censorship controls,
+            which have been systematically blocked alongside the platforms they protect — a pattern
+            consistent with escalating censorship infrastructure rather than targeted takedowns).
+          </p>
+        </div>
+
+        <div>
+          <h3 class="font-mono text-xs text-[color:var(--color-warning)] uppercase tracking-widest mb-2">ISP Coverage & Limitations</h3>
+          <p>
+            Myanmar operates multiple independent ISPs with varying levels of compliance with
+            military directives. A domain flagged as blocked reflects aggregate measurements across
+            all available vantage points; ISP-specific access may vary. MPT (the state-owned
+            operator) and Mytel (military-linked) show the highest rate of confirmed blocks.
+            Ooredoo and Atom Myanmar have exhibited more variable compliance patterns since 2022.
+            ISP-level breakdowns for each domain are available via
+            <a href="https://explorer.ooni.org/chart/mat?probe_cc=MM&test_name=web_connectivity" target="_blank" rel="noopener" class="underline hover:opacity-100">OONI Explorer</a>.
+            The domain list is refreshed twice daily from the OONI aggregation API.
+            For time-series anomaly trends across all tested URLs, see the
+            <a href="/observatory/shutdown-tracker/" class="underline hover:opacity-100">Shutdown Tracker</a>.
+          </p>
+        </div>
+
+      </div>
+    </div>
   </div>
 
   <script>

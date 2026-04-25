@@ -520,6 +520,118 @@ function eventVerb(from: string, to: string): string {
       </div>
     </div>
 
+    <!-- Methodology -->
+    <div class="border-t border-white/10 pt-10 max-w-3xl">
+      <h2 class="font-headline text-xl mb-6">Measurement Methodology</h2>
+      <div class="space-y-5 text-sm leading-relaxed opacity-80">
+
+        <div>
+          <h3 class="font-mono text-xs text-[color:var(--color-accent)] uppercase tracking-widest mb-2">BGP Routing as a Shutdown Signal</h3>
+          <p>
+            The Border Gateway Protocol (BGP) is the routing infrastructure of the internet — the
+            system by which autonomous systems announce the reachability of their IP address blocks
+            to the global routing table. When a Myanmar ISP is ordered offline, its administrators
+            withdraw its BGP prefix announcements. This withdrawal propagates through the global
+            routing table within minutes, making the network unreachable from outside Myanmar and
+            vice versa. BGP analysis is the fastest available technical signal for detecting
+            deliberate network disconnections: withdrawals are typically observable 2–15 minutes
+            after an order is executed, well before independent reporting or network monitoring
+            alerts. It is the methodology used by
+            <a href="https://ioda.inetintel.cc.gatech.edu" target="_blank" rel="noopener noreferrer" class="underline hover:opacity-100">IODA at Georgia Tech</a>,
+            <a href="https://netblocks.org" target="_blank" rel="noopener noreferrer" class="underline hover:opacity-100">NetBlocks</a>,
+            and <a href="https://ooni.org" target="_blank" rel="noopener noreferrer" class="underline hover:opacity-100">OONI</a>
+            for corroborating application-layer interference with routing-layer evidence.
+            See also our <a href="/observatory/shutdown-tracker/" class="underline hover:opacity-100">Shutdown Tracker</a>
+            for the application-layer view.
+          </p>
+        </div>
+
+        <div>
+          <h3 class="font-mono text-xs text-[color:var(--color-accent)] uppercase tracking-widest mb-2">Route Collector Network</h3>
+          <p>
+            BGP data is sourced from
+            <a href="https://stat.ripe.net" target="_blank" rel="noopener noreferrer" class="underline hover:opacity-100">RIPEstat (RIPE NCC)</a>,
+            which aggregates routing table snapshots from 800+ globally distributed route collectors
+            maintained by academic institutions, internet exchange points, and network operators.
+            Each collector independently observes the global routing table from its vantage point.
+            A prefix withdrawal is confirmed only when a threshold of multiple geographically
+            distributed collectors no longer observe the route — reducing false positives from
+            local peering changes, collector failures, or transient route flapping.
+          </p>
+        </div>
+
+        <div>
+          <h3 class="font-mono text-xs text-[color:var(--color-accent)] uppercase tracking-widest mb-2">Visibility Percentage</h3>
+          <p>
+            Each ASN is assigned a visibility percentage representing the share of route collectors
+            that currently observe at least one active prefix for that autonomous system, relative
+            to that ASN's historical maximum. 100% indicates full global reachability. Drops below
+            50% are classified as significant partial outages; drops to 0% indicate complete
+            disconnection from the global routing table.
+            <strong>RECOVERING</strong> status is applied when visibility has returned from a DOWN
+            state within the past 60 minutes — the network is back online but still being watched
+            for stability.
+          </p>
+        </div>
+
+        <div>
+          <h3 class="font-mono text-xs text-[color:var(--color-accent)] uppercase tracking-widest mb-2">Status Classification</h3>
+          <p>
+            <strong>DOWN</strong> — visibility dropped to ≤10% of historical baseline, sustained
+            for more than 5 minutes. <strong>RECOVERING</strong> — visibility returned from DOWN
+            within the past 60 minutes. <strong>UP</strong> — visibility stable above baseline for
+            more than 1 hour. <strong>OFF</strong> — no BGP presence detected for more than 7 days;
+            network dark, not temporarily disrupted. Outage events under 5 minutes are flagged as
+            probable route flapping (BGP instability caused by hardware faults or misconfiguration)
+            rather than deliberate shutdown, consistent with the filtering methodology used by
+            <a href="https://ioda.inetintel.cc.gatech.edu" target="_blank" rel="noopener noreferrer" class="underline hover:opacity-100">IODA</a>
+            and
+            <a href="https://www.caida.org" target="_blank" rel="noopener noreferrer" class="underline hover:opacity-100">CAIDA</a>.
+          </p>
+        </div>
+
+        <div>
+          <h3 class="font-mono text-xs text-[color:var(--color-accent)] uppercase tracking-widest mb-2">Network Type Classification (MNO / ISP / IGW / IXP)</h3>
+          <p>
+            Each autonomous system is classified by network function based on observed BGP peering
+            behaviour, prefix announcements, and routing relationships — not on Myanmar government
+            registry filings or operator self-declaration. Mobile Network Operators (MNOs) are
+            identified by large consumer-facing prefix blocks with predominantly stub AS topology.
+            International Gateway operators (IGWs) are identified by transit relationships with
+            upstream international carriers and the presence of upstream BGP sessions crossing
+            Myanmar's international borders. Internet Exchange Points (IXPs) are identified by
+            shared peering fabrics with multiple local ASNs as peers. ISPs are identified by
+            downstream customer cone relationships and absence of mobile-specific prefix patterns.
+            This classification reflects observed routing reality and may differ from official
+            Myanmar government licensing categories or operator marketing designations — a
+            distinction that becomes significant when licensing structures and operational
+            infrastructure diverge, as has been documented following forced ownership transfers
+            since 2021.
+          </p>
+        </div>
+
+        <div>
+          <h3 class="font-mono text-xs text-[color:var(--color-accent)] uppercase tracking-widest mb-2">Monitored ASNs & Cross-Validation</h3>
+          <p>
+            We track all autonomous systems registered to Myanmar-based operators, including mobile
+            network operators (MPT AS9988, Mytel AS136168, Ooredoo Myanmar AS132748, Atom Myanmar
+            AS132167), international gateway providers, internet exchange points, and
+            government-adjacent infrastructure. BGP withdrawal events are cross-referenced against
+            <a href="/observatory/shutdown-tracker/" class="underline hover:opacity-100">OONI anomaly spikes</a>
+            and Cloudflare Radar traffic drops; deliberate shutdown classification is applied only
+            when routing withdrawal persists and is corroborated by independent application-layer
+            interference data. Confirmed shutdown events are further validated against contemporaneous
+            reporting from
+            <a href="https://english.dvb.no" target="_blank" rel="noopener noreferrer" class="underline hover:opacity-100">DVB</a>,
+            <a href="https://www.irrawaddy.com" target="_blank" rel="noopener noreferrer" class="underline hover:opacity-100">The Irrawaddy</a>,
+            and international newswires. The full list of monitored networks is available via the
+            JSON export above.
+          </p>
+        </div>
+
+      </div>
+    </div>
+
   </div><!-- /space-y-12 -->
 </Observatory>
 
