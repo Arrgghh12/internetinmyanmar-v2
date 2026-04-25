@@ -164,6 +164,27 @@ def fetch_cf_traffic_all_scales() -> dict:
     }
 
 
+def _fetch_existing_json(repo_path: str):
+    """Fetch a JSON file from GitHub. Returns parsed content or None on failure."""
+    if not GITHUB_TOKEN:
+        return None
+    try:
+        g = Github(GITHUB_TOKEN)
+        repo = g.get_repo(REPO_NAME)
+        f = repo.get_contents(repo_path, ref="main")
+        return json.loads(f.decoded_content)
+    except Exception as e:
+        log.warning("Could not fetch %s for merge: %s", repo_path, e)
+        return None
+
+
+def _merge_by_key(existing: list[dict], new: list[dict], key: str) -> list[dict]:
+    """Merge two lists of dicts, new wins on key collision, sorted by key."""
+    new_keys = {p[key] for p in new}
+    merged = [p for p in existing if p.get(key) not in new_keys] + new
+    return sorted(merged, key=lambda x: x.get(key, ""))
+
+
 def fetch_cf_radar_outages() -> dict:
     """
     Fetch outage annotations for Myanmar (MM) from Cloudflare Radar.
@@ -370,13 +391,13 @@ def run(test: bool = False):
     log.info(f"Fetched {len(blocked)} confirmed blocked entries")
 
     now_utc = datetime.now(timezone.utc)
-    since_weekly = (now_utc - timedelta(weeks=52)).strftime("%Y-%m-%d")
-    since_daily  = (now_utc - timedelta(days=28)).strftime("%Y-%m-%d")
+    since_daily = (now_utc - timedelta(days=28)).strftime("%Y-%m-%d")
 
     history = fetch_ooni_history("month", "2021-02-01")
     log.info(f"Fetched {len(history)} months of historical data")
 
-    ooni_weekly = fetch_ooni_history("week", since_weekly)
+    # Fetch full weekly history from coup start — OONI stores it all
+    ooni_weekly = fetch_ooni_history("week", "2021-02-01")
     log.info(f"Fetched {len(ooni_weekly)} weeks of OONI data")
 
     ooni_daily = fetch_ooni_history("day", since_daily)
@@ -386,6 +407,21 @@ def run(test: bool = False):
     log.info(f"Cloudflare Radar: {len(cf_outages['activeOutages'])} active outage(s) for MM")
 
     cf_traffic = fetch_cf_traffic_all_scales()
+
+    # Merge all rolling-window data with existing files so nothing is ever lost.
+    # CF Radar API returns at most 12 months back; OONI daily fetches only 28 days.
+    # Without merging, data older than the API window would be silently dropped each run.
+    if not test:
+        existing_cf = _fetch_existing_json("src/data/cf-traffic.json") or {}
+        for scale, key in (("monthly", "month"), ("weekly", "timestamp"), ("daily", "timestamp")):
+            if existing_cf.get(scale):
+                cf_traffic[scale] = _merge_by_key(existing_cf[scale], cf_traffic[scale], key)
+                log.info("CF %s merged: %d points total", scale, len(cf_traffic[scale]))
+
+        existing_daily = _fetch_existing_json("src/data/ooni-history-daily.json") or []
+        if existing_daily:
+            ooni_daily = _merge_by_key(existing_daily, ooni_daily, "period")
+            log.info("OONI daily merged: %d days total", len(ooni_daily))
 
     stats = compute_stats(measurements, blocked)
     log.info(f"Stats: {json.dumps(stats)}")

@@ -21,7 +21,7 @@ import os
 import re
 import subprocess
 import time
-from datetime import datetime, timezone, timedelta
+from datetime import datetime, timezone
 from pathlib import Path
 
 import httpx
@@ -238,8 +238,6 @@ def save_json(path: Path, data):
 
 def update_history(current_statuses: dict):
     history = load_json(HISTORY_FILE, [])
-    cutoff = (datetime.now(timezone.utc) - timedelta(days=365)).isoformat()
-    history = [h for h in history if h["timestamp"] > cutoff]
     history.append({
         "timestamp": datetime.now(timezone.utc).isoformat(),
         "statuses": {

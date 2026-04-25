@@ -163,6 +163,98 @@ const cfMonthlyMap = Object.fromEntries(
     </div>
   </div>
 
+    <div class="mt-16 border-t border-white/10 pt-10 max-w-3xl">
+      <h2 class="font-headline text-xl mb-6">Measurement Methodology</h2>
+
+      <div class="space-y-5 text-sm leading-relaxed opacity-80">
+        <p>
+          This tracker draws on three independent data pipelines — OONI Web Connectivity measurements,
+          Cloudflare Radar traffic telemetry, and BGP routing surveillance — cross-corroborated in
+          near real-time to document network interference and internet shutdowns affecting Myanmar.
+          No single source is treated as definitive; events are classified only when multiple signals
+          converge across independent measurement infrastructures.
+        </p>
+
+        <div>
+          <h3 class="font-mono text-xs text-[color:var(--color-warning)] uppercase tracking-widest mb-2">OONI Web Connectivity</h3>
+          <p>
+            The primary signal comes from the <a href="https://ooni.org" target="_blank" rel="noopener" class="underline hover:opacity-100">Open Observatory of Network Interference (OONI)</a>,
+            a global passive measurement platform that probes web connectivity from volunteer-operated
+            vantage points inside Myanmar. OONI's Web Connectivity test fetches a curated list of URLs
+            from within the country and compares results against a control measurement taken outside
+            Myanmar. Discrepancies — including DNS lookup failures, TCP/IP connection resets, and
+            HTTP-level blocking consistent with transparent proxying — are classified as anomalies.
+            When anomalies are confirmed across multiple independent probes targeting the same URL or
+            autonomous system, OONI records a confirmed blocking event. We aggregate this data at
+            monthly, weekly, and daily granularity to surface both long-term structural censorship
+            patterns and acute, time-bound shutdown events. The anomaly rate — the share of measurements
+            returning an anomalous result in a given period — is our primary quantitative indicator
+            of the severity and breadth of network interference in Myanmar.
+          </p>
+        </div>
+
+        <div>
+          <h3 class="font-mono text-xs text-[color:var(--color-accent)] uppercase tracking-widest mb-2">Cloudflare Radar Traffic Correlation</h3>
+          <p>
+            OONI measurements capture application-layer interference; they do not directly measure
+            total traffic volume. To complement this, we integrate
+            <a href="https://radar.cloudflare.com" target="_blank" rel="noopener" class="underline hover:opacity-100">Cloudflare Radar</a>'s
+            Myanmar traffic timeseries, which reflects aggregate IP flow volumes across the Cloudflare
+            network, normalised to a 0–100 index (100 = historical peak for the period). Sharp drops
+            in Cloudflare Radar traffic, particularly when temporally correlated with OONI anomaly
+            spikes, are a strong indicator of broad network-layer disruptions — wholesale shutdowns,
+            ISP-level throttling, or international transit degradation — that application-level tests
+            alone may underrepresent. This dual-layer approach mirrors methodologies used by NetBlocks
+            and the Internet Outage Detection and Analysis (IODA) project at CAIDA.
+          </p>
+        </div>
+
+        <div>
+          <h3 class="font-mono text-xs opacity-60 uppercase tracking-widest mb-2 font-mono">BGP Routing Surveillance</h3>
+          <p>
+            At the routing layer, we monitor Border Gateway Protocol (BGP) update activity for
+            Myanmar's registered autonomous systems. Withdrawal of BGP prefixes — the routing
+            announcements that make IP address blocks globally reachable — is a definitive technical
+            signal of deliberate or accidental network disconnection. Our BGP monitoring pipeline
+            scans critical Myanmar ASNs including MPT (AS9988), Mytel (AS136168), Ooredoo Myanmar
+            (AS132748), and Atom Myanmar (AS132167) every five minutes, classifying routing events
+            by severity and probable cause using a combination of rule-based heuristics and
+            contextual analysis.
+          </p>
+        </div>
+
+        <div>
+          <h3 class="font-mono text-xs opacity-60 uppercase tracking-widest mb-2 font-mono">Anomaly Classification & Thresholds</h3>
+          <p>
+            Anomaly rates above 20% in a measurement period are flagged as high-severity disruptions
+            consistent with documented shutdown events. Rates between 10–20% are marked as elevated
+            interference warranting contextual analysis against political and conflict timelines.
+            Below 10%, measurements are treated as baseline noise absent corroborating signals.
+            Classification of confirmed shutdowns is not automated: each event in the Key Events
+            timeline has been manually verified against contemporaneous reporting from Fortify Rights,
+            Free Expression Myanmar, the Irrawaddy, Democratic Voice of Burma, and international wire services.
+          </p>
+        </div>
+
+        <div>
+          <h3 class="font-mono text-xs opacity-60 uppercase tracking-widest mb-2 font-mono">Limitations & Transparency</h3>
+          <p>
+            Passive measurement infrastructure carries inherent constraints. OONI coverage depends
+            on the number and geographic distribution of active probes within Myanmar, which has
+            declined since the 2021 military coup as digital security risks have increased for local
+            researchers and civil society. Low probe density in conflict-affected regions — particularly
+            Shan, Kachin, and Rakhine States — means localised shutdowns may be underrepresented in
+            aggregate figures. Cloudflare Radar reflects traffic transiting Cloudflare's network,
+            not total internet traffic; it functions as a robust proxy signal, not an absolute
+            measure. OONI data is published under a <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener" class="underline hover:opacity-100">CC BY 4.0 licence</a>;
+            Cloudflare Radar data under CC BY-NC 4.0. Our methodology, update cadence, and data
+            pipeline are open for independent review and reproducibility.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <script define:vars={{
     ooniMonthly:  history,
     ooniWeekly:   historyWeekly,
