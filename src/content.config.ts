@@ -22,6 +22,8 @@ const articles = defineCollection({
     draft:            z.boolean().default(true),
     featuredImage:    z.string().optional(),
     featuredImageAlt: z.string().max(100).optional(),
+    featuredImageCredit: z.string().optional(),
+    featuredImageCreditUrl: z.string().url().optional(),
     excerpt:          z.string().max(300),
     readingTime:      z.number().optional(),
     lang:             z.enum(['en', 'fr', 'es', 'it', 'my']).default('en'),

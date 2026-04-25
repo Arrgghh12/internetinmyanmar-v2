@@ -13,6 +13,8 @@ interface Props {
   updatedAt?: Date
   featuredImage?: string
   featuredImageAlt?: string
+  featuredImageCredit?: string
+  featuredImageCreditUrl?: string
   excerpt: string
   readingTime?: number
   lang?: string
@@ -32,6 +34,8 @@ const {
   updatedAt,
   featuredImage,
   featuredImageAlt,
+  featuredImageCredit,
+  featuredImageCreditUrl,
   excerpt,
   readingTime,
   lang = 'en',
@@ -114,15 +118,22 @@ const primaryCategory = categories[0]
 
     <!-- Featured image -->
     {featuredImage && (
-      <img
-        src={featuredImage}
-        alt={featuredImageAlt ?? ''}
-        width="1200"
-        height="675"
-        class="w-full rounded mb-8 aspect-video object-cover"
-        loading="eager"
-        fetchpriority="high"
-      />
+      <figure class="mb-8">
+        <img
+          src={featuredImage}
+          alt={featuredImageAlt ?? ''}
+          width="1200"
+          height="675"
+          class="w-full rounded aspect-video object-cover"
+          loading="eager"
+          fetchpriority="high"
+        />
+        {featuredImageCredit && (
+          <figcaption class="text-xs opacity-40 mt-1.5 font-mono">
+            Source: <a href={featuredImageCreditUrl ?? featuredImageCredit} target="_blank" rel="noopener noreferrer" class="underline hover:opacity-70">{featuredImageCredit}</a>
+          </figcaption>
+        )}
+      </figure>
     )}
 
     <!-- H1 -->
