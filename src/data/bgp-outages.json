@@ -10806,6 +10806,28 @@
     "name": "GALAXIANET-AS-AP Galaxia @ Net",
     "status": "DOWN",
     "started_at": "2026-04-25T05:02:20.525732+00:00",
+    "ended_at": "2026-04-25T05:33:24.339997+00:00",
+    "duration_minutes": 31,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": true
+  },
+  {
+    "asn": "AS139849",
+    "name": "ROYALESPRIT-AS-AP Royal Esprit Company Limited",
+    "status": "DOWN",
+    "started_at": "2026-04-25T05:31:41.603859+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
+  },
+  {
+    "asn": "AS131322",
+    "name": "YTCL-AS-AP Yatanarpon Teleport Company Limited",
+    "status": "DOWN",
+    "started_at": "2026-04-25T05:32:36.936362+00:00",
     "ended_at": null,
     "duration_minutes": null,
     "min_visibility_pct": 0.0,
