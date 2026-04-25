@@ -10817,21 +10817,21 @@
     "name": "ROYALESPRIT-AS-AP Royal Esprit Company Limited",
     "status": "DOWN",
     "started_at": "2026-04-25T05:31:41.603859+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-25T06:01:21.261903+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS131322",
     "name": "YTCL-AS-AP Yatanarpon Teleport Company Limited",
     "status": "DOWN",
     "started_at": "2026-04-25T05:32:36.936362+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-25T06:02:17.938838+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   }
 ]
