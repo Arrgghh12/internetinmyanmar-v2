@@ -14,6 +14,8 @@ tags:
 author: "Anna"
 publishedAt: 2026-04-25
 draft: false
+featuredImage: "https://media.internetinmyanmar.com/images/myanmar-election-internet-censorship-2025-2026/myanmar-election-ballot-booth-2012-1.jpg"
+featuredImageAlt: "Myanmar voters at a ballot booth during the 2012 by-election"
 excerpt: "Myanmar's military held a three-phase sham election from December 2025 to January 2026. Our OONI and Cloudflare Radar data show why no emergency blackout was needed: the junta had already achieved mass censorship."
 readingTime: 11
 lang: "en"
@@ -33,6 +35,19 @@ sources:
 import ElectionTimelineChart from '../../components/charts/ElectionTimelineChart.astro'
 import ElectionWindowChart from '../../components/charts/ElectionWindowChart.astro'
 import BlockedSitesChart from '../../components/charts/BlockedSitesChart.astro'
+
+<figure>
+  <img
+    src="https://media.internetinmyanmar.com/images/myanmar-election-internet-censorship-2025-2026/myanmar-election-ballot-booth-2012-1.jpg"
+    alt="Myanmar voters at a ballot booth during the 2012 by-election"
+    width="1200"
+    height="675"
+    loading="eager"
+    fetchpriority="high"
+    class="w-full rounded mb-2 object-cover"
+  />
+  <figcaption>Source: <a href="https://wpengine-myanmore.s3.amazonaws.com/uploads/2020/11/1599px-Burma_By-Election_2012.jpg" target="_blank" rel="noopener noreferrer">Myanmar More</a></figcaption>
+</figure>
 
 When Myanmar's military junta scheduled its general election for late 2025, observers braced for what typically accompanies disputed votes across the region: emergency internet shutdowns, coordinated blocks of social media on polling day, the kind of abrupt network disruption that OONI probes and Cloudflare Radar flag within hours.
 
