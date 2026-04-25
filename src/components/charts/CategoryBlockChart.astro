@@ -1,0 +1,141 @@
+---
+import blockedData from '../../data/blocked-sites.json'
+
+const CATEGORY_COLORS: Record<string, string> = {
+  'Social Media':        '#F59E0B',
+  'News & Media':        '#EF4444',
+  'Civil Society':       '#8B5CF6',
+  'VPN & Circumvention': '#00D4C8',
+}
+
+// Compute average block rate per category from sites array
+const categoryMap: Record<string, { total: number; count: number }> = {}
+for (const site of blockedData.sites) {
+  if (!categoryMap[site.category]) categoryMap[site.category] = { total: 0, count: 0 }
+  categoryMap[site.category].total += site.rate
+  categoryMap[site.category].count += 1
+}
+
+const categories = Object.entries(categoryMap)
+  .map(([name, { total, count }]) => ({
+    name,
+    avgRate: Math.round(total / count),
+    siteCount: count,
+  }))
+  .sort((a, b) => b.avgRate - a.avgRate)
+---
+
+<div class="mb-10">
+  <div class="mb-2">
+    <div class="font-headline text-base">Censorship by Category</div>
+    <p class="text-xs font-mono opacity-40 mt-0.5">
+      Average OONI anomaly rate across {blockedData.totalDomains} tracked domains · Jan 2024 – present
+    </p>
+  </div>
+
+  <div class="border border-white/10 rounded-lg p-4 bg-[#0A1628]">
+    <canvas
+      id="category-block-chart"
+      role="img"
+      aria-label="Horizontal bar chart showing average OONI block rate by category: Social Media, News and Media, Civil Society, VPN and Circumvention"
+      style="width:100%;height:180px"
+    ></canvas>
+  </div>
+
+  <div class="flex justify-between items-center mt-2">
+    <p class="text-xs font-mono opacity-30">
+      OONI Web Connectivity · avg rate across sites per category ·
+      <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener" class="underline hover:opacity-60">CC BY 4.0</a>
+    </p>
+    <a href="/data/blocked-sites.json" class="text-xs font-mono opacity-40 hover:opacity-70 transition-opacity">↓ download JSON</a>
+  </div>
+
+  <!-- Data table fallback -->
+  <details class="mt-3">
+    <summary class="text-xs font-mono opacity-30 cursor-pointer hover:opacity-60 select-none">Show data table</summary>
+    <div class="mt-2 overflow-x-auto">
+      <table class="w-full text-xs font-mono border-collapse">
+        <thead>
+          <tr class="border-b border-white/10">
+            <th class="text-left py-1 pr-4 opacity-50">Category</th>
+            <th class="text-right py-1 pr-4 opacity-50">Avg anomaly rate</th>
+            <th class="text-right py-1 opacity-50">Sites tracked</th>
+          </tr>
+        </thead>
+        <tbody>
+          {categories.map(c => (
+            <tr class="border-b border-white/5">
+              <td class="py-1 pr-4" style={`color:${CATEGORY_COLORS[c.name] ?? '#fff'}`}>{c.name}</td>
+              <td class="py-1 pr-4 text-right font-bold" style={`color:${CATEGORY_COLORS[c.name] ?? '#fff'}`}>{c.avgRate}%</td>
+              <td class="py-1 text-right opacity-50">{c.siteCount}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  </details>
+</div>
+
+<script define:vars={{ categories, CATEGORY_COLORS }}>
+  (function () {
+    const canvas = document.getElementById('category-block-chart')
+    if (!canvas) return
+
+    function initChart() {
+      const ctx = canvas.getContext('2d')
+      if (!ctx) return
+
+      new window.Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels: categories.map(c => c.name),
+          datasets: [{
+            label: 'Avg anomaly rate',
+            data: categories.map(c => c.avgRate),
+            backgroundColor: categories.map(c => CATEGORY_COLORS[c.name] ?? 'rgba(100,116,139,0.7)'),
+            borderRadius: 3,
+          }],
+        },
+        options: {
+          indexAxis: 'y',
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: { display: false },
+            tooltip: {
+              backgroundColor: '#0f1f3a',
+              titleColor: '#94a3b8',
+              bodyColor: '#e2e8f0',
+              callbacks: {
+                label: c => ` ${c.parsed.x}% avg anomaly rate`,
+                afterLabel: c => ` ${categories[c.dataIndex].siteCount} sites tracked`,
+              },
+            },
+          },
+          scales: {
+            x: {
+              beginAtZero: true,
+              max: 100,
+              ticks: { color: '#64748b', font: { size: 9 }, callback: v => `${v}%` },
+              grid: { color: 'rgba(255,255,255,0.04)' },
+              title: { display: true, text: 'Average OONI Anomaly Rate (%)', color: '#64748b', font: { size: 9 } },
+            },
+            y: {
+              ticks: { color: '#94a3b8', font: { size: 10, family: 'monospace' } },
+              grid: { color: 'rgba(255,255,255,0.04)' },
+            },
+          },
+        },
+      })
+    }
+
+    if (window.Chart) {
+      initChart()
+    } else {
+      const s = document.createElement('script')
+      s.src = 'https://cdn.jsdelivr.net/npm/chart.js@4/dist/chart.umd.min.js'
+      s.onload = initChart
+      document.head.appendChild(s)
+    }
+  })()
+</script>

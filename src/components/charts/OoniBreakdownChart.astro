@@ -1,0 +1,178 @@
+---
+import ooniWeekly from '../../data/ooni-history-weekly.json'
+
+// Last 26 weeks
+const weeks = ooniWeekly.slice(-26)
+
+// Compute percentage shares per week (normalize for probe volume variability)
+const rows = weeks.map(w => {
+  const total = w.measurement_count || 1
+  return {
+    period:    w.period,
+    ok:        +((w.ok_count        / total) * 100).toFixed(1),
+    anomaly:   +((w.anomaly_count   / total) * 100).toFixed(1),
+    failure:   +((w.failure_count   / total) * 100).toFixed(1),
+    confirmed: +((w.confirmed_count / total) * 100).toFixed(1),
+    total:     w.measurement_count,
+  }
+})
+
+const lastUpdated = weeks[weeks.length - 1]?.period ?? ''
+---
+
+<div class="mb-10">
+  <div class="mb-2">
+    <div class="font-headline text-base">OONI Measurement Quality — Weekly Breakdown</div>
+    <p class="text-xs font-mono opacity-40 mt-0.5">
+      Share of measurements per outcome · last 26 weeks · distinguishes confirmed blocks from unverified anomalies
+    </p>
+  </div>
+
+  <div class="border border-white/10 rounded-lg p-4 bg-[#0A1628]">
+    <canvas
+      id="ooni-breakdown-chart"
+      role="img"
+      aria-label="Stacked bar chart showing weekly OONI measurement outcomes: confirmed blocks, anomalies, failures, and ok results as percentages"
+      style="width:100%;height:220px"
+    ></canvas>
+  </div>
+
+  <!-- HTML legend -->
+  <div class="flex flex-wrap gap-x-5 gap-y-1 mt-2">
+    {[
+      { label: 'Confirmed block', color: '#EF4444' },
+      { label: 'Anomaly',         color: '#F59E0B' },
+      { label: 'Probe failure',   color: '#475569' },
+      { label: 'OK',              color: '#22c55e' },
+    ].map(({ label, color }) => (
+      <div class="flex items-center gap-1.5">
+        <span class="inline-block w-3 h-3 rounded-sm flex-shrink-0" style={`background:${color}`}></span>
+        <span class="text-xs font-mono opacity-50">{label}</span>
+      </div>
+    ))}
+  </div>
+
+  <div class="flex justify-between items-center mt-2">
+    <p class="text-xs font-mono opacity-30">
+      OONI Web Connectivity · <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener" class="underline hover:opacity-60">CC BY 4.0</a>
+      · updated {lastUpdated}
+    </p>
+    <a href="/data/ooni-weekly.json" class="text-xs font-mono opacity-40 hover:opacity-70 transition-opacity">↓ download JSON</a>
+  </div>
+
+  <!-- Data table fallback -->
+  <details class="mt-3">
+    <summary class="text-xs font-mono opacity-30 cursor-pointer hover:opacity-60 select-none">Show data table</summary>
+    <div class="mt-2 overflow-x-auto">
+      <table class="w-full text-xs font-mono border-collapse">
+        <thead>
+          <tr class="border-b border-white/10">
+            <th class="text-left py-1 pr-4 opacity-50">Week</th>
+            <th class="text-right py-1 pr-4 opacity-50">Confirmed %</th>
+            <th class="text-right py-1 pr-4 opacity-50">Anomaly %</th>
+            <th class="text-right py-1 pr-4 opacity-50">Failure %</th>
+            <th class="text-right py-1 pr-4 opacity-50">OK %</th>
+            <th class="text-right py-1 opacity-50">Total</th>
+          </tr>
+        </thead>
+        <tbody>
+          {rows.map(r => (
+            <tr class="border-b border-white/5">
+              <td class="py-1 pr-4 opacity-70">{r.period}</td>
+              <td class="py-1 pr-4 text-right" style="color:#EF4444">{r.confirmed}%</td>
+              <td class="py-1 pr-4 text-right" style="color:#F59E0B">{r.anomaly}%</td>
+              <td class="py-1 pr-4 text-right opacity-50">{r.failure}%</td>
+              <td class="py-1 pr-4 text-right" style="color:#22c55e">{r.ok}%</td>
+              <td class="py-1 text-right opacity-50">{r.total.toLocaleString()}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  </details>
+</div>
+
+<script define:vars={{ rows }}>
+  (function () {
+    const canvas = document.getElementById('ooni-breakdown-chart')
+    if (!canvas) return
+
+    function initChart() {
+      const ctx = canvas.getContext('2d')
+      if (!ctx) return
+
+      new window.Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels: rows.map(r => r.period),
+          datasets: [
+            {
+              label: 'OK',
+              data: rows.map(r => r.ok),
+              backgroundColor: '#22c55e',
+              stack: 'stack',
+            },
+            {
+              label: 'Probe failure',
+              data: rows.map(r => r.failure),
+              backgroundColor: '#475569',
+              stack: 'stack',
+            },
+            {
+              label: 'Anomaly',
+              data: rows.map(r => r.anomaly),
+              backgroundColor: '#F59E0B',
+              stack: 'stack',
+            },
+            {
+              label: 'Confirmed block',
+              data: rows.map(r => r.confirmed),
+              backgroundColor: '#EF4444',
+              stack: 'stack',
+            },
+          ],
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: { display: false },
+            tooltip: {
+              backgroundColor: '#0f1f3a',
+              titleColor: '#94a3b8',
+              bodyColor: '#e2e8f0',
+              callbacks: {
+                label: c => ` ${c.dataset.label}: ${c.parsed.y}%`,
+                footer: items => ` Total measurements: ${rows[items[0].dataIndex].total.toLocaleString()}`,
+              },
+            },
+          },
+          scales: {
+            x: {
+              stacked: true,
+              ticks: { color: '#64748b', font: { size: 8 }, maxRotation: 45, autoSkip: true, maxTicksLimit: 13 },
+              grid: { color: 'rgba(255,255,255,0.04)' },
+            },
+            y: {
+              stacked: true,
+              min: 0,
+              max: 100,
+              ticks: { color: '#64748b', font: { size: 9 }, callback: v => `${v}%` },
+              grid: { color: 'rgba(255,255,255,0.04)' },
+              title: { display: true, text: '% of measurements', color: '#64748b', font: { size: 9 } },
+            },
+          },
+        },
+      })
+    }
+
+    if (window.Chart) {
+      initChart()
+    } else {
+      const s = document.createElement('script')
+      s.src = 'https://cdn.jsdelivr.net/npm/chart.js@4/dist/chart.umd.min.js'
+      s.onload = initChart
+      document.head.appendChild(s)
+    }
+  })()
+</script>
