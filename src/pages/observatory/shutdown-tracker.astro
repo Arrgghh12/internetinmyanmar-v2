@@ -80,7 +80,7 @@ const cfMonthlyMap = Object.fromEntries(
         <div>
           <h2 class="font-headline text-xl">OONI Anomaly Rate + CF Traffic Volume</h2>
           <p class="text-xs opacity-40 font-mono mt-0.5">
-            Bars = OONI anomaly % · Teal line = Cloudflare Radar traffic (100% = peak)
+            Bars = OONI anomaly % · Teal line = CF Radar traffic (100% = peak, last 12 months)
           </p>
         </div>
         <div class="flex gap-1 font-mono text-xs">
@@ -205,7 +205,18 @@ const cfMonthlyMap = Object.fromEntries(
       if (cf && cf.length > 0) {
         const cfMap = {}
         cf.forEach(p => {
-          const key = (p.timestamp || p.week || p.date || p.month || '').slice(0, scale === 'monthly' ? 7 : 10)
+          let raw = (p.timestamp || p.week || p.date || p.month || '')
+          let key
+          if (scale === 'monthly') {
+            key = raw.slice(0, 7)
+          } else if (scale === 'weekly' && p.timestamp) {
+            // CF Radar weeks start Monday; OONI weeks start Sunday — shift back 1 day
+            const d = new Date(p.timestamp)
+            d.setUTCDate(d.getUTCDate() - 1)
+            key = d.toISOString().slice(0, 10)
+          } else {
+            key = raw.slice(0, 10)
+          }
           cfMap[key] = p.cf_traffic
         })
         const cfData = ooni.map(d => {
