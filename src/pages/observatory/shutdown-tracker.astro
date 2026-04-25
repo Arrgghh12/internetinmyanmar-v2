@@ -193,17 +193,39 @@ const cfMonthlyMap = Object.fromEntries(
         </div>
 
         <div>
-          <h3 class="font-mono text-xs text-[color:var(--color-accent)] uppercase tracking-widest mb-2">Cloudflare Radar Traffic Correlation</h3>
+          <h3 class="font-mono text-xs text-[color:var(--color-accent)] uppercase tracking-widest mb-2">Cloudflare Radar Traffic Overlay — Reading the Chart</h3>
           <p>
-            OONI measurements capture application-layer interference; they do not directly measure
-            total traffic volume. To complement this, we integrate
-            <a href="https://radar.cloudflare.com" target="_blank" rel="noopener" class="underline hover:opacity-100">Cloudflare Radar</a>'s
-            Myanmar traffic timeseries, which reflects aggregate IP flow volumes across the Cloudflare
-            network, normalised to a 0–100 index (100 = historical peak for the period). Sharp drops
-            in Cloudflare Radar traffic, particularly when temporally correlated with OONI anomaly
-            spikes, are a strong indicator of broad network-layer disruptions — wholesale shutdowns,
-            ISP-level throttling, or international transit degradation — that application-level tests
-            alone may underrepresent. This dual-layer approach mirrors methodologies used by
+            OONI measurements capture application-layer interference but do not measure total
+            traffic volume. The chart above overlays two independent signals simultaneously:
+            purple/amber/red bars showing the OONI anomaly rate on the left axis, and a teal line
+            showing
+            <a href="https://radar.cloudflare.com" target="_blank" rel="noopener noreferrer" class="underline hover:opacity-100">Cloudflare Radar</a>
+            Myanmar IP traffic volume on the right axis, normalised to a 0–100 index where 100
+            represents the historical peak for the period.
+          </p>
+          <p class="mt-3">
+            The diagnostic power of this visualisation lies in the relationship between the two
+            signals. A spike in OONI anomalies accompanied by a simultaneous drop in Cloudflare
+            Radar traffic is the strongest available indicator of a broad, network-layer shutdown:
+            censorship that is not merely blocking specific URLs but cutting off population-level
+            internet access. Conversely, elevated OONI anomalies without a corresponding traffic
+            drop typically indicate targeted content blocking — specific platforms or domains
+            blacklisted while general internet connectivity remains available. This distinction
+            matters critically for human rights documentation: a traffic drop correlated with an
+            OONI anomaly spike constitutes strong technical evidence of a deliberate shutdown,
+            suitable for citation in legal filings, UN reporting, and sanctions documentation in
+            a way that anomaly data alone cannot.
+          </p>
+          <p class="mt-3">
+            The three time scales — 5-year monthly, 1-year weekly, 1-month daily — are designed
+            to reveal different phenomena. The 5-year monthly view shows the structural pattern
+            of internet repression since the coup: the Cloudflare traffic baseline that was near
+            zero in early 2021 has grown as Myanmar's internet penetration increased, making
+            traffic drops in later years more visible against a higher baseline. The weekly and
+            daily views reveal the operational tempo of censorship events — the timing of curfews,
+            the hours when shutdowns are imposed and lifted, and the correlation with specific
+            military offensives or protest events. This dual-signal, multi-scale approach mirrors
+            methodologies used by
             <a href="https://netblocks.org" target="_blank" rel="noopener noreferrer" class="underline hover:opacity-100">NetBlocks</a>
             and the <a href="https://ioda.inetintel.cc.gatech.edu" target="_blank" rel="noopener noreferrer" class="underline hover:opacity-100">Internet Outage Detection and Analysis (IODA)</a>
             project at CAIDA. Routing-layer evidence for the same events is available on the
