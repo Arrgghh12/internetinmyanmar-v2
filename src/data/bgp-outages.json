@@ -11037,10 +11037,10 @@
     "name": "FSAS-AS-MM FIND SOLUTION AND SERVICES CO.",
     "status": "DOWN",
     "started_at": "2026-04-25T12:02:00.687856+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-25T12:32:14.074716+00:00",
+    "duration_minutes": 30,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   }
 ]
