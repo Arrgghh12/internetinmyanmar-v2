@@ -34,8 +34,9 @@ AGENTS_DIR = Path(__file__).parent
 CONFIG = yaml.safe_load((AGENTS_DIR / "config.yaml").read_text())
 
 OONI_API       = "https://api.ooni.io/api/v1"
-CF_RADAR_API   = "https://api.cloudflare.com/client/v4/radar"
-CF_RADAR_TOKEN = os.environ.get("CF_RADAR_API_TOKEN", "")
+CF_RADAR_API      = "https://api.cloudflare.com/client/v4/radar"
+CF_RADAR_NETFLOWS = f"{CF_RADAR_API}/netflows/timeseries"
+CF_RADAR_TOKEN    = os.environ.get("CF_RADAR_API_TOKEN", "")
 GITHUB_TOKEN   = os.environ.get("GITHUB_TOKEN", "")
 REPO_NAME      = CONFIG["github"]["repo"]
 
@@ -73,29 +74,94 @@ def fetch_blocked_sites(limit: int = 500) -> list[dict]:
 
 
 @retry(stop=stop_after_attempt(3), wait=wait_exponential(min=2, max=10))
-def fetch_monthly_history() -> list[dict]:
-    """Fetch monthly aggregated OONI measurements for Myanmar since Feb 2021 (coup date)."""
+def fetch_ooni_history(time_grain: str, since: str) -> list[dict]:
+    """Fetch aggregated OONI measurements for Myanmar at any time granularity."""
     resp = requests.get(
         f"{OONI_API}/aggregation",
         params={
             "probe_cc": "MM",
             "test_name": "web_connectivity",
-            "since": "2021-02-01",
-            "time_grain": "month",
+            "since": since,
+            "time_grain": time_grain,
             "axis_x": "measurement_start_day",
         },
         timeout=30,
     )
     resp.raise_for_status()
     result = resp.json().get("result", [])
-    # Annotate with anomaly rate and format month label
     for row in result:
-        total = row.get("measurement_count", 0)
+        total   = row.get("measurement_count", 0)
         anomaly = row.get("anomaly_count", 0)
         row["anomaly_rate"] = round(anomaly / total * 100, 1) if total > 0 else 0
-        # measurement_start_day is "2021-02-01" format
-        row["month"] = row.get("measurement_start_day", "")[:7]  # "2021-02"
-    return sorted(result, key=lambda x: x["month"])
+        row["period"] = row.get("measurement_start_day", "")[:10]
+        # Keep legacy "month" key on monthly rows so existing templates don't break
+        if time_grain == "month":
+            row["month"] = row["period"][:7]
+    return sorted(result, key=lambda x: x["period"])
+
+
+# ---------------------------------------------------------------------------
+# Cloudflare Radar — netflows (traffic volume)
+# ---------------------------------------------------------------------------
+
+def _fetch_cf_netflow_series(date_range: str, agg_interval: str) -> list[dict]:
+    """Fetch a single CF Radar netflows timeseries, normalised 0–100."""
+    if not CF_RADAR_TOKEN:
+        return []
+    try:
+        resp = requests.get(
+            CF_RADAR_NETFLOWS,
+            params={"location": "MM", "dateRange": date_range,
+                    "aggInterval": agg_interval, "format": "json"},
+            headers={"Authorization": f"Bearer {CF_RADAR_TOKEN}"},
+            timeout=20,
+        )
+        resp.raise_for_status()
+        result     = resp.json().get("result", {})
+        # CF Radar netflows: {"serie_0": {"timestamps": [...], "values": ["1.0","0.97",...]}, "meta": ...}
+        # Values are already normalised strings in the 0–1 range (1.0 = peak)
+        serie      = result.get("serie_0", {})
+        timestamps = serie.get("timestamps", [])
+        values_raw = serie.get("values", [])
+        if not timestamps or not values_raw:
+            log.warning("CF netflows (%s/%s): empty serie_0", date_range, agg_interval)
+            return []
+        return [
+            {"timestamp": ts, "cf_traffic": round(float(v) * 100, 1)}
+            for ts, v in zip(timestamps, values_raw)
+        ]
+    except Exception as e:
+        log.warning("CF netflows fetch failed (%s/%s): %s", date_range, agg_interval, e)
+        return []
+
+
+def fetch_cf_traffic_all_scales() -> dict:
+    """Fetch CF Radar traffic for all three chart scales (monthly, weekly, daily)."""
+    now = datetime.now(timezone.utc)
+    weekly_raw = _fetch_cf_netflow_series("52w", "1w")
+
+    # Bucket weekly points into calendar months for the 5-year overlay
+    monthly_by_month: dict[str, list[float]] = {}
+    for pt in weekly_raw:
+        m = pt["timestamp"][:7]   # "YYYY-MM"
+        monthly_by_month.setdefault(m, []).append(pt["cf_traffic"])
+    monthly = [
+        {"month": m, "cf_traffic": round(sum(v) / len(v), 1)}
+        for m, v in sorted(monthly_by_month.items())
+    ]
+
+    daily_raw = _fetch_cf_netflow_series("28d", "1d")
+
+    log.info(
+        "CF traffic fetched: monthly=%d months, weekly=%d pts, daily=%d pts",
+        len(monthly), len(weekly_raw), len(daily_raw),
+    )
+    return {
+        "lastUpdated": now.isoformat(),
+        "monthly": monthly,
+        "weekly":  weekly_raw,
+        "daily":   daily_raw,
+    }
 
 
 def fetch_cf_radar_outages() -> dict:
@@ -220,7 +286,14 @@ def compute_stats(measurements: list[dict], blocked: list[dict]) -> dict:
 # GitHub push
 # ---------------------------------------------------------------------------
 
-def push_to_github(stats: dict, history: list[dict] | None = None, cf_outages: dict | None = None):
+def push_to_github(
+    stats: dict,
+    history: list[dict] | None = None,
+    cf_outages: dict | None = None,
+    ooni_weekly: list[dict] | None = None,
+    ooni_daily: list[dict] | None = None,
+    cf_traffic: dict | None = None,
+):
     """Update observatory/stats.json in the repo to trigger a Cloudflare rebuild."""
     if not GITHUB_TOKEN:
         log.warning("No GITHUB_TOKEN — skipping GitHub push")
@@ -237,6 +310,12 @@ def push_to_github(stats: dict, history: list[dict] | None = None, cf_outages: d
         files_to_update["src/data/ooni-history.json"] = json.dumps(history, indent=2)
     if cf_outages:
         files_to_update["src/data/cf-radar-outages.json"] = json.dumps(cf_outages, indent=2)
+    if ooni_weekly is not None:
+        files_to_update["src/data/ooni-history-weekly.json"] = json.dumps(ooni_weekly, indent=2)
+    if ooni_daily is not None:
+        files_to_update["src/data/ooni-history-daily.json"] = json.dumps(ooni_daily, indent=2)
+    if cf_traffic is not None:
+        files_to_update["src/data/cf-traffic.json"] = json.dumps(cf_traffic, indent=2)
 
     # Update lastUpdated in blocked-sites.json without touching the curated domain list
     try:
@@ -282,18 +361,31 @@ def run(test: bool = False):
     )
     log.info("=== OONI Watcher starting ===")
 
+    from datetime import timedelta
+
     measurements = fetch_recent_measurements()
     log.info(f"Fetched {len(measurements)} measurements")
 
     blocked = fetch_blocked_sites()
     log.info(f"Fetched {len(blocked)} confirmed blocked entries")
 
-    history = fetch_monthly_history()
+    now_utc = datetime.now(timezone.utc)
+    since_weekly = (now_utc - timedelta(weeks=52)).strftime("%Y-%m-%d")
+    since_daily  = (now_utc - timedelta(days=28)).strftime("%Y-%m-%d")
+
+    history = fetch_ooni_history("month", "2021-02-01")
     log.info(f"Fetched {len(history)} months of historical data")
 
+    ooni_weekly = fetch_ooni_history("week", since_weekly)
+    log.info(f"Fetched {len(ooni_weekly)} weeks of OONI data")
+
+    ooni_daily = fetch_ooni_history("day", since_daily)
+    log.info(f"Fetched {len(ooni_daily)} days of OONI data")
+
     cf_outages = fetch_cf_radar_outages()
-    active_count = len(cf_outages["activeOutages"])
-    log.info(f"Cloudflare Radar: {active_count} active outage(s) for MM")
+    log.info(f"Cloudflare Radar: {len(cf_outages['activeOutages'])} active outage(s) for MM")
+
+    cf_traffic = fetch_cf_traffic_all_scales()
 
     stats = compute_stats(measurements, blocked)
     log.info(f"Stats: {json.dumps(stats)}")
@@ -308,10 +400,12 @@ def run(test: bool = False):
         print(f"\nHistory sample ({len(history)} months):")
         for row in history[-3:]:
             print(f"  {row['month']}: {row['anomaly_count']} anomalies / {row['measurement_count']} total ({row['anomaly_rate']}%)")
-        print(f"\nCloudflare Radar outages: {json.dumps(cf_outages, indent=2)}")
+        print(f"\nOONI weekly: {len(ooni_weekly)} rows, daily: {len(ooni_daily)} rows")
+        print(f"CF traffic: monthly={len(cf_traffic['monthly'])}, weekly={len(cf_traffic['weekly'])}, daily={len(cf_traffic['daily'])}")
+        print(f"CF outages: {json.dumps(cf_outages, indent=2)}")
         return
 
-    push_to_github(stats, history, cf_outages)
+    push_to_github(stats, history, cf_outages, ooni_weekly, ooni_daily, cf_traffic)
     log.info("=== OONI Watcher done ===")
 
 

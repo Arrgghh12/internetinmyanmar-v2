@@ -3,7 +3,10 @@ import Observatory from '../../layouts/Observatory.astro'
 import CfRadarBanner from '../../components/CfRadarBanner.astro'
 import stats from '../../content/observatory/stats.json'
 import history from '../../data/ooni-history.json'
+import historyWeekly from '../../data/ooni-history-weekly.json'
+import historyDaily from '../../data/ooni-history-daily.json'
 import cfOutages from '../../data/cf-radar-outages.json'
+import cfTraffic from '../../data/cf-traffic.json'
 
 export const prerender = false
 
@@ -32,6 +35,11 @@ const keyEvents = Object.entries(narrativeEvents)
   .sort((a, b) => a.date.localeCompare(b.date))
 
 const totalMeasurements = history.reduce((s, r) => s + r.measurement_count, 0)
+
+// CF monthly traffic lookup for the table
+const cfMonthlyMap = Object.fromEntries(
+  (cfTraffic.monthly || []).map((p: {month: string, cf_traffic: number}) => [p.month, p.cf_traffic])
+)
 ---
 <Observatory
   title="Myanmar Internet Shutdown Tracker"
@@ -49,7 +57,7 @@ const totalMeasurements = history.reduce((s, r) => s + r.measurement_count, 0)
       The Myanmar military junta has used internet shutdowns as a tool of political repression since the February 2021 coup.
     </p>
 
-    <div class="border border-[color:var(--color-warning)]/40 bg-[color:var(--color-warning)]/5 rounded-lg p-6 mb-10">
+    <div class="border border-[color:var(--color-warning)]/40 bg-[color:var(--color-warning)]/5 rounded-lg p-6 mb-6">
       <div class="font-mono text-xs text-[color:var(--color-warning)] mb-2 uppercase tracking-widest">Current status</div>
       {stats.activeShutdowns > 0
         ? <div class="text-2xl font-bold mb-1 text-[color:var(--color-danger)]">{stats.activeShutdowns} active shutdown{stats.activeShutdowns !== 1 ? 's' : ''} detected</div>
@@ -66,18 +74,27 @@ const totalMeasurements = history.reduce((s, r) => s + r.measurement_count, 0)
       lastUpdated={cfOutages.lastUpdated}
     />
 
+    <!-- Chart: scale toggles + Chart.js mixed bar+line -->
     <div class="mb-10">
-      <h2 class="font-headline text-xl mb-2">OONI Anomaly Rate — Monthly (Feb 2021 – present)</h2>
-      <p class="text-sm opacity-50 mb-4">
-        Percentage of Myanmar web_connectivity tests flagged as anomalous. Spikes indicate censorship events or network disruptions.
-        Red = severe (&gt;30%), amber = elevated (&gt;15%), teal = low.
-      </p>
-      <div class="border border-white/10 rounded-lg p-4 overflow-x-auto">
-        <div id="ooni-chart" class="w-full" style="min-height: 200px;"></div>
+      <div class="flex items-center justify-between mb-3 flex-wrap gap-2">
+        <div>
+          <h2 class="font-headline text-xl">OONI Anomaly Rate + CF Traffic Volume</h2>
+          <p class="text-xs opacity-40 font-mono mt-0.5">
+            Bars = OONI anomaly % · Teal line = Cloudflare Radar traffic (100% = peak)
+          </p>
+        </div>
+        <div class="flex gap-1 font-mono text-xs">
+          <button class="scale-btn px-3 py-1.5 rounded border transition-colors" data-scale="monthly">5Y · monthly</button>
+          <button class="scale-btn px-3 py-1.5 rounded border border-white/10 transition-colors" data-scale="weekly">1Y · weekly</button>
+          <button class="scale-btn px-3 py-1.5 rounded border border-white/10 transition-colors" data-scale="daily">1M · daily</button>
+        </div>
       </div>
-      <div class="text-xs font-mono opacity-30 mt-2">
-        Source: <a href="https://api.ooni.io" target="_blank" rel="noopener" class="hover:opacity-100 underline">OONI API</a>
-        · {history.length} months · {totalMeasurements.toLocaleString()} total measurements
+      <div class="border border-white/10 rounded-lg p-4">
+        <canvas id="ooni-chart" style="width:100%;height:220px"></canvas>
+      </div>
+      <div class="text-xs font-mono opacity-30 mt-2 flex flex-wrap gap-x-3">
+        <span>OONI: <a href="https://api.ooni.io" target="_blank" rel="noopener" class="hover:opacity-100 underline">api.ooni.io</a> · {history.length} months · {totalMeasurements.toLocaleString()} measurements</span>
+        <span>CF Radar: traffic volume normalised · CC BY-NC 4.0</span>
       </div>
     </div>
 
@@ -106,12 +123,18 @@ const totalMeasurements = history.reduce((s, r) => s + r.measurement_count, 0)
       <div class="overflow-x-auto">
         <table class="w-full text-sm font-mono">
           <thead>
+            <tr class="text-left">
+              <th class="pb-1 pr-6"></th>
+              <th colspan="4" class="pb-1 pr-2 text-xs text-[color:var(--color-warning)] opacity-70 font-mono tracking-wider">OONI</th>
+              <th class="pb-1 text-xs text-[color:var(--color-accent)] opacity-70 font-mono tracking-wider text-right">Cloudflare Radar</th>
+            </tr>
             <tr class="border-b border-white/10 text-left opacity-50">
               <th class="pb-2 pr-6">Month</th>
               <th class="pb-2 pr-6 text-right">Measurements</th>
               <th class="pb-2 pr-6 text-right">Anomalies</th>
               <th class="pb-2 pr-6 text-right">Confirmed</th>
-              <th class="pb-2 text-right">Anomaly Rate</th>
+              <th class="pb-2 pr-6 text-right">Anomaly Rate</th>
+              <th class="pb-2 text-right">Traffic Level</th>
             </tr>
           </thead>
           <tbody>
@@ -123,8 +146,14 @@ const totalMeasurements = history.reduce((s, r) => s + r.measurement_count, 0)
                   {row.anomaly_count.toLocaleString()}
                 </td>
                 <td class="py-2 pr-6 text-right opacity-60">{row.confirmed_count.toLocaleString()}</td>
-                <td class="py-2 text-right" style={row.anomaly_rate > 20 ? 'color:var(--color-danger)' : row.anomaly_rate > 10 ? 'color:var(--color-warning)' : ''}>
+                <td class="py-2 pr-6 text-right" style={row.anomaly_rate > 20 ? 'color:var(--color-danger)' : row.anomaly_rate > 10 ? 'color:var(--color-warning)' : ''}>
                   {row.anomaly_rate}%
+                </td>
+                <td class="py-2 text-right" style="color:var(--color-accent)">
+                  {cfMonthlyMap[row.month] != null
+                    ? `${cfMonthlyMap[row.month]}%`
+                    : <span class="opacity-20">—</span>
+                  }
                 </td>
               </tr>
             ))}
@@ -134,41 +163,156 @@ const totalMeasurements = history.reduce((s, r) => s + r.measurement_count, 0)
     </div>
   </div>
 
-  <script define:vars={{ chartData: history }}>
-    const el = document.getElementById('ooni-chart')
-    if (!el || !chartData.length) { if(el) el.innerHTML='<p style="opacity:.4;font-size:.75rem;padding:1rem">No data</p>'; return }
+  <script define:vars={{
+    ooniMonthly:  history,
+    ooniWeekly:   historyWeekly,
+    ooniDaily:    historyDaily,
+    cfMonthly:    cfTraffic.monthly,
+    cfWeekly:     cfTraffic.weekly,
+    cfDaily:      cfTraffic.daily,
+  }}>
+    let chart       = null
+    let activeScale = 'monthly'
 
-    const W = Math.max(el.clientWidth || 900, 600)
-    const H = 200
-    const pad = { top: 10, right: 10, bottom: 30, left: 36 }
-    const innerW = W - pad.left - pad.right
-    const innerH = H - pad.top - pad.bottom
-    const maxRate = Math.max(...chartData.map(d => d.anomaly_rate), 40)
-    const barW = innerW / chartData.length
+    function buildDatasets(scale) {
+      const ooni = { monthly: ooniMonthly, weekly: ooniWeekly, daily: ooniDaily }[scale] || []
+      const cf   = { monthly: cfMonthly,   weekly: cfWeekly,   daily: cfDaily   }[scale] || []
 
-    const bars = chartData.map((d, i) => {
-      const h = Math.max(1, (d.anomaly_rate / maxRate) * innerH)
-      const x = pad.left + i * barW
-      const y = pad.top + innerH - h
-      const color = d.anomaly_rate > 30 ? '#EF4444' : d.anomaly_rate > 15 ? '#F59E0B' : '#7170ff'
-      const tip = `${d.month}: ${d.anomaly_rate}% (${d.anomaly_count.toLocaleString()} anomalies / ${d.measurement_count.toLocaleString()} total)`
-      return `<rect x="${x+0.5}" y="${y}" width="${Math.max(barW-1,0.5)}" height="${h}" fill="${color}" opacity="0.8"><title>${tip}</title></rect>`
-    }).join('')
+      if (!ooni.length) return { labels: [], datasets: [] }
 
-    const seenYears = new Set()
-    const xLabels = chartData.map((d, i) => {
-      const yr = d.month.slice(0,4)
-      if (seenYears.has(yr)) return ''
-      seenYears.add(yr)
-      const x = pad.left + i * barW + barW / 2
-      return `<text x="${x}" y="${H-6}" fill="#E2E8F0" opacity="0.4" font-size="10" font-family="monospace" text-anchor="middle">${yr}</text>`
-    }).join('')
+      const labels = ooni.map(d => {
+        const p = d.period || d.month || d.measurement_start_day || ''
+        if (scale === 'monthly') return p.slice(0, 7)
+        try { return new Date(p).toLocaleDateString('en-US', { month: 'short', day: 'numeric' }) }
+        catch { return p.slice(5, 10) }
+      })
 
-    const yLabels = [0,25,50,75,100].filter(v=>v<=maxRate+5).map(v=>{
-      const y = pad.top + innerH - (v/maxRate)*innerH
-      return `<text x="${pad.left-4}" y="${y+3}" fill="#E2E8F0" opacity="0.4" font-size="9" font-family="monospace" text-anchor="end">${v}%</text><line x1="${pad.left}" y1="${y}" x2="${pad.left+innerW}" y2="${y}" stroke="white" opacity="0.05"/>`
-    }).join('')
+      const barColors = ooni.map(d =>
+        d.anomaly_rate > 30 ? '#EF4444cc'
+        : d.anomaly_rate > 15 ? '#F59E0Bcc'
+        : '#7170ff99'
+      )
 
-    el.innerHTML = `<svg viewBox="0 0 ${W} ${H}" width="100%" style="display:block;overflow:visible">${yLabels}${bars}${xLabels}</svg>`
+      const datasets = [{
+        type: 'bar',
+        label: 'OONI Anomaly Rate (%)',
+        data: ooni.map(d => d.anomaly_rate),
+        backgroundColor: barColors,
+        borderRadius: 2,
+        yAxisID: 'yOoni',
+      }]
+
+      if (cf && cf.length > 0) {
+        const cfMap = {}
+        cf.forEach(p => {
+          const key = (p.timestamp || p.week || p.date || p.month || '').slice(0, scale === 'monthly' ? 7 : 10)
+          cfMap[key] = p.cf_traffic
+        })
+        const cfData = ooni.map(d => {
+          const key = (d.period || d.month || d.measurement_start_day || '').slice(0, scale === 'monthly' ? 7 : 10)
+          return cfMap[key] != null ? cfMap[key] : null
+        })
+        datasets.push({
+          type: 'line',
+          label: 'CF Traffic (% of peak)',
+          data: cfData,
+          borderColor: '#00D4C8',
+          backgroundColor: 'transparent',
+          borderWidth: 1.5,
+          pointRadius: 0,
+          spanGaps: true,
+          tension: 0.3,
+          yAxisID: 'yCf',
+        })
+      }
+
+      return { labels, datasets }
+    }
+
+    function renderChart() {
+      const canvas = document.getElementById('ooni-chart')
+      if (!canvas) return
+      const ctx = canvas.getContext('2d')
+      if (!ctx) return
+      if (chart) chart.destroy()
+      const { labels, datasets } = buildDatasets(activeScale)
+
+      if (!labels.length) {
+        canvas.parentElement.innerHTML = '<p style="opacity:.4;font-size:.75rem;padding:1rem;font-family:monospace">No data for this range yet — agent runs at 8 AM and 8 PM UTC.</p>'
+        return
+      }
+
+      chart = new window.Chart(ctx, {
+        data: { labels, datasets },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          interaction: { mode: 'index', intersect: false },
+          plugins: {
+            legend: {
+              display: true,
+              labels: { color: '#94a3b8', font: { size: 10, family: 'monospace' }, boxWidth: 12, padding: 16 }
+            },
+            tooltip: {
+              backgroundColor: '#0f1f3a',
+              titleColor: '#94a3b8',
+              bodyColor: '#e2e8f0',
+              callbacks: {
+                label: c => c.dataset.label.startsWith('OONI')
+                  ? ` OONI: ${c.parsed.y}% anomaly rate`
+                  : ` CF Traffic: ${c.parsed.y}% of peak`
+              }
+            }
+          },
+          scales: {
+            x: {
+              ticks: { color: '#64748b', font: { size: 9 }, maxRotation: 45, autoSkip: true, maxTicksLimit: 24 },
+              grid:  { color: 'rgba(255,255,255,0.04)' }
+            },
+            yOoni: {
+              position: 'left',
+              beginAtZero: true,
+              max: 100,
+              ticks: { color: '#64748b', font: { size: 9 }, callback: v => `${v}%` },
+              grid:  { color: 'rgba(255,255,255,0.04)' },
+              title: { display: true, text: 'Anomaly %', color: '#64748b', font: { size: 9 } }
+            },
+            yCf: {
+              position: 'right',
+              beginAtZero: true,
+              max: 100,
+              ticks: { color: '#00D4C8', font: { size: 9 }, callback: v => `${v}%` },
+              grid:  { display: false },
+              title: { display: true, text: 'CF Traffic %', color: '#00D4C8', font: { size: 9 } }
+            },
+          }
+        }
+      })
+    }
+
+    function setActiveScale(scale) {
+      activeScale = scale
+      document.querySelectorAll('.scale-btn').forEach(btn => {
+        const isActive = btn.dataset.scale === scale
+        btn.style.borderColor = isActive ? 'var(--color-accent)' : 'rgba(255,255,255,0.1)'
+        btn.style.color       = isActive ? 'var(--color-accent)' : ''
+      })
+      renderChart()
+    }
+
+    // Trigger initial active style on monthly button
+    function initButtons() {
+      setActiveScale('monthly')
+    }
+
+    const s = document.createElement('script')
+    s.src = 'https://cdn.jsdelivr.net/npm/chart.js@4/dist/chart.umd.min.js'
+    s.onload = () => {
+      initButtons()
+      document.querySelectorAll('.scale-btn').forEach(btn =>
+        btn.addEventListener('click', () => setActiveScale(btn.dataset.scale))
+      )
+    }
+    document.head.appendChild(s)
   </script>
 </Observatory>
