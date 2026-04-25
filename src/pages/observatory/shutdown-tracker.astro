@@ -8,6 +8,20 @@ import historyDaily from '../../data/ooni-history-daily.json'
 import cfOutages from '../../data/cf-radar-outages.json'
 import cfTraffic from '../../data/cf-traffic.json'
 import OoniBreakdownChart from '../../components/charts/OoniBreakdownChart.astro'
+import keepitonData from '../../data/keepiton-shutdowns.json'
+
+const TYPE_LABELS: Record<string, string> = {
+  full_network: 'Full network',
+  mobile:       'Mobile',
+  platform:     'Platform',
+  throttle:     'Throttle',
+}
+const TYPE_COLORS: Record<string, string> = {
+  full_network: 'var(--color-danger)',
+  mobile:       'var(--color-warning)',
+  platform:     '#a78bfa',
+  throttle:     '#64748b',
+}
 
 export const prerender = false
 
@@ -118,6 +132,54 @@ const cfMonthlyMap = Object.fromEntries(
         ))}
       </div>
     </div>
+
+    <!-- KeepItOn verified shutdowns list -->
+    {keepitonData.events.length > 0 && (
+      <div class="mb-10">
+        <div class="flex items-center justify-between mb-4 flex-wrap gap-2">
+          <div>
+            <h2 class="font-headline text-xl">Verified Shutdowns</h2>
+            <p class="text-xs font-mono opacity-40 mt-0.5">
+              Access Now STOP Dataset · human-verified events · {keepitonData.totalEvents} Myanmar records
+            </p>
+          </div>
+          <a href="/data/keepiton-shutdowns.json" class="text-xs font-mono opacity-40 hover:opacity-70 transition-opacity">↓ download JSON</a>
+        </div>
+
+        <div class="space-y-0 border border-white/10 rounded-lg overflow-hidden">
+          {[...keepitonData.events].reverse().map(ev => (
+            <div class="flex flex-wrap gap-3 items-start px-4 py-3 border-b border-white/5 last:border-0 hover:bg-white/2">
+              <!-- Type badge -->
+              <span class="inline-block font-mono text-xs px-2 py-0.5 rounded-full border flex-shrink-0 mt-0.5"
+                style={`color:${TYPE_COLORS[ev.type] ?? '#fff'};border-color:${TYPE_COLORS[ev.type] ?? '#fff'}40`}>
+                {TYPE_LABELS[ev.type] ?? ev.type}
+              </span>
+              <!-- Date range -->
+              <span class="font-mono text-xs opacity-70 flex-shrink-0 mt-0.5">
+                {ev.startDate} → {ev.ongoing ? 'present' : (ev.endDate ?? '?')}
+              </span>
+              <!-- Scope + perpetrator -->
+              <span class="text-sm opacity-80 flex-1 min-w-0">
+                {ev.scope}{ev.perpetrator ? ` · ${ev.perpetrator}` : ''}
+              </span>
+              <!-- Source link -->
+              {ev.sourceUrl && (
+                <a href={ev.sourceUrl} target="_blank" rel="noopener noreferrer"
+                  class="font-mono text-xs text-[color:var(--color-accent)] opacity-50 hover:opacity-100 flex-shrink-0 mt-0.5">
+                  source →
+                </a>
+              )}
+            </div>
+          ))}
+        </div>
+
+        <p class="text-xs font-mono opacity-25 mt-2">
+          Source: <a href="https://www.accessnow.org/keepiton/" target="_blank" rel="noopener" class="underline hover:opacity-60">Access Now STOP Dataset</a>
+          · verified by Access Now researchers · updated weekly ·
+          <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener" class="underline hover:opacity-60">CC BY 4.0</a>
+        </p>
+      </div>
+    )}
 
     <OoniBreakdownChart />
 
@@ -283,12 +345,13 @@ const cfMonthlyMap = Object.fromEntries(
   </div>
 
   <script define:vars={{
-    ooniMonthly:  history,
-    ooniWeekly:   historyWeekly,
-    ooniDaily:    historyDaily,
-    cfMonthly:    cfTraffic.monthly,
-    cfWeekly:     cfTraffic.weekly,
-    cfDaily:      cfTraffic.daily,
+    ooniMonthly:    history,
+    ooniWeekly:     historyWeekly,
+    ooniDaily:      historyDaily,
+    cfMonthly:      cfTraffic.monthly,
+    cfWeekly:       cfTraffic.weekly,
+    cfDaily:        cfTraffic.daily,
+    keepitonEvents: keepitonData.events,
   }}>
     let chart       = null
     let activeScale = 'monthly'
@@ -372,7 +435,53 @@ const cfMonthlyMap = Object.fromEntries(
         return
       }
 
+      const keepitonPlugin = {
+        id: 'keepitonOverlay',
+        afterDraw(ch) {
+          if (!keepitonEvents || !keepitonEvents.length) return
+          const meta = ch.getDatasetMeta(0)
+          if (!meta || !meta.data.length) return
+          const { ctx: c, scales: { yOoni } } = ch
+          const ooni = { monthly: ooniMonthly, weekly: ooniWeekly, daily: ooniDaily }[activeScale] || []
+          const periods = ooni.map(d => d.period || d.month || d.measurement_start_day || '')
+          const today = new Date().toISOString().slice(0, 10)
+          const typeColors = {
+            full_network: { fill: 'rgba(239,68,68,0.12)',   border: 'rgba(239,68,68,0.65)'  },
+            mobile:       { fill: 'rgba(245,158,11,0.10)',  border: 'rgba(245,158,11,0.55)' },
+            platform:     { fill: 'rgba(139,92,246,0.10)',  border: 'rgba(139,92,246,0.55)' },
+            throttle:     { fill: 'rgba(100,116,139,0.10)', border: 'rgba(100,116,139,0.5)' },
+          }
+          c.save()
+          keepitonEvents.forEach(ev => {
+            const s = activeScale === 'monthly' ? (ev.startDate || '').slice(0, 7) : (ev.startDate || '').slice(0, 10)
+            const e = activeScale === 'monthly'
+              ? (ev.ongoing ? today.slice(0, 7) : (ev.endDate || today).slice(0, 7))
+              : (ev.ongoing ? today : (ev.endDate || today).slice(0, 10))
+            if (!s) return
+            let firstIdx = -1, lastIdx = -1
+            periods.forEach((p, i) => {
+              const pk = activeScale === 'monthly' ? p.slice(0, 7) : p.slice(0, 10)
+              if (pk >= s && pk <= e) { if (firstIdx === -1) firstIdx = i; lastIdx = i }
+            })
+            if (firstIdx === -1) return
+            const colors = typeColors[ev.type] || typeColors.full_network
+            const bw = meta.data[firstIdx].width || 8
+            const x1 = meta.data[firstIdx].x - bw / 2
+            const x2 = meta.data[lastIdx].x  + bw / 2
+            const top = yOoni.top, bottom = yOoni.bottom
+            c.fillStyle = colors.fill
+            c.fillRect(x1, top, x2 - x1, bottom - top)
+            c.strokeStyle = colors.border
+            c.lineWidth = 2
+            c.setLineDash([])
+            c.beginPath(); c.moveTo(x1, top); c.lineTo(x2, top); c.stroke()
+          })
+          c.restore()
+        }
+      }
+
       chart = new window.Chart(ctx, {
+        plugins: [keepitonPlugin],
         data: { labels, datasets },
         options: {
           responsive: true,

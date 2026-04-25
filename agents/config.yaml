@@ -350,6 +350,12 @@ scoring:
   # Bot sends "No noteworthy news today" message instead
   no_news_message: "No noteworthy news today — no brief generated."
 
+keepiton:
+  sheet_url: "https://docs.google.com/spreadsheets/d/1DvPAuHNLp5BXGb0nnZDGNoiIwEeu2ogdXEIDvT4Hyfk/export?format=csv"
+  country_filter: "Myanmar"
+  output_path: "src/data/keepiton-shutdowns.json"
+  freshness_warning_days: 14
+
 article:
   author:         "Anna"
   default_lang:   "en"
