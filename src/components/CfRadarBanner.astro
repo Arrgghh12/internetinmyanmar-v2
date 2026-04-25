@@ -81,12 +81,20 @@ function causeLabel(tags: string[]): string {
     </div>
   </div>
 ) : (
-  <div class="flex items-center gap-2 mb-6 font-mono text-xs opacity-35">
-    <span style="color:#22c55e">●</span>
-    <span>Cloudflare Radar: no active disruption detected in Myanmar</span>
-    <span class="opacity-60">·</span>
-    <span class="opacity-60">
-      updated {new Date(lastUpdated).toLocaleDateString('en-US', { month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit', timeZone: 'UTC', timeZoneName: 'short' })}
-    </span>
+  <div class="border border-green-500/30 bg-green-500/5 rounded-lg px-5 py-4 mb-6">
+    <div class="flex items-center gap-3">
+      <span class="text-green-400 text-lg leading-none shrink-0">●</span>
+      <div>
+        <div class="font-mono text-xs text-green-400 uppercase tracking-widest mb-0.5">
+          Cloudflare Radar — No Active Disruption
+        </div>
+        <div class="text-sm opacity-70">
+          Myanmar internet traffic is within normal range. No network-level outage confirmed by Cloudflare Radar.
+        </div>
+        <div class="font-mono text-xs opacity-40 mt-1">
+          Last checked: {new Date(lastUpdated).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric', hour: '2-digit', minute: '2-digit', timeZone: 'UTC', timeZoneName: 'short' })}
+        </div>
+      </div>
+    </div>
   </div>
 )}
