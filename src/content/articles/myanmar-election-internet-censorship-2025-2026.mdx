@@ -1,0 +1,137 @@
+---
+title: "Myanmar's Manufactured Election: How the Junta Controlled the Digital Space"
+seoTitle: "Myanmar Election 2025: Digital Censorship & Internet Data"
+metaDescription: "OONI and Cloudflare Radar data reveal how Myanmar's military maintained mass censorship during its 2025–26 sham election — no spike needed."
+categories:
+  - "Censorship & Shutdowns"
+  - "Policy & Regulation"
+tags:
+  - "election"
+  - "censorship"
+  - "OONI"
+  - "Cloudflare Radar"
+  - "military junta"
+author: "Anna"
+publishedAt: 2026-04-25
+draft: false
+excerpt: "Myanmar's military held a three-phase sham election from December 2025 to January 2026. Our OONI and Cloudflare Radar data show why no emergency blackout was needed: the junta had already achieved mass censorship."
+readingTime: 11
+lang: "en"
+sources:
+  - "https://en.wikipedia.org/wiki/2025%E2%80%9326_Myanmar_general_election"
+  - "https://rsf.org/en/myanmar-how-military-junta-reinforces-media-crackdown-one-month-elections"
+  - "https://anfrel.org/myanmar-a-junta-staged-election-in-the-midst-of-a-war-data-dive-issue-no-25/"
+  - "https://humanrightsmyanmar.org/elections-during-myanmars-digital-coup/"
+  - "https://www.myanmarinternet.info/post/quarterly_nov_2025_jan_2026-1"
+  - "https://freedomhouse.org/country/myanmar/freedom-net/2025"
+  - "https://www.irrawaddy.com/news/politics/myanmar-military-backed-usdp-wins-over-72-of-seats-in-juntas-election-uec.html"
+  - "https://www.cfr.org/articles/myanmars-elections-begin-laughable-their-face-deadly-serious-their-impact"
+  - "https://ooni.org/reports/index.html"
+  - "https://monitor.civicus.org/explore/myanmar-election-law-and-other-forms-of-repression-used-to-target-dissent-against-sham-elections-five-years-on-from-coup/"
+---
+
+import ElectionTimelineChart from '../../components/charts/ElectionTimelineChart.astro'
+import ElectionWindowChart from '../../components/charts/ElectionWindowChart.astro'
+import BlockedSitesChart from '../../components/charts/BlockedSitesChart.astro'
+
+When Myanmar's military junta scheduled its general election for late 2025, observers braced for what typically accompanies disputed votes across the region: emergency internet shutdowns, coordinated blocks of social media on polling day, the kind of abrupt network disruption that OONI probes and Cloudflare Radar flag within hours.
+
+It did not happen. Our measurements show no election-day anomaly spike, no coordinated blackout on December 28 or January 11 or January 25. The OONI anomaly rate for December 2025 — the month of Phase 1 voting — came in at 18.6%, slightly below the preceding month's 23.2%.
+
+This is not reassuring. It means the junta had already built a censorship infrastructure so comprehensive that no emergency action was required. Myanmar's voters cast their ballots inside a pre-censored information environment — one constructed over four years and now essentially permanent.
+
+## A Coup's Electoral Legitimation
+
+On February 1, 2021, Myanmar's military seized power, detaining State Counsellor Aung San Suu Kyi and dissolving the elected parliament. The National Unity Government — a parallel administration formed by ousted lawmakers, civil society leaders, and ethnic representatives — declared the coup illegal and has continued to operate in exile and in resistance-held territory. Armed conflict between the military and a coalition of ethnic armed organizations and the People's Defence Force has intensified steadily since.
+
+The junta's decision to hold elections was, from the outset, an exercise in legitimation rather than democracy. The announced purpose — a "road to democracy" — was rejected by the United Nations, the United States, the European Union, and ASEAN, none of which endorsed the process or its results. Voting took place in roughly one-third of Myanmar's 330 townships — those under junta military control. The National League for Democracy, the NUG, and all major ethnic armed organizations boycotted.
+
+## Building the Legal Architecture of Silence
+
+The digital environment surrounding the election did not emerge spontaneously. It was constructed through legislation, infrastructure investment, and systematic enforcement across the four years preceding the vote.
+
+In January 2025, the military regime adopted a Cybersecurity Law codifying overbroad censorship mandates, limiting the legal operation of VPN providers, and imposing data localization requirements on telecommunications companies. In July 2025, it enacted an electoral interference law that criminalizes actions deemed to "oppose or disturb" the election — punishable in extreme cases by death. The law was used within weeks of its passage: in November 2025, the Assistance Association for Myanmar-based Independent Journalists (AAMIJ) was charged under Article 24(a) for coverage deemed threatening to candidates.
+
+By the time election campaigning formally began, the information landscape looked like this:
+
+<BlockedSitesChart />
+
+According to [Reporters Without Borders](https://rsf.org/en/myanmar-how-military-junta-reinforces-media-crackdown-one-month-elections), 79% of direct attempts to reach the websites of Myanmar's largest independent media returned errors before the campaign period even started. More than 200 journalists had been imprisoned since the coup; 15 media outlets had had their licences revoked. Myanmar ranked 169th out of 180 countries in RSF's 2025 World Press Freedom Index.
+
+Beyond censorship, geography itself was weaponized. By April 2025, 138 townships — disproportionately in Shan, Kachin, Karen, and Rakhine States — were under full communications blackout, with mobile and internet services deliberately cut by the military. Approximately 131 townships remained offline as of September 2025. These populations produced no OONI measurements and cast no ballots.
+
+## Three Phases, One Predetermined Outcome
+
+The election proceeded in three phases. Phase 1 took place on December 28, 2025, across 102 townships. Phase 2 followed on January 11, 2026, in 100 townships. Phase 3 concluded the process on January 25, 2026, across 63 constituencies.
+
+In February 2026, the Union Election Commission declared the Union Solidarity and Development Party — the military's proxy — the winner with 339 of 586 contested seats, representing 72% of elected positions. Combined with the 166 seats constitutionally reserved for military appointees, the USDP and military together controlled approximately 86% of the national parliament.
+
+In March 2026, Min Aung Hlaing stepped down as commander-in-chief and entered the presidential selection process. On April 3, 2026, the junta-controlled parliament elected him president. He simultaneously signed into law the creation of a Union Consultative Council — a new advisory body whose chairmanship he assumed, preserving executive influence outside the formal presidency.
+
+The Council on Foreign Relations described the election as "laughable on its face, deadly serious in its impact." ASEAN declined to endorse the results. The UN, US, and EU maintained their non-recognition of the process.
+
+## What Our Data Shows
+
+### OONI: The Absence of a Spike is the Finding
+
+<ElectionTimelineChart />
+
+Five years of OONI Web Connectivity data from Myanmar tell a story with a clear inflection point in mid-2024. From February 2021 through 2023, the anomaly rate — the share of network measurements returning an anomalous result — held between 7% and 12%. This reflects the post-coup baseline: targeted blocking of specific platforms (Facebook, Twitter, major news sites) against a background of generally available internet connectivity.
+
+From June 2024, that changed. The anomaly rate climbed to 27%, then 32.3% in August 2024, as the military's offensives in Shan and Rakhine States accompanied an expansion of the censorship apparatus. By 2025, a new normal had settled: anomaly rates between 19% and 23%, sustained month after month without the specific triggers that had previously correlated with spikes.
+
+The election months fit this pattern precisely. November 2025, the formal campaign period, registered 23.2%. December 2025, covering Phase 1 voting on December 28, registered 18.6% — slightly below November, not above it. January 2026, covering Phases 2 and 3, registered 20.6%. There is no statistically distinguishable election signal.
+
+One important caveat: OONI coverage in Myanmar depends on the number of volunteer researchers running probe software inside the country, a population that has declined since 2021 as digital security risks have increased. The 131+ blacked-out townships produce zero OONI measurements by definition. Aggregate anomaly rates therefore underrepresent actual censorship, particularly in conflict-affected regions. The absence of an election spike in our data does not mean the election period was free of interference — it means the interference was already so pervasive and the measurement population so constrained that additional action was not visible at this scale.
+
+### Cloudflare Radar: A Circumvention Surge, Then a Structural Shift
+
+Cloudflare Radar provides a complementary signal: an index of Myanmar IP traffic transiting Cloudflare's global network, normalized relative to the historical peak. Rising values typically indicate either increased VPN or circumvention tool usage — as users route through Cloudflare-protected services to bypass local blocks — or changes in ISP routing that send more traffic through Cloudflare infrastructure.
+
+<ElectionWindowChart />
+
+The weekly data reveals a pattern the monthly OONI aggregate cannot. From a relatively stable 12–15% baseline through August 2025, Cloudflare traffic began rising in September. It spiked notably in the week of November 3 (37.3%), pulled back, then climbed again steadily through December. The week of December 22 registered 45.4%; the week beginning December 29 — immediately after Phase 1 voting on December 28 — reached 46.6%, the highest point of the election period.
+
+This pattern is consistent with a surge in VPN and circumvention tool usage around election day: Myanmar residents seeking to reach blocked news sites and international reporting about the vote routed their traffic through circumvention services that transit Cloudflare infrastructure. The drop that followed Phase 1, a partial recovery around Phase 3 (week of January 26: 37.0%), and the subsequent collapse suggest this was user-driven behavior rather than an ISP-level change.
+
+What happened in February 2026 is different in kind. Beginning the week of February 2 — when the USDP victory was being formally declared — Cloudflare traffic jumped from 37% to 69.7%, then 84.5%, then 93.0%, reaching a sustained level near 100% that has continued through April 2026. A spike of this magnitude, sustained over multiple weeks, is not explained by user circumvention behavior. It indicates a structural change in how Myanmar's ISPs route internet traffic — consistent with the activation of new centralized routing infrastructure.
+
+A September 2025 investigation exposed significant collaboration between the junta and Geedge Networks, a Chinese company with links to the Chinese government, in implementing a commercial version of China's Great Firewall. The timing of the February routing shift — coinciding with post-election consolidation — is consistent with this infrastructure entering large-scale operation.
+
+A note on what our data cannot say: our BGP routing monitor began operating in April 2026, after the election concluded. We therefore cannot confirm or deny BGP-layer prefix withdrawals — the most definitive evidence of deliberate network shutdown — during the election period from our own data. For routing-layer analysis of the election window, see [IODA](https://ioda.inetintel.cc.gatech.edu) and [NetBlocks](https://netblocks.org).
+
+## The Model: Ambient Censorship vs. Emergency Shutdown
+
+The comparison most relevant to Myanmar is not Bangladesh in 2024 or Ethiopia in 2021, where election-day blackouts were detectable within hours as simultaneous OONI anomaly spikes and Cloudflare traffic collapses. Myanmar has moved into a different category: ambient censorship.
+
+In an ambient censorship regime, the information environment is controlled continuously and structurally, not through episodic emergency action. The political effect is identical — voters lack access to independent journalism, opposition organizing, and international reporting about their own election — but the mechanism is less visible to standard monitoring tools calibrated to detect acute events.
+
+The practical consequences for Myanmar residents in the election period were severe by any measure:
+- Facebook, the primary platform for political communication in Myanmar, registered an 89% OONI anomaly rate — effectively inaccessible as a political organizing space
+- Myanmar's leading independent media sites (Irrawaddy, Myanmar Now, Mizzima, DVB) each returned 66–78% anomaly rates
+- VPN and circumvention services, the standard route around content blocks, were themselves blocked at 69–87% rates under the new Cybersecurity Law
+- 131+ townships had no internet access at all
+
+This is not the digital environment of a contested election. It is the digital environment of a population that has been systematically disconnected from independent information for years. The election was held inside it.
+
+Our [Shutdown Tracker](/observatory/shutdown-tracker/) documents the full pattern of network interference since February 2021. The [Blocked Sites Observatory](/observatory/blocked-sites/) provides current anomaly rates across 42 tracked domains.
+
+## What Comes Next
+
+Min Aung Hlaing's election as president converts the coup's military directorship into a nominally civilian government, a structural change designed to ease diplomatic isolation without substantively altering power relations. The Union Consultative Council he created before assuming the presidency gives the military a parallel advisory body operating alongside the cabinet — a mechanism for maintaining control without the formal visibility of direct rule.
+
+The digital infrastructure trajectory is toward deeper control. The Geedge Networks collaboration signals an intentional shift toward a Chinese-model information environment: centralized routing through a national firewall, real-time content filtering, and integration with national digital ID and biometric database systems. The February 2026 Cloudflare Radar spike, if it reflects the activation of this infrastructure, represents a qualitative change from targeted blocking to structural control of the network layer itself.
+
+Armed resistance continues. The NUG administers parallel governance in territories outside junta control. Ethnic armed organizations maintain autonomous information environments in their zones. But for the majority of Myanmar's population in junta-controlled areas, the digital space has become a controlled environment — one in which the election just conducted was less a choice than a performance staged before an audience that had already been silenced.
+
+## Methodology
+
+Data cited in this article is drawn from three independent sources maintained by this publication.
+
+**OONI Web Connectivity measurements** are collected by volunteer researchers running OONI Probe inside Myanmar. The probe fetches a curated list of URLs and compares results against control measurements taken outside the country; discrepancies are classified as anomalies. We aggregate OONI data at monthly granularity; the anomaly rate represents the share of measurements in a given month returning an anomalous result. OONI data is published under a CC BY 4.0 licence. Limitations: probe density in Myanmar has declined since the 2021 coup; townships under communications blackout produce no measurements; the aggregate anomaly rate therefore underrepresents censorship in conflict zones.
+
+**Cloudflare Radar traffic data** represents an index of Myanmar IP traffic transiting Cloudflare's network, normalized to a 0–100 scale relative to the historical peak. It reflects routing patterns and user behavior combined; it is not a measure of total internet traffic. Published under CC BY-NC 4.0.
+
+**BGP routing surveillance** monitors Myanmar autonomous systems for prefix withdrawal events. Our BGP monitoring pipeline began operating in April 2026 and cannot retroactively analyze the election period. For BGP-layer analysis of December 2025 – January 2026, external sources (IODA, CAIDA, NetBlocks) should be consulted.
+
+Full methodology is documented on the [Shutdown Tracker](/observatory/shutdown-tracker/) page.

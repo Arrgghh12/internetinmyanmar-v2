@@ -1,0 +1,196 @@
+---
+import ooniHistory from '../../data/ooni-history.json'
+import cfTraffic from '../../data/cf-traffic.json'
+
+const totalMeasurements = ooniHistory.reduce((s, r) => s + r.measurement_count, 0)
+
+// Build CF monthly lookup
+const cfMonthlyMap: Record<string, number> = Object.fromEntries(
+  (cfTraffic.monthly || []).map((p: { month: string; cf_traffic: number }) => [p.month, p.cf_traffic])
+)
+
+// Election window months for shading
+const ELECTION_MONTHS = ['2025-11', '2025-12', '2026-01']
+---
+
+<div class="mb-8 not-prose">
+  <div class="flex items-center justify-between mb-2 flex-wrap gap-2">
+    <div>
+      <div class="font-headline text-base">OONI Anomaly Rate, 2021–2026</div>
+      <p class="text-xs font-mono opacity-40 mt-0.5">Bars = OONI anomaly % · Teal line = CF Radar traffic · Shaded = election window</p>
+    </div>
+  </div>
+  <div class="border border-white/10 rounded-lg p-4 bg-[#0A1628]">
+    <canvas id="election-timeline-chart" style="width:100%;height:240px"></canvas>
+  </div>
+  <p class="text-xs font-mono opacity-30 mt-2">
+    OONI Web Connectivity · Feb 2021 – Apr 2026 · {totalMeasurements.toLocaleString()} total measurements ·
+    <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener" class="underline hover:opacity-60">CC BY 4.0</a>
+  </p>
+</div>
+
+<script define:vars={{ ooniData: ooniHistory, cfMap: cfMonthlyMap, electionMonths: ELECTION_MONTHS }}>
+  (function () {
+    const canvas = document.getElementById('election-timeline-chart')
+    if (!canvas) return
+
+    function initChart() {
+      const ctx = canvas.getContext('2d')
+      if (!ctx) return
+
+      const labels = ooniData.map(d => d.month)
+      const rates  = ooniData.map(d => d.anomaly_rate)
+      const cfData = ooniData.map(d => cfMap[d.month] != null ? cfMap[d.month] : null)
+
+      const barColors = rates.map(r =>
+        r > 30 ? 'rgba(239,68,68,0.85)'
+        : r > 15 ? 'rgba(245,158,11,0.85)'
+        : 'rgba(113,112,255,0.7)'
+      )
+
+      // Plugin: shade election window + draw phase lines
+      const electionPlugin = {
+        id: 'electionHighlight',
+        afterDraw(chart) {
+          const { ctx: c, scales: { x, yOoni } } = chart
+          const top    = yOoni.top
+          const bottom = yOoni.bottom
+          const height = bottom - top
+
+          c.save()
+
+          // Shade election window bars
+          electionMonths.forEach(month => {
+            const idx = labels.indexOf(month)
+            if (idx === -1) return
+            const meta = chart.getDatasetMeta(0)
+            const bar  = meta.data[idx]
+            if (!bar) return
+            const bw = bar.width || 8
+            c.fillStyle = 'rgba(0,212,200,0.08)'
+            c.fillRect(bar.x - bw / 2, top, bw, height)
+          })
+
+          // "Election window" label above the shaded area
+          const firstIdx = labels.indexOf(electionMonths[0])
+          const lastIdx  = labels.indexOf(electionMonths[electionMonths.length - 1])
+          if (firstIdx !== -1 && lastIdx !== -1) {
+            const meta   = chart.getDatasetMeta(0)
+            const firstX = meta.data[firstIdx]?.x
+            const lastX  = meta.data[lastIdx]?.x
+            if (firstX && lastX) {
+              c.font      = '9px monospace'
+              c.fillStyle = 'rgba(0,212,200,0.7)'
+              c.textAlign = 'center'
+              c.fillText('← Election window →', (firstX + lastX) / 2, top + 12)
+            }
+          }
+
+          // Phase lines
+          const phaseLines = [
+            { month: '2025-12', label: 'Phase 1 · Dec 28', color: 'rgba(0,212,200,0.7)' },
+            { month: '2026-01', label: 'Phases 2&3', color: 'rgba(0,212,200,0.7)' },
+          ]
+          phaseLines.forEach(({ month, label, color }) => {
+            const idx = labels.indexOf(month)
+            if (idx === -1) return
+            const meta = chart.getDatasetMeta(0)
+            const bar  = meta.data[idx]
+            if (!bar) return
+            c.strokeStyle   = color
+            c.lineWidth     = 1
+            c.setLineDash([4, 3])
+            c.beginPath()
+            c.moveTo(bar.x, top)
+            c.lineTo(bar.x, bottom)
+            c.stroke()
+            c.setLineDash([])
+            c.font      = '9px monospace'
+            c.fillStyle = color
+            c.textAlign = 'center'
+            c.fillText(label, bar.x, bottom + 14)
+          })
+
+          c.restore()
+        }
+      }
+
+      new window.Chart(ctx, {
+        plugins: [electionPlugin],
+        data: {
+          labels,
+          datasets: [
+            {
+              type: 'bar',
+              label: 'OONI Anomaly Rate (%)',
+              data: rates,
+              backgroundColor: barColors,
+              borderRadius: 2,
+              yAxisID: 'yOoni',
+            },
+            {
+              type: 'line',
+              label: 'CF Radar Traffic (% of peak)',
+              data: cfData,
+              borderColor: '#00D4C8',
+              backgroundColor: 'transparent',
+              borderWidth: 1.5,
+              pointRadius: 0,
+              spanGaps: true,
+              tension: 0.3,
+              yAxisID: 'yCf',
+            },
+          ],
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          interaction: { mode: 'index', intersect: false },
+          plugins: {
+            legend: {
+              display: true,
+              labels: { color: '#94a3b8', font: { size: 10, family: 'monospace' }, boxWidth: 12, padding: 16 },
+            },
+            tooltip: {
+              backgroundColor: '#0f1f3a',
+              titleColor: '#94a3b8',
+              bodyColor: '#e2e8f0',
+              callbacks: {
+                label: c => c.dataset.label.startsWith('OONI')
+                  ? ` ${c.parsed.y}% anomaly rate`
+                  : ` CF Traffic: ${c.parsed.y}% of peak`,
+              },
+            },
+          },
+          scales: {
+            x: {
+              ticks: { color: '#64748b', font: { size: 9 }, maxRotation: 45, autoSkip: true, maxTicksLimit: 20 },
+              grid:  { color: 'rgba(255,255,255,0.04)' },
+            },
+            yOoni: {
+              position: 'left',
+              beginAtZero: true,
+              max: 40,
+              ticks: { color: '#64748b', font: { size: 9 }, callback: v => `${v}%` },
+              grid:  { color: 'rgba(255,255,255,0.04)' },
+              title: { display: true, text: 'Anomaly %', color: '#64748b', font: { size: 9 } },
+            },
+            yCf: {
+              position: 'right',
+              beginAtZero: true,
+              max: 100,
+              ticks: { color: '#00D4C8', font: { size: 9 }, callback: v => `${v}%` },
+              grid:  { display: false },
+              title: { display: true, text: 'CF Traffic %', color: '#00D4C8', font: { size: 9 } },
+            },
+          },
+        },
+      })
+    }
+
+    const s = document.createElement('script')
+    s.src = 'https://cdn.jsdelivr.net/npm/chart.js@4/dist/chart.umd.min.js'
+    s.onload = initChart
+    document.head.appendChild(s)
+  })()
+</script>
