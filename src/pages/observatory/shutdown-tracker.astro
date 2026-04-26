@@ -445,36 +445,47 @@ const cfMonthlyMap = Object.fromEntries(
           const ooni = { monthly: ooniMonthly, weekly: ooniWeekly, daily: ooniDaily }[activeScale] || []
           const periods = ooni.map(d => d.period || d.month || d.measurement_start_day || '')
           const today = new Date().toISOString().slice(0, 10)
+
+          // Priority: full_network > mobile > platform > throttle
+          // Compute one "worst" type per period to avoid compounding opacity from overlapping events
+          const priority = { full_network: 4, mobile: 3, platform: 2, throttle: 1 }
           const typeColors = {
-            full_network: { fill: 'rgba(239,68,68,0.12)',   border: 'rgba(239,68,68,0.65)'  },
-            mobile:       { fill: 'rgba(245,158,11,0.10)',  border: 'rgba(245,158,11,0.55)' },
-            platform:     { fill: 'rgba(139,92,246,0.10)',  border: 'rgba(139,92,246,0.55)' },
-            throttle:     { fill: 'rgba(100,116,139,0.10)', border: 'rgba(100,116,139,0.5)' },
+            full_network: { fill: 'rgba(239,68,68,0.10)',   stripe: 'rgba(239,68,68,0.75)'  },
+            mobile:       { fill: 'rgba(245,158,11,0.09)',  stripe: 'rgba(245,158,11,0.70)' },
+            platform:     { fill: 'rgba(139,92,246,0.09)',  stripe: 'rgba(139,92,246,0.70)' },
+            throttle:     { fill: 'rgba(100,116,139,0.09)', stripe: 'rgba(100,116,139,0.60)' },
           }
-          c.save()
-          keepitonEvents.forEach(ev => {
-            const s = activeScale === 'monthly' ? (ev.startDate || '').slice(0, 7) : (ev.startDate || '').slice(0, 10)
-            const e = activeScale === 'monthly'
-              ? (ev.ongoing ? today.slice(0, 7) : (ev.endDate || today).slice(0, 7))
-              : (ev.ongoing ? today : (ev.endDate || today).slice(0, 10))
-            if (!s) return
-            let firstIdx = -1, lastIdx = -1
-            periods.forEach((p, i) => {
-              const pk = activeScale === 'monthly' ? p.slice(0, 7) : p.slice(0, 10)
-              if (pk >= s && pk <= e) { if (firstIdx === -1) firstIdx = i; lastIdx = i }
+
+          const worstPerPeriod = periods.map(p => {
+            const pk = activeScale === 'monthly' ? p.slice(0, 7) : p.slice(0, 10)
+            let worst = null
+            keepitonEvents.forEach(ev => {
+              const s = activeScale === 'monthly' ? (ev.startDate || '').slice(0, 7) : (ev.startDate || '').slice(0, 10)
+              const e = activeScale === 'monthly'
+                ? (ev.ongoing ? today.slice(0, 7) : (ev.endDate || today).slice(0, 7))
+                : (ev.ongoing ? today : (ev.endDate || today).slice(0, 10))
+              if (!s || pk < s || pk > e) return
+              if (!worst || priority[ev.type] > priority[worst]) worst = ev.type
             })
-            if (firstIdx === -1) return
-            const colors = typeColors[ev.type] || typeColors.full_network
-            const bw = meta.data[firstIdx].width || 8
-            const x1 = meta.data[firstIdx].x - bw / 2
-            const x2 = meta.data[lastIdx].x  + bw / 2
-            const top = yOoni.top, bottom = yOoni.bottom
+            return worst
+          })
+
+          c.save()
+          const top = yOoni.top, bottom = yOoni.bottom
+          const stripeH = 4
+
+          worstPerPeriod.forEach((t, i) => {
+            if (!t) return
+            const bar = meta.data[i]
+            const bw  = bar.width || 8
+            const x1  = bar.x - bw / 2
+            const colors = typeColors[t]
+            // Subtle fill over bar area
             c.fillStyle = colors.fill
-            c.fillRect(x1, top, x2 - x1, bottom - top)
-            c.strokeStyle = colors.border
-            c.lineWidth = 2
-            c.setLineDash([])
-            c.beginPath(); c.moveTo(x1, top); c.lineTo(x2, top); c.stroke()
+            c.fillRect(x1, top + stripeH, bw, bottom - top - stripeH)
+            // Solid stripe at top edge
+            c.fillStyle = colors.stripe
+            c.fillRect(x1, top, bw, stripeH)
           })
           c.restore()
         }
