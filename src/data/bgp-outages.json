@@ -11191,10 +11191,10 @@
     "name": "MCCL-AS-AP Myanmar Country Co.",
     "status": "DOWN",
     "started_at": "2026-04-26T06:31:48.936474+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-26T07:01:37.262210+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   }
 ]
