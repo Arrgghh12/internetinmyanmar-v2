@@ -42,12 +42,18 @@ const categories = Object.entries(categoryMap)
     ></canvas>
   </div>
 
-  <div class="flex justify-between items-center mt-2">
+  <div class="flex justify-between items-center mt-2 flex-wrap gap-2">
     <p class="text-xs font-mono opacity-30">
       OONI Web Connectivity · avg rate across sites per category ·
       <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener" class="underline hover:opacity-60">CC BY 4.0</a>
+      · updated {blockedData.lastUpdated?.slice(0, 10) ?? ''}
     </p>
-    <a href="/data/blocked-sites.json" class="text-xs font-mono opacity-40 hover:opacity-70 transition-opacity">↓ download JSON</a>
+    <div class="flex items-center gap-2">
+      <button id="category-block-chart-png-btn" class="text-xs font-mono opacity-40 hover:opacity-70 transition-opacity border border-white/10 px-2 py-0.5 rounded cursor-pointer bg-transparent">↓ PNG</button>
+      <button id="category-block-chart-svg-btn" class="text-xs font-mono opacity-40 hover:opacity-70 transition-opacity border border-white/10 px-2 py-0.5 rounded cursor-pointer bg-transparent">↓ SVG</button>
+      <a href="/data/blocked_sites.csv" download class="text-xs font-mono opacity-40 hover:opacity-70 transition-opacity border border-white/10 px-2 py-0.5 rounded">↓ CSV</a>
+      <button id="category-block-chart-embed-btn" class="text-xs font-mono opacity-40 hover:opacity-70 transition-opacity border border-white/10 px-2 py-0.5 rounded cursor-pointer bg-transparent">&lt;/&gt; Embed</button>
+    </div>
   </div>
 
   <!-- Data table fallback -->
@@ -85,7 +91,7 @@ const categories = Object.entries(categoryMap)
       const ctx = canvas.getContext('2d')
       if (!ctx) return
 
-      new window.Chart(ctx, {
+      canvas._chart = new window.Chart(ctx, {
         type: 'bar',
         data: {
           labels: categories.map(c => c.name),
@@ -126,6 +132,29 @@ const categories = Object.entries(categoryMap)
             },
           },
         },
+      })
+      const _png = document.getElementById('category-block-chart-png-btn')
+      if (_png) _png.addEventListener('click', () => {
+        const a = document.createElement('a')
+        a.href = canvas._chart.toBase64Image('image/png', 1)
+        a.download = 'myanmar-category-blocks.png'
+        a.click()
+      })
+      const _svg = document.getElementById('category-block-chart-svg-btn')
+      if (_svg) _svg.addEventListener('click', () => {
+        const dataUrl = canvas._chart.toBase64Image('image/png', 1)
+        const w = canvas.width, h = canvas.height
+        const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${w}" height="${h}"><image href="${dataUrl}" width="${w}" height="${h}"/></svg>`
+        const blob = new Blob([svg], { type: 'image/svg+xml' })
+        const url = URL.createObjectURL(blob)
+        const a = document.createElement('a'); a.href = url; a.download = 'myanmar-category-blocks.svg'; a.click()
+        URL.revokeObjectURL(url)
+      })
+      const _emb = document.getElementById('category-block-chart-embed-btn')
+      if (_emb) _emb.addEventListener('click', () => {
+        navigator.clipboard.writeText('<CensorshipChart type="category-blocks" />')
+          .then(() => { _emb.textContent = '✓ Copied'; setTimeout(() => { _emb.textContent = '</> Embed' }, 2000) })
+          .catch(() => {})
       })
     }
 

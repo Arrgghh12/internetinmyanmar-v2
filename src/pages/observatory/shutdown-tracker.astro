@@ -56,6 +56,12 @@ const keyEvents = Object.entries(narrativeEvents)
 
 const totalMeasurements = history.reduce((s, r) => s + r.measurement_count, 0)
 
+// Limit weekly/daily to the window covered by CF data (agent only keeps 52 weeks / 30 days)
+const cfWeeklyCount = cfTraffic.weekly?.length ?? 52
+const cfDailyCount  = cfTraffic.daily?.length  ?? 30
+const historyWeeklyTrimmed = historyWeekly.slice(-cfWeeklyCount)
+const historyDailyTrimmed  = historyDaily.slice(-cfDailyCount)
+
 // CF monthly traffic lookup for the table
 const cfMonthlyMap = Object.fromEntries(
   (cfTraffic.monthly || []).map((p: {month: string, cf_traffic: number}) => [p.month, p.cf_traffic])
@@ -582,8 +588,8 @@ const kitEventsWithRegions = keepitonData.events.map(ev => ({
 
   <script define:vars={{
     ooniMonthly:    history,
-    ooniWeekly:     historyWeekly,
-    ooniDaily:      historyDaily,
+    ooniWeekly:     historyWeeklyTrimmed,
+    ooniDaily:      historyDailyTrimmed,
     cfMonthly:      cfTraffic.monthly,
     cfWeekly:       cfTraffic.weekly,
     cfDaily:        cfTraffic.daily,
@@ -596,7 +602,7 @@ const kitEventsWithRegions = keepitonData.events.map(ev => ({
 
     function buildDatasets(scale) {
       const ooni = { monthly: ooniMonthly, weekly: ooniWeekly, daily: ooniDaily }[scale] || []
-      const cf   = { monthly: cfMonthly,   weekly: cfWeekly,   daily: cfDaily   }[scale] || []
+      const cf  = { monthly: cfMonthly,   weekly: cfWeekly,   daily: cfDaily   }[scale] || []
 
       if (!ooni.length) return { labels: [], datasets: [] }
 
@@ -639,10 +645,17 @@ const kitEventsWithRegions = keepitonData.events.map(ev => ({
           }
           cfMap[key] = p.cf_traffic
         })
-        const cfData = ooni.map(d => {
+        let cfData = ooni.map(d => {
           const key = (d.period || d.month || d.measurement_start_day || '').slice(0, scale === 'monthly' ? 7 : 10)
           return cfMap[key] != null ? cfMap[key] : null
         })
+        // Re-normalize to the visible window's peak so the line fills the range meaningfully
+        if (scale !== 'monthly') {
+          const cfMax = Math.max(...cfData.filter(v => v != null))
+          if (cfMax > 0) {
+            cfData = cfData.map(v => v != null ? Math.round((v / cfMax) * 1000) / 10 : null)
+          }
+        }
         datasets.push({
           type: 'line',
           label: 'CF Traffic (% of peak)',

@@ -52,11 +52,16 @@ const lastUpdated = days[days.length - 1]?.date ?? ''
     </div>
   </div>
 
-  <div class="flex justify-between items-center mt-2">
+  <div class="flex justify-between items-center mt-2 flex-wrap gap-2">
     <p class="text-xs font-mono opacity-30">
-      OONI · Cloudflare Radar · last data point: {lastUpdated}
+      OONI CC BY 4.0 · CF Radar CC BY-NC 4.0 · updated {lastUpdated}
     </p>
-    <a href="/data/ooni-daily.json" class="text-xs font-mono opacity-40 hover:opacity-70 transition-opacity">↓ download JSON</a>
+    <div class="flex items-center gap-2">
+      <button id="live-signal-chart-png-btn" class="text-xs font-mono opacity-40 hover:opacity-70 transition-opacity border border-white/10 px-2 py-0.5 rounded cursor-pointer bg-transparent">↓ PNG</button>
+      <button id="live-signal-chart-svg-btn" class="text-xs font-mono opacity-40 hover:opacity-70 transition-opacity border border-white/10 px-2 py-0.5 rounded cursor-pointer bg-transparent">↓ SVG</button>
+      <a href="/data/ooni_timeseries.csv" download class="text-xs font-mono opacity-40 hover:opacity-70 transition-opacity border border-white/10 px-2 py-0.5 rounded">↓ CSV</a>
+      <button id="live-signal-chart-embed-btn" class="text-xs font-mono opacity-40 hover:opacity-70 transition-opacity border border-white/10 px-2 py-0.5 rounded cursor-pointer bg-transparent">&lt;/&gt; Embed</button>
+    </div>
   </div>
 
   <!-- Data table fallback -->
@@ -108,7 +113,7 @@ const lastUpdated = days[days.length - 1]?.date ?? ''
         : 'rgba(34,197,94,0.7)'
       )
 
-      new window.Chart(ctx, {
+      canvas._chart = new window.Chart(ctx, {
         data: {
           labels,
           datasets: [
@@ -174,6 +179,29 @@ const lastUpdated = days[days.length - 1]?.date ?? ''
             },
           },
         },
+      })
+      const _png = document.getElementById('live-signal-chart-png-btn')
+      if (_png) _png.addEventListener('click', () => {
+        const a = document.createElement('a')
+        a.href = canvas._chart.toBase64Image('image/png', 1)
+        a.download = 'myanmar-internet-30day.png'
+        a.click()
+      })
+      const _svg = document.getElementById('live-signal-chart-svg-btn')
+      if (_svg) _svg.addEventListener('click', () => {
+        const dataUrl = canvas._chart.toBase64Image('image/png', 1)
+        const w = canvas.width, h = canvas.height
+        const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${w}" height="${h}"><image href="${dataUrl}" width="${w}" height="${h}"/></svg>`
+        const blob = new Blob([svg], { type: 'image/svg+xml' })
+        const url = URL.createObjectURL(blob)
+        const a = document.createElement('a'); a.href = url; a.download = 'myanmar-internet-30day.svg'; a.click()
+        URL.revokeObjectURL(url)
+      })
+      const _emb = document.getElementById('live-signal-chart-embed-btn')
+      if (_emb) _emb.addEventListener('click', () => {
+        navigator.clipboard.writeText('<CensorshipChart type="live-signal" />')
+          .then(() => { _emb.textContent = '✓ Copied'; setTimeout(() => { _emb.textContent = '</> Embed' }, 2000) })
+          .catch(() => {})
       })
     }
 

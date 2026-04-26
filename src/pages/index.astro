@@ -1,6 +1,7 @@
 ---
 import Base from '../layouts/Base.astro'
 import CfRadarBanner from '../components/CfRadarBanner.astro'
+import NewsletterForm from '../components/NewsletterForm.astro'
 import { getCollection } from 'astro:content'
 import stats from '../content/observatory/stats.json'
 import cfOutages from '../data/cf-radar-outages.json'
@@ -426,7 +427,7 @@ const tierColor: Record<string, string> = {
   </section>
 
   <!-- CTA -->
-  <section class="py-20 px-4 text-center">
+  <section class="py-20 px-4 text-center border-b border-white/10">
     <div class="max-w-2xl mx-auto">
       <h2 class="font-headline text-3xl mb-4">Track Myanmar's internet in real time</h2>
       <p class="opacity-60 mb-8">
@@ -435,6 +436,13 @@ const tierColor: Record<string, string> = {
       <a href="/observatory/" class="px-8 py-4 border border-[color:var(--color-accent)] text-[color:var(--color-accent)] rounded hover:bg-[color:var(--color-accent)] hover:text-[color:var(--color-bg-dark)] transition-colors font-semibold">
         Open the Observatory
       </a>
+    </div>
+  </section>
+
+  <!-- Newsletter -->
+  <section class="py-16 px-4">
+    <div class="max-w-xl mx-auto">
+      <NewsletterForm />
     </div>
   </section>
 

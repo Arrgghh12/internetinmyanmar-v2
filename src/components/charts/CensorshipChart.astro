@@ -1,0 +1,249 @@
+---
+import LiveSignalChart from './LiveSignalChart.astro'
+import ElectionTimelineChart from './ElectionTimelineChart.astro'
+import ElectionWindowChart from './ElectionWindowChart.astro'
+import OoniBreakdownChart from './OoniBreakdownChart.astro'
+import BlockedSitesChart from './BlockedSitesChart.astro'
+import CategoryBlockChart from './CategoryBlockChart.astro'
+import ooniHistory from '../../data/ooni-history.json'
+import cfTraffic from '../../data/cf-traffic.json'
+import bgpOutagesRaw from '../../data/bgp-outages.json'
+
+interface Props {
+  type: 'live-signal' | 'ooni-monthly' | 'election-window' | 'ooni-breakdown' | 'blocked-sites' | 'category-blocks' | 'bgp-ooni-combined'
+  title?: string
+  height?: number
+  showExport?: boolean
+}
+
+const { type, title, height = 260, showExport = true } = Astro.props
+
+// bgp-ooni-combined data prep
+const bgpOutages = bgpOutagesRaw as { asn: string; started_at: string }[]
+const bgpByMonth: Record<string, number> = {}
+for (const e of bgpOutages) {
+  const m = e.started_at.slice(0, 7)
+  bgpByMonth[m] = (bgpByMonth[m] ?? 0) + 1
+}
+
+const cfMonthlyMap: Record<string, number> = Object.fromEntries(
+  (cfTraffic.monthly || []).map((p: { month: string; cf_traffic: number }) => [p.month, p.cf_traffic])
+)
+
+const combinedData = ooniHistory.map(d => ({
+  month:      d.month,
+  anomaly:    d.anomaly_rate,
+  cf:         cfMonthlyMap[d.month] ?? null,
+  bgpCount:   bgpByMonth[d.month] ?? 0,
+}))
+
+const canvasId = 'bgp-ooni-combined-chart'
+---
+
+{type === 'live-signal'     && <LiveSignalChart />}
+{type === 'ooni-monthly'    && <ElectionTimelineChart />}
+{type === 'election-window' && <ElectionWindowChart />}
+{type === 'ooni-breakdown'  && <OoniBreakdownChart />}
+{type === 'blocked-sites'   && <BlockedSitesChart />}
+{type === 'category-blocks' && <CategoryBlockChart />}
+
+{type === 'bgp-ooni-combined' && (
+  <div class="mb-8 not-prose">
+    <div class="flex items-center justify-between mb-2 flex-wrap gap-2">
+      <div>
+        <div class="font-headline text-base">{title ?? 'OONI, Cloudflare Radar & BGP — Monthly Overview'}</div>
+        <p class="text-xs font-mono opacity-40 mt-0.5">
+          Bars = OONI anomaly % · Teal line = CF Radar traffic · Red dots = BGP outage events
+        </p>
+      </div>
+    </div>
+    <div class="border border-white/10 rounded-lg p-4 bg-[#0A1628]">
+      <canvas id={canvasId} style={`width:100%;height:${height}px`}></canvas>
+    </div>
+    <!-- HTML legend -->
+    <div class="flex flex-wrap gap-x-5 gap-y-1 mt-2">
+      <div class="flex items-center gap-1.5">
+        <span class="inline-block w-3 h-3 rounded-sm flex-shrink-0" style="background:rgba(245,158,11,0.85)"></span>
+        <span class="text-xs font-mono opacity-50">OONI anomaly rate</span>
+      </div>
+      <div class="flex items-center gap-1.5">
+        <span class="inline-block w-3 h-0.5 flex-shrink-0" style="background:#00D4C8"></span>
+        <span class="text-xs font-mono opacity-50">CF Radar traffic (% of peak)</span>
+      </div>
+      <div class="flex items-center gap-1.5">
+        <span class="inline-block w-3 h-3 rounded-full flex-shrink-0" style="background:#EF4444"></span>
+        <span class="text-xs font-mono opacity-50">BGP outage events (dot size = count)</span>
+      </div>
+    </div>
+    <div class="flex justify-between items-center mt-2 flex-wrap gap-2">
+      <p class="text-xs font-mono opacity-30">
+        OONI CC BY 4.0 · CF Radar CC BY-NC 4.0 · BGP data IIM Observatory
+      </p>
+      {showExport && (
+        <div class="flex items-center gap-2">
+          <button id={`${canvasId}-png-btn`} class="text-xs font-mono opacity-40 hover:opacity-70 transition-opacity border border-white/10 px-2 py-0.5 rounded cursor-pointer bg-transparent">↓ PNG</button>
+          <button id={`${canvasId}-svg-btn`} class="text-xs font-mono opacity-40 hover:opacity-70 transition-opacity border border-white/10 px-2 py-0.5 rounded cursor-pointer bg-transparent">↓ SVG</button>
+          <a href="/data/unified_events.json" download class="text-xs font-mono opacity-40 hover:opacity-70 transition-opacity border border-white/10 px-2 py-0.5 rounded">↓ JSON</a>
+          <button id={`${canvasId}-embed-btn`} class="text-xs font-mono opacity-40 hover:opacity-70 transition-opacity border border-white/10 px-2 py-0.5 rounded cursor-pointer bg-transparent">&lt;/&gt; Embed</button>
+        </div>
+      )}
+    </div>
+  </div>
+)}
+
+<script define:vars={{ combinedData, canvasId, type }}>
+  if (type !== 'bgp-ooni-combined') return
+
+  ;(function () {
+    const canvas = document.getElementById(canvasId)
+    if (!canvas) return
+
+    function initChart() {
+      const ctx = canvas.getContext('2d')
+      if (!ctx) return
+
+      const labels    = combinedData.map(d => d.month)
+      const anomalies = combinedData.map(d => d.anomaly)
+      const cfLine    = combinedData.map(d => d.cf)
+      const bgpCounts = combinedData.map(d => d.bgpCount)
+
+      const barColors = anomalies.map(r =>
+        r > 30 ? 'rgba(239,68,68,0.85)'
+        : r > 15 ? 'rgba(245,158,11,0.85)'
+        : 'rgba(113,112,255,0.7)'
+      )
+
+      // Plugin: draw BGP outage dots at the bottom of the chart
+      const bgpDotPlugin = {
+        id: 'bgpDots',
+        afterDraw(chart) {
+          const { ctx: c, scales: { x, yOoni } } = chart
+          const bottom = yOoni.bottom
+          c.save()
+          bgpCounts.forEach((count, idx) => {
+            if (!count) return
+            const meta = chart.getDatasetMeta(0)
+            const bar = meta.data[idx]
+            if (!bar) return
+            const r = Math.min(2 + count / 8, 7)
+            c.fillStyle = 'rgba(239,68,68,0.85)'
+            c.beginPath()
+            c.arc(bar.x, bottom - r - 2, r, 0, Math.PI * 2)
+            c.fill()
+          })
+          c.restore()
+        }
+      }
+
+      canvas._chart = new window.Chart(ctx, {
+        plugins: [bgpDotPlugin],
+        data: {
+          labels,
+          datasets: [
+            {
+              type: 'bar',
+              label: 'OONI Anomaly Rate (%)',
+              data: anomalies,
+              backgroundColor: barColors,
+              borderRadius: 2,
+              yAxisID: 'yOoni',
+            },
+            {
+              type: 'line',
+              label: 'CF Radar Traffic (% of peak)',
+              data: cfLine,
+              borderColor: '#00D4C8',
+              backgroundColor: 'transparent',
+              borderWidth: 1.5,
+              pointRadius: 0,
+              spanGaps: true,
+              tension: 0.3,
+              yAxisID: 'yCf',
+            },
+          ],
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          interaction: { mode: 'index', intersect: false },
+          plugins: {
+            legend: {
+              display: true,
+              labels: { color: '#94a3b8', font: { size: 10, family: 'monospace' }, boxWidth: 12, padding: 16 },
+            },
+            tooltip: {
+              backgroundColor: '#0f1f3a',
+              titleColor: '#94a3b8',
+              bodyColor: '#e2e8f0',
+              callbacks: {
+                label: c => c.datasetIndex === 0
+                  ? ` OONI: ${c.parsed.y}% anomaly`
+                  : ` CF Traffic: ${c.parsed.y}% of peak`,
+                afterBody: items => {
+                  const idx = items[0]?.dataIndex
+                  const n = bgpCounts[idx]
+                  return n ? [``, ` BGP outages: ${n} events this month`] : []
+                },
+              },
+            },
+          },
+          scales: {
+            x: {
+              ticks: { color: '#64748b', font: { size: 9 }, maxRotation: 45, autoSkip: true, maxTicksLimit: 20 },
+              grid: { color: 'rgba(255,255,255,0.04)' },
+            },
+            yOoni: {
+              position: 'left',
+              beginAtZero: true,
+              max: 40,
+              ticks: { color: '#64748b', font: { size: 9 }, callback: v => `${v}%` },
+              grid: { color: 'rgba(255,255,255,0.04)' },
+              title: { display: true, text: 'Anomaly %', color: '#64748b', font: { size: 9 } },
+            },
+            yCf: {
+              position: 'right',
+              beginAtZero: true,
+              max: 100,
+              ticks: { color: '#00D4C8', font: { size: 9 }, callback: v => `${v}%` },
+              grid: { display: false },
+              title: { display: true, text: 'CF Traffic %', color: '#00D4C8', font: { size: 9 } },
+            },
+          },
+        },
+      })
+
+      const _png = document.getElementById(`${canvasId}-png-btn`)
+      if (_png) _png.addEventListener('click', () => {
+        const a = document.createElement('a')
+        a.href = canvas._chart.toBase64Image('image/png', 1)
+        a.download = 'myanmar-bgp-ooni-combined.png'
+        a.click()
+      })
+      const _svg = document.getElementById(`${canvasId}-svg-btn`)
+      if (_svg) _svg.addEventListener('click', () => {
+        const dataUrl = canvas._chart.toBase64Image('image/png', 1)
+        const w = canvas.width, h = canvas.height
+        const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${w}" height="${h}"><image href="${dataUrl}" width="${w}" height="${h}"/></svg>`
+        const blob = new Blob([svg], { type: 'image/svg+xml' })
+        const url = URL.createObjectURL(blob)
+        const a = document.createElement('a'); a.href = url; a.download = 'myanmar-bgp-ooni-combined.svg'; a.click()
+        URL.revokeObjectURL(url)
+      })
+      const _emb = document.getElementById(`${canvasId}-embed-btn`)
+      if (_emb) _emb.addEventListener('click', () => {
+        navigator.clipboard.writeText('<CensorshipChart type="bgp-ooni-combined" />')
+          .then(() => { _emb.textContent = '✓ Copied'; setTimeout(() => { _emb.textContent = '</> Embed' }, 2000) })
+          .catch(() => {})
+      })
+    }
+
+    if (window.Chart) {
+      initChart()
+    } else {
+      const s = document.createElement('script')
+      s.src = 'https://cdn.jsdelivr.net/npm/chart.js@4/dist/chart.umd.min.js'
+      s.onload = initChart
+      document.head.appendChild(s)
+    }
+  })()
+</script>

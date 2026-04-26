@@ -23,10 +23,17 @@ const ELECTION_MONTHS = ['2025-11', '2025-12', '2026-01']
   <div class="border border-white/10 rounded-lg p-4 bg-[#0A1628]">
     <canvas id="election-timeline-chart" style="width:100%;height:240px"></canvas>
   </div>
-  <p class="text-xs font-mono opacity-30 mt-2">
-    OONI Web Connectivity · Feb 2021 – Apr 2026 · {totalMeasurements.toLocaleString()} total measurements ·
-    <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener" class="underline hover:opacity-60">CC BY 4.0</a>
-  </p>
+  <div class="flex justify-between items-center mt-2 flex-wrap gap-2">
+    <p class="text-xs font-mono opacity-30">
+      OONI CC BY 4.0 · CF Radar CC BY-NC 4.0 · Feb 2021–present · {totalMeasurements.toLocaleString()} measurements
+    </p>
+    <div class="flex items-center gap-2">
+      <button id="election-timeline-chart-png-btn" class="text-xs font-mono opacity-40 hover:opacity-70 transition-opacity border border-white/10 px-2 py-0.5 rounded cursor-pointer bg-transparent">↓ PNG</button>
+      <button id="election-timeline-chart-svg-btn" class="text-xs font-mono opacity-40 hover:opacity-70 transition-opacity border border-white/10 px-2 py-0.5 rounded cursor-pointer bg-transparent">↓ SVG</button>
+      <a href="/data/ooni_timeseries.csv" download class="text-xs font-mono opacity-40 hover:opacity-70 transition-opacity border border-white/10 px-2 py-0.5 rounded">↓ CSV</a>
+      <button id="election-timeline-chart-embed-btn" class="text-xs font-mono opacity-40 hover:opacity-70 transition-opacity border border-white/10 px-2 py-0.5 rounded cursor-pointer bg-transparent">&lt;/&gt; Embed</button>
+    </div>
+  </div>
 </div>
 
 <script define:vars={{ ooniData: ooniHistory, cfMap: cfMonthlyMap, electionMonths: ELECTION_MONTHS }}>
@@ -115,7 +122,7 @@ const ELECTION_MONTHS = ['2025-11', '2025-12', '2026-01']
         }
       }
 
-      new window.Chart(ctx, {
+      canvas._chart = new window.Chart(ctx, {
         plugins: [electionPlugin],
         data: {
           labels,
@@ -185,6 +192,29 @@ const ELECTION_MONTHS = ['2025-11', '2025-12', '2026-01']
             },
           },
         },
+      })
+      const _png = document.getElementById('election-timeline-chart-png-btn')
+      if (_png) _png.addEventListener('click', () => {
+        const a = document.createElement('a')
+        a.href = canvas._chart.toBase64Image('image/png', 1)
+        a.download = 'myanmar-ooni-timeline.png'
+        a.click()
+      })
+      const _svg = document.getElementById('election-timeline-chart-svg-btn')
+      if (_svg) _svg.addEventListener('click', () => {
+        const dataUrl = canvas._chart.toBase64Image('image/png', 1)
+        const w = canvas.width, h = canvas.height
+        const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${w}" height="${h}"><image href="${dataUrl}" width="${w}" height="${h}"/></svg>`
+        const blob = new Blob([svg], { type: 'image/svg+xml' })
+        const url = URL.createObjectURL(blob)
+        const a = document.createElement('a'); a.href = url; a.download = 'myanmar-ooni-timeline.svg'; a.click()
+        URL.revokeObjectURL(url)
+      })
+      const _emb = document.getElementById('election-timeline-chart-embed-btn')
+      if (_emb) _emb.addEventListener('click', () => {
+        navigator.clipboard.writeText('<CensorshipChart type="ooni-monthly" />')
+          .then(() => { _emb.textContent = '✓ Copied'; setTimeout(() => { _emb.textContent = '</> Embed' }, 2000) })
+          .catch(() => {})
       })
     }
 
