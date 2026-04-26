@@ -46,6 +46,7 @@ from datetime import date, datetime, timedelta, timezone
 from pathlib import Path
 from typing import Any
 
+import requests
 import yaml
 from dotenv import load_dotenv
 
@@ -112,8 +113,70 @@ def iso(dt: datetime) -> str:
     return dt.strftime("%Y-%m-%dT%H:%M:%SZ")
 
 
-def dataset_version() -> str:
-    return f"v{now_utc().strftime('%Y%m%d%H%M')}"
+def dataset_version(sources: dict) -> str:
+    """
+    Derive version from the most recent lastUpdated/timestamp across all sources.
+    Deterministic: same input files → same version string, regardless of run time.
+    Falls back to wall-clock only if no source timestamps are parseable.
+    """
+    timestamps: list[datetime] = []
+    for raw in sources.values():
+        candidate: str | None = None
+        if isinstance(raw, dict):
+            candidate = raw.get("lastUpdated") or raw.get("timestamp")
+        elif isinstance(raw, list) and raw:
+            last = raw[-1]
+            candidate = (last.get("timestamp") or last.get("started_at")
+                         or last.get("measurement_start_day"))
+        if candidate:
+            try:
+                timestamps.append(parse_dt(candidate if "T" in candidate
+                                           else candidate + "T00:00:00Z"))
+            except Exception:
+                pass
+    newest = max(timestamps) if timestamps else now_utc()
+    return f"v{newest.strftime('%Y%m%d%H%M')}"
+
+
+def _content_changed(existing: str, new: str, is_json: bool) -> bool:
+    """
+    Compare file contents, ignoring the generated_at/dataset_version header so
+    that files with identical data don't generate spurious commits on each run.
+    """
+    if is_json:
+        try:
+            a = json.loads(existing)
+            b = json.loads(new)
+            for key in ("generated_at", "dataset_version"):
+                a.pop(key, None)
+                b.pop(key, None)
+            return a != b
+        except Exception:
+            pass
+    else:
+        # CSVs: skip provenance comment lines starting with #
+        def strip_comments(s: str) -> list[str]:
+            return [l for l in s.splitlines() if not l.startswith("#")]
+        return strip_comments(existing) != strip_comments(new)
+    return existing.strip() != new.strip()
+
+
+def _telegram_alert(message: str) -> None:
+    """Send a plain-text alert to the configured Telegram chat (sync, best-effort)."""
+    token   = os.environ.get("TELEGRAM_BOT_TOKEN")
+    chat_id = os.environ.get("TELEGRAM_CHAT_ID")
+    if not token or not chat_id:
+        log.warning("[TELEGRAM DISABLED] %s", message[:120])
+        return
+    try:
+        requests.post(
+            f"https://api.telegram.org/bot{token}/sendMessage",
+            json={"chat_id": chat_id, "text": message, "parse_mode": "Markdown",
+                  "disable_web_page_preview": True},
+            timeout=10,
+        )
+    except Exception as exc:
+        log.error("Telegram alert failed: %s", exc)
 
 
 def parse_dt(raw: str) -> datetime:
@@ -317,9 +380,13 @@ def normalize_cf_radar(raw: dict) -> list[dict]:
     normalized = []
     for rec in outages:
         try:
+            start_raw = rec.get("start") or rec.get("started_at") or ""
+            end_raw   = rec.get("end")   or rec.get("ended_at")
+            started_at = iso(parse_dt(start_raw)) if start_raw else ""
+            ended_at   = iso(parse_dt(end_raw))   if end_raw   else None
             normalized.append({
-                "started_at": rec.get("start"),
-                "ended_at":   rec.get("end"),
+                "started_at": started_at,
+                "ended_at":   ended_at,
                 "scope":      rec.get("scope", ""),
                 "type":       rec.get("type", "outage"),
             })
@@ -345,6 +412,7 @@ def join_unified_events(
     bgp: list[dict],
     keepiton: list[dict],
     cf_radar: list[dict],
+    **extra_sources: list[dict],
 ) -> list[dict]:
     """
     Produce the unified events list.
@@ -362,6 +430,12 @@ def join_unified_events(
     Note: since 72/95 KIT events are ongoing post-coup regional shutdowns,
     most BGP outages will match. The match is a temporal correlation, not
     geographic confirmation (ASN → region mapping not yet available).
+
+    Extensibility: pass new normalized sources as keyword args, e.g.
+      join_unified_events(bgp, kit, cf, ioda=ioda_events)
+    Each extra source should be a list of dicts with at least event_time,
+    event_type, sources, severity, is_confirmed, and metadata fields.
+    They are appended verbatim after the built-in sources.
     """
     events: list[dict] = []
     seq = [0]
@@ -397,13 +471,13 @@ def join_unified_events(
             "perpetrator":       None,
             "affected_services": [],
             "is_confirmed":      bgp_ev["ioda_confirmed"],
-            "ioda_confirmed":    bgp_ev["ioda_confirmed"],
             "keepiton_matched":  bool(matched_kit),
             "keepiton_ids":      [k["id"] for k in matched_kit if k["id"]],
             "source_urls":       [],
             "metadata":          {
                 "min_visibility_pct": bgp_ev["min_visibility_pct"],
                 "resolved":           bgp_ev["resolved"],
+                "ioda_confirmed":     bgp_ev["ioda_confirmed"],   # BGP-specific signal
             },
         })
 
@@ -444,7 +518,6 @@ def join_unified_events(
             "perpetrator":       kit_ev["perpetrator"],
             "affected_services": kit_ev["services"],
             "is_confirmed":      True,   # human-verified by Access Now
-            "ioda_confirmed":    False,
             "keepiton_matched":  False,
             "keepiton_ids":      [kit_ev["id"]] if kit_ev["id"] else [],
             "source_urls":       [kit_ev["source_url"]] if kit_ev["source_url"] else [],
@@ -472,12 +545,17 @@ def join_unified_events(
             "perpetrator":       None,
             "affected_services": [],
             "is_confirmed":      True,
-            "ioda_confirmed":    False,
             "keepiton_matched":  False,
             "keepiton_ids":      [],
             "source_urls":       [],
             "metadata":          {},
         })
+
+    # ── Extra sources (future: ioda, user_submissions, …) ─────────────────
+    for source_name, source_events in extra_sources.items():
+        for ev in (source_events or []):
+            ev.setdefault("event_id", next_id(source_name[:4]))
+            events.append(ev)
 
     # Sort chronologically
     def sort_key(e: dict) -> str:
@@ -614,8 +692,12 @@ def export_metrics_json(path: Path, header: dict, metrics: dict) -> str:
     return json.dumps(payload, indent=2, ensure_ascii=False)
 
 
-def records_to_csv(rows: list[dict], fieldnames: list[str]) -> str:
+def records_to_csv(rows: list[dict], fieldnames: list[str],
+                   generated_at: str = "", dataset_version: str = "") -> str:
     buf = io.StringIO()
+    if generated_at:
+        buf.write(f"# generated_at: {generated_at}, dataset_version: {dataset_version},"
+                  f" source: internetinmyanmar.com/data\n")
     writer = csv.DictWriter(buf, fieldnames=fieldnames, extrasaction="ignore",
                             lineterminator="\n")
     writer.writeheader()
@@ -652,16 +734,16 @@ def push_to_github(file_contents: dict[str, str], version: str) -> None:
     repo = g.get_repo(REPO_NAME)
     ts   = now_utc().strftime("%Y-%m-%d %H:%M")
 
+    import base64
     pushed = 0
     for repo_path, content in file_contents.items():
+        is_json = repo_path.endswith(".json")
         try:
             try:
                 existing = repo.get_contents(repo_path, ref="main")
-                # Only push if content changed (avoid spurious commits)
-                import base64
                 existing_content = base64.b64decode(existing.content).decode("utf-8")
-                if existing_content.strip() == content.strip():
-                    log.debug("No change in %s — skipping", repo_path)
+                if not _content_changed(existing_content, content, is_json):
+                    log.debug("No data change in %s — skipping", repo_path)
                     continue
                 repo.update_file(
                     repo_path,
@@ -691,12 +773,22 @@ def push_to_github(file_contents: dict[str, str], version: str) -> None:
 
 def run(dry_run: bool = False) -> None:
     log.info("=== process_datasets starting (dry_run=%s) ===", dry_run)
-    version = dataset_version()
     warnings: list[str] = []
 
     # ── Load ──────────────────────────────────────────────────────────────
     sources, load_warnings = load_raw_sources()
     warnings.extend(load_warnings)
+
+    version = dataset_version(sources)   # input-fingerprint, not wall-clock
+
+    # ── Alert on stale sources (full run only) ────────────────────────────
+    if warnings and not dry_run:
+        stale = [w for w in warnings if "stale" in w or "Missing" in w]
+        if stale:
+            msg = "⚠️ *process\\_datasets* — stale/missing sources:\n" + "\n".join(
+                f"• `{w}`" for w in stale
+            )
+            _telegram_alert(msg)
 
     # ── Normalize ─────────────────────────────────────────────────────────
     bgp_norm  = normalize_bgp_outages(sources.get("bgp_outages") or [])
@@ -735,13 +827,15 @@ def run(dry_run: bool = False) -> None:
     # ── Export: metrics_snapshot.json ─────────────────────────────────────
     metrics_json  = export_metrics_json(Path(), header, metrics)
 
+    csv_meta = dict(generated_at=header["generated_at"], dataset_version=version)
+
     # ── Export: bgp_events.csv ────────────────────────────────────────────
     bgp_csv_fields = [
         "asn", "isp_name", "started_at", "ended_at",
-        "duration_minutes", "min_visibility_pct", "ioda_confirmed", "resolved",
+        "duration_minutes", "min_visibility_pct", "resolved",
     ]
     bgp_clean = [{k: v for k, v in r.items() if not k.startswith("_")} for r in bgp_norm]
-    bgp_csv   = records_to_csv(bgp_clean, bgp_csv_fields)
+    bgp_csv   = records_to_csv(bgp_clean, bgp_csv_fields, **csv_meta)
 
     # ── Export: keepiton_shutdowns.csv ────────────────────────────────────
     kit_csv_fields = [
@@ -749,7 +843,7 @@ def run(dry_run: bool = False) -> None:
         "type", "scope", "perpetrator", "services", "source_url",
     ]
     kit_clean = [{k: v for k, v in r.items() if not k.startswith("_")} for r in kit_norm]
-    kit_csv   = records_to_csv(kit_clean, kit_csv_fields)
+    kit_csv   = records_to_csv(kit_clean, kit_csv_fields, **csv_meta)
 
     # ── Export: ooni_timeseries.csv ───────────────────────────────────────
     ooni_monthly = sources.get("ooni_daily") or []   # use daily for recency
@@ -771,13 +865,13 @@ def run(dry_run: bool = False) -> None:
         "anomaly_count", "anomaly_rate", "confirmed_count",
         "failure_count", "ok_count",
     ]
-    ooni_csv = records_to_csv(ooni_deduped, ooni_csv_fields)
+    ooni_csv = records_to_csv(ooni_deduped, ooni_csv_fields, **csv_meta)
 
     # ── Export: blocked_sites.csv ─────────────────────────────────────────
     blocked = sources.get("blocked_sites") or {}
     sites   = blocked.get("sites", [])
     sites_csv_fields = ["domain", "category", "anomaly_count", "total", "rate"]
-    sites_csv = records_to_csv(sites, sites_csv_fields)
+    sites_csv = records_to_csv(sites, sites_csv_fields, **csv_meta)
 
     if dry_run:
         print("\n=== DRY RUN — outputs not pushed ===")

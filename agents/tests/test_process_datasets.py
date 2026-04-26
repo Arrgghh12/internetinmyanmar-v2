@@ -13,13 +13,16 @@ import pytest
 
 sys.path.insert(0, str(Path(__file__).parent.parent))
 from process_datasets import (
+    _content_changed,
     compute_metrics,
+    dataset_version,
     join_unified_events,
     normalize_bgp_outages,
     normalize_cf_radar,
     normalize_keepiton,
     parse_date,
     parse_dt,
+    records_to_csv,
     severity_bgp,
     severity_keepiton,
 )
@@ -306,6 +309,111 @@ def test_join_no_internal_fields():
 def test_join_empty_inputs():
     result = join_unified_events([], [], [])
     assert result == []
+
+
+def test_join_ioda_confirmed_in_metadata_not_toplevel():
+    bgp  = normalize_bgp_outages(BGP_RAW_SAMPLE)
+    result = join_unified_events(bgp, [], [])
+    bgp_events = [e for e in result if "bgp" in e["sources"]]
+    for e in bgp_events:
+        assert "ioda_confirmed" not in e, "ioda_confirmed must not be top-level"
+        assert "ioda_confirmed" in e["metadata"], "ioda_confirmed must be in metadata"
+
+
+def test_join_kit_events_no_ioda_confirmed():
+    kit  = normalize_keepiton(KIT_RAW_SAMPLE)
+    result = join_unified_events([], kit, [])
+    for e in result:
+        assert "ioda_confirmed" not in e
+
+
+def test_join_extra_sources_keyword():
+    extra = [{
+        "event_id": "ioda-0001", "event_time": "2026-04-10T06:00:00Z",
+        "event_type": "outage", "sources": ["ioda"], "severity": 3,
+        "is_confirmed": True, "metadata": {},
+    }]
+    result = join_unified_events([], [], [], ioda=extra)
+    assert any(e.get("sources") == ["ioda"] for e in result)
+
+
+# ---------------------------------------------------------------------------
+# _content_changed
+# ---------------------------------------------------------------------------
+
+def test_content_changed_json_same_data_different_generated_at():
+    import json
+    a = json.dumps({"generated_at": "2026-04-26T08:00:00Z", "dataset_version": "v1",
+                    "events": [{"id": 1}]})
+    b = json.dumps({"generated_at": "2026-04-26T20:00:00Z", "dataset_version": "v1",
+                    "events": [{"id": 1}]})
+    assert not _content_changed(a, b, is_json=True)
+
+
+def test_content_changed_json_different_data():
+    import json
+    a = json.dumps({"generated_at": "2026-04-26T08:00:00Z", "events": [{"id": 1}]})
+    b = json.dumps({"generated_at": "2026-04-26T08:00:00Z", "events": [{"id": 2}]})
+    assert _content_changed(a, b, is_json=True)
+
+
+def test_content_changed_csv_ignores_comment():
+    a = "# generated_at: 2026-04-26T08:00:00Z\nasn,name\nAS9988,MPT\n"
+    b = "# generated_at: 2026-04-26T20:00:00Z\nasn,name\nAS9988,MPT\n"
+    assert not _content_changed(a, b, is_json=False)
+
+
+def test_content_changed_csv_detects_data_change():
+    a = "# generated_at: 2026-04-26T08:00:00Z\nasn,name\nAS9988,MPT\n"
+    b = "# generated_at: 2026-04-26T08:00:00Z\nasn,name\nAS9988,Ooredoo\n"
+    assert _content_changed(a, b, is_json=False)
+
+
+# ---------------------------------------------------------------------------
+# dataset_version
+# ---------------------------------------------------------------------------
+
+def test_dataset_version_deterministic():
+    sources = {"keepiton": {"lastUpdated": "2026-04-26T09:00:00Z"}}
+    v1 = dataset_version(sources)
+    v2 = dataset_version(sources)
+    assert v1 == v2
+
+
+def test_dataset_version_changes_with_data():
+    s1 = {"keepiton": {"lastUpdated": "2026-04-26T09:00:00Z"}}
+    s2 = {"keepiton": {"lastUpdated": "2026-04-27T09:00:00Z"}}
+    assert dataset_version(s1) != dataset_version(s2)
+
+
+def test_dataset_version_uses_newest_source():
+    sources = {
+        "keepiton": {"lastUpdated": "2026-04-26T09:00:00Z"},
+        "ooni":     {"lastUpdated": "2026-04-26T20:00:00Z"},
+    }
+    v = dataset_version(sources)
+    assert "202604262000" in v
+
+
+# ---------------------------------------------------------------------------
+# records_to_csv provenance
+# ---------------------------------------------------------------------------
+
+def test_records_to_csv_provenance_header():
+    rows = [{"a": 1, "b": 2}]
+    result = records_to_csv(rows, ["a", "b"],
+                            generated_at="2026-04-26T08:00:00Z",
+                            dataset_version="v202604260800")
+    lines = result.splitlines()
+    assert lines[0].startswith("# generated_at:")
+    assert "dataset_version" in lines[0]
+    assert lines[1] == "a,b"  # header row follows
+
+
+def test_records_to_csv_no_provenance_when_empty():
+    rows = [{"a": 1}]
+    result = records_to_csv(rows, ["a"])
+    assert not result.startswith("#")
 
 
 # ---------------------------------------------------------------------------
