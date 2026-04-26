@@ -186,15 +186,12 @@ def build_html(ooni_monthly, cf_weekly, blocked_sites, metrics):
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Myanmar Election 2025–2026: Censorship Snapshot</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
 <style>
   * {{ box-sizing: border-box; margin: 0; padding: 0; }}
 
   body {{
-    font-family: 'IBM Plex Sans', 'Helvetica Neue', Arial, sans-serif;
+    font-family: 'Helvetica Neue', Arial, 'Liberation Sans', sans-serif;
     background: #fff;
     color: #1e293b;
     width: 210mm;
@@ -286,7 +283,6 @@ def build_html(ooni_monthly, cf_weekly, blocked_sites, metrics):
     font-size: 8.5px;
     color: #64748b;
     margin-bottom: 5px;
-    font-style: italic;
   }}
   canvas {{
     max-height: 140px;
@@ -393,7 +389,7 @@ def build_html(ooni_monthly, cf_weekly, blocked_sites, metrics):
     border-radius: 3px;
     padding: 3px 8px;
     font-size: 9px;
-    font-family: 'IBM Plex Mono', 'Courier New', monospace;
+    font-family: 'Courier New', 'Liberation Mono', monospace;
     color: #0f766e;
     text-decoration: none;
     font-weight: 500;
@@ -543,7 +539,7 @@ const bLabels      = {b_labels_json};
 const bAvgs        = {b_avgs_json};
 const bColors      = {b_colors_json};
 
-Chart.defaults.font = {{ family: "'IBM Plex Sans', 'Helvetica Neue', Arial, sans-serif", size: 8.5 }};
+Chart.defaults.font = {{ family: "'Helvetica Neue', Arial, sans-serif", size: 8.5 }};
 Chart.defaults.color = '#475569';
 
 // Chart 1 — Combined OONI bars + CF Radar line

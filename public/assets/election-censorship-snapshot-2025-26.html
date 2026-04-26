@@ -4,15 +4,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Myanmar Election 2025–2026: Censorship Snapshot</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
 <style>
   * { box-sizing: border-box; margin: 0; padding: 0; }
 
   body {
-    font-family: 'IBM Plex Sans', 'Helvetica Neue', Arial, sans-serif;
+    font-family: 'Helvetica Neue', Arial, 'Liberation Sans', sans-serif;
     background: #fff;
     color: #1e293b;
     width: 210mm;
@@ -104,7 +101,6 @@
     font-size: 8.5px;
     color: #64748b;
     margin-bottom: 5px;
-    font-style: italic;
   }
   canvas {
     max-height: 140px;
@@ -211,7 +207,7 @@
     border-radius: 3px;
     padding: 3px 8px;
     font-size: 9px;
-    font-family: 'IBM Plex Mono', 'Courier New', monospace;
+    font-family: 'Courier New', 'Liberation Mono', monospace;
     color: #0f766e;
     text-decoration: none;
     font-weight: 500;
@@ -245,7 +241,7 @@
   </div>
   <div class="header-right">
     <div class="logo">internetinmyanmar.com</div>
-    <div>Observatory &#183; 2026-04-26 14:27 UTC</div>
+    <div>Observatory &#183; 2026-04-26 14:35 UTC</div>
     <div>Dataset v202604261345</div>
   </div>
 </div>
@@ -340,7 +336,7 @@
 <div class="footer">
   <div>
     OONI data CC BY 4.0 &#183; Cloudflare Radar CC BY&#8211;NC 4.0 &#183; KeepItOn / Access Now<br>
-    Cite as: <em>Internet in Myanmar Observatory, internetinmyanmar.com, 2026-04-26 14:27 UTC</em><br>
+    Cite as: <em>Internet in Myanmar Observatory, internetinmyanmar.com, 2026-04-26 14:35 UTC</em><br>
     Contact: <strong>admin@internetinmyanmar.com</strong>
   </div>
   <div style="text-align:right">
@@ -361,7 +357,7 @@ const bLabels      = ["Social Media", "News & Media", "VPN & Circumvention", "Ci
 const bAvgs        = [75.3, 76.2, 75.9, 82.7];
 const bColors      = ["rgba(239,68,68,0.85)", "rgba(251,191,36,0.85)", "rgba(249,115,22,0.85)", "rgba(168,85,247,0.85)"];
 
-Chart.defaults.font = { family: "'IBM Plex Sans', 'Helvetica Neue', Arial, sans-serif", size: 8.5 };
+Chart.defaults.font = { family: "'Helvetica Neue', Arial, sans-serif", size: 8.5 };
 Chart.defaults.color = '#475569';
 
 // Chart 1 — Combined OONI bars + CF Radar line
