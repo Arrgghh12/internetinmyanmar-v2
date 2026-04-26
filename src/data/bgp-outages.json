@@ -11367,6 +11367,17 @@
     "name": "APN-AS-AP MyanmarAPN",
     "status": "DOWN",
     "started_at": "2026-04-26T19:32:38.215188+00:00",
+    "ended_at": "2026-04-26T20:02:55.127108+00:00",
+    "duration_minutes": 30,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": true
+  },
+  {
+    "asn": "AS141199",
+    "name": "CLPC-AS-AP Century Link Plus",
+    "status": "DOWN",
+    "started_at": "2026-04-26T20:02:40.901625+00:00",
     "ended_at": null,
     "duration_minutes": null,
     "min_visibility_pct": 0.0,
