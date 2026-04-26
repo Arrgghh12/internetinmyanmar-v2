@@ -289,9 +289,81 @@ async def cmd_help(update: Update, context: ContextTypes.DEFAULT_TYPE):
         "• Reply `all` — publish all articles\n"
         "• Reply `skip` — skip all for today\n\n"
         "/pending — show today's pending list\n"
+        "/share <slug> — re-share a published article on Twitter + Facebook\n"
         "/help — this message",
         parse_mode="Markdown"
     )
+
+
+async def cmd_share(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    """Re-share a published digest article: /share <slug-or-partial-slug>"""
+    if not authorized(update):
+        return
+
+    args = context.args
+    if not args:
+        await update.message.reply_text(
+            "Usage: `/share <slug>`\n"
+            "Example: `/share 2026-04-26-myanmar-junta`",
+            parse_mode="Markdown",
+        )
+        return
+
+    query = " ".join(args).strip().lower()
+    article = find_candidate_by_slug(query)
+
+    # If not found by exact slug match, search pending files by partial title
+    if not article:
+        files = sorted(PENDING_DIR.glob("pending_*.json"), reverse=True)
+        for f in files:
+            try:
+                candidates = json.loads(f.read_text())
+                match = next(
+                    (c for c in candidates if query in
+                     slugify(c.get("your_title") or c.get("title", "")).lower()),
+                    None,
+                )
+                if match:
+                    article = match
+                    break
+            except Exception:
+                continue
+
+    if not article:
+        await update.message.reply_text(
+            f"Could not find article matching `{query}` in pending files.\n"
+            "Check the slug and try again.",
+            parse_mode="Markdown",
+        )
+        return
+
+    title = article.get("your_title") or article.get("title", "")
+    slug  = slugify(title)
+    pub_date = (article.get("published") or date.today().isoformat())[:10]
+    full_slug = f"{pub_date}-{slug}"
+
+    await update.message.reply_text(f"⏳ Sharing `{full_slug}` on Twitter + Facebook…",
+                                     parse_mode="Markdown")
+    try:
+        from distribution.social_poster import post_all
+        results = post_all({
+            "title":    title,
+            "excerpt":  strip_html(article.get("summary") or "")[:300],
+            "category": normalize_category(article.get("category", "")),
+            "source":   article.get("source_name") or article.get("source", ""),
+            "slug":     full_slug,
+        })
+    except Exception as e:
+        log.error("Share failed: %s", e)
+        await update.message.reply_text(f"❌ Share failed: {e}")
+        return
+
+    posted = list(results["posted"].keys())
+    errors = results["errors"]
+    msg = f"✅ Posted to: {', '.join(posted)}" if posted else "Nothing posted."
+    if errors:
+        msg += f"\nFailed: {', '.join(f'{p}: {e}' for p, e in errors.items())}"
+    await update.message.reply_text(msg)
 
 
 async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
@@ -436,6 +508,7 @@ def main():
         app = Application.builder().token(BOT_TOKEN).build()
         app.add_handler(CommandHandler("pending", cmd_pending))
         app.add_handler(CommandHandler("help",    cmd_help))
+        app.add_handler(CommandHandler("share",   cmd_share))
         app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, handle_message))
         app.add_handler(CallbackQueryHandler(handle_social_callback))
 
