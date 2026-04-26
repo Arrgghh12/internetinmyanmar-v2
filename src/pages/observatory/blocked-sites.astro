@@ -159,17 +159,30 @@ const categoryColors: Record<string, string> = {
         </div>
 
         <div>
+          <h3 class="font-mono text-xs text-[color:var(--color-warning)] uppercase tracking-widest mb-2">Category Block Rate Chart</h3>
+          <p>
+            The <em>Average Block Rate by Category</em> horizontal bar chart aggregates the anomaly
+            rate across all domains within each category and displays the mean as a single figure.
+            This reveals the structural pattern of censorship: categories with consistently high
+            average block rates indicate systematic targeting rather than incidental interference.
+            A category averaging 80%+ is effectively inaccessible without circumvention; 40–79%
+            indicates selective or unstable blocking; below 40% suggests partial enforcement or
+            ISP-level variation. The chart is computed from the same OONI aggregation data as the
+            domain table and is updated twice daily.
+          </p>
+        </div>
+
+        <div>
           <h3 class="font-mono text-xs text-[color:var(--color-warning)] uppercase tracking-widest mb-2">ISP Coverage & Limitations</h3>
           <p>
-            Myanmar operates multiple independent ISPs with varying levels of compliance with
-            military directives. A domain flagged as blocked reflects aggregate measurements across
-            all available vantage points; ISP-specific access may vary. MPT (the state-owned
-            operator) and Mytel (military-linked) show the highest rate of confirmed blocks.
-            Ooredoo and Atom Myanmar have exhibited more variable compliance patterns since 2022.
-            ISP-level breakdowns for each domain are available via
+            Myanmar operates multiple ISPs with varying compliance levels. A domain flagged as
+            blocked reflects aggregate measurements across all available probe vantage points;
+            ISP-specific access may differ. MPT (state-owned) and Mytel (military-linked) show
+            the highest confirmed block rates. Ooredoo and Atom Myanmar have exhibited more variable
+            compliance patterns since 2022. ISP-level breakdowns per domain are available via
             <a href="https://explorer.ooni.org/chart/mat?probe_cc=MM&test_name=web_connectivity" target="_blank" rel="noopener" class="underline hover:opacity-100">OONI Explorer</a>.
             The domain list is refreshed twice daily from the OONI aggregation API.
-            For time-series anomaly trends across all tested URLs, see the
+            For shutdown-scale anomaly trends across all tested URLs, see the
             <a href="/observatory/shutdown-tracker/" class="underline hover:opacity-100">Shutdown Tracker</a>.
           </p>
         </div>

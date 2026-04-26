@@ -100,40 +100,50 @@ const bgpDown  = Object.values(asnStatus).filter((a: any) => a.status === 'RED')
       <h2 class="font-headline text-xl mb-6">About This Observatory</h2>
       <div class="space-y-5 text-sm leading-relaxed opacity-80">
         <p>
-          The Myanmar Internet Observatory combines three independent measurement methodologies —
-          application-layer probing via <a href="https://ooni.org" target="_blank" rel="noopener" class="underline hover:opacity-100">OONI</a>,
-          traffic volume telemetry via <a href="https://radar.cloudflare.com" target="_blank" rel="noopener" class="underline hover:opacity-100">Cloudflare Radar</a>,
-          and routing-layer surveillance via BGP analysis — into a unified monitoring system
-          tracking Myanmar's digital environment continuously since the February 2021 military coup.
+          The Myanmar Internet Observatory integrates four independent measurement layers into a
+          unified monitoring system tracking Myanmar's digital environment continuously since the
+          February 2021 military coup: application-layer probing via
+          <a href="https://ooni.org" target="_blank" rel="noopener" class="underline hover:opacity-100">OONI</a>,
+          traffic telemetry via <a href="https://radar.cloudflare.com" target="_blank" rel="noopener" class="underline hover:opacity-100">Cloudflare Radar</a>,
+          routing-layer surveillance via BGP analysis, and human-verified shutdown records from
+          <a href="https://www.accessnow.org/keepiton/" target="_blank" rel="noopener" class="underline hover:opacity-100">Access Now's STOP Dataset</a>.
         </p>
         <p>
-          No single data source is treated as sufficient. Network interference in Myanmar manifests
-          across multiple layers simultaneously: an ISP ordered offline withdraws its BGP routes
-          within minutes, OONI probes detect application-layer blocking of specific URLs within hours,
-          and Cloudflare Radar traffic drops confirm the population-level impact. Cross-correlating
-          these three independent signals is what distinguishes confirmed shutdown from technical
-          fault, and targeted censorship from infrastructure failure. This multi-source triangulation
-          methodology is aligned with the approach used by
+          No single source is treated as sufficient. Network interference in Myanmar manifests
+          across layers simultaneously: an ISP ordered offline withdraws BGP routes within minutes,
+          OONI probes detect URL-level blocking within hours, Cloudflare Radar traffic drops
+          confirm the population-level impact, and Access Now researchers document the event with
+          geographic attribution and perpetrator identification. Triangulating these four signals
+          distinguishes confirmed shutdown from technical fault, and targeted censorship from
+          infrastructure failure — a methodology aligned with
           <a href="https://netblocks.org" target="_blank" rel="noopener" class="underline hover:opacity-100">NetBlocks</a>,
           <a href="https://ioda.inetintel.cc.gatech.edu" target="_blank" rel="noopener" class="underline hover:opacity-100">IODA (Georgia Tech)</a>,
           and the <a href="https://citizenlab.ca" target="_blank" rel="noopener" class="underline hover:opacity-100">Citizen Lab</a>.
         </p>
         <p>
-          Our data pipeline runs on dedicated infrastructure updated twice daily for application-layer
-          data and every five minutes for BGP routing events. All source data is attributed to its
-          originating institution and published under open licences. The full measurement methodology
-          for each data layer is documented on the corresponding subpage:
-          <a href="/observatory/shutdown-tracker/" class="underline hover:opacity-100">Shutdown Tracker</a> (OONI + Cloudflare Radar),
-          <a href="/observatory/blocked-sites/" class="underline hover:opacity-100">Blocked Sites Monitor</a> (OONI web_connectivity),
-          and <a href="/observatory/bgp/" class="underline hover:opacity-100">BGP Network Status</a> (RIPEstat route collectors).
-          Raw datasets are available for download directly from each section.
+          The <em>30-Day Live Signal</em> chart on this page combines OONI daily anomaly rates
+          with Cloudflare Radar daily traffic on a single dual-axis view — the fastest read on
+          whether today's connectivity is normal, degraded, or severed. Individual observatory
+          sections go deeper: the <a href="/observatory/shutdown-tracker/" class="underline hover:opacity-100">Shutdown Tracker</a> gives
+          the full five-year timeline with verified shutdown overlays and a regional map;
+          the <a href="/observatory/blocked-sites/" class="underline hover:opacity-100">Blocked Sites Monitor</a> lists
+          every domain flagged by OONI with block rate and category breakdown;
+          the <a href="/observatory/bgp/" class="underline hover:opacity-100">BGP Network Status</a> page
+          shows routing-layer events updated every five minutes.
+          Raw datasets are available for download from each section.
+        </p>
+        <p>
+          All source data is attributed to its originating institution and published under open
+          licences (OONI: CC BY 4.0 · Cloudflare Radar: CC BY-NC 4.0 · Access Now STOP Dataset: CC BY 4.0).
+          Our processing pipeline, update cadences, and classification logic are documented on each
+          subpage and open for independent review.
         </p>
       </div>
     </div>
 
     <!-- Attribution -->
     <div class="mt-12 pt-8 border-t border-white/10 text-xs font-mono opacity-40">
-      Data sources: OONI Explorer · Cloudflare Radar · NetBlocks · RIPEstat · IODA ·
+      Data sources: OONI Explorer · Cloudflare Radar · NetBlocks · RIPEstat · IODA · Access Now STOP Dataset ·
       <a href="https://ooni.org/country/MM" target="_blank" rel="noopener" class="hover:opacity-100">ooni.org/country/MM</a>
     </div>
   </div>

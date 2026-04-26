@@ -320,80 +320,92 @@ const tierColor: Record<string, string> = {
         <p class="opacity-70 leading-relaxed">
           Since the February 2021 military coup, <em>Internet in Myanmar</em> has operated as an
           independent technical monitor tracking internet shutdowns, censorship events, and network
-          infrastructure changes in real time. Our measurement infrastructure combines three
-          independent data streams — updated continuously from the coup's first day to the present —
-          to provide the most complete public picture of internet freedom in Myanmar available outside
-          government sources. The data is used by journalists, human rights researchers, legal
-          advocates, and international organizations documenting digital repression in Myanmar.
+          infrastructure changes in real time. Our measurement infrastructure combines four
+          independent data streams — updated continuously since the coup's first day — to produce the
+          most complete public picture of internet freedom in Myanmar available outside government
+          sources. The data is used by journalists, human rights researchers, legal advocates, and
+          international organizations documenting digital repression.
         </p>
       </div>
 
-      <div class="grid md:grid-cols-3 gap-px bg-white/10 rounded-lg overflow-hidden">
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-px bg-white/10 rounded-lg overflow-hidden">
 
         <!-- Pillar 1: OONI -->
-        <div class="bg-[color:var(--color-bg-dark)] p-8">
+        <div class="bg-[color:var(--color-bg-dark)] p-7">
           <div class="font-mono text-xs text-[color:var(--color-warning)] tracking-widest uppercase mb-3">Application layer</div>
-          <h3 class="font-headline text-xl mb-4">OONI Censorship Detection</h3>
-          <p class="text-sm opacity-65 leading-relaxed mb-5">
-            We analyze OONI Web Connectivity measurements from probes inside Myanmar to detect
-            URL-level censorship, DNS tampering, TCP/IP blocking, and HTTP interference across
-            all major ISPs — MPT, Mytel, Ooredoo, and Atom Myanmar. Over five years of continuous
-            measurements document which sites are blocked, on which networks, and when blocking
-            began or intensified. The anomaly rate — the share of measurements returning a
-            disrupted result — is our primary indicator of censorship severity across Myanmar's
-            internet. Social media, independent news outlets, civil society, and VPN tools are
-            the most consistently blocked categories since the coup.
+          <h3 class="font-headline text-lg mb-3">OONI Censorship Detection</h3>
+          <p class="text-sm opacity-65 leading-relaxed mb-4">
+            We analyse OONI Web Connectivity measurements from probes inside Myanmar to detect
+            URL-level censorship, DNS tampering, TCP/IP resets, and HTTP interference across all
+            major ISPs. Five years of continuous data document which sites are blocked, on which
+            networks, and when. The weekly anomaly breakdown chart shows the composition of each
+            measurement period — ok, failure, anomaly, confirmed blocking — revealing whether
+            elevated rates reflect new targeted blocks or broader network degradation.
           </p>
-          <div class="space-y-2">
+          <div class="space-y-1.5">
             <a href="/observatory/blocked-sites/" class="flex items-center gap-2 text-sm text-[color:var(--color-warning)] hover:opacity-80 transition-opacity">
               <span>→</span><span>Blocked Sites Monitor</span>
             </a>
-            <a href="/observatory/shutdown-tracker/" class="flex items-center gap-2 text-sm opacity-50 hover:opacity-80 transition-opacity">
+            <a href="/observatory/shutdown-tracker/" class="flex items-center gap-2 text-sm opacity-45 hover:opacity-80 transition-opacity">
               <span>→</span><span>Shutdown Tracker</span>
             </a>
           </div>
         </div>
 
         <!-- Pillar 2: CF Radar -->
-        <div class="bg-[color:var(--color-bg-dark)] p-8 border-x border-white/10">
+        <div class="bg-[color:var(--color-bg-dark)] p-7 border-l border-white/10">
           <div class="font-mono text-xs text-[color:var(--color-accent)] tracking-widest uppercase mb-3">Traffic layer</div>
-          <h3 class="font-headline text-xl mb-4">Cloudflare Radar Traffic Analysis</h3>
-          <p class="text-sm opacity-65 leading-relaxed mb-5">
+          <h3 class="font-headline text-lg mb-3">Cloudflare Radar Traffic</h3>
+          <p class="text-sm opacity-65 leading-relaxed mb-4">
             We overlay Cloudflare Radar Myanmar traffic volume against OONI anomaly rates to
-            distinguish targeted content blocking from wholesale internet blackouts. When OONI
-            anomaly spikes coincide with a sharp drop in Cloudflare Radar traffic, this is the
-            strongest available technical signal of a deliberate network-level shutdown — the
-            pattern seen during Myanmar's nightly internet curfews, major military offensive
-            blackouts in Rakhine and Shan States, and the total shutdown following the
-            February 2021 coup. This dual-signal approach is the same methodology used by
-            NetBlocks and IODA to corroborate shutdown events globally.
+            distinguish targeted content blocking from wholesale blackouts. An anomaly spike
+            paired with a traffic drop is the strongest available technical signal of a deliberate
+            population-level shutdown — the pattern seen during nightly curfews, Rakhine and Shan
+            offensive blackouts, and the February 2021 coup. The 30-day Live Signal chart on the
+            Observatory dashboard gives the fastest read on today's connectivity.
           </p>
-          <div class="space-y-2">
+          <div class="space-y-1.5">
             <a href="/observatory/shutdown-tracker/" class="flex items-center gap-2 text-sm text-[color:var(--color-accent)] hover:opacity-80 transition-opacity">
               <span>→</span><span>Shutdown Tracker + Chart</span>
             </a>
-            <a href="/observatory/" class="flex items-center gap-2 text-sm opacity-50 hover:opacity-80 transition-opacity">
+            <a href="/observatory/" class="flex items-center gap-2 text-sm opacity-45 hover:opacity-80 transition-opacity">
               <span>→</span><span>Observatory Dashboard</span>
             </a>
           </div>
         </div>
 
-        <!-- Pillar 3: BGP -->
-        <div class="bg-[color:var(--color-bg-dark)] p-8">
-          <div class="font-mono text-xs opacity-50 tracking-widest uppercase mb-3 font-mono">Routing layer</div>
-          <h3 class="font-headline text-xl mb-4">BGP Routing Surveillance</h3>
-          <p class="text-sm opacity-65 leading-relaxed mb-5">
-            We monitor Border Gateway Protocol routing activity across all Myanmar autonomous
-            systems every five minutes, detecting network outages 2–15 minutes before any news
-            report or public alert. BGP prefix withdrawals — the routing-layer signal of a network
-            being taken offline — are the fastest available technical evidence of a deliberate
-            shutdown order. Our BGP monitor tracks mobile network operators, ISPs, international
-            gateways, and internet exchange points, classified by observed peering behaviour rather
-            than government licensing data. Historical outage records, downloadable in JSON and
-            CSV, are available for independent verification and research.
+        <!-- Pillar 3: Access Now -->
+        <div class="bg-[color:var(--color-bg-dark)] p-7 border-l border-white/10">
+          <div class="font-mono text-xs text-[color:var(--color-danger)] tracking-widest uppercase mb-3">Verified shutdowns</div>
+          <h3 class="font-headline text-lg mb-3">Access Now STOP Dataset</h3>
+          <p class="text-sm opacity-65 leading-relaxed mb-4">
+            We integrate Access Now's global human-verified shutdown registry, filtered to Myanmar
+            and updated weekly. Each record is confirmed by researchers through direct community
+            contact, cross-referenced with technical measurements. Events are overlaid on the
+            shutdown tracker chart as coloured bands by type — full network, mobile, platform,
+            throttle — and plotted on a regional map with a timeline scrubber to trace which
+            administrative regions were simultaneously affected at any given month since 2021.
           </p>
-          <div class="space-y-2">
-            <a href="/observatory/bgp/" class="flex items-center gap-2 text-sm opacity-50 hover:opacity-80 transition-opacity">
+          <div class="space-y-1.5">
+            <a href="/observatory/shutdown-tracker/" class="flex items-center gap-2 text-sm text-[color:var(--color-danger)] hover:opacity-80 transition-opacity">
+              <span>→</span><span>Verified Shutdown Map</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Pillar 4: BGP -->
+        <div class="bg-[color:var(--color-bg-dark)] p-7 border-l border-white/10">
+          <div class="font-mono text-xs opacity-50 tracking-widest uppercase mb-3">Routing layer</div>
+          <h3 class="font-headline text-lg mb-3">BGP Routing Surveillance</h3>
+          <p class="text-sm opacity-65 leading-relaxed mb-4">
+            We monitor BGP routing activity across all Myanmar autonomous systems every five minutes,
+            detecting network outages 2–15 minutes before any public alert. BGP prefix withdrawals
+            are the fastest available evidence of a deliberate shutdown order. Our monitor covers
+            mobile operators, ISPs, international gateways, and internet exchange points.
+            Historical outage records are downloadable in JSON for independent research.
+          </p>
+          <div class="space-y-1.5">
+            <a href="/observatory/bgp/" class="flex items-center gap-2 text-sm opacity-45 hover:opacity-80 transition-opacity">
               <span>→</span><span>BGP Network Status</span>
             </a>
           </div>
@@ -404,6 +416,7 @@ const tierColor: Record<string, string> = {
       <div class="mt-8 text-xs font-mono opacity-30">
         Data sources: <a href="https://ooni.org/country/MM" target="_blank" rel="noopener noreferrer" class="hover:opacity-100 underline">OONI Explorer</a> ·
         <a href="https://radar.cloudflare.com" target="_blank" rel="noopener noreferrer" class="hover:opacity-100 underline">Cloudflare Radar</a> ·
+        <a href="https://www.accessnow.org/keepiton/" target="_blank" rel="noopener noreferrer" class="hover:opacity-100 underline">Access Now STOP Dataset</a> ·
         <a href="https://stat.ripe.net" target="_blank" rel="noopener noreferrer" class="hover:opacity-100 underline">RIPEstat (RIPE NCC)</a> ·
         <a href="https://ioda.inetintel.cc.gatech.edu" target="_blank" rel="noopener noreferrer" class="hover:opacity-100 underline">IODA (Georgia Tech)</a> ·
         <a href="https://github.com/citizenlab/test-lists" target="_blank" rel="noopener noreferrer" class="hover:opacity-100 underline">Citizen Lab Test Lists</a>
