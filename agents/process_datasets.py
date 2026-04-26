@@ -62,8 +62,16 @@ logging.basicConfig(
 # ---------------------------------------------------------------------------
 
 AGENTS_DIR  = Path(__file__).parent
-REPO_ROOT   = AGENTS_DIR.parent
-DATA_DIR    = REPO_ROOT / "src" / "data"
+# DATA_PATH env var mirrors the convention in bgp_monitor.py and ooni_watcher.py.
+# On VPS: DATA_PATH=/root/dev/iimv2/src/data (set in .env)
+# Locally: falls back to relative path from agents/ parent.
+_data_path_env = os.environ.get("DATA_PATH", "")
+if _data_path_env:
+    DATA_DIR  = Path(_data_path_env)
+    REPO_ROOT = DATA_DIR.parent.parent   # …/src/data → …/
+else:
+    REPO_ROOT = AGENTS_DIR.parent
+    DATA_DIR  = REPO_ROOT / "src" / "data"
 OUTPUT_DIR  = REPO_ROOT / "public" / "data"
 
 CONFIG      = yaml.safe_load((AGENTS_DIR / "config.yaml").read_text())
