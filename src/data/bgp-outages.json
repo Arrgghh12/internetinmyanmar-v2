@@ -11081,6 +11081,17 @@
     "name": "LOTUS-AS-AP LOTUS MUDRA COMPANY LIMITED",
     "status": "DOWN",
     "started_at": "2026-04-26T01:31:42.148200+00:00",
+    "ended_at": "2026-04-26T02:01:29.395139+00:00",
+    "duration_minutes": 29,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": true
+  },
+  {
+    "asn": "AS136229",
+    "name": "TCLC-AS-AP Treasure Chindwin Land Co.",
+    "status": "DOWN",
+    "started_at": "2026-04-26T02:01:16.729748+00:00",
     "ended_at": null,
     "duration_minutes": null,
     "min_visibility_pct": 0.0,
