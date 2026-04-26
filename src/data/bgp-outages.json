@@ -11334,21 +11334,21 @@
     "name": "AKNCL-AS-AP Aon Kham Network Company Limited",
     "status": "DOWN",
     "started_at": "2026-04-26T17:02:07.396760+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-26T17:31:43.142942+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS152447",
     "name": "MMCL-AS-AP My Mandalay Company Limited",
     "status": "DOWN",
     "started_at": "2026-04-26T17:02:52.971116+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-26T17:32:04.461534+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   }
 ]
