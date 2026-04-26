@@ -102,7 +102,7 @@ What happened in February 2026 is different in kind. Beginning the week of Febru
 
 A September 2025 investigation exposed significant collaboration between the junta and Geedge Networks, a Chinese company with links to the Chinese government, in implementing a commercial version of China's Great Firewall. The timing of the February routing shift — coinciding with post-election consolidation — is consistent with this infrastructure entering large-scale operation.
 
-A note on what our data cannot say: our BGP routing monitor began operating in April 2026, after the election concluded. We therefore cannot confirm or deny BGP-layer prefix withdrawals — the most definitive evidence of deliberate network shutdown — during the election period from our own data. For routing-layer analysis of the election window, see [IODA](https://ioda.inetintel.cc.gatech.edu) and [NetBlocks](https://netblocks.org).
+A note on what our data cannot say: our BGP routing monitor began operating in April 2026, after the election concluded. We therefore cannot confirm or deny BGP-layer prefix withdrawals — the most definitive evidence of deliberate network shutdown — during the election period from our own data. Live BGP monitoring across 130+ Myanmar autonomous systems is now active on our [BGP Observatory](/observatory/bgp/). For routing-layer analysis of the election window, see [IODA](https://ioda.inetintel.cc.gatech.edu) and [NetBlocks](https://netblocks.org).
 
 ## The Model: Ambient Censorship vs. Emergency Shutdown
 
@@ -139,3 +139,16 @@ Data cited in this article is drawn from three independent sources maintained by
 **BGP routing surveillance** monitors Myanmar autonomous systems for prefix withdrawal events. Our BGP monitoring pipeline began operating in April 2026 and cannot retroactively analyze the election period. For BGP-layer analysis of December 2025 – January 2026, external sources (IODA, CAIDA, NetBlocks) should be consulted.
 
 Full methodology is documented on the [Shutdown Tracker](/observatory/shutdown-tracker/) page.
+
+## Researcher Data Downloads
+
+The datasets underlying this article are available for download and reuse under open licences.
+
+| Dataset | Format | Description |
+|---|---|---|
+| [OONI Timeseries](/data/ooni_timeseries.csv) | CSV | Monthly anomaly rates, February 2021 – present |
+| [Verified Shutdowns](/data/keepiton_shutdowns.csv) | CSV | KeepItOn-verified shutdown events, normalized |
+| [BGP Outages](/data/bgp_events.csv) | CSV | BGP prefix withdrawal events, April 2026 – present |
+| [Unified Events](/data/unified_events.json) | JSON | All sources merged and cross-validated |
+
+Please cite as: *Internet in Myanmar Observatory, internetinmyanmar.com*. OONI data published under CC BY 4.0; Cloudflare Radar under CC BY-NC 4.0.
