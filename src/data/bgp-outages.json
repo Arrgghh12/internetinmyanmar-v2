@@ -11097,5 +11097,38 @@
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
     "resolved": true
+  },
+  {
+    "asn": "AS152329",
+    "name": "AKNCL-AS-AP Aon Kham Network Company Limited",
+    "status": "DOWN",
+    "started_at": "2026-04-26T03:01:54.882948+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
+  },
+  {
+    "asn": "AS150310",
+    "name": "TMC-AS-AP Trustforce Myanmar Company Limited trading as Nationet",
+    "status": "DOWN",
+    "started_at": "2026-04-26T03:02:07.465365+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
+  },
+  {
+    "asn": "AS134105",
+    "name": "STLMC-AS-AP Shwe Than Lwin Media Co.",
+    "status": "DOWN",
+    "started_at": "2026-04-26T03:02:45.598590+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
   }
 ]
