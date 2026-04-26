@@ -11257,21 +11257,21 @@
     "name": "MTATCL-AS-AP MaxxB Fiber Internet",
     "status": "DOWN",
     "started_at": "2026-04-26T12:32:51.335562+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-26T13:02:45.914126+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS138168",
     "name": "APN-AS-AP MyanmarAPN",
     "status": "DOWN",
     "started_at": "2026-04-26T12:32:53.139550+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-26T13:02:50.551293+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   }
 ]
