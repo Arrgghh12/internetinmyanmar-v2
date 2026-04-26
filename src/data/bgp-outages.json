@@ -11224,6 +11224,28 @@
     "name": "GTMH-AS-AP Golden TMH Telecom Co. Ltd",
     "status": "DOWN",
     "started_at": "2026-04-26T11:31:31.477932+00:00",
+    "ended_at": "2026-04-26T12:01:27.722964+00:00",
+    "duration_minutes": 29,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": true
+  },
+  {
+    "asn": "AS142126",
+    "name": "SCSKMYANMARLTD-AS SCSK Myanmar Ltd",
+    "status": "DOWN",
+    "started_at": "2026-04-26T12:02:18.034193+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
+  },
+  {
+    "asn": "AS151965",
+    "name": "HATG-AS-AP Hepta Alliance Technology Group",
+    "status": "DOWN",
+    "started_at": "2026-04-26T12:02:42.123076+00:00",
     "ended_at": null,
     "duration_minutes": null,
     "min_visibility_pct": 0.0,
