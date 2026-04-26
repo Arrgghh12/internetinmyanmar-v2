@@ -11312,6 +11312,17 @@
     "name": "MBTCL-AS-AP Myanmar Broadband Telecom Co.",
     "status": "DOWN",
     "started_at": "2026-04-26T15:31:41.124757+00:00",
+    "ended_at": "2026-04-26T16:01:29.353194+00:00",
+    "duration_minutes": 29,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": true
+  },
+  {
+    "asn": "AS138166",
+    "name": "MTATCL-AS-AP MaxxB Fiber Internet",
+    "status": "DOWN",
+    "started_at": "2026-04-26T16:03:05.212256+00:00",
     "ended_at": null,
     "duration_minutes": null,
     "min_visibility_pct": 0.0,
