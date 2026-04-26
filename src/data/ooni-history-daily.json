@@ -280,13 +280,13 @@
     "period": "2026-04-24"
   },
   {
-    "anomaly_count": 38,
+    "anomaly_count": 585,
     "confirmed_count": 0,
-    "failure_count": 34,
-    "ok_count": 228,
-    "measurement_count": 300,
+    "failure_count": 178,
+    "ok_count": 3822,
+    "measurement_count": 4585,
     "measurement_start_day": "2026-04-25",
-    "anomaly_rate": 12.7,
+    "anomaly_rate": 12.8,
     "period": "2026-04-25"
   }
 ]
