@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Myanmar Election 2025–2026: Censorship Snapshot</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap');
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'IBM Plex Sans', Arial, sans-serif;
+    background: #fff;
+    color: #1e293b;
+    width: 210mm;
+    min-height: 297mm;
+    padding: 14mm 16mm 12mm;
+  }
+
+  /* Header */
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    border-bottom: 3px solid #00D4C8;
+    padding-bottom: 10px;
+    margin-bottom: 14px;
+  }
+  .header-left h1 {
+    font-size: 20px;
+    font-weight: 700;
+    color: #0A1628;
+    line-height: 1.2;
+  }
+  .header-left .subtitle {
+    font-size: 11px;
+    color: #64748b;
+    margin-top: 3px;
+  }
+  .header-right {
+    text-align: right;
+    font-size: 10px;
+    color: #94a3b8;
+    line-height: 1.6;
+  }
+  .header-right .logo {
+    font-size: 11px;
+    font-weight: 600;
+    color: #0A1628;
+  }
+
+  /* Key findings strip */
+  .findings {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 14px;
+  }
+  .finding-card {
+    flex: 1;
+    background: #f8fafc;
+    border-left: 3px solid #00D4C8;
+    padding: 7px 10px;
+    border-radius: 0 4px 4px 0;
+  }
+  .finding-card .value {
+    font-size: 22px;
+    font-weight: 700;
+    color: #0A1628;
+    line-height: 1;
+  }
+  .finding-card .label {
+    font-size: 9.5px;
+    color: #64748b;
+    margin-top: 2px;
+    line-height: 1.3;
+  }
+  .finding-card.alert .value { color: #ef4444; }
+  .finding-card.warn  .value { color: #f59e0b; }
+  .finding-card.teal  .value { color: #00D4C8; }
+
+  /* Charts */
+  .charts-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto;
+    gap: 12px;
+    margin-bottom: 14px;
+  }
+  .chart-box {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+    padding: 10px 12px;
+  }
+  .chart-box.full-width {
+    grid-column: 1 / -1;
+  }
+  .chart-box h3 {
+    font-size: 11px;
+    font-weight: 600;
+    color: #0A1628;
+    margin-bottom: 3px;
+  }
+  .chart-box .chart-note {
+    font-size: 9px;
+    color: #64748b;
+    margin-bottom: 6px;
+    font-style: italic;
+  }
+  canvas {
+    max-height: 160px;
+  }
+  .chart-box.full-width canvas {
+    max-height: 130px;
+  }
+
+  /* Legend pills */
+  .legend {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-top: 4px;
+  }
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 3px;
+    font-size: 8.5px;
+    color: #475569;
+  }
+  .legend-dot {
+    width: 8px; height: 8px;
+    border-radius: 2px;
+    flex-shrink: 0;
+  }
+
+  /* Callout box */
+  .callout {
+    background: #fff7ed;
+    border: 1px solid #fed7aa;
+    border-left: 4px solid #f59e0b;
+    border-radius: 4px;
+    padding: 8px 12px;
+    font-size: 10px;
+    color: #78350f;
+    margin-bottom: 14px;
+    line-height: 1.5;
+  }
+  .callout strong { color: #92400e; }
+
+  /* Downloads */
+  .downloads {
+    background: #f0fdfa;
+    border: 1px solid #99f6e4;
+    border-radius: 6px;
+    padding: 10px 14px;
+    margin-bottom: 12px;
+  }
+  .downloads h3 {
+    font-size: 11px;
+    font-weight: 600;
+    color: #0A1628;
+    margin-bottom: 7px;
+  }
+  .download-links {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  .dl-link {
+    background: #fff;
+    border: 1px solid #5eead4;
+    border-radius: 4px;
+    padding: 4px 10px;
+    font-size: 9.5px;
+    font-family: 'IBM Plex Mono', monospace;
+    color: #0f766e;
+    text-decoration: none;
+    font-weight: 500;
+  }
+
+  /* Footer */
+  .footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    border-top: 1px solid #e2e8f0;
+    padding-top: 8px;
+    font-size: 8.5px;
+    color: #94a3b8;
+    line-height: 1.6;
+  }
+  .footer a { color: #00D4C8; text-decoration: none; }
+
+  @media print {
+    body { padding: 10mm 14mm; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ── Header ─────────────────────────────────────────────────── -->
+<div class="header">
+  <div class="header-left">
+    <h1>Myanmar Election 2025–2026: Censorship Snapshot</h1>
+    <div class="subtitle">Independent technical monitoring — OONI · Cloudflare Radar · BGP · KeepItOn/Access Now</div>
+  </div>
+  <div class="header-right">
+    <div class="logo">internetinmyanmar.com</div>
+    <div>Observatory · 2026-04-26 14:19 UTC</div>
+    <div>dataset v202604261345</div>
+  </div>
+</div>
+
+<!-- ── Key Findings ───────────────────────────────────────────── -->
+<div class="findings">
+  <div class="finding-card alert">
+    <div class="value">18.6%</div>
+    <div class="label">OONI anomaly rate Dec 2025<br>(Phase 1 polling month — below Nov's 23.2%)</div>
+  </div>
+  <div class="finding-card warn">
+    <div class="value">95</div>
+    <div class="label">Verified internet shutdowns<br>in Myanmar 2025 (KeepItOn)</div>
+  </div>
+  <div class="finding-card alert">
+    <div class="value">89%</div>
+    <div class="label">Facebook OONI anomaly rate<br>during election period</div>
+  </div>
+  <div class="finding-card teal">
+    <div class="value">~100%</div>
+    <div class="label">Cloudflare Radar index<br>post-election (Feb–Apr 2026)</div>
+  </div>
+</div>
+
+<!-- ── Callout ────────────────────────────────────────────────── -->
+<div class="callout">
+  <strong>Key Finding:</strong> Myanmar's OONI anomaly rate showed no election-day spike on December 28, January 11, or January 25. The junta did not need emergency blackouts — a pre-existing censorship infrastructure blocking 60–90% of independent media, social platforms, and VPN services made acute shutdown actions unnecessary. This is <em>ambient censorship</em>: structural, continuous, and invisible to tools calibrated for acute disruption events.
+</div>
+
+<!-- ── Charts ─────────────────────────────────────────────────── -->
+<div class="charts-grid">
+
+  <!-- Chart 1: OONI Timeline — full width -->
+  <div class="chart-box full-width">
+    <h3>OONI Anomaly Rate — Monthly, Feb 2021 – Apr 2026</h3>
+    <div class="chart-note">Share of network measurements returning anomalous results. Election phases: Campaign = Nov 2025, Phase 1 = Dec 2025, Phases 2–3 = Jan 2026.</div>
+    <canvas id="chart-ooni"></canvas>
+    <div class="legend">
+      <div class="legend-item"><div class="legend-dot" style="background:#94a3b8"></div>Pre-election baseline</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#fbbf24"></div>Campaign period (Nov 2025)</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#ef4444"></div>Voting phases (Dec 2025 – Jan 2026)</div>
+    </div>
+  </div>
+
+  <!-- Chart 2: CF Radar -->
+  <div class="chart-box">
+    <h3>Cloudflare Radar Traffic Index — Weekly</h3>
+    <div class="chart-note">Myanmar IP traffic via Cloudflare, 0–100 scale. Rise = VPN/circumvention surge; Feb 2026 spike = structural routing shift.</div>
+    <canvas id="chart-cf"></canvas>
+    <div class="legend">
+      <div class="legend-item"><div class="legend-dot" style="background:#94a3b8"></div>Baseline (Aug–Oct 2025)</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#fbbf24"></div>Election period (Nov 2025–Jan 2026)</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#ef4444"></div>Post-election routing shift (Feb 2026+)</div>
+    </div>
+  </div>
+
+  <!-- Chart 3: Blocking by category -->
+  <div class="chart-box">
+    <h3>Average OONI Blocking Rate by Category</h3>
+    <div class="chart-note">Mean anomaly rate across 42 tracked domains, grouped by category. Source: OONI Web Connectivity.</div>
+    <canvas id="chart-blocked"></canvas>
+  </div>
+
+</div>
+
+<!-- ── Downloads ─────────────────────────────────────────────── -->
+<div class="downloads">
+  <h3>Download the underlying datasets (CC BY 4.0 · internetinmyanmar.com)</h3>
+  <div class="download-links">
+    <a class="dl-link" href="https://internetinmyanmar.com/data/ooni_timeseries.csv">ooni_timeseries.csv</a>
+    <a class="dl-link" href="https://internetinmyanmar.com/data/keepiton_shutdowns.csv">keepiton_shutdowns.csv</a>
+    <a class="dl-link" href="https://internetinmyanmar.com/data/bgp_events.csv">bgp_events.csv</a>
+    <a class="dl-link" href="https://internetinmyanmar.com/data/unified_events.json">unified_events.json</a>
+  </div>
+</div>
+
+<!-- ── Footer ────────────────────────────────────────────────── -->
+<div class="footer">
+  <div>
+    OONI data CC BY 4.0 · Cloudflare Radar CC BY-NC 4.0 · KeepItOn/Access Now<br>
+    Cite as: <em>Internet in Myanmar Observatory, internetinmyanmar.com, 2026-04-26 14:19 UTC</em>
+  </div>
+  <div style="text-align:right">
+    Full article &amp; interactive charts:<br>
+    <a href="https://internetinmyanmar.com/articles/myanmar-election-internet-censorship-2025-2026/">internetinmyanmar.com/articles/myanmar-election-internet-censorship-2025-2026/</a>
+  </div>
+</div>
+
+<!-- ── Chart.js ──────────────────────────────────────────────── -->
+<script>
+const ooniLabels  = ["2021-02", "2021-03", "2021-04", "2021-05", "2021-06", "2021-07", "2021-08", "2021-09", "2021-10", "2021-11", "2021-12", "2022-01", "2022-02", "2022-03", "2022-04", "2022-05", "2022-06", "2022-07", "2022-08", "2022-09", "2022-10", "2022-11", "2022-12", "2023-01", "2023-02", "2023-03", "2023-04", "2023-05", "2023-06", "2023-07", "2023-08", "2023-09", "2023-10", "2023-11", "2023-12", "2024-01", "2024-02", "2024-03", "2024-04", "2024-05", "2024-06", "2024-07", "2024-08", "2024-09", "2024-10", "2024-11", "2024-12", "2025-01", "2025-02", "2025-03", "2025-04", "2025-05", "2025-06", "2025-07", "2025-08", "2025-09", "2025-10", "2025-11", "2025-12", "2026-01", "2026-02", "2026-03", "2026-04"];
+const ooniRates   = [12.7, 11.1, 10.4, 10.2, 9.7, 10.3, 11.9, 10.1, 9.2, 9.1, 8.3, 9.1, 8.7, 9.9, 11.4, 9.9, 12.1, 9.1, 8.6, 8.5, 6.9, 6.5, 7.1, 7.1, 8.7, 7.0, 9.2, 9.0, 9.3, 9.6, 9.8, 11.3, 9.7, 8.9, 7.2, 18.7, 19.7, 9.9, 13.7, 14.3, 27.0, 27.6, 32.3, 30.6, 25.9, 26.8, 21.4, 19.8, 19.4, 18.7, 20.1, 19.4, 23.5, 21.1, 20.2, 18.9, 21.7, 23.2, 18.6, 20.6, 15.9, 12.2, 13.7];
+const ooniColors  = ["rgba(148,163,184,0.5)", "rgba(148,163,184,0.5)", "rgba(148,163,184,0.5)", "rgba(148,163,184,0.5)", "rgba(148,163,184,0.5)", "rgba(148,163,184,0.5)", "rgba(148,163,184,0.5)", "rgba(148,163,184,0.5)", "rgba(148,163,184,0.5)", "rgba(148,163,184,0.5)", "rgba(148,163,184,0.5)", "rgba(148,163,184,0.5)", "rgba(148,163,184,0.5)", "rgba(148,163,184,0.5)", "rgba(148,163,184,0.5)", "rgba(148,163,184,0.5)", "rgba(148,163,184,0.5)", "rgba(148,163,184,0.5)", "rgba(148,163,184,0.5)", "rgba(148,163,184,0.5)", "rgba(148,163,184,0.5)", "rgba(148,163,184,0.5)", "rgba(148,163,184,0.5)", "rgba(148,163,184,0.5)", "rgba(148,163,184,0.5)", "rgba(148,163,184,0.5)", "rgba(148,163,184,0.5)", "rgba(148,163,184,0.5)", "rgba(148,163,184,0.5)", "rgba(148,163,184,0.5)", "rgba(148,163,184,0.5)", "rgba(148,163,184,0.5)", "rgba(148,163,184,0.5)", "rgba(148,163,184,0.5)", "rgba(148,163,184,0.5)", "rgba(148,163,184,0.5)", "rgba(148,163,184,0.5)", "rgba(148,163,184,0.5)", "rgba(148,163,184,0.5)", "rgba(148,163,184,0.5)", "rgba(148,163,184,0.5)", "rgba(148,163,184,0.5)", "rgba(148,163,184,0.5)", "rgba(148,163,184,0.5)", "rgba(148,163,184,0.5)", "rgba(148,163,184,0.5)", "rgba(148,163,184,0.5)", "rgba(148,163,184,0.5)", "rgba(148,163,184,0.5)", "rgba(148,163,184,0.5)", "rgba(148,163,184,0.5)", "rgba(148,163,184,0.5)", "rgba(148,163,184,0.5)", "rgba(148,163,184,0.5)", "rgba(148,163,184,0.5)", "rgba(148,163,184,0.5)", "rgba(148,163,184,0.5)", "rgba(251,191,36,0.7)", "rgba(239,68,68,0.75)", "rgba(239,68,68,0.75)", "rgba(148,163,184,0.35)", "rgba(148,163,184,0.35)", "rgba(148,163,184,0.35)"];
+const cfLabels    = ["2025-08-04", "2025-08-11", "2025-08-18", "2025-08-25", "2025-09-01", "2025-09-08", "2025-09-15", "2025-09-22", "2025-09-29", "2025-10-06", "2025-10-13", "2025-10-20", "2025-10-27", "2025-11-03", "2025-11-10", "2025-11-17", "2025-11-24", "2025-12-01", "2025-12-08", "2025-12-15", "2025-12-22", "2025-12-29", "2026-01-05", "2026-01-12", "2026-01-19", "2026-01-26", "2026-02-02", "2026-02-09", "2026-02-16", "2026-02-23", "2026-03-02", "2026-03-09", "2026-03-16", "2026-03-23", "2026-03-30", "2026-04-06", "2026-04-13"];
+const cfVals      = [12.3, 11.9, 12.8, 13.3, 13.9, 12.7, 14.0, 15.3, 18.4, 18.1, 17.8, 18.9, 25.5, 37.3, 20.1, 24.1, 23.0, 29.3, 35.4, 37.2, 45.4, 46.6, 38.2, 30.1, 28.3, 37.0, 69.7, 84.5, 93.0, 76.8, 94.8, 100.0, 99.6, 93.6, 79.5, 91.2, 97.2];
+const cfColors    = ["rgba(148,163,184,0.5)", "rgba(148,163,184,0.5)", "rgba(148,163,184,0.5)", "rgba(148,163,184,0.5)", "rgba(148,163,184,0.5)", "rgba(148,163,184,0.5)", "rgba(148,163,184,0.5)", "rgba(148,163,184,0.5)", "rgba(148,163,184,0.5)", "rgba(148,163,184,0.5)", "rgba(148,163,184,0.5)", "rgba(148,163,184,0.5)", "rgba(148,163,184,0.5)", "rgba(251,191,36,0.7)", "rgba(251,191,36,0.7)", "rgba(251,191,36,0.7)", "rgba(251,191,36,0.7)", "rgba(251,191,36,0.7)", "rgba(251,191,36,0.7)", "rgba(251,191,36,0.7)", "rgba(251,191,36,0.7)", "rgba(251,191,36,0.7)", "rgba(251,191,36,0.7)", "rgba(251,191,36,0.7)", "rgba(251,191,36,0.7)", "rgba(251,191,36,0.7)", "rgba(239,68,68,0.8)", "rgba(239,68,68,0.8)", "rgba(239,68,68,0.8)", "rgba(239,68,68,0.8)", "rgba(239,68,68,0.8)", "rgba(239,68,68,0.8)", "rgba(239,68,68,0.8)", "rgba(239,68,68,0.8)", "rgba(239,68,68,0.8)", "rgba(239,68,68,0.8)", "rgba(239,68,68,0.8)"];
+const bLabels     = ["Social Media", "News & Media", "VPN & Circumvention", "Civil Society"];
+const bAvgs       = [75.3, 76.2, 75.9, 82.7];
+const bColors     = ["rgba(239,68,68,0.85)", "rgba(251,191,36,0.85)", "rgba(249,115,22,0.85)", "rgba(168,85,247,0.85)"];
+
+const baseFont = { family: "'IBM Plex Sans', Arial, sans-serif", size: 9 };
+Chart.defaults.font = baseFont;
+Chart.defaults.color = '#475569';
+
+// Chart 1 — OONI timeline
+new Chart(document.getElementById('chart-ooni'), {
+  type: 'bar',
+  data: {
+    labels: ooniLabels,
+    datasets: [{
+      data: ooniRates,
+      backgroundColor: ooniColors,
+      borderRadius: 2,
+      borderSkipped: false,
+    }]
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: true,
+    plugins: {
+      legend: { display: false },
+      tooltip: {
+        callbacks: {
+          label: ctx => ` ${ctx.parsed.y}% anomaly rate`
+        }
+      },
+      annotation: { annotations: [] }
+    },
+    scales: {
+      x: { ticks: { maxTicksLimit: 16, maxRotation: 45, font: { size: 7.5 } }, grid: { display: false } },
+      y: {
+        min: 0, max: 40,
+        ticks: { callback: v => v + '%', stepSize: 10, font: { size: 8 } },
+        grid: { color: 'rgba(0,0,0,0.05)' }
+      }
+    }
+  }
+});
+
+// Chart 2 — CF Radar
+// Format x labels to shorter form
+const cfShortLabels = cfLabels.map(l => l.slice(5)); // MM-DD
+
+new Chart(document.getElementById('chart-cf'), {
+  type: 'line',
+  data: {
+    labels: cfShortLabels,
+    datasets: [{
+      data: cfVals,
+      borderColor: '#00D4C8',
+      borderWidth: 2,
+      pointBackgroundColor: cfColors,
+      pointRadius: 3,
+      fill: true,
+      backgroundColor: 'rgba(0,212,200,0.08)',
+      tension: 0.3,
+    }]
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: true,
+    plugins: {
+      legend: { display: false },
+      tooltip: {
+        callbacks: {
+          label: ctx => ` ${ctx.parsed.y}% traffic index`
+        }
+      }
+    },
+    scales: {
+      x: { ticks: { maxTicksLimit: 10, maxRotation: 45, font: { size: 7 } }, grid: { display: false } },
+      y: {
+        min: 0, max: 110,
+        ticks: { callback: v => v + '%', stepSize: 25, font: { size: 8 } },
+        grid: { color: 'rgba(0,0,0,0.05)' }
+      }
+    }
+  }
+});
+
+// Chart 3 — Blocking by category
+new Chart(document.getElementById('chart-blocked'), {
+  type: 'bar',
+  data: {
+    labels: bLabels,
+    datasets: [{
+      data: bAvgs,
+      backgroundColor: bColors,
+      borderRadius: 3,
+      borderSkipped: false,
+    }]
+  },
+  options: {
+    indexAxis: 'y',
+    responsive: true,
+    maintainAspectRatio: true,
+    plugins: {
+      legend: { display: false },
+      tooltip: {
+        callbacks: {
+          label: ctx => ` ${ctx.parsed.x}% avg anomaly rate`
+        }
+      }
+    },
+    scales: {
+      x: {
+        min: 0, max: 100,
+        ticks: { callback: v => v + '%', font: { size: 8 } },
+        grid: { color: 'rgba(0,0,0,0.05)' }
+      },
+      y: { ticks: { font: { size: 9 } }, grid: { display: false } }
+    }
+  }
+});
+</script>
+</body>
+</html>
