@@ -55,6 +55,54 @@ const totalMeasurements = history.reduce((s, r) => s + r.measurement_count, 0)
 const cfMonthlyMap = Object.fromEntries(
   (cfTraffic.monthly || []).map((p: {month: string, cf_traffic: number}) => [p.month, p.cf_traffic])
 )
+
+// ── KeepItOn region stats for map view ───────────────────────────────────────
+const REGION_DEFS = [
+  { id: 'ayeyarwady', label: 'Ayeyarwady Region',         keywords: ['ayeyarwady'] },
+  { id: 'bago',       label: 'Bago Region',               keywords: ['bago'] },
+  { id: 'chin',       label: 'Chin State',                keywords: ['chin'] },
+  { id: 'kachin',     label: 'Kachin State',              keywords: ['kachin'] },
+  { id: 'kayah',      label: 'Kayah State',               keywords: ['kayah'] },
+  { id: 'kayin',      label: 'Kayin State',               keywords: ['kayin'] },
+  { id: 'magway',     label: 'Magway Region',             keywords: ['magway', 'magwe', 'yaw region'] },
+  { id: 'mandalay',   label: 'Mandalay Region',           keywords: ['mandalay', 'mogok', 'pyinoolwin', 'mahlaing', 'thabeikkyin', 'nyaung-u'] },
+  { id: 'mon',        label: 'Mon State',                 keywords: ['mon state'] },
+  { id: 'rakhine',    label: 'Rakhine State',             keywords: ['rakhine', 'arakan', 'ramree', 'kyaukpyu'] },
+  { id: 'sagaing',    label: 'Sagaing Region',            keywords: ['sagaing', 'monywa', 'kale', 'kalay', 'tamu', 'indaw', 'banmauk', 'salingyi', 'budalin', 'kani', 'pale', 'homalin', 'namtaw'] },
+  { id: 'shan',       label: 'Shan State',                keywords: ['shan', 'taunggyi', 'loikaw', 'hsihseng', 'naungcho', 'ywangan', 'kyaukme', 'namtu', 'man san'] },
+  { id: 'tanintharyi',label: 'Tanintharyi Region',        keywords: ['tanintharyi', 'dawei', 'launglon', 'yebyu', 'palaw', 'myeik', 'kawthaung'] },
+  { id: 'yangon',     label: 'Yangon Region',             keywords: ['yangon', 'rangoon', 'thanlyin', 'mingaladon', 'bahan', 'sanchaung', 'north okkalapa'] },
+  { id: 'naypyidaw',  label: 'Naypyidaw Union Territory', keywords: ['naypyidaw', 'nay pyi taw'] },
+]
+
+function matchRegions(scope: string): string[] {
+  const s = scope.toLowerCase()
+  if (/nationwide|across myanmar|cities and townships across myanmar/i.test(s)) {
+    return REGION_DEFS.map(r => r.id)
+  }
+  return REGION_DEFS.filter(r => r.keywords.some(k => s.includes(k))).map(r => r.id)
+}
+
+interface RegionStat {
+  label: string
+  count: number
+  types: Record<string, number>
+  minDate: string
+  maxDate: string
+}
+const regionStats: Record<string, RegionStat> = Object.fromEntries(
+  REGION_DEFS.map(r => [r.id, { label: r.label, count: 0, types: {}, minDate: '', maxDate: '' }])
+)
+for (const ev of keepitonData.events) {
+  for (const rid of matchRegions(ev.scope)) {
+    const rs = regionStats[rid]
+    rs.count++
+    rs.types[ev.type] = (rs.types[ev.type] ?? 0) + 1
+    if (!rs.minDate || ev.startDate < rs.minDate) rs.minDate = ev.startDate
+    const endKey = ev.ongoing ? '9999' : (ev.endDate ?? ev.startDate)
+    if (!rs.maxDate || endKey > rs.maxDate) rs.maxDate = ev.endDate ?? ev.startDate
+  }
+}
 ---
 <Observatory
   title="Myanmar Internet Shutdown Tracker"
@@ -133,47 +181,202 @@ const cfMonthlyMap = Object.fromEntries(
       </div>
     </div>
 
-    <!-- KeepItOn verified shutdowns list -->
+    <!-- KeepItOn verified shutdowns — list + map toggle -->
     {keepitonData.events.length > 0 && (
-      <div class="mb-10">
-        <div class="flex items-center justify-between mb-4 flex-wrap gap-2">
+      <div class="mb-10" id="kit-section">
+        <!-- Header + toggle -->
+        <div class="flex items-center justify-between mb-4 flex-wrap gap-3">
           <div>
             <h2 class="font-headline text-xl">Verified Shutdowns</h2>
             <p class="text-xs font-mono opacity-40 mt-0.5">
               Access Now STOP Dataset · human-verified events · {keepitonData.totalEvents} Myanmar records
             </p>
           </div>
-          <a href="/data/keepiton-shutdowns.json" class="text-xs font-mono opacity-40 hover:opacity-70 transition-opacity">↓ download JSON</a>
-        </div>
-
-        <div class="space-y-0 border border-white/10 rounded-lg overflow-hidden">
-          {[...keepitonData.events].reverse().map(ev => (
-            <div class="flex flex-wrap gap-3 items-start px-4 py-3 border-b border-white/5 last:border-0 hover:bg-white/2">
-              <!-- Type badge -->
-              <span class="inline-block font-mono text-xs px-2 py-0.5 rounded-full border flex-shrink-0 mt-0.5"
-                style={`color:${TYPE_COLORS[ev.type] ?? '#fff'};border-color:${TYPE_COLORS[ev.type] ?? '#fff'}40`}>
-                {TYPE_LABELS[ev.type] ?? ev.type}
-              </span>
-              <!-- Date range -->
-              <span class="font-mono text-xs opacity-70 flex-shrink-0 mt-0.5">
-                {ev.startDate} → {ev.ongoing ? 'present' : (ev.endDate ?? '?')}
-              </span>
-              <!-- Scope + perpetrator -->
-              <span class="text-sm opacity-80 flex-1 min-w-0">
-                {ev.scope}{ev.perpetrator ? ` · ${ev.perpetrator}` : ''}
-              </span>
-              <!-- Source link -->
-              {ev.sourceUrl && (
-                <a href={ev.sourceUrl} target="_blank" rel="noopener noreferrer"
-                  class="font-mono text-xs text-[color:var(--color-accent)] opacity-50 hover:opacity-100 flex-shrink-0 mt-0.5">
-                  source →
-                </a>
-              )}
+          <div class="flex items-center gap-3 flex-wrap">
+            <!-- View toggle -->
+            <div class="flex font-mono text-xs rounded border border-white/15 overflow-hidden">
+              <button id="kit-list-btn"
+                class="px-3 py-1.5 bg-white/10 text-white transition-colors"
+                aria-pressed="true">
+                ☰ List
+              </button>
+              <button id="kit-map-btn"
+                class="px-3 py-1.5 text-white/50 hover:text-white transition-colors"
+                aria-pressed="false">
+                ⬡ Map
+              </button>
             </div>
-          ))}
+            <a href="/data/keepiton-shutdowns.json" class="text-xs font-mono opacity-40 hover:opacity-70 transition-opacity">↓ JSON</a>
+          </div>
         </div>
 
-        <p class="text-xs font-mono opacity-25 mt-2">
+        <!-- LIST VIEW -->
+        <div id="kit-list-view">
+          <div class="space-y-0 border border-white/10 rounded-lg overflow-hidden">
+            {[...keepitonData.events].reverse().map(ev => (
+              <div class="flex flex-wrap gap-3 items-start px-4 py-3 border-b border-white/5 last:border-0 hover:bg-white/[0.02]">
+                <span class="inline-block font-mono text-xs px-2 py-0.5 rounded-full border flex-shrink-0 mt-0.5"
+                  style={`color:${TYPE_COLORS[ev.type] ?? '#fff'};border-color:${TYPE_COLORS[ev.type] ?? '#fff'}40`}>
+                  {TYPE_LABELS[ev.type] ?? ev.type}
+                </span>
+                <span class="font-mono text-xs opacity-70 flex-shrink-0 mt-0.5">
+                  {ev.startDate} → {ev.ongoing ? 'present' : (ev.endDate ?? '?')}
+                </span>
+                <span class="text-sm opacity-80 flex-1 min-w-0">
+                  {ev.scope}{ev.perpetrator ? ` · ${ev.perpetrator}` : ''}
+                </span>
+                {ev.sourceUrl && (
+                  <a href={ev.sourceUrl} target="_blank" rel="noopener noreferrer"
+                    class="font-mono text-xs text-[color:var(--color-accent)] opacity-50 hover:opacity-100 flex-shrink-0 mt-0.5">
+                    source →
+                  </a>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <!-- MAP VIEW -->
+        <div id="kit-map-view" class="hidden">
+          <div class="flex flex-col lg:flex-row gap-6">
+            <!-- SVG map -->
+            <div class="relative flex-shrink-0 flex justify-center">
+              <div class="relative">
+                <svg id="kit-svg"
+                  viewBox="0 0 210 440"
+                  width="210" height="440"
+                  role="img"
+                  aria-label="Myanmar regions coloured by verified shutdown event count"
+                  class="overflow-visible">
+
+                  <!-- KACHIN -->
+                  <path id="r-kachin"     d="M 70,2 L 208,2 L 208,90 L 148,95 L 126,75 L 106,82 L 86,70 L 70,48 Z"/>
+                  <!-- SAGAING (large, C-shaped around Mandalay) -->
+                  <path id="r-sagaing"    d="M 18,55 L 70,48 L 86,70 L 86,105 L 80,132 L 70,155 L 52,168 L 35,180 L 18,170 L 8,145 L 10,100 L 18,68 Z"/>
+                  <!-- CHIN -->
+                  <path id="r-chin"       d="M 8,145 L 35,145 L 52,168 L 48,198 L 30,210 L 10,206 L 6,182 Z"/>
+                  <!-- MANDALAY -->
+                  <path id="r-mandalay"   d="M 86,70 L 126,75 L 128,110 L 118,145 L 100,158 L 83,152 L 80,132 L 86,105 Z"/>
+                  <!-- MAGWAY -->
+                  <path id="r-magway"     d="M 35,145 L 80,132 L 83,152 L 78,182 L 66,202 L 50,212 L 38,200 L 50,182 L 52,165 Z"/>
+                  <!-- SHAN (large east) -->
+                  <path id="r-shan"       d="M 126,75 L 208,90 L 208,222 L 176,224 L 150,222 L 130,200 L 116,178 L 118,145 L 128,110 Z"/>
+                  <!-- KAYAH -->
+                  <path id="r-kayah"      d="M 130,200 L 150,200 L 148,222 L 130,228 L 118,220 L 118,200 Z"/>
+                  <!-- NAYPYIDAW -->
+                  <path id="r-naypyidaw"  d="M 94,168 L 106,168 L 106,182 L 94,182 Z"/>
+                  <!-- BAGO -->
+                  <path id="r-bago"       d="M 83,152 L 116,152 L 118,172 L 116,200 L 106,218 L 88,224 L 78,214 L 70,200 L 78,178 Z"/>
+                  <!-- AYEYARWADY -->
+                  <path id="r-ayeyarwady" d="M 38,200 L 66,200 L 70,214 L 78,225 L 76,255 L 66,272 L 50,278 L 34,268 L 26,248 L 30,226 Z"/>
+                  <!-- YANGON -->
+                  <path id="r-yangon"     d="M 78,220 L 106,218 L 108,238 L 100,262 L 84,265 L 74,254 L 76,235 Z"/>
+                  <!-- RAKHINE -->
+                  <path id="r-rakhine"    d="M 6,182 L 35,182 L 50,212 L 46,238 L 38,260 L 24,272 L 10,262 L 6,235 L 6,206 Z"/>
+                  <!-- MON -->
+                  <path id="r-mon"        d="M 108,238 L 130,236 L 128,268 L 118,278 L 106,274 L 100,262 L 108,250 Z"/>
+                  <!-- KAYIN -->
+                  <path id="r-kayin"      d="M 118,220 L 150,222 L 148,246 L 133,258 L 120,250 L 118,236 L 118,222 Z"/>
+                  <!-- TANINTHARYI -->
+                  <path id="r-tanintharyi" d="M 118,278 L 133,260 L 148,268 L 148,295 L 142,325 L 134,355 L 126,385 L 118,415 L 110,420 L 110,390 L 114,355 L 113,318 L 112,288 Z"/>
+
+                  <!-- Region labels -->
+                  <text x="140" y="48"  class="kit-label">Kachin</text>
+                  <text x="36"  y="120" class="kit-label">Sagaing</text>
+                  <text x="20"  y="178" class="kit-label">Chin</text>
+                  <text x="102" y="115" class="kit-label">Mandalay</text>
+                  <text x="55"  y="178" class="kit-label">Magway</text>
+                  <text x="165" y="158" class="kit-label">Shan</text>
+                  <text x="136" y="214" class="kit-label" style="font-size:5.5px">Kayah</text>
+                  <text x="94"  y="177" class="kit-label" style="font-size:5.5px">NPT</text>
+                  <text x="92"  y="194" class="kit-label">Bago</text>
+                  <text x="50"  y="245" class="kit-label">Ayeyarwady</text>
+                  <text x="87"  y="247" class="kit-label">Yangon</text>
+                  <text x="16"  y="230" class="kit-label">Rakhine</text>
+                  <text x="112" y="257" class="kit-label" style="font-size:5.5px">Mon</text>
+                  <text x="132" y="237" class="kit-label" style="font-size:5.5px">Kayin</text>
+                  <text x="128" y="348" class="kit-label">Tanintharyi</text>
+                </svg>
+
+                <!-- Tooltip (hidden by default) -->
+                <div id="kit-tooltip"
+                  class="hidden absolute z-50 pointer-events-none bg-[#0d1f35] border border-white/20 rounded-lg p-3 w-56 text-xs shadow-xl"
+                  style="left:215px;top:0">
+                  <div class="font-headline text-sm mb-1" id="tt-name"></div>
+                  <div class="font-mono opacity-60 mb-2" id="tt-count"></div>
+                  <div id="tt-dates" class="font-mono opacity-50 text-[10px] mb-2"></div>
+                  <div id="tt-types" class="space-y-1"></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Legend + region list -->
+            <div class="flex-1 min-w-0 space-y-5">
+              <!-- Intensity legend -->
+              <div>
+                <div class="text-xs font-mono opacity-50 mb-2 uppercase tracking-wider">Shutdown events</div>
+                <div class="flex flex-wrap gap-2">
+                  {[
+                    { label: 'None',  fill: '#1a2a3a',              border: '#ffffff20' },
+                    { label: '1–2',   fill: 'rgba(245,158,11,0.20)', border: 'rgba(245,158,11,0.4)' },
+                    { label: '3–5',   fill: 'rgba(245,158,11,0.45)', border: 'rgba(245,158,11,0.6)' },
+                    { label: '6–10',  fill: 'rgba(239,100,50,0.65)', border: 'rgba(239,100,50,0.8)' },
+                    { label: '11+',   fill: 'rgba(239,68,68,0.85)',  border: 'rgba(239,68,68,1)'   },
+                  ].map(l => (
+                    <div class="flex items-center gap-1.5">
+                      <div class="w-4 h-4 rounded-sm flex-shrink-0"
+                        style={`background:${l.fill};border:1px solid ${l.border}`}/>
+                      <span class="font-mono text-[10px] opacity-60">{l.label}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <!-- Region breakdown table -->
+              <div>
+                <div class="text-xs font-mono opacity-50 mb-2 uppercase tracking-wider">By region</div>
+                <div class="space-y-1 max-h-[340px] overflow-y-auto pr-1">
+                  {REGION_DEFS
+                    .map(r => ({ ...r, stat: regionStats[r.id] }))
+                    .filter(r => r.stat.count > 0)
+                    .sort((a, b) => b.stat.count - a.stat.count)
+                    .map(r => (
+                      <div class="flex items-center gap-2 font-mono text-xs py-1 border-b border-white/5">
+                        <span class="opacity-70 flex-1">{r.label}</span>
+                        <span class="opacity-90 tabular-nums w-8 text-right">{r.stat.count}</span>
+                        <div class="w-24 h-1.5 bg-white/5 rounded-full overflow-hidden">
+                          <div class="h-full rounded-full"
+                            style={`width:${Math.min(100, (r.stat.count / 20) * 100)}%;background:${
+                              r.stat.count >= 11 ? 'rgba(239,68,68,0.9)' :
+                              r.stat.count >= 6  ? 'rgba(239,100,50,0.8)' :
+                              r.stat.count >= 3  ? 'rgba(245,158,11,0.7)' :
+                                                   'rgba(245,158,11,0.4)'
+                            }`}/>
+                        </div>
+                      </div>
+                    ))
+                  }
+                </div>
+              </div>
+
+              <!-- Type legend -->
+              <div>
+                <div class="text-xs font-mono opacity-50 mb-2 uppercase tracking-wider">Type</div>
+                <div class="space-y-1">
+                  {(Object.entries(TYPE_LABELS) as [string, string][]).map(([k, v]) => (
+                    <div class="flex items-center gap-2">
+                      <div class="w-2.5 h-2.5 rounded-full flex-shrink-0"
+                        style={`background:${TYPE_COLORS[k]}`}/>
+                      <span class="font-mono text-xs opacity-60">{v}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <p class="text-xs font-mono opacity-25 mt-3">
           Source: <a href="https://www.accessnow.org/keepiton/" target="_blank" rel="noopener" class="underline hover:opacity-60">Access Now STOP Dataset</a>
           · verified by Access Now researchers · updated weekly ·
           <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener" class="underline hover:opacity-60">CC BY 4.0</a>
@@ -352,6 +555,7 @@ const cfMonthlyMap = Object.fromEntries(
     cfWeekly:       cfTraffic.weekly,
     cfDaily:        cfTraffic.daily,
     keepitonEvents: keepitonData.events,
+    kitRegionStats: regionStats,
   }}>
     let chart       = null
     let activeScale = 'monthly'
@@ -564,5 +768,145 @@ const cfMonthlyMap = Object.fromEntries(
       )
     }
     document.head.appendChild(s)
+
+    // ── KeepItOn map / list toggle ─────────────────────────────────────────
+    ;(function () {
+      const listBtn  = document.getElementById('kit-list-btn')
+      const mapBtn   = document.getElementById('kit-map-btn')
+      const listView = document.getElementById('kit-list-view')
+      const mapView  = document.getElementById('kit-map-view')
+      if (!listBtn || !mapBtn || !listView || !mapView) return
+
+      // Colour scale helpers
+      function regionFill(count) {
+        if (count === 0)  return '#1a2a3a'
+        if (count <= 2)   return 'rgba(245,158,11,0.22)'
+        if (count <= 5)   return 'rgba(245,158,11,0.48)'
+        if (count <= 10)  return 'rgba(239,100,50,0.65)'
+        return                   'rgba(239,68,68,0.88)'
+      }
+      function regionStroke(count) {
+        if (count === 0)  return 'rgba(255,255,255,0.08)'
+        if (count <= 2)   return 'rgba(245,158,11,0.40)'
+        if (count <= 5)   return 'rgba(245,158,11,0.65)'
+        if (count <= 10)  return 'rgba(239,100,50,0.80)'
+        return                   'rgba(239,68,68,1)'
+      }
+
+      // Paint the SVG regions
+      function paintMap() {
+        Object.entries(kitRegionStats).forEach(([rid, stat]) => {
+          const el = document.getElementById('r-' + rid)
+          if (!el) return
+          const c = stat.count || 0
+          el.style.fill   = regionFill(c)
+          el.style.stroke = regionStroke(c)
+          el.style.strokeWidth = '0.8'
+        })
+      }
+
+      // Tooltip
+      const tooltip = document.getElementById('kit-tooltip')
+      const ttName  = document.getElementById('tt-name')
+      const ttCount = document.getElementById('tt-count')
+      const ttDates = document.getElementById('tt-dates')
+      const ttTypes = document.getElementById('tt-types')
+
+      const TYPE_LABELS_JS = { full_network: 'Full network', mobile: 'Mobile', platform: 'Platform', throttle: 'Throttle' }
+      const TYPE_COLORS_JS = { full_network: '#ef4444', mobile: '#f59e0b', platform: '#a78bfa', throttle: '#64748b' }
+
+      function showTooltip(rid, x, y) {
+        const stat = kitRegionStats[rid]
+        if (!stat || stat.count === 0) { hideTooltip(); return }
+        ttName.textContent  = stat.label
+        ttCount.textContent = stat.count + ' verified event' + (stat.count !== 1 ? 's' : '')
+        const from = stat.minDate || '—'
+        const to   = stat.maxDate ? (stat.maxDate === stat.minDate ? '' : ' → ' + stat.maxDate) : ''
+        ttDates.textContent = from + to
+        ttTypes.innerHTML = Object.entries(stat.types || {})
+          .sort((a, b) => b[1] - a[1])
+          .map(([t, n]) =>
+            `<div style="display:flex;align-items:center;gap:6px">
+              <span style="width:8px;height:8px;border-radius:50%;background:${TYPE_COLORS_JS[t] || '#fff'};flex-shrink:0;display:inline-block"></span>
+              <span style="font-family:monospace;font-size:10px;opacity:.7">${TYPE_LABELS_JS[t] || t} · ${n}</span>
+            </div>`
+          ).join('')
+        tooltip.classList.remove('hidden')
+        // Position: right of SVG on desktop, below on mobile
+        const svg = document.getElementById('kit-svg')
+        const svgRect = svg.getBoundingClientRect()
+        const ww = window.innerWidth
+        if (ww >= 1024) {
+          tooltip.style.left = '220px'
+          tooltip.style.top  = Math.min(y, 360) + 'px'
+        } else {
+          tooltip.style.left = Math.max(0, x - 112) + 'px'
+          tooltip.style.top  = (y + 10) + 'px'
+        }
+      }
+      function hideTooltip() { tooltip && tooltip.classList.add('hidden') }
+
+      function bindRegionHover() {
+        Object.keys(kitRegionStats).forEach(rid => {
+          const el = document.getElementById('r-' + rid)
+          if (!el) return
+          el.style.cursor = 'pointer'
+          el.addEventListener('mouseenter', e => {
+            el.style.opacity = '0.8'
+            const rect = el.getBoundingClientRect()
+            const parent = document.getElementById('kit-svg').parentElement.getBoundingClientRect()
+            showTooltip(rid, rect.left - parent.left, rect.top - parent.top)
+          })
+          el.addEventListener('mousemove', e => {
+            const parent = document.getElementById('kit-svg').parentElement.getBoundingClientRect()
+            showTooltip(rid, e.clientX - parent.left, e.clientY - parent.top)
+          })
+          el.addEventListener('mouseleave', () => {
+            el.style.opacity = '1'
+            hideTooltip()
+          })
+        })
+      }
+
+      // Toggle logic (paint+bind only once)
+      let mapReady = false
+      function showList() {
+        listView.classList.remove('hidden')
+        mapView.classList.add('hidden')
+        listBtn.classList.add('bg-white/10')
+        listBtn.classList.remove('text-white/50')
+        mapBtn.classList.remove('bg-white/10')
+        mapBtn.classList.add('text-white/50')
+        listBtn.setAttribute('aria-pressed', 'true')
+        mapBtn.setAttribute('aria-pressed', 'false')
+      }
+      function showMap() {
+        mapView.classList.remove('hidden')
+        listView.classList.add('hidden')
+        mapBtn.classList.add('bg-white/10')
+        mapBtn.classList.remove('text-white/50')
+        listBtn.classList.remove('bg-white/10')
+        listBtn.classList.add('text-white/50')
+        mapBtn.setAttribute('aria-pressed', 'true')
+        listBtn.setAttribute('aria-pressed', 'false')
+        if (!mapReady) { paintMap(); bindRegionHover(); mapReady = true }
+      }
+
+      listBtn.addEventListener('click', showList)
+      mapBtn.addEventListener('click',  showMap)
+    })()
   </script>
+
+  <style>
+    .kit-label {
+      font-size: 6.5px;
+      fill: rgba(255,255,255,0.55);
+      font-family: 'IBM Plex Mono', monospace;
+      text-anchor: middle;
+      pointer-events: none;
+    }
+    #kit-svg path {
+      transition: fill 0.2s, opacity 0.15s;
+    }
+  </style>
 </Observatory>
