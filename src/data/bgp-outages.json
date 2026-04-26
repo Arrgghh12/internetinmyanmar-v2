@@ -11136,11 +11136,11 @@
     "name": "LOTUS-AS-AP LOTUS MUDRA COMPANY LIMITED",
     "status": "DOWN",
     "started_at": "2026-04-26T03:31:24.954070+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-26T11:31:22.822321+00:00",
+    "duration_minutes": 479,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS139804",
@@ -11218,5 +11218,16 @@
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
     "resolved": true
+  },
+  {
+    "asn": "AS135307",
+    "name": "GTMH-AS-AP Golden TMH Telecom Co. Ltd",
+    "status": "DOWN",
+    "started_at": "2026-04-26T11:31:31.477932+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
   }
 ]
