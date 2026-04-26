@@ -11196,5 +11196,27 @@
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
     "resolved": true
+  },
+  {
+    "asn": "AS149810",
+    "name": "ACL-AS-AP AnyNet",
+    "status": "DOWN",
+    "started_at": "2026-04-26T09:02:18.630454+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
+  },
+  {
+    "asn": "AS134528",
+    "name": "MPTCL-AS-AP MYANMAR PI TECHNOLOGY CO.",
+    "status": "DOWN",
+    "started_at": "2026-04-26T09:02:33.522739+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
   }
 ]
