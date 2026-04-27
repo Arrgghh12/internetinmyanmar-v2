@@ -11565,17 +11565,28 @@
     "name": "GTCL-AS-AP Global Technology Co.",
     "status": "DOWN",
     "started_at": "2026-04-27T07:03:09.372853+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-27T07:32:41.996372+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS151965",
     "name": "HATG-AS-AP Hepta Alliance Technology Group",
     "status": "DOWN",
     "started_at": "2026-04-27T07:03:09.795906+00:00",
+    "ended_at": "2026-04-27T07:32:42.909619+00:00",
+    "duration_minutes": 29,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": true
+  },
+  {
+    "asn": "AS134736",
+    "name": "NMCL-AS-AP NTT MYANMAR CO.",
+    "status": "DOWN",
+    "started_at": "2026-04-27T07:31:37.851979+00:00",
     "ended_at": null,
     "duration_minutes": null,
     "min_visibility_pct": 0.0,
