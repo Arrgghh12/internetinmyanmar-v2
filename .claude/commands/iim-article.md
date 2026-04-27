@@ -1,288 +1,324 @@
-# /iim-article — Impactful Article Skill v1.3
+# /iim-article — Impactful Article Skill v2.0
 
-You are now the article production engine for internetinmyanmar.com.
-Generate a complete, publication-ready article package from a brief or topic.
+Two-phase article production: draft article first → Anna approves online →
+then social campaign + newsletter. Nothing merges, nothing sends without approval.
 
 ## Usage
 
 ```
 /iim-article <brief-path-or-topic>
-```
-
-Examples:
-```
 /iim-article agents/approved/2026-04-26/myanmar-vpn-blocks.md
-/iim-article "ISP-level throttling of Signal and Telegram in Yangon, April 2026"
+/iim-article "ISP throttling of Signal in Yangon, April 2026"
 ```
 
 ---
 
 ## Design Principles
 
-- **Data-First Storytelling**: open with the single most surprising / counter-intuitive finding
-- **Modular Structure**: exact 7-section MDX template (see below)
-- **Media-Rich**: 2–3 interactive `<CensorshipChart>` embeds + static images + PDF snapshot
-- **SEO Optimised + Shareable**: keyword-first title, 155-char meta, slug ≤ 6 words
-- **Provenance on every visual**: every chart and image has a source caption
-- **Author: Anna** — always, no exceptions
+- Data-First: open with the single most surprising finding
+- 7-section MDX template (see Phase 1)
+- 2–3 interactive `<CensorshipChart>` embeds
+- Author: Anna — always, no exceptions
+- Nothing publishes without Anna's explicit approval
 
 ---
 
-## Mandatory Outputs (strict order)
+## PHASE 1 — Draft Article + Online Preview
 
-### STEP 0 — VALIDATION CHECKLIST (do this first, then STOP)
+### Step 0 — Validation Checklist (stop and wait for OK)
 
-Before generating any files, present a numbered checklist of ALL planned content:
+Before writing anything, present this checklist:
 
 ```
-VALIDATION CHECKLIST — [Article Title]
-════════════════════════════════════════
-
-1. ARTICLE
-   Title:       [proposed H1]
-   SEO title:   [max 60 chars]
-   Slug:        [lowercase-hyphens-max-6-words]
-   Meta:        [max 155 chars]
-   Lead:        [2-sentence summary of the opening finding]
-   Charts:      [list 2–3 CensorshipChart types to embed, e.g. ooni-monthly, bgp-ooni-combined]
-   Word count:  ~[estimated]
-
-2. SOCIAL IMAGES (Playwright script)
-   Image 1:     [chart type + caption]
-   Image 2:     [chart type + caption]
-   Image 3:     [chart type + caption — if applicable]
-   PDF:         one-page snapshot — headline + lead finding + key chart
-
-3. SOCIAL CAMPAIGN (5 posts · 2 weeks)
-   Day 1  · X:              [tweet hook — max 280 chars preview]
-   Day 3  · Facebook/LinkedIn: [angle]
-   Day 7  · X thread:       [chart highlight angle]
-   Day 10 · LinkedIn:       [researcher/journalist angle]
-   Day 14 · X + Facebook:   [open data angle]
-
-4. NEWSLETTER
-   Subject:     [max 60 chars]
-   Preview:     [max 90 chars]
-   CTA 1:       Read full analysis
-   CTA 2:       Download dataset
-
-════════════════════════════════════════
-Reply OK to generate all files, or describe changes.
+ARTICLE DRAFT PLAN — [Title]
+══════════════════════════════════════
+Slug:        [lowercase-hyphens-max-6-words]
+SEO title:   [max 60 chars]
+Meta:        [max 155 chars]
+Category:    [one of the 7 approved categories]
+Lead:        [1-sentence summary of the opening finding]
+Charts:      [2–3 CensorshipChart types, e.g. ooni-monthly, bgp-ooni-combined]
+Word count:  ~[estimate]
+══════════════════════════════════════
+Reply OK to write the article, or describe changes.
 ```
 
-**Wait for the user to reply "OK" (or request changes) before generating anything else.**
+Wait for OK before continuing.
 
----
+### Step 1 — Write the MDX Article
 
-### STEP 1 — Full MDX Article
+Output the full MDX file for `src/content/articles/[slug].mdx`.
 
-Output a complete MDX file ready for `src/content/articles/[slug].mdx`.
-
-**Frontmatter** (all fields required):
+**Frontmatter** (all fields required, `draft: true` always):
 ```yaml
 ---
-title: "[H1 — full title]"
+title: "[full title]"
 seoTitle: "[max 60 chars — primary keyword first]"
-metaDescription: "[max 155 chars — factual, no keyword stuffing]"
+metaDescription: "[max 155 chars — factual, no stuffing]"
 slug: "[lowercase-hyphens-max-6-words]"
-category: "[one of: Censorship & Shutdowns | Telecom & Infrastructure | Digital Economy | Guides & Tools | News - Mobile | News - Broadband | News - Policy]"
+category: "[Censorship & Shutdowns | Telecom & Infrastructure | Digital Economy | Guides & Tools | News - Mobile | News - Broadband | News - Policy]"
 tags: ["tag1", "tag2", "tag3"]
 author: "Anna"
-publishedAt: [today's date as YYYY-MM-DD]
+publishedAt: [YYYY-MM-DD today]
 draft: true
-excerpt: "[max 300 chars — factual, creates curiosity]"
+excerpt: "[max 300 chars]"
 lang: "en"
 sources:
   - "https://..."
 ---
 ```
 
-**7-Section Article Body**:
-
-1. **Hero / Title + Subtitle** — SEO H1 already set by frontmatter; open body with a bold subtitle or pull quote
-2. **Lead Insight** — 1–2 paragraphs with the single most surprising finding, backed by a specific statistic
-3. **Context & Background** — brief history, why this event matters now, 1–2 paragraphs
-4. **Data Analysis** — 2–3 `<CensorshipChart>` embeds with surrounding analysis paragraphs:
+**7-Section Body**:
+1. **Hero** — bold subtitle or pull-quote to open the body
+2. **Lead Insight** — 1–2 paragraphs, single most surprising finding with a specific statistic
+3. **Context & Background** — history + why this matters now, 1–2 paragraphs
+4. **Data Analysis** — 2–3 `<CensorshipChart>` embeds with analysis:
    ```mdx
    <CensorshipChart type="ooni-monthly" title="OONI Anomaly Rate, 2021–2026" />
    ```
    Supported types: `live-signal | ooni-monthly | election-window | ooni-breakdown | blocked-sites | category-blocks | bgp-ooni-combined`
-5. **Key Findings & Implications** — numbered list, 4–6 items, specific and actionable
-6. **Methodology & Limitations** — data sources, OONI probe density caveats, CF Radar limitations
-7. **Sources & Dataset** — inline markdown links + standard block:
+5. **Key Findings & Implications** — 4–6 numbered findings, specific and actionable
+6. **Methodology & Limitations** — OONI probe density, CF Radar proxy limitations, Access Now coverage
+7. **Sources & Dataset**:
    ```mdx
    ## Data & Sources
    Download the underlying datasets from the [Observatory data page](/observatory/data/).
    ```
 
-SEO rules:
-- 3–5 internal links with descriptive anchor text
-- No keyword stuffing, no duplicate H2s
-- Target 1200–1800 words
-- All external organisation links use real, verified URLs only
+SEO rules: 3–5 internal links, no duplicate H2s, 1200–1800 words, only verified external URLs.
 
----
+### Step 2 — Push to Draft Branch
 
-### STEP 2 — Social Image Generator (`generate_social_images.py`)
+After writing the MDX file to disk, create a draft branch and push it:
 
-Output a complete Playwright Python script that creates `src/content/articles/[slug]/media-kit/`.
+```bash
+cd /home/mathieu/dev/iimv2
+git checkout -b draft/[slug]
+git add src/content/articles/[slug].mdx
+git commit -m "draft: [title]"
+git push origin draft/[slug]
+```
 
-The script must:
-- Screenshot 2–3 live chart pages at `http://localhost:4321` (dev server)
-- Save each as a 1200×630 px PNG with a dark provenance footer strip:
-  ```
-  internetinmyanmar.com · OONI CC BY 4.0 · [date]
-  ```
-- Also generate a one-page PDF snapshot: headline + lead paragraph + primary chart screenshot
-- Output files:
-  ```
-  media-kit/chart-ooni-timeline.png
-  media-kit/chart-[type]-2.png
-  media-kit/chart-[type]-3.png   (if applicable)
-  media-kit/article-snapshot.pdf
-  ```
+Then open a GitHub draft PR:
+```bash
+gh pr create \
+  --title "Draft: [title]" \
+  --body "Article draft for review. Preview: https://draft-[slug].internetinmyanmar-v2.pages.dev/[slug]/
 
-Script skeleton:
-```python
-#!/usr/bin/env python3
-"""
-Social image generator for: [article title]
-Run: python generate_social_images.py
-Requires: playwright (pip install playwright && playwright install chromium)
-Dev server must be running: npm run dev
-"""
+- [ ] Article text approved
+- [ ] Charts render correctly
+- [ ] SEO title and meta approved
+- [ ] Set draft: false in Keystatic before merging" \
+  --head draft/[slug] \
+  --base main \
+  --draft
+```
+
+Cloudflare Pages will build the branch automatically. The preview URL is:
+`https://draft-[slug].internetinmyanmar-v2.pages.dev/[slug]/`
+
+(Branch name `draft/[slug]` → CF Pages sanitises `/` to `-` → subdomain `draft-[slug]`.)
+
+### Step 3 — Generate PDF Snapshot
+
+Once the CF Pages preview is live (wait ~90 seconds after push), generate a one-page PDF:
+
+```bash
+cd /home/mathieu/dev/iimv2
+source agents/venv/bin/activate 2>/dev/null || true
+python3 - <<'PYEOF'
 from playwright.sync_api import sync_playwright
-from pathlib import Path
-import time
+import time, subprocess, os
 
 SLUG = "[slug]"
-BASE_URL = "http://localhost:4321"
-OUT = Path(f"src/content/articles/{SLUG}/media-kit")
-OUT.mkdir(parents=True, exist_ok=True)
-
-CHARTS = [
-    { "url": f"{BASE_URL}/observatory/shutdown-tracker/", "selector": "#ooni-chart", "filename": "chart-ooni-timeline.png" },
-    # add more as needed
-]
-
-def add_provenance(page, filename):
-    # inject footer strip, then screenshot
-    ...
+PREVIEW_URL = f"https://draft-{SLUG}.internetinmyanmar-v2.pages.dev/{SLUG}/"
+PDF_LOCAL = f"/tmp/{SLUG}-snapshot.pdf"
 
 with sync_playwright() as p:
     browser = p.chromium.launch()
-    page = browser.new_page(viewport={"width": 1200, "height": 630})
-    for chart in CHARTS:
-        page.goto(chart["url"])
-        page.wait_for_selector(chart["selector"], timeout=10000)
-        time.sleep(1)
-        add_provenance(page, chart["filename"])
-        page.screenshot(path=str(OUT / chart["filename"]), clip={"x":0,"y":0,"width":1200,"height":630})
+    page = browser.new_page(viewport={"width": 1280, "height": 900})
+    page.goto(PREVIEW_URL, wait_until="networkidle", timeout=30000)
+    time.sleep(2)
+    page.pdf(path=PDF_LOCAL, format="A4", print_background=True)
     browser.close()
-print(f"Images saved to {OUT}/")
+
+print(f"PDF saved: {PDF_LOCAL}")
+
+# Upload to R2 for a public temp link
+bucket = os.getenv("CF_R2_BUCKET", "iim-media")
+key = f"drafts/{SLUG}/article-snapshot.pdf"
+subprocess.run([
+    "wrangler", "r2", "object", "put",
+    f"{bucket}/{key}",
+    "--file", PDF_LOCAL,
+    "--content-type", "application/pdf",
+    "--remote"
+], check=True)
+
+pub = os.getenv("CF_R2_PUBLIC_URL", "https://media.internetinmyanmar.com")
+print(f"PDF URL: {pub}/{key}")
+PYEOF
 ```
 
-Fill in the real selectors and provenance footer logic. Add PDF generation using `page.pdf()`.
+If `playwright` is not installed:
+```bash
+pip install playwright && playwright install chromium
+```
+
+### Step 4 — Share Preview Links
+
+Present the draft package clearly:
+
+```
+ARTICLE DRAFT READY FOR REVIEW
+════════════════════════════════════════════
+Article preview:  https://draft-[slug].internetinmyanmar-v2.pages.dev/[slug]/
+PDF snapshot:     https://media.internetinmyanmar.com/drafts/[slug]/article-snapshot.pdf
+GitHub PR:        [pr-url]
+
+Preview builds in ~90 s after push. Hard-refresh if you see a 404.
+
+When you're happy with the article, reply:
+  "approve article"  → generates social campaign + newsletter draft
+  "revise: [notes]"  → edits the MDX and force-pushes the branch
+════════════════════════════════════════════
+```
+
+**STOP HERE. Wait for Anna's approval before Phase 2.**
 
 ---
 
-### STEP 3 — Social Media Campaign
+## PHASE 2 — Social Campaign + Newsletter (after article approval)
 
-Output a markdown file `src/content/articles/[slug]/social-campaign.md` with exactly 5 posts:
+Only start Phase 2 when the user explicitly approves the article.
 
-```markdown
-# Social Campaign — [Article Title]
-# 5 posts · 2-week schedule
+### Step 5 — Social Campaign (shown inline)
 
----
+Display the full 5-post campaign directly in the conversation for immediate review —
+no file needed at this stage. Format it clearly:
 
-## Post 1 — Day 1 · X (Main finding hook)
-Platform: X
-Image: media-kit/chart-ooni-timeline.png
+```
+SOCIAL CAMPAIGN — [Title]
+5 posts · 2-week schedule
+════════════════════════════════════════════
 
-[Tweet text max 280 chars. Include article URL. 2–3 hashtags: #Myanmar #InternetFreedom #OONI or similar. Lead with the most surprising stat.]
+POST 1 — Day 1 · X
+Image: chart-ooni-timeline.png (export from observatory/shutdown-tracker)
 
----
+[Full tweet text, max 280 chars. Lead with the most surprising stat.
+Include article URL. 2–3 hashtags: #Myanmar #InternetFreedom #OONI]
 
-## Post 2 — Day 3 · Facebook / LinkedIn (Data deep-dive)
-Platform: Facebook / LinkedIn
-Image: media-kit/chart-[type]-2.png
+────────────────────────────────────────────
 
-[2–3 paragraphs. Focus on one specific data point from the article. Professional, data-forward tone.]
+POST 2 — Day 3 · Facebook / LinkedIn
+Image: chart-[type].png
 
----
+[2–3 paragraphs. Focus on one specific data point. Professional tone.
+No hashtags on LinkedIn.]
 
-## Post 3 — Day 7 · X (Chart highlight thread)
-Platform: X
-Image: media-kit/chart-[type]-2.png
+────────────────────────────────────────────
 
-[Thread: 2–3 tweets. Focus on what a specific chart reveals. Include URL in last tweet.]
+POST 3 — Day 7 · X Thread
+Image: chart-[type].png
 
----
+Tweet 1/3: [hook — the chart finding]
+Tweet 2/3: [explain what it shows]
+Tweet 3/3: [implication + URL]
 
-## Post 4 — Day 10 · LinkedIn (Implications for researchers)
-Platform: LinkedIn
-Image: media-kit/chart-ooni-timeline.png
+────────────────────────────────────────────
 
-[Professional angle. What does this mean for press freedom researchers, journalists, NGOs? Include URL.]
+POST 4 — Day 10 · LinkedIn
+Image: chart-ooni-timeline.png
 
----
+[Professional angle. What does this mean for press freedom researchers
+and journalists covering Myanmar? Include URL.]
 
-## Post 5 — Day 14 · X + Facebook (Open data angle)
-Platform: X + Facebook
+────────────────────────────────────────────
+
+POST 5 — Day 14 · X + Facebook
 Image: none
 
-[Focus on the open datasets available. Link to /observatory/data/. Invite researchers to download and analyse.]
+[Open data angle. Highlight that the underlying datasets are freely
+downloadable. Link to /observatory/data/. Invite researchers to analyse.]
+
+════════════════════════════════════════════
+```
+
+After displaying inline, also save to `src/content/articles/[slug]/social-campaign.md`
+and commit to the draft branch.
+
+Ask: *"Social posts look good? I'll then draft the newsletter and send to your MailerLite test group."*
+
+### Step 6 — Newsletter Draft + MailerLite Test Send
+
+Generate `src/content/articles/[slug]/newsletter.html` and
+`src/content/articles/[slug]/newsletter-meta.txt`, then run the test send:
+
+```bash
+cd /home/mathieu/dev/iimv2
+source agents/venv/bin/activate 2>/dev/null || true
+python3 - <<'PYEOF'
+import sys; sys.path.insert(0, 'agents')
+from article_packager import generate_newsletter_html, create_and_send_test
+from pathlib import Path
+
+SLUG = "[slug]"
+TITLE = "[title]"
+CATEGORY = "[category]"
+EXCERPT = "[excerpt]"
+BODY = Path(f"src/content/articles/{SLUG}.mdx").read_text()
+ARTICLE_URL = f"https://www.internetinmyanmar.com/{SLUG}/"
+
+html, subject, preview = generate_newsletter_html(TITLE, ARTICLE_URL, CATEGORY, EXCERPT, BODY)
+Path(f"src/content/articles/{SLUG}/newsletter.html").write_text(html)
+Path(f"src/content/articles/{SLUG}/newsletter-meta.txt").write_text(
+    f"Subject: {subject}\nPreview: {preview}"
+)
+
+ml_url, sent = create_and_send_test(TITLE, subject, preview, html)
+print(f"Subject:  {subject}")
+print(f"Preview:  {preview}")
+print(f"MailerLite: {ml_url}")
+print(f"Test send: {'✓ sent to test group' if sent else 'draft created (not sent)'}")
+PYEOF
+```
+
+### Step 7 — Final Summary
+
+```
+FULL DRAFT PACKAGE READY
+════════════════════════════════════════════
+Article preview:  https://draft-[slug].internetinmyanmar-v2.pages.dev/[slug]/
+PDF snapshot:     https://media.internetinmyanmar.com/drafts/[slug]/article-snapshot.pdf
+Newsletter:       sent to MailerLite 'test' group — check your inbox
+Social campaign:  shown above (saved to social-campaign.md)
+GitHub PR:        [pr-url]
+
+To publish:
+  1. Approve the PR → Anna sets draft: false in Keystatic → merge → live in 90 s
+  2. Schedule social posts from social-campaign.md
+  3. Send newsletter to full list from MailerLite dashboard
+════════════════════════════════════════════
 ```
 
 ---
 
-### STEP 4 — Newsletter Kit
+## Revision handling
 
-Output `src/content/articles/[slug]/newsletter-meta.txt`:
-```
-Subject: [max 60 chars — punchy, data-forward]
-Preview: [max 90 chars — creates urgency/curiosity]
-From: Internet in Myanmar <newsletter@internetinmyanmar.com>
-```
+If the user says `"revise: [notes]"` at any phase:
 
-Output `src/content/articles/[slug]/newsletter.html` — a complete, valid HTML email:
-
-Structure:
-1. Dark header (`#0A1628`) with `INTERNET IN MYANMAR` in `#00D4C8` monospace
-2. White body:
-   - Category label in `#00D4C8` monospace uppercase
-   - Article H1
-   - Key finding in a teal left-border callout box
-   - 2-paragraph teaser (creates curiosity, does not reproduce the full article)
-   - `"Read the full analysis →"` CTA button in `#00D4C8` linking to the article URL
-   - `"Download open datasets →"` secondary CTA linking to `/observatory/data/`
-3. Dark footer (`#0A1628`) — `"Internet in Myanmar · independent digital rights monitor"`
-
-MailerLite will add the unsubscribe footer automatically — do NOT add one.
-
----
-
-## File output summary
-
-```
-src/content/articles/[slug].mdx                      ← Article (draft: true)
-src/content/articles/[slug]/generate_social_images.py ← Playwright script
-src/content/articles/[slug]/social-campaign.md        ← 5-post schedule
-src/content/articles/[slug]/newsletter.html           ← Email HTML
-src/content/articles/[slug]/newsletter-meta.txt       ← Subject + preview
-```
-
-All files are written to disk. Do NOT open a GitHub PR or send to MailerLite —
-that is Anna's decision, done via `/iim-write --dry-run` or `article_packager.py`.
+1. Edit the relevant file(s) based on the notes
+2. Commit with `git commit --amend --no-edit` and `git push --force origin draft/[slug]`
+3. CF Pages rebuilds the preview automatically (~90 s)
+4. Confirm: "Updated — preview rebuilding at [url]"
 
 ---
 
 ## Hard rules
 
-- `draft: true` always — Anna sets `draft: false` via Keystatic
-- Author always `Anna` — never any other name
-- No keyword stuffing in any output (article, social posts, newsletter, alt texts)
-- No invented URLs — use only verified links or root domains
-- No sensationalism — credible to OONI/Citizen Lab and RSF/Freedom House audiences
-- CensorshipChart embeds only use the 7 supported type values listed above
+- `draft: true` always in MDX frontmatter — Anna sets `draft: false` via Keystatic
+- Author always `Anna`
+- Newsletter only ever sent to `test` group from this skill — never full list
+- GitHub PR always a draft — never auto-merged
+- No invented URLs in article body — verified links only, or root domain, or omit
+- No keyword stuffing anywhere
