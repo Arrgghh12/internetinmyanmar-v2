@@ -1,9 +1,9 @@
 {
-  "lastUpdated": "2026-04-27T00:00:51.353495+00:00",
+  "lastUpdated": "2026-04-27T12:01:06.259052+00:00",
   "monthly": [
     {
       "month": "2025-04",
-      "cf_traffic": 11.9
+      "cf_traffic": 12.7
     },
     {
       "month": "2025-05",
@@ -51,7 +51,7 @@
     },
     {
       "month": "2026-04",
-      "cf_traffic": 94.2
+      "cf_traffic": 93.7
     }
   ],
   "weekly": [
@@ -262,6 +262,10 @@
     {
       "timestamp": "2026-04-13T00:00:00Z",
       "cf_traffic": 97.2
+    },
+    {
+      "timestamp": "2026-04-20T00:00:00Z",
+      "cf_traffic": 92.6
     }
   ],
   "daily": [
@@ -380,6 +384,10 @@
     {
       "timestamp": "2026-04-25T00:00:00Z",
       "cf_traffic": 85.8
+    },
+    {
+      "timestamp": "2026-04-26T00:00:00Z",
+      "cf_traffic": 93.1
     }
   ]
 }
