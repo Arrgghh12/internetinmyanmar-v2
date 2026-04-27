@@ -11433,32 +11433,32 @@
     "name": "LOTUS-AS-AP LOTUS MUDRA COMPANY LIMITED",
     "status": "DOWN",
     "started_at": "2026-04-27T02:31:57.908162+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-27T03:01:21.081693+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS150310",
     "name": "TMC-AS-AP Trustforce Myanmar Company Limited trading as Nationet",
     "status": "DOWN",
     "started_at": "2026-04-27T02:32:54.029557+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-27T03:02:02.090019+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS136177",
     "name": "YOMABANKLIMITED-AS-AP Yoma Bank Limited",
     "status": "DOWN",
     "started_at": "2026-04-27T02:33:51.251604+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-27T03:02:51.373238+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   }
 ]
