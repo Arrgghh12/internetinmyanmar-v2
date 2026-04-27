@@ -11961,11 +11961,11 @@
     "name": "MFGCL-AS-AP Myanmar Fortune Global Company Limited",
     "status": "DOWN",
     "started_at": "2026-04-27T21:02:13.862937+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-27T21:32:11.256726+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS136480",
