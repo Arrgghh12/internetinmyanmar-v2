@@ -11697,22 +11697,22 @@
     "name": "VDCNET-AS-AP Ultra Net",
     "status": "DOWN",
     "started_at": "2026-04-27T11:02:47.792891+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-27T11:32:34.273104+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS136613",
     "name": "AYEYARWADYBANK-AS-AP Ayeyarwady Bank",
     "status": "DOWN",
     "started_at": "2026-04-27T11:03:06.338948+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-27T11:32:47.694362+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS58952",
@@ -11724,5 +11724,16 @@
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
     "resolved": true
+  },
+  {
+    "asn": "AS139804",
+    "name": "REDPALM-AS-AP RED PALM COMPANY LIMITED",
+    "status": "DOWN",
+    "started_at": "2026-04-27T11:31:23.558841+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
   }
 ]
