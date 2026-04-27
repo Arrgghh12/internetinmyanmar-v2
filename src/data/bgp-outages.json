@@ -11620,17 +11620,39 @@
     "name": "GD2CL-AS-AP Golden Dragon 2000",
     "status": "DOWN",
     "started_at": "2026-04-27T09:02:25.673297+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-27T09:32:29.804326+00:00",
+    "duration_minutes": 30,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS135405",
     "name": "TMHTTWTL-AS-AP WELINK",
     "status": "DOWN",
     "started_at": "2026-04-27T09:02:41.890205+00:00",
+    "ended_at": "2026-04-27T09:32:42.418640+00:00",
+    "duration_minutes": 30,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": true
+  },
+  {
+    "asn": "AS135433",
+    "name": "CGCL-AS-AP Connect Gateway Company Limited",
+    "status": "DOWN",
+    "started_at": "2026-04-27T09:03:07.145850+00:00",
+    "ended_at": "2026-04-27T09:32:59.339741+00:00",
+    "duration_minutes": 29,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": true
+  },
+  {
+    "asn": "AS135300",
+    "name": "MBTCL-AS-AP Myanmar Broadband Telecom Co.",
+    "status": "DOWN",
+    "started_at": "2026-04-27T09:31:59.485221+00:00",
     "ended_at": null,
     "duration_minutes": null,
     "min_visibility_pct": 0.0,
@@ -11638,10 +11660,10 @@
     "resolved": false
   },
   {
-    "asn": "AS135433",
-    "name": "CGCL-AS-AP Connect Gateway Company Limited",
+    "asn": "AS135307",
+    "name": "GTMH-AS-AP Golden TMH Telecom Co. Ltd",
     "status": "DOWN",
-    "started_at": "2026-04-27T09:03:07.145850+00:00",
+    "started_at": "2026-04-27T09:32:03.127345+00:00",
     "ended_at": null,
     "duration_minutes": null,
     "min_visibility_pct": 0.0,
