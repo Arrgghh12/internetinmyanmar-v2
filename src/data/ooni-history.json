@@ -682,11 +682,11 @@
     "month": "2026-03"
   },
   {
-    "anomaly_count": 7103,
+    "anomaly_count": 7710,
     "confirmed_count": 150,
-    "failure_count": 2060,
-    "ok_count": 42640,
-    "measurement_count": 51953,
+    "failure_count": 2214,
+    "ok_count": 46255,
+    "measurement_count": 56329,
     "measurement_start_day": "2026-04-01",
     "anomaly_rate": 13.7,
     "period": "2026-04-01",
