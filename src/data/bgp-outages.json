@@ -11928,21 +11928,21 @@
     "name": "IMNCL-AS-AP Internet Maekhong Network Company Limited",
     "status": "DOWN",
     "started_at": "2026-04-27T19:03:53.733260+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-27T19:32:46.007490+00:00",
+    "duration_minutes": 28,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS136617",
     "name": "FTCL-AS-AP Fortune Telecom Company Limited",
     "status": "DOWN",
     "started_at": "2026-04-27T19:03:54.994412+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-27T19:32:47.545721+00:00",
+    "duration_minutes": 28,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   }
 ]
