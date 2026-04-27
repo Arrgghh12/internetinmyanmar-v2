@@ -11477,10 +11477,10 @@
     "name": "U9-MM Nine Communications Company Limited",
     "status": "DOWN",
     "started_at": "2026-04-27T03:45:24.337464+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-27T03:50:04.431673+00:00",
+    "duration_minutes": 4,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   }
 ]
