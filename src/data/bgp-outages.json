@@ -11796,6 +11796,17 @@
     "name": "MYANMARNETWORK-AS-AP Myanmar Network Company Limited",
     "status": "DOWN",
     "started_at": "2026-04-27T14:02:04.199416+00:00",
+    "ended_at": "2026-04-27T14:32:09.689122+00:00",
+    "duration_minutes": 30,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": true
+  },
+  {
+    "asn": "AS137888",
+    "name": "BCM-AS-AP Bee Connect Myanmar Co.",
+    "status": "DOWN",
+    "started_at": "2026-04-27T14:31:52.649486+00:00",
     "ended_at": null,
     "duration_minutes": null,
     "min_visibility_pct": 0.0,
