@@ -11774,17 +11774,28 @@
     "name": "ERU-AS-AP EASTERN ROYAL UNICOM ERU TECHNOLOGY COMPANY LIMITED",
     "status": "DOWN",
     "started_at": "2026-04-27T13:32:00.369913+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-27T14:01:42.480434+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS136442",
     "name": "OCEANWAVE-AS-AP Ocean Wave Communication Co.",
     "status": "DOWN",
     "started_at": "2026-04-27T13:32:10.152007+00:00",
+    "ended_at": "2026-04-27T14:01:46.374916+00:00",
+    "duration_minutes": 29,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": true
+  },
+  {
+    "asn": "AS135427",
+    "name": "MYANMARNETWORK-AS-AP Myanmar Network Company Limited",
+    "status": "DOWN",
+    "started_at": "2026-04-27T14:02:04.199416+00:00",
     "ended_at": null,
     "duration_minutes": null,
     "min_visibility_pct": 0.0,
