@@ -11834,5 +11834,16 @@
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
     "resolved": true
+  },
+  {
+    "asn": "AS139206",
+    "name": "PAMEL-AS-AP Pan Asia Majestic Eagle Ltd",
+    "status": "DOWN",
+    "started_at": "2026-04-27T16:32:57.760927+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
   }
 ]
