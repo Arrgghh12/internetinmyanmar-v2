@@ -11818,21 +11818,21 @@
     "name": "ZPC-AS-AP ZOOM PLUS COMPANY LIMITED",
     "status": "DOWN",
     "started_at": "2026-04-27T15:02:35.446650+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-27T15:32:05.238096+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS140091",
     "name": "SHWE-AS-AP SHWE MAHAR MAE KHONG INDUSTRIAL COMPANY LIMITED",
     "status": "DOWN",
     "started_at": "2026-04-27T15:02:50.819345+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-27T15:32:05.989157+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   }
 ]
