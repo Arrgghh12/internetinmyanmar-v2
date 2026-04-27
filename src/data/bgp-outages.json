@@ -11851,22 +11851,22 @@
     "name": "BCM-AS-AP Bee Connect Myanmar Co.",
     "status": "DOWN",
     "started_at": "2026-04-27T17:01:47.223177+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-27T17:31:39.127445+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS141199",
     "name": "CLPC-AS-AP Century Link Plus",
     "status": "DOWN",
     "started_at": "2026-04-27T17:02:51.578423+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-27T17:32:45.069606+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS9988",
