@@ -11592,5 +11592,27 @@
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
     "resolved": true
+  },
+  {
+    "asn": "AS151341",
+    "name": "THENEXTSUCCESS-AS-AP The Next Success",
+    "status": "DOWN",
+    "started_at": "2026-04-27T08:32:53.429860+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
+  },
+  {
+    "asn": "AS149487",
+    "name": "MCLOCCL-AS-AP MOC COMPANY LIMITED",
+    "status": "DOWN",
+    "started_at": "2026-04-27T08:34:23.405632+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
   }
 ]
