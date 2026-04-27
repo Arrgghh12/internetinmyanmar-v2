@@ -11950,10 +11950,10 @@
     "name": "MPTCL-AS-AP MYANMAR PI TECHNOLOGY CO.",
     "status": "DOWN",
     "started_at": "2026-04-27T20:03:08.659121+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-27T20:32:22.965886+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   }
 ]
