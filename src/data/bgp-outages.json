@@ -12126,65 +12126,54 @@
     "name": "REDPALM-AS-AP RED PALM COMPANY LIMITED",
     "status": "DOWN",
     "started_at": "2026-04-28T09:31:09.160065+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-28T10:01:19.153556+00:00",
+    "duration_minutes": 30,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS137259",
     "name": "ILINK-AS-AP i-Link",
     "status": "DOWN",
     "started_at": "2026-04-28T09:31:14.564893+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-28T10:01:20.477622+00:00",
+    "duration_minutes": 30,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS149038",
     "name": "UCGCL-AS-AP UNIQUE COMM GROUP COMPANY LIMITED",
     "status": "DOWN",
     "started_at": "2026-04-28T09:31:19.611668+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-28T10:01:21.868204+00:00",
+    "duration_minutes": 30,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS135433",
     "name": "CGCL-AS-AP Connect Gateway Company Limited",
     "status": "DOWN",
     "started_at": "2026-04-28T09:32:12.293718+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-28T10:02:04.291938+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS150309",
     "name": "ERSTCL-AS-AP E R S TECHNOLOGY",
     "status": "DOWN",
     "started_at": "2026-04-28T09:32:36.273648+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-28T10:02:13.316596+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
-  },
-  {
-    "asn": "AS58952",
-    "name": "FRONTIIRCOLTD-MM Frontiir Co. Ltd",
-    "status": "DOWN",
-    "started_at": "2026-04-28T10:00:34.910724+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
-    "min_visibility_pct": 0.0,
-    "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   }
 ]
