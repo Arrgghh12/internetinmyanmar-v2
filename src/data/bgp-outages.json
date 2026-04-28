@@ -12016,21 +12016,21 @@
     "name": "MIHL-AS-AP MYANMAR INFORMATION HIGHWAY LIMITED",
     "status": "DOWN",
     "started_at": "2026-04-28T00:31:35.894349+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-28T01:01:33.219828+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS132686",
     "name": "ACS-AS-AP Amara Communications",
     "status": "DOWN",
     "started_at": "2026-04-28T00:31:40.200704+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-28T01:01:34.688581+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   }
 ]
