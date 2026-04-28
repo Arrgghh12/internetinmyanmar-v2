@@ -255,7 +255,7 @@ def _status_hash(status_file: Path) -> str:
     if not status_file.exists():
         return ""
     data = json.loads(status_file.read_text())
-    entries = data if isinstance(data, list) else list(data.values())
+    entries = data if isinstance(data, list) else [v for v in data.values() if isinstance(v, dict)]
     key = json.dumps(
         [{"asn": e.get("asn"), "status": e.get("status"),
           "visibility_pct": e.get("visibility_pct"),
@@ -307,7 +307,7 @@ def git_push_data(prev_hash: str) -> str:
              f"data: BGP status {datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M UTC')}"],
             check=True
         )
-        subprocess.run(["git", "-C", str(repo), "pull", "--rebase"], check=True)
+        subprocess.run(["git", "-C", str(repo), "pull", "--rebase", "--autostash"], check=True)
         subprocess.run(["git", "-C", str(repo), "push"], check=True)
         log.info("BGP data pushed to git → Cloudflare rebuild triggered")
         return new_hash
