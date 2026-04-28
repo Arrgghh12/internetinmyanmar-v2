@@ -12043,5 +12043,16 @@
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
     "resolved": true
+  },
+  {
+    "asn": "AS150285",
+    "name": "LMHCC-AS-AP Long Mao Home Center Co.ltd.",
+    "status": "DOWN",
+    "started_at": "2026-04-28T02:32:47.611580+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
   }
 ]
