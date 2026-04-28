@@ -13,7 +13,7 @@ tags:
   - "military junta"
 author: "Anna"
 publishedAt: 2026-04-25
-draft: false
+draft: true
 featuredImage: "https://media.internetinmyanmar.com/images/myanmar-election-internet-censorship-2025-2026/myanmar-election-ballot-booth-2012-1.jpg"
 featuredImageAlt: "Myanmar voters at a ballot booth during the 2012 by-election"
 featuredImageCredit: "Myanmore.com"
@@ -37,6 +37,8 @@ sources:
 import ElectionTimelineChart from '../../components/charts/ElectionTimelineChart.astro'
 import ElectionWindowChart from '../../components/charts/ElectionWindowChart.astro'
 import BlockedSitesChart from '../../components/charts/BlockedSitesChart.astro'
+
+**Myanmar's military held its election inside an information environment it had spent four years making permanent. No emergency blackout was needed — the digital silence was already structural.**
 
 When Myanmar's military junta scheduled its general election for late 2025, observers braced for what typically accompanies disputed votes across the region: emergency internet shutdowns, coordinated blocks of social media on polling day, the kind of abrupt network disruption that OONI probes and Cloudflare Radar flag within hours.
 
@@ -119,6 +121,20 @@ The practical consequences for Myanmar residents in the election period were sev
 This is not the digital environment of a contested election. It is the digital environment of a population that has been systematically disconnected from independent information for years. The election was held inside it.
 
 Our [Shutdown Tracker](/observatory/shutdown-tracker/) documents the full pattern of network interference since February 2021. The [Blocked Sites Observatory](/observatory/blocked-sites/) provides current anomaly rates across 42 tracked domains.
+
+## Key Findings & Implications
+
+1. **No election-day spike confirms ambient censorship.** The OONI anomaly rate in December 2025 (18.6%) was *lower* than November (23.2%). When no emergency action is needed on polling day, it is because the censorship infrastructure is already comprehensive enough to be permanent.
+
+2. **Facebook, Myanmar's primary political platform, was effectively eliminated.** An 89% OONI anomaly rate means the platform that functions as the country's de facto public square was inaccessible to the overwhelming majority of users during the campaign and voting period.
+
+3. **Independent media was blocked at the network layer, not just filtered.** Irrawaddy, Myanmar Now, Mizzima, and DVB each returned 66–78% anomaly rates — not social pressure or self-censorship, but technical blocking enforced by ISPs operating under military control.
+
+4. **The escape route was also closed.** VPN and circumvention tools were blocked at 69–87% anomaly rates under the new Cybersecurity Law, meaning users who knew how to route around censorship found that route legally and technically obstructed.
+
+5. **The February 2026 Cloudflare Radar spike signals a qualitative shift.** A sustained 93–100% traffic index over multiple weeks is not explained by user behavior; it is consistent with the activation of centralized routing infrastructure modelled on China's Great Firewall — a structural change from targeted blocking to network-layer control.
+
+6. **131+ blacked-out townships produced no data and no ballots.** This means aggregate censorship statistics *underrepresent* the actual information environment: the populations most severely affected are precisely those invisible to OONI measurement.
 
 ## What Comes Next
 
