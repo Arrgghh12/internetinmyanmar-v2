@@ -444,18 +444,32 @@ async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
     lines.append("\nCloudflare Pages rebuild triggered automatically.")
     await update.message.reply_text("\n".join(lines), parse_mode="Markdown")
 
-    # Offer social posting for the first published article
+    # Auto-post the first published article to social media
     first = selected[0]
-    slug = slugify(first.get("your_title") or first.get("title", ""))
-    keyboard = InlineKeyboardMarkup([[
-        InlineKeyboardButton("Post to Twitter + Facebook",
-                             callback_data=f"social:{slug}"),
-        InlineKeyboardButton("Skip", callback_data=f"social_skip:{slug}"),
-    ]])
-    await update.message.reply_text(
-        "Post to social media?",
-        reply_markup=keyboard,
-    )
+    pub_date = (first.get("published") or date.today().isoformat())[:10]
+    first_slug = slugify(first.get("your_title") or first.get("title", ""))
+    await update.message.reply_text("📤 Posting to X + Facebook…")
+    try:
+        from distribution.social_poster import post_all
+        results = post_all({
+            "title":      first.get("your_title") or first.get("title", ""),
+            "excerpt":    strip_html(first.get("summary") or "")[:300],
+            "category":   normalize_category(first.get("category", "")),
+            "source":     first.get("source_name") or first.get("source", ""),
+            "slug":       f"{pub_date}-{first_slug}",
+            "source_url": first.get("url", ""),
+            "og_image":   first.get("og_image"),
+        })
+        posted = list(results["posted"].keys())
+        errors = results["errors"]
+        msg = f"✅ Posted to: {', '.join(posted)}" if posted else "⚠️ Nothing posted."
+        if errors:
+            msg += f"\n⚠️ Failed: {', '.join(f'{p}: {str(e)[:100]}' for p, e in errors.items())}"
+            msg += "\nUse /share to retry."
+        await update.message.reply_text(msg)
+    except Exception as e:
+        log.error("Auto social post failed: %s", e)
+        await update.message.reply_text(f"⚠️ Social post failed: {e}\nUse /share to retry.")
 
 
 # ── Social posting callback ────────────────────────────────────────────────────
