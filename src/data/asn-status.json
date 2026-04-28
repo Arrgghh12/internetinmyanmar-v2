@@ -160,20 +160,23 @@
     "visibility_pct": 1.0,
     "visible_collectors": 330,
     "total_collectors": 330,
-    "timestamp": "2026-04-28T04:01:11.038052+00:00",
+    "timestamp": "2026-04-28T04:30:10.306843+00:00",
     "status": "GREEN",
     "status_since": "2026-04-27T21:25:03.891109+00:00"
   },
   "AS58952": {
     "asn": "AS58952",
     "name": "FRONTIIRCOLTD-MM Frontiir Co. Ltd",
-    "announced": true,
-    "visibility_pct": 1.0,
-    "visible_collectors": 330,
-    "total_collectors": 330,
-    "timestamp": "2026-04-28T04:01:11.380005+00:00",
-    "status": "GREEN",
-    "status_since": "2026-04-28T01:20:03.854077+00:00"
+    "announced": false,
+    "visibility_pct": 0.0,
+    "visible_collectors": 0,
+    "total_collectors": 0,
+    "status": "RED",
+    "status_since": "2026-04-28T04:30:25.622264+00:00",
+    "timestamp": "2026-04-28T04:30:25.622264+00:00",
+    "error": "",
+    "ioda_outages": 0,
+    "ioda_confirmed": false
   },
   "AS139849": {
     "asn": "AS139849",
@@ -607,13 +610,16 @@
   "AS9988": {
     "asn": "AS9988",
     "name": "MPT-AP Myanma Posts and Telecommunications",
-    "announced": true,
-    "visibility_pct": 1.0,
-    "visible_collectors": 330,
-    "total_collectors": 330,
-    "timestamp": "2026-04-28T04:01:48.892175+00:00",
-    "status": "GREEN",
-    "status_since": "2026-04-27T17:15:08.462925+00:00"
+    "announced": false,
+    "visibility_pct": 0.0,
+    "visible_collectors": 0,
+    "total_collectors": 0,
+    "status": "RED",
+    "status_since": "2026-04-28T04:30:27.572839+00:00",
+    "timestamp": "2026-04-28T04:30:27.572839+00:00",
+    "error": "Server error '500 Internal Server Error' for url 'https://stat.ripe.net/data/rou",
+    "ioda_outages": 0,
+    "ioda_confirmed": false
   },
   "AS133384": {
     "asn": "AS133384",
@@ -765,7 +771,7 @@
     "visibility_pct": 1.0,
     "visible_collectors": 330,
     "total_collectors": 330,
-    "timestamp": "2026-04-28T04:02:14.006706+00:00",
+    "timestamp": "2026-04-28T04:30:29.141771+00:00",
     "status": "GREEN",
     "status_since": "2026-04-27T21:15:19.751648+00:00"
   },
