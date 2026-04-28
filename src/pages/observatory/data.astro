@@ -1,7 +1,26 @@
 ---
 import Observatory from '../../layouts/Observatory.astro'
+import { statSync, readFileSync } from 'fs'
+import { resolve } from 'path'
 
 export const prerender = true
+
+function fileMtime(filename: string): string {
+  try {
+    const p = resolve('./public/data/', filename)
+    const mtime = statSync(p).mtime
+    return mtime.toISOString().slice(0, 16).replace('T', ' ') + ' UTC'
+  } catch { return '' }
+}
+
+// metrics_snapshot.json has a precise generated_at field
+function metricsUpdatedAt(): string {
+  try {
+    const raw = JSON.parse(readFileSync(resolve('./public/data/metrics_snapshot.json'), 'utf-8'))
+    if (raw.generated_at) return raw.generated_at.slice(0, 16).replace('T', ' ') + ' UTC'
+  } catch { /* fall through */ }
+  return fileMtime('metrics_snapshot.json')
+}
 
 const datasets = [
   {
@@ -12,6 +31,7 @@ const datasets = [
     size: '~734 KB',
     license: 'CC BY 4.0',
     url: '/data/unified_events.json',
+    updatedAt: fileMtime('unified_events.json'),
   },
   {
     file: 'bgp_events.csv',
@@ -21,6 +41,7 @@ const datasets = [
     size: '~109 KB',
     license: 'CC BY 4.0',
     url: '/data/bgp_events.csv',
+    updatedAt: fileMtime('bgp_events.csv'),
   },
   {
     file: 'keepiton_shutdowns.csv',
@@ -30,6 +51,7 @@ const datasets = [
     size: '~23 KB',
     license: 'CC BY 4.0',
     url: '/data/keepiton_shutdowns.csv',
+    updatedAt: fileMtime('keepiton_shutdowns.csv'),
   },
   {
     file: 'ooni_timeseries.csv',
@@ -39,6 +61,7 @@ const datasets = [
     size: '~5 KB',
     license: 'CC BY 4.0',
     url: '/data/ooni_timeseries.csv',
+    updatedAt: fileMtime('ooni_timeseries.csv'),
   },
   {
     file: 'blocked_sites.csv',
@@ -48,6 +71,7 @@ const datasets = [
     size: '~2 KB',
     license: 'CC BY 4.0',
     url: '/data/blocked_sites.csv',
+    updatedAt: fileMtime('blocked_sites.csv'),
   },
   {
     file: 'metrics_snapshot.json',
@@ -57,6 +81,7 @@ const datasets = [
     size: '~1 KB',
     license: 'CC BY 4.0',
     url: '/data/metrics_snapshot.json',
+    updatedAt: metricsUpdatedAt(),
   },
 ]
 
@@ -113,7 +138,10 @@ const formatColor: Record<string, string> = {
             </div>
           </div>
           <p class="text-sm opacity-60 mb-2">{ds.description}</p>
-          <div class="font-mono text-xs opacity-30">{ds.file} · {ds.license}</div>
+          <div class="font-mono text-xs opacity-30">
+            {ds.file} · {ds.license}
+            {ds.updatedAt && <span> · updated {ds.updatedAt}</span>}
+          </div>
         </div>
       ))}
     </div>
