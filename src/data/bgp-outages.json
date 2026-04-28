@@ -12181,6 +12181,17 @@
     "name": "BCM-AS-AP Bee Connect Myanmar Co.",
     "status": "DOWN",
     "started_at": "2026-04-28T10:31:42.173611+00:00",
+    "ended_at": "2026-04-28T11:01:43.484225+00:00",
+    "duration_minutes": 30,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": true
+  },
+  {
+    "asn": "AS136474",
+    "name": "MGTL-AS-AP Marga Global Telecom Limited",
+    "status": "DOWN",
+    "started_at": "2026-04-28T11:02:40.405949+00:00",
     "ended_at": null,
     "duration_minutes": null,
     "min_visibility_pct": 0.0,
