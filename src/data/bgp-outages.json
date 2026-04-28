@@ -12093,10 +12093,10 @@
     "name": "GCL-AS-AP GIGA-NET",
     "status": "DOWN",
     "started_at": "2026-04-28T07:32:24.480007+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-28T08:02:09.768473+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   }
 ]
