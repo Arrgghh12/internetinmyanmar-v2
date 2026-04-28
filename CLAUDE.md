@@ -259,6 +259,17 @@ Always filter non-dict values when reading `asn-status.json` — the file may co
 entries = data if isinstance(data, list) else [v for v in data.values() if isinstance(v, dict)]
 ```
 
+### Cloudflare Workers — No Node.js built-ins
+SSR Astro pages (`prerender = false`) run in Cloudflare Workers at runtime. Workers have **no `fs`, `path`, or other Node.js built-ins** unless `nodejs_compat` is enabled in the adapter config (it is NOT currently enabled). A try/catch does NOT protect against this — the `import` itself causes module init failure → hard 500 before any JS runs.
+
+**Rule:** Never use `import { readFileSync } from 'fs'` or `import { resolve } from 'path'` (or any other Node.js built-in) in SSR pages.
+
+**Instead:** Import JSON data files directly via static `import`:
+```typescript
+import metricsSnapshotRaw from '../../../public/data/metrics_snapshot.json'
+```
+This works because Vite resolves JSON imports at build time and bundles them into the Worker.
+
 ---
 
 ## WORDPRESS MIGRATION
