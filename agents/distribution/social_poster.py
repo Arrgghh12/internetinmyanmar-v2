@@ -147,22 +147,34 @@ def post_twitter(text: str, url: str, image_path: str | None = None) -> dict:
 
 
 def post_facebook(text: str, url: str, image_url: str | None = None) -> dict:
-    """Post to Facebook Page via Graph API. Passes explicit image if available."""
+    """Post to Facebook Page via Graph API.
+
+    With image: POST to /photos (caption = text + article URL) — shows image prominently.
+    Without image: POST to /feed with link — lets Facebook scrape OG tags.
+    """
     page_id = os.environ["FACEBOOK_PAGE_ID"]
     token   = os.environ["FACEBOOK_PAGE_ACCESS_TOKEN"]
 
-    body: dict = {"message": text, "link": url}
     if image_url:
-        body["picture"] = image_url
+        # /photos accepts a public image URL directly; caption becomes the post text
+        resp = httpx.post(
+            f"https://graph.facebook.com/v19.0/{page_id}/photos",
+            params={"access_token": token},
+            json={"url": image_url, "caption": f"{text}\n\n{url}"},
+            timeout=15,
+        )
+    else:
+        resp = httpx.post(
+            f"https://graph.facebook.com/v19.0/{page_id}/feed",
+            params={"access_token": token},
+            json={"message": text, "link": url},
+            timeout=15,
+        )
 
-    resp = httpx.post(
-        f"https://graph.facebook.com/v19.0/{page_id}/feed",
-        params={"access_token": token},
-        json=body,
-        timeout=15,
-    )
     resp.raise_for_status()
-    return {"platform": "facebook", "id": resp.json()["id"]}
+    data = resp.json()
+    post_id = data.get("post_id") or data.get("id")
+    return {"platform": "facebook", "id": post_id}
 
 
 def post_all(digest_meta: dict) -> dict:
