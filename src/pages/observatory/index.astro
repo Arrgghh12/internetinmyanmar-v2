@@ -6,8 +6,7 @@ import asnStatusRaw from '../../data/asn-status.json'
 import bgpOutagesRaw from '../../data/bgp-outages.json'
 import cfOutages from '../../data/cf-radar-outages.json'
 import LiveSignalChart from '../../components/charts/LiveSignalChart.astro'
-import { readFileSync } from 'fs'
-import { resolve } from 'path'
+import metricsSnapshotRaw from '../../../public/data/metrics_snapshot.json'
 
 export const prerender = false
 
@@ -17,11 +16,7 @@ const bgpOutages: any[] = bgpOutagesRaw as any
 const bgpTotal = Object.keys(asnStatus).length
 const bgpDown  = Object.values(asnStatus).filter((a: any) => a.status === 'RED').length
 
-// Live metrics from agent-generated snapshot (falls back to stats.json if unavailable)
-let liveMetrics: Record<string, any> = {}
-try {
-  liveMetrics = JSON.parse(readFileSync(resolve('./public/data/metrics_snapshot.json'), 'utf-8'))
-} catch { /* use fallback */ }
+const liveMetrics: Record<string, any> = metricsSnapshotRaw as any
 
 const activeShutdowns      = liveMetrics.active_shutdowns      ?? stats.activeShutdowns
 const confirmedBlocked     = liveMetrics.confirmed_blocked_sites ?? stats.blockedSites
