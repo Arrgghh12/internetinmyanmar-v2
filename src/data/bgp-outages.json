@@ -11994,6 +11994,17 @@
     "name": "STMCL-AS-AP SEANET",
     "status": "DOWN",
     "started_at": "2026-04-27T23:32:12.518737+00:00",
+    "ended_at": "2026-04-28T00:01:59.480113+00:00",
+    "duration_minutes": 29,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": true
+  },
+  {
+    "asn": "AS137424",
+    "name": "ISMC-AS-AP Integral Solutions Myanmar Co.",
+    "status": "DOWN",
+    "started_at": "2026-04-28T00:01:51.800470+00:00",
     "ended_at": null,
     "duration_minutes": null,
     "min_visibility_pct": 0.0,
