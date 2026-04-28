@@ -12197,5 +12197,82 @@
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
     "resolved": true
+  },
+  {
+    "asn": "AS150692",
+    "name": "GD2CL-AS-AP Golden Dragon 2000",
+    "status": "DOWN",
+    "started_at": "2026-04-28T12:01:53.306575+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
+  },
+  {
+    "asn": "AS150812",
+    "name": "MFGCL-AS-AP Myanmar Fortune Global Company Limited",
+    "status": "DOWN",
+    "started_at": "2026-04-28T12:02:37.558217+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
+  },
+  {
+    "asn": "AS132537",
+    "name": "MLGCL-AS-AP LG",
+    "status": "DOWN",
+    "started_at": "2026-04-28T12:03:19.412895+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
+  },
+  {
+    "asn": "AS139206",
+    "name": "PAMEL-AS-AP Pan Asia Majestic Eagle Ltd",
+    "status": "DOWN",
+    "started_at": "2026-04-28T12:03:31.588598+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
+  },
+  {
+    "asn": "AS132060",
+    "name": "HANTHARNET-AS-AP Hanthar Net",
+    "status": "DOWN",
+    "started_at": "2026-04-28T12:03:39.037664+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
+  },
+  {
+    "asn": "AS135149",
+    "name": "MTGCL-AS-AP Myanmar Technology Gateway Co., Ltd",
+    "status": "DOWN",
+    "started_at": "2026-04-28T12:03:46.526190+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
+  },
+  {
+    "asn": "AS136177",
+    "name": "YOMABANKLIMITED-AS-AP Yoma Bank Limited",
+    "status": "DOWN",
+    "started_at": "2026-04-28T12:03:51.836622+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
   }
 ]
