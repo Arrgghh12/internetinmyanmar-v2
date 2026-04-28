@@ -69,7 +69,8 @@ const digest = defineCollection({
     type:         z.literal('digest').default('digest'),
     draft:        z.boolean().default(false),
     originalTitle: z.string().optional(),
-    sourceLang:   z.string().optional(),
+    sourceLang:    z.string().optional(),
+    featuredImage: z.string().url().optional(),
   }),
 })
 

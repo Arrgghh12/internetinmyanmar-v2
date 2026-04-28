@@ -10,10 +10,15 @@ Usage (manual test):
 """
 
 import json
+import mimetypes
 import os
+import re
 import sys
+import tempfile
+from pathlib import Path
 
 import httpx
+import requests
 import tweepy
 from dotenv import load_dotenv
 
@@ -45,6 +50,40 @@ Rules:
 - #Myanmar always included"""
 
 
+def fetch_og_image(url: str) -> str | None:
+    """Extract og:image URL from a page. Returns None on any failure."""
+    try:
+        resp = requests.get(url, timeout=10, headers={"User-Agent": "Mozilla/5.0"})
+        m = re.search(
+            r'<meta[^>]+property=["\']og:image["\'][^>]+content=["\']([^"\']+)["\']',
+            resp.text,
+        )
+        if not m:
+            m = re.search(
+                r'<meta[^>]+content=["\']([^"\']+)["\'][^>]+property=["\']og:image["\']',
+                resp.text,
+            )
+        return m.group(1) if m else None
+    except Exception:
+        return None
+
+
+def download_image(url: str) -> str | None:
+    """Download image to a temp file. Returns local path or None on failure."""
+    try:
+        resp = requests.get(url, timeout=15, stream=True)
+        resp.raise_for_status()
+        ct  = resp.headers.get("content-type", "image/jpeg")
+        ext = (mimetypes.guess_extension(ct.split(";")[0].strip()) or ".jpg").replace(".jpe", ".jpg")
+        tmp = tempfile.NamedTemporaryFile(suffix=ext, delete=False)
+        for chunk in resp.iter_content(8192):
+            tmp.write(chunk)
+        tmp.close()
+        return tmp.name
+    except Exception:
+        return None
+
+
 def generate_copy(title: str, excerpt: str, category: str,
                   source: str, url: str) -> dict:
     """
@@ -74,8 +113,22 @@ def generate_copy(title: str, excerpt: str, category: str,
         }
 
 
-def post_twitter(text: str, url: str) -> dict:
-    """Post to Twitter via OAuth 1.0a."""
+def post_twitter(text: str, url: str, image_path: str | None = None) -> dict:
+    """Post to Twitter via OAuth 1.0a. Attaches image if image_path is provided."""
+    media_id = None
+    if image_path:
+        try:
+            auth = tweepy.OAuth1UserHandler(
+                os.environ["TWITTER_CONSUMER_KEY"],
+                os.environ["TWITTER_CONSUMER_SECRET"],
+                os.environ["TWITTER_ACCESS_TOKEN"],
+                os.environ["TWITTER_ACCESS_TOKEN_SECRET"],
+            )
+            media = tweepy.API(auth).media_upload(filename=image_path)
+            media_id = str(media.media_id)
+        except Exception as e:
+            print(f"  ⚠ Twitter media upload failed, posting without image: {e}", file=sys.stderr)
+
     client = tweepy.Client(
         consumer_key=os.environ["TWITTER_CONSUMER_KEY"],
         consumer_secret=os.environ["TWITTER_CONSUMER_SECRET"],
@@ -84,26 +137,28 @@ def post_twitter(text: str, url: str) -> dict:
     )
     full = f"{text}\n{url}"
     if len(full) > 280:
-        max_text = 280 - len(url) - 2
-        full = f"{text[:max_text].rstrip()}\n{url}"
+        full = f"{text[:280 - len(url) - 2].rstrip()}\n{url}"
 
-    response = client.create_tweet(text=full)
+    kwargs: dict = {"text": full}
+    if media_id:
+        kwargs["media_ids"] = [media_id]
+    response = client.create_tweet(**kwargs)
     return {"platform": "twitter", "id": str(response.data["id"])}
 
 
-def post_facebook(text: str, url: str) -> dict:
-    """Post to Facebook Page via Graph API.
-
-    Using the `link` parameter explicitly so Facebook scrapes og:image from the
-    correct URL rather than trying to parse a URL from the message text.
-    """
+def post_facebook(text: str, url: str, image_url: str | None = None) -> dict:
+    """Post to Facebook Page via Graph API. Passes explicit image if available."""
     page_id = os.environ["FACEBOOK_PAGE_ID"]
-    token = os.environ["FACEBOOK_PAGE_ACCESS_TOKEN"]
+    token   = os.environ["FACEBOOK_PAGE_ACCESS_TOKEN"]
+
+    body: dict = {"message": text, "link": url}
+    if image_url:
+        body["picture"] = image_url
 
     resp = httpx.post(
         f"https://graph.facebook.com/v19.0/{page_id}/feed",
         params={"access_token": token},
-        json={"message": text, "link": url},
+        json=body,
         timeout=15,
     )
     resp.raise_for_status()
@@ -113,10 +168,18 @@ def post_facebook(text: str, url: str) -> dict:
 def post_all(digest_meta: dict) -> dict:
     """
     Generate copy and post to Twitter + Facebook.
-    digest_meta: dict with title, excerpt, category, source, slug, url
+    digest_meta: dict with title, excerpt, category, source, slug, and optionally
+                 og_image (pre-fetched image URL) or source_url (to fetch from).
     Returns {"posted": {platform: result}, "errors": {platform: msg}}
     """
     url = f"https://internetinmyanmar.com/digest/{digest_meta['slug']}"
+
+    # Resolve OG image: use stored value first, fall back to fetching from source URL
+    og_image_url = digest_meta.get("og_image")
+    if not og_image_url and digest_meta.get("source_url"):
+        og_image_url = fetch_og_image(digest_meta["source_url"])
+
+    image_path = download_image(og_image_url) if og_image_url else None
 
     copy = generate_copy(
         title=digest_meta["title"],
@@ -126,18 +189,22 @@ def post_all(digest_meta: dict) -> dict:
         url=url,
     )
 
-    posted = {}
-    errors = {}
+    posted: dict = {}
+    errors: dict = {}
 
-    for platform, fn, arg in [
-        ("twitter",  post_twitter,  (copy["twitter"], url)),
-        ("facebook", post_facebook, (copy["facebook"], url)),
-    ]:
-        try:
-            posted[platform] = fn(*arg)
-        except Exception as e:
-            errors[platform] = str(e)
-            print(f"  ✗ {platform}: {e}", file=sys.stderr)
+    try:
+        for platform, fn, args, kw in [
+            ("twitter",  post_twitter,  (copy["twitter"],  url), {"image_path": image_path}),
+            ("facebook", post_facebook, (copy["facebook"], url), {"image_url":  og_image_url}),
+        ]:
+            try:
+                posted[platform] = fn(*args, **kw)
+            except Exception as e:
+                errors[platform] = str(e)
+                print(f"  ✗ {platform}: {e}", file=sys.stderr)
+    finally:
+        if image_path:
+            Path(image_path).unlink(missing_ok=True)
 
     return {"posted": posted, "errors": errors}
 
@@ -150,15 +217,15 @@ if __name__ == "__main__":
         sys.exit(0)
 
     test_meta = {
-        "title": "TEST — Myanmar internet monitoring active [delete me]",
-        "excerpt": "This is an automated test post from the IIM distribution pipeline. Please ignore.",
-        "category": "Observatory",
-        "source": "internetinmyanmar.com",
-        "slug": "test-distribution",
-        "url": "https://internetinmyanmar.com/observatory/",
+        "title":      "TEST — Myanmar internet monitoring active [delete me]",
+        "excerpt":    "This is an automated test post from the IIM distribution pipeline. Please ignore.",
+        "category":   "Observatory",
+        "source":     "internetinmyanmar.com",
+        "slug":       "test-distribution",
+        "source_url": "https://ooni.org/post/2024-myanmar-elections/",  # real page with og:image
     }
 
-    print("Generating copy...")
+    print("Generating copy and fetching OG image…")
     results = post_all(test_meta)
     print("Posted:", json.dumps(results, indent=2))
     print("\nVerify posts on Twitter and Facebook, then delete them manually.")

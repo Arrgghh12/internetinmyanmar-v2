@@ -181,6 +181,7 @@ def make_mdx(c: dict, added_at: str) -> str:
         f'\noriginalTitle: "{c["title"].replace(chr(34), chr(39))}"\nsourceLang: "my"'
         if is_my else ""
     )
+    featured_image_field = f'\nfeaturedImage: "{c["og_image"]}"' if c.get("og_image") else ""
 
     return f"""---
 title: "{title_safe}"
@@ -197,7 +198,7 @@ sourceScore: {source_score}
 sourceTier: "{source_tier}"
 sourceLabel: "{source_label}"
 type: "digest"
-draft: false{myanmar_fields}
+draft: false{myanmar_fields}{featured_image_field}
 ---
 
 *Originally published by [{source_name}]({link_url}) on {published_at}.*
@@ -229,6 +230,17 @@ def publish_to_github(selected: list[dict]) -> tuple[int, list[str]]:
     filenames: list[str] = []
 
     for c in selected:
+        # Best-effort OG image fetch from source article
+        if not c.get("og_image"):
+            try:
+                from distribution.social_poster import fetch_og_image
+                og = fetch_og_image(c["url"])
+                if og:
+                    c["og_image"] = og
+                    log.info("OG image found: %s", og)
+            except Exception as exc:
+                log.warning("OG image fetch failed for %s: %s", c.get("url"), exc)
+
         pub_date = (c.get("published") or today)[:10]
         slug     = slugify(c.get("your_title") or c.get("title", ""))
         filename = f"{pub_date}-{slug}.mdx"
@@ -254,6 +266,20 @@ def publish_to_github(selected: list[dict]) -> tuple[int, list[str]]:
             log.info("Published: %s", filename)
         except Exception as e:
             log.error("Failed to publish %s: %s", filename, e)
+
+    # Persist og_image back into the pending JSON so the social callback can read it
+    pending_file, all_candidates = latest_pending()
+    if pending_file:
+        url_to_og = {c.get("url"): c.get("og_image") for c in selected if c.get("og_image")}
+        if url_to_og:
+            for candidate in all_candidates:
+                og = url_to_og.get(candidate.get("url"))
+                if og:
+                    candidate["og_image"] = og
+            try:
+                pending_file.write_text(json.dumps(all_candidates, ensure_ascii=False, indent=2))
+            except Exception as exc:
+                log.warning("Could not persist og_image to pending file: %s", exc)
 
     return created, filenames
 
@@ -347,11 +373,13 @@ async def cmd_share(update: Update, context: ContextTypes.DEFAULT_TYPE):
     try:
         from distribution.social_poster import post_all
         results = post_all({
-            "title":    title,
-            "excerpt":  strip_html(article.get("summary") or "")[:300],
-            "category": normalize_category(article.get("category", "")),
-            "source":   article.get("source_name") or article.get("source", ""),
-            "slug":     full_slug,
+            "title":      title,
+            "excerpt":    strip_html(article.get("summary") or "")[:300],
+            "category":   normalize_category(article.get("category", "")),
+            "source":     article.get("source_name") or article.get("source", ""),
+            "slug":       full_slug,
+            "source_url": article.get("url", ""),
+            "og_image":   article.get("og_image"),
         })
     except Exception as e:
         log.error("Share failed: %s", e)
@@ -458,11 +486,13 @@ async def handle_social_callback(update: Update, context: ContextTypes.DEFAULT_T
             from distribution.social_poster import post_all
             pub_date = (article.get("published") or date.today().isoformat())[:10]
             results = post_all({
-                "title": article.get("your_title") or article.get("title", ""),
-                "excerpt": strip_html(article.get("summary") or "")[:300],
-                "category": article.get("category", ""),
-                "source": article.get("source_name") or article.get("source", ""),
-                "slug": f"{pub_date}-{slug}",
+                "title":      article.get("your_title") or article.get("title", ""),
+                "excerpt":    strip_html(article.get("summary") or "")[:300],
+                "category":   article.get("category", ""),
+                "source":     article.get("source_name") or article.get("source", ""),
+                "slug":       f"{pub_date}-{slug}",
+                "source_url": article.get("url", ""),
+                "og_image":   article.get("og_image"),
             })
         except Exception as e:
             log.error("Social posting failed: %s", e)
