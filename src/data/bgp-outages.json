@@ -13116,44 +13116,44 @@
     "name": "INFORMATIONTECHNOLOGYCYBERSECURITY-AS-AP Dept. of Information Technology & Cyber Security",
     "status": "DOWN",
     "started_at": "2026-04-29T21:02:49.688367+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-29T21:33:34.622668+00:00",
+    "duration_minutes": 30,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS140617",
     "name": "TPTNET-AS-AP THAN PHYO THU MINING COMPANY LIMITED",
     "status": "DOWN",
     "started_at": "2026-04-29T21:03:11.384289+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-29T21:33:48.731982+00:00",
+    "duration_minutes": 30,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS138167",
     "name": "TRUENET-AS-AP TrueNET",
     "status": "DOWN",
     "started_at": "2026-04-29T21:04:20.764755+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-29T21:34:12.634501+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS151482",
     "name": "MKTN-AS-AP MKTN ENGINEERING GROUP COMPANY LIMITED",
     "status": "DOWN",
     "started_at": "2026-04-29T21:04:30.612948+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-29T21:34:15.877011+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS58952",
@@ -13176,5 +13176,27 @@
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
     "resolved": true
+  },
+  {
+    "asn": "AS151210",
+    "name": "NCL-AS-AP NEXGENET COMPANY LIMITED",
+    "status": "DOWN",
+    "started_at": "2026-04-29T21:33:05.129293+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
+  },
+  {
+    "asn": "AS153790",
+    "name": "AMCL-AS-AP ADS Myanmar Company Limited",
+    "status": "DOWN",
+    "started_at": "2026-04-29T21:33:10.351528+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
   }
 ]
