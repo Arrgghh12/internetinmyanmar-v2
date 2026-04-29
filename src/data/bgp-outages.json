@@ -12989,5 +12989,16 @@
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
     "resolved": false
+  },
+  {
+    "asn": "AS58952",
+    "name": "FRONTIIRCOLTD-MM Frontiir Co. Ltd",
+    "status": "DOWN",
+    "started_at": "2026-04-29T18:15:29.652002+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
   }
 ]
