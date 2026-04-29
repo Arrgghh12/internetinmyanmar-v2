@@ -12947,14 +12947,47 @@
     "resolved": true
   },
   {
-    "asn": "AS58952",
-    "name": "FRONTIIRCOLTD-MM Frontiir Co. Ltd",
+    "asn": "AS135300",
+    "name": "MBTCL-AS-AP Myanmar Broadband Telecom Co., Ltd",
     "status": "DOWN",
-    "started_at": "2026-04-29T18:00:27.029211+00:00",
-    "ended_at": "2026-04-29T18:05:06.039505+00:00",
-    "duration_minutes": 4,
+    "started_at": "2026-04-29T18:02:16.253904+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": true
+    "resolved": false
+  },
+  {
+    "asn": "AS151802",
+    "name": "FSAS-AS-MM FIND SOLUTION AND SERVICES CO., LTD.",
+    "status": "DOWN",
+    "started_at": "2026-04-29T18:03:17.681749+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
+  },
+  {
+    "asn": "AS133384",
+    "name": "GTCL-AS-AP Global Technology Co., Ltd.",
+    "status": "DOWN",
+    "started_at": "2026-04-29T18:03:35.909732+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
+  },
+  {
+    "asn": "AS154481",
+    "name": "TACHILEIK1-AS-AP Tachileik Jade Dragon Company Limited",
+    "status": "DOWN",
+    "started_at": "2026-04-29T18:04:22.441486+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
   }
 ]
