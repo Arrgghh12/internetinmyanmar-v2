@@ -12709,11 +12709,11 @@
     "name": "GREATGOLDENHORSE-AS-AP GREAT GOLDEN HORSE COMPANY LIMITED",
     "status": "DOWN",
     "started_at": "2026-04-29T12:02:25.441100+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-29T12:32:21.126036+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS58952",
