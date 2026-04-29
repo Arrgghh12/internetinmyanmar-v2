@@ -1,0 +1,131 @@
+---
+title: "The Volunteers Who Keep Myanmar's Internet Visible: OONI Data, Probe Deployment, and Why It Matters"
+seoTitle: "OONI Probes & Myanmar Censorship Data: Why They Matter"
+metaDescription: "Myanmar's 13.4% anomaly rate exists because volunteers run OONI probes. Here's what the data shows and why contributing matters."
+categories:
+  - "Censorship & Shutdowns"
+  - "Policy & Regulation"
+tags:
+  - "ooni"
+  - "censorship"
+  - "internet freedom"
+  - "probe"
+  - "measurement"
+  - "data"
+author: "Anna"
+publishedAt: 2026-04-28
+draft: true
+excerpt: "Myanmar's 13.4% anomaly rate is only visible because volunteers run OONI probes. Here's what the data shows today, how the global network works, and why contributing matters more than ever."
+lang: "en"
+sources:
+  - "https://ooni.org"
+  - "https://ooni.org/install/"
+  - "https://ooni.org/data/"
+  - "https://explorer.ooni.org/country/MM"
+  - "https://ooni.org/about/risks/"
+  - "https://www.accessnow.org/keepiton/"
+  - "https://citizenlab.ca/projects/is-your-network-censored/"
+---
+
+import LiveSignalChart from '../../components/charts/LiveSignalChart.astro'
+import OoniBreakdownChart from '../../components/charts/OoniBreakdownChart.astro'
+import BlockedSitesChart from '../../components/charts/BlockedSitesChart.astro'
+
+**Myanmar's 13.4% internet anomaly rate is not a number that exists in nature. It exists because people chose to measure it — and kept measuring, year after year, at personal cost.**
+
+Since February 2021, the Myanmar military's censorship apparatus has operated continuously: blocking independent media, filtering social platforms, applying deep packet inspection to VPN traffic, cutting entire regions off the network entirely. What allows that apparatus to be documented — precisely, reproducibly, with timestamps — is a global network of volunteers running free software on their devices. That software is [OONI Probe](https://ooni.org/install/). This is a guide to what it produces, what Myanmar's data looks like today, and why the measurement infrastructure around it deserves more support than it currently receives.
+
+## What OONI Is, and Why the Architecture Matters
+
+The [Open Observatory of Network Interference](https://ooni.org) is a nonprofit project under the Tor Project, founded in 2012 and currently maintaining what is probably the world's largest open dataset of internet censorship measurements. As of 2026, the OONI database contains over one billion individual test results from more than 240 countries and territories, all published in near-real-time under a CC BY 4.0 open licence.
+
+The measurement model is deliberately distributed. OONI runs no monitoring infrastructure inside the countries it studies. Instead, volunteers install OONI Probe and run tests from their own devices on their own networks. When Probe executes, it fetches a curated URL list — drawn from the [Citizen Lab test lists](https://github.com/citizenlab/test-lists), maintained collaboratively by researchers with country expertise — and compares what it observes against control measurements taken outside the country. DNS query results, TCP connection success or failure, HTTP response bodies and headers: every discrepancy is logged as an anomaly.
+
+This architecture produces evidence with a specific evidentiary property: the measurement originates inside the network under scrutiny. An anomaly flagged by a probe in Mandalay reflects what a user in Mandalay actually experiences — not a simulation from outside the country, not a model. That is the standard that makes OONI data credible to UN Human Rights Council rapporteurs, referenced in Citizen Lab investigations, and cited by Access Now's STOP Dataset researchers when cross-validating documented shutdowns.
+
+It also means that the data has a hard constraint: it only covers networks where someone is running a probe.
+
+## Myanmar's Current Data: What We See and What We Don't
+
+<LiveSignalChart />
+
+The 30-day signal chart above shows Myanmar's current OONI anomaly rate alongside Cloudflare Radar traffic. The picture is consistent: anomaly rates have held between 12% and 17% throughout April 2026, with no sharp departures in either direction. On April 27 alone, probes logged 5,276 measurements across Myanmar networks — 14.5% returned anomalies, 61 were confirmed blocks.
+
+This stability is not a sign of improvement. It is the signature of censorship that has become structural. Myanmar's junta no longer issues emergency block orders against specific news events; those blocks are already in place, applied at the network layer, and maintained continuously by ISPs operating under military directive. The [2025–26 election period](/articles/myanmar-election-internet-censorship-2025-2026/) produced no measurable anomaly spike precisely because the information environment was already comprehensively controlled before the first ballot was cast.
+
+<OoniBreakdownChart />
+
+The weekly breakdown extends the picture over the past six months. Three patterns are visible. First, measurement volume has grown — a positive signal reflecting increased probe deployment or more active existing probes. Second, the anomaly rate has been remarkably stable in the 12–16% band since mid-2025, after a period of elevated readings (up to 32.3% in August 2024) that correlated with the military's intensified offensives in Shan and Rakhine States. Third, confirmed blocks — measurements where the block itself can be technically verified, not just flagged as anomalous — represent a consistent but small share of anomalies, reflecting the difficulty of definitively attributing interference at scale.
+
+<BlockedSitesChart />
+
+The blocked sites chart shows where the blocks fall. Facebook, which functions as Myanmar's de facto public square and primary news distribution channel, returns an 89% OONI anomaly rate — effectively inaccessible on Myanmar's major ISPs without circumvention tools. Independent news outlets including The Irrawaddy, Myanmar Now, Mizzima, and DVB each return 66–78% anomaly rates. VPN and circumvention services — the standard route around content blocks — are themselves blocked at 69–87% rates under the 2025 Cybersecurity Law.
+
+These numbers represent what probes can see. They do not represent the full censorship picture. Of Myanmar's 330 townships, over 130 were under communications blackout as of late 2025, with mobile and internet services cut at the physical infrastructure level by military order. Those populations produce no OONI measurements. The anomaly rate for Myanmar as a whole therefore *understates* the actual information environment experienced by the country's population, particularly in conflict-affected regions in Shan, Kayah, Kachin, and Rakhine States.
+
+## The Global Picture and Where Myanmar Fits
+
+OONI's measurement coverage varies enormously by country — not because some countries have more censorship, but because some countries have more probe operators. Russia, Iran, Venezuela, and Cuba have dense, long-running OONI coverage built up over years of civil society investment. That coverage has made it possible to document the precise timing of election-day blackouts (Russia 2024, Venezuela 2024), correlate network-layer shutdowns with military operations (Iran 2019, 2022), and provide the evidentiary basis for UN-level accountability processes.
+
+Myanmar has meaningful coverage in Yangon and several major urban centres. Its rural townships — where the military's most severe network disruptions have occurred — are chronically under-measured. The OONI record of Myanmar's post-coup internet environment is already one of the most detailed such records in existence for a country in active armed conflict. Making it more complete is a tractable problem: it requires more probe operators on more diverse networks across more regions.
+
+Globally, OONI data has been used in legally significant ways that extend well beyond monitoring dashboards. The dataset has been cited in UN Human Rights Council reports on digital rights in conflict zones. It underpins Access Now's KeepItOn campaign's verification methodology for shutdown events. It has contributed to Citizen Lab investigations into ISP-level blocking of civil society platforms in over a dozen countries. As international mechanisms for accountability mature, digital evidence — including internet measurement data — is increasingly being treated as admissible documentation of state behavior. The OONI archive is a record. What it contains in five years is partly determined by what volunteers contribute today.
+
+## How to Contribute — With an Explicit Note on Risk
+
+**If you are outside Myanmar** — in the diaspora, in a neighboring country, or anywhere with a stable internet connection — installing OONI Probe is low-risk and takes under five minutes. The [mobile app](https://ooni.org/install/) runs on Android and iOS. The desktop app runs on Windows, macOS, and Linux. Probes running from outside Myanmar do not measure Myanmar's censorship directly, but they contribute to the global dataset that provides the comparison baseline making Myanmar's anomalies detectable. They also contribute measurement coverage in your own country, which has independent value.
+
+**If you are a researcher with access to Myanmar networks** — whether physically present or using a VPN in a direction that passes through Myanmar-based infrastructure — even limited measurements add precision to the record. OONI Probe can be configured for single-run operation, minimising on-network exposure time.
+
+**If you are currently inside Myanmar:** Running OONI Probe carries real risk. Network operators and intelligence agencies can observe connections to OONI's collector infrastructure. The test lists include politically sensitive URLs, and the 2025 Cybersecurity Law creates broad criminalization risk for actions that could be characterized as "opposing" state communications control. We do not recommend running OONI Probe from inside Myanmar without reading the full [OONI risk documentation](https://ooni.org/about/risks/) and making an informed personal decision about that risk.
+
+For Myanmar readers who want to contribute to internet freedom documentation without running active probes: sharing verified information about blocked services through secure channels, supporting Access Now's [Digital Security Helpline](https://www.accessnow.org/help/), and contributing to the [Citizen Lab test lists](https://github.com/citizenlab/test-lists) via GitHub are all meaningful forms of participation that carry lower risk profiles.
+
+## Why This Infrastructure Will Matter More, Not Less
+
+Two structural trends make OONI's measurement network more important in the years ahead.
+
+The first is the evolution of censorship technology. Myanmar's February 2026 Cloudflare Radar spike — a sustained jump from 37% to 93–100% of historical traffic peak that has held for over two months — is consistent with the activation of centralized routing infrastructure modelled on China's Great Firewall, following the September 2025 exposure of the junta's collaboration with Geedge Networks, a Chinese firm with links to the Chinese government. Infrastructure of this kind implements deep packet inspection and machine-learning traffic classifiers that can identify and block circumvention tools without relying on static URL blocklists. These systems are harder to fingerprint with standard URL-based testing, and OONI's research team is actively developing new test types to detect them — but those tests require dense probe networks to produce statistically valid results. Sparser coverage means slower detection of new censorship methods.
+
+The second is the evidentiary standard for accountability. Formal international processes — UN inquiry panels, tribunal proceedings, sanctions designations — increasingly require systematic, technically documented evidence of state behavior, not just eyewitness testimony. Internet measurement data that is timestamped, independently replicable, and publicly archived under an open licence meets that standard in ways that informal reports do not. The OONI record of Myanmar's post-coup internet environment is already being treated as that kind of evidence. What is in the archive when accountability processes eventually mature is in part what volunteers choose to document now.
+
+Myanmar's anomaly rate in five years will reflect two things: what the junta chooses to do, and whether anyone was measuring. The second is the variable that is within reach.
+
+## Key Findings
+
+1. **Myanmar's ambient censorship has stabilized, not improved.** A 12–16% anomaly rate held throughout the first quarter of 2026 reflects institutionalised filtering, not episodic disruption. The blocks are structural infrastructure, not emergency orders.
+
+2. **Facebook — Myanmar's primary political communication platform — is effectively inaccessible** on major ISPs, returning an 89% OONI anomaly rate. Independent news outlets face 66–78% block rates at the network layer.
+
+3. **Circumvention is also blocked.** VPN and circumvention services return 69–87% anomaly rates under the 2025 Cybersecurity Law, closing the standard escape route used by internet users who want to reach blocked content.
+
+4. **Measurement coverage understates reality.** Over 130 townships under active communications blackout produce zero OONI measurements. The aggregate anomaly rate covers only the parts of the country where probes operate.
+
+5. **OONI data has a policy and legal footprint.** It has been cited in UN Human Rights Council reports, used to verify KeepItOn shutdown records, and treated as primary evidence in Citizen Lab investigations. Its value as documentation grows as accountability mechanisms develop.
+
+6. **The February 2026 routing shift signals qualitative change.** A sustained 93–100% Cloudflare Radar traffic level over two months is consistent with centralised routing infrastructure — a structural shift from targeted URL blocking to network-layer control.
+
+## Methodology & Limitations
+
+OONI Web Connectivity measurements are collected by volunteers running OONI Probe. The probe compares DNS, TCP, and HTTP results against control measurements taken outside Myanmar; discrepancies are classified as anomalies. We aggregate at daily and monthly granularity. Limitations: probe density in Myanmar has declined since the 2021 coup as digital security risks have increased; townships under communications blackout produce no measurements; anomaly rates therefore underrepresent censorship in conflict zones. A measurement flagged as an anomaly is not necessarily a confirmed block — confirmed blocks require corroborating evidence.
+
+Full methodology is documented on the [Shutdown Tracker](/observatory/shutdown-tracker/) and the [Observatory data page](/observatory/data/).
+
+## Researcher Data Downloads
+
+The datasets underlying this article are available for download and reuse under open licences.
+
+| Dataset | Format | Description |
+|---|---|---|
+| [OONI Timeseries](/data/ooni_timeseries.csv) | CSV | Monthly anomaly rates, February 2021 – present |
+| [Blocked Sites Database](/data/blocked_sites.csv) | CSV | Confirmed blocked domains with OONI anomaly rates |
+| [Verified Shutdowns](/data/keepiton_shutdowns.csv) | CSV | KeepItOn-verified shutdown events, normalized |
+| [Unified Events](/data/unified_events.json) | JSON | All sources merged and cross-validated |
+
+Please cite as: *Internet in Myanmar Observatory, internetinmyanmar.com*. OONI data published under CC BY 4.0.
+
+---
+
+## Data & Sources
+
+Download the full underlying datasets from the [Observatory data page](/observatory/data/). For real-time network status — BGP routing visibility across 130+ Myanmar autonomous systems — see the [BGP Observatory](/observatory/bgp/). For the full five-year censorship timeline, see the [Shutdown Tracker](/observatory/shutdown-tracker/).
