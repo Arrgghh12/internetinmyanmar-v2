@@ -12555,21 +12555,21 @@
     "name": "FMG-MM Myanmar Net",
     "status": "DOWN",
     "started_at": "2026-04-29T03:33:12.568930+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-29T04:02:46.048532+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS154020",
     "name": "SMMCL-AS-AP SAM MOUK MO Company Ltd",
     "status": "DOWN",
     "started_at": "2026-04-29T03:33:37.207520+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-29T04:02:56.208113+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   }
 ]
