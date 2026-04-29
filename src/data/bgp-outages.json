@@ -12720,10 +12720,10 @@
     "name": "FRONTIIRCOLTD-MM Frontiir Co. Ltd",
     "status": "DOWN",
     "started_at": "2026-04-29T12:15:09.894498+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-29T12:25:06.456961+00:00",
+    "duration_minutes": 9,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   }
 ]
