@@ -382,6 +382,7 @@ async def check_asns(asn_list: list[dict], test_mode: bool = False):
     prev_hash = _status_hash(ASN_STATUS_FILE)
 
     merged = {**previous, **current_statuses}
+    merged["lastUpdated"] = datetime.now(timezone.utc).isoformat()
     save_json(ASN_STATUS_FILE, merged)
     save_json(OUTAGES_FILE, outages)
     update_history(current_statuses)
