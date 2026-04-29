@@ -12951,44 +12951,44 @@
     "name": "MBTCL-AS-AP Myanmar Broadband Telecom Co., Ltd",
     "status": "DOWN",
     "started_at": "2026-04-29T18:02:16.253904+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-29T18:32:18.250158+00:00",
+    "duration_minutes": 30,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS151802",
     "name": "FSAS-AS-MM FIND SOLUTION AND SERVICES CO., LTD.",
     "status": "DOWN",
     "started_at": "2026-04-29T18:03:17.681749+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-29T18:32:56.120572+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS133384",
     "name": "GTCL-AS-AP Global Technology Co., Ltd.",
     "status": "DOWN",
     "started_at": "2026-04-29T18:03:35.909732+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-29T18:32:59.830971+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS154481",
     "name": "TACHILEIK1-AS-AP Tachileik Jade Dragon Company Limited",
     "status": "DOWN",
     "started_at": "2026-04-29T18:04:22.441486+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-29T18:33:25.870137+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS58952",
@@ -13000,5 +13000,16 @@
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
     "resolved": true
+  },
+  {
+    "asn": "AS153777",
+    "name": "MMC-AS-AP Mandalar Mandalay Company Limited",
+    "status": "DOWN",
+    "started_at": "2026-04-29T18:32:43.674063+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
   }
 ]
