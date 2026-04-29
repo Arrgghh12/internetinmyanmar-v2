@@ -620,7 +620,7 @@ def compute_metrics(
     # BGP networks down right now
     bgp_down_now = sum(
         1 for asn_data in (bgp_status or {}).values()
-        if asn_data.get("status") in ("RED", "YELLOW")
+        if isinstance(asn_data, dict) and asn_data.get("status") in ("RED", "YELLOW")
     )
 
     # Days since last high-severity event
