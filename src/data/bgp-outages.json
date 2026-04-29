@@ -12830,22 +12830,22 @@
     "name": "REDPALM-AS-AP RED PALM COMPANY LIMITED",
     "status": "DOWN",
     "started_at": "2026-04-29T16:31:26.002548+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-29T17:02:30.192321+00:00",
+    "duration_minutes": 31,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS150692",
     "name": "GD2CL-AS-AP Golden Dragon 2000",
     "status": "DOWN",
     "started_at": "2026-04-29T16:32:07.858663+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-29T17:03:33.387006+00:00",
+    "duration_minutes": 31,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS58952",
@@ -12857,5 +12857,93 @@
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
     "resolved": true
+  },
+  {
+    "asn": "AS149038",
+    "name": "UCGCL-AS-AP UNIQUE COMM GROUP COMPANY LIMITED",
+    "status": "DOWN",
+    "started_at": "2026-04-29T17:02:44.008317+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
+  },
+  {
+    "asn": "AS151210",
+    "name": "NCL-AS-AP NEXGENET COMPANY LIMITED",
+    "status": "DOWN",
+    "started_at": "2026-04-29T17:03:48.706374+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
+  },
+  {
+    "asn": "AS136442",
+    "name": "OCEANWAVE-AS-AP Ocean Wave Communication Co., Ltd",
+    "status": "DOWN",
+    "started_at": "2026-04-29T17:04:38.771585+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
+  },
+  {
+    "asn": "AS133440",
+    "name": "STIGW-AS-AP ST.Net",
+    "status": "DOWN",
+    "started_at": "2026-04-29T17:05:30.073015+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
+  },
+  {
+    "asn": "AS139595",
+    "name": "HTIN-AS-AP HTIN HTIN NETWORK COMPANY LIMITED",
+    "status": "DOWN",
+    "started_at": "2026-04-29T17:05:47.131549+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
+  },
+  {
+    "asn": "AS152447",
+    "name": "MMCL-AS-AP My Mandalay Company Limited",
+    "status": "DOWN",
+    "started_at": "2026-04-29T17:06:10.472682+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
+  },
+  {
+    "asn": "AS138168",
+    "name": "APN-AS-AP MyanmarAPN",
+    "status": "DOWN",
+    "started_at": "2026-04-29T17:06:56.280411+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
+  },
+  {
+    "asn": "AS153044",
+    "name": "MSCNC-AS-AP MYANMAR SKY CITY NETWORK COMMUNICATION Co.,Ltd",
+    "status": "DOWN",
+    "started_at": "2026-04-29T17:07:25.680985+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
   }
 ]
