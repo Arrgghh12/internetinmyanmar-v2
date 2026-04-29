@@ -300,11 +300,11 @@
     "period": "2026-04-26"
   },
   {
-    "anomaly_count": 766,
+    "anomaly_count": 769,
     "confirmed_count": 61,
-    "failure_count": 191,
+    "failure_count": 198,
     "ok_count": 4258,
-    "measurement_count": 5276,
+    "measurement_count": 5286,
     "measurement_start_day": "2026-04-27",
     "anomaly_rate": 14.5,
     "period": "2026-04-27"
@@ -313,20 +313,20 @@
     "anomaly_count": 1114,
     "confirmed_count": 42,
     "failure_count": 255,
-    "ok_count": 6111,
-    "measurement_count": 7522,
+    "ok_count": 6116,
+    "measurement_count": 7527,
     "measurement_start_day": "2026-04-28",
     "anomaly_rate": 14.8,
     "period": "2026-04-28"
   },
   {
-    "anomaly_count": 1,
+    "anomaly_count": 344,
     "confirmed_count": 0,
-    "failure_count": 0,
-    "ok_count": 6,
-    "measurement_count": 7,
+    "failure_count": 78,
+    "ok_count": 1509,
+    "measurement_count": 1931,
     "measurement_start_day": "2026-04-29",
-    "anomaly_rate": 14.3,
+    "anomaly_rate": 17.8,
     "period": "2026-04-29"
   }
 ]
