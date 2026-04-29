@@ -12500,11 +12500,11 @@
     "name": "STMCL-AS-AP SEANET",
     "status": "DOWN",
     "started_at": "2026-04-29T02:02:10.900663+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-29T02:32:07.602759+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS58952",
@@ -12516,5 +12516,27 @@
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
     "resolved": true
+  },
+  {
+    "asn": "AS141015",
+    "name": "MYANMARLINK-AS-AP Myanmar Link Telecommunication Ltd",
+    "status": "DOWN",
+    "started_at": "2026-04-29T02:32:02.633052+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
+  },
+  {
+    "asn": "AS151342",
+    "name": "EBECL-AS-AP East Boy Engineering Company Limited",
+    "status": "DOWN",
+    "started_at": "2026-04-29T02:32:44.831602+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
   }
 ]
