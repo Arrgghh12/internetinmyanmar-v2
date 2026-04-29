@@ -8,7 +8,7 @@ export const prerender = false
 
 const [articleEntries, digestEntries] = await Promise.all([
   getCollection('articles', ({ data }) =>
-    !data.draft && !data.archived && data.categories.includes('Policy & Regulation') && data.lang === 'en'
+    !data.draft && !data.unlisted && !data.archived && data.categories.includes('Policy & Regulation') && data.lang === 'en'
   ),
   getCollection('digest', ({ data }) =>
     !data.draft && data.category === 'Policy'

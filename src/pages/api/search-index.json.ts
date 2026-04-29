@@ -5,7 +5,7 @@ export const prerender = true
 
 export const GET: APIRoute = async () => {
   const articles = await getCollection('articles', ({ data }) =>
-    !data.draft && !data.archived && data.lang === 'en'
+    !data.draft && !data.unlisted && !data.archived && data.lang === 'en'
   )
 
   const digest = await getCollection('digest', ({ data }) => !data.draft)

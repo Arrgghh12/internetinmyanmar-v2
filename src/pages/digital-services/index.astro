@@ -6,7 +6,7 @@ import ArticleList from '../../components/ArticleList.astro'
 export const prerender = false
 
 const articles = (await getCollection('articles', ({ data }) =>
-  !data.draft && !data.archived && data.categories.includes('Digital Services') && data.lang === 'en'
+  !data.draft && !data.unlisted && !data.archived && data.categories.includes('Digital Services') && data.lang === 'en'
 )).sort((a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf())
 ---
 <Base

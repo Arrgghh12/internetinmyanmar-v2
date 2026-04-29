@@ -10,7 +10,7 @@ const DIGEST_CATEGORIES = ['Censorship', 'Shutdown', 'Arrest']
 
 const [articleEntries, digestEntries] = await Promise.all([
   getCollection('articles', ({ data }) =>
-    !data.draft && !data.archived && data.categories.includes('Censorship & Shutdowns') && data.lang === 'en'
+    !data.draft && !data.unlisted && !data.archived && data.categories.includes('Censorship & Shutdowns') && data.lang === 'en'
   ),
   getCollection('digest', ({ data }) =>
     !data.draft && DIGEST_CATEGORIES.includes(data.category)

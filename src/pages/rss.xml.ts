@@ -4,7 +4,7 @@ import type { APIContext } from 'astro'
 
 export async function GET(context: APIContext) {
   const articles = await getCollection('articles', ({ data }) =>
-    !data.draft && data.lang === 'en'
+    !data.draft && !data.unlisted && data.lang === 'en'
   )
   articles.sort((a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf())
 
