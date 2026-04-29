@@ -12670,5 +12670,16 @@
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
     "resolved": true
+  },
+  {
+    "asn": "AS134736",
+    "name": "NMCL-AS-AP NTT MYANMAR CO., LTD.",
+    "status": "DOWN",
+    "started_at": "2026-04-29T10:31:35.107454+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
   }
 ]
