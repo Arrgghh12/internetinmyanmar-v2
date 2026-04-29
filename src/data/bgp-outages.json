@@ -12593,5 +12593,60 @@
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
     "resolved": true
+  },
+  {
+    "asn": "AS132100",
+    "name": "MSN-AS-AP Myanmar Speed Net Co.,Ltd",
+    "status": "DOWN",
+    "started_at": "2026-04-29T06:31:16.653087+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
+  },
+  {
+    "asn": "AS134736",
+    "name": "NMCL-AS-AP NTT MYANMAR CO., LTD.",
+    "status": "DOWN",
+    "started_at": "2026-04-29T06:31:38.097033+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
+  },
+  {
+    "asn": "AS137826",
+    "name": "ASTCL-AS-AP AST SYSTEM TECHNOLOGY COMPANY LIMITED",
+    "status": "DOWN",
+    "started_at": "2026-04-29T06:31:41.175145+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
+  },
+  {
+    "asn": "AS136168",
+    "name": "CAMPANA-AS-AP Campana MYTHIC Co. Ltd.",
+    "status": "DOWN",
+    "started_at": "2026-04-29T06:33:09.792470+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
+  },
+  {
+    "asn": "AS135149",
+    "name": "MTGCL-AS-AP Myanmar Technology Gateway Co., Ltd",
+    "status": "DOWN",
+    "started_at": "2026-04-29T06:33:10.181932+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
   }
 ]
