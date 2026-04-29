@@ -12808,6 +12808,28 @@
     "name": "MWT-AS-AP Myanmar World Distribution Telecommunication Company Limited",
     "status": "DOWN",
     "started_at": "2026-04-29T16:02:24.071926+00:00",
+    "ended_at": "2026-04-29T16:31:48.001271+00:00",
+    "duration_minutes": 29,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": true
+  },
+  {
+    "asn": "AS150310",
+    "name": "TMC-AS-AP Trustforce Myanmar Company Limited trading as Nationet",
+    "status": "DOWN",
+    "started_at": "2026-04-29T16:03:28.001236+00:00",
+    "ended_at": "2026-04-29T16:32:55.593310+00:00",
+    "duration_minutes": 29,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": true
+  },
+  {
+    "asn": "AS139804",
+    "name": "REDPALM-AS-AP RED PALM COMPANY LIMITED",
+    "status": "DOWN",
+    "started_at": "2026-04-29T16:31:26.002548+00:00",
     "ended_at": null,
     "duration_minutes": null,
     "min_visibility_pct": 0.0,
@@ -12815,10 +12837,10 @@
     "resolved": false
   },
   {
-    "asn": "AS150310",
-    "name": "TMC-AS-AP Trustforce Myanmar Company Limited trading as Nationet",
+    "asn": "AS150692",
+    "name": "GD2CL-AS-AP Golden Dragon 2000",
     "status": "DOWN",
-    "started_at": "2026-04-29T16:03:28.001236+00:00",
+    "started_at": "2026-04-29T16:32:07.858663+00:00",
     "ended_at": null,
     "duration_minutes": null,
     "min_visibility_pct": 0.0,
