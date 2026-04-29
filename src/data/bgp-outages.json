@@ -12648,5 +12648,16 @@
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
     "resolved": true
+  },
+  {
+    "asn": "AS137259",
+    "name": "ILINK-AS-AP i-Link",
+    "status": "DOWN",
+    "started_at": "2026-04-29T08:01:35.139958+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
   }
 ]
