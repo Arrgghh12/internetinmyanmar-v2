@@ -12522,21 +12522,21 @@
     "name": "MYANMARLINK-AS-AP Myanmar Link Telecommunication Ltd",
     "status": "DOWN",
     "started_at": "2026-04-29T02:32:02.633052+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-29T03:01:40.414739+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS151342",
     "name": "EBECL-AS-AP East Boy Engineering Company Limited",
     "status": "DOWN",
     "started_at": "2026-04-29T02:32:44.831602+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-29T03:02:04.323824+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   }
 ]
