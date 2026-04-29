@@ -37,13 +37,13 @@ Stack: Astro (SSG + SSR) on Cloudflare Pages. Currently live. WordPress legacy s
 
 ## TEAM
 
-### Editor-in-Chief — Anna
-- **All published articles bylined: Anna** (never "Anna Faure Revol" — surname not used on site)
+### Editor-in-Chief — Sacha Nakeo
+- **All published articles bylined: Sacha Nakeo** (nom de plume — never real name)
 - Speciality: Myanmar, Southeast Asia, digital rights, media freedom
 - Languages: French, English, Spanish, Italian
-- Author bio: "Anna is a journalist specializing in Myanmar's media landscape, digital rights, and internet freedom. She has closely followed the military junta's systematic censorship of online information since the 2021 coup."
+- Author bio: "Sacha Nakeo is a journalist specializing in Myanmar's media landscape, digital rights, and internet freedom. She has closely followed the military junta's systematic censorship of online information since the 2021 coup."
 - Tone: precise, analytical, never sensationalist. Credible to both OONI/Citizen Lab and RSF/Freedom House audiences.
-- Anna validates all briefs and publishes all articles.
+- Sacha Nakeo validates all briefs and publishes all articles.
 
 ### Technical Director (stays anonymous)
 - Manages infrastructure, Claude Code pipeline, VPS agents — not public on site.
@@ -101,7 +101,7 @@ alias iim-tunnel-close="pkill -f 'L 3307'"
 
 ```
 Astro 4.x          SSG + minimal SSR for Observatory live pages
-Keystatic CMS      Git-based CMS, browser UI for Anna's validation
+Keystatic CMS      Git-based CMS, browser UI for Sacha Nakeo's validation
 Tailwind CSS       Styling
 MDX                Article format
 Zod                Content schema validation (src/content.config.ts — source of truth)
@@ -148,8 +148,8 @@ src/data/                         ← written by VPS agents via git push
 ## CONTENT SCHEMA
 
 Source of truth: `src/content.config.ts`. Key rules:
-- `draft: true` always set by agents — only Anna sets `draft: false` via Keystatic
-- `author` always `"Anna"`
+- `draft: true` always set by agents — only Sacha Nakeo sets `draft: false` via Keystatic
+- `author` always `"Sacha Nakeo"`
 - Digest collection has `featuredImage: z.string().url().optional()` — set to source article's og:image at publish time
 
 SEO rules enforced by agents:
@@ -183,7 +183,7 @@ agents/
 ├── process_datasets.py      Data freshness monitoring + Telegram alerts
 ├── distribution/
 │   └── social_poster.py     Post to Twitter/X (tweepy) and Facebook (/photos endpoint)
-├── briefs/                  YYYY-MM-DD/[slug].md — awaiting Anna
+├── briefs/                  YYYY-MM-DD/[slug].md — awaiting Sacha Nakeo
 ├── approved/                YYYY-MM-DD/[slug].md — triggers writer.py
 └── utils/  (model_router, anthropic_client, github_client, mdx_formatter)
 ```
@@ -201,7 +201,7 @@ agents/
 ### Digest workflow (current)
 ```
 8 AM     digest_scanner.py → Telegram notification with candidate list
-Morning  Anna replies with numbers (e.g. "1 3") → bot publishes to GitHub + auto-posts X + FB
+Morning  Sacha Nakeo replies with numbers (e.g. "1 3") → bot publishes to GitHub + auto-posts X + FB
          /share <slug> to re-post any article manually
 ```
 
@@ -296,7 +296,7 @@ This works because Vite resolves JSON imports at build time and bundles them int
 ```
 → Strip inline styles, Gutenberg comments, WP shortcodes
 → Rewrite ALL alt texts: descriptive, max 10 words, zero keyword stuffing
-→ Set author: "Anna" · Add stale notice for articles > 18 months old
+→ Set author: "Sacha Nakeo" · Add stale notice for articles > 18 months old
 → Add sources section · Reassign category from approved list
 ```
 
@@ -336,14 +336,14 @@ Output: public/_redirects (Cloudflare Pages format)
 ## ABSOLUTE RULES — NEVER VIOLATE
 
 ```
-→ draft: false is set only by Anna — never by agents or Claude Code
-→ Author is always "Anna"
+→ draft: false is set only by Sacha Nakeo — never by agents or Claude Code
+→ Author is always "Sacha Nakeo"
 → Never commit .env or any file with secrets
 → Never push to main without git pull --rebase first (VPS pushes continuously)
 → Never push agents/ to VPS without checking for VPS-side hotfixes first
 → Never write keyword-stuffed alt texts
 → Never modify the WordPress database — SELECT only
-→ Never auto-publish without an Anna-approved brief
+→ Never auto-publish without a Sacha Nakeo-approved brief
 → Never migrate crypto or travel articles
 → Newsletter from this pipeline is sent to 'test' group only — never full list
 → GitHub PRs from skills are always draft — never auto-merged

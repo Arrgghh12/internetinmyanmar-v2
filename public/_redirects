@@ -523,3 +523,5 @@ http://www.internetinmyanmar.com/* https://www.internetinmyanmar.com/:splat 301
 # --- Burmese / Myanmar-script URLs ---
 /တစ်စထက်-တစ်စ-ပိုမိုလမ်းပ/ / 301
 /my/ကျွန်တော်တိုမြန်မာနိုင/ / 301
+/about/anna/ /about/sacha-nakeo/ 301
+/about/anna /about/sacha-nakeo/ 301

@@ -275,7 +275,7 @@ seoTitle: "{seo_title}"
 metaDescription: "{yoast_meta}"
 category: "{category}"
 tags: {tags_json}
-author: "Anna"
+author: "Sacha Nakeo"
 publishedAt: {pub_date.strftime('%Y-%m-%d')}
 draft: false
 excerpt: ""
