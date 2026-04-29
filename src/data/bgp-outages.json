@@ -13182,21 +13182,21 @@
     "name": "NCL-AS-AP NEXGENET COMPANY LIMITED",
     "status": "DOWN",
     "started_at": "2026-04-29T21:33:05.129293+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-29T22:02:06.356127+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS153790",
     "name": "AMCL-AS-AP ADS Myanmar Company Limited",
     "status": "DOWN",
     "started_at": "2026-04-29T21:33:10.351528+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-29T22:02:09.131948+00:00",
+    "duration_minutes": 28,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   }
 ]
