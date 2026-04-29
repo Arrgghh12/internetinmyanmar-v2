@@ -13226,6 +13226,28 @@
     "name": "AKNCL-AS-AP Aon Kham Network Company Limited",
     "status": "DOWN",
     "started_at": "2026-04-29T23:02:03.772585+00:00",
+    "ended_at": "2026-04-29T23:33:09.909985+00:00",
+    "duration_minutes": 31,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": true
+  },
+  {
+    "asn": "AS136210",
+    "name": "ITSPECTRUM-AS-AP IT Spectrum Company Limited",
+    "status": "DOWN",
+    "started_at": "2026-04-29T23:31:34.232452+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
+  },
+  {
+    "asn": "AS136255",
+    "name": "TIMCL-AS-AP Telecom International Myanmar Co., Ltd",
+    "status": "DOWN",
+    "started_at": "2026-04-29T23:32:05.640861+00:00",
     "ended_at": null,
     "duration_minutes": null,
     "min_visibility_pct": 0.0,
