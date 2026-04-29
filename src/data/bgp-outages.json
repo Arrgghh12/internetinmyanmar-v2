@@ -12538,5 +12538,38 @@
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
     "resolved": true
+  },
+  {
+    "asn": "AS151802",
+    "name": "FSAS-AS-MM FIND SOLUTION AND SERVICES CO., LTD.",
+    "status": "DOWN",
+    "started_at": "2026-04-29T03:32:25.350293+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
+  },
+  {
+    "asn": "AS63852",
+    "name": "FMG-MM Myanmar Net",
+    "status": "DOWN",
+    "started_at": "2026-04-29T03:33:12.568930+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
+  },
+  {
+    "asn": "AS154020",
+    "name": "SMMCL-AS-AP SAM MOUK MO Company Ltd",
+    "status": "DOWN",
+    "started_at": "2026-04-29T03:33:37.207520+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
   }
 ]
