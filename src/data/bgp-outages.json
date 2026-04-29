@@ -13035,10 +13035,32 @@
     "resolved": true
   },
   {
-    "asn": "AS58952",
-    "name": "FRONTIIRCOLTD-MM Frontiir Co. Ltd",
+    "asn": "AS136210",
+    "name": "ITSPECTRUM-AS-AP IT Spectrum Company Limited",
     "status": "DOWN",
-    "started_at": "2026-04-29T19:30:28.801723+00:00",
+    "started_at": "2026-04-29T19:31:42.823018+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
+  },
+  {
+    "asn": "AS134736",
+    "name": "NMCL-AS-AP NTT MYANMAR CO., LTD.",
+    "status": "DOWN",
+    "started_at": "2026-04-29T19:32:09.942551+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
+  },
+  {
+    "asn": "AS139620",
+    "name": "MTNPCL-AS-AP MYANMAR TELECOMMUNICATION NETWORK PUBLIC COMPANY LIMITED",
+    "status": "DOWN",
+    "started_at": "2026-04-29T19:34:05.631718+00:00",
     "ended_at": null,
     "duration_minutes": null,
     "min_visibility_pct": 0.0,
