@@ -14084,6 +14084,17 @@
     "name": "U9-MM Nine Communications Company Limited",
     "status": "DOWN",
     "started_at": "2026-04-30T10:40:19.916592+00:00",
+    "ended_at": "2026-04-30T10:45:08.299717+00:00",
+    "duration_minutes": 4,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": true
+  },
+  {
+    "asn": "AS58952",
+    "name": "FRONTIIRCOLTD-MM Frontiir Co. Ltd",
+    "status": "DOWN",
+    "started_at": "2026-04-30T10:45:23.618447+00:00",
     "ended_at": null,
     "duration_minutes": null,
     "min_visibility_pct": 0.0,

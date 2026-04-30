@@ -156,27 +156,27 @@
   "AS132167": {
     "asn": "AS132167",
     "name": "U9-MM Nine Communications Company Limited",
+    "announced": true,
+    "visibility_pct": 1.0,
+    "visible_collectors": 330,
+    "total_collectors": 330,
+    "timestamp": "2026-04-30T10:45:07.999023+00:00",
+    "status": "YELLOW",
+    "status_since": "2026-04-30T10:45:07.999023+00:00"
+  },
+  "AS58952": {
+    "asn": "AS58952",
+    "name": "FRONTIIRCOLTD-MM Frontiir Co. Ltd",
     "announced": false,
     "visibility_pct": 0.0,
     "visible_collectors": 0,
     "total_collectors": 0,
     "status": "RED",
-    "status_since": "2026-04-30T10:40:19.616024+00:00",
-    "timestamp": "2026-04-30T10:40:19.616024+00:00",
+    "status_since": "2026-04-30T10:45:23.317692+00:00",
+    "timestamp": "2026-04-30T10:45:23.317692+00:00",
     "error": "",
     "ioda_outages": 0,
     "ioda_confirmed": false
-  },
-  "AS58952": {
-    "asn": "AS58952",
-    "name": "FRONTIIRCOLTD-MM Frontiir Co. Ltd",
-    "announced": true,
-    "visibility_pct": 1.0,
-    "visible_collectors": 330,
-    "total_collectors": 330,
-    "timestamp": "2026-04-30T10:40:20.391905+00:00",
-    "status": "YELLOW",
-    "status_since": "2026-04-30T10:25:05.789920+00:00"
   },
   "AS139849": {
     "asn": "AS139849",
@@ -615,7 +615,7 @@
     "visibility_pct": 1.0,
     "visible_collectors": 330,
     "total_collectors": 330,
-    "timestamp": "2026-04-30T10:40:23.701315+00:00",
+    "timestamp": "2026-04-30T10:45:24.123309+00:00",
     "status": "GREEN",
     "status_since": "2026-04-30T03:10:04.246399+00:00"
   },
@@ -770,7 +770,7 @@
     "visibility_pct": 1.0,
     "visible_collectors": 330,
     "total_collectors": 330,
-    "timestamp": "2026-04-30T10:40:25.456966+00:00",
+    "timestamp": "2026-04-30T10:45:24.475821+00:00",
     "status": "GREEN",
     "status_since": "2026-04-30T05:50:08.595386+00:00"
   },
@@ -1446,5 +1446,5 @@
     "status": "RED",
     "status_since": "2026-04-11T01:10:28.195013+00:00"
   },
-  "lastUpdated": "2026-04-30T10:40:25.761153+00:00"
+  "lastUpdated": "2026-04-30T10:45:24.778920+00:00"
 }
