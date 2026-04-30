@@ -14634,6 +14634,17 @@
     "name": "TLINKGROUP-AS-AP T-Link Group Company Limited",
     "status": "DOWN",
     "started_at": "2026-04-30T17:32:28.815602+00:00",
+    "ended_at": "2026-04-30T18:02:47.126611+00:00",
+    "duration_minutes": 30,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": true
+  },
+  {
+    "asn": "AS151826",
+    "name": "FASTSPEED-AS-AP Fast Speed",
+    "status": "DOWN",
+    "started_at": "2026-04-30T18:02:22.200070+00:00",
     "ended_at": null,
     "duration_minutes": null,
     "min_visibility_pct": 0.0,
