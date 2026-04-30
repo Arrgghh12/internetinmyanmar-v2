@@ -14513,11 +14513,11 @@
     "name": "EBECL-AS-AP East Boy Engineering Company Limited",
     "status": "DOWN",
     "started_at": "2026-04-30T15:02:36.070290+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-30T16:02:21.122181+00:00",
+    "duration_minutes": 59,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS133440",
@@ -14590,10 +14590,32 @@
     "name": "MPT-AP Myanma Posts and Telecommunications",
     "status": "DOWN",
     "started_at": "2026-04-30T15:55:29.567023+00:00",
-    "ended_at": "2026-04-30T16:00:10.570051+00:00",
-    "duration_minutes": 4,
+    "ended_at": "2026-04-30T16:02:03.395954+00:00",
+    "duration_minutes": 6,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
     "resolved": true
+  },
+  {
+    "asn": "AS139003",
+    "name": "TELCOSPEEDCOLTD-AS-AP Telcospeed",
+    "status": "DOWN",
+    "started_at": "2026-04-30T16:02:02.253960+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
+  },
+  {
+    "asn": "AS133385",
+    "name": "ATOMMYANMAR-AS-AP Atom Myanmar Limited",
+    "status": "DOWN",
+    "started_at": "2026-04-30T16:02:07.825024+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
   }
 ]
