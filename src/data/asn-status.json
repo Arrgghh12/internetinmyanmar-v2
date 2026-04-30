@@ -160,23 +160,20 @@
     "visibility_pct": 1.0,
     "visible_collectors": 329,
     "total_collectors": 329,
-    "timestamp": "2026-04-30T01:25:08.867232+00:00",
+    "timestamp": "2026-04-30T01:30:27.004910+00:00",
     "status": "YELLOW",
     "status_since": "2026-04-30T01:20:09.420638+00:00"
   },
   "AS58952": {
     "asn": "AS58952",
     "name": "FRONTIIRCOLTD-MM Frontiir Co. Ltd",
-    "announced": false,
-    "visibility_pct": 0.0,
-    "visible_collectors": 0,
-    "total_collectors": 0,
-    "status": "RED",
-    "status_since": "2026-04-30T01:25:24.174335+00:00",
-    "timestamp": "2026-04-30T01:25:24.174335+00:00",
-    "error": "",
-    "ioda_outages": 0,
-    "ioda_confirmed": false
+    "announced": true,
+    "visibility_pct": 1.0,
+    "visible_collectors": 329,
+    "total_collectors": 329,
+    "timestamp": "2026-04-30T01:30:29.428460+00:00",
+    "status": "YELLOW",
+    "status_since": "2026-04-30T01:30:29.428460+00:00"
   },
   "AS139849": {
     "asn": "AS139849",
@@ -618,7 +615,7 @@
     "visibility_pct": 1.0,
     "visible_collectors": 329,
     "total_collectors": 329,
-    "timestamp": "2026-04-30T01:25:26.367065+00:00",
+    "timestamp": "2026-04-30T01:30:30.779057+00:00",
     "status": "GREEN",
     "status_since": "2026-04-29T22:20:05.420392+00:00"
   },
@@ -772,7 +769,7 @@
     "visibility_pct": 1.0,
     "visible_collectors": 329,
     "total_collectors": 329,
-    "timestamp": "2026-04-30T01:25:28.254320+00:00",
+    "timestamp": "2026-04-30T01:30:27.376440+00:00",
     "status": "GREEN",
     "status_since": "2026-04-29T21:20:06.047711+00:00"
   },
@@ -1442,10 +1439,10 @@
     "announced": true,
     "visibility_pct": 0.0,
     "visible_collectors": 0,
-    "total_collectors": 331,
-    "timestamp": "2026-04-29T14:50:27.749403+00:00",
+    "total_collectors": 329,
+    "timestamp": "2026-04-30T01:30:29.080744+00:00",
     "status": "RED",
     "status_since": "2026-04-11T01:10:28.195013+00:00"
   },
-  "lastUpdated": "2026-04-30T01:25:28.558674+00:00"
+  "lastUpdated": "2026-04-30T01:30:31.083054+00:00"
 }
