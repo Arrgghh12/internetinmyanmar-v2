@@ -14617,5 +14617,16 @@
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
     "resolved": true
+  },
+  {
+    "asn": "AS149855",
+    "name": "AS-AGBC AGB Communication Co., Ltd",
+    "status": "DOWN",
+    "started_at": "2026-04-30T17:02:37.584755+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
   }
 ]
