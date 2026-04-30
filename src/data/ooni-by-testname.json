@@ -1,1 +1,177 @@
-{"lastUpdated": "", "since": "", "tests": []}
+{
+  "lastUpdated": "2026-04-30T23:00:01.552761+00:00",
+  "since": "2025-04-30",
+  "tests": [
+    {
+      "anomaly_count": 16,
+      "confirmed_count": 0,
+      "failure_count": 0,
+      "ok_count": 0,
+      "measurement_count": 16,
+      "test_name": "openvpn",
+      "anomaly_rate": 100.0
+    },
+    {
+      "anomaly_count": 5630,
+      "confirmed_count": 0,
+      "failure_count": 0,
+      "ok_count": 565,
+      "measurement_count": 6195,
+      "test_name": "facebook_messenger",
+      "anomaly_rate": 90.9
+    },
+    {
+      "anomaly_count": 5550,
+      "confirmed_count": 0,
+      "failure_count": 13,
+      "ok_count": 580,
+      "measurement_count": 6143,
+      "test_name": "signal",
+      "anomaly_rate": 90.3
+    },
+    {
+      "anomaly_count": 5546,
+      "confirmed_count": 0,
+      "failure_count": 2,
+      "ok_count": 620,
+      "measurement_count": 6168,
+      "test_name": "whatsapp",
+      "anomaly_rate": 89.9
+    },
+    {
+      "anomaly_count": 5366,
+      "confirmed_count": 0,
+      "failure_count": 0,
+      "ok_count": 722,
+      "measurement_count": 6088,
+      "test_name": "tor",
+      "anomaly_rate": 88.1
+    },
+    {
+      "anomaly_count": 25,
+      "confirmed_count": 0,
+      "failure_count": 0,
+      "ok_count": 7,
+      "measurement_count": 32,
+      "test_name": "torsf",
+      "anomaly_rate": 78.1
+    },
+    {
+      "anomaly_count": 561,
+      "confirmed_count": 0,
+      "failure_count": 0,
+      "ok_count": 1234,
+      "measurement_count": 1795,
+      "test_name": "browser_web",
+      "anomaly_rate": 31.3
+    },
+    {
+      "anomaly_count": 261,
+      "confirmed_count": 0,
+      "failure_count": 836,
+      "ok_count": 127,
+      "measurement_count": 1224,
+      "test_name": "vanilla_tor",
+      "anomaly_rate": 21.3
+    },
+    {
+      "anomaly_count": 107336,
+      "confirmed_count": 2554,
+      "failure_count": 25947,
+      "ok_count": 435061,
+      "measurement_count": 570898,
+      "test_name": "web_connectivity",
+      "anomaly_rate": 18.8
+    },
+    {
+      "anomaly_count": 6847,
+      "confirmed_count": 0,
+      "failure_count": 0,
+      "ok_count": 36603,
+      "measurement_count": 43450,
+      "test_name": "stunreachability",
+      "anomaly_rate": 15.8
+    },
+    {
+      "anomaly_count": 392,
+      "confirmed_count": 0,
+      "failure_count": 0,
+      "ok_count": 5572,
+      "measurement_count": 5964,
+      "test_name": "psiphon",
+      "anomaly_rate": 6.6
+    },
+    {
+      "anomaly_count": 302,
+      "confirmed_count": 0,
+      "failure_count": 0,
+      "ok_count": 5901,
+      "measurement_count": 6203,
+      "test_name": "telegram",
+      "anomaly_rate": 4.9
+    },
+    {
+      "anomaly_count": 119,
+      "confirmed_count": 0,
+      "failure_count": 0,
+      "ok_count": 5789,
+      "measurement_count": 5908,
+      "test_name": "http_header_field_manipulation",
+      "anomaly_rate": 2.0
+    },
+    {
+      "anomaly_count": 73,
+      "confirmed_count": 0,
+      "failure_count": 0,
+      "ok_count": 5825,
+      "measurement_count": 5898,
+      "test_name": "http_invalid_request_line",
+      "anomaly_rate": 1.2
+    },
+    {
+      "anomaly_count": 0,
+      "confirmed_count": 0,
+      "failure_count": 560,
+      "ok_count": 2769,
+      "measurement_count": 3329,
+      "test_name": "dash",
+      "anomaly_rate": 0.0
+    },
+    {
+      "anomaly_count": 0,
+      "confirmed_count": 0,
+      "failure_count": 88091,
+      "ok_count": 0,
+      "measurement_count": 88091,
+      "test_name": "dnscheck",
+      "anomaly_rate": 0.0
+    },
+    {
+      "anomaly_count": 0,
+      "confirmed_count": 0,
+      "failure_count": 6267,
+      "ok_count": 0,
+      "measurement_count": 6267,
+      "test_name": "echcheck",
+      "anomaly_rate": 0.0
+    },
+    {
+      "anomaly_count": 0,
+      "confirmed_count": 0,
+      "failure_count": 0,
+      "ok_count": 3283,
+      "measurement_count": 3283,
+      "test_name": "ndt",
+      "anomaly_rate": 0.0
+    },
+    {
+      "anomaly_count": 0,
+      "confirmed_count": 0,
+      "failure_count": 0,
+      "ok_count": 1,
+      "measurement_count": 1,
+      "test_name": "riseupvpn",
+      "anomaly_rate": 0.0
+    }
+  ]
+}
