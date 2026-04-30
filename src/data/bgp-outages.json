@@ -13369,61 +13369,83 @@
     "name": "UCGCL-AS-AP UNIQUE COMM GROUP COMPANY LIMITED",
     "status": "DOWN",
     "started_at": "2026-04-30T01:31:53.959338+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-30T02:01:18.611084+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS137826",
     "name": "ASTCL-AS-AP AST SYSTEM TECHNOLOGY COMPANY LIMITED",
     "status": "DOWN",
     "started_at": "2026-04-30T01:32:26.763721+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-30T02:01:40.890012+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS135427",
     "name": "MYANMARNETWORK-AS-AP Myanmar Network Company Limited",
     "status": "DOWN",
     "started_at": "2026-04-30T01:33:09.982436+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-30T02:02:11.727869+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS136474",
     "name": "MGTL-AS-AP Marga Global Telecom Limited",
     "status": "DOWN",
     "started_at": "2026-04-30T01:33:42.095048+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-30T02:02:22.888149+00:00",
+    "duration_minutes": 28,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS139595",
     "name": "HTIN-AS-AP HTIN HTIN NETWORK COMPANY LIMITED",
     "status": "DOWN",
     "started_at": "2026-04-30T01:34:11.960666+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-30T02:02:42.814645+00:00",
+    "duration_minutes": 28,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS45558",
     "name": "MPT-MM-AS-AP MYANMA POSTS AND TELECOMMUNICATIONS",
     "status": "DOWN",
     "started_at": "2026-04-30T01:36:01.989324+00:00",
+    "ended_at": "2026-04-30T02:04:15.407590+00:00",
+    "duration_minutes": 28,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": true
+  },
+  {
+    "asn": "AS63998",
+    "name": "KMTCL-MM Kinetic Myanmar Technology",
+    "status": "DOWN",
+    "started_at": "2026-04-30T01:36:17.397686+00:00",
+    "ended_at": "2026-04-30T02:04:28.390070+00:00",
+    "duration_minutes": 28,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": true
+  },
+  {
+    "asn": "AS137069",
+    "name": "PICME-AS-AP POSCO INTERNATIONAL CORPORATION MYANMAR E&P OFFICE",
+    "status": "DOWN",
+    "started_at": "2026-04-30T02:03:06.349829+00:00",
     "ended_at": null,
     "duration_minutes": null,
     "min_visibility_pct": 0.0,
@@ -13431,10 +13453,10 @@
     "resolved": false
   },
   {
-    "asn": "AS63998",
-    "name": "KMTCL-MM Kinetic Myanmar Technology",
+    "asn": "AS138158",
+    "name": "SPAL-AS-AP Serge Pun & Associate Myanmar Ltd.",
     "status": "DOWN",
-    "started_at": "2026-04-30T01:36:17.397686+00:00",
+    "started_at": "2026-04-30T02:03:45.253437+00:00",
     "ended_at": null,
     "duration_minutes": null,
     "min_visibility_pct": 0.0,
