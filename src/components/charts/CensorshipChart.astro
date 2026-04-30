@@ -5,12 +5,15 @@ import ElectionWindowChart from './ElectionWindowChart.astro'
 import OoniBreakdownChart from './OoniBreakdownChart.astro'
 import BlockedSitesChart from './BlockedSitesChart.astro'
 import CategoryBlockChart from './CategoryBlockChart.astro'
+import OoniTestTypeChart from './OoniTestTypeChart.astro'
+import OoniCategoryChart from './OoniCategoryChart.astro'
+import OoniCoverageChart from './OoniCoverageChart.astro'
 import ooniHistory from '../../data/ooni-history.json'
 import cfTraffic from '../../data/cf-traffic.json'
 import bgpOutagesRaw from '../../data/bgp-outages.json'
 
 interface Props {
-  type: 'live-signal' | 'ooni-monthly' | 'election-window' | 'ooni-breakdown' | 'blocked-sites' | 'category-blocks' | 'bgp-ooni-combined'
+  type: 'live-signal' | 'ooni-monthly' | 'election-window' | 'ooni-breakdown' | 'blocked-sites' | 'category-blocks' | 'bgp-ooni-combined' | 'ooni-test-type' | 'ooni-category' | 'ooni-coverage'
   title?: string
   height?: number
   showExport?: boolean
@@ -46,6 +49,9 @@ const canvasId = 'bgp-ooni-combined-chart'
 {type === 'ooni-breakdown'  && <OoniBreakdownChart />}
 {type === 'blocked-sites'   && <BlockedSitesChart />}
 {type === 'category-blocks' && <CategoryBlockChart />}
+{type === 'ooni-test-type'  && <OoniTestTypeChart />}
+{type === 'ooni-category'   && <OoniCategoryChart />}
+{type === 'ooni-coverage'   && <OoniCoverageChart />}
 
 {type === 'bgp-ooni-combined' && (
   <div class="mb-8 not-prose">

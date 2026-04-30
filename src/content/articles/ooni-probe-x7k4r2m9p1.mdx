@@ -28,9 +28,10 @@ sources:
   - "https://citizenlab.ca/projects/is-your-network-censored/"
 ---
 
-import LiveSignalChart from '../../components/charts/LiveSignalChart.astro'
+import OoniTestTypeChart from '../../components/charts/OoniTestTypeChart.astro'
 import OoniBreakdownChart from '../../components/charts/OoniBreakdownChart.astro'
-import BlockedSitesChart from '../../components/charts/BlockedSitesChart.astro'
+import OoniCategoryChart from '../../components/charts/OoniCategoryChart.astro'
+import OoniCoverageChart from '../../components/charts/OoniCoverageChart.astro'
 
 **Myanmar's 13.4% internet anomaly rate is not a number that exists in nature. It exists because people chose to measure it — and kept measuring, year after year, at personal cost.**
 
@@ -48,19 +49,19 @@ It also means that the data has a hard constraint: it only covers networks where
 
 ## Myanmar's Current Data: What We See and What We Don't
 
-<LiveSignalChart />
+<OoniTestTypeChart />
 
-The 30-day signal chart above shows Myanmar's current OONI anomaly rate alongside Cloudflare Radar traffic. The picture is consistent: anomaly rates have held between 12% and 17% throughout April 2026, with no sharp departures in either direction. On April 27 alone, probes logged 5,276 measurements across Myanmar networks — 14.5% returned anomalies, 61 were confirmed blocks.
+Myanmar's censorship apparatus doesn't just target websites. The test-type breakdown above shows that messaging apps and circumvention tools are blocked almost as systematically as web content — closing both the information channel and the escape route simultaneously. Signal, Telegram, and WhatsApp face the same network-layer interference as independent news sites; Tor and Psiphon, the standard tools used to tunnel past those blocks, are themselves blocked under the 2025 Cybersecurity Law.
 
-This stability is not a sign of improvement. It is the signature of censorship that has become structural. Myanmar's junta no longer issues emergency block orders against specific news events; those blocks are already in place, applied at the network layer, and maintained continuously by ISPs operating under military directive. The [2025–26 election period](/articles/myanmar-election-internet-censorship-2025-2026/) produced no measurable anomaly spike precisely because the information environment was already comprehensively controlled before the first ballot was cast.
+This pattern is not accidental. It is the signature of censorship that has become structural. Myanmar's junta no longer issues emergency block orders against specific news events; those blocks are already in place, applied at the network layer, and maintained continuously by ISPs operating under military directive. The [2025–26 election period](/articles/myanmar-election-internet-censorship-2025-2026/) produced no measurable anomaly spike precisely because the information environment was already comprehensively controlled before the first ballot was cast.
 
 <OoniBreakdownChart />
 
 The weekly breakdown extends the picture over the past six months. Three patterns are visible. First, measurement volume has grown — a positive signal reflecting increased probe deployment or more active existing probes. Second, the anomaly rate has been remarkably stable in the 12–16% band since mid-2025, after a period of elevated readings (up to 32.3% in August 2024) that correlated with the military's intensified offensives in Shan and Rakhine States. Third, confirmed blocks — measurements where the block itself can be technically verified, not just flagged as anomalous — represent a consistent but small share of anomalies, reflecting the difficulty of definitively attributing interference at scale.
 
-<BlockedSitesChart />
+<OoniCategoryChart />
 
-The blocked sites chart shows where the blocks fall. Facebook, which functions as Myanmar's de facto public square and primary news distribution channel, returns an 89% OONI anomaly rate — effectively inaccessible on Myanmar's major ISPs without circumvention tools. Independent news outlets including The Irrawaddy, Myanmar Now, Mizzima, and DVB each return 66–78% anomaly rates. VPN and circumvention services — the standard route around content blocks — are themselves blocked at 69–87% rates under the 2025 Cybersecurity Law.
+The category breakdown above maps OONI's anomaly data to the Citizen Lab content taxonomy — the same classification system used by researchers globally to compare censorship across countries. The pattern in Myanmar is not random or reactive. News & Media, Political Content, Human Rights, and Anonymization Tools all show consistently elevated anomaly rates, reflecting systematic targeting by policy category rather than individual editorial decisions. LGBTQ+ content is blocked at rates that have no equivalent in Myanmar's pre-coup internet policy. The category chart makes visible what domain-level data can obscure: that Myanmar's censorship is shaped by deliberate political choices about which categories of expression the state wishes to control.
 
 These numbers represent what probes can see. They do not represent the full censorship picture. Of Myanmar's 330 townships, over 130 were under communications blackout as of late 2025, with mobile and internet services cut at the physical infrastructure level by military order. Those populations produce no OONI measurements. The anomaly rate for Myanmar as a whole therefore *understates* the actual information environment experienced by the country's population, particularly in conflict-affected regions in Shan, Kayah, Kachin, and Rakhine States.
 
@@ -91,6 +92,10 @@ The first is the evolution of censorship technology. Myanmar's February 2026 Clo
 The second is the evidentiary standard for accountability. Formal international processes — UN inquiry panels, tribunal proceedings, sanctions designations — increasingly require systematic, technically documented evidence of state behavior, not just eyewitness testimony. Internet measurement data that is timestamped, independently replicable, and publicly archived under an open licence meets that standard in ways that informal reports do not. The OONI record of Myanmar's post-coup internet environment is already being treated as that kind of evidence. What is in the archive when accountability processes eventually mature is in part what volunteers choose to document now.
 
 Myanmar's anomaly rate in five years will reflect two things: what the junta chooses to do, and whether anyone was measuring. The second is the variable that is within reach.
+
+<OoniCoverageChart />
+
+The chart above maps monthly probe measurement volume against anomaly rate from the coup through 2026. Where the bars are thin, coverage is sparse — and the anomaly rate is less reliable. The February 2021 surge reflects an influx of volunteer probes immediately after the coup; the subsequent decline reflects attrition under digital security pressure. The gap between what probes can see and what is actually happening on blacked-out networks widens as coverage falls.
 
 ## Key Findings
 

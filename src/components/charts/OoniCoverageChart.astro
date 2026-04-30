@@ -1,0 +1,208 @@
+---
+import history from '../../data/ooni-history.json'
+
+const ANNOTATIONS: Record<string, string> = {
+  '2021-02': 'Coup — probe surge',
+  '2024-08': 'Offensive peak (32.3%)',
+  '2025-01': 'Cybersecurity Law',
+  '2026-02': 'Routing shift',
+}
+
+type HistoryEntry = { month: string; measurement_count: number; anomaly_rate: number }
+const rows = (history as HistoryEntry[]).filter(r => r.month && r.measurement_count != null)
+
+const months   = rows.map(r => r.month)
+const mcounts  = rows.map(r => r.measurement_count)
+const anomalies = rows.map(r => r.anomaly_rate)
+
+const lastUpdated = rows[rows.length - 1]?.month ?? ''
+---
+
+<div class="mb-8 not-prose">
+  <div class="mb-2">
+    <div class="font-headline text-base">OONI Coverage vs. Anomaly Rate — Myanmar (2021–2026)</div>
+    <p class="text-xs font-mono opacity-40 mt-0.5">
+      Bars = monthly measurement volume (left axis) · Line = anomaly rate % (right axis) · thin bars = sparse data, less reliable rates
+    </p>
+  </div>
+
+  <div class="border border-white/10 rounded-lg p-4 bg-[#0A1628]">
+    <canvas
+      id="ooni-coverage-chart"
+      role="img"
+      aria-label="Mixed chart showing monthly OONI measurement counts as bars and anomaly rate as a line from February 2021 through 2026. Measurement volume declines post-2021 while anomaly rate climbs from 2024."
+      style="width:100%;height:260px"
+    ></canvas>
+  </div>
+
+  <div class="flex flex-wrap gap-x-5 gap-y-1 mt-2">
+    <div class="flex items-center gap-1.5">
+      <span class="inline-block w-3 h-3 rounded-sm flex-shrink-0" style="background:rgba(0,212,200,0.6)"></span>
+      <span class="text-xs font-mono opacity-50">Monthly measurements (left axis)</span>
+    </div>
+    <div class="flex items-center gap-1.5">
+      <span class="inline-block w-5 h-0.5 flex-shrink-0" style="background:#F59E0B"></span>
+      <span class="text-xs font-mono opacity-50">Anomaly rate % (right axis)</span>
+    </div>
+  </div>
+
+  <div class="flex justify-between items-center mt-2 flex-wrap gap-2">
+    <p class="text-xs font-mono opacity-30">
+      OONI Web Connectivity · <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener" class="underline hover:opacity-60">CC BY 4.0</a>
+      {lastUpdated && ` · data through ${lastUpdated}`}
+    </p>
+    <div class="flex items-center gap-2">
+      <button id="ooni-coverage-chart-png-btn" class="text-xs font-mono opacity-40 hover:opacity-70 transition-opacity border border-white/10 px-2 py-0.5 rounded cursor-pointer bg-transparent">↓ PNG</button>
+      <a href="/data/ooni_timeseries.csv" download class="text-xs font-mono opacity-40 hover:opacity-70 transition-opacity border border-white/10 px-2 py-0.5 rounded">↓ CSV</a>
+      <button id="ooni-coverage-chart-embed-btn" class="text-xs font-mono opacity-40 hover:opacity-70 transition-opacity border border-white/10 px-2 py-0.5 rounded cursor-pointer bg-transparent">&lt;/&gt; Embed</button>
+    </div>
+  </div>
+</div>
+
+<script define:vars={{ months, mcounts, anomalies, annotations: ANNOTATIONS }}>
+  (function () {
+    const canvas = document.getElementById('ooni-coverage-chart')
+    if (!canvas) return
+
+    function initChart() {
+      const ctx = canvas.getContext('2d')
+      if (!ctx) return
+
+      const annotationPlugin = {
+        id: 'coverageAnnotations',
+        afterDraw(chart) {
+          const { ctx: c, scales: { x, yLeft } } = chart
+          c.save()
+          months.forEach((m, i) => {
+            if (!annotations[m]) return
+            const meta = chart.getDatasetMeta(0)
+            const bar = meta.data[i]
+            if (!bar) return
+            const xPx = bar.x
+            const yTop = yLeft.top
+            c.strokeStyle = 'rgba(255,255,255,0.2)'
+            c.lineWidth = 1
+            c.setLineDash([3, 3])
+            c.beginPath()
+            c.moveTo(xPx, yTop)
+            c.lineTo(xPx, yLeft.bottom)
+            c.stroke()
+            c.setLineDash([])
+            c.save()
+            c.translate(xPx - 3, yTop + 4)
+            c.rotate(-Math.PI / 2)
+            c.fillStyle = 'rgba(148,163,184,0.7)'
+            c.font = '8px monospace'
+            c.textAlign = 'left'
+            c.fillText(annotations[m], 0, 0)
+            c.restore()
+          })
+          c.restore()
+        }
+      }
+
+      const barColors = mcounts.map((_, i) => {
+        const rate = anomalies[i]
+        return rate >= 25 ? 'rgba(239,68,68,0.45)' : 'rgba(0,212,200,0.55)'
+      })
+
+      canvas._chart = new window.Chart(ctx, {
+        plugins: [annotationPlugin],
+        data: {
+          labels: months,
+          datasets: [
+            {
+              type: 'bar',
+              label: 'Measurement count',
+              data: mcounts,
+              backgroundColor: barColors,
+              borderRadius: 1,
+              yAxisID: 'yLeft',
+            },
+            {
+              type: 'line',
+              label: 'Anomaly rate (%)',
+              data: anomalies,
+              borderColor: '#F59E0B',
+              backgroundColor: 'transparent',
+              borderWidth: 2,
+              pointRadius: 2,
+              pointBackgroundColor: '#F59E0B',
+              tension: 0.3,
+              yAxisID: 'yRight',
+            },
+          ],
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          interaction: { mode: 'index', intersect: false },
+          layout: { padding: { top: 30 } },
+          plugins: {
+            legend: { display: false },
+            tooltip: {
+              backgroundColor: '#0f1f3a',
+              titleColor: '#94a3b8',
+              bodyColor: '#e2e8f0',
+              callbacks: {
+                label: c => c.datasetIndex === 0
+                  ? ` ${c.parsed.y.toLocaleString()} measurements`
+                  : ` ${c.parsed.y}% anomaly rate`,
+                afterBody: items => {
+                  const m = months[items[0]?.dataIndex]
+                  return annotations[m] ? [` ↳ ${annotations[m]}`] : []
+                },
+              },
+            },
+          },
+          scales: {
+            x: {
+              ticks: { color: '#64748b', font: { size: 8 }, maxRotation: 45, autoSkip: true, maxTicksLimit: 20 },
+              grid: { color: 'rgba(255,255,255,0.04)' },
+            },
+            yLeft: {
+              type: 'linear',
+              position: 'left',
+              beginAtZero: true,
+              ticks: { color: '#00D4C8', font: { size: 9 }, callback: v => v >= 1000 ? `${(v/1000).toFixed(0)}k` : v },
+              grid: { color: 'rgba(255,255,255,0.04)' },
+              title: { display: true, text: 'Measurements / month', color: '#00D4C8', font: { size: 9 } },
+            },
+            yRight: {
+              type: 'linear',
+              position: 'right',
+              beginAtZero: true,
+              max: 40,
+              ticks: { color: '#F59E0B', font: { size: 9 }, callback: v => `${v}%` },
+              grid: { display: false },
+              title: { display: true, text: 'Anomaly %', color: '#F59E0B', font: { size: 9 } },
+            },
+          },
+        },
+      })
+
+      const _png = document.getElementById('ooni-coverage-chart-png-btn')
+      if (_png) _png.addEventListener('click', () => {
+        const a = document.createElement('a')
+        a.href = canvas._chart.toBase64Image('image/png', 1)
+        a.download = 'myanmar-ooni-coverage.png'
+        a.click()
+      })
+      const _emb = document.getElementById('ooni-coverage-chart-embed-btn')
+      if (_emb) _emb.addEventListener('click', () => {
+        navigator.clipboard.writeText('<CensorshipChart type="ooni-coverage" />')
+          .then(() => { _emb.textContent = '✓ Copied'; setTimeout(() => { _emb.textContent = '</> Embed' }, 2000) })
+          .catch(() => {})
+      })
+    }
+
+    if (window.Chart) {
+      initChart()
+    } else {
+      const s = document.createElement('script')
+      s.src = 'https://cdn.jsdelivr.net/npm/chart.js@4/dist/chart.umd.min.js'
+      s.onload = initChart
+      document.head.appendChild(s)
+    }
+  })()
+</script>

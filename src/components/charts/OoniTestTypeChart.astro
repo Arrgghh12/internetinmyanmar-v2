@@ -1,0 +1,221 @@
+---
+import testTypeData from '../../data/ooni-by-testname.json'
+
+const LABEL_MAP: Record<string, string> = {
+  signal:               'Signal',
+  telegram:             'Telegram',
+  whatsapp:             'WhatsApp',
+  facebook_messenger:   'Facebook Messenger',
+  tor:                  'Tor',
+  torsf:                'Tor Snowflake',
+  psiphon:              'Psiphon',
+  riseupvpn:            'RiseupVPN',
+  web_connectivity:     'Web (all sites)',
+  dns_check:            'DNS',
+  stunreachability:     'STUN',
+}
+
+const GROUP_MAP: Record<string, string> = {
+  signal:               'Messaging Apps',
+  telegram:             'Messaging Apps',
+  whatsapp:             'Messaging Apps',
+  facebook_messenger:   'Messaging Apps',
+  tor:                  'Circumvention',
+  torsf:                'Circumvention',
+  psiphon:              'Circumvention',
+  riseupvpn:            'Circumvention',
+  web_connectivity:     'Web',
+  dns_check:            'Infrastructure',
+  stunreachability:     'Infrastructure',
+}
+
+const GROUP_ORDER = ['Messaging Apps', 'Circumvention', 'Web', 'Infrastructure']
+
+type TestRow = { test_name: string; anomaly_rate: number; measurement_count: number }
+
+// Filter to known tests, sort by group then rate descending
+const rows: TestRow[] = ((testTypeData.tests || []) as TestRow[])
+  .filter(r => r.test_name in LABEL_MAP)
+  .sort((a, b) => {
+    const gA = GROUP_ORDER.indexOf(GROUP_MAP[a.test_name] ?? '')
+    const gB = GROUP_ORDER.indexOf(GROUP_MAP[b.test_name] ?? '')
+    if (gA !== gB) return gA - gB
+    return b.anomaly_rate - a.anomaly_rate
+  })
+
+const since = testTypeData.since || ''
+const lastUpdated = testTypeData.lastUpdated?.slice(0, 10) ?? ''
+
+// Build group divider info for the chart plugin (index where each group starts)
+const groupBoundaries: { label: string; index: number }[] = []
+let lastGroup = ''
+rows.forEach((r, i) => {
+  const g = GROUP_MAP[r.test_name] ?? ''
+  if (g !== lastGroup) {
+    groupBoundaries.push({ label: g, index: i })
+    lastGroup = g
+  }
+})
+
+const labels     = rows.map(r => LABEL_MAP[r.test_name] ?? r.test_name)
+const rates      = rows.map(r => r.anomaly_rate)
+const counts     = rows.map(r => r.measurement_count)
+const colors     = rates.map(r => r >= 60 ? 'rgba(239,68,68,0.85)' : r >= 30 ? 'rgba(245,158,11,0.85)' : 'rgba(0,212,200,0.75)')
+---
+
+<div class="mb-8 not-prose">
+  <div class="mb-2">
+    <div class="font-headline text-base">OONI Blocking by Test Type — Myanmar</div>
+    <p class="text-xs font-mono opacity-40 mt-0.5">
+      OONI anomaly rate per test type · {since ? `12-month window from ${since}` : 'last 12 months'} · messaging apps, circumvention tools, and web connectivity
+    </p>
+  </div>
+
+  {rows.length === 0 ? (
+    <p class="text-sm font-mono opacity-40 py-6 text-center border border-white/10 rounded-lg">No test type data available yet — agent will populate on next run.</p>
+  ) : (
+    <>
+      <div class="border border-white/10 rounded-lg p-4 bg-[#0A1628]">
+        <canvas
+          id="ooni-test-type-chart"
+          role="img"
+          aria-label="Horizontal bar chart showing OONI anomaly rates by test type in Myanmar, grouped into Messaging Apps, Circumvention, Web, and Infrastructure"
+          style="width:100%;height:300px"
+        ></canvas>
+      </div>
+
+      <div class="flex flex-wrap gap-x-5 gap-y-1 mt-2">
+        {[
+          { label: '≥60% anomaly',  color: 'rgba(239,68,68,0.85)' },
+          { label: '30–59% anomaly', color: 'rgba(245,158,11,0.85)' },
+          { label: '<30% anomaly',  color: 'rgba(0,212,200,0.75)' },
+        ].map(({ label, color }) => (
+          <div class="flex items-center gap-1.5">
+            <span class="inline-block w-3 h-3 rounded-sm flex-shrink-0" style={`background:${color}`}></span>
+            <span class="text-xs font-mono opacity-50">{label}</span>
+          </div>
+        ))}
+      </div>
+
+      <div class="flex justify-between items-center mt-2 flex-wrap gap-2">
+        <p class="text-xs font-mono opacity-30">
+          OONI · <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener" class="underline hover:opacity-60">CC BY 4.0</a>
+          {lastUpdated && ` · updated ${lastUpdated}`}
+        </p>
+        <div class="flex items-center gap-2">
+          <button id="ooni-test-type-chart-png-btn" class="text-xs font-mono opacity-40 hover:opacity-70 transition-opacity border border-white/10 px-2 py-0.5 rounded cursor-pointer bg-transparent">↓ PNG</button>
+          <button id="ooni-test-type-chart-embed-btn" class="text-xs font-mono opacity-40 hover:opacity-70 transition-opacity border border-white/10 px-2 py-0.5 rounded cursor-pointer bg-transparent">&lt;/&gt; Embed</button>
+        </div>
+      </div>
+    </>
+  )}
+</div>
+
+<script define:vars={{ labels, rates, counts, colors, groupBoundaries }}>
+  (function () {
+    const canvas = document.getElementById('ooni-test-type-chart')
+    if (!canvas) return
+
+    function initChart() {
+      const ctx = canvas.getContext('2d')
+      if (!ctx) return
+
+      const groupDividerPlugin = {
+        id: 'groupDividers',
+        afterDraw(chart) {
+          const { ctx: c, scales: { y } } = chart
+          c.save()
+          c.strokeStyle = 'rgba(255,255,255,0.08)'
+          c.lineWidth = 1
+          c.fillStyle = 'rgba(100,116,139,0.6)'
+          c.font = '9px monospace'
+          c.textBaseline = 'middle'
+          groupBoundaries.forEach(({ label, index }) => {
+            if (index === 0) return
+            const tick = y.getPixelForValue(index - 0.5)
+            c.beginPath()
+            c.moveTo(chart.chartArea.left, tick)
+            c.lineTo(chart.chartArea.right, tick)
+            c.stroke()
+          })
+          groupBoundaries.forEach(({ label, index }) => {
+            const startPx = y.getPixelForValue(index)
+            c.fillStyle = 'rgba(100,116,139,0.5)'
+            c.font = '8px monospace'
+            c.textAlign = 'left'
+            c.fillText(label.toUpperCase(), chart.chartArea.left + 2, startPx - 8)
+          })
+          c.restore()
+        }
+      }
+
+      canvas._chart = new window.Chart(ctx, {
+        type: 'bar',
+        plugins: [groupDividerPlugin],
+        data: {
+          labels,
+          datasets: [{
+            label: 'Anomaly Rate (%)',
+            data: rates,
+            backgroundColor: colors,
+            borderRadius: 3,
+          }],
+        },
+        options: {
+          indexAxis: 'y',
+          responsive: true,
+          maintainAspectRatio: false,
+          layout: { padding: { top: 12 } },
+          plugins: {
+            legend: { display: false },
+            tooltip: {
+              backgroundColor: '#0f1f3a',
+              titleColor: '#94a3b8',
+              bodyColor: '#e2e8f0',
+              callbacks: {
+                label: c => ` ${c.parsed.x}% anomaly rate`,
+                afterLabel: c => ` ${counts[c.dataIndex].toLocaleString()} measurements`,
+              },
+            },
+          },
+          scales: {
+            x: {
+              beginAtZero: true,
+              max: 100,
+              ticks: { color: '#64748b', font: { size: 9 }, callback: v => `${v}%` },
+              grid: { color: 'rgba(255,255,255,0.04)' },
+              title: { display: true, text: 'OONI Anomaly Rate (%)', color: '#64748b', font: { size: 9 } },
+            },
+            y: {
+              ticks: { color: '#94a3b8', font: { size: 10, family: 'monospace' } },
+              grid: { color: 'rgba(255,255,255,0.04)' },
+            },
+          },
+        },
+      })
+
+      const _png = document.getElementById('ooni-test-type-chart-png-btn')
+      if (_png) _png.addEventListener('click', () => {
+        const a = document.createElement('a')
+        a.href = canvas._chart.toBase64Image('image/png', 1)
+        a.download = 'myanmar-ooni-test-types.png'
+        a.click()
+      })
+      const _emb = document.getElementById('ooni-test-type-chart-embed-btn')
+      if (_emb) _emb.addEventListener('click', () => {
+        navigator.clipboard.writeText('<CensorshipChart type="ooni-test-type" />')
+          .then(() => { _emb.textContent = '✓ Copied'; setTimeout(() => { _emb.textContent = '</> Embed' }, 2000) })
+          .catch(() => {})
+      })
+    }
+
+    if (window.Chart) {
+      initChart()
+    } else {
+      const s = document.createElement('script')
+      s.src = 'https://cdn.jsdelivr.net/npm/chart.js@4/dist/chart.umd.min.js'
+      s.onload = initChart
+      document.head.appendChild(s)
+    }
+  })()
+</script>

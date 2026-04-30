@@ -1,0 +1,178 @@
+---
+import categoryData from '../../data/ooni-by-category.json'
+
+const CATEGORY_LABELS: Record<string, string> = {
+  NEWS: 'News & Media',
+  POLR: 'Political Content',
+  HUMR: 'Human Rights',
+  ANON: 'Anonymization Tools',
+  COMT: 'Communication Tools',
+  LGBT: 'LGBTQ+',
+  GRP:  'Community Groups',
+  GOVT: 'Government',
+  MMED: 'Mainstream Media',
+  HOST: 'Hosting & Blogging',
+  SRCH: 'Search Engines',
+  REL:  'Religion',
+  DATE: 'Dating',
+  GAME: 'Gaming',
+  HACK: 'Hacking Tools',
+  PORN: 'Adult Content',
+  GMB:  'Gambling',
+  ECOM: 'E-Commerce',
+  CULTR:'Culture & Society',
+  ENV:  'Environment',
+  PUBH: 'Public Health',
+  CORP: 'Corporate',
+  ALDR: 'Alcohol & Drugs',
+  XED:  'Sex Education',
+  MILI: 'Militant/Extremist',
+}
+
+type CatRow = { category_code: string; anomaly_rate: number; measurement_count: number; confirmed_count?: number }
+
+const rows: CatRow[] = ((categoryData.categories || []) as CatRow[])
+  .filter(r => (r.measurement_count ?? 0) >= 50 && r.category_code in CATEGORY_LABELS)
+  .sort((a, b) => b.anomaly_rate - a.anomaly_rate)
+  .slice(0, 15)
+
+const since = categoryData.since || ''
+const lastUpdated = categoryData.lastUpdated?.slice(0, 10) ?? ''
+
+const labels   = rows.map(r => CATEGORY_LABELS[r.category_code] ?? r.category_code)
+const rates    = rows.map(r => r.anomaly_rate)
+const counts   = rows.map(r => r.measurement_count)
+const confirmed = rows.map(r => r.confirmed_count ?? 0)
+const colors   = rates.map(r => r >= 60 ? 'rgba(239,68,68,0.85)' : r >= 30 ? 'rgba(245,158,11,0.85)' : 'rgba(0,212,200,0.75)')
+---
+
+<div class="mb-8 not-prose">
+  <div class="mb-2">
+    <div class="font-headline text-base">OONI Blocking by Content Category — Myanmar</div>
+    <p class="text-xs font-mono opacity-40 mt-0.5">
+      OONI Web Connectivity anomaly rate by Citizen Lab category · {since ? `12-month window from ${since}` : 'last 12 months'} · categories with ≥50 measurements
+    </p>
+  </div>
+
+  {rows.length === 0 ? (
+    <p class="text-sm font-mono opacity-40 py-6 text-center border border-white/10 rounded-lg">No category data available yet — agent will populate on next run.</p>
+  ) : (
+    <>
+      <div class="border border-white/10 rounded-lg p-4 bg-[#0A1628]">
+        <canvas
+          id="ooni-category-chart"
+          role="img"
+          aria-label="Horizontal bar chart showing OONI anomaly rates by content category in Myanmar. News, political content, and LGBTQ+ sites show highest blocking rates."
+          style="width:100%;height:360px"
+        ></canvas>
+      </div>
+
+      <div class="flex flex-wrap gap-x-5 gap-y-1 mt-2">
+        {[
+          { label: '≥60% blocked',   color: 'rgba(239,68,68,0.85)' },
+          { label: '30–59% blocked', color: 'rgba(245,158,11,0.85)' },
+          { label: '<30% anomaly',   color: 'rgba(0,212,200,0.75)' },
+        ].map(({ label, color }) => (
+          <div class="flex items-center gap-1.5">
+            <span class="inline-block w-3 h-3 rounded-sm flex-shrink-0" style={`background:${color}`}></span>
+            <span class="text-xs font-mono opacity-50">{label}</span>
+          </div>
+        ))}
+      </div>
+
+      <div class="flex justify-between items-center mt-2 flex-wrap gap-2">
+        <p class="text-xs font-mono opacity-30">
+          OONI Web Connectivity · Citizen Lab categories · <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener" class="underline hover:opacity-60">CC BY 4.0</a>
+          {lastUpdated && ` · updated ${lastUpdated}`}
+        </p>
+        <div class="flex items-center gap-2">
+          <button id="ooni-category-chart-png-btn" class="text-xs font-mono opacity-40 hover:opacity-70 transition-opacity border border-white/10 px-2 py-0.5 rounded cursor-pointer bg-transparent">↓ PNG</button>
+          <a href="/data/ooni_timeseries.csv" download class="text-xs font-mono opacity-40 hover:opacity-70 transition-opacity border border-white/10 px-2 py-0.5 rounded">↓ CSV</a>
+          <button id="ooni-category-chart-embed-btn" class="text-xs font-mono opacity-40 hover:opacity-70 transition-opacity border border-white/10 px-2 py-0.5 rounded cursor-pointer bg-transparent">&lt;/&gt; Embed</button>
+        </div>
+      </div>
+    </>
+  )}
+</div>
+
+<script define:vars={{ labels, rates, counts, confirmed, colors }}>
+  (function () {
+    const canvas = document.getElementById('ooni-category-chart')
+    if (!canvas) return
+
+    function initChart() {
+      const ctx = canvas.getContext('2d')
+      if (!ctx) return
+
+      canvas._chart = new window.Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels,
+          datasets: [{
+            label: 'Anomaly Rate (%)',
+            data: rates,
+            backgroundColor: colors,
+            borderRadius: 3,
+          }],
+        },
+        options: {
+          indexAxis: 'y',
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: { display: false },
+            tooltip: {
+              backgroundColor: '#0f1f3a',
+              titleColor: '#94a3b8',
+              bodyColor: '#e2e8f0',
+              callbacks: {
+                label: c => ` ${c.parsed.x}% anomaly rate`,
+                afterLabel: c => {
+                  const lines = [` ${counts[c.dataIndex].toLocaleString()} measurements`]
+                  if (confirmed[c.dataIndex] > 0) lines.push(` ${confirmed[c.dataIndex].toLocaleString()} confirmed blocks`)
+                  return lines
+                },
+              },
+            },
+          },
+          scales: {
+            x: {
+              beginAtZero: true,
+              max: 100,
+              ticks: { color: '#64748b', font: { size: 9 }, callback: v => `${v}%` },
+              grid: { color: 'rgba(255,255,255,0.04)' },
+              title: { display: true, text: 'OONI Anomaly Rate (%)', color: '#64748b', font: { size: 9 } },
+            },
+            y: {
+              ticks: { color: '#94a3b8', font: { size: 10, family: 'monospace' } },
+              grid: { color: 'rgba(255,255,255,0.04)' },
+            },
+          },
+        },
+      })
+
+      const _png = document.getElementById('ooni-category-chart-png-btn')
+      if (_png) _png.addEventListener('click', () => {
+        const a = document.createElement('a')
+        a.href = canvas._chart.toBase64Image('image/png', 1)
+        a.download = 'myanmar-ooni-categories.png'
+        a.click()
+      })
+      const _emb = document.getElementById('ooni-category-chart-embed-btn')
+      if (_emb) _emb.addEventListener('click', () => {
+        navigator.clipboard.writeText('<CensorshipChart type="ooni-category" />')
+          .then(() => { _emb.textContent = '✓ Copied'; setTimeout(() => { _emb.textContent = '</> Embed' }, 2000) })
+          .catch(() => {})
+      })
+    }
+
+    if (window.Chart) {
+      initChart()
+    } else {
+      const s = document.createElement('script')
+      s.src = 'https://cdn.jsdelivr.net/npm/chart.js@4/dist/chart.umd.min.js'
+      s.onload = initChart
+      document.head.appendChild(s)
+    }
+  })()
+</script>

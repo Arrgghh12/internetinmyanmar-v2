@@ -74,6 +74,21 @@ def fetch_blocked_sites(limit: int = 500) -> list[dict]:
 
 
 @retry(stop=stop_after_attempt(3), wait=wait_exponential(min=2, max=10))
+def fetch_ooni_by_axis(axis_y: str, since: str, test_name: str | None = None) -> list[dict]:
+    """Fetch OONI aggregation broken down by a secondary axis (e.g. test_name, category_code)."""
+    params: dict = {"probe_cc": "MM", "since": since, "axis_y": axis_y}
+    if test_name:
+        params["test_name"] = test_name
+    resp = requests.get(f"{OONI_API}/aggregation", params=params, timeout=30)
+    resp.raise_for_status()
+    result = resp.json().get("result", [])
+    for row in result:
+        total = row.get("measurement_count", 0)
+        row["anomaly_rate"] = round(row.get("anomaly_count", 0) / total * 100, 1) if total > 0 else 0
+    return sorted(result, key=lambda r: r.get("anomaly_rate", 0), reverse=True)
+
+
+@retry(stop=stop_after_attempt(3), wait=wait_exponential(min=2, max=10))
 def fetch_ooni_history(time_grain: str, since: str) -> list[dict]:
     """Fetch aggregated OONI measurements for Myanmar at any time granularity."""
     resp = requests.get(
@@ -314,6 +329,8 @@ def push_to_github(
     ooni_weekly: list[dict] | None = None,
     ooni_daily: list[dict] | None = None,
     cf_traffic: dict | None = None,
+    ooni_by_testname: dict | None = None,
+    ooni_by_category: dict | None = None,
 ):
     """Update observatory/stats.json in the repo to trigger a Cloudflare rebuild."""
     if not GITHUB_TOKEN:
@@ -337,6 +354,10 @@ def push_to_github(
         files_to_update["src/data/ooni-history-daily.json"] = json.dumps(ooni_daily, indent=2)
     if cf_traffic is not None:
         files_to_update["src/data/cf-traffic.json"] = json.dumps(cf_traffic, indent=2)
+    if ooni_by_testname is not None:
+        files_to_update["src/data/ooni-by-testname.json"] = json.dumps(ooni_by_testname, indent=2)
+    if ooni_by_category is not None:
+        files_to_update["src/data/ooni-by-category.json"] = json.dumps(ooni_by_category, indent=2)
 
     # Update lastUpdated in blocked-sites.json without touching the curated domain list
     try:
@@ -403,6 +424,15 @@ def run(test: bool = False):
     ooni_daily = fetch_ooni_history("day", since_daily)
     log.info(f"Fetched {len(ooni_daily)} days of OONI data")
 
+    since_12m = (now_utc - timedelta(days=365)).strftime("%Y-%m-%d")
+    by_testname = fetch_ooni_by_axis("test_name", since=since_12m)
+    log.info(f"Fetched {len(by_testname)} test-type rows")
+    by_category = fetch_ooni_by_axis("category_code", since=since_12m, test_name="web_connectivity")
+    log.info(f"Fetched {len(by_category)} category rows")
+
+    ooni_by_testname_payload = {"lastUpdated": now_utc.isoformat(), "since": since_12m, "tests": by_testname}
+    ooni_by_category_payload = {"lastUpdated": now_utc.isoformat(), "since": since_12m, "categories": by_category}
+
     cf_outages = fetch_cf_radar_outages()
     log.info(f"Cloudflare Radar: {len(cf_outages['activeOutages'])} active outage(s) for MM")
 
@@ -439,9 +469,16 @@ def run(test: bool = False):
         print(f"\nOONI weekly: {len(ooni_weekly)} rows, daily: {len(ooni_daily)} rows")
         print(f"CF traffic: monthly={len(cf_traffic['monthly'])}, weekly={len(cf_traffic['weekly'])}, daily={len(cf_traffic['daily'])}")
         print(f"CF outages: {json.dumps(cf_outages, indent=2)}")
+        print(f"\nTest types ({len(by_testname)} rows):")
+        for row in by_testname[:5]:
+            print(f"  {row.get('test_name')}: {row.get('anomaly_rate')}% ({row.get('measurement_count')} measurements)")
+        print(f"\nCategories ({len(by_category)} rows):")
+        for row in by_category[:5]:
+            print(f"  {row.get('category_code')}: {row.get('anomaly_rate')}% ({row.get('measurement_count')} measurements)")
         return
 
-    push_to_github(stats, history, cf_outages, ooni_weekly, ooni_daily, cf_traffic)
+    push_to_github(stats, history, cf_outages, ooni_weekly, ooni_daily, cf_traffic,
+                   ooni_by_testname_payload, ooni_by_category_payload)
     log.info("=== OONI Watcher done ===")
 
 
