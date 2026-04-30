@@ -15,6 +15,7 @@ const personSchema = {
     name: 'Internet in Myanmar',
     url: 'https://www.internetinmyanmar.com',
   },
+  image: 'https://media.internetinmyanmar.com/images/sacha-nakeo-editor-in-chief-internet-in-myanmar/sacha-nakeo-portrait-1.jpg',
   knowsAbout: ['Myanmar', 'internet censorship', 'digital rights', 'media freedom', 'Southeast Asia', 'internet shutdowns'],
   knowsLanguage: ['en', 'fr', 'es', 'it'],
   sameAs: [],
@@ -36,9 +37,15 @@ const emailDomain = 'internetinmyanmar.com'
 
     <div class="flex flex-col md:flex-row gap-8 mb-10">
       <div class="md:w-48 flex-shrink-0">
-        <div class="w-full aspect-square bg-white/5 border border-white/10 rounded-lg flex items-center justify-center text-white/20 font-mono text-sm">
-          Photo
-        </div>
+        <img
+          src="https://media.internetinmyanmar.com/images/sacha-nakeo-editor-in-chief-internet-in-myanmar/sacha-nakeo-portrait-1.jpg"
+          alt="Sacha Nakeo, Editor-in-Chief of Internet in Myanmar"
+          width="192"
+          height="192"
+          loading="eager"
+          fetchpriority="high"
+          class="w-full aspect-square object-cover rounded-lg"
+        />
       </div>
       <div class="space-y-4 opacity-85">
         <p class="text-lg">
