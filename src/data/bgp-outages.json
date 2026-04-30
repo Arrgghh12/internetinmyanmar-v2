@@ -14502,11 +14502,11 @@
     "name": "ERU-AS-AP EASTERN ROYAL UNICOM ERU TECHNOLOGY COMPANY LIMITED",
     "status": "DOWN",
     "started_at": "2026-04-30T15:01:57.461247+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-30T15:31:39.835948+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS151342",
@@ -14524,65 +14524,65 @@
     "name": "STIGW-AS-AP ST.Net",
     "status": "DOWN",
     "started_at": "2026-04-30T15:03:00.272064+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-30T15:32:19.184115+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS139692",
     "name": "CHEN-AS-AP CHEN GUANG COMPANY LIMITED",
     "status": "DOWN",
     "started_at": "2026-04-30T15:03:47.197578+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-30T15:32:41.382170+00:00",
+    "duration_minutes": 28,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS151482",
     "name": "MKTN-AS-AP MKTN ENGINEERING GROUP COMPANY LIMITED",
     "status": "DOWN",
     "started_at": "2026-04-30T15:04:16.421740+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-30T15:32:47.959367+00:00",
+    "duration_minutes": 28,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS132038",
     "name": "ROYALESPRIT-MM Royal Esprit Company Limited",
     "status": "DOWN",
     "started_at": "2026-04-30T15:04:39.732315+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-30T15:32:50.248993+00:00",
+    "duration_minutes": 28,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS135111",
     "name": "AML-AS-AP Asia Mega Link",
     "status": "DOWN",
     "started_at": "2026-04-30T15:04:55.116143+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-30T15:32:50.988215+00:00",
+    "duration_minutes": 27,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS139719",
     "name": "YARCHANG-AS-AP Yar Chang Company Limited",
     "status": "DOWN",
     "started_at": "2026-04-30T15:05:11.245336+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-30T15:32:52.588088+00:00",
+    "duration_minutes": 27,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   }
 ]
