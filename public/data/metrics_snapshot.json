@@ -1,22 +1,22 @@
 {
-  "generated_at": "2026-04-30T00:15:01Z",
-  "dataset_version": "v202604300010",
+  "generated_at": "2026-04-30T12:15:01Z",
+  "dataset_version": "v202604301210",
   "processing_log": {
-    "bgp_outages_loaded": 1206,
+    "bgp_outages_loaded": 1290,
     "keepiton_events_loaded": 95,
-    "unified_events_total": 1301,
-    "bgp_events_in_unified": 1206,
+    "unified_events_total": 1385,
+    "bgp_events_in_unified": 1290,
     "kit_events_in_unified": 95,
     "warnings": []
   },
   "active_shutdowns": 72,
   "total_shutdown_events": 95,
-  "total_bgp_outage_events": 1206,
+  "total_bgp_outage_events": 1290,
   "confirmed_blocked_sites": 42,
   "ooni_anomaly_rate_30d": 13.5,
-  "censorship_prevalence_pct": 14.3,
-  "bgp_networks_down_now": 10,
-  "days_since_major_outage": 0,
-  "shutdown_impact_days_total": 32811,
-  "cf_traffic_latest_pct": 85.0
+  "censorship_prevalence_pct": 14.7,
+  "bgp_networks_down_now": 19,
+  "days_since_major_outage": 1,
+  "shutdown_impact_days_total": 32883,
+  "cf_traffic_latest_pct": 87.1
 }
