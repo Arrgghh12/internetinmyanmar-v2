@@ -158,9 +158,9 @@
     "name": "U9-MM Nine Communications Company Limited",
     "announced": true,
     "visibility_pct": 1.0,
-    "visible_collectors": 330,
-    "total_collectors": 330,
-    "timestamp": "2026-04-30T19:31:26.045724+00:00",
+    "visible_collectors": 329,
+    "total_collectors": 329,
+    "timestamp": "2026-04-30T19:50:03.748398+00:00",
     "status": "GREEN",
     "status_since": "2026-04-30T10:45:07.999023+00:00"
   },
@@ -169,10 +169,10 @@
     "name": "FRONTIIRCOLTD-MM Frontiir Co. Ltd",
     "announced": true,
     "visibility_pct": 1.0,
-    "visible_collectors": 330,
-    "total_collectors": 330,
-    "timestamp": "2026-04-30T19:31:26.442938+00:00",
-    "status": "YELLOW",
+    "visible_collectors": 329,
+    "total_collectors": 329,
+    "timestamp": "2026-04-30T19:50:04.146359+00:00",
+    "status": "GREEN",
     "status_since": "2026-04-30T18:45:08.519323+00:00"
   },
   "AS139849": {
@@ -609,9 +609,9 @@
     "name": "MPT-AP Myanma Posts and Telecommunications",
     "announced": true,
     "visibility_pct": 1.0,
-    "visible_collectors": 330,
-    "total_collectors": 330,
-    "timestamp": "2026-04-30T19:31:59.564527+00:00",
+    "visible_collectors": 329,
+    "total_collectors": 329,
+    "timestamp": "2026-04-30T19:50:04.539991+00:00",
     "status": "GREEN",
     "status_since": "2026-04-30T16:02:03.093763+00:00"
   },
@@ -763,9 +763,9 @@
     "name": "MMUNILINK-AS-AP Myanmar Unilink Communication Company Limited",
     "announced": true,
     "visibility_pct": 1.0,
-    "visible_collectors": 330,
-    "total_collectors": 330,
-    "timestamp": "2026-04-30T19:32:13.605547+00:00",
+    "visible_collectors": 329,
+    "total_collectors": 329,
+    "timestamp": "2026-04-30T19:50:04.946310+00:00",
     "status": "GREEN",
     "status_since": "2026-04-30T18:15:12.754220+00:00"
   },
@@ -1440,5 +1440,5 @@
     "status": "RED",
     "status_since": "2026-04-11T01:10:28.195013+00:00"
   },
-  "lastUpdated": "2026-04-30T19:33:23.896338+00:00"
+  "lastUpdated": "2026-04-30T19:50:05.253501+00:00"
 }
