@@ -13600,17 +13600,39 @@
     "name": "HSCL-AS-AP Horizon Sources Company Limited",
     "status": "DOWN",
     "started_at": "2026-04-30T04:02:33.038868+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-30T04:33:16.167815+00:00",
+    "duration_minutes": 30,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS134840",
     "name": "MCCL-AS-AP Myanmar Country Co., Ltd.",
     "status": "DOWN",
     "started_at": "2026-04-30T04:02:49.907529+00:00",
+    "ended_at": "2026-04-30T04:33:21.188991+00:00",
+    "duration_minutes": 30,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": true
+  },
+  {
+    "asn": "AS133385",
+    "name": "ATOMMYANMAR-AS-AP Atom Myanmar Limited",
+    "status": "DOWN",
+    "started_at": "2026-04-30T04:03:41.895495+00:00",
+    "ended_at": "2026-04-30T04:33:46.111240+00:00",
+    "duration_minutes": 30,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": true
+  },
+  {
+    "asn": "AS150309",
+    "name": "ERSTCL-AS-AP E R S TECHNOLOGY",
+    "status": "DOWN",
+    "started_at": "2026-04-30T04:34:16.979898+00:00",
     "ended_at": null,
     "duration_minutes": null,
     "min_visibility_pct": 0.0,
@@ -13618,10 +13640,10 @@
     "resolved": false
   },
   {
-    "asn": "AS133385",
-    "name": "ATOMMYANMAR-AS-AP Atom Myanmar Limited",
+    "asn": "AS135149",
+    "name": "MTGCL-AS-AP Myanmar Technology Gateway Co., Ltd",
     "status": "DOWN",
-    "started_at": "2026-04-30T04:03:41.895495+00:00",
+    "started_at": "2026-04-30T04:35:49.386962+00:00",
     "ended_at": null,
     "duration_minutes": null,
     "min_visibility_pct": 0.0,
