@@ -13446,22 +13446,22 @@
     "name": "PICME-AS-AP POSCO INTERNATIONAL CORPORATION MYANMAR E&P OFFICE",
     "status": "DOWN",
     "started_at": "2026-04-30T02:03:06.349829+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-30T02:33:15.259988+00:00",
+    "duration_minutes": 30,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS138158",
     "name": "SPAL-AS-AP Serge Pun & Associate Myanmar Ltd.",
     "status": "DOWN",
     "started_at": "2026-04-30T02:03:45.253437+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-30T02:34:04.845447+00:00",
+    "duration_minutes": 30,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS58952",
@@ -13473,5 +13473,27 @@
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
     "resolved": true
+  },
+  {
+    "asn": "AS154020",
+    "name": "SMMCL-AS-AP SAM MOUK MO Company Ltd",
+    "status": "DOWN",
+    "started_at": "2026-04-30T02:33:38.757984+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
+  },
+  {
+    "asn": "AS135589",
+    "name": "IMNCL-AS-AP Internet Maekhong Network Company Limited",
+    "status": "DOWN",
+    "started_at": "2026-04-30T02:33:54.151849+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
   }
 ]
