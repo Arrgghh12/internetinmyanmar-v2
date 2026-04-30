@@ -13270,11 +13270,11 @@
     "name": "ZPC-AS-AP ZOOM PLUS COMPANY LIMITED",
     "status": "DOWN",
     "started_at": "2026-04-30T00:02:40.744932+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-30T00:32:53.127430+00:00",
+    "duration_minutes": 30,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS58952",
