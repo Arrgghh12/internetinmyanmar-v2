@@ -14623,6 +14623,17 @@
     "name": "AS-AGBC AGB Communication Co., Ltd",
     "status": "DOWN",
     "started_at": "2026-04-30T17:02:37.584755+00:00",
+    "ended_at": "2026-04-30T17:32:19.216116+00:00",
+    "duration_minutes": 29,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": true
+  },
+  {
+    "asn": "AS152466",
+    "name": "TLINKGROUP-AS-AP T-Link Group Company Limited",
+    "status": "DOWN",
+    "started_at": "2026-04-30T17:32:28.815602+00:00",
     "ended_at": null,
     "duration_minutes": null,
     "min_visibility_pct": 0.0,
