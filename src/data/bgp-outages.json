@@ -14315,94 +14315,105 @@
     "name": "YSOMCL-AS-AP YAM Success of Myanmar Co., Ltd.",
     "status": "DOWN",
     "started_at": "2026-04-30T13:01:33.242017+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-30T13:31:20.278070+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS137861",
     "name": "MWT-AS-AP Myanmar World Distribution Telecommunication Company Limited",
     "status": "DOWN",
     "started_at": "2026-04-30T13:01:49.913879+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-30T13:31:30.908680+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS150153",
     "name": "AWSCL-AS-AP A W S MYANMAR COMPANY LIMITED",
     "status": "DOWN",
     "started_at": "2026-04-30T13:01:54.417085+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-30T13:31:31.768667+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS136919",
     "name": "FACE24COLTD-AS-AP FACE24 Co.,Ltd",
     "status": "DOWN",
     "started_at": "2026-04-30T13:02:25.007686+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-30T13:31:43.372096+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS135405",
     "name": "TMHTTWTL-AS-AP WELINK",
     "status": "DOWN",
     "started_at": "2026-04-30T13:02:53.852717+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-30T13:31:48.165936+00:00",
+    "duration_minutes": 28,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS132344",
     "name": "STMCL-AS-AP SEANET",
     "status": "DOWN",
     "started_at": "2026-04-30T13:02:58.465479+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-30T13:31:48.906148+00:00",
+    "duration_minutes": 28,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS139003",
     "name": "TELCOSPEEDCOLTD-AS-AP Telcospeed",
     "status": "DOWN",
     "started_at": "2026-04-30T13:03:04.596885+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-30T13:31:51.576946+00:00",
+    "duration_minutes": 28,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS141216",
     "name": "GREATGOLDENHORSE-AS-AP GREAT GOLDEN HORSE COMPANY LIMITED",
     "status": "DOWN",
     "started_at": "2026-04-30T13:04:00.487176+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-30T13:33:00.787172+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS18399",
     "name": "YTCL-AS-AP Yatanarpon Teleport Company Limited",
     "status": "DOWN",
     "started_at": "2026-04-30T13:04:22.690989+00:00",
+    "ended_at": "2026-04-30T13:33:22.523288+00:00",
+    "duration_minutes": 28,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": true
+  },
+  {
+    "asn": "AS153998",
+    "name": "MCBPCL-AS-AP Myanmar Citizens Bank Public Company Limited",
+    "status": "DOWN",
+    "started_at": "2026-04-30T13:32:46.829356+00:00",
     "ended_at": null,
     "duration_minutes": null,
     "min_visibility_pct": 0.0,
