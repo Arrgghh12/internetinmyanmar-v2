@@ -14051,33 +14051,33 @@
     "name": "MMIX-AS-AP Myanmar Internet Exchange",
     "status": "DOWN",
     "started_at": "2026-04-30T10:33:13.900649+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-30T11:02:09.797924+00:00",
+    "duration_minutes": 28,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS140552",
     "name": "CBBANK-AS-AP Co-operative Bank Public Company Limited",
     "status": "DOWN",
     "started_at": "2026-04-30T10:33:53.237627+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-30T11:02:26.734994+00:00",
+    "duration_minutes": 28,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS151342",
     "name": "EBECL-AS-AP East Boy Engineering Company Limited",
     "status": "DOWN",
     "started_at": "2026-04-30T10:34:26.426021+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-30T11:02:39.388034+00:00",
+    "duration_minutes": 28,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS132167",
@@ -14102,10 +14102,54 @@
     "resolved": true
   },
   {
-    "asn": "AS58952",
-    "name": "FRONTIIRCOLTD-MM Frontiir Co. Ltd",
+    "asn": "AS151783",
+    "name": "ERU-AS-AP EASTERN ROYAL UNICOM ERU TECHNOLOGY COMPANY LIMITED",
     "status": "DOWN",
-    "started_at": "2026-04-30T11:00:24.550621+00:00",
+    "started_at": "2026-04-30T11:02:15.207874+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
+  },
+  {
+    "asn": "AS142644",
+    "name": "LINKFAST-AS-AP Link Fast Company Limited",
+    "status": "DOWN",
+    "started_at": "2026-04-30T11:02:46.594963+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
+  },
+  {
+    "asn": "AS152447",
+    "name": "MMCL-AS-AP My Mandalay Company Limited",
+    "status": "DOWN",
+    "started_at": "2026-04-30T11:03:09.975038+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
+  },
+  {
+    "asn": "AS141704",
+    "name": "GALAXIANET-AS-AP Galaxia @ Net",
+    "status": "DOWN",
+    "started_at": "2026-04-30T11:03:11.085881+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
+  },
+  {
+    "asn": "AS151491",
+    "name": "IQI-AS-AP Innovative Quality Internet Company Limited",
+    "status": "DOWN",
+    "started_at": "2026-04-30T11:03:34.670408+00:00",
     "ended_at": null,
     "duration_minutes": null,
     "min_visibility_pct": 0.0,
