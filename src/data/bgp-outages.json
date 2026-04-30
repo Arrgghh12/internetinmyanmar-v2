@@ -14694,5 +14694,27 @@
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
     "resolved": true
+  },
+  {
+    "asn": "AS134714",
+    "name": "ETPCL-AS-AP Elite Telecom Public Company Limited",
+    "status": "DOWN",
+    "started_at": "2026-04-30T20:31:24.125034+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
+  },
+  {
+    "asn": "AS63852",
+    "name": "FMG-MM Myanmar Net",
+    "status": "DOWN",
+    "started_at": "2026-04-30T20:33:02.106938+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
   }
 ]
