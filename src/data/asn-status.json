@@ -159,22 +159,25 @@
     "name": "U9-MM Nine Communications Company Limited",
     "announced": true,
     "visibility_pct": 1.0,
-    "visible_collectors": 329,
-    "total_collectors": 329,
-    "timestamp": "2026-04-30T03:20:04.138913+00:00",
+    "visible_collectors": 330,
+    "total_collectors": 330,
+    "timestamp": "2026-04-30T03:30:12.853886+00:00",
     "status": "GREEN",
     "status_since": "2026-04-30T01:20:09.420638+00:00"
   },
   "AS58952": {
     "asn": "AS58952",
     "name": "FRONTIIRCOLTD-MM Frontiir Co. Ltd",
-    "announced": true,
-    "visibility_pct": 1.0,
-    "visible_collectors": 329,
-    "total_collectors": 329,
-    "timestamp": "2026-04-30T03:20:04.494325+00:00",
-    "status": "YELLOW",
-    "status_since": "2026-04-30T03:20:04.494325+00:00"
+    "announced": false,
+    "visibility_pct": 0.0,
+    "visible_collectors": 0,
+    "total_collectors": 0,
+    "status": "RED",
+    "status_since": "2026-04-30T03:30:28.168302+00:00",
+    "timestamp": "2026-04-30T03:30:28.168302+00:00",
+    "error": "",
+    "ioda_outages": 0,
+    "ioda_confirmed": false
   },
   "AS139849": {
     "asn": "AS139849",
@@ -611,9 +614,9 @@
     "name": "MPT-AP Myanma Posts and Telecommunications",
     "announced": true,
     "visibility_pct": 1.0,
-    "visible_collectors": 329,
-    "total_collectors": 329,
-    "timestamp": "2026-04-30T03:20:04.855996+00:00",
+    "visible_collectors": 330,
+    "total_collectors": 330,
+    "timestamp": "2026-04-30T03:30:36.919822+00:00",
     "status": "YELLOW",
     "status_since": "2026-04-30T03:10:04.246399+00:00"
   },
@@ -765,9 +768,9 @@
     "name": "MMUNILINK-AS-AP Myanmar Unilink Communication Company Limited",
     "announced": true,
     "visibility_pct": 1.0,
-    "visible_collectors": 329,
-    "total_collectors": 329,
-    "timestamp": "2026-04-30T03:20:05.220105+00:00",
+    "visible_collectors": 330,
+    "total_collectors": 330,
+    "timestamp": "2026-04-30T03:30:43.470995+00:00",
     "status": "GREEN",
     "status_since": "2026-04-29T21:20:06.047711+00:00"
   },
@@ -1443,5 +1446,5 @@
     "status": "RED",
     "status_since": "2026-04-11T01:10:28.195013+00:00"
   },
-  "lastUpdated": "2026-04-30T03:20:05.524830+00:00"
+  "lastUpdated": "2026-04-30T03:30:43.776251+00:00"
 }
