@@ -13479,22 +13479,22 @@
     "name": "SMMCL-AS-AP SAM MOUK MO Company Ltd",
     "status": "DOWN",
     "started_at": "2026-04-30T02:33:38.757984+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-30T03:05:36.238674+00:00",
+    "duration_minutes": 31,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS135589",
     "name": "IMNCL-AS-AP Internet Maekhong Network Company Limited",
     "status": "DOWN",
     "started_at": "2026-04-30T02:33:54.151849+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-30T03:05:37.319608+00:00",
+    "duration_minutes": 31,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS58952",
@@ -13506,5 +13506,60 @@
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
     "resolved": true
+  },
+  {
+    "asn": "AS139822",
+    "name": "GNE-AS-MM GNE Company Limited",
+    "status": "DOWN",
+    "started_at": "2026-04-30T03:01:53.101061+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
+  },
+  {
+    "asn": "AS58952",
+    "name": "FRONTIIRCOLTD-MM Frontiir Co. Ltd",
+    "status": "DOWN",
+    "started_at": "2026-04-30T03:02:18.231623+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
+  },
+  {
+    "asn": "AS137888",
+    "name": "BCM-AS-AP Bee Connect Myanmar Co., Ltd.",
+    "status": "DOWN",
+    "started_at": "2026-04-30T03:03:09.008485+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
+  },
+  {
+    "asn": "AS9988",
+    "name": "MPT-AP Myanma Posts and Telecommunications",
+    "status": "DOWN",
+    "started_at": "2026-04-30T03:04:01.465218+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
+  },
+  {
+    "asn": "AS152466",
+    "name": "TLINKGROUP-AS-AP T-Link Group Company Limited",
+    "status": "DOWN",
+    "started_at": "2026-04-30T03:05:25.623610+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
   }
 ]
