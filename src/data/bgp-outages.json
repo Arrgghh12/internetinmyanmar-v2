@@ -14672,5 +14672,27 @@
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
     "resolved": true
+  },
+  {
+    "asn": "AS141704",
+    "name": "GALAXIANET-AS-AP Galaxia @ Net",
+    "status": "DOWN",
+    "started_at": "2026-04-30T19:03:01.060234+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
+  },
+  {
+    "asn": "AS132038",
+    "name": "ROYALESPRIT-MM Royal Esprit Company Limited",
+    "status": "DOWN",
+    "started_at": "2026-04-30T19:03:34.236673+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
   }
 ]
