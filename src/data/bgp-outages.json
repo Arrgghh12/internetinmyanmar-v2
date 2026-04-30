@@ -13523,11 +13523,11 @@
     "name": "FRONTIIRCOLTD-MM Frontiir Co. Ltd",
     "status": "DOWN",
     "started_at": "2026-04-30T03:02:18.231623+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-30T03:10:04.196838+00:00",
+    "duration_minutes": 7,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS137888",
@@ -13545,11 +13545,11 @@
     "name": "MPT-AP Myanma Posts and Telecommunications",
     "status": "DOWN",
     "started_at": "2026-04-30T03:04:01.465218+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-30T03:10:04.547132+00:00",
+    "duration_minutes": 6,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS152466",
