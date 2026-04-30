@@ -62,26 +62,29 @@ def telegram_send(text: str) -> None:
         log.warning("Telegram not configured — message:\n%s", text[:200])
         return
     try:
-        requests.post(
+        r = requests.post(
             f"https://api.telegram.org/bot{token}/sendMessage",
-            json={"chat_id": chat_id, "text": text, "parse_mode": "Markdown",
+            json={"chat_id": chat_id, "text": text, "parse_mode": "HTML",
                   "disable_web_page_preview": True},
             timeout=15,
         )
+        data = r.json()
+        if not data.get("ok"):
+            log.error("Telegram API error: %s", data.get("description"))
     except Exception as e:
         log.error("Telegram send failed: %s", e)
 
 
 def build_telegram_message(candidates: list[dict], today: str) -> str:
-    lines = [f"📰 *IIM Daily Digest — {today}*"]
+    lines = [f"📰 <b>IIM Daily Digest — {today}</b>"]
     lines.append(f"{len(candidates)} article{'s' if len(candidates) != 1 else ''} matched\n")
     for i, c in enumerate(candidates, 1):
         title = c.get("title", "")
         url   = c.get("url", "")
         if c.get("lang") == "my":
-            title = f"{_translate_title(title)} `[my→en]`"
+            title = f"{_translate_title(title)} <code>[my→en]</code>"
             url   = gt_url(url)
-        lines.append(f"*{i}.* {title}")
+        lines.append(f"<b>{i}.</b> {title}")
         lines.append(url)
         lines.append("")
     return "\n".join(lines)
@@ -94,7 +97,7 @@ def run(dry_run: bool = False):
     if not MONITOR_OUT.exists():
         log.warning("monitor_output.json not found — did monitor.py run today?")
         if not dry_run:
-            telegram_send(f"📭 *IIM Daily Digest — {today}*\n\nNo monitor data available.")
+            telegram_send(f"📭 <b>IIM Daily Digest — {today}</b>\n\nNo monitor data available.")
         return
 
     all_scored = json.loads(MONITOR_OUT.read_text())
