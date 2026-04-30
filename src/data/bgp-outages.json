@@ -14201,10 +14201,21 @@
     "resolved": true
   },
   {
+    "asn": "AS139804",
+    "name": "REDPALM-AS-AP RED PALM COMPANY LIMITED",
+    "status": "DOWN",
+    "started_at": "2026-04-30T12:01:43.757581+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
+  },
+  {
     "asn": "AS58952",
     "name": "FRONTIIRCOLTD-MM Frontiir Co. Ltd",
     "status": "DOWN",
-    "started_at": "2026-04-30T12:00:10.743402+00:00",
+    "started_at": "2026-04-30T12:02:02.819656+00:00",
     "ended_at": null,
     "duration_minutes": null,
     "min_visibility_pct": 0.0,
@@ -14212,10 +14223,10 @@
     "resolved": false
   },
   {
-    "asn": "AS9988",
-    "name": "MPT-AP Myanma Posts and Telecommunications",
+    "asn": "AS152140",
+    "name": "YSOMCL-AS-AP YAM Success of Myanmar Co., Ltd.",
     "status": "DOWN",
-    "started_at": "2026-04-30T12:00:11.444652+00:00",
+    "started_at": "2026-04-30T12:02:12.666763+00:00",
     "ended_at": null,
     "duration_minutes": null,
     "min_visibility_pct": 0.0,
@@ -14223,10 +14234,43 @@
     "resolved": false
   },
   {
-    "asn": "AS136480",
-    "name": "MMUNILINK-AS-AP Myanmar Unilink Communication Company Limited",
+    "asn": "AS134739",
+    "name": "AGBC-AS-AP AGB Communication Co., Ltd",
     "status": "DOWN",
-    "started_at": "2026-04-30T12:00:11.897411+00:00",
+    "started_at": "2026-04-30T12:02:35.618014+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
+  },
+  {
+    "asn": "AS140552",
+    "name": "CBBANK-AS-AP Co-operative Bank Public Company Limited",
+    "status": "DOWN",
+    "started_at": "2026-04-30T12:03:39.301968+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
+  },
+  {
+    "asn": "AS150297",
+    "name": "GMBECL-AS-AP Golden Myanmar Business Exchange Co. Ltd",
+    "status": "DOWN",
+    "started_at": "2026-04-30T12:03:49.501432+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
+  },
+  {
+    "asn": "AS63852",
+    "name": "FMG-MM Myanmar Net",
+    "status": "DOWN",
+    "started_at": "2026-04-30T12:04:10.164736+00:00",
     "ended_at": null,
     "duration_minutes": null,
     "min_visibility_pct": 0.0,
