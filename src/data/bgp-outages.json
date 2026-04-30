@@ -14106,55 +14106,55 @@
     "name": "ERU-AS-AP EASTERN ROYAL UNICOM ERU TECHNOLOGY COMPANY LIMITED",
     "status": "DOWN",
     "started_at": "2026-04-30T11:02:15.207874+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-30T11:33:19.001550+00:00",
+    "duration_minutes": 31,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS142644",
     "name": "LINKFAST-AS-AP Link Fast Company Limited",
     "status": "DOWN",
     "started_at": "2026-04-30T11:02:46.594963+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-30T11:34:44.328015+00:00",
+    "duration_minutes": 31,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS152447",
     "name": "MMCL-AS-AP My Mandalay Company Limited",
     "status": "DOWN",
     "started_at": "2026-04-30T11:03:09.975038+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-30T11:35:09.618449+00:00",
+    "duration_minutes": 31,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS141704",
     "name": "GALAXIANET-AS-AP Galaxia @ Net",
     "status": "DOWN",
     "started_at": "2026-04-30T11:03:11.085881+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-30T11:35:11.147372+00:00",
+    "duration_minutes": 32,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS151491",
     "name": "IQI-AS-AP Innovative Quality Internet Company Limited",
     "status": "DOWN",
     "started_at": "2026-04-30T11:03:34.670408+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-30T11:35:44.041580+00:00",
+    "duration_minutes": 32,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS58952",
@@ -14166,5 +14166,27 @@
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
     "resolved": true
+  },
+  {
+    "asn": "AS149038",
+    "name": "UCGCL-AS-AP UNIQUE COMM GROUP COMPANY LIMITED",
+    "status": "DOWN",
+    "started_at": "2026-04-30T11:31:56.557636+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
+  },
+  {
+    "asn": "AS137826",
+    "name": "ASTCL-AS-AP AST SYSTEM TECHNOLOGY COMPANY LIMITED",
+    "status": "DOWN",
+    "started_at": "2026-04-30T11:32:23.367741+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
   }
 ]
