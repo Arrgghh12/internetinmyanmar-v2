@@ -13820,110 +13820,110 @@
     "name": "NCL-AS-AP NEXGENET COMPANY LIMITED",
     "status": "DOWN",
     "started_at": "2026-04-30T08:02:41.434843+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-30T09:02:08.179563+00:00",
+    "duration_minutes": 59,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS153790",
     "name": "AMCL-AS-AP ADS Myanmar Company Limited",
     "status": "DOWN",
     "started_at": "2026-04-30T08:02:59.379255+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-30T09:02:12.306565+00:00",
+    "duration_minutes": 59,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS133440",
     "name": "STIGW-AS-AP ST.Net",
     "status": "DOWN",
     "started_at": "2026-04-30T08:04:10.310402+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-30T09:03:17.679440+00:00",
+    "duration_minutes": 59,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS141704",
     "name": "GALAXIANET-AS-AP Galaxia @ Net",
     "status": "DOWN",
     "started_at": "2026-04-30T08:04:47.577662+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-30T09:03:32.489606+00:00",
+    "duration_minutes": 58,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS151965",
     "name": "HATG-AS-AP Hepta Alliance Technology Group",
     "status": "DOWN",
     "started_at": "2026-04-30T08:04:52.344037+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-30T09:03:52.510645+00:00",
+    "duration_minutes": 59,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS141216",
     "name": "GREATGOLDENHORSE-AS-AP GREAT GOLDEN HORSE COMPANY LIMITED",
     "status": "DOWN",
     "started_at": "2026-04-30T08:05:07.662719+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-30T09:03:53.340456+00:00",
+    "duration_minutes": 58,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS139206",
     "name": "PAMEL-AS-AP Pan Asia Majestic Eagle Ltd",
     "status": "DOWN",
     "started_at": "2026-04-30T08:05:49.346585+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-30T09:04:17.359587+00:00",
+    "duration_minutes": 58,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS136168",
     "name": "CAMPANA-AS-AP Campana MYTHIC Co. Ltd.",
     "status": "DOWN",
     "started_at": "2026-04-30T08:06:34.375924+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-30T09:04:28.586152+00:00",
+    "duration_minutes": 57,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS135149",
     "name": "MTGCL-AS-AP Myanmar Technology Gateway Co., Ltd",
     "status": "DOWN",
     "started_at": "2026-04-30T08:06:49.757964+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-30T09:04:30.290028+00:00",
+    "duration_minutes": 57,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS45558",
     "name": "MPT-MM-AS-AP MYANMA POSTS AND TELECOMMUNICATIONS",
     "status": "DOWN",
     "started_at": "2026-04-30T08:07:06.557186+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-30T09:04:33.183520+00:00",
+    "duration_minutes": 57,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS58952",
@@ -13948,10 +13948,10 @@
     "resolved": true
   },
   {
-    "asn": "AS58952",
-    "name": "FRONTIIRCOLTD-MM Frontiir Co. Ltd",
+    "asn": "AS133524",
+    "name": "GTCL-AS-AP Global Technology Co., Ltd.",
     "status": "DOWN",
-    "started_at": "2026-04-30T09:00:23.091303+00:00",
+    "started_at": "2026-04-30T09:03:51.114769+00:00",
     "ended_at": null,
     "duration_minutes": null,
     "min_visibility_pct": 0.0,
