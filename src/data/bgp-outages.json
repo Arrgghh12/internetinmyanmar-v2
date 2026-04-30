@@ -13237,32 +13237,43 @@
     "name": "ITSPECTRUM-AS-AP IT Spectrum Company Limited",
     "status": "DOWN",
     "started_at": "2026-04-29T23:31:34.232452+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-30T00:01:13.927887+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS136255",
     "name": "TIMCL-AS-AP Telecom International Myanmar Co., Ltd",
     "status": "DOWN",
     "started_at": "2026-04-29T23:32:05.640861+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-30T00:01:21.683957+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS58952",
     "name": "FRONTIIRCOLTD-MM Frontiir Co. Ltd",
     "status": "DOWN",
     "started_at": "2026-04-29T23:55:22.979557+00:00",
-    "ended_at": "2026-04-30T00:00:11.571033+00:00",
-    "duration_minutes": 4,
+    "ended_at": "2026-04-30T00:01:22.385766+00:00",
+    "duration_minutes": 5,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
     "resolved": true
+  },
+  {
+    "asn": "AS133433",
+    "name": "ZPC-AS-AP ZOOM PLUS COMPANY LIMITED",
+    "status": "DOWN",
+    "started_at": "2026-04-30T00:02:40.744932+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
   }
 ]
