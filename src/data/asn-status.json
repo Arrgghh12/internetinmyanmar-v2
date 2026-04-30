@@ -160,7 +160,7 @@
     "visibility_pct": 1.0,
     "visible_collectors": 330,
     "total_collectors": 330,
-    "timestamp": "2026-04-30T05:45:09.581669+00:00",
+    "timestamp": "2026-04-30T05:50:05.419084+00:00",
     "status": "GREEN",
     "status_since": "2026-04-30T01:20:09.420638+00:00"
   },
@@ -171,7 +171,7 @@
     "visibility_pct": 1.0,
     "visible_collectors": 330,
     "total_collectors": 330,
-    "timestamp": "2026-04-30T05:45:20.451665+00:00",
+    "timestamp": "2026-04-30T05:50:05.766419+00:00",
     "status": "GREEN",
     "status_since": "2026-04-30T03:50:03.782170+00:00"
   },
@@ -613,7 +613,7 @@
     "visibility_pct": 1.0,
     "visible_collectors": 330,
     "total_collectors": 330,
-    "timestamp": "2026-04-30T05:45:22.869634+00:00",
+    "timestamp": "2026-04-30T05:50:06.116556+00:00",
     "status": "GREEN",
     "status_since": "2026-04-30T03:10:04.246399+00:00"
   },
@@ -765,16 +765,13 @@
   "AS136480": {
     "asn": "AS136480",
     "name": "MMUNILINK-AS-AP Myanmar Unilink Communication Company Limited",
-    "announced": false,
-    "visibility_pct": 0.0,
-    "visible_collectors": 0,
-    "total_collectors": 0,
-    "status": "RED",
-    "status_since": "2026-04-30T05:45:28.393878+00:00",
-    "timestamp": "2026-04-30T05:45:28.393878+00:00",
-    "error": "Server error '500 Internal Server Error' for url 'https://stat.ripe.net/data/rou",
-    "ioda_outages": 0,
-    "ioda_confirmed": false
+    "announced": true,
+    "visibility_pct": 1.0,
+    "visible_collectors": 330,
+    "total_collectors": 330,
+    "timestamp": "2026-04-30T05:50:08.595386+00:00",
+    "status": "YELLOW",
+    "status_since": "2026-04-30T05:50:08.595386+00:00"
   },
   "AS150309": {
     "asn": "AS150309",
@@ -1447,5 +1444,5 @@
     "status": "RED",
     "status_since": "2026-04-11T01:10:28.195013+00:00"
   },
-  "lastUpdated": "2026-04-30T05:45:29.073476+00:00"
+  "lastUpdated": "2026-04-30T05:50:08.900220+00:00"
 }
