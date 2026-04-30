@@ -13633,17 +13633,28 @@
     "name": "ERSTCL-AS-AP E R S TECHNOLOGY",
     "status": "DOWN",
     "started_at": "2026-04-30T04:34:16.979898+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-30T05:02:20.716515+00:00",
+    "duration_minutes": 28,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS135149",
     "name": "MTGCL-AS-AP Myanmar Technology Gateway Co., Ltd",
     "status": "DOWN",
     "started_at": "2026-04-30T04:35:49.386962+00:00",
+    "ended_at": "2026-04-30T05:03:21.511238+00:00",
+    "duration_minutes": 27,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": true
+  },
+  {
+    "asn": "AS139849",
+    "name": "ROYALESPRIT-AS-AP Royal Esprit Company Limited",
+    "status": "DOWN",
+    "started_at": "2026-04-30T05:01:19.178152+00:00",
     "ended_at": null,
     "duration_minutes": null,
     "min_visibility_pct": 0.0,
@@ -13651,10 +13662,10 @@
     "resolved": false
   },
   {
-    "asn": "AS58952",
-    "name": "FRONTIIRCOLTD-MM Frontiir Co. Ltd",
+    "asn": "AS136780",
+    "name": "MIHL-AS-AP MYANMAR INFORMATION HIGHWAY LIMITED",
     "status": "DOWN",
-    "started_at": "2026-04-30T05:00:35.427982+00:00",
+    "started_at": "2026-04-30T05:01:19.640008+00:00",
     "ended_at": null,
     "duration_minutes": null,
     "min_visibility_pct": 0.0,
