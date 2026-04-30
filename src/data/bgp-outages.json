@@ -14183,11 +14183,11 @@
     "name": "ASTCL-AS-AP AST SYSTEM TECHNOLOGY COMPANY LIMITED",
     "status": "DOWN",
     "started_at": "2026-04-30T11:32:23.367741+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-30T19:31:34.491506+00:00",
+    "duration_minutes": 479,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS58952",
@@ -14678,21 +14678,21 @@
     "name": "GALAXIANET-AS-AP Galaxia @ Net",
     "status": "DOWN",
     "started_at": "2026-04-30T19:03:01.060234+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-30T19:32:50.744063+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS132038",
     "name": "ROYALESPRIT-MM Royal Esprit Company Limited",
     "status": "DOWN",
     "started_at": "2026-04-30T19:03:34.236673+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-30T19:33:10.026708+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   }
 ]
