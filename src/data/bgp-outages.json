@@ -13578,11 +13578,11 @@
     "name": "HTIN-AS-AP HTIN HTIN NETWORK COMPANY LIMITED",
     "status": "DOWN",
     "started_at": "2026-04-30T03:32:57.480297+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-30T04:04:42.862626+00:00",
+    "duration_minutes": 31,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS58952",
@@ -13596,14 +13596,36 @@
     "resolved": true
   },
   {
-    "asn": "AS58952",
-    "name": "FRONTIIRCOLTD-MM Frontiir Co. Ltd",
+    "asn": "AS149660",
+    "name": "HSCL-AS-AP Horizon Sources Company Limited",
     "status": "DOWN",
-    "started_at": "2026-04-30T04:00:36.668772+00:00",
-    "ended_at": "2026-04-30T04:05:05.086550+00:00",
-    "duration_minutes": 4,
+    "started_at": "2026-04-30T04:02:33.038868+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": true
+    "resolved": false
+  },
+  {
+    "asn": "AS134840",
+    "name": "MCCL-AS-AP Myanmar Country Co., Ltd.",
+    "status": "DOWN",
+    "started_at": "2026-04-30T04:02:49.907529+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
+  },
+  {
+    "asn": "AS133385",
+    "name": "ATOMMYANMAR-AS-AP Atom Myanmar Limited",
+    "status": "DOWN",
+    "started_at": "2026-04-30T04:03:41.895495+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
   }
 ]
