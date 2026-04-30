@@ -13666,6 +13666,17 @@
     "name": "MIHL-AS-AP MYANMAR INFORMATION HIGHWAY LIMITED",
     "status": "DOWN",
     "started_at": "2026-04-30T05:01:19.640008+00:00",
+    "ended_at": "2026-04-30T05:31:38.854000+00:00",
+    "duration_minutes": 30,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": true
+  },
+  {
+    "asn": "AS150692",
+    "name": "GD2CL-AS-AP Golden Dragon 2000",
+    "status": "DOWN",
+    "started_at": "2026-04-30T05:32:19.842805+00:00",
     "ended_at": null,
     "duration_minutes": null,
     "min_visibility_pct": 0.0,
@@ -13673,10 +13684,21 @@
     "resolved": false
   },
   {
-    "asn": "AS132167",
-    "name": "U9-MM Nine Communications Company Limited",
+    "asn": "AS140552",
+    "name": "CBBANK-AS-AP Co-operative Bank Public Company Limited",
     "status": "DOWN",
-    "started_at": "2026-04-30T05:30:22.197177+00:00",
+    "started_at": "2026-04-30T05:33:13.739474+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
+  },
+  {
+    "asn": "AS136474",
+    "name": "MGTL-AS-AP Marga Global Telecom Limited",
+    "status": "DOWN",
+    "started_at": "2026-04-30T05:33:36.004753+00:00",
     "ended_at": null,
     "duration_minutes": null,
     "min_visibility_pct": 0.0,
