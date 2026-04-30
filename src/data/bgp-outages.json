@@ -13820,110 +13820,110 @@
     "name": "NCL-AS-AP NEXGENET COMPANY LIMITED",
     "status": "DOWN",
     "started_at": "2026-04-30T08:02:41.434843+00:00",
-    "ended_at": "2026-04-30T08:33:15.491919+00:00",
-    "duration_minutes": 30,
+    "ended_at": null,
+    "duration_minutes": null,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": true
+    "resolved": false
   },
   {
     "asn": "AS153790",
     "name": "AMCL-AS-AP ADS Myanmar Company Limited",
     "status": "DOWN",
     "started_at": "2026-04-30T08:02:59.379255+00:00",
-    "ended_at": "2026-04-30T08:33:18.089969+00:00",
-    "duration_minutes": 30,
+    "ended_at": null,
+    "duration_minutes": null,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": true
+    "resolved": false
   },
   {
     "asn": "AS133440",
     "name": "STIGW-AS-AP ST.Net",
     "status": "DOWN",
     "started_at": "2026-04-30T08:04:10.310402+00:00",
-    "ended_at": "2026-04-30T08:34:07.755094+00:00",
-    "duration_minutes": 29,
+    "ended_at": null,
+    "duration_minutes": null,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": true
+    "resolved": false
   },
   {
     "asn": "AS141704",
     "name": "GALAXIANET-AS-AP Galaxia @ Net",
     "status": "DOWN",
     "started_at": "2026-04-30T08:04:47.577662+00:00",
-    "ended_at": "2026-04-30T08:34:16.821458+00:00",
-    "duration_minutes": 29,
+    "ended_at": null,
+    "duration_minutes": null,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": true
+    "resolved": false
   },
   {
     "asn": "AS151965",
     "name": "HATG-AS-AP Hepta Alliance Technology Group",
     "status": "DOWN",
     "started_at": "2026-04-30T08:04:52.344037+00:00",
-    "ended_at": "2026-04-30T08:34:32.712356+00:00",
-    "duration_minutes": 29,
+    "ended_at": null,
+    "duration_minutes": null,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": true
+    "resolved": false
   },
   {
     "asn": "AS141216",
     "name": "GREATGOLDENHORSE-AS-AP GREAT GOLDEN HORSE COMPANY LIMITED",
     "status": "DOWN",
     "started_at": "2026-04-30T08:05:07.662719+00:00",
-    "ended_at": "2026-04-30T08:34:34.359164+00:00",
-    "duration_minutes": 29,
+    "ended_at": null,
+    "duration_minutes": null,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": true
+    "resolved": false
   },
   {
     "asn": "AS139206",
     "name": "PAMEL-AS-AP Pan Asia Majestic Eagle Ltd",
     "status": "DOWN",
     "started_at": "2026-04-30T08:05:49.346585+00:00",
-    "ended_at": "2026-04-30T08:34:52.283888+00:00",
-    "duration_minutes": 29,
+    "ended_at": null,
+    "duration_minutes": null,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": true
+    "resolved": false
   },
   {
     "asn": "AS136168",
     "name": "CAMPANA-AS-AP Campana MYTHIC Co. Ltd.",
     "status": "DOWN",
     "started_at": "2026-04-30T08:06:34.375924+00:00",
-    "ended_at": "2026-04-30T08:34:58.994936+00:00",
-    "duration_minutes": 28,
+    "ended_at": null,
+    "duration_minutes": null,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": true
+    "resolved": false
   },
   {
     "asn": "AS135149",
     "name": "MTGCL-AS-AP Myanmar Technology Gateway Co., Ltd",
     "status": "DOWN",
     "started_at": "2026-04-30T08:06:49.757964+00:00",
-    "ended_at": "2026-04-30T08:34:59.692113+00:00",
-    "duration_minutes": 28,
+    "ended_at": null,
+    "duration_minutes": null,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": true
+    "resolved": false
   },
   {
     "asn": "AS45558",
     "name": "MPT-MM-AS-AP MYANMA POSTS AND TELECOMMUNICATIONS",
     "status": "DOWN",
     "started_at": "2026-04-30T08:07:06.557186+00:00",
-    "ended_at": "2026-04-30T08:35:02.078079+00:00",
-    "duration_minutes": 27,
+    "ended_at": null,
+    "duration_minutes": null,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": true
+    "resolved": false
   },
   {
     "asn": "AS58952",
@@ -13935,27 +13935,5 @@
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
     "resolved": true
-  },
-  {
-    "asn": "AS135307",
-    "name": "GTMH-AS-AP Golden TMH Telecom Co. Ltd",
-    "status": "DOWN",
-    "started_at": "2026-04-30T08:32:58.332161+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
-    "min_visibility_pct": 0.0,
-    "ioda_confirmed": false,
-    "resolved": false
-  },
-  {
-    "asn": "AS141199",
-    "name": "CLPC-AS-AP Century Link Plus",
-    "status": "DOWN",
-    "started_at": "2026-04-30T08:34:23.059211+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
-    "min_visibility_pct": 0.0,
-    "ioda_confirmed": false,
-    "resolved": false
   }
 ]
