@@ -13512,11 +13512,11 @@
     "name": "GNE-AS-MM GNE Company Limited",
     "status": "DOWN",
     "started_at": "2026-04-30T03:01:53.101061+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-30T03:31:25.350932+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS58952",
@@ -13534,11 +13534,11 @@
     "name": "BCM-AS-AP Bee Connect Myanmar Co., Ltd.",
     "status": "DOWN",
     "started_at": "2026-04-30T03:03:09.008485+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-30T03:31:49.771967+00:00",
+    "duration_minutes": 28,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS9988",
@@ -13556,11 +13556,11 @@
     "name": "TLINKGROUP-AS-AP T-Link Group Company Limited",
     "status": "DOWN",
     "started_at": "2026-04-30T03:05:25.623610+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-30T03:33:05.863233+00:00",
+    "duration_minutes": 27,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS58952",
@@ -13574,10 +13574,10 @@
     "resolved": true
   },
   {
-    "asn": "AS58952",
-    "name": "FRONTIIRCOLTD-MM Frontiir Co. Ltd",
+    "asn": "AS139595",
+    "name": "HTIN-AS-AP HTIN HTIN NETWORK COMPANY LIMITED",
     "status": "DOWN",
-    "started_at": "2026-04-30T03:30:28.469147+00:00",
+    "started_at": "2026-04-30T03:32:57.480297+00:00",
     "ended_at": null,
     "duration_minutes": null,
     "min_visibility_pct": 0.0,
