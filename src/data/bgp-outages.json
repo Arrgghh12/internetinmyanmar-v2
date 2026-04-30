@@ -13952,11 +13952,11 @@
     "name": "GTCL-AS-AP Global Technology Co., Ltd.",
     "status": "DOWN",
     "started_at": "2026-04-30T09:03:51.114769+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-30T09:35:27.977702+00:00",
+    "duration_minutes": 31,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS58952",
@@ -13968,5 +13968,60 @@
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
     "resolved": true
+  },
+  {
+    "asn": "AS139849",
+    "name": "ROYALESPRIT-AS-AP Royal Esprit Company Limited",
+    "status": "DOWN",
+    "started_at": "2026-04-30T09:32:28.450507+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
+  },
+  {
+    "asn": "AS136780",
+    "name": "MIHL-AS-AP MYANMAR INFORMATION HIGHWAY LIMITED",
+    "status": "DOWN",
+    "started_at": "2026-04-30T09:32:32.903742+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
+  },
+  {
+    "asn": "AS150721",
+    "name": "ANCL-AS-AP ARAKHA NET",
+    "status": "DOWN",
+    "started_at": "2026-04-30T09:33:11.515888+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
+  },
+  {
+    "asn": "AS132344",
+    "name": "STMCL-AS-AP SEANET",
+    "status": "DOWN",
+    "started_at": "2026-04-30T09:33:38.913165+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
+  },
+  {
+    "asn": "AS150297",
+    "name": "GMBECL-AS-AP Golden Myanmar Business Exchange Co. Ltd",
+    "status": "DOWN",
+    "started_at": "2026-04-30T09:34:38.948456+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
   }
 ]
