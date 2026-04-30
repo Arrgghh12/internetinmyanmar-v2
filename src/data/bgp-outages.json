@@ -14590,10 +14590,10 @@
     "name": "MPT-AP Myanma Posts and Telecommunications",
     "status": "DOWN",
     "started_at": "2026-04-30T15:55:29.567023+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-04-30T16:00:10.570051+00:00",
+    "duration_minutes": 4,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   }
 ]
