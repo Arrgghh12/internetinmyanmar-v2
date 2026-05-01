@@ -14821,10 +14821,10 @@
     "name": "AWSCL-AS-AP A W S MYANMAR COMPANY LIMITED",
     "status": "DOWN",
     "started_at": "2026-05-01T00:31:30.365095+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-05-01T01:01:40.924617+00:00",
+    "duration_minutes": 30,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   }
 ]
