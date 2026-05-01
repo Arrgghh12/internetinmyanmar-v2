@@ -27,25 +27,6 @@ const {
   noindex = false,
 } = Astro.props
 
-// Build language switcher URLs from the current pathname
-const currentPath = Astro.url.pathname
-const LOCALES = ['en', 'fr', 'es', 'it'] as const
-const LOCALE_LABELS: Record<string, string> = { en: 'EN', fr: 'FR', es: 'ES', it: 'IT' }
-
-function getLocalePath(targetLang: string): string {
-  // Strip current locale prefix if present (/fr/..., /es/..., /it/..., /my/...)
-  const prefixedLocales = ['fr', 'es', 'it', 'my']
-  let pathWithoutLocale = currentPath
-  for (const loc of prefixedLocales) {
-    if (currentPath === `/${loc}` || currentPath.startsWith(`/${loc}/`)) {
-      pathWithoutLocale = currentPath.slice(loc.length + 1) || '/'
-      break
-    }
-  }
-  if (!pathWithoutLocale.startsWith('/')) pathWithoutLocale = '/' + pathWithoutLocale
-  return targetLang === 'en' ? pathWithoutLocale : `/${targetLang}${pathWithoutLocale}`
-}
-
 const nav = [
   { label: 'Censorship', href: '/censorship/' },
   {
@@ -94,11 +75,6 @@ const nav = [
     {lang === 'my' && (
       <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Padauk:wght@400;700&family=Noto+Sans+Myanmar:wght@400;500;700&display=swap" />
     )}
-    <!-- hreflang -->
-    {LOCALES.map((loc) => (
-      <link rel="alternate" hreflang={loc} href={new URL(getLocalePath(loc), Astro.site).href} />
-    ))}
-    <link rel="alternate" hreflang="x-default" href={new URL(getLocalePath('en'), Astro.site).href} />
     <SEO
       title={seoTitle}
       description={metaDescription}
@@ -140,21 +116,7 @@ const nav = [
           <span>|</span>
           <a href="/about/mission/#contact" class="hover:opacity-100">Contact</a>
         </div>
-        <div class="flex gap-2 font-mono">
-          {LOCALES.map((loc) => (
-            <a
-              href={getLocalePath(loc)}
-              class:list={[
-                'hover:text-[color:var(--color-accent)] transition-colors',
-                lang === loc
-                  ? 'text-[color:var(--color-accent)]'
-                  : 'opacity-50 hover:opacity-100',
-              ]}
-            >
-              {LOCALE_LABELS[loc]}
-            </a>
-          ))}
-        </div>
+        <div></div>
       </div>
     </div>
 

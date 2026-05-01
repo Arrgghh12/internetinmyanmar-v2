@@ -13,27 +13,9 @@ export default defineConfig({
   output: 'static',
   adapter: cloudflare(),
 
-  i18n: {
-    defaultLocale: 'en',
-    locales: ['en', 'fr', 'es', 'it'],
-    routing: {
-      prefixDefaultLocale: false,
-    },
-  },
-
   integrations: [
     mdx(),
-    sitemap({
-      i18n: {
-        defaultLocale: 'en',
-        locales: {
-          en: 'en-US',
-          fr: 'fr-FR',
-          es: 'es-ES',
-          it: 'it-IT',
-        },
-      },
-    }),
+    sitemap(),
     robotsTxt(),
     keystatic(),
   ],
