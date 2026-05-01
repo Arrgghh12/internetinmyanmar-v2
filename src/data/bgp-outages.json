@@ -16504,10 +16504,10 @@
     "name": "WCCCOMPANYLIMITED-AS-AP Goal Link ISP",
     "status": "DOWN",
     "started_at": "2026-05-01T16:31:16.075240+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-05-01T17:01:11.739732+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   }
 ]
