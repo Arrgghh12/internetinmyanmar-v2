@@ -14793,5 +14793,27 @@
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
     "resolved": true
+  },
+  {
+    "asn": "AS151341",
+    "name": "THENEXTSUCCESS-AS-AP The Next Success",
+    "status": "DOWN",
+    "started_at": "2026-05-01T00:02:37.092862+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
+  },
+  {
+    "asn": "AS149810",
+    "name": "ACL-AS-AP AnyNet",
+    "status": "DOWN",
+    "started_at": "2026-05-01T00:02:39.410114+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
   }
 ]
