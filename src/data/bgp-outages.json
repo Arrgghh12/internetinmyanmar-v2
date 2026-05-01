@@ -16542,5 +16542,16 @@
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
     "resolved": true
+  },
+  {
+    "asn": "AS132537",
+    "name": "MLGCL-AS-AP LG",
+    "status": "DOWN",
+    "started_at": "2026-05-01T19:33:25.352646+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
   }
 ]
