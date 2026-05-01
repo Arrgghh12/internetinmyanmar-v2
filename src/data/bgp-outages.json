@@ -15008,21 +15008,21 @@
     "name": "TCLC-AS-AP Treasure Chindwin Land Co.,Ltd",
     "status": "DOWN",
     "started_at": "2026-05-01T07:31:14.435948+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-05-01T08:01:08.671552+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS141015",
     "name": "MYANMARLINK-AS-AP Myanmar Link Telecommunication Ltd",
     "status": "DOWN",
     "started_at": "2026-05-01T07:32:15.826633+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-05-01T08:01:38.287554+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   }
 ]
