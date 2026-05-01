@@ -9,6 +9,7 @@ import cloudflare from '@astrojs/cloudflare'
 
 export default defineConfig({
   site: 'https://www.internetinmyanmar.com',
+  trailingSlash: 'always',
   output: 'static',
   adapter: cloudflare(),
 

@@ -17,6 +17,7 @@ const { Content } = await article.render()
 const d = article.data
 ---
 <Article
+  noindex={true}
   title={d.title}
   seoTitle={d.seoTitle}
   metaDescription={d.metaDescription}

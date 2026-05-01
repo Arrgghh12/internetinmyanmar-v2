@@ -11,16 +11,20 @@ interface Props {
   ogImage?: string
   ogType?: string
   lang?: string
+  noindex?: boolean
 }
 
 const {
   title,
   seoTitle,
   metaDescription,
-  canonicalUrl = Astro.url.href,
+  canonicalUrl = Astro.url.pathname.endsWith('/')
+    ? Astro.url.href
+    : Astro.url.href.replace(Astro.url.pathname, Astro.url.pathname + '/'),
   ogImage = '/og-default.png',
   ogType = 'website',
   lang = 'en',
+  noindex = false,
 } = Astro.props
 
 // Build language switcher URLs from the current pathname
@@ -99,6 +103,8 @@ const nav = [
       title={seoTitle}
       description={metaDescription}
       canonical={canonicalUrl}
+      noindex={noindex}
+      nofollow={noindex}
       openGraph={{
         basic: {
           title: seoTitle,
