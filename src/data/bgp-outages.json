@@ -15035,5 +15035,16 @@
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
     "resolved": true
+  },
+  {
+    "asn": "AS136789",
+    "name": "LOTUS-AS-AP LOTUS MUDRA COMPANY LIMITED",
+    "status": "DOWN",
+    "started_at": "2026-05-01T11:01:24.045714+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
   }
 ]
