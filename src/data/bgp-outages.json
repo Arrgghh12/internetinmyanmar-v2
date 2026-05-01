@@ -15107,10 +15107,10 @@
     "name": "MLGCL-AS-AP LG",
     "status": "DOWN",
     "started_at": "2026-05-01T13:03:07.642545+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-05-01T13:33:41.663418+00:00",
+    "duration_minutes": 30,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   }
 ]
