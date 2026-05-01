@@ -16493,6 +16493,17 @@
     "name": "LINKFAST-AS-AP Link Fast Company Limited",
     "status": "DOWN",
     "started_at": "2026-05-01T16:02:20.748288+00:00",
+    "ended_at": "2026-05-01T16:32:04.791833+00:00",
+    "duration_minutes": 29,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": true
+  },
+  {
+    "asn": "AS152634",
+    "name": "WCCCOMPANYLIMITED-AS-AP Goal Link ISP",
+    "status": "DOWN",
+    "started_at": "2026-05-01T16:31:16.075240+00:00",
     "ended_at": null,
     "duration_minutes": null,
     "min_visibility_pct": 0.0,
