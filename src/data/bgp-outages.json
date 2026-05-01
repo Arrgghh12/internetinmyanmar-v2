@@ -15096,6 +15096,17 @@
     "name": "AKNCL-AS-AP Aon Kham Network Company Limited",
     "status": "DOWN",
     "started_at": "2026-05-01T12:32:09.279025+00:00",
+    "ended_at": "2026-05-01T13:02:11.548497+00:00",
+    "duration_minutes": 30,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": true
+  },
+  {
+    "asn": "AS132537",
+    "name": "MLGCL-AS-AP LG",
+    "status": "DOWN",
+    "started_at": "2026-05-01T13:03:07.642545+00:00",
     "ended_at": null,
     "duration_minutes": null,
     "min_visibility_pct": 0.0,
