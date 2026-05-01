@@ -16559,10 +16559,10 @@
     "name": "LOTUS-AS-AP LOTUS MUDRA COMPANY LIMITED",
     "status": "DOWN",
     "started_at": "2026-05-01T21:01:39.663960+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-05-01T21:31:25.728598+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   }
 ]
