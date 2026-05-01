@@ -259,6 +259,19 @@ Always filter non-dict values when reading `asn-status.json` — the file may co
 entries = data if isinstance(data, list) else [v for v in data.values() if isinstance(v, dict)]
 ```
 
+### VPS Python / pip
+The venv does NOT expose `pip3` or `pip` as standalone commands. Always use:
+```bash
+/root/agents/venv/bin/python3 -m pip install <package>
+/root/agents/venv/bin/python3 /path/to/script.py
+```
+
+### MailerLite API Integration
+- **v3 Connect API** (`connect.mailerlite.com/api`) is broken for campaign creation — PHP `is_array()` validation bug rejects JSON objects for `emails` field. Do not use for campaign creation.
+- **v2 legacy API** (`api.mailerlite.com/api/v2`) works for campaign creation. Auth: `X-MailerLite-ApiKey: <key>` header. But group linking in creation payload is unreliable — verify `total_recipients > 0` after creation.
+- Once a campaign moves out of "draft" status in v2, it cannot be modified or deleted via API.
+- Park MailerLite until the subscriber list is built — revisit when there are active subscribers.
+
 ### Cloudflare Workers — No Node.js built-ins
 SSR Astro pages (`prerender = false`) run in Cloudflare Workers at runtime. Workers have **no `fs`, `path`, or other Node.js built-ins** unless `nodejs_compat` is enabled in the adapter config (it is NOT currently enabled). A try/catch does NOT protect against this — the `import` itself causes module init failure → hard 500 before any JS runs.
 
