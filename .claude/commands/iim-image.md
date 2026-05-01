@@ -9,7 +9,7 @@ receive image (URL or local path) → SEO rename → upload to Cloudflare R2 →
 /iim-image <source> <article-slug> [descriptor] [n]
 ```
 
-- `<source>`: URL (`https://...`) or absolute local path (`/home/...` or `~/...`)
+- `<source>`: URL (`https://...`), absolute local path (`/home/...` or `~/...`), or `chart:<canvas-id>@<page-url>` to screenshot a chart from a live page
 - `<article-slug>`: slug of the target article (e.g. `myanmar-election-internet-censorship-2025-2026`)
 - `[descriptor]`: optional 1–3 word description for the filename (e.g. `ooni-chart`, `cf-radar-traffic`). If omitted, derive from context.
 - `[n]`: optional sequential index (default 1)
@@ -36,7 +36,7 @@ Rules:
 - Detect extension from the source (URL path or local file extension). Default to `.jpg` if ambiguous.
 - Example: `myanmar-election-ooni-chart-1.jpg`, `myanmar-election-cf-radar-2.png`
 
-### Step 3 — Download or copy the image
+### Step 3 — Download, copy, or screenshot the image
 
 If source is a URL:
 ```bash
@@ -46,6 +46,24 @@ If source is a local path:
 ```bash
 cp "${SOURCE_PATH}" "/tmp/${SEO_FILENAME}"
 ```
+If source is `chart:<canvas-id>@<page-url>` — screenshot the chart canvas using Playwright, then resize to 1200×630 with dark background padding using sharp:
+```python
+from playwright.sync_api import sync_playwright
+with sync_playwright() as p:
+    browser = p.chromium.launch()
+    page = browser.new_page(viewport={"width": 1200, "height": 900})
+    page.goto(PAGE_URL, wait_until="networkidle")
+    page.wait_for_timeout(3000)  # allow Chart.js to render
+    el = page.query_selector(f"#{CANVAS_ID}")
+    el.screenshot(path="/tmp/chart-raw.png")
+    browser.close()
+```
+Then pad to 1200×630 using sharp (node_modules/sharp in the project root):
+```js
+const sharp = require('/home/mathieu/dev/iimv2/node_modules/sharp');
+// scale to fit, center on #0A1628 background → save as PNG
+```
+Extension is always `.png` for chart screenshots.
 
 Detect MIME type:
 ```bash
