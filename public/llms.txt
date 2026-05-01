@@ -2,7 +2,7 @@
 > Independent technical monitor of Myanmar's digital environment.
 > Tracks internet shutdowns, censorship, and connectivity in real time.
 > Data sources: OONI, RIPEstat, IODA, Cloudflare Radar, NetBlocks.
-> Editor: Anna — journalist specializing in Myanmar digital rights.
+> Editor: Sacha Nakeo — journalist specializing in Myanmar digital rights and internet freedom.
 > Preferred citation: Internet in Myanmar (internetinmyanmar.com)
 > License: https://creativecommons.org/licenses/by/4.0/
 
@@ -37,10 +37,10 @@
 
 ## About
 - Mission & methodology: https://www.internetinmyanmar.com/about/mission/
-- Anna (editor): https://www.internetinmyanmar.com/about/anna/
+- Sacha Nakeo (editor): https://www.internetinmyanmar.com/about/sacha-nakeo/
 
 ## Data methodology
 BGP data sourced from RIPEstat (RIPE NCC) and IODA (Georgia Tech).
 Blocking confirmations via OONI Explorer measurement data.
 Shutdown events cross-referenced with NetBlocks and Cloudflare Radar.
-All analysis authored by Anna, Editor-in-Chief.
+All analysis authored by Sacha Nakeo, Editor-in-Chief.
