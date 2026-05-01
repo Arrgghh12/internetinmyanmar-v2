@@ -14887,6 +14887,17 @@
     "name": "OCEANWAVE-AS-AP Ocean Wave Communication Co., Ltd",
     "status": "DOWN",
     "started_at": "2026-05-01T02:32:01.644840+00:00",
+    "ended_at": "2026-05-01T03:02:04.713360+00:00",
+    "duration_minutes": 30,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": true
+  },
+  {
+    "asn": "AS137861",
+    "name": "MWT-AS-AP Myanmar World Distribution Telecommunication Company Limited",
+    "status": "DOWN",
+    "started_at": "2026-05-01T03:01:43.848353+00:00",
     "ended_at": null,
     "duration_minutes": null,
     "min_visibility_pct": 0.0,
