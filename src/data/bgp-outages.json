@@ -14975,6 +14975,28 @@
     "name": "OCEANWAVE-AS-AP Ocean Wave Communication Co., Ltd",
     "status": "DOWN",
     "started_at": "2026-05-01T06:01:50.413709+00:00",
+    "ended_at": "2026-05-01T06:31:46.754001+00:00",
+    "duration_minutes": 29,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": true
+  },
+  {
+    "asn": "AS135111",
+    "name": "AML-AS-AP Asia Mega Link",
+    "status": "DOWN",
+    "started_at": "2026-05-01T06:33:21.131207+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
+  },
+  {
+    "asn": "AS136168",
+    "name": "CAMPANA-AS-AP Campana MYTHIC Co. Ltd.",
+    "status": "DOWN",
+    "started_at": "2026-05-01T06:33:42.386993+00:00",
     "ended_at": null,
     "duration_minutes": null,
     "min_visibility_pct": 0.0,
