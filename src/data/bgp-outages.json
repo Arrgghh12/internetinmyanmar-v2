@@ -15052,32 +15052,32 @@
     "name": "CBBANK-AS-AP Co-operative Bank Public Company Limited",
     "status": "DOWN",
     "started_at": "2026-05-01T11:32:14.573839+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-05-01T12:02:11.593025+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS139051",
     "name": "AUNGGABAR-AS-AP AUNG GABAR COMPANY LIMITED",
     "status": "DOWN",
     "started_at": "2026-05-01T11:32:39.590418+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-05-01T12:02:23.336960+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS149855",
     "name": "AS-AGBC AGB Communication Co., Ltd",
     "status": "DOWN",
     "started_at": "2026-05-01T11:33:04.975303+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-05-01T12:02:33.173542+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   }
 ]
