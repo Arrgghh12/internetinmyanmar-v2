@@ -213,10 +213,18 @@ Morning  Sacha Nakeo replies with numbers (e.g. "1 3") → bot publishes to GitH
 The VPS pushes data commits continuously (BGP every 5-30 min, OONI 2×/day).
 The dev machine also pushes code commits. Both write to the same `main` branch.
 
-**Before any push from dev machine:**
+**Correct push sequence from dev machine — ALWAYS follow this order:**
 ```bash
+# 1. Stage and commit your changes FIRST
+git add <files>
+git commit -m "..."
+
+# 2. THEN pull and push
 git pull --rebase origin main && git push origin main
 ```
+
+**NEVER run `git pull --rebase` with unstaged changes present.** It will fail with exit 128.
+`git stash` before pull is a fallback but wastes time — just commit first.
 
 **When making hotfixes directly on VPS via SSH:**
 - Immediately sync back to local: copy the file, commit locally, push
