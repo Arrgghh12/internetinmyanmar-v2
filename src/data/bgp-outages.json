@@ -15030,10 +15030,10 @@
     "name": "YTCL-AS-AP Yatanarpon Teleport Company Limited",
     "status": "DOWN",
     "started_at": "2026-05-01T08:31:56.495988+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-05-01T09:01:53.753074+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   }
 ]
