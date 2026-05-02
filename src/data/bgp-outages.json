@@ -16680,11 +16680,11 @@
     "name": "GREATGOLDENHORSE-AS-AP GREAT GOLDEN HORSE COMPANY LIMITED",
     "status": "DOWN",
     "started_at": "2026-05-02T08:32:31.972345+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-05-02T09:02:27.169937+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS58952",
@@ -16696,5 +16696,27 @@
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
     "resolved": true
+  },
+  {
+    "asn": "AS137891",
+    "name": "BETHEFIRST-AS-AP Be The First",
+    "status": "DOWN",
+    "started_at": "2026-05-02T09:01:37.061048+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
+  },
+  {
+    "asn": "AS151210",
+    "name": "NCL-AS-AP NEXGENET COMPANY LIMITED",
+    "status": "DOWN",
+    "started_at": "2026-05-02T09:01:38.221975+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
   }
 ]
