@@ -16779,10 +16779,10 @@
     "name": "FTCL-AS-AP Fortune Telecom Company Limited",
     "status": "DOWN",
     "started_at": "2026-05-02T13:02:52.607474+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-05-02T13:32:28.411584+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   }
 ]
