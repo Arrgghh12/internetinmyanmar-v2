@@ -16592,6 +16592,17 @@
     "name": "GTMH-AS-AP Golden TMH Telecom Co. Ltd",
     "status": "DOWN",
     "started_at": "2026-05-02T00:31:30.999285+00:00",
+    "ended_at": "2026-05-02T01:01:21.352932+00:00",
+    "duration_minutes": 29,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": true
+  },
+  {
+    "asn": "AS134484",
+    "name": "VDCNET-AS-AP Ultra Net",
+    "status": "DOWN",
+    "started_at": "2026-05-02T01:02:15.556981+00:00",
     "ended_at": null,
     "duration_minutes": null,
     "min_visibility_pct": 0.0,
