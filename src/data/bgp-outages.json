@@ -16570,21 +16570,21 @@
     "name": "ILINK-AS-AP i-Link",
     "status": "DOWN",
     "started_at": "2026-05-01T23:31:12.009977+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-05-02T00:01:19.212719+00:00",
+    "duration_minutes": 30,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS132686",
     "name": "ACS-AS-AP Amara Communications",
     "status": "DOWN",
     "started_at": "2026-05-01T23:31:25.576079+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-05-02T00:01:27.982475+00:00",
+    "duration_minutes": 30,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   }
 ]
