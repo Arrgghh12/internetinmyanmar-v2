@@ -16702,21 +16702,21 @@
     "name": "BETHEFIRST-AS-AP Be The First",
     "status": "DOWN",
     "started_at": "2026-05-02T09:01:37.061048+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-05-02T09:31:31.392145+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS151210",
     "name": "NCL-AS-AP NEXGENET COMPANY LIMITED",
     "status": "DOWN",
     "started_at": "2026-05-02T09:01:38.221975+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-05-02T09:31:33.112077+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   }
 ]
