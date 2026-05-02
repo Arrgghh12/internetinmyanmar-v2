@@ -16889,32 +16889,32 @@
     "name": "LMHCC-AS-AP Long Mao Home Center Co.ltd.",
     "status": "DOWN",
     "started_at": "2026-05-02T19:32:08.790519+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-05-02T20:01:55.966245+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS150797",
     "name": "GCL-AS-AP GIGA-NET",
     "status": "DOWN",
     "started_at": "2026-05-02T19:32:09.267085+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-05-02T20:01:56.757310+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS139719",
     "name": "YARCHANG-AS-AP Yar Chang Company Limited",
     "status": "DOWN",
     "started_at": "2026-05-02T19:33:19.813765+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-05-02T20:02:42.244394+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   }
 ]
