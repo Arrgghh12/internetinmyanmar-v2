@@ -1,17 +1,17 @@
 {
-  "generated_at": "2026-05-01T12:15:01Z",
-  "dataset_version": "v202605011210",
+  "generated_at": "2026-05-02T00:15:02Z",
+  "dataset_version": "v202605020010",
   "processing_log": {
-    "bgp_outages_loaded": 1370,
+    "bgp_outages_loaded": 1507,
     "keepiton_events_loaded": 95,
-    "unified_events_total": 1465,
-    "bgp_events_in_unified": 1370,
+    "unified_events_total": 1602,
+    "bgp_events_in_unified": 1507,
     "kit_events_in_unified": 95,
     "warnings": []
   },
   "events": [
     {
-      "event_id": "kit-1371",
+      "event_id": "kit-1508",
       "event_time": "2021-08-20T00:00:00Z",
       "event_end": "2026-05-01T23:59:59Z",
       "duration_minutes": 2469600,
@@ -38,11 +38,11 @@
         "kit_type": "full_network",
         "ongoing": true,
         "duration_days": 1715,
-        "concurrent_bgp": 1370
+        "concurrent_bgp": 1507
       }
     },
     {
-      "event_id": "kit-1372",
+      "event_id": "kit-1509",
       "event_time": "2021-09-14T00:00:00Z",
       "event_end": "2026-05-01T23:59:59Z",
       "duration_minutes": 2433600,
@@ -69,11 +69,11 @@
         "kit_type": "full_network",
         "ongoing": true,
         "duration_days": 1690,
-        "concurrent_bgp": 1370
+        "concurrent_bgp": 1507
       }
     },
     {
-      "event_id": "kit-1373",
+      "event_id": "kit-1510",
       "event_time": "2021-09-23T00:00:00Z",
       "event_end": "2026-05-01T23:59:59Z",
       "duration_minutes": 2420640,
@@ -100,11 +100,11 @@
         "kit_type": "full_network",
         "ongoing": true,
         "duration_days": 1681,
-        "concurrent_bgp": 1370
+        "concurrent_bgp": 1507
       }
     },
     {
-      "event_id": "kit-1374",
+      "event_id": "kit-1511",
       "event_time": "2021-09-26T00:00:00Z",
       "event_end": "2026-05-01T23:59:59Z",
       "duration_minutes": 2416320,
@@ -130,11 +130,11 @@
         "kit_type": "full_network",
         "ongoing": true,
         "duration_days": 1678,
-        "concurrent_bgp": 1370
+        "concurrent_bgp": 1507
       }
     },
     {
-      "event_id": "kit-1375",
+      "event_id": "kit-1512",
       "event_time": "2022-01-06T00:00:00Z",
       "event_end": "2026-05-01T23:59:59Z",
       "duration_minutes": 2269440,
@@ -160,11 +160,11 @@
         "kit_type": "full_network",
         "ongoing": true,
         "duration_days": 1576,
-        "concurrent_bgp": 1370
+        "concurrent_bgp": 1507
       }
     },
     {
-      "event_id": "kit-1376",
+      "event_id": "kit-1513",
       "event_time": "2022-05-24T00:00:00Z",
       "event_end": "2026-05-01T23:59:59Z",
       "duration_minutes": 2070720,
@@ -190,11 +190,11 @@
         "kit_type": "full_network",
         "ongoing": true,
         "duration_days": 1438,
-        "concurrent_bgp": 1370
+        "concurrent_bgp": 1507
       }
     },
     {
-      "event_id": "kit-1377",
+      "event_id": "kit-1514",
       "event_time": "2024-02-16T00:00:00Z",
       "event_end": "2026-05-01T23:59:59Z",
       "duration_minutes": 1159200,
@@ -224,11 +224,11 @@
         "kit_type": "mobile",
         "ongoing": true,
         "duration_days": 805,
-        "concurrent_bgp": 1370
+        "concurrent_bgp": 1507
       }
     },
     {
-      "event_id": "kit-1378",
+      "event_id": "kit-1515",
       "event_time": "2024-04-06T00:00:00Z",
       "event_end": "2026-05-01T23:59:59Z",
       "duration_minutes": 1087200,
@@ -254,11 +254,11 @@
         "kit_type": "full_network",
         "ongoing": true,
         "duration_days": 755,
-        "concurrent_bgp": 1370
+        "concurrent_bgp": 1507
       }
     },
     {
-      "event_id": "kit-1379",
+      "event_id": "kit-1516",
       "event_time": "2024-07-14T00:00:00Z",
       "event_end": "2026-05-01T23:59:59Z",
       "duration_minutes": 944640,
@@ -285,11 +285,11 @@
         "kit_type": "mobile",
         "ongoing": true,
         "duration_days": 656,
-        "concurrent_bgp": 1370
+        "concurrent_bgp": 1507
       }
     },
     {
-      "event_id": "kit-1380",
+      "event_id": "kit-1517",
       "event_time": "2024-07-21T00:00:00Z",
       "event_end": "2026-05-01T23:59:59Z",
       "duration_minutes": 934560,
@@ -316,11 +316,11 @@
         "kit_type": "full_network",
         "ongoing": true,
         "duration_days": 649,
-        "concurrent_bgp": 1370
+        "concurrent_bgp": 1507
       }
     },
     {
-      "event_id": "kit-1381",
+      "event_id": "kit-1518",
       "event_time": "2024-11-16T00:00:00Z",
       "event_end": "2026-05-01T23:59:59Z",
       "duration_minutes": 764640,
@@ -346,11 +346,11 @@
         "kit_type": "full_network",
         "ongoing": true,
         "duration_days": 531,
-        "concurrent_bgp": 1370
+        "concurrent_bgp": 1507
       }
     },
     {
-      "event_id": "kit-1382",
+      "event_id": "kit-1519",
       "event_time": "2024-12-20T00:00:00Z",
       "event_end": "2025-01-02T23:59:59Z",
       "duration_minutes": 18720,
@@ -380,7 +380,7 @@
       }
     },
     {
-      "event_id": "kit-1383",
+      "event_id": "kit-1520",
       "event_time": "2025-01-01T00:00:00Z",
       "event_end": "2026-05-01T23:59:59Z",
       "duration_minutes": 698400,
@@ -406,11 +406,11 @@
         "kit_type": "full_network",
         "ongoing": true,
         "duration_days": 485,
-        "concurrent_bgp": 1370
+        "concurrent_bgp": 1507
       }
     },
     {
-      "event_id": "kit-1384",
+      "event_id": "kit-1521",
       "event_time": "2025-01-02T00:00:00Z",
       "event_end": "2026-05-01T23:59:59Z",
       "duration_minutes": 696960,
@@ -436,11 +436,11 @@
         "kit_type": "full_network",
         "ongoing": true,
         "duration_days": 484,
-        "concurrent_bgp": 1370
+        "concurrent_bgp": 1507
       }
     },
     {
-      "event_id": "kit-1385",
+      "event_id": "kit-1522",
       "event_time": "2025-01-03T00:00:00Z",
       "event_end": "2026-05-01T23:59:59Z",
       "duration_minutes": 695520,
@@ -466,11 +466,11 @@
         "kit_type": "full_network",
         "ongoing": true,
         "duration_days": 483,
-        "concurrent_bgp": 1370
+        "concurrent_bgp": 1507
       }
     },
     {
-      "event_id": "kit-1386",
+      "event_id": "kit-1523",
       "event_time": "2025-01-03T00:00:00Z",
       "event_end": "2026-05-01T23:59:59Z",
       "duration_minutes": 695520,
@@ -497,11 +497,11 @@
         "kit_type": "full_network",
         "ongoing": true,
         "duration_days": 483,
-        "concurrent_bgp": 1370
+        "concurrent_bgp": 1507
       }
     },
     {
-      "event_id": "kit-1387",
+      "event_id": "kit-1524",
       "event_time": "2025-01-11T00:00:00Z",
       "event_end": "2026-05-01T23:59:59Z",
       "duration_minutes": 684000,
@@ -527,11 +527,11 @@
         "kit_type": "full_network",
         "ongoing": true,
         "duration_days": 475,
-        "concurrent_bgp": 1370
+        "concurrent_bgp": 1507
       }
     },
     {
-      "event_id": "kit-1388",
+      "event_id": "kit-1525",
       "event_time": "2025-01-16T00:00:00Z",
       "event_end": "2025-01-18T23:59:59Z",
       "duration_minutes": 2880,
@@ -561,7 +561,7 @@
       }
     },
     {
-      "event_id": "kit-1389",
+      "event_id": "kit-1526",
       "event_time": "2025-01-20T00:00:00Z",
       "event_end": "2025-02-01T23:59:59Z",
       "duration_minutes": 17280,
@@ -591,7 +591,7 @@
       }
     },
     {
-      "event_id": "kit-1390",
+      "event_id": "kit-1527",
       "event_time": "2025-01-22T00:00:00Z",
       "event_end": "2026-05-01T23:59:59Z",
       "duration_minutes": 668160,
@@ -618,11 +618,11 @@
         "kit_type": "full_network",
         "ongoing": true,
         "duration_days": 464,
-        "concurrent_bgp": 1370
+        "concurrent_bgp": 1507
       }
     },
     {
-      "event_id": "kit-1391",
+      "event_id": "kit-1528",
       "event_time": "2025-01-28T00:00:00Z",
       "event_end": "2026-05-01T23:59:59Z",
       "duration_minutes": 659520,
@@ -649,11 +649,11 @@
         "kit_type": "full_network",
         "ongoing": true,
         "duration_days": 458,
-        "concurrent_bgp": 1370
+        "concurrent_bgp": 1507
       }
     },
     {
-      "event_id": "kit-1392",
+      "event_id": "kit-1529",
       "event_time": "2025-01-29T00:00:00Z",
       "event_end": "2026-05-01T23:59:59Z",
       "duration_minutes": 658080,
@@ -679,11 +679,11 @@
         "kit_type": "full_network",
         "ongoing": true,
         "duration_days": 457,
-        "concurrent_bgp": 1370
+        "concurrent_bgp": 1507
       }
     },
     {
-      "event_id": "kit-1393",
+      "event_id": "kit-1530",
       "event_time": "2025-01-29T00:00:00Z",
       "event_end": "2026-05-01T23:59:59Z",
       "duration_minutes": 658080,
@@ -710,11 +710,11 @@
         "kit_type": "full_network",
         "ongoing": true,
         "duration_days": 457,
-        "concurrent_bgp": 1370
+        "concurrent_bgp": 1507
       }
     },
     {
-      "event_id": "kit-1394",
+      "event_id": "kit-1531",
       "event_time": "2025-02-04T00:00:00Z",
       "event_end": "2026-05-01T23:59:59Z",
       "duration_minutes": 649440,
@@ -741,11 +741,11 @@
         "kit_type": "full_network",
         "ongoing": true,
         "duration_days": 451,
-        "concurrent_bgp": 1370
+        "concurrent_bgp": 1507
       }
     },
     {
-      "event_id": "kit-1395",
+      "event_id": "kit-1532",
       "event_time": "2025-02-05T00:00:00Z",
       "event_end": "2026-05-01T23:59:59Z",
       "duration_minutes": 648000,
@@ -772,11 +772,11 @@
         "kit_type": "full_network",
         "ongoing": true,
         "duration_days": 450,
-        "concurrent_bgp": 1370
+        "concurrent_bgp": 1507
       }
     },
     {
-      "event_id": "kit-1396",
+      "event_id": "kit-1533",
       "event_time": "2025-02-06T00:00:00Z",
       "event_end": "2025-02-10T23:59:59Z",
       "duration_minutes": 5760,
@@ -806,7 +806,7 @@
       }
     },
     {
-      "event_id": "kit-1397",
+      "event_id": "kit-1534",
       "event_time": "2025-02-19T00:00:00Z",
       "event_end": "2026-05-01T23:59:59Z",
       "duration_minutes": 627840,
@@ -833,11 +833,11 @@
         "kit_type": "full_network",
         "ongoing": true,
         "duration_days": 436,
-        "concurrent_bgp": 1370
+        "concurrent_bgp": 1507
       }
     },
     {
-      "event_id": "kit-1398",
+      "event_id": "kit-1535",
       "event_time": "2025-02-21T00:00:00Z",
       "event_end": "2026-05-01T23:59:59Z",
       "duration_minutes": 624960,
@@ -863,11 +863,11 @@
         "kit_type": "full_network",
         "ongoing": true,
         "duration_days": 434,
-        "concurrent_bgp": 1370
+        "concurrent_bgp": 1507
       }
     },
     {
-      "event_id": "kit-1399",
+      "event_id": "kit-1536",
       "event_time": "2025-02-25T00:00:00Z",
       "event_end": "2025-03-05T23:59:59Z",
       "duration_minutes": 11520,
@@ -897,7 +897,7 @@
       }
     },
     {
-      "event_id": "kit-1400",
+      "event_id": "kit-1537",
       "event_time": "2025-03-02T00:00:00Z",
       "event_end": "2025-03-23T23:59:59Z",
       "duration_minutes": 30240,
@@ -927,7 +927,7 @@
       }
     },
     {
-      "event_id": "kit-1401",
+      "event_id": "kit-1538",
       "event_time": "2025-03-03T00:00:00Z",
       "event_end": "2026-05-01T23:59:59Z",
       "duration_minutes": 610560,
@@ -954,11 +954,11 @@
         "kit_type": "full_network",
         "ongoing": true,
         "duration_days": 424,
-        "concurrent_bgp": 1370
+        "concurrent_bgp": 1507
       }
     },
     {
-      "event_id": "kit-1402",
+      "event_id": "kit-1539",
       "event_time": "2025-03-08T00:00:00Z",
       "event_end": "2026-05-01T23:59:59Z",
       "duration_minutes": 603360,
@@ -984,11 +984,11 @@
         "kit_type": "full_network",
         "ongoing": true,
         "duration_days": 419,
-        "concurrent_bgp": 1370
+        "concurrent_bgp": 1507
       }
     },
     {
-      "event_id": "kit-1403",
+      "event_id": "kit-1540",
       "event_time": "2025-03-16T00:00:00Z",
       "event_end": "2026-05-01T23:59:59Z",
       "duration_minutes": 591840,
@@ -1014,11 +1014,11 @@
         "kit_type": "full_network",
         "ongoing": true,
         "duration_days": 411,
-        "concurrent_bgp": 1370
+        "concurrent_bgp": 1507
       }
     },
     {
-      "event_id": "kit-1404",
+      "event_id": "kit-1541",
       "event_time": "2025-03-16T00:00:00Z",
       "event_end": "2026-05-01T23:59:59Z",
       "duration_minutes": 591840,
@@ -1044,11 +1044,11 @@
         "kit_type": "full_network",
         "ongoing": true,
         "duration_days": 411,
-        "concurrent_bgp": 1370
+        "concurrent_bgp": 1507
       }
     },
     {
-      "event_id": "kit-1405",
+      "event_id": "kit-1542",
       "event_time": "2025-03-17T00:00:00Z",
       "event_end": "2026-05-01T23:59:59Z",
       "duration_minutes": 590400,
@@ -1075,11 +1075,11 @@
         "kit_type": "full_network",
         "ongoing": true,
         "duration_days": 410,
-        "concurrent_bgp": 1370
+        "concurrent_bgp": 1507
       }
     },
     {
-      "event_id": "kit-1406",
+      "event_id": "kit-1543",
       "event_time": "2025-03-20T00:00:00Z",
       "event_end": "2026-05-01T23:59:59Z",
       "duration_minutes": 586080,
@@ -1105,11 +1105,11 @@
         "kit_type": "full_network",
         "ongoing": true,
         "duration_days": 407,
-        "concurrent_bgp": 1370
+        "concurrent_bgp": 1507
       }
     },
     {
-      "event_id": "kit-1407",
+      "event_id": "kit-1544",
       "event_time": "2025-03-23T00:00:00Z",
       "event_end": "2026-05-01T23:59:59Z",
       "duration_minutes": 581760,
@@ -1135,11 +1135,11 @@
         "kit_type": "full_network",
         "ongoing": true,
         "duration_days": 404,
-        "concurrent_bgp": 1370
+        "concurrent_bgp": 1507
       }
     },
     {
-      "event_id": "kit-1408",
+      "event_id": "kit-1545",
       "event_time": "2025-03-25T00:00:00Z",
       "event_end": "2026-05-01T23:59:59Z",
       "duration_minutes": 578880,
@@ -1165,11 +1165,11 @@
         "kit_type": "full_network",
         "ongoing": true,
         "duration_days": 402,
-        "concurrent_bgp": 1370
+        "concurrent_bgp": 1507
       }
     },
     {
-      "event_id": "kit-1409",
+      "event_id": "kit-1546",
       "event_time": "2025-04-07T00:00:00Z",
       "event_end": "2026-05-01T23:59:59Z",
       "duration_minutes": 560160,
@@ -1196,11 +1196,11 @@
         "kit_type": "full_network",
         "ongoing": true,
         "duration_days": 389,
-        "concurrent_bgp": 1370
+        "concurrent_bgp": 1507
       }
     },
     {
-      "event_id": "kit-1410",
+      "event_id": "kit-1547",
       "event_time": "2025-04-11T00:00:00Z",
       "event_end": "2025-04-15T23:59:59Z",
       "duration_minutes": 5760,
@@ -1231,7 +1231,7 @@
       }
     },
     {
-      "event_id": "kit-1411",
+      "event_id": "kit-1548",
       "event_time": "2025-04-14T00:00:00Z",
       "event_end": "2026-05-01T23:59:59Z",
       "duration_minutes": 550080,
@@ -1257,11 +1257,11 @@
         "kit_type": "full_network",
         "ongoing": true,
         "duration_days": 382,
-        "concurrent_bgp": 1370
+        "concurrent_bgp": 1507
       }
     },
     {
-      "event_id": "kit-1412",
+      "event_id": "kit-1549",
       "event_time": "2025-04-15T00:00:00Z",
       "event_end": "2026-05-01T23:59:59Z",
       "duration_minutes": 548640,
@@ -1287,11 +1287,11 @@
         "kit_type": "full_network",
         "ongoing": true,
         "duration_days": 381,
-        "concurrent_bgp": 1370
+        "concurrent_bgp": 1507
       }
     },
     {
-      "event_id": "kit-1413",
+      "event_id": "kit-1550",
       "event_time": "2025-04-15T00:00:00Z",
       "event_end": "2025-04-18T23:59:59Z",
       "duration_minutes": 4320,
@@ -1321,7 +1321,7 @@
       }
     },
     {
-      "event_id": "kit-1414",
+      "event_id": "kit-1551",
       "event_time": "2025-04-17T00:00:00Z",
       "event_end": "2026-05-01T23:59:59Z",
       "duration_minutes": 545760,
@@ -1347,11 +1347,11 @@
         "kit_type": "full_network",
         "ongoing": true,
         "duration_days": 379,
-        "concurrent_bgp": 1370
+        "concurrent_bgp": 1507
       }
     },
     {
-      "event_id": "kit-1415",
+      "event_id": "kit-1552",
       "event_time": "2025-04-20T00:00:00Z",
       "event_end": "2025-04-23T23:59:59Z",
       "duration_minutes": 4320,
@@ -1382,7 +1382,7 @@
       }
     },
     {
-      "event_id": "kit-1416",
+      "event_id": "kit-1553",
       "event_time": "2025-04-29T00:00:00Z",
       "event_end": "2025-05-03T23:59:59Z",
       "duration_minutes": 5760,
@@ -1413,7 +1413,7 @@
       }
     },
     {
-      "event_id": "kit-1417",
+      "event_id": "kit-1554",
       "event_time": "2025-05-01T00:00:00Z",
       "event_end": "2025-06-01T23:59:59Z",
       "duration_minutes": 44640,
@@ -1444,7 +1444,7 @@
       }
     },
     {
-      "event_id": "kit-1418",
+      "event_id": "kit-1555",
       "event_time": "2025-05-01T00:00:00Z",
       "event_end": "2026-05-01T23:59:59Z",
       "duration_minutes": 525600,
@@ -1470,11 +1470,11 @@
         "kit_type": "full_network",
         "ongoing": true,
         "duration_days": 365,
-        "concurrent_bgp": 1370
+        "concurrent_bgp": 1507
       }
     },
     {
-      "event_id": "kit-1419",
+      "event_id": "kit-1556",
       "event_time": "2025-05-02T00:00:00Z",
       "event_end": "2026-05-01T23:59:59Z",
       "duration_minutes": 524160,
@@ -1500,11 +1500,11 @@
         "kit_type": "full_network",
         "ongoing": true,
         "duration_days": 364,
-        "concurrent_bgp": 1370
+        "concurrent_bgp": 1507
       }
     },
     {
-      "event_id": "kit-1420",
+      "event_id": "kit-1557",
       "event_time": "2025-05-07T00:00:00Z",
       "event_end": "2026-05-01T23:59:59Z",
       "duration_minutes": 516960,
@@ -1530,11 +1530,11 @@
         "kit_type": "full_network",
         "ongoing": true,
         "duration_days": 359,
-        "concurrent_bgp": 1370
+        "concurrent_bgp": 1507
       }
     },
     {
-      "event_id": "kit-1421",
+      "event_id": "kit-1558",
       "event_time": "2025-05-07T00:00:00Z",
       "event_end": "2025-05-31T23:59:59Z",
       "duration_minutes": 34560,
@@ -1564,7 +1564,7 @@
       }
     },
     {
-      "event_id": "kit-1422",
+      "event_id": "kit-1559",
       "event_time": "2025-05-31T00:00:00Z",
       "event_end": "2025-06-21T23:59:59Z",
       "duration_minutes": 30240,
@@ -1595,7 +1595,7 @@
       }
     },
     {
-      "event_id": "kit-1423",
+      "event_id": "kit-1560",
       "event_time": "2025-06-03T00:00:00Z",
       "event_end": "2026-05-01T23:59:59Z",
       "duration_minutes": 478080,
@@ -1622,11 +1622,11 @@
         "kit_type": "full_network",
         "ongoing": true,
         "duration_days": 332,
-        "concurrent_bgp": 1370
+        "concurrent_bgp": 1507
       }
     },
     {
-      "event_id": "kit-1424",
+      "event_id": "kit-1561",
       "event_time": "2025-06-06T00:00:00Z",
       "event_end": "2026-05-01T23:59:59Z",
       "duration_minutes": 473760,
@@ -1653,11 +1653,11 @@
         "kit_type": "full_network",
         "ongoing": true,
         "duration_days": 329,
-        "concurrent_bgp": 1370
+        "concurrent_bgp": 1507
       }
     },
     {
-      "event_id": "kit-1425",
+      "event_id": "kit-1562",
       "event_time": "2025-06-06T00:00:00Z",
       "event_end": "2026-05-01T23:59:59Z",
       "duration_minutes": 473760,
@@ -1683,11 +1683,11 @@
         "kit_type": "full_network",
         "ongoing": true,
         "duration_days": 329,
-        "concurrent_bgp": 1370
+        "concurrent_bgp": 1507
       }
     },
     {
-      "event_id": "kit-1426",
+      "event_id": "kit-1563",
       "event_time": "2025-06-10T00:00:00Z",
       "event_end": "2026-05-01T23:59:59Z",
       "duration_minutes": 468000,
@@ -1714,11 +1714,11 @@
         "kit_type": "full_network",
         "ongoing": true,
         "duration_days": 325,
-        "concurrent_bgp": 1370
+        "concurrent_bgp": 1507
       }
     },
     {
-      "event_id": "kit-1427",
+      "event_id": "kit-1564",
       "event_time": "2025-06-11T00:00:00Z",
       "event_end": "2026-05-01T23:59:59Z",
       "duration_minutes": 466560,
@@ -1744,11 +1744,11 @@
         "kit_type": "full_network",
         "ongoing": true,
         "duration_days": 324,
-        "concurrent_bgp": 1370
+        "concurrent_bgp": 1507
       }
     },
     {
-      "event_id": "kit-1428",
+      "event_id": "kit-1565",
       "event_time": "2025-06-24T00:00:00Z",
       "event_end": "2026-05-01T23:59:59Z",
       "duration_minutes": 447840,
@@ -1775,11 +1775,11 @@
         "kit_type": "full_network",
         "ongoing": true,
         "duration_days": 311,
-        "concurrent_bgp": 1370
+        "concurrent_bgp": 1507
       }
     },
     {
-      "event_id": "kit-1429",
+      "event_id": "kit-1566",
       "event_time": "2025-07-08T00:00:00Z",
       "event_end": "2026-05-01T23:59:59Z",
       "duration_minutes": 427680,
@@ -1806,11 +1806,11 @@
         "kit_type": "full_network",
         "ongoing": true,
         "duration_days": 297,
-        "concurrent_bgp": 1370
+        "concurrent_bgp": 1507
       }
     },
     {
-      "event_id": "kit-1430",
+      "event_id": "kit-1567",
       "event_time": "2025-07-14T00:00:00Z",
       "event_end": "2026-05-01T23:59:59Z",
       "duration_minutes": 419040,
@@ -1837,11 +1837,11 @@
         "kit_type": "full_network",
         "ongoing": true,
         "duration_days": 291,
-        "concurrent_bgp": 1370
+        "concurrent_bgp": 1507
       }
     },
     {
-      "event_id": "kit-1431",
+      "event_id": "kit-1568",
       "event_time": "2025-07-18T00:00:00Z",
       "event_end": "2025-07-18T23:59:59Z",
       "duration_minutes": 0,
@@ -1872,7 +1872,7 @@
       }
     },
     {
-      "event_id": "kit-1432",
+      "event_id": "kit-1569",
       "event_time": "2025-07-23T00:00:00Z",
       "event_end": "2025-07-28T23:59:59Z",
       "duration_minutes": 7200,
@@ -1902,7 +1902,7 @@
       }
     },
     {
-      "event_id": "kit-1433",
+      "event_id": "kit-1570",
       "event_time": "2025-07-24T00:00:00Z",
       "event_end": "2025-07-28T23:59:59Z",
       "duration_minutes": 5760,
@@ -1933,7 +1933,7 @@
       }
     },
     {
-      "event_id": "kit-1434",
+      "event_id": "kit-1571",
       "event_time": "2025-07-25T00:00:00Z",
       "event_end": "2026-05-01T23:59:59Z",
       "duration_minutes": 403200,
@@ -1959,11 +1959,11 @@
         "kit_type": "full_network",
         "ongoing": true,
         "duration_days": 280,
-        "concurrent_bgp": 1370
+        "concurrent_bgp": 1507
       }
     },
     {
-      "event_id": "kit-1435",
+      "event_id": "kit-1572",
       "event_time": "2025-08-16T00:00:00Z",
       "event_end": "2026-05-01T23:59:59Z",
       "duration_minutes": 371520,
@@ -1990,11 +1990,11 @@
         "kit_type": "full_network",
         "ongoing": true,
         "duration_days": 258,
-        "concurrent_bgp": 1370
+        "concurrent_bgp": 1507
       }
     },
     {
-      "event_id": "kit-1436",
+      "event_id": "kit-1573",
       "event_time": "2025-08-19T00:00:00Z",
       "event_end": "2026-05-01T23:59:59Z",
       "duration_minutes": 367200,
@@ -2021,11 +2021,11 @@
         "kit_type": "full_network",
         "ongoing": true,
         "duration_days": 255,
-        "concurrent_bgp": 1370
+        "concurrent_bgp": 1507
       }
     },
     {
-      "event_id": "kit-1437",
+      "event_id": "kit-1574",
       "event_time": "2025-08-19T00:00:00Z",
       "event_end": "2026-05-01T23:59:59Z",
       "duration_minutes": 367200,
@@ -2052,11 +2052,11 @@
         "kit_type": "full_network",
         "ongoing": true,
         "duration_days": 255,
-        "concurrent_bgp": 1370
+        "concurrent_bgp": 1507
       }
     },
     {
-      "event_id": "kit-1438",
+      "event_id": "kit-1575",
       "event_time": "2025-08-26T00:00:00Z",
       "event_end": "2026-05-01T23:59:59Z",
       "duration_minutes": 357120,
@@ -2083,11 +2083,11 @@
         "kit_type": "full_network",
         "ongoing": true,
         "duration_days": 248,
-        "concurrent_bgp": 1370
+        "concurrent_bgp": 1507
       }
     },
     {
-      "event_id": "kit-1439",
+      "event_id": "kit-1576",
       "event_time": "2025-09-01T00:00:00Z",
       "event_end": "2026-05-01T23:59:59Z",
       "duration_minutes": 348480,
@@ -2113,11 +2113,11 @@
         "kit_type": "full_network",
         "ongoing": true,
         "duration_days": 242,
-        "concurrent_bgp": 1370
+        "concurrent_bgp": 1507
       }
     },
     {
-      "event_id": "kit-1440",
+      "event_id": "kit-1577",
       "event_time": "2025-09-01T00:00:00Z",
       "event_end": "2026-05-01T23:59:59Z",
       "duration_minutes": 348480,
@@ -2144,11 +2144,11 @@
         "kit_type": "full_network",
         "ongoing": true,
         "duration_days": 242,
-        "concurrent_bgp": 1370
+        "concurrent_bgp": 1507
       }
     },
     {
-      "event_id": "kit-1441",
+      "event_id": "kit-1578",
       "event_time": "2025-09-02T00:00:00Z",
       "event_end": "2026-05-01T23:59:59Z",
       "duration_minutes": 347040,
@@ -2175,11 +2175,11 @@
         "kit_type": "full_network",
         "ongoing": true,
         "duration_days": 241,
-        "concurrent_bgp": 1370
+        "concurrent_bgp": 1507
       }
     },
     {
-      "event_id": "kit-1442",
+      "event_id": "kit-1579",
       "event_time": "2025-09-10T00:00:00Z",
       "event_end": "2026-05-01T23:59:59Z",
       "duration_minutes": 335520,
@@ -2206,11 +2206,11 @@
         "kit_type": "full_network",
         "ongoing": true,
         "duration_days": 233,
-        "concurrent_bgp": 1370
+        "concurrent_bgp": 1507
       }
     },
     {
-      "event_id": "kit-1443",
+      "event_id": "kit-1580",
       "event_time": "2025-09-12T00:00:00Z",
       "event_end": "2025-09-20T23:59:59Z",
       "duration_minutes": 11520,
@@ -2241,7 +2241,7 @@
       }
     },
     {
-      "event_id": "kit-1444",
+      "event_id": "kit-1581",
       "event_time": "2025-09-15T00:00:00Z",
       "event_end": "2026-05-01T23:59:59Z",
       "duration_minutes": 328320,
@@ -2268,11 +2268,11 @@
         "kit_type": "full_network",
         "ongoing": true,
         "duration_days": 228,
-        "concurrent_bgp": 1370
+        "concurrent_bgp": 1507
       }
     },
     {
-      "event_id": "kit-1445",
+      "event_id": "kit-1582",
       "event_time": "2025-09-18T00:00:00Z",
       "event_end": "2026-05-01T23:59:59Z",
       "duration_minutes": 324000,
@@ -2299,11 +2299,11 @@
         "kit_type": "full_network",
         "ongoing": true,
         "duration_days": 225,
-        "concurrent_bgp": 1370
+        "concurrent_bgp": 1507
       }
     },
     {
-      "event_id": "kit-1446",
+      "event_id": "kit-1583",
       "event_time": "2025-09-22T00:00:00Z",
       "event_end": "2026-05-01T23:59:59Z",
       "duration_minutes": 318240,
@@ -2329,11 +2329,11 @@
         "kit_type": "full_network",
         "ongoing": true,
         "duration_days": 221,
-        "concurrent_bgp": 1370
+        "concurrent_bgp": 1507
       }
     },
     {
-      "event_id": "kit-1447",
+      "event_id": "kit-1584",
       "event_time": "2025-09-26T00:00:00Z",
       "event_end": "2026-05-01T23:59:59Z",
       "duration_minutes": 312480,
@@ -2359,11 +2359,11 @@
         "kit_type": "full_network",
         "ongoing": true,
         "duration_days": 217,
-        "concurrent_bgp": 1370
+        "concurrent_bgp": 1507
       }
     },
     {
-      "event_id": "kit-1448",
+      "event_id": "kit-1585",
       "event_time": "2025-10-02T00:00:00Z",
       "event_end": "2025-10-07T23:59:59Z",
       "duration_minutes": 7200,
@@ -2393,7 +2393,7 @@
       }
     },
     {
-      "event_id": "kit-1449",
+      "event_id": "kit-1586",
       "event_time": "2025-10-03T00:00:00Z",
       "event_end": "2025-10-04T23:59:59Z",
       "duration_minutes": 1440,
@@ -2424,7 +2424,7 @@
       }
     },
     {
-      "event_id": "kit-1450",
+      "event_id": "kit-1587",
       "event_time": "2025-10-06T00:00:00Z",
       "event_end": "2025-10-07T23:59:59Z",
       "duration_minutes": 1440,
@@ -2454,7 +2454,7 @@
       }
     },
     {
-      "event_id": "kit-1451",
+      "event_id": "kit-1588",
       "event_time": "2025-10-14T00:00:00Z",
       "event_end": "2026-05-01T23:59:59Z",
       "duration_minutes": 286560,
@@ -2481,11 +2481,11 @@
         "kit_type": "full_network",
         "ongoing": true,
         "duration_days": 199,
-        "concurrent_bgp": 1370
+        "concurrent_bgp": 1507
       }
     },
     {
-      "event_id": "kit-1452",
+      "event_id": "kit-1589",
       "event_time": "2025-10-15T00:00:00Z",
       "event_end": "2026-05-01T23:59:59Z",
       "duration_minutes": 285120,
@@ -2512,11 +2512,11 @@
         "kit_type": "full_network",
         "ongoing": true,
         "duration_days": 198,
-        "concurrent_bgp": 1370
+        "concurrent_bgp": 1507
       }
     },
     {
-      "event_id": "kit-1453",
+      "event_id": "kit-1590",
       "event_time": "2025-10-16T00:00:00Z",
       "event_end": "2026-05-01T23:59:59Z",
       "duration_minutes": 283680,
@@ -2542,11 +2542,11 @@
         "kit_type": "full_network",
         "ongoing": true,
         "duration_days": 197,
-        "concurrent_bgp": 1370
+        "concurrent_bgp": 1507
       }
     },
     {
-      "event_id": "kit-1454",
+      "event_id": "kit-1591",
       "event_time": "2025-11-01T00:00:00Z",
       "event_end": "2025-11-02T23:59:59Z",
       "duration_minutes": 1440,
@@ -2577,7 +2577,7 @@
       }
     },
     {
-      "event_id": "kit-1455",
+      "event_id": "kit-1592",
       "event_time": "2025-11-04T00:00:00Z",
       "event_end": "2026-05-01T23:59:59Z",
       "duration_minutes": 256320,
@@ -2604,11 +2604,11 @@
         "kit_type": "full_network",
         "ongoing": true,
         "duration_days": 178,
-        "concurrent_bgp": 1370
+        "concurrent_bgp": 1507
       }
     },
     {
-      "event_id": "kit-1456",
+      "event_id": "kit-1593",
       "event_time": "2025-11-11T00:00:00Z",
       "event_end": "2026-05-01T23:59:59Z",
       "duration_minutes": 246240,
@@ -2635,11 +2635,11 @@
         "kit_type": "full_network",
         "ongoing": true,
         "duration_days": 171,
-        "concurrent_bgp": 1370
+        "concurrent_bgp": 1507
       }
     },
     {
-      "event_id": "kit-1457",
+      "event_id": "kit-1594",
       "event_time": "2025-11-14T00:00:00Z",
       "event_end": "2026-05-01T23:59:59Z",
       "duration_minutes": 241920,
@@ -2665,11 +2665,11 @@
         "kit_type": "full_network",
         "ongoing": true,
         "duration_days": 168,
-        "concurrent_bgp": 1370
+        "concurrent_bgp": 1507
       }
     },
     {
-      "event_id": "kit-1458",
+      "event_id": "kit-1595",
       "event_time": "2025-11-19T00:00:00Z",
       "event_end": "2026-05-01T23:59:59Z",
       "duration_minutes": 234720,
@@ -2695,11 +2695,11 @@
         "kit_type": "full_network",
         "ongoing": true,
         "duration_days": 163,
-        "concurrent_bgp": 1370
+        "concurrent_bgp": 1507
       }
     },
     {
-      "event_id": "kit-1459",
+      "event_id": "kit-1596",
       "event_time": "2025-11-23T00:00:00Z",
       "event_end": "2026-05-01T23:59:59Z",
       "duration_minutes": 228960,
@@ -2726,11 +2726,11 @@
         "kit_type": "full_network",
         "ongoing": true,
         "duration_days": 159,
-        "concurrent_bgp": 1370
+        "concurrent_bgp": 1507
       }
     },
     {
-      "event_id": "kit-1460",
+      "event_id": "kit-1597",
       "event_time": "2025-12-08T00:00:00Z",
       "event_end": "2026-05-01T23:59:59Z",
       "duration_minutes": 207360,
@@ -2757,11 +2757,11 @@
         "kit_type": "full_network",
         "ongoing": true,
         "duration_days": 144,
-        "concurrent_bgp": 1370
+        "concurrent_bgp": 1507
       }
     },
     {
-      "event_id": "kit-1461",
+      "event_id": "kit-1598",
       "event_time": "2025-12-09T00:00:00Z",
       "event_end": "2026-05-01T23:59:59Z",
       "duration_minutes": 205920,
@@ -2787,11 +2787,11 @@
         "kit_type": "full_network",
         "ongoing": true,
         "duration_days": 143,
-        "concurrent_bgp": 1370
+        "concurrent_bgp": 1507
       }
     },
     {
-      "event_id": "kit-1462",
+      "event_id": "kit-1599",
       "event_time": "2025-12-15T00:00:00Z",
       "event_end": "2026-05-01T23:59:59Z",
       "duration_minutes": 197280,
@@ -2817,11 +2817,11 @@
         "kit_type": "full_network",
         "ongoing": true,
         "duration_days": 137,
-        "concurrent_bgp": 1370
+        "concurrent_bgp": 1507
       }
     },
     {
-      "event_id": "kit-1463",
+      "event_id": "kit-1600",
       "event_time": "2025-12-18T00:00:00Z",
       "event_end": "2025-12-31T23:59:59Z",
       "duration_minutes": 18720,
@@ -2852,7 +2852,7 @@
       }
     },
     {
-      "event_id": "kit-1464",
+      "event_id": "kit-1601",
       "event_time": "2025-12-24T00:00:00Z",
       "event_end": "2026-05-01T23:59:59Z",
       "duration_minutes": 184320,
@@ -2878,11 +2878,11 @@
         "kit_type": "full_network",
         "ongoing": true,
         "duration_days": 128,
-        "concurrent_bgp": 1370
+        "concurrent_bgp": 1507
       }
     },
     {
-      "event_id": "kit-1465",
+      "event_id": "kit-1602",
       "event_time": "2025-12-27T00:00:00Z",
       "event_end": "2025-12-28T23:59:59Z",
       "duration_minutes": 1440,
@@ -37145,6 +37145,3431 @@
       ],
       "asn": "AS149855",
       "isp_name": "AS-AGBC AGB Communication Co., Ltd",
+      "severity": 2,
+      "scope": null,
+      "perpetrator": null,
+      "affected_services": [],
+      "is_confirmed": false,
+      "keepiton_matched": true,
+      "keepiton_ids": [],
+      "source_urls": [],
+      "metadata": {
+        "min_visibility_pct": 0.0,
+        "resolved": true,
+        "ioda_confirmed": false
+      }
+    },
+    {
+      "event_id": "bgp-1371",
+      "event_time": "2026-05-01T12:15:24Z",
+      "event_end": "2026-05-01T12:20:04Z",
+      "duration_minutes": 4,
+      "event_type": "outage",
+      "sources": [
+        "bgp"
+      ],
+      "asn": "AS58952",
+      "isp_name": "FRONTIIRCOLTD-MM Frontiir Co. Ltd",
+      "severity": 2,
+      "scope": null,
+      "perpetrator": null,
+      "affected_services": [],
+      "is_confirmed": false,
+      "keepiton_matched": true,
+      "keepiton_ids": [],
+      "source_urls": [],
+      "metadata": {
+        "min_visibility_pct": 0.0,
+        "resolved": true,
+        "ioda_confirmed": false
+      }
+    },
+    {
+      "event_id": "bgp-1372",
+      "event_time": "2026-05-01T12:32:09Z",
+      "event_end": "2026-05-01T13:02:11Z",
+      "duration_minutes": 30,
+      "event_type": "outage",
+      "sources": [
+        "bgp"
+      ],
+      "asn": "AS152329",
+      "isp_name": "AKNCL-AS-AP Aon Kham Network Company Limited",
+      "severity": 2,
+      "scope": null,
+      "perpetrator": null,
+      "affected_services": [],
+      "is_confirmed": false,
+      "keepiton_matched": true,
+      "keepiton_ids": [],
+      "source_urls": [],
+      "metadata": {
+        "min_visibility_pct": 0.0,
+        "resolved": true,
+        "ioda_confirmed": false
+      }
+    },
+    {
+      "event_id": "bgp-1373",
+      "event_time": "2026-05-01T13:03:07Z",
+      "event_end": "2026-05-01T13:33:41Z",
+      "duration_minutes": 30,
+      "event_type": "outage",
+      "sources": [
+        "bgp"
+      ],
+      "asn": "AS132537",
+      "isp_name": "MLGCL-AS-AP LG",
+      "severity": 2,
+      "scope": null,
+      "perpetrator": null,
+      "affected_services": [],
+      "is_confirmed": false,
+      "keepiton_matched": true,
+      "keepiton_ids": [],
+      "source_urls": [],
+      "metadata": {
+        "min_visibility_pct": 0.0,
+        "resolved": true,
+        "ioda_confirmed": false
+      }
+    },
+    {
+      "event_id": "bgp-1374",
+      "event_time": "2026-05-01T14:30:46Z",
+      "event_end": "2026-05-01T15:01:24Z",
+      "duration_minutes": 30,
+      "event_type": "outage",
+      "sources": [
+        "bgp"
+      ],
+      "asn": "AS132100",
+      "isp_name": "MSN-AS-AP Myanmar Speed Net Co.,Ltd",
+      "severity": 2,
+      "scope": null,
+      "perpetrator": null,
+      "affected_services": [],
+      "is_confirmed": false,
+      "keepiton_matched": true,
+      "keepiton_ids": [],
+      "source_urls": [],
+      "metadata": {
+        "min_visibility_pct": 0.0,
+        "resolved": true,
+        "ioda_confirmed": false
+      }
+    },
+    {
+      "event_id": "bgp-1375",
+      "event_time": "2026-05-01T14:30:47Z",
+      "event_end": "2026-05-01T15:01:26Z",
+      "duration_minutes": 30,
+      "event_type": "outage",
+      "sources": [
+        "bgp"
+      ],
+      "asn": "AS149521",
+      "isp_name": "FLC-AS-AP Fiber Life Internet",
+      "severity": 2,
+      "scope": null,
+      "perpetrator": null,
+      "affected_services": [],
+      "is_confirmed": false,
+      "keepiton_matched": true,
+      "keepiton_ids": [],
+      "source_urls": [],
+      "metadata": {
+        "min_visibility_pct": 0.0,
+        "resolved": true,
+        "ioda_confirmed": false
+      }
+    },
+    {
+      "event_id": "bgp-1376",
+      "event_time": "2026-05-01T14:30:47Z",
+      "event_end": "2026-05-01T15:01:28Z",
+      "duration_minutes": 30,
+      "event_type": "outage",
+      "sources": [
+        "bgp"
+      ],
+      "asn": "AS136210",
+      "isp_name": "ITSPECTRUM-AS-AP IT Spectrum Company Limited",
+      "severity": 2,
+      "scope": null,
+      "perpetrator": null,
+      "affected_services": [],
+      "is_confirmed": false,
+      "keepiton_matched": true,
+      "keepiton_ids": [],
+      "source_urls": [],
+      "metadata": {
+        "min_visibility_pct": 0.0,
+        "resolved": true,
+        "ioda_confirmed": false
+      }
+    },
+    {
+      "event_id": "bgp-1377",
+      "event_time": "2026-05-01T14:30:48Z",
+      "event_end": "2026-05-01T15:01:29Z",
+      "duration_minutes": 30,
+      "event_type": "outage",
+      "sources": [
+        "bgp"
+      ],
+      "asn": "AS139804",
+      "isp_name": "REDPALM-AS-AP RED PALM COMPANY LIMITED",
+      "severity": 2,
+      "scope": null,
+      "perpetrator": null,
+      "affected_services": [],
+      "is_confirmed": false,
+      "keepiton_matched": true,
+      "keepiton_ids": [],
+      "source_urls": [],
+      "metadata": {
+        "min_visibility_pct": 0.0,
+        "resolved": true,
+        "ioda_confirmed": false
+      }
+    },
+    {
+      "event_id": "bgp-1378",
+      "event_time": "2026-05-01T14:30:48Z",
+      "event_end": "2026-05-01T15:01:30Z",
+      "duration_minutes": 30,
+      "event_type": "outage",
+      "sources": [
+        "bgp"
+      ],
+      "asn": "AS136229",
+      "isp_name": "TCLC-AS-AP Treasure Chindwin Land Co.,Ltd",
+      "severity": 2,
+      "scope": null,
+      "perpetrator": null,
+      "affected_services": [],
+      "is_confirmed": false,
+      "keepiton_matched": true,
+      "keepiton_ids": [],
+      "source_urls": [],
+      "metadata": {
+        "min_visibility_pct": 0.0,
+        "resolved": true,
+        "ioda_confirmed": false
+      }
+    },
+    {
+      "event_id": "bgp-1379",
+      "event_time": "2026-05-01T14:30:48Z",
+      "event_end": "2026-05-01T15:01:31Z",
+      "duration_minutes": 30,
+      "event_type": "outage",
+      "sources": [
+        "bgp"
+      ],
+      "asn": "AS137259",
+      "isp_name": "ILINK-AS-AP i-Link",
+      "severity": 2,
+      "scope": null,
+      "perpetrator": null,
+      "affected_services": [],
+      "is_confirmed": false,
+      "keepiton_matched": true,
+      "keepiton_ids": [],
+      "source_urls": [],
+      "metadata": {
+        "min_visibility_pct": 0.0,
+        "resolved": true,
+        "ioda_confirmed": false
+      }
+    },
+    {
+      "event_id": "bgp-1380",
+      "event_time": "2026-05-01T14:30:49Z",
+      "event_end": "2026-05-01T15:01:31Z",
+      "duration_minutes": 30,
+      "event_type": "outage",
+      "sources": [
+        "bgp"
+      ],
+      "asn": "AS139822",
+      "isp_name": "GNE-AS-MM GNE Company Limited",
+      "severity": 2,
+      "scope": null,
+      "perpetrator": null,
+      "affected_services": [],
+      "is_confirmed": false,
+      "keepiton_matched": true,
+      "keepiton_ids": [],
+      "source_urls": [],
+      "metadata": {
+        "min_visibility_pct": 0.0,
+        "resolved": true,
+        "ioda_confirmed": false
+      }
+    },
+    {
+      "event_id": "bgp-1381",
+      "event_time": "2026-05-01T14:30:49Z",
+      "event_end": "2026-05-01T15:01:35Z",
+      "duration_minutes": 30,
+      "event_type": "outage",
+      "sources": [
+        "bgp"
+      ],
+      "asn": "AS132148",
+      "isp_name": "HTI-AS-AP HORIZON TELECOM INTERNATIONAL COMPANY LIMITED",
+      "severity": 2,
+      "scope": null,
+      "perpetrator": null,
+      "affected_services": [],
+      "is_confirmed": false,
+      "keepiton_matched": true,
+      "keepiton_ids": [],
+      "source_urls": [],
+      "metadata": {
+        "min_visibility_pct": 0.0,
+        "resolved": true,
+        "ioda_confirmed": false
+      }
+    },
+    {
+      "event_id": "bgp-1382",
+      "event_time": "2026-05-01T14:30:50Z",
+      "event_end": "2026-05-01T15:01:36Z",
+      "duration_minutes": 30,
+      "event_type": "outage",
+      "sources": [
+        "bgp"
+      ],
+      "asn": "AS151606",
+      "isp_name": "MSPACL-AS-AP MYANMAR SHWE PYI AYE COMPANY LIMITED",
+      "severity": 2,
+      "scope": null,
+      "perpetrator": null,
+      "affected_services": [],
+      "is_confirmed": false,
+      "keepiton_matched": true,
+      "keepiton_ids": [],
+      "source_urls": [],
+      "metadata": {
+        "min_visibility_pct": 0.0,
+        "resolved": true,
+        "ioda_confirmed": false
+      }
+    },
+    {
+      "event_id": "bgp-1383",
+      "event_time": "2026-05-01T14:30:50Z",
+      "event_end": "2026-05-01T15:01:37Z",
+      "duration_minutes": 30,
+      "event_type": "outage",
+      "sources": [
+        "bgp"
+      ],
+      "asn": "AS134714",
+      "isp_name": "ETPCL-AS-AP Elite Telecom Public Company Limited",
+      "severity": 2,
+      "scope": null,
+      "perpetrator": null,
+      "affected_services": [],
+      "is_confirmed": false,
+      "keepiton_matched": true,
+      "keepiton_ids": [],
+      "source_urls": [],
+      "metadata": {
+        "min_visibility_pct": 0.0,
+        "resolved": true,
+        "ioda_confirmed": false
+      }
+    },
+    {
+      "event_id": "bgp-1384",
+      "event_time": "2026-05-01T14:30:50Z",
+      "event_end": "2026-05-01T15:01:38Z",
+      "duration_minutes": 30,
+      "event_type": "outage",
+      "sources": [
+        "bgp"
+      ],
+      "asn": "AS152634",
+      "isp_name": "WCCCOMPANYLIMITED-AS-AP Goal Link ISP",
+      "severity": 2,
+      "scope": null,
+      "perpetrator": null,
+      "affected_services": [],
+      "is_confirmed": false,
+      "keepiton_matched": true,
+      "keepiton_ids": [],
+      "source_urls": [],
+      "metadata": {
+        "min_visibility_pct": 0.0,
+        "resolved": true,
+        "ioda_confirmed": false
+      }
+    },
+    {
+      "event_id": "bgp-1385",
+      "event_time": "2026-05-01T14:30:51Z",
+      "event_end": "2026-05-01T15:01:38Z",
+      "duration_minutes": 30,
+      "event_type": "outage",
+      "sources": [
+        "bgp"
+      ],
+      "asn": "AS136255",
+      "isp_name": "TIMCL-AS-AP Telecom International Myanmar Co., Ltd",
+      "severity": 2,
+      "scope": null,
+      "perpetrator": null,
+      "affected_services": [],
+      "is_confirmed": false,
+      "keepiton_matched": true,
+      "keepiton_ids": [],
+      "source_urls": [],
+      "metadata": {
+        "min_visibility_pct": 0.0,
+        "resolved": true,
+        "ioda_confirmed": false
+      }
+    },
+    {
+      "event_id": "bgp-1386",
+      "event_time": "2026-05-01T14:30:51Z",
+      "event_end": "2026-05-01T14:35:03Z",
+      "duration_minutes": 4,
+      "event_type": "outage",
+      "sources": [
+        "bgp"
+      ],
+      "asn": "AS132167",
+      "isp_name": "U9-MM Nine Communications Company Limited",
+      "severity": 2,
+      "scope": null,
+      "perpetrator": null,
+      "affected_services": [],
+      "is_confirmed": false,
+      "keepiton_matched": true,
+      "keepiton_ids": [],
+      "source_urls": [],
+      "metadata": {
+        "min_visibility_pct": 0.0,
+        "resolved": true,
+        "ioda_confirmed": false
+      }
+    },
+    {
+      "event_id": "bgp-1387",
+      "event_time": "2026-05-01T14:30:52Z",
+      "event_end": "2026-05-01T14:35:04Z",
+      "duration_minutes": 4,
+      "event_type": "outage",
+      "sources": [
+        "bgp"
+      ],
+      "asn": "AS58952",
+      "isp_name": "FRONTIIRCOLTD-MM Frontiir Co. Ltd",
+      "severity": 2,
+      "scope": null,
+      "perpetrator": null,
+      "affected_services": [],
+      "is_confirmed": false,
+      "keepiton_matched": true,
+      "keepiton_ids": [],
+      "source_urls": [],
+      "metadata": {
+        "min_visibility_pct": 0.0,
+        "resolved": true,
+        "ioda_confirmed": false
+      }
+    },
+    {
+      "event_id": "bgp-1388",
+      "event_time": "2026-05-01T14:30:52Z",
+      "event_end": "2026-05-01T15:01:43Z",
+      "duration_minutes": 30,
+      "event_type": "outage",
+      "sources": [
+        "bgp"
+      ],
+      "asn": "AS139849",
+      "isp_name": "ROYALESPRIT-AS-AP Royal Esprit Company Limited",
+      "severity": 2,
+      "scope": null,
+      "perpetrator": null,
+      "affected_services": [],
+      "is_confirmed": false,
+      "keepiton_matched": true,
+      "keepiton_ids": [],
+      "source_urls": [],
+      "metadata": {
+        "min_visibility_pct": 0.0,
+        "resolved": true,
+        "ioda_confirmed": false
+      }
+    },
+    {
+      "event_id": "bgp-1389",
+      "event_time": "2026-05-01T14:30:52Z",
+      "event_end": "2026-05-01T15:01:43Z",
+      "duration_minutes": 30,
+      "event_type": "outage",
+      "sources": [
+        "bgp"
+      ],
+      "asn": "AS136780",
+      "isp_name": "MIHL-AS-AP MYANMAR INFORMATION HIGHWAY LIMITED",
+      "severity": 2,
+      "scope": null,
+      "perpetrator": null,
+      "affected_services": [],
+      "is_confirmed": false,
+      "keepiton_matched": true,
+      "keepiton_ids": [],
+      "source_urls": [],
+      "metadata": {
+        "min_visibility_pct": 0.0,
+        "resolved": true,
+        "ioda_confirmed": false
+      }
+    },
+    {
+      "event_id": "bgp-1390",
+      "event_time": "2026-05-01T14:30:53Z",
+      "event_end": "2026-05-01T15:01:44Z",
+      "duration_minutes": 30,
+      "event_type": "outage",
+      "sources": [
+        "bgp"
+      ],
+      "asn": "AS152140",
+      "isp_name": "YSOMCL-AS-AP YAM Success of Myanmar Co., Ltd.",
+      "severity": 2,
+      "scope": null,
+      "perpetrator": null,
+      "affected_services": [],
+      "is_confirmed": false,
+      "keepiton_matched": true,
+      "keepiton_ids": [],
+      "source_urls": [],
+      "metadata": {
+        "min_visibility_pct": 0.0,
+        "resolved": true,
+        "ioda_confirmed": false
+      }
+    },
+    {
+      "event_id": "bgp-1391",
+      "event_time": "2026-05-01T14:30:53Z",
+      "event_end": "2026-05-01T15:01:45Z",
+      "duration_minutes": 30,
+      "event_type": "outage",
+      "sources": [
+        "bgp"
+      ],
+      "asn": "AS132686",
+      "isp_name": "ACS-AS-AP Amara Communications",
+      "severity": 2,
+      "scope": null,
+      "perpetrator": null,
+      "affected_services": [],
+      "is_confirmed": false,
+      "keepiton_matched": true,
+      "keepiton_ids": [],
+      "source_urls": [],
+      "metadata": {
+        "min_visibility_pct": 0.0,
+        "resolved": true,
+        "ioda_confirmed": false
+      }
+    },
+    {
+      "event_id": "bgp-1392",
+      "event_time": "2026-05-01T14:30:53Z",
+      "event_end": "2026-05-01T15:01:47Z",
+      "duration_minutes": 30,
+      "event_type": "outage",
+      "sources": [
+        "bgp"
+      ],
+      "asn": "AS134736",
+      "isp_name": "NMCL-AS-AP NTT MYANMAR CO., LTD.",
+      "severity": 2,
+      "scope": null,
+      "perpetrator": null,
+      "affected_services": [],
+      "is_confirmed": false,
+      "keepiton_matched": true,
+      "keepiton_ids": [],
+      "source_urls": [],
+      "metadata": {
+        "min_visibility_pct": 0.0,
+        "resolved": true,
+        "ioda_confirmed": false
+      }
+    },
+    {
+      "event_id": "bgp-1393",
+      "event_time": "2026-05-01T14:30:54Z",
+      "event_end": "2026-05-01T15:01:49Z",
+      "duration_minutes": 30,
+      "event_type": "outage",
+      "sources": [
+        "bgp"
+      ],
+      "asn": "AS134739",
+      "isp_name": "AGBC-AS-AP AGB Communication Co., Ltd",
+      "severity": 2,
+      "scope": null,
+      "perpetrator": null,
+      "affected_services": [],
+      "is_confirmed": false,
+      "keepiton_matched": true,
+      "keepiton_ids": [],
+      "source_urls": [],
+      "metadata": {
+        "min_visibility_pct": 0.0,
+        "resolved": true,
+        "ioda_confirmed": false
+      }
+    },
+    {
+      "event_id": "bgp-1394",
+      "event_time": "2026-05-01T14:30:54Z",
+      "event_end": "2026-05-01T15:01:50Z",
+      "duration_minutes": 30,
+      "event_type": "outage",
+      "sources": [
+        "bgp"
+      ],
+      "asn": "AS136789",
+      "isp_name": "LOTUS-AS-AP LOTUS MUDRA COMPANY LIMITED",
+      "severity": 2,
+      "scope": null,
+      "perpetrator": null,
+      "affected_services": [],
+      "is_confirmed": false,
+      "keepiton_matched": true,
+      "keepiton_ids": [],
+      "source_urls": [],
+      "metadata": {
+        "min_visibility_pct": 0.0,
+        "resolved": true,
+        "ioda_confirmed": false
+      }
+    },
+    {
+      "event_id": "bgp-1395",
+      "event_time": "2026-05-01T14:30:55Z",
+      "event_end": "2026-05-01T15:01:51Z",
+      "duration_minutes": 30,
+      "event_type": "outage",
+      "sources": [
+        "bgp"
+      ],
+      "asn": "AS137826",
+      "isp_name": "ASTCL-AS-AP AST SYSTEM TECHNOLOGY COMPANY LIMITED",
+      "severity": 2,
+      "scope": null,
+      "perpetrator": null,
+      "affected_services": [],
+      "is_confirmed": false,
+      "keepiton_matched": true,
+      "keepiton_ids": [],
+      "source_urls": [],
+      "metadata": {
+        "min_visibility_pct": 0.0,
+        "resolved": true,
+        "ioda_confirmed": false
+      }
+    },
+    {
+      "event_id": "bgp-1396",
+      "event_time": "2026-05-01T14:30:55Z",
+      "event_end": "2026-05-01T15:01:52Z",
+      "duration_minutes": 30,
+      "event_type": "outage",
+      "sources": [
+        "bgp"
+      ],
+      "asn": "AS135300",
+      "isp_name": "MBTCL-AS-AP Myanmar Broadband Telecom Co., Ltd",
+      "severity": 2,
+      "scope": null,
+      "perpetrator": null,
+      "affected_services": [],
+      "is_confirmed": false,
+      "keepiton_matched": true,
+      "keepiton_ids": [],
+      "source_urls": [],
+      "metadata": {
+        "min_visibility_pct": 0.0,
+        "resolved": true,
+        "ioda_confirmed": false
+      }
+    },
+    {
+      "event_id": "bgp-1397",
+      "event_time": "2026-05-01T14:30:55Z",
+      "event_end": "2026-05-01T15:01:53Z",
+      "duration_minutes": 30,
+      "event_type": "outage",
+      "sources": [
+        "bgp"
+      ],
+      "asn": "AS137861",
+      "isp_name": "MWT-AS-AP Myanmar World Distribution Telecommunication Company Limited",
+      "severity": 2,
+      "scope": null,
+      "perpetrator": null,
+      "affected_services": [],
+      "is_confirmed": false,
+      "keepiton_matched": true,
+      "keepiton_ids": [],
+      "source_urls": [],
+      "metadata": {
+        "min_visibility_pct": 0.0,
+        "resolved": true,
+        "ioda_confirmed": false
+      }
+    },
+    {
+      "event_id": "bgp-1398",
+      "event_time": "2026-05-01T14:30:56Z",
+      "event_end": "2026-05-01T15:01:54Z",
+      "duration_minutes": 30,
+      "event_type": "outage",
+      "sources": [
+        "bgp"
+      ],
+      "asn": "AS150153",
+      "isp_name": "AWSCL-AS-AP A W S MYANMAR COMPANY LIMITED",
+      "severity": 2,
+      "scope": null,
+      "perpetrator": null,
+      "affected_services": [],
+      "is_confirmed": false,
+      "keepiton_matched": true,
+      "keepiton_ids": [],
+      "source_urls": [],
+      "metadata": {
+        "min_visibility_pct": 0.0,
+        "resolved": true,
+        "ioda_confirmed": false
+      }
+    },
+    {
+      "event_id": "bgp-1399",
+      "event_time": "2026-05-01T14:30:56Z",
+      "event_end": "2026-05-01T15:01:55Z",
+      "duration_minutes": 30,
+      "event_type": "outage",
+      "sources": [
+        "bgp"
+      ],
+      "asn": "AS135307",
+      "isp_name": "GTMH-AS-AP Golden TMH Telecom Co. Ltd",
+      "severity": 2,
+      "scope": null,
+      "perpetrator": null,
+      "affected_services": [],
+      "is_confirmed": false,
+      "keepiton_matched": true,
+      "keepiton_ids": [],
+      "source_urls": [],
+      "metadata": {
+        "min_visibility_pct": 0.0,
+        "resolved": true,
+        "ioda_confirmed": false
+      }
+    },
+    {
+      "event_id": "bgp-1400",
+      "event_time": "2026-05-01T14:30:56Z",
+      "event_end": "2026-05-01T15:01:55Z",
+      "duration_minutes": 30,
+      "event_type": "outage",
+      "sources": [
+        "bgp"
+      ],
+      "asn": "AS150159",
+      "isp_name": "BDCL-AS-AP BRAINWAVE DATA COMPANY LIMITED",
+      "severity": 2,
+      "scope": null,
+      "perpetrator": null,
+      "affected_services": [],
+      "is_confirmed": false,
+      "keepiton_matched": true,
+      "keepiton_ids": [],
+      "source_urls": [],
+      "metadata": {
+        "min_visibility_pct": 0.0,
+        "resolved": true,
+        "ioda_confirmed": false
+      }
+    },
+    {
+      "event_id": "bgp-1401",
+      "event_time": "2026-05-01T14:30:57Z",
+      "event_end": "2026-05-01T15:01:56Z",
+      "duration_minutes": 30,
+      "event_type": "outage",
+      "sources": [
+        "bgp"
+      ],
+      "asn": "AS149660",
+      "isp_name": "HSCL-AS-AP Horizon Sources Company Limited",
+      "severity": 2,
+      "scope": null,
+      "perpetrator": null,
+      "affected_services": [],
+      "is_confirmed": false,
+      "keepiton_matched": true,
+      "keepiton_ids": [],
+      "source_urls": [],
+      "metadata": {
+        "min_visibility_pct": 0.0,
+        "resolved": true,
+        "ioda_confirmed": false
+      }
+    },
+    {
+      "event_id": "bgp-1402",
+      "event_time": "2026-05-01T14:30:57Z",
+      "event_end": "2026-05-01T15:01:57Z",
+      "duration_minutes": 30,
+      "event_type": "outage",
+      "sources": [
+        "bgp"
+      ],
+      "asn": "AS137888",
+      "isp_name": "BCM-AS-AP Bee Connect Myanmar Co., Ltd.",
+      "severity": 2,
+      "scope": null,
+      "perpetrator": null,
+      "affected_services": [],
+      "is_confirmed": false,
+      "keepiton_matched": true,
+      "keepiton_ids": [],
+      "source_urls": [],
+      "metadata": {
+        "min_visibility_pct": 0.0,
+        "resolved": true,
+        "ioda_confirmed": false
+      }
+    },
+    {
+      "event_id": "bgp-1403",
+      "event_time": "2026-05-01T14:30:57Z",
+      "event_end": "2026-05-01T15:01:58Z",
+      "duration_minutes": 31,
+      "event_type": "outage",
+      "sources": [
+        "bgp"
+      ],
+      "asn": "AS137891",
+      "isp_name": "BETHEFIRST-AS-AP Be The First",
+      "severity": 3,
+      "scope": null,
+      "perpetrator": null,
+      "affected_services": [],
+      "is_confirmed": false,
+      "keepiton_matched": true,
+      "keepiton_ids": [],
+      "source_urls": [],
+      "metadata": {
+        "min_visibility_pct": 0.0,
+        "resolved": true,
+        "ioda_confirmed": false
+      }
+    },
+    {
+      "event_id": "bgp-1404",
+      "event_time": "2026-05-01T14:30:58Z",
+      "event_end": "2026-05-01T15:01:59Z",
+      "duration_minutes": 31,
+      "event_type": "outage",
+      "sources": [
+        "bgp"
+      ],
+      "asn": "AS150692",
+      "isp_name": "GD2CL-AS-AP Golden Dragon 2000",
+      "severity": 3,
+      "scope": null,
+      "perpetrator": null,
+      "affected_services": [],
+      "is_confirmed": false,
+      "keepiton_matched": true,
+      "keepiton_ids": [],
+      "source_urls": [],
+      "metadata": {
+        "min_visibility_pct": 0.0,
+        "resolved": true,
+        "ioda_confirmed": false
+      }
+    },
+    {
+      "event_id": "bgp-1405",
+      "event_time": "2026-05-01T14:30:58Z",
+      "event_end": "2026-05-01T15:01:59Z",
+      "duration_minutes": 31,
+      "event_type": "outage",
+      "sources": [
+        "bgp"
+      ],
+      "asn": "AS151210",
+      "isp_name": "NCL-AS-AP NEXGENET COMPANY LIMITED",
+      "severity": 3,
+      "scope": null,
+      "perpetrator": null,
+      "affected_services": [],
+      "is_confirmed": false,
+      "keepiton_matched": true,
+      "keepiton_ids": [],
+      "source_urls": [],
+      "metadata": {
+        "min_visibility_pct": 0.0,
+        "resolved": true,
+        "ioda_confirmed": false
+      }
+    },
+    {
+      "event_id": "bgp-1406",
+      "event_time": "2026-05-01T14:30:58Z",
+      "event_end": "2026-05-01T15:02:00Z",
+      "duration_minutes": 31,
+      "event_type": "outage",
+      "sources": [
+        "bgp"
+      ],
+      "asn": "AS153777",
+      "isp_name": "MMC-AS-AP Mandalar Mandalay Company Limited",
+      "severity": 3,
+      "scope": null,
+      "perpetrator": null,
+      "affected_services": [],
+      "is_confirmed": false,
+      "keepiton_matched": true,
+      "keepiton_ids": [],
+      "source_urls": [],
+      "metadata": {
+        "min_visibility_pct": 0.0,
+        "resolved": true,
+        "ioda_confirmed": false
+      }
+    },
+    {
+      "event_id": "bgp-1407",
+      "event_time": "2026-05-01T14:30:59Z",
+      "event_end": "2026-05-01T15:02:02Z",
+      "duration_minutes": 31,
+      "event_type": "outage",
+      "sources": [
+        "bgp"
+      ],
+      "asn": "AS134840",
+      "isp_name": "MCCL-AS-AP Myanmar Country Co., Ltd.",
+      "severity": 3,
+      "scope": null,
+      "perpetrator": null,
+      "affected_services": [],
+      "is_confirmed": false,
+      "keepiton_matched": true,
+      "keepiton_ids": [],
+      "source_urls": [],
+      "metadata": {
+        "min_visibility_pct": 0.0,
+        "resolved": true,
+        "ioda_confirmed": false
+      }
+    },
+    {
+      "event_id": "bgp-1408",
+      "event_time": "2026-05-01T14:30:59Z",
+      "event_end": "2026-05-01T15:02:02Z",
+      "duration_minutes": 31,
+      "event_type": "outage",
+      "sources": [
+        "bgp"
+      ],
+      "asn": "AS153790",
+      "isp_name": "AMCL-AS-AP ADS Myanmar Company Limited",
+      "severity": 3,
+      "scope": null,
+      "perpetrator": null,
+      "affected_services": [],
+      "is_confirmed": false,
+      "keepiton_matched": true,
+      "keepiton_ids": [],
+      "source_urls": [],
+      "metadata": {
+        "min_visibility_pct": 0.0,
+        "resolved": true,
+        "ioda_confirmed": false
+      }
+    },
+    {
+      "event_id": "bgp-1409",
+      "event_time": "2026-05-01T14:30:59Z",
+      "event_end": "2026-05-01T15:02:03Z",
+      "duration_minutes": 31,
+      "event_type": "outage",
+      "sources": [
+        "bgp"
+      ],
+      "asn": "AS150721",
+      "isp_name": "ANCL-AS-AP ARAKHA NET",
+      "severity": 3,
+      "scope": null,
+      "perpetrator": null,
+      "affected_services": [],
+      "is_confirmed": false,
+      "keepiton_matched": true,
+      "keepiton_ids": [],
+      "source_urls": [],
+      "metadata": {
+        "min_visibility_pct": 0.0,
+        "resolved": true,
+        "ioda_confirmed": false
+      }
+    },
+    {
+      "event_id": "bgp-1410",
+      "event_time": "2026-05-01T14:31:00Z",
+      "event_end": "2026-05-01T15:02:04Z",
+      "duration_minutes": 31,
+      "event_type": "outage",
+      "sources": [
+        "bgp"
+      ],
+      "asn": "AS135371",
+      "isp_name": "FORTUNEINTERNATIONAL-AS-AP Fortune Broadband",
+      "severity": 3,
+      "scope": null,
+      "perpetrator": null,
+      "affected_services": [],
+      "is_confirmed": false,
+      "keepiton_matched": true,
+      "keepiton_ids": [],
+      "source_urls": [],
+      "metadata": {
+        "min_visibility_pct": 0.0,
+        "resolved": true,
+        "ioda_confirmed": false
+      }
+    },
+    {
+      "event_id": "bgp-1411",
+      "event_time": "2026-05-01T14:31:00Z",
+      "event_end": "2026-05-01T15:02:05Z",
+      "duration_minutes": 31,
+      "event_type": "outage",
+      "sources": [
+        "bgp"
+      ],
+      "asn": "AS137424",
+      "isp_name": "ISMC-AS-AP Integral Solutions Myanmar Co.,Ltd.",
+      "severity": 3,
+      "scope": null,
+      "perpetrator": null,
+      "affected_services": [],
+      "is_confirmed": false,
+      "keepiton_matched": true,
+      "keepiton_ids": [],
+      "source_urls": [],
+      "metadata": {
+        "min_visibility_pct": 0.0,
+        "resolved": true,
+        "ioda_confirmed": false
+      }
+    },
+    {
+      "event_id": "bgp-1412",
+      "event_time": "2026-05-01T14:31:00Z",
+      "event_end": "2026-05-01T15:02:06Z",
+      "duration_minutes": 31,
+      "event_type": "outage",
+      "sources": [
+        "bgp"
+      ],
+      "asn": "AS136919",
+      "isp_name": "FACE24COLTD-AS-AP FACE24 Co.,Ltd",
+      "severity": 3,
+      "scope": null,
+      "perpetrator": null,
+      "affected_services": [],
+      "is_confirmed": false,
+      "keepiton_matched": true,
+      "keepiton_ids": [],
+      "source_urls": [],
+      "metadata": {
+        "min_visibility_pct": 0.0,
+        "resolved": true,
+        "ioda_confirmed": false
+      }
+    },
+    {
+      "event_id": "bgp-1413",
+      "event_time": "2026-05-01T14:31:01Z",
+      "event_end": "2026-05-01T15:02:07Z",
+      "duration_minutes": 31,
+      "event_type": "outage",
+      "sources": [
+        "bgp"
+      ],
+      "asn": "AS137431",
+      "isp_name": "RPCL-AS-AP ZORRO RITZ PUBLIC COMPANY LIMITED",
+      "severity": 3,
+      "scope": null,
+      "perpetrator": null,
+      "affected_services": [],
+      "is_confirmed": false,
+      "keepiton_matched": true,
+      "keepiton_ids": [],
+      "source_urls": [],
+      "metadata": {
+        "min_visibility_pct": 0.0,
+        "resolved": true,
+        "ioda_confirmed": false
+      }
+    },
+    {
+      "event_id": "bgp-1414",
+      "event_time": "2026-05-01T14:31:01Z",
+      "event_end": "2026-05-01T15:02:07Z",
+      "duration_minutes": 31,
+      "event_type": "outage",
+      "sources": [
+        "bgp"
+      ],
+      "asn": "AS141015",
+      "isp_name": "MYANMARLINK-AS-AP Myanmar Link Telecommunication Ltd",
+      "severity": 3,
+      "scope": null,
+      "perpetrator": null,
+      "affected_services": [],
+      "is_confirmed": false,
+      "keepiton_matched": true,
+      "keepiton_ids": [],
+      "source_urls": [],
+      "metadata": {
+        "min_visibility_pct": 0.0,
+        "resolved": true,
+        "ioda_confirmed": false
+      }
+    },
+    {
+      "event_id": "bgp-1415",
+      "event_time": "2026-05-01T14:31:01Z",
+      "event_end": "2026-05-01T15:02:08Z",
+      "duration_minutes": 31,
+      "event_type": "outage",
+      "sources": [
+        "bgp"
+      ],
+      "asn": "AS137955",
+      "isp_name": "MMIX-AS-AP Myanmar Internet Exchange",
+      "severity": 3,
+      "scope": null,
+      "perpetrator": null,
+      "affected_services": [],
+      "is_confirmed": false,
+      "keepiton_matched": true,
+      "keepiton_ids": [],
+      "source_urls": [],
+      "metadata": {
+        "min_visibility_pct": 0.0,
+        "resolved": true,
+        "ioda_confirmed": false
+      }
+    },
+    {
+      "event_id": "bgp-1416",
+      "event_time": "2026-05-01T14:31:02Z",
+      "event_end": "2026-05-01T15:02:09Z",
+      "duration_minutes": 31,
+      "event_type": "outage",
+      "sources": [
+        "bgp"
+      ],
+      "asn": "AS151783",
+      "isp_name": "ERU-AS-AP EASTERN ROYAL UNICOM ERU TECHNOLOGY COMPANY LIMITED",
+      "severity": 3,
+      "scope": null,
+      "perpetrator": null,
+      "affected_services": [],
+      "is_confirmed": false,
+      "keepiton_matched": true,
+      "keepiton_ids": [],
+      "source_urls": [],
+      "metadata": {
+        "min_visibility_pct": 0.0,
+        "resolved": true,
+        "ioda_confirmed": false
+      }
+    },
+    {
+      "event_id": "bgp-1417",
+      "event_time": "2026-05-01T14:31:02Z",
+      "event_end": "2026-05-01T15:02:11Z",
+      "duration_minutes": 31,
+      "event_type": "outage",
+      "sources": [
+        "bgp"
+      ],
+      "asn": "AS135405",
+      "isp_name": "TMHTTWTL-AS-AP WELINK",
+      "severity": 3,
+      "scope": null,
+      "perpetrator": null,
+      "affected_services": [],
+      "is_confirmed": false,
+      "keepiton_matched": true,
+      "keepiton_ids": [],
+      "source_urls": [],
+      "metadata": {
+        "min_visibility_pct": 0.0,
+        "resolved": true,
+        "ioda_confirmed": false
+      }
+    },
+    {
+      "event_id": "bgp-1418",
+      "event_time": "2026-05-01T14:31:03Z",
+      "event_end": "2026-05-01T15:02:12Z",
+      "duration_minutes": 31,
+      "event_type": "outage",
+      "sources": [
+        "bgp"
+      ],
+      "asn": "AS132344",
+      "isp_name": "STMCL-AS-AP SEANET",
+      "severity": 3,
+      "scope": null,
+      "perpetrator": null,
+      "affected_services": [],
+      "is_confirmed": false,
+      "keepiton_matched": true,
+      "keepiton_ids": [],
+      "source_urls": [],
+      "metadata": {
+        "min_visibility_pct": 0.0,
+        "resolved": true,
+        "ioda_confirmed": false
+      }
+    },
+    {
+      "event_id": "bgp-1419",
+      "event_time": "2026-05-01T14:31:03Z",
+      "event_end": "2026-05-01T15:02:13Z",
+      "duration_minutes": 31,
+      "event_type": "outage",
+      "sources": [
+        "bgp"
+      ],
+      "asn": "AS136442",
+      "isp_name": "OCEANWAVE-AS-AP Ocean Wave Communication Co., Ltd",
+      "severity": 3,
+      "scope": null,
+      "perpetrator": null,
+      "affected_services": [],
+      "is_confirmed": false,
+      "keepiton_matched": true,
+      "keepiton_ids": [],
+      "source_urls": [],
+      "metadata": {
+        "min_visibility_pct": 0.0,
+        "resolved": true,
+        "ioda_confirmed": false
+      }
+    },
+    {
+      "event_id": "bgp-1420",
+      "event_time": "2026-05-01T14:31:04Z",
+      "event_end": "2026-05-01T15:02:14Z",
+      "duration_minutes": 31,
+      "event_type": "outage",
+      "sources": [
+        "bgp"
+      ],
+      "asn": "AS151802",
+      "isp_name": "FSAS-AS-MM FIND SOLUTION AND SERVICES CO., LTD.",
+      "severity": 3,
+      "scope": null,
+      "perpetrator": null,
+      "affected_services": [],
+      "is_confirmed": false,
+      "keepiton_matched": true,
+      "keepiton_ids": [],
+      "source_urls": [],
+      "metadata": {
+        "min_visibility_pct": 0.0,
+        "resolved": true,
+        "ioda_confirmed": false
+      }
+    },
+    {
+      "event_id": "bgp-1421",
+      "event_time": "2026-05-01T14:31:04Z",
+      "event_end": "2026-05-01T15:02:15Z",
+      "duration_minutes": 31,
+      "event_type": "outage",
+      "sources": [
+        "bgp"
+      ],
+      "asn": "AS131322",
+      "isp_name": "YTCL-AS-AP Yatanarpon Teleport Company Limited",
+      "severity": 3,
+      "scope": null,
+      "perpetrator": null,
+      "affected_services": [],
+      "is_confirmed": false,
+      "keepiton_matched": true,
+      "keepiton_ids": [],
+      "source_urls": [],
+      "metadata": {
+        "min_visibility_pct": 0.0,
+        "resolved": true,
+        "ioda_confirmed": false
+      }
+    },
+    {
+      "event_id": "bgp-1422",
+      "event_time": "2026-05-01T14:31:04Z",
+      "event_end": "2026-05-01T15:02:16Z",
+      "duration_minutes": 31,
+      "event_type": "outage",
+      "sources": [
+        "bgp"
+      ],
+      "asn": "AS139003",
+      "isp_name": "TELCOSPEEDCOLTD-AS-AP Telcospeed",
+      "severity": 3,
+      "scope": null,
+      "perpetrator": null,
+      "affected_services": [],
+      "is_confirmed": false,
+      "keepiton_matched": true,
+      "keepiton_ids": [],
+      "source_urls": [],
+      "metadata": {
+        "min_visibility_pct": 0.0,
+        "resolved": true,
+        "ioda_confirmed": false
+      }
+    },
+    {
+      "event_id": "bgp-1423",
+      "event_time": "2026-05-01T14:31:05Z",
+      "event_end": "2026-05-01T15:02:17Z",
+      "duration_minutes": 31,
+      "event_type": "outage",
+      "sources": [
+        "bgp"
+      ],
+      "asn": "AS135427",
+      "isp_name": "MYANMARNETWORK-AS-AP Myanmar Network Company Limited",
+      "severity": 3,
+      "scope": null,
+      "perpetrator": null,
+      "affected_services": [],
+      "is_confirmed": false,
+      "keepiton_matched": true,
+      "keepiton_ids": [],
+      "source_urls": [],
+      "metadata": {
+        "min_visibility_pct": 0.0,
+        "resolved": true,
+        "ioda_confirmed": false
+      }
+    },
+    {
+      "event_id": "bgp-1424",
+      "event_time": "2026-05-01T14:31:05Z",
+      "event_end": "2026-05-01T14:35:04Z",
+      "duration_minutes": 3,
+      "event_type": "outage",
+      "sources": [
+        "bgp"
+      ],
+      "asn": "AS9988",
+      "isp_name": "MPT-AP Myanma Posts and Telecommunications",
+      "severity": 2,
+      "scope": null,
+      "perpetrator": null,
+      "affected_services": [],
+      "is_confirmed": false,
+      "keepiton_matched": true,
+      "keepiton_ids": [],
+      "source_urls": [],
+      "metadata": {
+        "min_visibility_pct": 0.0,
+        "resolved": true,
+        "ioda_confirmed": false
+      }
+    },
+    {
+      "event_id": "bgp-1425",
+      "event_time": "2026-05-01T14:31:06Z",
+      "event_end": "2026-05-01T15:02:18Z",
+      "duration_minutes": 31,
+      "event_type": "outage",
+      "sources": [
+        "bgp"
+      ],
+      "asn": "AS133384",
+      "isp_name": "GTCL-AS-AP Global Technology Co., Ltd.",
+      "severity": 3,
+      "scope": null,
+      "perpetrator": null,
+      "affected_services": [],
+      "is_confirmed": false,
+      "keepiton_matched": true,
+      "keepiton_ids": [],
+      "source_urls": [],
+      "metadata": {
+        "min_visibility_pct": 0.0,
+        "resolved": true,
+        "ioda_confirmed": false
+      }
+    },
+    {
+      "event_id": "bgp-1426",
+      "event_time": "2026-05-01T14:31:06Z",
+      "event_end": "2026-05-01T15:02:21Z",
+      "duration_minutes": 31,
+      "event_type": "outage",
+      "sources": [
+        "bgp"
+      ],
+      "asn": "AS133385",
+      "isp_name": "ATOMMYANMAR-AS-AP Atom Myanmar Limited",
+      "severity": 3,
+      "scope": null,
+      "perpetrator": null,
+      "affected_services": [],
+      "is_confirmed": false,
+      "keepiton_matched": true,
+      "keepiton_ids": [],
+      "source_urls": [],
+      "metadata": {
+        "min_visibility_pct": 0.0,
+        "resolved": true,
+        "ioda_confirmed": false
+      }
+    },
+    {
+      "event_id": "bgp-1427",
+      "event_time": "2026-05-01T14:31:07Z",
+      "event_end": "2026-05-01T15:02:22Z",
+      "duration_minutes": 31,
+      "event_type": "outage",
+      "sources": [
+        "bgp"
+      ],
+      "asn": "AS135433",
+      "isp_name": "CGCL-AS-AP Connect Gateway Company Limited",
+      "severity": 3,
+      "scope": null,
+      "perpetrator": null,
+      "affected_services": [],
+      "is_confirmed": false,
+      "keepiton_matched": true,
+      "keepiton_ids": [],
+      "source_urls": [],
+      "metadata": {
+        "min_visibility_pct": 0.0,
+        "resolved": true,
+        "ioda_confirmed": false
+      }
+    },
+    {
+      "event_id": "bgp-1428",
+      "event_time": "2026-05-01T14:31:07Z",
+      "event_end": "2026-05-01T15:02:22Z",
+      "duration_minutes": 31,
+      "event_type": "outage",
+      "sources": [
+        "bgp"
+      ],
+      "asn": "AS140552",
+      "isp_name": "CBBANK-AS-AP Co-operative Bank Public Company Limited",
+      "severity": 3,
+      "scope": null,
+      "perpetrator": null,
+      "affected_services": [],
+      "is_confirmed": false,
+      "keepiton_matched": true,
+      "keepiton_ids": [],
+      "source_urls": [],
+      "metadata": {
+        "min_visibility_pct": 0.0,
+        "resolved": true,
+        "ioda_confirmed": false
+      }
+    },
+    {
+      "event_id": "bgp-1429",
+      "event_time": "2026-05-01T14:31:07Z",
+      "event_end": "2026-05-01T15:02:23Z",
+      "duration_minutes": 31,
+      "event_type": "outage",
+      "sources": [
+        "bgp"
+      ],
+      "asn": "AS152329",
+      "isp_name": "AKNCL-AS-AP Aon Kham Network Company Limited",
+      "severity": 3,
+      "scope": null,
+      "perpetrator": null,
+      "affected_services": [],
+      "is_confirmed": false,
+      "keepiton_matched": true,
+      "keepiton_ids": [],
+      "source_urls": [],
+      "metadata": {
+        "min_visibility_pct": 0.0,
+        "resolved": true,
+        "ioda_confirmed": false
+      }
+    },
+    {
+      "event_id": "bgp-1430",
+      "event_time": "2026-05-01T14:31:08Z",
+      "event_end": "2026-05-01T15:02:25Z",
+      "duration_minutes": 31,
+      "event_type": "outage",
+      "sources": [
+        "bgp"
+      ],
+      "asn": "AS150285",
+      "isp_name": "LMHCC-AS-AP Long Mao Home Center Co.ltd.",
+      "severity": 3,
+      "scope": null,
+      "perpetrator": null,
+      "affected_services": [],
+      "is_confirmed": false,
+      "keepiton_matched": true,
+      "keepiton_ids": [],
+      "source_urls": [],
+      "metadata": {
+        "min_visibility_pct": 0.0,
+        "resolved": true,
+        "ioda_confirmed": false
+      }
+    },
+    {
+      "event_id": "bgp-1431",
+      "event_time": "2026-05-01T14:31:08Z",
+      "event_end": "2026-05-01T15:02:25Z",
+      "duration_minutes": 31,
+      "event_type": "outage",
+      "sources": [
+        "bgp"
+      ],
+      "asn": "AS150797",
+      "isp_name": "GCL-AS-AP GIGA-NET",
+      "severity": 3,
+      "scope": null,
+      "perpetrator": null,
+      "affected_services": [],
+      "is_confirmed": false,
+      "keepiton_matched": true,
+      "keepiton_ids": [],
+      "source_urls": [],
+      "metadata": {
+        "min_visibility_pct": 0.0,
+        "resolved": true,
+        "ioda_confirmed": false
+      }
+    },
+    {
+      "event_id": "bgp-1432",
+      "event_time": "2026-05-01T14:31:08Z",
+      "event_end": "2026-05-01T15:02:26Z",
+      "duration_minutes": 31,
+      "event_type": "outage",
+      "sources": [
+        "bgp"
+      ],
+      "asn": "AS136975",
+      "isp_name": "GNET-AS-AP Global Technology",
+      "severity": 3,
+      "scope": null,
+      "perpetrator": null,
+      "affected_services": [],
+      "is_confirmed": false,
+      "keepiton_matched": true,
+      "keepiton_ids": [],
+      "source_urls": [],
+      "metadata": {
+        "min_visibility_pct": 0.0,
+        "resolved": true,
+        "ioda_confirmed": false
+      }
+    },
+    {
+      "event_id": "bgp-1433",
+      "event_time": "2026-05-01T14:31:09Z",
+      "event_end": "2026-05-01T15:02:27Z",
+      "duration_minutes": 31,
+      "event_type": "outage",
+      "sources": [
+        "bgp"
+      ],
+      "asn": "AS136465",
+      "isp_name": "INFORMATIONTECHNOLOGYCYBERSECURITY-AS-AP Dept. of Information Technology & Cyber Security",
+      "severity": 3,
+      "scope": null,
+      "perpetrator": null,
+      "affected_services": [],
+      "is_confirmed": false,
+      "keepiton_matched": true,
+      "keepiton_ids": [],
+      "source_urls": [],
+      "metadata": {
+        "min_visibility_pct": 0.0,
+        "resolved": true,
+        "ioda_confirmed": false
+      }
+    },
+    {
+      "event_id": "bgp-1434",
+      "event_time": "2026-05-01T14:31:09Z",
+      "event_end": "2026-05-01T15:02:28Z",
+      "duration_minutes": 31,
+      "event_type": "outage",
+      "sources": [
+        "bgp"
+      ],
+      "asn": "AS151826",
+      "isp_name": "FASTSPEED-AS-AP Fast Speed",
+      "severity": 3,
+      "scope": null,
+      "perpetrator": null,
+      "affected_services": [],
+      "is_confirmed": false,
+      "keepiton_matched": true,
+      "keepiton_ids": [],
+      "source_urls": [],
+      "metadata": {
+        "min_visibility_pct": 0.0,
+        "resolved": true,
+        "ioda_confirmed": false
+      }
+    },
+    {
+      "event_id": "bgp-1435",
+      "event_time": "2026-05-01T14:31:09Z",
+      "event_end": "2026-05-01T15:02:29Z",
+      "duration_minutes": 31,
+      "event_type": "outage",
+      "sources": [
+        "bgp"
+      ],
+      "asn": "AS150297",
+      "isp_name": "GMBECL-AS-AP Golden Myanmar Business Exchange Co. Ltd",
+      "severity": 3,
+      "scope": null,
+      "perpetrator": null,
+      "affected_services": [],
+      "is_confirmed": false,
+      "keepiton_matched": true,
+      "keepiton_ids": [],
+      "source_urls": [],
+      "metadata": {
+        "min_visibility_pct": 0.0,
+        "resolved": true,
+        "ioda_confirmed": false
+      }
+    },
+    {
+      "event_id": "bgp-1436",
+      "event_time": "2026-05-01T14:31:10Z",
+      "event_end": "2026-05-01T15:02:30Z",
+      "duration_minutes": 31,
+      "event_type": "outage",
+      "sources": [
+        "bgp"
+      ],
+      "asn": "AS136474",
+      "isp_name": "MGTL-AS-AP Marga Global Telecom Limited",
+      "severity": 3,
+      "scope": null,
+      "perpetrator": null,
+      "affected_services": [],
+      "is_confirmed": false,
+      "keepiton_matched": true,
+      "keepiton_ids": [],
+      "source_urls": [],
+      "metadata": {
+        "min_visibility_pct": 0.0,
+        "resolved": true,
+        "ioda_confirmed": false
+      }
+    },
+    {
+      "event_id": "bgp-1437",
+      "event_time": "2026-05-01T14:31:10Z",
+      "event_end": "2026-05-01T15:02:31Z",
+      "duration_minutes": 31,
+      "event_type": "outage",
+      "sources": [
+        "bgp"
+      ],
+      "asn": "AS150812",
+      "isp_name": "MFGCL-AS-AP Myanmar Fortune Global Company Limited",
+      "severity": 3,
+      "scope": null,
+      "perpetrator": null,
+      "affected_services": [],
+      "is_confirmed": false,
+      "keepiton_matched": true,
+      "keepiton_ids": [],
+      "source_urls": [],
+      "metadata": {
+        "min_visibility_pct": 0.0,
+        "resolved": true,
+        "ioda_confirmed": false
+      }
+    },
+    {
+      "event_id": "bgp-1438",
+      "event_time": "2026-05-01T14:31:10Z",
+      "event_end": "2026-05-01T14:35:04Z",
+      "duration_minutes": 3,
+      "event_type": "outage",
+      "sources": [
+        "bgp"
+      ],
+      "asn": "AS136480",
+      "isp_name": "MMUNILINK-AS-AP Myanmar Unilink Communication Company Limited",
+      "severity": 2,
+      "scope": null,
+      "perpetrator": null,
+      "affected_services": [],
+      "is_confirmed": false,
+      "keepiton_matched": true,
+      "keepiton_ids": [],
+      "source_urls": [],
+      "metadata": {
+        "min_visibility_pct": 0.0,
+        "resolved": true,
+        "ioda_confirmed": false
+      }
+    },
+    {
+      "event_id": "bgp-1439",
+      "event_time": "2026-05-01T14:31:11Z",
+      "event_end": "2026-05-01T15:02:32Z",
+      "duration_minutes": 31,
+      "event_type": "outage",
+      "sources": [
+        "bgp"
+      ],
+      "asn": "AS150309",
+      "isp_name": "ERSTCL-AS-AP E R S TECHNOLOGY",
+      "severity": 3,
+      "scope": null,
+      "perpetrator": null,
+      "affected_services": [],
+      "is_confirmed": false,
+      "keepiton_matched": true,
+      "keepiton_ids": [],
+      "source_urls": [],
+      "metadata": {
+        "min_visibility_pct": 0.0,
+        "resolved": true,
+        "ioda_confirmed": false
+      }
+    },
+    {
+      "event_id": "bgp-1440",
+      "event_time": "2026-05-01T14:31:11Z",
+      "event_end": "2026-05-01T15:02:32Z",
+      "duration_minutes": 31,
+      "event_type": "outage",
+      "sources": [
+        "bgp"
+      ],
+      "asn": "AS150310",
+      "isp_name": "TMC-AS-AP Trustforce Myanmar Company Limited trading as Nationet",
+      "severity": 3,
+      "scope": null,
+      "perpetrator": null,
+      "affected_services": [],
+      "is_confirmed": false,
+      "keepiton_matched": true,
+      "keepiton_ids": [],
+      "source_urls": [],
+      "metadata": {
+        "min_visibility_pct": 0.0,
+        "resolved": true,
+        "ioda_confirmed": false
+      }
+    },
+    {
+      "event_id": "bgp-1441",
+      "event_time": "2026-05-01T14:31:11Z",
+      "event_end": "2026-05-01T15:02:33Z",
+      "duration_minutes": 31,
+      "event_type": "outage",
+      "sources": [
+        "bgp"
+      ],
+      "asn": "AS139051",
+      "isp_name": "AUNGGABAR-AS-AP AUNG GABAR COMPANY LIMITED",
+      "severity": 3,
+      "scope": null,
+      "perpetrator": null,
+      "affected_services": [],
+      "is_confirmed": false,
+      "keepiton_matched": true,
+      "keepiton_ids": [],
+      "source_urls": [],
+      "metadata": {
+        "min_visibility_pct": 0.0,
+        "resolved": true,
+        "ioda_confirmed": false
+      }
+    },
+    {
+      "event_id": "bgp-1442",
+      "event_time": "2026-05-01T14:31:12Z",
+      "event_end": "2026-05-01T15:02:34Z",
+      "duration_minutes": 31,
+      "event_type": "outage",
+      "sources": [
+        "bgp"
+      ],
+      "asn": "AS151341",
+      "isp_name": "THENEXTSUCCESS-AS-AP The Next Success",
+      "severity": 3,
+      "scope": null,
+      "perpetrator": null,
+      "affected_services": [],
+      "is_confirmed": false,
+      "keepiton_matched": true,
+      "keepiton_ids": [],
+      "source_urls": [],
+      "metadata": {
+        "min_visibility_pct": 0.0,
+        "resolved": true,
+        "ioda_confirmed": false
+      }
+    },
+    {
+      "event_id": "bgp-1443",
+      "event_time": "2026-05-01T14:31:12Z",
+      "event_end": "2026-05-01T15:02:35Z",
+      "duration_minutes": 31,
+      "event_type": "outage",
+      "sources": [
+        "bgp"
+      ],
+      "asn": "AS142126",
+      "isp_name": "SCSKMYANMARLTD-AS SCSK Myanmar Ltd",
+      "severity": 3,
+      "scope": null,
+      "perpetrator": null,
+      "affected_services": [],
+      "is_confirmed": false,
+      "keepiton_matched": true,
+      "keepiton_ids": [],
+      "source_urls": [],
+      "metadata": {
+        "min_visibility_pct": 0.0,
+        "resolved": true,
+        "ioda_confirmed": false
+      }
+    },
+    {
+      "event_id": "bgp-1444",
+      "event_time": "2026-05-01T14:31:12Z",
+      "event_end": "2026-05-01T15:02:35Z",
+      "duration_minutes": 31,
+      "event_type": "outage",
+      "sources": [
+        "bgp"
+      ],
+      "asn": "AS151342",
+      "isp_name": "EBECL-AS-AP East Boy Engineering Company Limited",
+      "severity": 3,
+      "scope": null,
+      "perpetrator": null,
+      "affected_services": [],
+      "is_confirmed": false,
+      "keepiton_matched": true,
+      "keepiton_ids": [],
+      "source_urls": [],
+      "metadata": {
+        "min_visibility_pct": 0.0,
+        "resolved": true,
+        "ioda_confirmed": false
+      }
+    },
+    {
+      "event_id": "bgp-1445",
+      "event_time": "2026-05-01T14:31:13Z",
+      "event_end": "2026-05-01T15:02:36Z",
+      "duration_minutes": 31,
+      "event_type": "outage",
+      "sources": [
+        "bgp"
+      ],
+      "asn": "AS139058",
+      "isp_name": "TACHILEIKNET-AS-AP TCL Net",
+      "severity": 3,
+      "scope": null,
+      "perpetrator": null,
+      "affected_services": [],
+      "is_confirmed": false,
+      "keepiton_matched": true,
+      "keepiton_ids": [],
+      "source_urls": [],
+      "metadata": {
+        "min_visibility_pct": 0.0,
+        "resolved": true,
+        "ioda_confirmed": false
+      }
+    },
+    {
+      "event_id": "bgp-1446",
+      "event_time": "2026-05-01T14:31:13Z",
+      "event_end": "2026-05-01T15:02:37Z",
+      "duration_minutes": 31,
+      "event_type": "outage",
+      "sources": [
+        "bgp"
+      ],
+      "asn": "AS149810",
+      "isp_name": "ACL-AS-AP AnyNet",
+      "severity": 3,
+      "scope": null,
+      "perpetrator": null,
+      "affected_services": [],
+      "is_confirmed": false,
+      "keepiton_matched": true,
+      "keepiton_ids": [],
+      "source_urls": [],
+      "metadata": {
+        "min_visibility_pct": 0.0,
+        "resolved": true,
+        "ioda_confirmed": false
+      }
+    },
+    {
+      "event_id": "bgp-1447",
+      "event_time": "2026-05-01T14:31:13Z",
+      "event_end": "2026-05-01T15:02:37Z",
+      "duration_minutes": 31,
+      "event_type": "outage",
+      "sources": [
+        "bgp"
+      ],
+      "asn": "AS142644",
+      "isp_name": "LINKFAST-AS-AP Link Fast Company Limited",
+      "severity": 3,
+      "scope": null,
+      "perpetrator": null,
+      "affected_services": [],
+      "is_confirmed": false,
+      "keepiton_matched": true,
+      "keepiton_ids": [],
+      "source_urls": [],
+      "metadata": {
+        "min_visibility_pct": 0.0,
+        "resolved": true,
+        "ioda_confirmed": false
+      }
+    },
+    {
+      "event_id": "bgp-1448",
+      "event_time": "2026-05-01T14:31:14Z",
+      "event_end": "2026-05-01T15:02:38Z",
+      "duration_minutes": 31,
+      "event_type": "outage",
+      "sources": [
+        "bgp"
+      ],
+      "asn": "AS133433",
+      "isp_name": "ZPC-AS-AP ZOOM PLUS COMPANY LIMITED",
+      "severity": 3,
+      "scope": null,
+      "perpetrator": null,
+      "affected_services": [],
+      "is_confirmed": false,
+      "keepiton_matched": true,
+      "keepiton_ids": [],
+      "source_urls": [],
+      "metadata": {
+        "min_visibility_pct": 0.0,
+        "resolved": true,
+        "ioda_confirmed": false
+      }
+    },
+    {
+      "event_id": "bgp-1449",
+      "event_time": "2026-05-01T14:31:14Z",
+      "event_end": "2026-05-01T15:02:39Z",
+      "duration_minutes": 31,
+      "event_type": "outage",
+      "sources": [
+        "bgp"
+      ],
+      "asn": "AS140091",
+      "isp_name": "SHWE-AS-AP SHWE MAHAR MAE KHONG INDUSTRIAL COMPANY LIMITED",
+      "severity": 3,
+      "scope": null,
+      "perpetrator": null,
+      "affected_services": [],
+      "is_confirmed": false,
+      "keepiton_matched": true,
+      "keepiton_ids": [],
+      "source_urls": [],
+      "metadata": {
+        "min_visibility_pct": 0.0,
+        "resolved": true,
+        "ioda_confirmed": false
+      }
+    },
+    {
+      "event_id": "bgp-1450",
+      "event_time": "2026-05-01T14:31:14Z",
+      "event_end": "2026-05-01T15:02:40Z",
+      "duration_minutes": 31,
+      "event_type": "outage",
+      "sources": [
+        "bgp"
+      ],
+      "asn": "AS133440",
+      "isp_name": "STIGW-AS-AP ST.Net",
+      "severity": 3,
+      "scope": null,
+      "perpetrator": null,
+      "affected_services": [],
+      "is_confirmed": false,
+      "keepiton_matched": true,
+      "keepiton_ids": [],
+      "source_urls": [],
+      "metadata": {
+        "min_visibility_pct": 0.0,
+        "resolved": true,
+        "ioda_confirmed": false
+      }
+    },
+    {
+      "event_id": "bgp-1451",
+      "event_time": "2026-05-01T14:31:15Z",
+      "event_end": "2026-05-01T15:02:41Z",
+      "duration_minutes": 31,
+      "event_type": "outage",
+      "sources": [
+        "bgp"
+      ],
+      "asn": "AS134976",
+      "isp_name": "MATL-AS-AP Myint & Associates Telecommunications Ltd",
+      "severity": 3,
+      "scope": null,
+      "perpetrator": null,
+      "affected_services": [],
+      "is_confirmed": false,
+      "keepiton_matched": true,
+      "keepiton_ids": [],
+      "source_urls": [],
+      "metadata": {
+        "min_visibility_pct": 0.0,
+        "resolved": true,
+        "ioda_confirmed": false
+      }
+    },
+    {
+      "event_id": "bgp-1452",
+      "event_time": "2026-05-01T14:31:15Z",
+      "event_end": "2026-05-01T15:02:42Z",
+      "duration_minutes": 31,
+      "event_type": "outage",
+      "sources": [
+        "bgp"
+      ],
+      "asn": "AS140617",
+      "isp_name": "TPTNET-AS-AP THAN PHYO THU MINING COMPANY LIMITED",
+      "severity": 3,
+      "scope": null,
+      "perpetrator": null,
+      "affected_services": [],
+      "is_confirmed": false,
+      "keepiton_matched": true,
+      "keepiton_ids": [],
+      "source_urls": [],
+      "metadata": {
+        "min_visibility_pct": 0.0,
+        "resolved": true,
+        "ioda_confirmed": false
+      }
+    },
+    {
+      "event_id": "bgp-1453",
+      "event_time": "2026-05-01T14:31:15Z",
+      "event_end": "2026-05-01T15:02:42Z",
+      "duration_minutes": 31,
+      "event_type": "outage",
+      "sources": [
+        "bgp"
+      ],
+      "asn": "AS139595",
+      "isp_name": "HTIN-AS-AP HTIN HTIN NETWORK COMPANY LIMITED",
+      "severity": 3,
+      "scope": null,
+      "perpetrator": null,
+      "affected_services": [],
+      "is_confirmed": false,
+      "keepiton_matched": true,
+      "keepiton_ids": [],
+      "source_urls": [],
+      "metadata": {
+        "min_visibility_pct": 0.0,
+        "resolved": true,
+        "ioda_confirmed": false
+      }
+    },
+    {
+      "event_id": "bgp-1454",
+      "event_time": "2026-05-01T14:31:16Z",
+      "event_end": "2026-05-01T15:02:43Z",
+      "duration_minutes": 31,
+      "event_type": "outage",
+      "sources": [
+        "bgp"
+      ],
+      "asn": "AS134484",
+      "isp_name": "VDCNET-AS-AP Ultra Net",
+      "severity": 3,
+      "scope": null,
+      "perpetrator": null,
+      "affected_services": [],
+      "is_confirmed": false,
+      "keepiton_matched": true,
+      "keepiton_ids": [],
+      "source_urls": [],
+      "metadata": {
+        "min_visibility_pct": 0.0,
+        "resolved": true,
+        "ioda_confirmed": false
+      }
+    },
+    {
+      "event_id": "bgp-1455",
+      "event_time": "2026-05-01T14:31:16Z",
+      "event_end": "2026-05-01T15:02:44Z",
+      "duration_minutes": 31,
+      "event_type": "outage",
+      "sources": [
+        "bgp"
+      ],
+      "asn": "AS149855",
+      "isp_name": "AS-AGBC AGB Communication Co., Ltd",
+      "severity": 3,
+      "scope": null,
+      "perpetrator": null,
+      "affected_services": [],
+      "is_confirmed": false,
+      "keepiton_matched": true,
+      "keepiton_ids": [],
+      "source_urls": [],
+      "metadata": {
+        "min_visibility_pct": 0.0,
+        "resolved": true,
+        "ioda_confirmed": false
+      }
+    },
+    {
+      "event_id": "bgp-1456",
+      "event_time": "2026-05-01T14:31:16Z",
+      "event_end": "2026-05-01T15:02:45Z",
+      "duration_minutes": 31,
+      "event_type": "outage",
+      "sources": [
+        "bgp"
+      ],
+      "asn": "AS139620",
+      "isp_name": "MTNPCL-AS-AP MYANMAR TELECOMMUNICATION NETWORK PUBLIC COMPANY LIMITED",
+      "severity": 3,
+      "scope": null,
+      "perpetrator": null,
+      "affected_services": [],
+      "is_confirmed": false,
+      "keepiton_matched": true,
+      "keepiton_ids": [],
+      "source_urls": [],
+      "metadata": {
+        "min_visibility_pct": 0.0,
+        "resolved": true,
+        "ioda_confirmed": false
+      }
+    },
+    {
+      "event_id": "bgp-1457",
+      "event_time": "2026-05-01T14:31:17Z",
+      "event_end": "2026-05-01T15:02:45Z",
+      "duration_minutes": 31,
+      "event_type": "outage",
+      "sources": [
+        "bgp"
+      ],
+      "asn": "AS63852",
+      "isp_name": "FMG-MM Myanmar Net",
+      "severity": 3,
+      "scope": null,
+      "perpetrator": null,
+      "affected_services": [],
+      "is_confirmed": false,
+      "keepiton_matched": true,
+      "keepiton_ids": [],
+      "source_urls": [],
+      "metadata": {
+        "min_visibility_pct": 0.0,
+        "resolved": true,
+        "ioda_confirmed": false
+      }
+    },
+    {
+      "event_id": "bgp-1458",
+      "event_time": "2026-05-01T14:31:17Z",
+      "event_end": "2026-05-01T15:02:46Z",
+      "duration_minutes": 31,
+      "event_type": "outage",
+      "sources": [
+        "bgp"
+      ],
+      "asn": "AS137069",
+      "isp_name": "PICME-AS-AP POSCO INTERNATIONAL CORPORATION MYANMAR E&P OFFICE",
+      "severity": 3,
+      "scope": null,
+      "perpetrator": null,
+      "affected_services": [],
+      "is_confirmed": false,
+      "keepiton_matched": true,
+      "keepiton_ids": [],
+      "source_urls": [],
+      "metadata": {
+        "min_visibility_pct": 0.0,
+        "resolved": true,
+        "ioda_confirmed": false
+      }
+    },
+    {
+      "event_id": "bgp-1459",
+      "event_time": "2026-05-01T14:31:17Z",
+      "event_end": "2026-05-01T15:02:47Z",
+      "duration_minutes": 31,
+      "event_type": "outage",
+      "sources": [
+        "bgp"
+      ],
+      "asn": "AS154481",
+      "isp_name": "TACHILEIK1-AS-AP Tachileik Jade Dragon Company Limited",
+      "severity": 3,
+      "scope": null,
+      "perpetrator": null,
+      "affected_services": [],
+      "is_confirmed": false,
+      "keepiton_matched": true,
+      "keepiton_ids": [],
+      "source_urls": [],
+      "metadata": {
+        "min_visibility_pct": 0.0,
+        "resolved": true,
+        "ioda_confirmed": false
+      }
+    },
+    {
+      "event_id": "bgp-1460",
+      "event_time": "2026-05-01T14:31:18Z",
+      "event_end": "2026-05-01T15:02:48Z",
+      "duration_minutes": 31,
+      "event_type": "outage",
+      "sources": [
+        "bgp"
+      ],
+      "asn": "AS152447",
+      "isp_name": "MMCL-AS-AP My Mandalay Company Limited",
+      "severity": 3,
+      "scope": null,
+      "perpetrator": null,
+      "affected_services": [],
+      "is_confirmed": false,
+      "keepiton_matched": true,
+      "keepiton_ids": [],
+      "source_urls": [],
+      "metadata": {
+        "min_visibility_pct": 0.0,
+        "resolved": true,
+        "ioda_confirmed": false
+      }
+    },
+    {
+      "event_id": "bgp-1461",
+      "event_time": "2026-05-01T14:31:18Z",
+      "event_end": "2026-05-01T15:02:48Z",
+      "duration_minutes": 31,
+      "event_type": "outage",
+      "sources": [
+        "bgp"
+      ],
+      "asn": "AS134528",
+      "isp_name": "MPTCL-AS-AP MYANMAR PI TECHNOLOGY CO., LTD",
+      "severity": 3,
+      "scope": null,
+      "perpetrator": null,
+      "affected_services": [],
+      "is_confirmed": false,
+      "keepiton_matched": true,
+      "keepiton_ids": [],
+      "source_urls": [],
+      "metadata": {
+        "min_visibility_pct": 0.0,
+        "resolved": true,
+        "ioda_confirmed": false
+      }
+    },
+    {
+      "event_id": "bgp-1462",
+      "event_time": "2026-05-01T14:31:18Z",
+      "event_end": "2026-05-01T15:02:49Z",
+      "duration_minutes": 31,
+      "event_type": "outage",
+      "sources": [
+        "bgp"
+      ],
+      "asn": "AS141704",
+      "isp_name": "GALAXIANET-AS-AP Galaxia @ Net",
+      "severity": 3,
+      "scope": null,
+      "perpetrator": null,
+      "affected_services": [],
+      "is_confirmed": false,
+      "keepiton_matched": true,
+      "keepiton_ids": [],
+      "source_urls": [],
+      "metadata": {
+        "min_visibility_pct": 0.0,
+        "resolved": true,
+        "ioda_confirmed": false
+      }
+    },
+    {
+      "event_id": "bgp-1463",
+      "event_time": "2026-05-01T14:31:19Z",
+      "event_end": "2026-05-01T15:02:50Z",
+      "duration_minutes": 31,
+      "event_type": "outage",
+      "sources": [
+        "bgp"
+      ],
+      "asn": "AS153998",
+      "isp_name": "MCBPCL-AS-AP Myanmar Citizens Bank Public Company Limited",
+      "severity": 3,
+      "scope": null,
+      "perpetrator": null,
+      "affected_services": [],
+      "is_confirmed": false,
+      "keepiton_matched": true,
+      "keepiton_ids": [],
+      "source_urls": [],
+      "metadata": {
+        "min_visibility_pct": 0.0,
+        "resolved": true,
+        "ioda_confirmed": false
+      }
+    },
+    {
+      "event_id": "bgp-1464",
+      "event_time": "2026-05-01T14:31:19Z",
+      "event_end": "2026-05-01T15:02:51Z",
+      "duration_minutes": 31,
+      "event_type": "outage",
+      "sources": [
+        "bgp"
+      ],
+      "asn": "AS141199",
+      "isp_name": "CLPC-AS-AP Century Link Plus",
+      "severity": 3,
+      "scope": null,
+      "perpetrator": null,
+      "affected_services": [],
+      "is_confirmed": false,
+      "keepiton_matched": true,
+      "keepiton_ids": [],
+      "source_urls": [],
+      "metadata": {
+        "min_visibility_pct": 0.0,
+        "resolved": true,
+        "ioda_confirmed": false
+      }
+    },
+    {
+      "event_id": "bgp-1465",
+      "event_time": "2026-05-01T14:31:19Z",
+      "event_end": "2026-05-01T15:02:51Z",
+      "duration_minutes": 31,
+      "event_type": "outage",
+      "sources": [
+        "bgp"
+      ],
+      "asn": "AS152466",
+      "isp_name": "TLINKGROUP-AS-AP T-Link Group Company Limited",
+      "severity": 3,
+      "scope": null,
+      "perpetrator": null,
+      "affected_services": [],
+      "is_confirmed": false,
+      "keepiton_matched": true,
+      "keepiton_ids": [],
+      "source_urls": [],
+      "metadata": {
+        "min_visibility_pct": 0.0,
+        "resolved": true,
+        "ioda_confirmed": false
+      }
+    },
+    {
+      "event_id": "bgp-1466",
+      "event_time": "2026-05-01T14:31:20Z",
+      "event_end": "2026-05-01T15:02:53Z",
+      "duration_minutes": 31,
+      "event_type": "outage",
+      "sources": [
+        "bgp"
+      ],
+      "asn": "AS133524",
+      "isp_name": "GTCL-AS-AP Global Technology Co., Ltd.",
+      "severity": 3,
+      "scope": null,
+      "perpetrator": null,
+      "affected_services": [],
+      "is_confirmed": false,
+      "keepiton_matched": true,
+      "keepiton_ids": [],
+      "source_urls": [],
+      "metadata": {
+        "min_visibility_pct": 0.0,
+        "resolved": true,
+        "ioda_confirmed": false
+      }
+    },
+    {
+      "event_id": "bgp-1467",
+      "event_time": "2026-05-01T14:31:20Z",
+      "event_end": "2026-05-01T15:02:54Z",
+      "duration_minutes": 31,
+      "event_type": "outage",
+      "sources": [
+        "bgp"
+      ],
+      "asn": "AS151965",
+      "isp_name": "HATG-AS-AP Hepta Alliance Technology Group",
+      "severity": 3,
+      "scope": null,
+      "perpetrator": null,
+      "affected_services": [],
+      "is_confirmed": false,
+      "keepiton_matched": true,
+      "keepiton_ids": [],
+      "source_urls": [],
+      "metadata": {
+        "min_visibility_pct": 0.0,
+        "resolved": true,
+        "ioda_confirmed": false
+      }
+    },
+    {
+      "event_id": "bgp-1468",
+      "event_time": "2026-05-01T14:31:20Z",
+      "event_end": "2026-05-01T15:02:55Z",
+      "duration_minutes": 31,
+      "event_type": "outage",
+      "sources": [
+        "bgp"
+      ],
+      "asn": "AS141216",
+      "isp_name": "GREATGOLDENHORSE-AS-AP GREAT GOLDEN HORSE COMPANY LIMITED",
+      "severity": 3,
+      "scope": null,
+      "perpetrator": null,
+      "affected_services": [],
+      "is_confirmed": false,
+      "keepiton_matched": true,
+      "keepiton_ids": [],
+      "source_urls": [],
+      "metadata": {
+        "min_visibility_pct": 0.0,
+        "resolved": true,
+        "ioda_confirmed": false
+      }
+    },
+    {
+      "event_id": "bgp-1469",
+      "event_time": "2026-05-01T14:31:21Z",
+      "event_end": "2026-05-01T15:02:55Z",
+      "duration_minutes": 31,
+      "event_type": "outage",
+      "sources": [
+        "bgp"
+      ],
+      "asn": "AS154020",
+      "isp_name": "SMMCL-AS-AP SAM MOUK MO Company Ltd",
+      "severity": 3,
+      "scope": null,
+      "perpetrator": null,
+      "affected_services": [],
+      "is_confirmed": false,
+      "keepiton_matched": true,
+      "keepiton_ids": [],
+      "source_urls": [],
+      "metadata": {
+        "min_visibility_pct": 0.0,
+        "resolved": true,
+        "ioda_confirmed": false
+      }
+    },
+    {
+      "event_id": "bgp-1470",
+      "event_time": "2026-05-01T14:31:21Z",
+      "event_end": "2026-05-01T15:02:56Z",
+      "duration_minutes": 31,
+      "event_type": "outage",
+      "sources": [
+        "bgp"
+      ],
+      "asn": "AS135589",
+      "isp_name": "IMNCL-AS-AP Internet Maekhong Network Company Limited",
+      "severity": 3,
+      "scope": null,
+      "perpetrator": null,
+      "affected_services": [],
+      "is_confirmed": false,
+      "keepiton_matched": true,
+      "keepiton_ids": [],
+      "source_urls": [],
+      "metadata": {
+        "min_visibility_pct": 0.0,
+        "resolved": true,
+        "ioda_confirmed": false
+      }
+    },
+    {
+      "event_id": "bgp-1471",
+      "event_time": "2026-05-01T14:31:21Z",
+      "event_end": "2026-05-01T15:02:57Z",
+      "duration_minutes": 31,
+      "event_type": "outage",
+      "sources": [
+        "bgp"
+      ],
+      "asn": "AS136613",
+      "isp_name": "AYEYARWADYBANK-AS-AP Ayeyarwady Bank",
+      "severity": 3,
+      "scope": null,
+      "perpetrator": null,
+      "affected_services": [],
+      "is_confirmed": false,
+      "keepiton_matched": true,
+      "keepiton_ids": [],
+      "source_urls": [],
+      "metadata": {
+        "min_visibility_pct": 0.0,
+        "resolved": true,
+        "ioda_confirmed": false
+      }
+    },
+    {
+      "event_id": "bgp-1472",
+      "event_time": "2026-05-01T14:31:22Z",
+      "event_end": "2026-05-01T15:02:58Z",
+      "duration_minutes": 31,
+      "event_type": "outage",
+      "sources": [
+        "bgp"
+      ],
+      "asn": "AS136617",
+      "isp_name": "FTCL-AS-AP Fortune Telecom Company Limited",
+      "severity": 3,
+      "scope": null,
+      "perpetrator": null,
+      "affected_services": [],
+      "is_confirmed": false,
+      "keepiton_matched": true,
+      "keepiton_ids": [],
+      "source_urls": [],
+      "metadata": {
+        "min_visibility_pct": 0.0,
+        "resolved": true,
+        "ioda_confirmed": false
+      }
+    },
+    {
+      "event_id": "bgp-1473",
+      "event_time": "2026-05-01T14:31:22Z",
+      "event_end": "2026-05-01T15:02:59Z",
+      "duration_minutes": 31,
+      "event_type": "outage",
+      "sources": [
+        "bgp"
+      ],
+      "asn": "AS139692",
+      "isp_name": "CHEN-AS-AP CHEN GUANG COMPANY LIMITED",
+      "severity": 3,
+      "scope": null,
+      "perpetrator": null,
+      "affected_services": [],
+      "is_confirmed": false,
+      "keepiton_matched": true,
+      "keepiton_ids": [],
+      "source_urls": [],
+      "metadata": {
+        "min_visibility_pct": 0.0,
+        "resolved": true,
+        "ioda_confirmed": false
+      }
+    },
+    {
+      "event_id": "bgp-1474",
+      "event_time": "2026-05-01T14:31:22Z",
+      "event_end": "2026-05-01T15:03:00Z",
+      "duration_minutes": 31,
+      "event_type": "outage",
+      "sources": [
+        "bgp"
+      ],
+      "asn": "AS138158",
+      "isp_name": "SPAL-AS-AP Serge Pun & Associate Myanmar Ltd.",
+      "severity": 3,
+      "scope": null,
+      "perpetrator": null,
+      "affected_services": [],
+      "is_confirmed": false,
+      "keepiton_matched": true,
+      "keepiton_ids": [],
+      "source_urls": [],
+      "metadata": {
+        "min_visibility_pct": 0.0,
+        "resolved": true,
+        "ioda_confirmed": false
+      }
+    },
+    {
+      "event_id": "bgp-1475",
+      "event_time": "2026-05-01T14:31:23Z",
+      "event_end": "2026-05-01T15:03:00Z",
+      "duration_minutes": 31,
+      "event_type": "outage",
+      "sources": [
+        "bgp"
+      ],
+      "asn": "AS141236",
+      "isp_name": "MCDC-AS-AP Mandalay City Development Committee",
+      "severity": 3,
+      "scope": null,
+      "perpetrator": null,
+      "affected_services": [],
+      "is_confirmed": false,
+      "keepiton_matched": true,
+      "keepiton_ids": [],
+      "source_urls": [],
+      "metadata": {
+        "min_visibility_pct": 0.0,
+        "resolved": true,
+        "ioda_confirmed": false
+      }
+    },
+    {
+      "event_id": "bgp-1476",
+      "event_time": "2026-05-01T14:31:23Z",
+      "event_end": "2026-05-01T15:03:01Z",
+      "duration_minutes": 31,
+      "event_type": "outage",
+      "sources": [
+        "bgp"
+      ],
+      "asn": "AS138166",
+      "isp_name": "MTATCL-AS-AP MaxxB Fiber Internet",
+      "severity": 3,
+      "scope": null,
+      "perpetrator": null,
+      "affected_services": [],
+      "is_confirmed": false,
+      "keepiton_matched": true,
+      "keepiton_ids": [],
+      "source_urls": [],
+      "metadata": {
+        "min_visibility_pct": 0.0,
+        "resolved": true,
+        "ioda_confirmed": false
+      }
+    },
+    {
+      "event_id": "bgp-1477",
+      "event_time": "2026-05-01T14:31:23Z",
+      "event_end": "2026-05-01T15:03:02Z",
+      "duration_minutes": 31,
+      "event_type": "outage",
+      "sources": [
+        "bgp"
+      ],
+      "asn": "AS138167",
+      "isp_name": "TRUENET-AS-AP TrueNET",
+      "severity": 3,
+      "scope": null,
+      "perpetrator": null,
+      "affected_services": [],
+      "is_confirmed": false,
+      "keepiton_matched": true,
+      "keepiton_ids": [],
+      "source_urls": [],
+      "metadata": {
+        "min_visibility_pct": 0.0,
+        "resolved": true,
+        "ioda_confirmed": false
+      }
+    },
+    {
+      "event_id": "bgp-1478",
+      "event_time": "2026-05-01T14:31:24Z",
+      "event_end": "2026-05-01T15:03:03Z",
+      "duration_minutes": 31,
+      "event_type": "outage",
+      "sources": [
+        "bgp"
+      ],
+      "asn": "AS138168",
+      "isp_name": "APN-AS-AP MyanmarAPN",
+      "severity": 3,
+      "scope": null,
+      "perpetrator": null,
+      "affected_services": [],
+      "is_confirmed": false,
+      "keepiton_matched": true,
+      "keepiton_ids": [],
+      "source_urls": [],
+      "metadata": {
+        "min_visibility_pct": 0.0,
+        "resolved": true,
+        "ioda_confirmed": false
+      }
+    },
+    {
+      "event_id": "bgp-1479",
+      "event_time": "2026-05-01T14:31:24Z",
+      "event_end": "2026-05-01T15:03:04Z",
+      "duration_minutes": 31,
+      "event_type": "outage",
+      "sources": [
+        "bgp"
+      ],
+      "asn": "AS132537",
+      "isp_name": "MLGCL-AS-AP LG",
+      "severity": 3,
+      "scope": null,
+      "perpetrator": null,
+      "affected_services": [],
+      "is_confirmed": false,
+      "keepiton_matched": true,
+      "keepiton_ids": [],
+      "source_urls": [],
+      "metadata": {
+        "min_visibility_pct": 0.0,
+        "resolved": true,
+        "ioda_confirmed": false
+      }
+    },
+    {
+      "event_id": "bgp-1480",
+      "event_time": "2026-05-01T14:31:24Z",
+      "event_end": "2026-05-01T15:03:05Z",
+      "duration_minutes": 31,
+      "event_type": "outage",
+      "sources": [
+        "bgp"
+      ],
+      "asn": "AS139704",
+      "isp_name": "AS-AGBC AGB Communication Co., Ltd",
+      "severity": 3,
+      "scope": null,
+      "perpetrator": null,
+      "affected_services": [],
+      "is_confirmed": false,
+      "keepiton_matched": true,
+      "keepiton_ids": [],
+      "source_urls": [],
+      "metadata": {
+        "min_visibility_pct": 0.0,
+        "resolved": true,
+        "ioda_confirmed": false
+      }
+    },
+    {
+      "event_id": "bgp-1481",
+      "event_time": "2026-05-01T14:31:25Z",
+      "event_end": "2026-05-01T15:03:06Z",
+      "duration_minutes": 31,
+      "event_type": "outage",
+      "sources": [
+        "bgp"
+      ],
+      "asn": "AS151482",
+      "isp_name": "MKTN-AS-AP MKTN ENGINEERING GROUP COMPANY LIMITED",
+      "severity": 3,
+      "scope": null,
+      "perpetrator": null,
+      "affected_services": [],
+      "is_confirmed": false,
+      "keepiton_matched": true,
+      "keepiton_ids": [],
+      "source_urls": [],
+      "metadata": {
+        "min_visibility_pct": 0.0,
+        "resolved": true,
+        "ioda_confirmed": false
+      }
+    },
+    {
+      "event_id": "bgp-1482",
+      "event_time": "2026-05-01T14:31:25Z",
+      "event_end": "2026-05-01T15:03:07Z",
+      "duration_minutes": 31,
+      "event_type": "outage",
+      "sources": [
+        "bgp"
+      ],
+      "asn": "AS139711",
+      "isp_name": "KBZBANK-AS-AP KANBAWZA BANK LIMITED",
+      "severity": 3,
+      "scope": null,
+      "perpetrator": null,
+      "affected_services": [],
+      "is_confirmed": false,
+      "keepiton_matched": true,
+      "keepiton_ids": [],
+      "source_urls": [],
+      "metadata": {
+        "min_visibility_pct": 0.0,
+        "resolved": true,
+        "ioda_confirmed": false
+      }
+    },
+    {
+      "event_id": "bgp-1483",
+      "event_time": "2026-05-01T14:31:25Z",
+      "event_end": "2026-05-01T15:03:07Z",
+      "duration_minutes": 31,
+      "event_type": "outage",
+      "sources": [
+        "bgp"
+      ],
+      "asn": "AS151491",
+      "isp_name": "IQI-AS-AP Innovative Quality Internet Company Limited",
+      "severity": 3,
+      "scope": null,
+      "perpetrator": null,
+      "affected_services": [],
+      "is_confirmed": false,
+      "keepiton_matched": true,
+      "keepiton_ids": [],
+      "source_urls": [],
+      "metadata": {
+        "min_visibility_pct": 0.0,
+        "resolved": true,
+        "ioda_confirmed": false
+      }
+    },
+    {
+      "event_id": "bgp-1484",
+      "event_time": "2026-05-01T14:31:26Z",
+      "event_end": "2026-05-01T15:03:08Z",
+      "duration_minutes": 31,
+      "event_type": "outage",
+      "sources": [
+        "bgp"
+      ],
+      "asn": "AS132038",
+      "isp_name": "ROYALESPRIT-MM Royal Esprit Company Limited",
+      "severity": 3,
+      "scope": null,
+      "perpetrator": null,
+      "affected_services": [],
+      "is_confirmed": false,
+      "keepiton_matched": true,
+      "keepiton_ids": [],
+      "source_urls": [],
+      "metadata": {
+        "min_visibility_pct": 0.0,
+        "resolved": true,
+        "ioda_confirmed": false
+      }
+    },
+    {
+      "event_id": "bgp-1485",
+      "event_time": "2026-05-01T14:31:26Z",
+      "event_end": "2026-05-01T15:03:09Z",
+      "duration_minutes": 31,
+      "event_type": "outage",
+      "sources": [
+        "bgp"
+      ],
+      "asn": "AS135111",
+      "isp_name": "AML-AS-AP Asia Mega Link",
+      "severity": 3,
+      "scope": null,
+      "perpetrator": null,
+      "affected_services": [],
+      "is_confirmed": false,
+      "keepiton_matched": true,
+      "keepiton_ids": [],
+      "source_urls": [],
+      "metadata": {
+        "min_visibility_pct": 0.0,
+        "resolved": true,
+        "ioda_confirmed": false
+      }
+    },
+    {
+      "event_id": "bgp-1486",
+      "event_time": "2026-05-01T14:31:26Z",
+      "event_end": "2026-05-01T15:03:09Z",
+      "duration_minutes": 31,
+      "event_type": "outage",
+      "sources": [
+        "bgp"
+      ],
+      "asn": "AS139206",
+      "isp_name": "PAMEL-AS-AP Pan Asia Majestic Eagle Ltd",
+      "severity": 3,
+      "scope": null,
+      "perpetrator": null,
+      "affected_services": [],
+      "is_confirmed": false,
+      "keepiton_matched": true,
+      "keepiton_ids": [],
+      "source_urls": [],
+      "metadata": {
+        "min_visibility_pct": 0.0,
+        "resolved": true,
+        "ioda_confirmed": false
+      }
+    },
+    {
+      "event_id": "bgp-1487",
+      "event_time": "2026-05-01T14:31:27Z",
+      "event_end": "2026-05-01T15:03:10Z",
+      "duration_minutes": 31,
+      "event_type": "outage",
+      "sources": [
+        "bgp"
+      ],
+      "asn": "AS139719",
+      "isp_name": "YARCHANG-AS-AP Yar Chang Company Limited",
+      "severity": 3,
+      "scope": null,
+      "perpetrator": null,
+      "affected_services": [],
+      "is_confirmed": false,
+      "keepiton_matched": true,
+      "keepiton_ids": [],
+      "source_urls": [],
+      "metadata": {
+        "min_visibility_pct": 0.0,
+        "resolved": true,
+        "ioda_confirmed": false
+      }
+    },
+    {
+      "event_id": "bgp-1488",
+      "event_time": "2026-05-01T14:31:27Z",
+      "event_end": "2026-05-01T15:03:11Z",
+      "duration_minutes": 31,
+      "event_type": "outage",
+      "sources": [
+        "bgp"
+      ],
+      "asn": "AS153549",
+      "isp_name": "MTC-AS-AP MUI Technology Company Limited",
+      "severity": 3,
+      "scope": null,
+      "perpetrator": null,
+      "affected_services": [],
+      "is_confirmed": false,
+      "keepiton_matched": true,
+      "keepiton_ids": [],
+      "source_urls": [],
+      "metadata": {
+        "min_visibility_pct": 0.0,
+        "resolved": true,
+        "ioda_confirmed": false
+      }
+    },
+    {
+      "event_id": "bgp-1489",
+      "event_time": "2026-05-01T14:31:27Z",
+      "event_end": "2026-05-01T15:03:12Z",
+      "duration_minutes": 31,
+      "event_type": "outage",
+      "sources": [
+        "bgp"
+      ],
+      "asn": "AS153044",
+      "isp_name": "MSCNC-AS-AP MYANMAR SKY CITY NETWORK COMMUNICATION Co.,Ltd",
+      "severity": 3,
+      "scope": null,
+      "perpetrator": null,
+      "affected_services": [],
+      "is_confirmed": false,
+      "keepiton_matched": true,
+      "keepiton_ids": [],
+      "source_urls": [],
+      "metadata": {
+        "min_visibility_pct": 0.0,
+        "resolved": true,
+        "ioda_confirmed": false
+      }
+    },
+    {
+      "event_id": "bgp-1490",
+      "event_time": "2026-05-01T14:31:28Z",
+      "event_end": "2026-05-01T15:03:13Z",
+      "duration_minutes": 31,
+      "event_type": "outage",
+      "sources": [
+        "bgp"
+      ],
+      "asn": "AS134105",
+      "isp_name": "STLMC-AS-AP Shwe Than Lwin Media Co.,Ltd.",
+      "severity": 3,
+      "scope": null,
+      "perpetrator": null,
+      "affected_services": [],
+      "is_confirmed": false,
+      "keepiton_matched": true,
+      "keepiton_ids": [],
+      "source_urls": [],
+      "metadata": {
+        "min_visibility_pct": 0.0,
+        "resolved": true,
+        "ioda_confirmed": false
+      }
+    },
+    {
+      "event_id": "bgp-1491",
+      "event_time": "2026-05-01T14:31:28Z",
+      "event_end": "2026-05-01T15:03:13Z",
+      "duration_minutes": 31,
+      "event_type": "outage",
+      "sources": [
+        "bgp"
+      ],
+      "asn": "AS132060",
+      "isp_name": "HANTHARNET-AS-AP Hanthar Net",
+      "severity": 3,
+      "scope": null,
+      "perpetrator": null,
+      "affected_services": [],
+      "is_confirmed": false,
+      "keepiton_matched": true,
+      "keepiton_ids": [],
+      "source_urls": [],
+      "metadata": {
+        "min_visibility_pct": 0.0,
+        "resolved": true,
+        "ioda_confirmed": false
+      }
+    },
+    {
+      "event_id": "bgp-1492",
+      "event_time": "2026-05-01T14:31:28Z",
+      "event_end": "2026-05-01T15:03:20Z",
+      "duration_minutes": 31,
+      "event_type": "outage",
+      "sources": [
+        "bgp"
+      ],
+      "asn": "AS18399",
+      "isp_name": "YTCL-AS-AP Yatanarpon Teleport Company Limited",
+      "severity": 3,
+      "scope": null,
+      "perpetrator": null,
+      "affected_services": [],
+      "is_confirmed": false,
+      "keepiton_matched": true,
+      "keepiton_ids": [],
+      "source_urls": [],
+      "metadata": {
+        "min_visibility_pct": 0.0,
+        "resolved": true,
+        "ioda_confirmed": false
+      }
+    },
+    {
+      "event_id": "bgp-1493",
+      "event_time": "2026-05-01T14:31:29Z",
+      "event_end": "2026-05-01T15:03:21Z",
+      "duration_minutes": 31,
+      "event_type": "outage",
+      "sources": [
+        "bgp"
+      ],
+      "asn": "AS136168",
+      "isp_name": "CAMPANA-AS-AP Campana MYTHIC Co. Ltd.",
+      "severity": 3,
+      "scope": null,
+      "perpetrator": null,
+      "affected_services": [],
+      "is_confirmed": false,
+      "keepiton_matched": true,
+      "keepiton_ids": [],
+      "source_urls": [],
+      "metadata": {
+        "min_visibility_pct": 0.0,
+        "resolved": true,
+        "ioda_confirmed": false
+      }
+    },
+    {
+      "event_id": "bgp-1494",
+      "event_time": "2026-05-01T14:31:29Z",
+      "event_end": "2026-05-01T15:03:22Z",
+      "duration_minutes": 31,
+      "event_type": "outage",
+      "sources": [
+        "bgp"
+      ],
+      "asn": "AS135149",
+      "isp_name": "MTGCL-AS-AP Myanmar Technology Gateway Co., Ltd",
+      "severity": 3,
+      "scope": null,
+      "perpetrator": null,
+      "affected_services": [],
+      "is_confirmed": false,
+      "keepiton_matched": true,
+      "keepiton_ids": [],
+      "source_urls": [],
+      "metadata": {
+        "min_visibility_pct": 0.0,
+        "resolved": true,
+        "ioda_confirmed": false
+      }
+    },
+    {
+      "event_id": "bgp-1495",
+      "event_time": "2026-05-01T14:31:29Z",
+      "event_end": "2026-05-01T15:03:23Z",
+      "duration_minutes": 31,
+      "event_type": "outage",
+      "sources": [
+        "bgp"
+      ],
+      "asn": "AS149487",
+      "isp_name": "MCLOCCL-AS-AP MOC COMPANY LIMITED",
+      "severity": 3,
+      "scope": null,
+      "perpetrator": null,
+      "affected_services": [],
+      "is_confirmed": false,
+      "keepiton_matched": true,
+      "keepiton_ids": [],
+      "source_urls": [],
+      "metadata": {
+        "min_visibility_pct": 0.0,
+        "resolved": true,
+        "ioda_confirmed": false
+      }
+    },
+    {
+      "event_id": "bgp-1496",
+      "event_time": "2026-05-01T14:31:30Z",
+      "event_end": "2026-05-01T15:03:23Z",
+      "duration_minutes": 31,
+      "event_type": "outage",
+      "sources": [
+        "bgp"
+      ],
+      "asn": "AS136177",
+      "isp_name": "YOMABANKLIMITED-AS-AP Yoma Bank Limited",
+      "severity": 3,
+      "scope": null,
+      "perpetrator": null,
+      "affected_services": [],
+      "is_confirmed": false,
+      "keepiton_matched": true,
+      "keepiton_ids": [],
+      "source_urls": [],
+      "metadata": {
+        "min_visibility_pct": 0.0,
+        "resolved": true,
+        "ioda_confirmed": false
+      }
+    },
+    {
+      "event_id": "bgp-1497",
+      "event_time": "2026-05-01T14:31:30Z",
+      "event_end": "2026-05-01T15:03:24Z",
+      "duration_minutes": 31,
+      "event_type": "outage",
+      "sources": [
+        "bgp"
+      ],
+      "asn": "AS45558",
+      "isp_name": "MPT-MM-AS-AP MYANMA POSTS AND TELECOMMUNICATIONS",
+      "severity": 3,
+      "scope": null,
+      "perpetrator": null,
+      "affected_services": [],
+      "is_confirmed": false,
+      "keepiton_matched": true,
+      "keepiton_ids": [],
+      "source_urls": [],
+      "metadata": {
+        "min_visibility_pct": 0.0,
+        "resolved": true,
+        "ioda_confirmed": false
+      }
+    },
+    {
+      "event_id": "bgp-1498",
+      "event_time": "2026-05-01T14:31:30Z",
+      "event_end": "2026-05-01T15:03:25Z",
+      "duration_minutes": 31,
+      "event_type": "outage",
+      "sources": [
+        "bgp"
+      ],
+      "asn": "AS63998",
+      "isp_name": "KMTCL-MM Kinetic Myanmar Technology",
+      "severity": 3,
+      "scope": null,
+      "perpetrator": null,
+      "affected_services": [],
+      "is_confirmed": false,
+      "keepiton_matched": true,
+      "keepiton_ids": [],
+      "source_urls": [],
+      "metadata": {
+        "min_visibility_pct": 0.0,
+        "resolved": true,
+        "ioda_confirmed": false
+      }
+    },
+    {
+      "event_id": "bgp-1499",
+      "event_time": "2026-05-01T16:02:20Z",
+      "event_end": "2026-05-01T16:32:04Z",
+      "duration_minutes": 29,
+      "event_type": "outage",
+      "sources": [
+        "bgp"
+      ],
+      "asn": "AS142644",
+      "isp_name": "LINKFAST-AS-AP Link Fast Company Limited",
+      "severity": 2,
+      "scope": null,
+      "perpetrator": null,
+      "affected_services": [],
+      "is_confirmed": false,
+      "keepiton_matched": true,
+      "keepiton_ids": [],
+      "source_urls": [],
+      "metadata": {
+        "min_visibility_pct": 0.0,
+        "resolved": true,
+        "ioda_confirmed": false
+      }
+    },
+    {
+      "event_id": "bgp-1500",
+      "event_time": "2026-05-01T16:31:16Z",
+      "event_end": "2026-05-01T17:01:11Z",
+      "duration_minutes": 29,
+      "event_type": "outage",
+      "sources": [
+        "bgp"
+      ],
+      "asn": "AS152634",
+      "isp_name": "WCCCOMPANYLIMITED-AS-AP Goal Link ISP",
+      "severity": 2,
+      "scope": null,
+      "perpetrator": null,
+      "affected_services": [],
+      "is_confirmed": false,
+      "keepiton_matched": true,
+      "keepiton_ids": [],
+      "source_urls": [],
+      "metadata": {
+        "min_visibility_pct": 0.0,
+        "resolved": true,
+        "ioda_confirmed": false
+      }
+    },
+    {
+      "event_id": "bgp-1501",
+      "event_time": "2026-05-01T17:15:32Z",
+      "event_end": "2026-05-01T17:20:04Z",
+      "duration_minutes": 4,
+      "event_type": "outage",
+      "sources": [
+        "bgp"
+      ],
+      "asn": "AS9988",
+      "isp_name": "MPT-AP Myanma Posts and Telecommunications",
+      "severity": 2,
+      "scope": null,
+      "perpetrator": null,
+      "affected_services": [],
+      "is_confirmed": false,
+      "keepiton_matched": true,
+      "keepiton_ids": [],
+      "source_urls": [],
+      "metadata": {
+        "min_visibility_pct": 0.0,
+        "resolved": true,
+        "ioda_confirmed": false
+      }
+    },
+    {
+      "event_id": "bgp-1502",
+      "event_time": "2026-05-01T17:32:39Z",
+      "event_end": "2026-05-01T18:01:54Z",
+      "duration_minutes": 29,
+      "event_type": "outage",
+      "sources": [
+        "bgp"
+      ],
+      "asn": "AS136465",
+      "isp_name": "INFORMATIONTECHNOLOGYCYBERSECURITY-AS-AP Dept. of Information Technology & Cyber Security",
+      "severity": 2,
+      "scope": null,
+      "perpetrator": null,
+      "affected_services": [],
+      "is_confirmed": false,
+      "keepiton_matched": true,
+      "keepiton_ids": [],
+      "source_urls": [],
+      "metadata": {
+        "min_visibility_pct": 0.0,
+        "resolved": true,
+        "ioda_confirmed": false
+      }
+    },
+    {
+      "event_id": "bgp-1503",
+      "event_time": "2026-05-01T17:32:45Z",
+      "event_end": "2026-05-01T18:01:57Z",
+      "duration_minutes": 29,
+      "event_type": "outage",
+      "sources": [
+        "bgp"
+      ],
+      "asn": "AS136474",
+      "isp_name": "MGTL-AS-AP Marga Global Telecom Limited",
+      "severity": 2,
+      "scope": null,
+      "perpetrator": null,
+      "affected_services": [],
+      "is_confirmed": false,
+      "keepiton_matched": true,
+      "keepiton_ids": [],
+      "source_urls": [],
+      "metadata": {
+        "min_visibility_pct": 0.0,
+        "resolved": true,
+        "ioda_confirmed": false
+      }
+    },
+    {
+      "event_id": "bgp-1504",
+      "event_time": "2026-05-01T19:33:25Z",
+      "event_end": "2026-05-01T20:03:05Z",
+      "duration_minutes": 29,
+      "event_type": "outage",
+      "sources": [
+        "bgp"
+      ],
+      "asn": "AS132537",
+      "isp_name": "MLGCL-AS-AP LG",
+      "severity": 2,
+      "scope": null,
+      "perpetrator": null,
+      "affected_services": [],
+      "is_confirmed": false,
+      "keepiton_matched": true,
+      "keepiton_ids": [],
+      "source_urls": [],
+      "metadata": {
+        "min_visibility_pct": 0.0,
+        "resolved": true,
+        "ioda_confirmed": false
+      }
+    },
+    {
+      "event_id": "bgp-1505",
+      "event_time": "2026-05-01T21:01:39Z",
+      "event_end": "2026-05-01T21:31:25Z",
+      "duration_minutes": 29,
+      "event_type": "outage",
+      "sources": [
+        "bgp"
+      ],
+      "asn": "AS136789",
+      "isp_name": "LOTUS-AS-AP LOTUS MUDRA COMPANY LIMITED",
+      "severity": 2,
+      "scope": null,
+      "perpetrator": null,
+      "affected_services": [],
+      "is_confirmed": false,
+      "keepiton_matched": true,
+      "keepiton_ids": [],
+      "source_urls": [],
+      "metadata": {
+        "min_visibility_pct": 0.0,
+        "resolved": true,
+        "ioda_confirmed": false
+      }
+    },
+    {
+      "event_id": "bgp-1506",
+      "event_time": "2026-05-01T23:31:12Z",
+      "event_end": "2026-05-02T00:01:19Z",
+      "duration_minutes": 30,
+      "event_type": "outage",
+      "sources": [
+        "bgp"
+      ],
+      "asn": "AS137259",
+      "isp_name": "ILINK-AS-AP i-Link",
+      "severity": 2,
+      "scope": null,
+      "perpetrator": null,
+      "affected_services": [],
+      "is_confirmed": false,
+      "keepiton_matched": true,
+      "keepiton_ids": [],
+      "source_urls": [],
+      "metadata": {
+        "min_visibility_pct": 0.0,
+        "resolved": true,
+        "ioda_confirmed": false
+      }
+    },
+    {
+      "event_id": "bgp-1507",
+      "event_time": "2026-05-01T23:31:25Z",
+      "event_end": "2026-05-02T00:01:27Z",
+      "duration_minutes": 30,
+      "event_type": "outage",
+      "sources": [
+        "bgp"
+      ],
+      "asn": "AS132686",
+      "isp_name": "ACS-AS-AP Amara Communications",
       "severity": 2,
       "scope": null,
       "perpetrator": null,
