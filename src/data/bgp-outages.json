@@ -16790,6 +16790,17 @@
     "name": "REDPALM-AS-AP RED PALM COMPANY LIMITED",
     "status": "DOWN",
     "started_at": "2026-05-02T14:31:12.318717+00:00",
+    "ended_at": "2026-05-02T15:01:14.574491+00:00",
+    "duration_minutes": 30,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": true
+  },
+  {
+    "asn": "AS139849",
+    "name": "ROYALESPRIT-AS-AP Royal Esprit Company Limited",
+    "status": "DOWN",
+    "started_at": "2026-05-02T15:01:35.722945+00:00",
     "ended_at": null,
     "duration_minutes": null,
     "min_visibility_pct": 0.0,
