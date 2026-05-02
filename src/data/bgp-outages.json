@@ -16724,6 +16724,17 @@
     "name": "MSN-AS-AP Myanmar Speed Net Co.,Ltd",
     "status": "DOWN",
     "started_at": "2026-05-02T10:01:07.808760+00:00",
+    "ended_at": "2026-05-02T10:31:05.183570+00:00",
+    "duration_minutes": 29,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": true
+  },
+  {
+    "asn": "AS137826",
+    "name": "ASTCL-AS-AP AST SYSTEM TECHNOLOGY COMPANY LIMITED",
+    "status": "DOWN",
+    "started_at": "2026-05-02T10:31:30.101468+00:00",
     "ended_at": null,
     "duration_minutes": null,
     "min_visibility_pct": 0.0,
