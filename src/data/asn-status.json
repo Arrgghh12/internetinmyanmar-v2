@@ -156,13 +156,16 @@
   "AS132167": {
     "asn": "AS132167",
     "name": "U9-MM Nine Communications Company Limited",
-    "announced": true,
-    "visibility_pct": 1.0,
-    "visible_collectors": 327,
-    "total_collectors": 327,
-    "timestamp": "2026-05-02T19:01:26.489082+00:00",
-    "status": "GREEN",
-    "status_since": "2026-05-01T14:35:03.440104+00:00"
+    "announced": false,
+    "visibility_pct": 0.0,
+    "visible_collectors": 0,
+    "total_collectors": 0,
+    "status": "RED",
+    "status_since": "2026-05-02T19:10:09.876252+00:00",
+    "timestamp": "2026-05-02T19:10:09.876252+00:00",
+    "error": "Server error '500 Internal Server Error' for url 'https://stat.ripe.net/data/rou",
+    "ioda_outages": 0,
+    "ioda_confirmed": false
   },
   "AS58952": {
     "asn": "AS58952",
@@ -171,7 +174,7 @@
     "visibility_pct": 1.0,
     "visible_collectors": 327,
     "total_collectors": 327,
-    "timestamp": "2026-05-02T19:01:26.895141+00:00",
+    "timestamp": "2026-05-02T19:10:10.767147+00:00",
     "status": "GREEN",
     "status_since": "2026-05-02T11:50:15.671146+00:00"
   },
@@ -611,7 +614,7 @@
     "visibility_pct": 1.0,
     "visible_collectors": 327,
     "total_collectors": 327,
-    "timestamp": "2026-05-02T19:02:03.134313+00:00",
+    "timestamp": "2026-05-02T19:10:11.162032+00:00",
     "status": "GREEN",
     "status_since": "2026-05-01T17:20:04.519094+00:00"
   },
@@ -766,7 +769,7 @@
     "visibility_pct": 1.0,
     "visible_collectors": 327,
     "total_collectors": 327,
-    "timestamp": "2026-05-02T19:02:21.570153+00:00",
+    "timestamp": "2026-05-02T19:10:11.578309+00:00",
     "status": "GREEN",
     "status_since": "2026-05-01T14:35:04.496346+00:00"
   },
@@ -1441,5 +1444,5 @@
     "status": "RED",
     "status_since": "2026-04-11T01:10:28.195013+00:00"
   },
-  "lastUpdated": "2026-05-02T19:03:09.705253+00:00"
+  "lastUpdated": "2026-05-02T19:10:11.883526+00:00"
 }
