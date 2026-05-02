@@ -16850,5 +16850,16 @@
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
     "resolved": true
+  },
+  {
+    "asn": "AS132148",
+    "name": "HTI-AS-AP HORIZON TELECOM INTERNATIONAL COMPANY LIMITED",
+    "status": "DOWN",
+    "started_at": "2026-05-02T18:31:34.362336+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
   }
 ]
