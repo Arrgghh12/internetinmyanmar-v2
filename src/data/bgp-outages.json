@@ -16801,10 +16801,10 @@
     "name": "ROYALESPRIT-AS-AP Royal Esprit Company Limited",
     "status": "DOWN",
     "started_at": "2026-05-02T15:01:35.722945+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-05-02T15:31:24.547544+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   }
 ]
