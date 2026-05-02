@@ -16658,11 +16658,11 @@
     "name": "MMIX-AS-AP Myanmar Internet Exchange",
     "status": "DOWN",
     "started_at": "2026-05-02T08:01:41.302033+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-05-02T08:31:41.809143+00:00",
+    "duration_minutes": 30,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS58952",
@@ -16674,5 +16674,16 @@
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
     "resolved": true
+  },
+  {
+    "asn": "AS141216",
+    "name": "GREATGOLDENHORSE-AS-AP GREAT GOLDEN HORSE COMPANY LIMITED",
+    "status": "DOWN",
+    "started_at": "2026-05-02T08:32:31.972345+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
   }
 ]
