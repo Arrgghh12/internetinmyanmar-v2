@@ -16625,21 +16625,10 @@
     "name": "MBTCL-AS-AP Myanmar Broadband Telecom Co., Ltd",
     "status": "DOWN",
     "started_at": "2026-05-02T05:31:24.550678+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-05-02T06:01:17.560495+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
-  },
-  {
-    "asn": "AS58952",
-    "name": "FRONTIIRCOLTD-MM Frontiir Co. Ltd",
-    "status": "DOWN",
-    "started_at": "2026-05-02T06:00:23.569937+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
-    "min_visibility_pct": 0.0,
-    "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   }
 ]
