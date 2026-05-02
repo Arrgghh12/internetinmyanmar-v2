@@ -16867,11 +16867,11 @@
     "name": "FASTSPEED-AS-AP Fast Speed",
     "status": "DOWN",
     "started_at": "2026-05-02T19:02:19.153522+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-05-02T19:32:13.754329+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS132167",
@@ -16885,10 +16885,32 @@
     "resolved": true
   },
   {
-    "asn": "AS58952",
-    "name": "FRONTIIRCOLTD-MM Frontiir Co. Ltd",
+    "asn": "AS150285",
+    "name": "LMHCC-AS-AP Long Mao Home Center Co.ltd.",
     "status": "DOWN",
-    "started_at": "2026-05-02T19:30:30.197593+00:00",
+    "started_at": "2026-05-02T19:32:08.790519+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
+  },
+  {
+    "asn": "AS150797",
+    "name": "GCL-AS-AP GIGA-NET",
+    "status": "DOWN",
+    "started_at": "2026-05-02T19:32:09.267085+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
+  },
+  {
+    "asn": "AS139719",
+    "name": "YARCHANG-AS-AP Yar Chang Company Limited",
+    "status": "DOWN",
+    "started_at": "2026-05-02T19:33:19.813765+00:00",
     "ended_at": null,
     "duration_minutes": null,
     "min_visibility_pct": 0.0,
