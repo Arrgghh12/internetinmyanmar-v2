@@ -17153,6 +17153,17 @@
     "name": "FMG-MM Myanmar Net",
     "status": "DOWN",
     "started_at": "2026-05-03T15:02:12.685013+00:00",
+    "ended_at": "2026-05-03T15:32:21.357293+00:00",
+    "duration_minutes": 30,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": true
+  },
+  {
+    "asn": "AS135307",
+    "name": "GTMH-AS-AP Golden TMH Telecom Co. Ltd",
+    "status": "DOWN",
+    "started_at": "2026-05-03T15:31:33.865514+00:00",
     "ended_at": null,
     "duration_minutes": null,
     "min_visibility_pct": 0.0,
