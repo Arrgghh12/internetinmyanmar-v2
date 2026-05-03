@@ -16993,5 +16993,16 @@
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
     "resolved": true
+  },
+  {
+    "asn": "AS135371",
+    "name": "FORTUNEINTERNATIONAL-AS-AP Fortune Broadband",
+    "status": "DOWN",
+    "started_at": "2026-05-03T04:01:51.979698+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
   }
 ]
