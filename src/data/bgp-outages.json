@@ -16993,16 +16993,5 @@
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
     "resolved": true
-  },
-  {
-    "asn": "AS132167",
-    "name": "U9-MM Nine Communications Company Limited",
-    "status": "DOWN",
-    "started_at": "2026-05-03T03:00:09.435993+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
-    "min_visibility_pct": 0.0,
-    "ioda_confirmed": false,
-    "resolved": false
   }
 ]
