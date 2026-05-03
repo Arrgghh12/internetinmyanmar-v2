@@ -17191,5 +17191,16 @@
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
     "resolved": true
+  },
+  {
+    "asn": "AS151482",
+    "name": "MKTN-AS-AP MKTN ENGINEERING GROUP COMPANY LIMITED",
+    "status": "DOWN",
+    "started_at": "2026-05-03T20:32:48.370677+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
   }
 ]
