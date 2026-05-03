@@ -17065,17 +17065,28 @@
     "name": "OCEANWAVE-AS-AP Ocean Wave Communication Co., Ltd",
     "status": "DOWN",
     "started_at": "2026-05-03T10:01:56.004749+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-05-03T10:32:02.462076+00:00",
+    "duration_minutes": 30,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS151491",
     "name": "IQI-AS-AP Innovative Quality Internet Company Limited",
     "status": "DOWN",
     "started_at": "2026-05-03T10:02:55.964596+00:00",
+    "ended_at": "2026-05-03T10:33:03.708752+00:00",
+    "duration_minutes": 30,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": true
+  },
+  {
+    "asn": "AS134840",
+    "name": "MCCL-AS-AP Myanmar Country Co., Ltd.",
+    "status": "DOWN",
+    "started_at": "2026-05-03T10:31:50.684967+00:00",
     "ended_at": null,
     "duration_minutes": null,
     "min_visibility_pct": 0.0,
