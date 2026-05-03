@@ -17114,5 +17114,38 @@
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
     "resolved": true
+  },
+  {
+    "asn": "AS137424",
+    "name": "ISMC-AS-AP Integral Solutions Myanmar Co.,Ltd.",
+    "status": "DOWN",
+    "started_at": "2026-05-03T14:01:46.785310+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
+  },
+  {
+    "asn": "AS151342",
+    "name": "EBECL-AS-AP East Boy Engineering Company Limited",
+    "status": "DOWN",
+    "started_at": "2026-05-03T14:02:13.853475+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
+  },
+  {
+    "asn": "AS149810",
+    "name": "ACL-AS-AP AnyNet",
+    "status": "DOWN",
+    "started_at": "2026-05-03T14:02:14.984288+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
   }
 ]
