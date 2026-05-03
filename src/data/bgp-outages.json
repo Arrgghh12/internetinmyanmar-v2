@@ -17026,5 +17026,27 @@
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
     "resolved": true
+  },
+  {
+    "asn": "AS132100",
+    "name": "MSN-AS-AP Myanmar Speed Net Co.,Ltd",
+    "status": "DOWN",
+    "started_at": "2026-05-03T08:31:04.931650+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
+  },
+  {
+    "asn": "AS137888",
+    "name": "BCM-AS-AP Bee Connect Myanmar Co., Ltd.",
+    "status": "DOWN",
+    "started_at": "2026-05-03T08:31:28.971078+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
   }
 ]
