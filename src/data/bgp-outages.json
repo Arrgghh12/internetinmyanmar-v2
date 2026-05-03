@@ -17010,10 +17010,10 @@
     "name": "FRONTIIRCOLTD-MM Frontiir Co. Ltd",
     "status": "DOWN",
     "started_at": "2026-05-03T05:15:26.308614+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-05-03T05:20:14.206804+00:00",
+    "duration_minutes": 4,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   }
 ]
