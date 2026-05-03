@@ -17059,5 +17059,27 @@
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
     "resolved": true
+  },
+  {
+    "asn": "AS136442",
+    "name": "OCEANWAVE-AS-AP Ocean Wave Communication Co., Ltd",
+    "status": "DOWN",
+    "started_at": "2026-05-03T10:01:56.004749+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
+  },
+  {
+    "asn": "AS151491",
+    "name": "IQI-AS-AP Innovative Quality Internet Company Limited",
+    "status": "DOWN",
+    "started_at": "2026-05-03T10:02:55.964596+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
   }
 ]
