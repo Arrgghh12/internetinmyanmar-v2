@@ -17098,10 +17098,10 @@
     "name": "GREATGOLDENHORSE-AS-AP GREAT GOLDEN HORSE COMPANY LIMITED",
     "status": "DOWN",
     "started_at": "2026-05-03T11:02:35.637667+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-05-03T11:32:47.170112+00:00",
+    "duration_minutes": 30,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   }
 ]
