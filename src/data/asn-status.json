@@ -157,30 +157,24 @@
   "AS132167": {
     "asn": "AS132167",
     "name": "U9-MM Nine Communications Company Limited",
-    "announced": false,
-    "visibility_pct": 0.0,
-    "visible_collectors": 0,
-    "total_collectors": 0,
-    "status": "RED",
-    "status_since": "2026-05-04T13:35:03.113772+00:00",
-    "timestamp": "2026-05-04T13:35:03.113772+00:00",
-    "error": "Server error '502 Bad Gateway' for url 'https://stat.ripe.net/data/routing-statu",
-    "ioda_outages": 0,
-    "ioda_confirmed": false
+    "announced": true,
+    "visibility_pct": 1.0,
+    "visible_collectors": 329,
+    "total_collectors": 329,
+    "timestamp": "2026-05-04T13:40:05.394121+00:00",
+    "status": "YELLOW",
+    "status_since": "2026-05-04T13:40:05.394121+00:00"
   },
   "AS58952": {
     "asn": "AS58952",
     "name": "FRONTIIRCOLTD-MM Frontiir Co. Ltd",
-    "announced": false,
-    "visibility_pct": 0.0,
-    "visible_collectors": 0,
-    "total_collectors": 0,
-    "status": "RED",
-    "status_since": "2026-05-04T13:35:03.821616+00:00",
-    "timestamp": "2026-05-04T13:35:03.821616+00:00",
-    "error": "Server error '502 Bad Gateway' for url 'https://stat.ripe.net/data/routing-statu",
-    "ioda_outages": 0,
-    "ioda_confirmed": false
+    "announced": true,
+    "visibility_pct": 1.0,
+    "visible_collectors": 329,
+    "total_collectors": 329,
+    "timestamp": "2026-05-04T13:40:16.642017+00:00",
+    "status": "YELLOW",
+    "status_since": "2026-05-04T13:40:16.642017+00:00"
   },
   "AS139849": {
     "asn": "AS139849",
@@ -614,16 +608,13 @@
   "AS9988": {
     "asn": "AS9988",
     "name": "MPT-AP Myanma Posts and Telecommunications",
-    "announced": false,
-    "visibility_pct": 0.0,
-    "visible_collectors": 0,
-    "total_collectors": 0,
-    "status": "RED",
-    "status_since": "2026-05-04T13:35:04.319616+00:00",
-    "timestamp": "2026-05-04T13:35:04.319616+00:00",
-    "error": "Server error '502 Bad Gateway' for url 'https://stat.ripe.net/data/routing-statu",
-    "ioda_outages": 0,
-    "ioda_confirmed": false
+    "announced": true,
+    "visibility_pct": 1.0,
+    "visible_collectors": 329,
+    "total_collectors": 329,
+    "timestamp": "2026-05-04T13:40:18.856128+00:00",
+    "status": "YELLOW",
+    "status_since": "2026-05-04T13:40:18.856128+00:00"
   },
   "AS133384": {
     "asn": "AS133384",
@@ -775,7 +766,7 @@
     "visibility_pct": 1.0,
     "visible_collectors": 329,
     "total_collectors": 329,
-    "timestamp": "2026-05-04T13:35:06.023090+00:00",
+    "timestamp": "2026-05-04T13:40:20.523247+00:00",
     "status": "GREEN",
     "status_since": "2026-05-01T14:35:04.496346+00:00"
   },
@@ -1450,5 +1441,5 @@
     "status": "RED",
     "status_since": "2026-04-11T01:10:28.195013+00:00"
   },
-  "lastUpdated": "2026-05-04T13:35:06.327026+00:00"
+  "lastUpdated": "2026-05-04T13:40:20.828521+00:00"
 }
