@@ -17208,10 +17208,10 @@
     "name": "MKTN-AS-AP MKTN ENGINEERING GROUP COMPANY LIMITED",
     "status": "DOWN",
     "started_at": "2026-05-04T00:02:58.557497+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-05-04T00:32:39.478245+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   }
 ]
