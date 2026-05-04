@@ -1,19 +1,17 @@
 {
-  "generated_at": "2026-05-03T12:15:02Z",
-  "dataset_version": "v202605031210",
+  "generated_at": "2026-05-04T00:15:01Z",
+  "dataset_version": "v202605040010",
   "processing_log": {
-    "bgp_outages_loaded": 1554,
+    "bgp_outages_loaded": 1563,
     "keepiton_events_loaded": 95,
-    "unified_events_total": 1649,
-    "bgp_events_in_unified": 1554,
+    "unified_events_total": 1658,
+    "bgp_events_in_unified": 1563,
     "kit_events_in_unified": 95,
-    "warnings": [
-      "bgp-outages.json is stale (1:12:26.617833 old, limit 1:00:00)"
-    ]
+    "warnings": []
   },
   "events": [
     {
-      "event_id": "kit-1555",
+      "event_id": "kit-1564",
       "event_time": "2021-08-20T00:00:00Z",
       "event_end": "2026-05-03T23:59:59Z",
       "duration_minutes": 2472480,
@@ -40,11 +38,11 @@
         "kit_type": "full_network",
         "ongoing": true,
         "duration_days": 1717,
-        "concurrent_bgp": 1554
+        "concurrent_bgp": 1563
       }
     },
     {
-      "event_id": "kit-1556",
+      "event_id": "kit-1565",
       "event_time": "2021-09-14T00:00:00Z",
       "event_end": "2026-05-03T23:59:59Z",
       "duration_minutes": 2436480,
@@ -71,11 +69,11 @@
         "kit_type": "full_network",
         "ongoing": true,
         "duration_days": 1692,
-        "concurrent_bgp": 1554
+        "concurrent_bgp": 1563
       }
     },
     {
-      "event_id": "kit-1557",
+      "event_id": "kit-1566",
       "event_time": "2021-09-23T00:00:00Z",
       "event_end": "2026-05-03T23:59:59Z",
       "duration_minutes": 2423520,
@@ -102,11 +100,11 @@
         "kit_type": "full_network",
         "ongoing": true,
         "duration_days": 1683,
-        "concurrent_bgp": 1554
+        "concurrent_bgp": 1563
       }
     },
     {
-      "event_id": "kit-1558",
+      "event_id": "kit-1567",
       "event_time": "2021-09-26T00:00:00Z",
       "event_end": "2026-05-03T23:59:59Z",
       "duration_minutes": 2419200,
@@ -132,11 +130,11 @@
         "kit_type": "full_network",
         "ongoing": true,
         "duration_days": 1680,
-        "concurrent_bgp": 1554
+        "concurrent_bgp": 1563
       }
     },
     {
-      "event_id": "kit-1559",
+      "event_id": "kit-1568",
       "event_time": "2022-01-06T00:00:00Z",
       "event_end": "2026-05-03T23:59:59Z",
       "duration_minutes": 2272320,
@@ -162,11 +160,11 @@
         "kit_type": "full_network",
         "ongoing": true,
         "duration_days": 1578,
-        "concurrent_bgp": 1554
+        "concurrent_bgp": 1563
       }
     },
     {
-      "event_id": "kit-1560",
+      "event_id": "kit-1569",
       "event_time": "2022-05-24T00:00:00Z",
       "event_end": "2026-05-03T23:59:59Z",
       "duration_minutes": 2073600,
@@ -192,11 +190,11 @@
         "kit_type": "full_network",
         "ongoing": true,
         "duration_days": 1440,
-        "concurrent_bgp": 1554
+        "concurrent_bgp": 1563
       }
     },
     {
-      "event_id": "kit-1561",
+      "event_id": "kit-1570",
       "event_time": "2024-02-16T00:00:00Z",
       "event_end": "2026-05-03T23:59:59Z",
       "duration_minutes": 1162080,
@@ -226,11 +224,11 @@
         "kit_type": "mobile",
         "ongoing": true,
         "duration_days": 807,
-        "concurrent_bgp": 1554
+        "concurrent_bgp": 1563
       }
     },
     {
-      "event_id": "kit-1562",
+      "event_id": "kit-1571",
       "event_time": "2024-04-06T00:00:00Z",
       "event_end": "2026-05-03T23:59:59Z",
       "duration_minutes": 1090080,
@@ -256,11 +254,11 @@
         "kit_type": "full_network",
         "ongoing": true,
         "duration_days": 757,
-        "concurrent_bgp": 1554
+        "concurrent_bgp": 1563
       }
     },
     {
-      "event_id": "kit-1563",
+      "event_id": "kit-1572",
       "event_time": "2024-07-14T00:00:00Z",
       "event_end": "2026-05-03T23:59:59Z",
       "duration_minutes": 947520,
@@ -287,11 +285,11 @@
         "kit_type": "mobile",
         "ongoing": true,
         "duration_days": 658,
-        "concurrent_bgp": 1554
+        "concurrent_bgp": 1563
       }
     },
     {
-      "event_id": "kit-1564",
+      "event_id": "kit-1573",
       "event_time": "2024-07-21T00:00:00Z",
       "event_end": "2026-05-03T23:59:59Z",
       "duration_minutes": 937440,
@@ -318,11 +316,11 @@
         "kit_type": "full_network",
         "ongoing": true,
         "duration_days": 651,
-        "concurrent_bgp": 1554
+        "concurrent_bgp": 1563
       }
     },
     {
-      "event_id": "kit-1565",
+      "event_id": "kit-1574",
       "event_time": "2024-11-16T00:00:00Z",
       "event_end": "2026-05-03T23:59:59Z",
       "duration_minutes": 767520,
@@ -348,11 +346,11 @@
         "kit_type": "full_network",
         "ongoing": true,
         "duration_days": 533,
-        "concurrent_bgp": 1554
+        "concurrent_bgp": 1563
       }
     },
     {
-      "event_id": "kit-1566",
+      "event_id": "kit-1575",
       "event_time": "2024-12-20T00:00:00Z",
       "event_end": "2025-01-02T23:59:59Z",
       "duration_minutes": 18720,
@@ -382,7 +380,7 @@
       }
     },
     {
-      "event_id": "kit-1567",
+      "event_id": "kit-1576",
       "event_time": "2025-01-01T00:00:00Z",
       "event_end": "2026-05-03T23:59:59Z",
       "duration_minutes": 701280,
@@ -408,11 +406,11 @@
         "kit_type": "full_network",
         "ongoing": true,
         "duration_days": 487,
-        "concurrent_bgp": 1554
+        "concurrent_bgp": 1563
       }
     },
     {
-      "event_id": "kit-1568",
+      "event_id": "kit-1577",
       "event_time": "2025-01-02T00:00:00Z",
       "event_end": "2026-05-03T23:59:59Z",
       "duration_minutes": 699840,
@@ -438,11 +436,11 @@
         "kit_type": "full_network",
         "ongoing": true,
         "duration_days": 486,
-        "concurrent_bgp": 1554
+        "concurrent_bgp": 1563
       }
     },
     {
-      "event_id": "kit-1569",
+      "event_id": "kit-1578",
       "event_time": "2025-01-03T00:00:00Z",
       "event_end": "2026-05-03T23:59:59Z",
       "duration_minutes": 698400,
@@ -468,11 +466,11 @@
         "kit_type": "full_network",
         "ongoing": true,
         "duration_days": 485,
-        "concurrent_bgp": 1554
+        "concurrent_bgp": 1563
       }
     },
     {
-      "event_id": "kit-1570",
+      "event_id": "kit-1579",
       "event_time": "2025-01-03T00:00:00Z",
       "event_end": "2026-05-03T23:59:59Z",
       "duration_minutes": 698400,
@@ -499,11 +497,11 @@
         "kit_type": "full_network",
         "ongoing": true,
         "duration_days": 485,
-        "concurrent_bgp": 1554
+        "concurrent_bgp": 1563
       }
     },
     {
-      "event_id": "kit-1571",
+      "event_id": "kit-1580",
       "event_time": "2025-01-11T00:00:00Z",
       "event_end": "2026-05-03T23:59:59Z",
       "duration_minutes": 686880,
@@ -529,11 +527,11 @@
         "kit_type": "full_network",
         "ongoing": true,
         "duration_days": 477,
-        "concurrent_bgp": 1554
+        "concurrent_bgp": 1563
       }
     },
     {
-      "event_id": "kit-1572",
+      "event_id": "kit-1581",
       "event_time": "2025-01-16T00:00:00Z",
       "event_end": "2025-01-18T23:59:59Z",
       "duration_minutes": 2880,
@@ -563,7 +561,7 @@
       }
     },
     {
-      "event_id": "kit-1573",
+      "event_id": "kit-1582",
       "event_time": "2025-01-20T00:00:00Z",
       "event_end": "2025-02-01T23:59:59Z",
       "duration_minutes": 17280,
@@ -593,7 +591,7 @@
       }
     },
     {
-      "event_id": "kit-1574",
+      "event_id": "kit-1583",
       "event_time": "2025-01-22T00:00:00Z",
       "event_end": "2026-05-03T23:59:59Z",
       "duration_minutes": 671040,
@@ -620,11 +618,11 @@
         "kit_type": "full_network",
         "ongoing": true,
         "duration_days": 466,
-        "concurrent_bgp": 1554
+        "concurrent_bgp": 1563
       }
     },
     {
-      "event_id": "kit-1575",
+      "event_id": "kit-1584",
       "event_time": "2025-01-28T00:00:00Z",
       "event_end": "2026-05-03T23:59:59Z",
       "duration_minutes": 662400,
@@ -651,11 +649,11 @@
         "kit_type": "full_network",
         "ongoing": true,
         "duration_days": 460,
-        "concurrent_bgp": 1554
+        "concurrent_bgp": 1563
       }
     },
     {
-      "event_id": "kit-1576",
+      "event_id": "kit-1585",
       "event_time": "2025-01-29T00:00:00Z",
       "event_end": "2026-05-03T23:59:59Z",
       "duration_minutes": 660960,
@@ -681,11 +679,11 @@
         "kit_type": "full_network",
         "ongoing": true,
         "duration_days": 459,
-        "concurrent_bgp": 1554
+        "concurrent_bgp": 1563
       }
     },
     {
-      "event_id": "kit-1577",
+      "event_id": "kit-1586",
       "event_time": "2025-01-29T00:00:00Z",
       "event_end": "2026-05-03T23:59:59Z",
       "duration_minutes": 660960,
@@ -712,11 +710,11 @@
         "kit_type": "full_network",
         "ongoing": true,
         "duration_days": 459,
-        "concurrent_bgp": 1554
+        "concurrent_bgp": 1563
       }
     },
     {
-      "event_id": "kit-1578",
+      "event_id": "kit-1587",
       "event_time": "2025-02-04T00:00:00Z",
       "event_end": "2026-05-03T23:59:59Z",
       "duration_minutes": 652320,
@@ -743,11 +741,11 @@
         "kit_type": "full_network",
         "ongoing": true,
         "duration_days": 453,
-        "concurrent_bgp": 1554
+        "concurrent_bgp": 1563
       }
     },
     {
-      "event_id": "kit-1579",
+      "event_id": "kit-1588",
       "event_time": "2025-02-05T00:00:00Z",
       "event_end": "2026-05-03T23:59:59Z",
       "duration_minutes": 650880,
@@ -774,11 +772,11 @@
         "kit_type": "full_network",
         "ongoing": true,
         "duration_days": 452,
-        "concurrent_bgp": 1554
+        "concurrent_bgp": 1563
       }
     },
     {
-      "event_id": "kit-1580",
+      "event_id": "kit-1589",
       "event_time": "2025-02-06T00:00:00Z",
       "event_end": "2025-02-10T23:59:59Z",
       "duration_minutes": 5760,
@@ -808,7 +806,7 @@
       }
     },
     {
-      "event_id": "kit-1581",
+      "event_id": "kit-1590",
       "event_time": "2025-02-19T00:00:00Z",
       "event_end": "2026-05-03T23:59:59Z",
       "duration_minutes": 630720,
@@ -835,11 +833,11 @@
         "kit_type": "full_network",
         "ongoing": true,
         "duration_days": 438,
-        "concurrent_bgp": 1554
+        "concurrent_bgp": 1563
       }
     },
     {
-      "event_id": "kit-1582",
+      "event_id": "kit-1591",
       "event_time": "2025-02-21T00:00:00Z",
       "event_end": "2026-05-03T23:59:59Z",
       "duration_minutes": 627840,
@@ -865,11 +863,11 @@
         "kit_type": "full_network",
         "ongoing": true,
         "duration_days": 436,
-        "concurrent_bgp": 1554
+        "concurrent_bgp": 1563
       }
     },
     {
-      "event_id": "kit-1583",
+      "event_id": "kit-1592",
       "event_time": "2025-02-25T00:00:00Z",
       "event_end": "2025-03-05T23:59:59Z",
       "duration_minutes": 11520,
@@ -899,7 +897,7 @@
       }
     },
     {
-      "event_id": "kit-1584",
+      "event_id": "kit-1593",
       "event_time": "2025-03-02T00:00:00Z",
       "event_end": "2025-03-23T23:59:59Z",
       "duration_minutes": 30240,
@@ -929,7 +927,7 @@
       }
     },
     {
-      "event_id": "kit-1585",
+      "event_id": "kit-1594",
       "event_time": "2025-03-03T00:00:00Z",
       "event_end": "2026-05-03T23:59:59Z",
       "duration_minutes": 613440,
@@ -956,11 +954,11 @@
         "kit_type": "full_network",
         "ongoing": true,
         "duration_days": 426,
-        "concurrent_bgp": 1554
+        "concurrent_bgp": 1563
       }
     },
     {
-      "event_id": "kit-1586",
+      "event_id": "kit-1595",
       "event_time": "2025-03-08T00:00:00Z",
       "event_end": "2026-05-03T23:59:59Z",
       "duration_minutes": 606240,
@@ -986,11 +984,11 @@
         "kit_type": "full_network",
         "ongoing": true,
         "duration_days": 421,
-        "concurrent_bgp": 1554
+        "concurrent_bgp": 1563
       }
     },
     {
-      "event_id": "kit-1587",
+      "event_id": "kit-1596",
       "event_time": "2025-03-16T00:00:00Z",
       "event_end": "2026-05-03T23:59:59Z",
       "duration_minutes": 594720,
@@ -1016,11 +1014,11 @@
         "kit_type": "full_network",
         "ongoing": true,
         "duration_days": 413,
-        "concurrent_bgp": 1554
+        "concurrent_bgp": 1563
       }
     },
     {
-      "event_id": "kit-1588",
+      "event_id": "kit-1597",
       "event_time": "2025-03-16T00:00:00Z",
       "event_end": "2026-05-03T23:59:59Z",
       "duration_minutes": 594720,
@@ -1046,11 +1044,11 @@
         "kit_type": "full_network",
         "ongoing": true,
         "duration_days": 413,
-        "concurrent_bgp": 1554
+        "concurrent_bgp": 1563
       }
     },
     {
-      "event_id": "kit-1589",
+      "event_id": "kit-1598",
       "event_time": "2025-03-17T00:00:00Z",
       "event_end": "2026-05-03T23:59:59Z",
       "duration_minutes": 593280,
@@ -1077,11 +1075,11 @@
         "kit_type": "full_network",
         "ongoing": true,
         "duration_days": 412,
-        "concurrent_bgp": 1554
+        "concurrent_bgp": 1563
       }
     },
     {
-      "event_id": "kit-1590",
+      "event_id": "kit-1599",
       "event_time": "2025-03-20T00:00:00Z",
       "event_end": "2026-05-03T23:59:59Z",
       "duration_minutes": 588960,
@@ -1107,11 +1105,11 @@
         "kit_type": "full_network",
         "ongoing": true,
         "duration_days": 409,
-        "concurrent_bgp": 1554
+        "concurrent_bgp": 1563
       }
     },
     {
-      "event_id": "kit-1591",
+      "event_id": "kit-1600",
       "event_time": "2025-03-23T00:00:00Z",
       "event_end": "2026-05-03T23:59:59Z",
       "duration_minutes": 584640,
@@ -1137,11 +1135,11 @@
         "kit_type": "full_network",
         "ongoing": true,
         "duration_days": 406,
-        "concurrent_bgp": 1554
+        "concurrent_bgp": 1563
       }
     },
     {
-      "event_id": "kit-1592",
+      "event_id": "kit-1601",
       "event_time": "2025-03-25T00:00:00Z",
       "event_end": "2026-05-03T23:59:59Z",
       "duration_minutes": 581760,
@@ -1167,11 +1165,11 @@
         "kit_type": "full_network",
         "ongoing": true,
         "duration_days": 404,
-        "concurrent_bgp": 1554
+        "concurrent_bgp": 1563
       }
     },
     {
-      "event_id": "kit-1593",
+      "event_id": "kit-1602",
       "event_time": "2025-04-07T00:00:00Z",
       "event_end": "2026-05-03T23:59:59Z",
       "duration_minutes": 563040,
@@ -1198,11 +1196,11 @@
         "kit_type": "full_network",
         "ongoing": true,
         "duration_days": 391,
-        "concurrent_bgp": 1554
+        "concurrent_bgp": 1563
       }
     },
     {
-      "event_id": "kit-1594",
+      "event_id": "kit-1603",
       "event_time": "2025-04-11T00:00:00Z",
       "event_end": "2025-04-15T23:59:59Z",
       "duration_minutes": 5760,
@@ -1233,7 +1231,7 @@
       }
     },
     {
-      "event_id": "kit-1595",
+      "event_id": "kit-1604",
       "event_time": "2025-04-14T00:00:00Z",
       "event_end": "2026-05-03T23:59:59Z",
       "duration_minutes": 552960,
@@ -1259,11 +1257,11 @@
         "kit_type": "full_network",
         "ongoing": true,
         "duration_days": 384,
-        "concurrent_bgp": 1554
+        "concurrent_bgp": 1563
       }
     },
     {
-      "event_id": "kit-1596",
+      "event_id": "kit-1605",
       "event_time": "2025-04-15T00:00:00Z",
       "event_end": "2026-05-03T23:59:59Z",
       "duration_minutes": 551520,
@@ -1289,11 +1287,11 @@
         "kit_type": "full_network",
         "ongoing": true,
         "duration_days": 383,
-        "concurrent_bgp": 1554
+        "concurrent_bgp": 1563
       }
     },
     {
-      "event_id": "kit-1597",
+      "event_id": "kit-1606",
       "event_time": "2025-04-15T00:00:00Z",
       "event_end": "2025-04-18T23:59:59Z",
       "duration_minutes": 4320,
@@ -1323,7 +1321,7 @@
       }
     },
     {
-      "event_id": "kit-1598",
+      "event_id": "kit-1607",
       "event_time": "2025-04-17T00:00:00Z",
       "event_end": "2026-05-03T23:59:59Z",
       "duration_minutes": 548640,
@@ -1349,11 +1347,11 @@
         "kit_type": "full_network",
         "ongoing": true,
         "duration_days": 381,
-        "concurrent_bgp": 1554
+        "concurrent_bgp": 1563
       }
     },
     {
-      "event_id": "kit-1599",
+      "event_id": "kit-1608",
       "event_time": "2025-04-20T00:00:00Z",
       "event_end": "2025-04-23T23:59:59Z",
       "duration_minutes": 4320,
@@ -1384,7 +1382,7 @@
       }
     },
     {
-      "event_id": "kit-1600",
+      "event_id": "kit-1609",
       "event_time": "2025-04-29T00:00:00Z",
       "event_end": "2025-05-03T23:59:59Z",
       "duration_minutes": 5760,
@@ -1415,7 +1413,7 @@
       }
     },
     {
-      "event_id": "kit-1601",
+      "event_id": "kit-1610",
       "event_time": "2025-05-01T00:00:00Z",
       "event_end": "2025-06-01T23:59:59Z",
       "duration_minutes": 44640,
@@ -1446,7 +1444,7 @@
       }
     },
     {
-      "event_id": "kit-1602",
+      "event_id": "kit-1611",
       "event_time": "2025-05-01T00:00:00Z",
       "event_end": "2026-05-03T23:59:59Z",
       "duration_minutes": 528480,
@@ -1472,11 +1470,11 @@
         "kit_type": "full_network",
         "ongoing": true,
         "duration_days": 367,
-        "concurrent_bgp": 1554
+        "concurrent_bgp": 1563
       }
     },
     {
-      "event_id": "kit-1603",
+      "event_id": "kit-1612",
       "event_time": "2025-05-02T00:00:00Z",
       "event_end": "2026-05-03T23:59:59Z",
       "duration_minutes": 527040,
@@ -1502,11 +1500,11 @@
         "kit_type": "full_network",
         "ongoing": true,
         "duration_days": 366,
-        "concurrent_bgp": 1554
+        "concurrent_bgp": 1563
       }
     },
     {
-      "event_id": "kit-1604",
+      "event_id": "kit-1613",
       "event_time": "2025-05-07T00:00:00Z",
       "event_end": "2026-05-03T23:59:59Z",
       "duration_minutes": 519840,
@@ -1532,11 +1530,11 @@
         "kit_type": "full_network",
         "ongoing": true,
         "duration_days": 361,
-        "concurrent_bgp": 1554
+        "concurrent_bgp": 1563
       }
     },
     {
-      "event_id": "kit-1605",
+      "event_id": "kit-1614",
       "event_time": "2025-05-07T00:00:00Z",
       "event_end": "2025-05-31T23:59:59Z",
       "duration_minutes": 34560,
@@ -1566,7 +1564,7 @@
       }
     },
     {
-      "event_id": "kit-1606",
+      "event_id": "kit-1615",
       "event_time": "2025-05-31T00:00:00Z",
       "event_end": "2025-06-21T23:59:59Z",
       "duration_minutes": 30240,
@@ -1597,7 +1595,7 @@
       }
     },
     {
-      "event_id": "kit-1607",
+      "event_id": "kit-1616",
       "event_time": "2025-06-03T00:00:00Z",
       "event_end": "2026-05-03T23:59:59Z",
       "duration_minutes": 480960,
@@ -1624,11 +1622,11 @@
         "kit_type": "full_network",
         "ongoing": true,
         "duration_days": 334,
-        "concurrent_bgp": 1554
+        "concurrent_bgp": 1563
       }
     },
     {
-      "event_id": "kit-1608",
+      "event_id": "kit-1617",
       "event_time": "2025-06-06T00:00:00Z",
       "event_end": "2026-05-03T23:59:59Z",
       "duration_minutes": 476640,
@@ -1655,11 +1653,11 @@
         "kit_type": "full_network",
         "ongoing": true,
         "duration_days": 331,
-        "concurrent_bgp": 1554
+        "concurrent_bgp": 1563
       }
     },
     {
-      "event_id": "kit-1609",
+      "event_id": "kit-1618",
       "event_time": "2025-06-06T00:00:00Z",
       "event_end": "2026-05-03T23:59:59Z",
       "duration_minutes": 476640,
@@ -1685,11 +1683,11 @@
         "kit_type": "full_network",
         "ongoing": true,
         "duration_days": 331,
-        "concurrent_bgp": 1554
+        "concurrent_bgp": 1563
       }
     },
     {
-      "event_id": "kit-1610",
+      "event_id": "kit-1619",
       "event_time": "2025-06-10T00:00:00Z",
       "event_end": "2026-05-03T23:59:59Z",
       "duration_minutes": 470880,
@@ -1716,11 +1714,11 @@
         "kit_type": "full_network",
         "ongoing": true,
         "duration_days": 327,
-        "concurrent_bgp": 1554
+        "concurrent_bgp": 1563
       }
     },
     {
-      "event_id": "kit-1611",
+      "event_id": "kit-1620",
       "event_time": "2025-06-11T00:00:00Z",
       "event_end": "2026-05-03T23:59:59Z",
       "duration_minutes": 469440,
@@ -1746,11 +1744,11 @@
         "kit_type": "full_network",
         "ongoing": true,
         "duration_days": 326,
-        "concurrent_bgp": 1554
+        "concurrent_bgp": 1563
       }
     },
     {
-      "event_id": "kit-1612",
+      "event_id": "kit-1621",
       "event_time": "2025-06-24T00:00:00Z",
       "event_end": "2026-05-03T23:59:59Z",
       "duration_minutes": 450720,
@@ -1777,11 +1775,11 @@
         "kit_type": "full_network",
         "ongoing": true,
         "duration_days": 313,
-        "concurrent_bgp": 1554
+        "concurrent_bgp": 1563
       }
     },
     {
-      "event_id": "kit-1613",
+      "event_id": "kit-1622",
       "event_time": "2025-07-08T00:00:00Z",
       "event_end": "2026-05-03T23:59:59Z",
       "duration_minutes": 430560,
@@ -1808,11 +1806,11 @@
         "kit_type": "full_network",
         "ongoing": true,
         "duration_days": 299,
-        "concurrent_bgp": 1554
+        "concurrent_bgp": 1563
       }
     },
     {
-      "event_id": "kit-1614",
+      "event_id": "kit-1623",
       "event_time": "2025-07-14T00:00:00Z",
       "event_end": "2026-05-03T23:59:59Z",
       "duration_minutes": 421920,
@@ -1839,11 +1837,11 @@
         "kit_type": "full_network",
         "ongoing": true,
         "duration_days": 293,
-        "concurrent_bgp": 1554
+        "concurrent_bgp": 1563
       }
     },
     {
-      "event_id": "kit-1615",
+      "event_id": "kit-1624",
       "event_time": "2025-07-18T00:00:00Z",
       "event_end": "2025-07-18T23:59:59Z",
       "duration_minutes": 0,
@@ -1874,7 +1872,7 @@
       }
     },
     {
-      "event_id": "kit-1616",
+      "event_id": "kit-1625",
       "event_time": "2025-07-23T00:00:00Z",
       "event_end": "2025-07-28T23:59:59Z",
       "duration_minutes": 7200,
@@ -1904,7 +1902,7 @@
       }
     },
     {
-      "event_id": "kit-1617",
+      "event_id": "kit-1626",
       "event_time": "2025-07-24T00:00:00Z",
       "event_end": "2025-07-28T23:59:59Z",
       "duration_minutes": 5760,
@@ -1935,7 +1933,7 @@
       }
     },
     {
-      "event_id": "kit-1618",
+      "event_id": "kit-1627",
       "event_time": "2025-07-25T00:00:00Z",
       "event_end": "2026-05-03T23:59:59Z",
       "duration_minutes": 406080,
@@ -1961,11 +1959,11 @@
         "kit_type": "full_network",
         "ongoing": true,
         "duration_days": 282,
-        "concurrent_bgp": 1554
+        "concurrent_bgp": 1563
       }
     },
     {
-      "event_id": "kit-1619",
+      "event_id": "kit-1628",
       "event_time": "2025-08-16T00:00:00Z",
       "event_end": "2026-05-03T23:59:59Z",
       "duration_minutes": 374400,
@@ -1992,11 +1990,11 @@
         "kit_type": "full_network",
         "ongoing": true,
         "duration_days": 260,
-        "concurrent_bgp": 1554
+        "concurrent_bgp": 1563
       }
     },
     {
-      "event_id": "kit-1620",
+      "event_id": "kit-1629",
       "event_time": "2025-08-19T00:00:00Z",
       "event_end": "2026-05-03T23:59:59Z",
       "duration_minutes": 370080,
@@ -2023,11 +2021,11 @@
         "kit_type": "full_network",
         "ongoing": true,
         "duration_days": 257,
-        "concurrent_bgp": 1554
+        "concurrent_bgp": 1563
       }
     },
     {
-      "event_id": "kit-1621",
+      "event_id": "kit-1630",
       "event_time": "2025-08-19T00:00:00Z",
       "event_end": "2026-05-03T23:59:59Z",
       "duration_minutes": 370080,
@@ -2054,11 +2052,11 @@
         "kit_type": "full_network",
         "ongoing": true,
         "duration_days": 257,
-        "concurrent_bgp": 1554
+        "concurrent_bgp": 1563
       }
     },
     {
-      "event_id": "kit-1622",
+      "event_id": "kit-1631",
       "event_time": "2025-08-26T00:00:00Z",
       "event_end": "2026-05-03T23:59:59Z",
       "duration_minutes": 360000,
@@ -2085,11 +2083,11 @@
         "kit_type": "full_network",
         "ongoing": true,
         "duration_days": 250,
-        "concurrent_bgp": 1554
+        "concurrent_bgp": 1563
       }
     },
     {
-      "event_id": "kit-1623",
+      "event_id": "kit-1632",
       "event_time": "2025-09-01T00:00:00Z",
       "event_end": "2026-05-03T23:59:59Z",
       "duration_minutes": 351360,
@@ -2115,11 +2113,11 @@
         "kit_type": "full_network",
         "ongoing": true,
         "duration_days": 244,
-        "concurrent_bgp": 1554
+        "concurrent_bgp": 1563
       }
     },
     {
-      "event_id": "kit-1624",
+      "event_id": "kit-1633",
       "event_time": "2025-09-01T00:00:00Z",
       "event_end": "2026-05-03T23:59:59Z",
       "duration_minutes": 351360,
@@ -2146,11 +2144,11 @@
         "kit_type": "full_network",
         "ongoing": true,
         "duration_days": 244,
-        "concurrent_bgp": 1554
+        "concurrent_bgp": 1563
       }
     },
     {
-      "event_id": "kit-1625",
+      "event_id": "kit-1634",
       "event_time": "2025-09-02T00:00:00Z",
       "event_end": "2026-05-03T23:59:59Z",
       "duration_minutes": 349920,
@@ -2177,11 +2175,11 @@
         "kit_type": "full_network",
         "ongoing": true,
         "duration_days": 243,
-        "concurrent_bgp": 1554
+        "concurrent_bgp": 1563
       }
     },
     {
-      "event_id": "kit-1626",
+      "event_id": "kit-1635",
       "event_time": "2025-09-10T00:00:00Z",
       "event_end": "2026-05-03T23:59:59Z",
       "duration_minutes": 338400,
@@ -2208,11 +2206,11 @@
         "kit_type": "full_network",
         "ongoing": true,
         "duration_days": 235,
-        "concurrent_bgp": 1554
+        "concurrent_bgp": 1563
       }
     },
     {
-      "event_id": "kit-1627",
+      "event_id": "kit-1636",
       "event_time": "2025-09-12T00:00:00Z",
       "event_end": "2025-09-20T23:59:59Z",
       "duration_minutes": 11520,
@@ -2243,7 +2241,7 @@
       }
     },
     {
-      "event_id": "kit-1628",
+      "event_id": "kit-1637",
       "event_time": "2025-09-15T00:00:00Z",
       "event_end": "2026-05-03T23:59:59Z",
       "duration_minutes": 331200,
@@ -2270,11 +2268,11 @@
         "kit_type": "full_network",
         "ongoing": true,
         "duration_days": 230,
-        "concurrent_bgp": 1554
+        "concurrent_bgp": 1563
       }
     },
     {
-      "event_id": "kit-1629",
+      "event_id": "kit-1638",
       "event_time": "2025-09-18T00:00:00Z",
       "event_end": "2026-05-03T23:59:59Z",
       "duration_minutes": 326880,
@@ -2301,11 +2299,11 @@
         "kit_type": "full_network",
         "ongoing": true,
         "duration_days": 227,
-        "concurrent_bgp": 1554
+        "concurrent_bgp": 1563
       }
     },
     {
-      "event_id": "kit-1630",
+      "event_id": "kit-1639",
       "event_time": "2025-09-22T00:00:00Z",
       "event_end": "2026-05-03T23:59:59Z",
       "duration_minutes": 321120,
@@ -2331,11 +2329,11 @@
         "kit_type": "full_network",
         "ongoing": true,
         "duration_days": 223,
-        "concurrent_bgp": 1554
+        "concurrent_bgp": 1563
       }
     },
     {
-      "event_id": "kit-1631",
+      "event_id": "kit-1640",
       "event_time": "2025-09-26T00:00:00Z",
       "event_end": "2026-05-03T23:59:59Z",
       "duration_minutes": 315360,
@@ -2361,11 +2359,11 @@
         "kit_type": "full_network",
         "ongoing": true,
         "duration_days": 219,
-        "concurrent_bgp": 1554
+        "concurrent_bgp": 1563
       }
     },
     {
-      "event_id": "kit-1632",
+      "event_id": "kit-1641",
       "event_time": "2025-10-02T00:00:00Z",
       "event_end": "2025-10-07T23:59:59Z",
       "duration_minutes": 7200,
@@ -2395,7 +2393,7 @@
       }
     },
     {
-      "event_id": "kit-1633",
+      "event_id": "kit-1642",
       "event_time": "2025-10-03T00:00:00Z",
       "event_end": "2025-10-04T23:59:59Z",
       "duration_minutes": 1440,
@@ -2426,7 +2424,7 @@
       }
     },
     {
-      "event_id": "kit-1634",
+      "event_id": "kit-1643",
       "event_time": "2025-10-06T00:00:00Z",
       "event_end": "2025-10-07T23:59:59Z",
       "duration_minutes": 1440,
@@ -2456,7 +2454,7 @@
       }
     },
     {
-      "event_id": "kit-1635",
+      "event_id": "kit-1644",
       "event_time": "2025-10-14T00:00:00Z",
       "event_end": "2026-05-03T23:59:59Z",
       "duration_minutes": 289440,
@@ -2483,11 +2481,11 @@
         "kit_type": "full_network",
         "ongoing": true,
         "duration_days": 201,
-        "concurrent_bgp": 1554
+        "concurrent_bgp": 1563
       }
     },
     {
-      "event_id": "kit-1636",
+      "event_id": "kit-1645",
       "event_time": "2025-10-15T00:00:00Z",
       "event_end": "2026-05-03T23:59:59Z",
       "duration_minutes": 288000,
@@ -2514,11 +2512,11 @@
         "kit_type": "full_network",
         "ongoing": true,
         "duration_days": 200,
-        "concurrent_bgp": 1554
+        "concurrent_bgp": 1563
       }
     },
     {
-      "event_id": "kit-1637",
+      "event_id": "kit-1646",
       "event_time": "2025-10-16T00:00:00Z",
       "event_end": "2026-05-03T23:59:59Z",
       "duration_minutes": 286560,
@@ -2544,11 +2542,11 @@
         "kit_type": "full_network",
         "ongoing": true,
         "duration_days": 199,
-        "concurrent_bgp": 1554
+        "concurrent_bgp": 1563
       }
     },
     {
-      "event_id": "kit-1638",
+      "event_id": "kit-1647",
       "event_time": "2025-11-01T00:00:00Z",
       "event_end": "2025-11-02T23:59:59Z",
       "duration_minutes": 1440,
@@ -2579,7 +2577,7 @@
       }
     },
     {
-      "event_id": "kit-1639",
+      "event_id": "kit-1648",
       "event_time": "2025-11-04T00:00:00Z",
       "event_end": "2026-05-03T23:59:59Z",
       "duration_minutes": 259200,
@@ -2606,11 +2604,11 @@
         "kit_type": "full_network",
         "ongoing": true,
         "duration_days": 180,
-        "concurrent_bgp": 1554
+        "concurrent_bgp": 1563
       }
     },
     {
-      "event_id": "kit-1640",
+      "event_id": "kit-1649",
       "event_time": "2025-11-11T00:00:00Z",
       "event_end": "2026-05-03T23:59:59Z",
       "duration_minutes": 249120,
@@ -2637,11 +2635,11 @@
         "kit_type": "full_network",
         "ongoing": true,
         "duration_days": 173,
-        "concurrent_bgp": 1554
+        "concurrent_bgp": 1563
       }
     },
     {
-      "event_id": "kit-1641",
+      "event_id": "kit-1650",
       "event_time": "2025-11-14T00:00:00Z",
       "event_end": "2026-05-03T23:59:59Z",
       "duration_minutes": 244800,
@@ -2667,11 +2665,11 @@
         "kit_type": "full_network",
         "ongoing": true,
         "duration_days": 170,
-        "concurrent_bgp": 1554
+        "concurrent_bgp": 1563
       }
     },
     {
-      "event_id": "kit-1642",
+      "event_id": "kit-1651",
       "event_time": "2025-11-19T00:00:00Z",
       "event_end": "2026-05-03T23:59:59Z",
       "duration_minutes": 237600,
@@ -2697,11 +2695,11 @@
         "kit_type": "full_network",
         "ongoing": true,
         "duration_days": 165,
-        "concurrent_bgp": 1554
+        "concurrent_bgp": 1563
       }
     },
     {
-      "event_id": "kit-1643",
+      "event_id": "kit-1652",
       "event_time": "2025-11-23T00:00:00Z",
       "event_end": "2026-05-03T23:59:59Z",
       "duration_minutes": 231840,
@@ -2728,11 +2726,11 @@
         "kit_type": "full_network",
         "ongoing": true,
         "duration_days": 161,
-        "concurrent_bgp": 1554
+        "concurrent_bgp": 1563
       }
     },
     {
-      "event_id": "kit-1644",
+      "event_id": "kit-1653",
       "event_time": "2025-12-08T00:00:00Z",
       "event_end": "2026-05-03T23:59:59Z",
       "duration_minutes": 210240,
@@ -2759,11 +2757,11 @@
         "kit_type": "full_network",
         "ongoing": true,
         "duration_days": 146,
-        "concurrent_bgp": 1554
+        "concurrent_bgp": 1563
       }
     },
     {
-      "event_id": "kit-1645",
+      "event_id": "kit-1654",
       "event_time": "2025-12-09T00:00:00Z",
       "event_end": "2026-05-03T23:59:59Z",
       "duration_minutes": 208800,
@@ -2789,11 +2787,11 @@
         "kit_type": "full_network",
         "ongoing": true,
         "duration_days": 145,
-        "concurrent_bgp": 1554
+        "concurrent_bgp": 1563
       }
     },
     {
-      "event_id": "kit-1646",
+      "event_id": "kit-1655",
       "event_time": "2025-12-15T00:00:00Z",
       "event_end": "2026-05-03T23:59:59Z",
       "duration_minutes": 200160,
@@ -2819,11 +2817,11 @@
         "kit_type": "full_network",
         "ongoing": true,
         "duration_days": 139,
-        "concurrent_bgp": 1554
+        "concurrent_bgp": 1563
       }
     },
     {
-      "event_id": "kit-1647",
+      "event_id": "kit-1656",
       "event_time": "2025-12-18T00:00:00Z",
       "event_end": "2025-12-31T23:59:59Z",
       "duration_minutes": 18720,
@@ -2854,7 +2852,7 @@
       }
     },
     {
-      "event_id": "kit-1648",
+      "event_id": "kit-1657",
       "event_time": "2025-12-24T00:00:00Z",
       "event_end": "2026-05-03T23:59:59Z",
       "duration_minutes": 187200,
@@ -2880,11 +2878,11 @@
         "kit_type": "full_network",
         "ongoing": true,
         "duration_days": 130,
-        "concurrent_bgp": 1554
+        "concurrent_bgp": 1563
       }
     },
     {
-      "event_id": "kit-1649",
+      "event_id": "kit-1658",
       "event_time": "2025-12-27T00:00:00Z",
       "event_end": "2025-12-28T23:59:59Z",
       "duration_minutes": 1440,
@@ -41747,6 +41745,231 @@
       ],
       "asn": "AS141216",
       "isp_name": "GREATGOLDENHORSE-AS-AP GREAT GOLDEN HORSE COMPANY LIMITED",
+      "severity": 2,
+      "scope": null,
+      "perpetrator": null,
+      "affected_services": [],
+      "is_confirmed": false,
+      "keepiton_matched": true,
+      "keepiton_ids": [],
+      "source_urls": [],
+      "metadata": {
+        "min_visibility_pct": 0.0,
+        "resolved": true,
+        "ioda_confirmed": false
+      }
+    },
+    {
+      "event_id": "bgp-1555",
+      "event_time": "2026-05-03T13:02:20Z",
+      "event_end": "2026-05-03T13:32:21Z",
+      "duration_minutes": 30,
+      "event_type": "outage",
+      "sources": [
+        "bgp"
+      ],
+      "asn": "AS137069",
+      "isp_name": "PICME-AS-AP POSCO INTERNATIONAL CORPORATION MYANMAR E&P OFFICE",
+      "severity": 2,
+      "scope": null,
+      "perpetrator": null,
+      "affected_services": [],
+      "is_confirmed": false,
+      "keepiton_matched": true,
+      "keepiton_ids": [],
+      "source_urls": [],
+      "metadata": {
+        "min_visibility_pct": 0.0,
+        "resolved": true,
+        "ioda_confirmed": false
+      }
+    },
+    {
+      "event_id": "bgp-1556",
+      "event_time": "2026-05-03T14:01:46Z",
+      "event_end": "2026-05-03T14:31:56Z",
+      "duration_minutes": 30,
+      "event_type": "outage",
+      "sources": [
+        "bgp"
+      ],
+      "asn": "AS137424",
+      "isp_name": "ISMC-AS-AP Integral Solutions Myanmar Co.,Ltd.",
+      "severity": 2,
+      "scope": null,
+      "perpetrator": null,
+      "affected_services": [],
+      "is_confirmed": false,
+      "keepiton_matched": true,
+      "keepiton_ids": [],
+      "source_urls": [],
+      "metadata": {
+        "min_visibility_pct": 0.0,
+        "resolved": true,
+        "ioda_confirmed": false
+      }
+    },
+    {
+      "event_id": "bgp-1557",
+      "event_time": "2026-05-03T14:02:13Z",
+      "event_end": "2026-05-03T14:32:26Z",
+      "duration_minutes": 30,
+      "event_type": "outage",
+      "sources": [
+        "bgp"
+      ],
+      "asn": "AS151342",
+      "isp_name": "EBECL-AS-AP East Boy Engineering Company Limited",
+      "severity": 2,
+      "scope": null,
+      "perpetrator": null,
+      "affected_services": [],
+      "is_confirmed": false,
+      "keepiton_matched": true,
+      "keepiton_ids": [],
+      "source_urls": [],
+      "metadata": {
+        "min_visibility_pct": 0.0,
+        "resolved": true,
+        "ioda_confirmed": false
+      }
+    },
+    {
+      "event_id": "bgp-1558",
+      "event_time": "2026-05-03T14:02:14Z",
+      "event_end": "2026-05-03T14:32:28Z",
+      "duration_minutes": 30,
+      "event_type": "outage",
+      "sources": [
+        "bgp"
+      ],
+      "asn": "AS149810",
+      "isp_name": "ACL-AS-AP AnyNet",
+      "severity": 2,
+      "scope": null,
+      "perpetrator": null,
+      "affected_services": [],
+      "is_confirmed": false,
+      "keepiton_matched": true,
+      "keepiton_ids": [],
+      "source_urls": [],
+      "metadata": {
+        "min_visibility_pct": 0.0,
+        "resolved": true,
+        "ioda_confirmed": false
+      }
+    },
+    {
+      "event_id": "bgp-1559",
+      "event_time": "2026-05-03T15:02:12Z",
+      "event_end": "2026-05-03T15:32:21Z",
+      "duration_minutes": 30,
+      "event_type": "outage",
+      "sources": [
+        "bgp"
+      ],
+      "asn": "AS63852",
+      "isp_name": "FMG-MM Myanmar Net",
+      "severity": 2,
+      "scope": null,
+      "perpetrator": null,
+      "affected_services": [],
+      "is_confirmed": false,
+      "keepiton_matched": true,
+      "keepiton_ids": [],
+      "source_urls": [],
+      "metadata": {
+        "min_visibility_pct": 0.0,
+        "resolved": true,
+        "ioda_confirmed": false
+      }
+    },
+    {
+      "event_id": "bgp-1560",
+      "event_time": "2026-05-03T15:31:33Z",
+      "event_end": "2026-05-03T16:01:19Z",
+      "duration_minutes": 29,
+      "event_type": "outage",
+      "sources": [
+        "bgp"
+      ],
+      "asn": "AS135307",
+      "isp_name": "GTMH-AS-AP Golden TMH Telecom Co. Ltd",
+      "severity": 2,
+      "scope": null,
+      "perpetrator": null,
+      "affected_services": [],
+      "is_confirmed": false,
+      "keepiton_matched": true,
+      "keepiton_ids": [],
+      "source_urls": [],
+      "metadata": {
+        "min_visibility_pct": 0.0,
+        "resolved": true,
+        "ioda_confirmed": false
+      }
+    },
+    {
+      "event_id": "bgp-1561",
+      "event_time": "2026-05-03T19:15:36Z",
+      "event_end": "2026-05-03T19:20:05Z",
+      "duration_minutes": 4,
+      "event_type": "outage",
+      "sources": [
+        "bgp"
+      ],
+      "asn": "AS58952",
+      "isp_name": "FRONTIIRCOLTD-MM Frontiir Co. Ltd",
+      "severity": 2,
+      "scope": null,
+      "perpetrator": null,
+      "affected_services": [],
+      "is_confirmed": false,
+      "keepiton_matched": true,
+      "keepiton_ids": [],
+      "source_urls": [],
+      "metadata": {
+        "min_visibility_pct": 0.0,
+        "resolved": true,
+        "ioda_confirmed": false
+      }
+    },
+    {
+      "event_id": "bgp-1562",
+      "event_time": "2026-05-03T20:15:27Z",
+      "event_end": "2026-05-03T20:20:04Z",
+      "duration_minutes": 4,
+      "event_type": "outage",
+      "sources": [
+        "bgp"
+      ],
+      "asn": "AS58952",
+      "isp_name": "FRONTIIRCOLTD-MM Frontiir Co. Ltd",
+      "severity": 2,
+      "scope": null,
+      "perpetrator": null,
+      "affected_services": [],
+      "is_confirmed": false,
+      "keepiton_matched": true,
+      "keepiton_ids": [],
+      "source_urls": [],
+      "metadata": {
+        "min_visibility_pct": 0.0,
+        "resolved": true,
+        "ioda_confirmed": false
+      }
+    },
+    {
+      "event_id": "bgp-1563",
+      "event_time": "2026-05-03T20:32:48Z",
+      "event_end": "2026-05-03T21:02:35Z",
+      "duration_minutes": 29,
+      "event_type": "outage",
+      "sources": [
+        "bgp"
+      ],
+      "asn": "AS151482",
+      "isp_name": "MKTN-AS-AP MKTN ENGINEERING GROUP COMPANY LIMITED",
       "severity": 2,
       "scope": null,
       "perpetrator": null,
