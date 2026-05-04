@@ -17389,5 +17389,27 @@
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
     "resolved": true
+  },
+  {
+    "asn": "AS136780",
+    "name": "MIHL-AS-AP MYANMAR INFORMATION HIGHWAY LIMITED",
+    "status": "DOWN",
+    "started_at": "2026-05-04T13:01:28.152220+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
+  },
+  {
+    "asn": "AS134736",
+    "name": "NMCL-AS-AP NTT MYANMAR CO., LTD.",
+    "status": "DOWN",
+    "started_at": "2026-05-04T13:01:29.868396+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
   }
 ]
