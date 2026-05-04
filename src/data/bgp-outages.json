@@ -17516,10 +17516,10 @@
     "name": "GALAXIANET-AS-AP Galaxia @ Net",
     "status": "DOWN",
     "started_at": "2026-05-04T22:32:24.191247+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-05-04T23:02:16.501052+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   }
 ]
