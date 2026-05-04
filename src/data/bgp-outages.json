@@ -17351,22 +17351,22 @@
     "name": "PAMEL-AS-AP Pan Asia Majestic Eagle Ltd",
     "status": "DOWN",
     "started_at": "2026-05-04T10:02:37.365981+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-05-04T10:32:50.677400+00:00",
+    "duration_minutes": 30,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS153549",
     "name": "MTC-AS-AP MUI Technology Company Limited",
     "status": "DOWN",
     "started_at": "2026-05-04T10:02:38.532281+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-05-04T10:32:52.133155+00:00",
+    "duration_minutes": 30,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS58952",
@@ -17378,5 +17378,16 @@
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
     "resolved": true
+  },
+  {
+    "asn": "AS133385",
+    "name": "ATOMMYANMAR-AS-AP Atom Myanmar Limited",
+    "status": "DOWN",
+    "started_at": "2026-05-04T10:32:04.053213+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
   }
 ]
