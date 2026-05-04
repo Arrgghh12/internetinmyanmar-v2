@@ -17472,11 +17472,11 @@
     "name": "APN-AS-AP MyanmarAPN",
     "status": "DOWN",
     "started_at": "2026-05-04T17:33:34.502057+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-05-04T18:02:38.285071+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS58952",
