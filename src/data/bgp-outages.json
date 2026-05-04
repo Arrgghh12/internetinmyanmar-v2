@@ -17494,10 +17494,10 @@
     "name": "MSPACL-AS-AP MYANMAR SHWE PYI AYE COMPANY LIMITED",
     "status": "DOWN",
     "started_at": "2026-05-04T20:01:30.323370+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-05-04T20:31:19.433308+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   }
 ]
