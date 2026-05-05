@@ -17582,10 +17582,10 @@
     "name": "FMG-MM Myanmar Net",
     "status": "DOWN",
     "started_at": "2026-05-05T04:32:27.070131+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-05-05T05:02:50.426289+00:00",
+    "duration_minutes": 30,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   }
 ]
