@@ -17620,5 +17620,60 @@
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
     "resolved": true
+  },
+  {
+    "asn": "AS136210",
+    "name": "ITSPECTRUM-AS-AP IT Spectrum Company Limited",
+    "status": "DOWN",
+    "started_at": "2026-05-05T09:31:25.354202+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
+  },
+  {
+    "asn": "AS132148",
+    "name": "HTI-AS-AP HORIZON TELECOM INTERNATIONAL COMPANY LIMITED",
+    "status": "DOWN",
+    "started_at": "2026-05-05T09:31:33.297467+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
+  },
+  {
+    "asn": "AS150692",
+    "name": "GD2CL-AS-AP Golden Dragon 2000",
+    "status": "DOWN",
+    "started_at": "2026-05-05T09:32:01.087666+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
+  },
+  {
+    "asn": "AS134484",
+    "name": "VDCNET-AS-AP Ultra Net",
+    "status": "DOWN",
+    "started_at": "2026-05-05T09:32:50.917833+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
+  },
+  {
+    "asn": "AS151491",
+    "name": "IQI-AS-AP Innovative Quality Internet Company Limited",
+    "status": "DOWN",
+    "started_at": "2026-05-05T09:33:26.628146+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
   }
 ]
