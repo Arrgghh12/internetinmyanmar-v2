@@ -17901,10 +17901,10 @@
     "name": "ISMC-AS-AP Integral Solutions Myanmar Co.,Ltd.",
     "status": "DOWN",
     "started_at": "2026-05-05T17:32:09.887598+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-05-05T18:02:00.730476+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   }
 ]
