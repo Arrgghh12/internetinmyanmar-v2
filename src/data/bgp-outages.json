@@ -17681,10 +17681,10 @@
     "name": "TCLC-AS-AP Treasure Chindwin Land Co.,Ltd",
     "status": "DOWN",
     "started_at": "2026-05-05T10:31:20.339424+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-05-05T11:01:03.786408+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   }
 ]
