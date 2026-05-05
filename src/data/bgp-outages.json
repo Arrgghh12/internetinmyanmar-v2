@@ -17615,10 +17615,10 @@
     "name": "GMBECL-AS-AP Golden Myanmar Business Exchange Co. Ltd",
     "status": "DOWN",
     "started_at": "2026-05-05T08:31:59.565503+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-05-05T09:02:57.116254+00:00",
+    "duration_minutes": 30,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   }
 ]
