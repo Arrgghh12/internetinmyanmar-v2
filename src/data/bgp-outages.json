@@ -17692,109 +17692,109 @@
     "name": "OCEANWAVE-AS-AP Ocean Wave Communication Co., Ltd",
     "status": "DOWN",
     "started_at": "2026-05-05T12:02:39.435121+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-05-05T12:31:47.832626+00:00",
+    "duration_minutes": 29,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS131322",
     "name": "YTCL-AS-AP Yatanarpon Teleport Company Limited",
     "status": "DOWN",
     "started_at": "2026-05-05T12:02:57.011743+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-05-05T12:31:49.474456+00:00",
+    "duration_minutes": 28,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS135427",
     "name": "MYANMARNETWORK-AS-AP Myanmar Network Company Limited",
     "status": "DOWN",
     "started_at": "2026-05-05T12:03:02.516396+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-05-05T12:31:50.903315+00:00",
+    "duration_minutes": 28,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS136465",
     "name": "INFORMATIONTECHNOLOGYCYBERSECURITY-AS-AP Dept. of Information Technology & Cyber Security",
     "status": "DOWN",
     "started_at": "2026-05-05T12:03:27.239266+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-05-05T12:32:01.291413+00:00",
+    "duration_minutes": 28,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS133440",
     "name": "STIGW-AS-AP ST.Net",
     "status": "DOWN",
     "started_at": "2026-05-05T12:03:44.676010+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-05-05T12:32:14.408945+00:00",
+    "duration_minutes": 28,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS134484",
     "name": "VDCNET-AS-AP Ultra Net",
     "status": "DOWN",
     "started_at": "2026-05-05T12:03:51.742924+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-05-05T12:32:19.644174+00:00",
+    "duration_minutes": 28,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS138166",
     "name": "MTATCL-AS-AP MaxxB Fiber Internet",
     "status": "DOWN",
     "started_at": "2026-05-05T12:04:14.895706+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-05-05T12:32:39.380961+00:00",
+    "duration_minutes": 28,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS138167",
     "name": "TRUENET-AS-AP TrueNET",
     "status": "DOWN",
     "started_at": "2026-05-05T12:04:22.990562+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-05-05T12:32:40.744686+00:00",
+    "duration_minutes": 28,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS153044",
     "name": "MSCNC-AS-AP MYANMAR SKY CITY NETWORK COMMUNICATION Co.,Ltd",
     "status": "DOWN",
     "started_at": "2026-05-05T12:04:37.243714+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-05-05T12:32:50.058292+00:00",
+    "duration_minutes": 28,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS45558",
     "name": "MPT-MM-AS-AP MYANMA POSTS AND TELECOMMUNICATIONS",
     "status": "DOWN",
     "started_at": "2026-05-05T12:04:59.151726+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-05-05T12:32:57.679778+00:00",
+    "duration_minutes": 27,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   }
 ]
