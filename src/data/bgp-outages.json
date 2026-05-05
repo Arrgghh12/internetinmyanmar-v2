@@ -17873,5 +17873,16 @@
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
     "resolved": true
+  },
+  {
+    "asn": "AS136168",
+    "name": "CAMPANA-AS-AP Campana MYTHIC Co. Ltd.",
+    "status": "DOWN",
+    "started_at": "2026-05-05T14:02:45.352028+00:00",
+    "ended_at": null,
+    "duration_minutes": null,
+    "min_visibility_pct": 0.0,
+    "ioda_confirmed": false,
+    "resolved": false
   }
 ]
