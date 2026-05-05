@@ -17560,21 +17560,21 @@
     "name": "MSPACL-AS-AP MYANMAR SHWE PYI AYE COMPANY LIMITED",
     "status": "DOWN",
     "started_at": "2026-05-05T03:31:18.544416+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-05-05T04:01:22.358999+00:00",
+    "duration_minutes": 30,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   },
   {
     "asn": "AS138167",
     "name": "TRUENET-AS-AP TrueNET",
     "status": "DOWN",
     "started_at": "2026-05-05T03:32:49.395006+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-05-05T04:03:19.594847+00:00",
+    "duration_minutes": 30,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   }
 ]
