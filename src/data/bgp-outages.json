@@ -17912,10 +17912,10 @@
     "name": "FRONTIIRCOLTD-MM Frontiir Co. Ltd",
     "status": "DOWN",
     "started_at": "2026-05-05T18:10:22.170624+00:00",
-    "ended_at": null,
-    "duration_minutes": null,
+    "ended_at": "2026-05-05T18:15:09.877207+00:00",
+    "duration_minutes": 4,
     "min_visibility_pct": 0.0,
     "ioda_confirmed": false,
-    "resolved": false
+    "resolved": true
   }
 ]
