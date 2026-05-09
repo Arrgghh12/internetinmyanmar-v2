@@ -1,17 +1,17 @@
 {
-  "generated_at": "2026-05-08T12:15:02Z",
-  "dataset_version": "v202605081210",
+  "generated_at": "2026-05-09T00:15:01Z",
+  "dataset_version": "v202605090010",
   "processing_log": {
-    "bgp_outages_loaded": 2244,
+    "bgp_outages_loaded": 2286,
     "keepiton_events_loaded": 95,
-    "unified_events_total": 2339,
-    "bgp_events_in_unified": 2244,
+    "unified_events_total": 2381,
+    "bgp_events_in_unified": 2286,
     "kit_events_in_unified": 95,
     "warnings": []
   },
   "events": [
     {
-      "event_id": "kit-2245",
+      "event_id": "kit-2287",
       "event_time": "2021-08-20T00:00:00Z",
       "event_end": "2026-05-08T23:59:59Z",
       "duration_minutes": 2479680,
@@ -38,11 +38,11 @@
         "kit_type": "full_network",
         "ongoing": true,
         "duration_days": 1722,
-        "concurrent_bgp": 2244
+        "concurrent_bgp": 2286
       }
     },
     {
-      "event_id": "kit-2246",
+      "event_id": "kit-2288",
       "event_time": "2021-09-14T00:00:00Z",
       "event_end": "2026-05-08T23:59:59Z",
       "duration_minutes": 2443680,
@@ -69,11 +69,11 @@
         "kit_type": "full_network",
         "ongoing": true,
         "duration_days": 1697,
-        "concurrent_bgp": 2244
+        "concurrent_bgp": 2286
       }
     },
     {
-      "event_id": "kit-2247",
+      "event_id": "kit-2289",
       "event_time": "2021-09-23T00:00:00Z",
       "event_end": "2026-05-08T23:59:59Z",
       "duration_minutes": 2430720,
@@ -100,11 +100,11 @@
         "kit_type": "full_network",
         "ongoing": true,
         "duration_days": 1688,
-        "concurrent_bgp": 2244
+        "concurrent_bgp": 2286
       }
     },
     {
-      "event_id": "kit-2248",
+      "event_id": "kit-2290",
       "event_time": "2021-09-26T00:00:00Z",
       "event_end": "2026-05-08T23:59:59Z",
       "duration_minutes": 2426400,
@@ -130,11 +130,11 @@
         "kit_type": "full_network",
         "ongoing": true,
         "duration_days": 1685,
-        "concurrent_bgp": 2244
+        "concurrent_bgp": 2286
       }
     },
     {
-      "event_id": "kit-2249",
+      "event_id": "kit-2291",
       "event_time": "2022-01-06T00:00:00Z",
       "event_end": "2026-05-08T23:59:59Z",
       "duration_minutes": 2279520,
@@ -160,11 +160,11 @@
         "kit_type": "full_network",
         "ongoing": true,
         "duration_days": 1583,
-        "concurrent_bgp": 2244
+        "concurrent_bgp": 2286
       }
     },
     {
-      "event_id": "kit-2250",
+      "event_id": "kit-2292",
       "event_time": "2022-05-24T00:00:00Z",
       "event_end": "2026-05-08T23:59:59Z",
       "duration_minutes": 2080800,
@@ -190,11 +190,11 @@
         "kit_type": "full_network",
         "ongoing": true,
         "duration_days": 1445,
-        "concurrent_bgp": 2244
+        "concurrent_bgp": 2286
       }
     },
     {
-      "event_id": "kit-2251",
+      "event_id": "kit-2293",
       "event_time": "2024-02-16T00:00:00Z",
       "event_end": "2026-05-08T23:59:59Z",
       "duration_minutes": 1169280,
@@ -224,11 +224,11 @@
         "kit_type": "mobile",
         "ongoing": true,
         "duration_days": 812,
-        "concurrent_bgp": 2244
+        "concurrent_bgp": 2286
       }
     },
     {
-      "event_id": "kit-2252",
+      "event_id": "kit-2294",
       "event_time": "2024-04-06T00:00:00Z",
       "event_end": "2026-05-08T23:59:59Z",
       "duration_minutes": 1097280,
@@ -254,11 +254,11 @@
         "kit_type": "full_network",
         "ongoing": true,
         "duration_days": 762,
-        "concurrent_bgp": 2244
+        "concurrent_bgp": 2286
       }
     },
     {
-      "event_id": "kit-2253",
+      "event_id": "kit-2295",
       "event_time": "2024-07-14T00:00:00Z",
       "event_end": "2026-05-08T23:59:59Z",
       "duration_minutes": 954720,
@@ -285,11 +285,11 @@
         "kit_type": "mobile",
         "ongoing": true,
         "duration_days": 663,
-        "concurrent_bgp": 2244
+        "concurrent_bgp": 2286
       }
     },
     {
-      "event_id": "kit-2254",
+      "event_id": "kit-2296",
       "event_time": "2024-07-21T00:00:00Z",
       "event_end": "2026-05-08T23:59:59Z",
       "duration_minutes": 944640,
@@ -316,11 +316,11 @@
         "kit_type": "full_network",
         "ongoing": true,
         "duration_days": 656,
-        "concurrent_bgp": 2244
+        "concurrent_bgp": 2286
       }
     },
     {
-      "event_id": "kit-2255",
+      "event_id": "kit-2297",
       "event_time": "2024-11-16T00:00:00Z",
       "event_end": "2026-05-08T23:59:59Z",
       "duration_minutes": 774720,
@@ -346,11 +346,11 @@
         "kit_type": "full_network",
         "ongoing": true,
         "duration_days": 538,
-        "concurrent_bgp": 2244
+        "concurrent_bgp": 2286
       }
     },
     {
-      "event_id": "kit-2256",
+      "event_id": "kit-2298",
       "event_time": "2024-12-20T00:00:00Z",
       "event_end": "2025-01-02T23:59:59Z",
       "duration_minutes": 18720,
@@ -380,7 +380,7 @@
       }
     },
     {
-      "event_id": "kit-2257",
+      "event_id": "kit-2299",
       "event_time": "2025-01-01T00:00:00Z",
       "event_end": "2026-05-08T23:59:59Z",
       "duration_minutes": 708480,
@@ -406,11 +406,11 @@
         "kit_type": "full_network",
         "ongoing": true,
         "duration_days": 492,
-        "concurrent_bgp": 2244
+        "concurrent_bgp": 2286
       }
     },
     {
-      "event_id": "kit-2258",
+      "event_id": "kit-2300",
       "event_time": "2025-01-02T00:00:00Z",
       "event_end": "2026-05-08T23:59:59Z",
       "duration_minutes": 707040,
@@ -436,11 +436,11 @@
         "kit_type": "full_network",
         "ongoing": true,
         "duration_days": 491,
-        "concurrent_bgp": 2244
+        "concurrent_bgp": 2286
       }
     },
     {
-      "event_id": "kit-2259",
+      "event_id": "kit-2301",
       "event_time": "2025-01-03T00:00:00Z",
       "event_end": "2026-05-08T23:59:59Z",
       "duration_minutes": 705600,
@@ -466,11 +466,11 @@
         "kit_type": "full_network",
         "ongoing": true,
         "duration_days": 490,
-        "concurrent_bgp": 2244
+        "concurrent_bgp": 2286
       }
     },
     {
-      "event_id": "kit-2260",
+      "event_id": "kit-2302",
       "event_time": "2025-01-03T00:00:00Z",
       "event_end": "2026-05-08T23:59:59Z",
       "duration_minutes": 705600,
@@ -497,11 +497,11 @@
         "kit_type": "full_network",
         "ongoing": true,
         "duration_days": 490,
-        "concurrent_bgp": 2244
+        "concurrent_bgp": 2286
       }
     },
     {
-      "event_id": "kit-2261",
+      "event_id": "kit-2303",
       "event_time": "2025-01-11T00:00:00Z",
       "event_end": "2026-05-08T23:59:59Z",
       "duration_minutes": 694080,
@@ -527,11 +527,11 @@
         "kit_type": "full_network",
         "ongoing": true,
         "duration_days": 482,
-        "concurrent_bgp": 2244
+        "concurrent_bgp": 2286
       }
     },
     {
-      "event_id": "kit-2262",
+      "event_id": "kit-2304",
       "event_time": "2025-01-16T00:00:00Z",
       "event_end": "2025-01-18T23:59:59Z",
       "duration_minutes": 2880,
@@ -561,7 +561,7 @@
       }
     },
     {
-      "event_id": "kit-2263",
+      "event_id": "kit-2305",
       "event_time": "2025-01-20T00:00:00Z",
       "event_end": "2025-02-01T23:59:59Z",
       "duration_minutes": 17280,
@@ -591,7 +591,7 @@
       }
     },
     {
-      "event_id": "kit-2264",
+      "event_id": "kit-2306",
       "event_time": "2025-01-22T00:00:00Z",
       "event_end": "2026-05-08T23:59:59Z",
       "duration_minutes": 678240,
@@ -618,11 +618,11 @@
         "kit_type": "full_network",
         "ongoing": true,
         "duration_days": 471,
-        "concurrent_bgp": 2244
+        "concurrent_bgp": 2286
       }
     },
     {
-      "event_id": "kit-2265",
+      "event_id": "kit-2307",
       "event_time": "2025-01-28T00:00:00Z",
       "event_end": "2026-05-08T23:59:59Z",
       "duration_minutes": 669600,
@@ -649,11 +649,11 @@
         "kit_type": "full_network",
         "ongoing": true,
         "duration_days": 465,
-        "concurrent_bgp": 2244
+        "concurrent_bgp": 2286
       }
     },
     {
-      "event_id": "kit-2266",
+      "event_id": "kit-2308",
       "event_time": "2025-01-29T00:00:00Z",
       "event_end": "2026-05-08T23:59:59Z",
       "duration_minutes": 668160,
@@ -679,11 +679,11 @@
         "kit_type": "full_network",
         "ongoing": true,
         "duration_days": 464,
-        "concurrent_bgp": 2244
+        "concurrent_bgp": 2286
       }
     },
     {
-      "event_id": "kit-2267",
+      "event_id": "kit-2309",
       "event_time": "2025-01-29T00:00:00Z",
       "event_end": "2026-05-08T23:59:59Z",
       "duration_minutes": 668160,
@@ -710,11 +710,11 @@
         "kit_type": "full_network",
         "ongoing": true,
         "duration_days": 464,
-        "concurrent_bgp": 2244
+        "concurrent_bgp": 2286
       }
     },
     {
-      "event_id": "kit-2268",
+      "event_id": "kit-2310",
       "event_time": "2025-02-04T00:00:00Z",
       "event_end": "2026-05-08T23:59:59Z",
       "duration_minutes": 659520,
@@ -741,11 +741,11 @@
         "kit_type": "full_network",
         "ongoing": true,
         "duration_days": 458,
-        "concurrent_bgp": 2244
+        "concurrent_bgp": 2286
       }
     },
     {
-      "event_id": "kit-2269",
+      "event_id": "kit-2311",
       "event_time": "2025-02-05T00:00:00Z",
       "event_end": "2026-05-08T23:59:59Z",
       "duration_minutes": 658080,
@@ -772,11 +772,11 @@
         "kit_type": "full_network",
         "ongoing": true,
         "duration_days": 457,
-        "concurrent_bgp": 2244
+        "concurrent_bgp": 2286
       }
     },
     {
-      "event_id": "kit-2270",
+      "event_id": "kit-2312",
       "event_time": "2025-02-06T00:00:00Z",
       "event_end": "2025-02-10T23:59:59Z",
       "duration_minutes": 5760,
@@ -806,7 +806,7 @@
       }
     },
     {
-      "event_id": "kit-2271",
+      "event_id": "kit-2313",
       "event_time": "2025-02-19T00:00:00Z",
       "event_end": "2026-05-08T23:59:59Z",
       "duration_minutes": 637920,
@@ -833,11 +833,11 @@
         "kit_type": "full_network",
         "ongoing": true,
         "duration_days": 443,
-        "concurrent_bgp": 2244
+        "concurrent_bgp": 2286
       }
     },
     {
-      "event_id": "kit-2272",
+      "event_id": "kit-2314",
       "event_time": "2025-02-21T00:00:00Z",
       "event_end": "2026-05-08T23:59:59Z",
       "duration_minutes": 635040,
@@ -863,11 +863,11 @@
         "kit_type": "full_network",
         "ongoing": true,
         "duration_days": 441,
-        "concurrent_bgp": 2244
+        "concurrent_bgp": 2286
       }
     },
     {
-      "event_id": "kit-2273",
+      "event_id": "kit-2315",
       "event_time": "2025-02-25T00:00:00Z",
       "event_end": "2025-03-05T23:59:59Z",
       "duration_minutes": 11520,
@@ -897,7 +897,7 @@
       }
     },
     {
-      "event_id": "kit-2274",
+      "event_id": "kit-2316",
       "event_time": "2025-03-02T00:00:00Z",
       "event_end": "2025-03-23T23:59:59Z",
       "duration_minutes": 30240,
@@ -927,7 +927,7 @@
       }
     },
     {
-      "event_id": "kit-2275",
+      "event_id": "kit-2317",
       "event_time": "2025-03-03T00:00:00Z",
       "event_end": "2026-05-08T23:59:59Z",
       "duration_minutes": 620640,
@@ -954,11 +954,11 @@
         "kit_type": "full_network",
         "ongoing": true,
         "duration_days": 431,
-        "concurrent_bgp": 2244
+        "concurrent_bgp": 2286
       }
     },
     {
-      "event_id": "kit-2276",
+      "event_id": "kit-2318",
       "event_time": "2025-03-08T00:00:00Z",
       "event_end": "2026-05-08T23:59:59Z",
       "duration_minutes": 613440,
@@ -984,11 +984,11 @@
         "kit_type": "full_network",
         "ongoing": true,
         "duration_days": 426,
-        "concurrent_bgp": 2244
+        "concurrent_bgp": 2286
       }
     },
     {
-      "event_id": "kit-2277",
+      "event_id": "kit-2319",
       "event_time": "2025-03-16T00:00:00Z",
       "event_end": "2026-05-08T23:59:59Z",
       "duration_minutes": 601920,
@@ -1014,11 +1014,11 @@
         "kit_type": "full_network",
         "ongoing": true,
         "duration_days": 418,
-        "concurrent_bgp": 2244
+        "concurrent_bgp": 2286
       }
     },
     {
-      "event_id": "kit-2278",
+      "event_id": "kit-2320",
       "event_time": "2025-03-16T00:00:00Z",
       "event_end": "2026-05-08T23:59:59Z",
       "duration_minutes": 601920,
@@ -1044,11 +1044,11 @@
         "kit_type": "full_network",
         "ongoing": true,
         "duration_days": 418,
-        "concurrent_bgp": 2244
+        "concurrent_bgp": 2286
       }
     },
     {
-      "event_id": "kit-2279",
+      "event_id": "kit-2321",
       "event_time": "2025-03-17T00:00:00Z",
       "event_end": "2026-05-08T23:59:59Z",
       "duration_minutes": 600480,
@@ -1075,11 +1075,11 @@
         "kit_type": "full_network",
         "ongoing": true,
         "duration_days": 417,
-        "concurrent_bgp": 2244
+        "concurrent_bgp": 2286
       }
     },
     {
-      "event_id": "kit-2280",
+      "event_id": "kit-2322",
       "event_time": "2025-03-20T00:00:00Z",
       "event_end": "2026-05-08T23:59:59Z",
       "duration_minutes": 596160,
@@ -1105,11 +1105,11 @@
         "kit_type": "full_network",
         "ongoing": true,
         "duration_days": 414,
-        "concurrent_bgp": 2244
+        "concurrent_bgp": 2286
       }
     },
     {
-      "event_id": "kit-2281",
+      "event_id": "kit-2323",
       "event_time": "2025-03-23T00:00:00Z",
       "event_end": "2026-05-08T23:59:59Z",
       "duration_minutes": 591840,
@@ -1135,11 +1135,11 @@
         "kit_type": "full_network",
         "ongoing": true,
         "duration_days": 411,
-        "concurrent_bgp": 2244
+        "concurrent_bgp": 2286
       }
     },
     {
-      "event_id": "kit-2282",
+      "event_id": "kit-2324",
       "event_time": "2025-03-25T00:00:00Z",
       "event_end": "2026-05-08T23:59:59Z",
       "duration_minutes": 588960,
@@ -1165,11 +1165,11 @@
         "kit_type": "full_network",
         "ongoing": true,
         "duration_days": 409,
-        "concurrent_bgp": 2244
+        "concurrent_bgp": 2286
       }
     },
     {
-      "event_id": "kit-2283",
+      "event_id": "kit-2325",
       "event_time": "2025-04-07T00:00:00Z",
       "event_end": "2026-05-08T23:59:59Z",
       "duration_minutes": 570240,
@@ -1196,11 +1196,11 @@
         "kit_type": "full_network",
         "ongoing": true,
         "duration_days": 396,
-        "concurrent_bgp": 2244
+        "concurrent_bgp": 2286
       }
     },
     {
-      "event_id": "kit-2284",
+      "event_id": "kit-2326",
       "event_time": "2025-04-11T00:00:00Z",
       "event_end": "2025-04-15T23:59:59Z",
       "duration_minutes": 5760,
@@ -1231,7 +1231,7 @@
       }
     },
     {
-      "event_id": "kit-2285",
+      "event_id": "kit-2327",
       "event_time": "2025-04-14T00:00:00Z",
       "event_end": "2026-05-08T23:59:59Z",
       "duration_minutes": 560160,
@@ -1257,11 +1257,11 @@
         "kit_type": "full_network",
         "ongoing": true,
         "duration_days": 389,
-        "concurrent_bgp": 2244
+        "concurrent_bgp": 2286
       }
     },
     {
-      "event_id": "kit-2286",
+      "event_id": "kit-2328",
       "event_time": "2025-04-15T00:00:00Z",
       "event_end": "2026-05-08T23:59:59Z",
       "duration_minutes": 558720,
@@ -1287,11 +1287,11 @@
         "kit_type": "full_network",
         "ongoing": true,
         "duration_days": 388,
-        "concurrent_bgp": 2244
+        "concurrent_bgp": 2286
       }
     },
     {
-      "event_id": "kit-2287",
+      "event_id": "kit-2329",
       "event_time": "2025-04-15T00:00:00Z",
       "event_end": "2025-04-18T23:59:59Z",
       "duration_minutes": 4320,
@@ -1321,7 +1321,7 @@
       }
     },
     {
-      "event_id": "kit-2288",
+      "event_id": "kit-2330",
       "event_time": "2025-04-17T00:00:00Z",
       "event_end": "2026-05-08T23:59:59Z",
       "duration_minutes": 555840,
@@ -1347,11 +1347,11 @@
         "kit_type": "full_network",
         "ongoing": true,
         "duration_days": 386,
-        "concurrent_bgp": 2244
+        "concurrent_bgp": 2286
       }
     },
     {
-      "event_id": "kit-2289",
+      "event_id": "kit-2331",
       "event_time": "2025-04-20T00:00:00Z",
       "event_end": "2025-04-23T23:59:59Z",
       "duration_minutes": 4320,
@@ -1382,7 +1382,7 @@
       }
     },
     {
-      "event_id": "kit-2290",
+      "event_id": "kit-2332",
       "event_time": "2025-04-29T00:00:00Z",
       "event_end": "2025-05-03T23:59:59Z",
       "duration_minutes": 5760,
@@ -1413,7 +1413,7 @@
       }
     },
     {
-      "event_id": "kit-2291",
+      "event_id": "kit-2333",
       "event_time": "2025-05-01T00:00:00Z",
       "event_end": "2025-06-01T23:59:59Z",
       "duration_minutes": 44640,
@@ -1444,7 +1444,7 @@
       }
     },
     {
-      "event_id": "kit-2292",
+      "event_id": "kit-2334",
       "event_time": "2025-05-01T00:00:00Z",
       "event_end": "2026-05-08T23:59:59Z",
       "duration_minutes": 535680,
@@ -1470,11 +1470,11 @@
         "kit_type": "full_network",
         "ongoing": true,
         "duration_days": 372,
-        "concurrent_bgp": 2244
+        "concurrent_bgp": 2286
       }
     },
     {
-      "event_id": "kit-2293",
+      "event_id": "kit-2335",
       "event_time": "2025-05-02T00:00:00Z",
       "event_end": "2026-05-08T23:59:59Z",
       "duration_minutes": 534240,
@@ -1500,11 +1500,11 @@
         "kit_type": "full_network",
         "ongoing": true,
         "duration_days": 371,
-        "concurrent_bgp": 2244
+        "concurrent_bgp": 2286
       }
     },
     {
-      "event_id": "kit-2294",
+      "event_id": "kit-2336",
       "event_time": "2025-05-07T00:00:00Z",
       "event_end": "2026-05-08T23:59:59Z",
       "duration_minutes": 527040,
@@ -1530,11 +1530,11 @@
         "kit_type": "full_network",
         "ongoing": true,
         "duration_days": 366,
-        "concurrent_bgp": 2244
+        "concurrent_bgp": 2286
       }
     },
     {
-      "event_id": "kit-2295",
+      "event_id": "kit-2337",
       "event_time": "2025-05-07T00:00:00Z",
       "event_end": "2025-05-31T23:59:59Z",
       "duration_minutes": 34560,
@@ -1564,7 +1564,7 @@
       }
     },
     {
-      "event_id": "kit-2296",
+      "event_id": "kit-2338",
       "event_time": "2025-05-31T00:00:00Z",
       "event_end": "2025-06-21T23:59:59Z",
       "duration_minutes": 30240,
@@ -1595,7 +1595,7 @@
       }
     },
     {
-      "event_id": "kit-2297",
+      "event_id": "kit-2339",
       "event_time": "2025-06-03T00:00:00Z",
       "event_end": "2026-05-08T23:59:59Z",
       "duration_minutes": 488160,
@@ -1622,11 +1622,11 @@
         "kit_type": "full_network",
         "ongoing": true,
         "duration_days": 339,
-        "concurrent_bgp": 2244
+        "concurrent_bgp": 2286
       }
     },
     {
-      "event_id": "kit-2298",
+      "event_id": "kit-2340",
       "event_time": "2025-06-06T00:00:00Z",
       "event_end": "2026-05-08T23:59:59Z",
       "duration_minutes": 483840,
@@ -1653,11 +1653,11 @@
         "kit_type": "full_network",
         "ongoing": true,
         "duration_days": 336,
-        "concurrent_bgp": 2244
+        "concurrent_bgp": 2286
       }
     },
     {
-      "event_id": "kit-2299",
+      "event_id": "kit-2341",
       "event_time": "2025-06-06T00:00:00Z",
       "event_end": "2026-05-08T23:59:59Z",
       "duration_minutes": 483840,
@@ -1683,11 +1683,11 @@
         "kit_type": "full_network",
         "ongoing": true,
         "duration_days": 336,
-        "concurrent_bgp": 2244
+        "concurrent_bgp": 2286
       }
     },
     {
-      "event_id": "kit-2300",
+      "event_id": "kit-2342",
       "event_time": "2025-06-10T00:00:00Z",
       "event_end": "2026-05-08T23:59:59Z",
       "duration_minutes": 478080,
@@ -1714,11 +1714,11 @@
         "kit_type": "full_network",
         "ongoing": true,
         "duration_days": 332,
-        "concurrent_bgp": 2244
+        "concurrent_bgp": 2286
       }
     },
     {
-      "event_id": "kit-2301",
+      "event_id": "kit-2343",
       "event_time": "2025-06-11T00:00:00Z",
       "event_end": "2026-05-08T23:59:59Z",
       "duration_minutes": 476640,
@@ -1744,11 +1744,11 @@
         "kit_type": "full_network",
         "ongoing": true,
         "duration_days": 331,
-        "concurrent_bgp": 2244
+        "concurrent_bgp": 2286
       }
     },
     {
-      "event_id": "kit-2302",
+      "event_id": "kit-2344",
       "event_time": "2025-06-24T00:00:00Z",
       "event_end": "2026-05-08T23:59:59Z",
       "duration_minutes": 457920,
@@ -1775,11 +1775,11 @@
         "kit_type": "full_network",
         "ongoing": true,
         "duration_days": 318,
-        "concurrent_bgp": 2244
+        "concurrent_bgp": 2286
       }
     },
     {
-      "event_id": "kit-2303",
+      "event_id": "kit-2345",
       "event_time": "2025-07-08T00:00:00Z",
       "event_end": "2026-05-08T23:59:59Z",
       "duration_minutes": 437760,
@@ -1806,11 +1806,11 @@
         "kit_type": "full_network",
         "ongoing": true,
         "duration_days": 304,
-        "concurrent_bgp": 2244
+        "concurrent_bgp": 2286
       }
     },
     {
-      "event_id": "kit-2304",
+      "event_id": "kit-2346",
       "event_time": "2025-07-14T00:00:00Z",
       "event_end": "2026-05-08T23:59:59Z",
       "duration_minutes": 429120,
@@ -1837,11 +1837,11 @@
         "kit_type": "full_network",
         "ongoing": true,
         "duration_days": 298,
-        "concurrent_bgp": 2244
+        "concurrent_bgp": 2286
       }
     },
     {
-      "event_id": "kit-2305",
+      "event_id": "kit-2347",
       "event_time": "2025-07-18T00:00:00Z",
       "event_end": "2025-07-18T23:59:59Z",
       "duration_minutes": 0,
@@ -1872,7 +1872,7 @@
       }
     },
     {
-      "event_id": "kit-2306",
+      "event_id": "kit-2348",
       "event_time": "2025-07-23T00:00:00Z",
       "event_end": "2025-07-28T23:59:59Z",
       "duration_minutes": 7200,
@@ -1902,7 +1902,7 @@
       }
     },
     {
-      "event_id": "kit-2307",
+      "event_id": "kit-2349",
       "event_time": "2025-07-24T00:00:00Z",
       "event_end": "2025-07-28T23:59:59Z",
       "duration_minutes": 5760,
@@ -1933,7 +1933,7 @@
       }
     },
     {
-      "event_id": "kit-2308",
+      "event_id": "kit-2350",
       "event_time": "2025-07-25T00:00:00Z",
       "event_end": "2026-05-08T23:59:59Z",
       "duration_minutes": 413280,
@@ -1959,11 +1959,11 @@
         "kit_type": "full_network",
         "ongoing": true,
         "duration_days": 287,
-        "concurrent_bgp": 2244
+        "concurrent_bgp": 2286
       }
     },
     {
-      "event_id": "kit-2309",
+      "event_id": "kit-2351",
       "event_time": "2025-08-16T00:00:00Z",
       "event_end": "2026-05-08T23:59:59Z",
       "duration_minutes": 381600,
@@ -1990,11 +1990,11 @@
         "kit_type": "full_network",
         "ongoing": true,
         "duration_days": 265,
-        "concurrent_bgp": 2244
+        "concurrent_bgp": 2286
       }
     },
     {
-      "event_id": "kit-2310",
+      "event_id": "kit-2352",
       "event_time": "2025-08-19T00:00:00Z",
       "event_end": "2026-05-08T23:59:59Z",
       "duration_minutes": 377280,
@@ -2021,11 +2021,11 @@
         "kit_type": "full_network",
         "ongoing": true,
         "duration_days": 262,
-        "concurrent_bgp": 2244
+        "concurrent_bgp": 2286
       }
     },
     {
-      "event_id": "kit-2311",
+      "event_id": "kit-2353",
       "event_time": "2025-08-19T00:00:00Z",
       "event_end": "2026-05-08T23:59:59Z",
       "duration_minutes": 377280,
@@ -2052,11 +2052,11 @@
         "kit_type": "full_network",
         "ongoing": true,
         "duration_days": 262,
-        "concurrent_bgp": 2244
+        "concurrent_bgp": 2286
       }
     },
     {
-      "event_id": "kit-2312",
+      "event_id": "kit-2354",
       "event_time": "2025-08-26T00:00:00Z",
       "event_end": "2026-05-08T23:59:59Z",
       "duration_minutes": 367200,
@@ -2083,11 +2083,11 @@
         "kit_type": "full_network",
         "ongoing": true,
         "duration_days": 255,
-        "concurrent_bgp": 2244
+        "concurrent_bgp": 2286
       }
     },
     {
-      "event_id": "kit-2313",
+      "event_id": "kit-2355",
       "event_time": "2025-09-01T00:00:00Z",
       "event_end": "2026-05-08T23:59:59Z",
       "duration_minutes": 358560,
@@ -2113,11 +2113,11 @@
         "kit_type": "full_network",
         "ongoing": true,
         "duration_days": 249,
-        "concurrent_bgp": 2244
+        "concurrent_bgp": 2286
       }
     },
     {
-      "event_id": "kit-2314",
+      "event_id": "kit-2356",
       "event_time": "2025-09-01T00:00:00Z",
       "event_end": "2026-05-08T23:59:59Z",
       "duration_minutes": 358560,
@@ -2144,11 +2144,11 @@
         "kit_type": "full_network",
         "ongoing": true,
         "duration_days": 249,
-        "concurrent_bgp": 2244
+        "concurrent_bgp": 2286
       }
     },
     {
-      "event_id": "kit-2315",
+      "event_id": "kit-2357",
       "event_time": "2025-09-02T00:00:00Z",
       "event_end": "2026-05-08T23:59:59Z",
       "duration_minutes": 357120,
@@ -2175,11 +2175,11 @@
         "kit_type": "full_network",
         "ongoing": true,
         "duration_days": 248,
-        "concurrent_bgp": 2244
+        "concurrent_bgp": 2286
       }
     },
     {
-      "event_id": "kit-2316",
+      "event_id": "kit-2358",
       "event_time": "2025-09-10T00:00:00Z",
       "event_end": "2026-05-08T23:59:59Z",
       "duration_minutes": 345600,
@@ -2206,11 +2206,11 @@
         "kit_type": "full_network",
         "ongoing": true,
         "duration_days": 240,
-        "concurrent_bgp": 2244
+        "concurrent_bgp": 2286
       }
     },
     {
-      "event_id": "kit-2317",
+      "event_id": "kit-2359",
       "event_time": "2025-09-12T00:00:00Z",
       "event_end": "2025-09-20T23:59:59Z",
       "duration_minutes": 11520,
@@ -2241,7 +2241,7 @@
       }
     },
     {
-      "event_id": "kit-2318",
+      "event_id": "kit-2360",
       "event_time": "2025-09-15T00:00:00Z",
       "event_end": "2026-05-08T23:59:59Z",
       "duration_minutes": 338400,
@@ -2268,11 +2268,11 @@
         "kit_type": "full_network",
         "ongoing": true,
         "duration_days": 235,
-        "concurrent_bgp": 2244
+        "concurrent_bgp": 2286
       }
     },
     {
-      "event_id": "kit-2319",
+      "event_id": "kit-2361",
       "event_time": "2025-09-18T00:00:00Z",
       "event_end": "2026-05-08T23:59:59Z",
       "duration_minutes": 334080,
@@ -2299,11 +2299,11 @@
         "kit_type": "full_network",
         "ongoing": true,
         "duration_days": 232,
-        "concurrent_bgp": 2244
+        "concurrent_bgp": 2286
       }
     },
     {
-      "event_id": "kit-2320",
+      "event_id": "kit-2362",
       "event_time": "2025-09-22T00:00:00Z",
       "event_end": "2026-05-08T23:59:59Z",
       "duration_minutes": 328320,
@@ -2329,11 +2329,11 @@
         "kit_type": "full_network",
         "ongoing": true,
         "duration_days": 228,
-        "concurrent_bgp": 2244
+        "concurrent_bgp": 2286
       }
     },
     {
-      "event_id": "kit-2321",
+      "event_id": "kit-2363",
       "event_time": "2025-09-26T00:00:00Z",
       "event_end": "2026-05-08T23:59:59Z",
       "duration_minutes": 322560,
@@ -2359,11 +2359,11 @@
         "kit_type": "full_network",
         "ongoing": true,
         "duration_days": 224,
-        "concurrent_bgp": 2244
+        "concurrent_bgp": 2286
       }
     },
     {
-      "event_id": "kit-2322",
+      "event_id": "kit-2364",
       "event_time": "2025-10-02T00:00:00Z",
       "event_end": "2025-10-07T23:59:59Z",
       "duration_minutes": 7200,
@@ -2393,7 +2393,7 @@
       }
     },
     {
-      "event_id": "kit-2323",
+      "event_id": "kit-2365",
       "event_time": "2025-10-03T00:00:00Z",
       "event_end": "2025-10-04T23:59:59Z",
       "duration_minutes": 1440,
@@ -2424,7 +2424,7 @@
       }
     },
     {
-      "event_id": "kit-2324",
+      "event_id": "kit-2366",
       "event_time": "2025-10-06T00:00:00Z",
       "event_end": "2025-10-07T23:59:59Z",
       "duration_minutes": 1440,
@@ -2454,7 +2454,7 @@
       }
     },
     {
-      "event_id": "kit-2325",
+      "event_id": "kit-2367",
       "event_time": "2025-10-14T00:00:00Z",
       "event_end": "2026-05-08T23:59:59Z",
       "duration_minutes": 296640,
@@ -2481,11 +2481,11 @@
         "kit_type": "full_network",
         "ongoing": true,
         "duration_days": 206,
-        "concurrent_bgp": 2244
+        "concurrent_bgp": 2286
       }
     },
     {
-      "event_id": "kit-2326",
+      "event_id": "kit-2368",
       "event_time": "2025-10-15T00:00:00Z",
       "event_end": "2026-05-08T23:59:59Z",
       "duration_minutes": 295200,
@@ -2512,11 +2512,11 @@
         "kit_type": "full_network",
         "ongoing": true,
         "duration_days": 205,
-        "concurrent_bgp": 2244
+        "concurrent_bgp": 2286
       }
     },
     {
-      "event_id": "kit-2327",
+      "event_id": "kit-2369",
       "event_time": "2025-10-16T00:00:00Z",
       "event_end": "2026-05-08T23:59:59Z",
       "duration_minutes": 293760,
@@ -2542,11 +2542,11 @@
         "kit_type": "full_network",
         "ongoing": true,
         "duration_days": 204,
-        "concurrent_bgp": 2244
+        "concurrent_bgp": 2286
       }
     },
     {
-      "event_id": "kit-2328",
+      "event_id": "kit-2370",
       "event_time": "2025-11-01T00:00:00Z",
       "event_end": "2025-11-02T23:59:59Z",
       "duration_minutes": 1440,
@@ -2577,7 +2577,7 @@
       }
     },
     {
-      "event_id": "kit-2329",
+      "event_id": "kit-2371",
       "event_time": "2025-11-04T00:00:00Z",
       "event_end": "2026-05-08T23:59:59Z",
       "duration_minutes": 266400,
@@ -2604,11 +2604,11 @@
         "kit_type": "full_network",
         "ongoing": true,
         "duration_days": 185,
-        "concurrent_bgp": 2244
+        "concurrent_bgp": 2286
       }
     },
     {
-      "event_id": "kit-2330",
+      "event_id": "kit-2372",
       "event_time": "2025-11-11T00:00:00Z",
       "event_end": "2026-05-08T23:59:59Z",
       "duration_minutes": 256320,
@@ -2635,11 +2635,11 @@
         "kit_type": "full_network",
         "ongoing": true,
         "duration_days": 178,
-        "concurrent_bgp": 2244
+        "concurrent_bgp": 2286
       }
     },
     {
-      "event_id": "kit-2331",
+      "event_id": "kit-2373",
       "event_time": "2025-11-14T00:00:00Z",
       "event_end": "2026-05-08T23:59:59Z",
       "duration_minutes": 252000,
@@ -2665,11 +2665,11 @@
         "kit_type": "full_network",
         "ongoing": true,
         "duration_days": 175,
-        "concurrent_bgp": 2244
+        "concurrent_bgp": 2286
       }
     },
     {
-      "event_id": "kit-2332",
+      "event_id": "kit-2374",
       "event_time": "2025-11-19T00:00:00Z",
       "event_end": "2026-05-08T23:59:59Z",
       "duration_minutes": 244800,
@@ -2695,11 +2695,11 @@
         "kit_type": "full_network",
         "ongoing": true,
         "duration_days": 170,
-        "concurrent_bgp": 2244
+        "concurrent_bgp": 2286
       }
     },
     {
-      "event_id": "kit-2333",
+      "event_id": "kit-2375",
       "event_time": "2025-11-23T00:00:00Z",
       "event_end": "2026-05-08T23:59:59Z",
       "duration_minutes": 239040,
@@ -2726,11 +2726,11 @@
         "kit_type": "full_network",
         "ongoing": true,
         "duration_days": 166,
-        "concurrent_bgp": 2244
+        "concurrent_bgp": 2286
       }
     },
     {
-      "event_id": "kit-2334",
+      "event_id": "kit-2376",
       "event_time": "2025-12-08T00:00:00Z",
       "event_end": "2026-05-08T23:59:59Z",
       "duration_minutes": 217440,
@@ -2757,11 +2757,11 @@
         "kit_type": "full_network",
         "ongoing": true,
         "duration_days": 151,
-        "concurrent_bgp": 2244
+        "concurrent_bgp": 2286
       }
     },
     {
-      "event_id": "kit-2335",
+      "event_id": "kit-2377",
       "event_time": "2025-12-09T00:00:00Z",
       "event_end": "2026-05-08T23:59:59Z",
       "duration_minutes": 216000,
@@ -2787,11 +2787,11 @@
         "kit_type": "full_network",
         "ongoing": true,
         "duration_days": 150,
-        "concurrent_bgp": 2244
+        "concurrent_bgp": 2286
       }
     },
     {
-      "event_id": "kit-2336",
+      "event_id": "kit-2378",
       "event_time": "2025-12-15T00:00:00Z",
       "event_end": "2026-05-08T23:59:59Z",
       "duration_minutes": 207360,
@@ -2817,11 +2817,11 @@
         "kit_type": "full_network",
         "ongoing": true,
         "duration_days": 144,
-        "concurrent_bgp": 2244
+        "concurrent_bgp": 2286
       }
     },
     {
-      "event_id": "kit-2337",
+      "event_id": "kit-2379",
       "event_time": "2025-12-18T00:00:00Z",
       "event_end": "2025-12-31T23:59:59Z",
       "duration_minutes": 18720,
@@ -2852,7 +2852,7 @@
       }
     },
     {
-      "event_id": "kit-2338",
+      "event_id": "kit-2380",
       "event_time": "2025-12-24T00:00:00Z",
       "event_end": "2026-05-08T23:59:59Z",
       "duration_minutes": 194400,
@@ -2878,11 +2878,11 @@
         "kit_type": "full_network",
         "ongoing": true,
         "duration_days": 135,
-        "concurrent_bgp": 2244
+        "concurrent_bgp": 2286
       }
     },
     {
-      "event_id": "kit-2339",
+      "event_id": "kit-2381",
       "event_time": "2025-12-27T00:00:00Z",
       "event_end": "2025-12-28T23:59:59Z",
       "duration_minutes": 1440,
@@ -58995,6 +58995,1056 @@
       ],
       "asn": "AS136480",
       "isp_name": "MMUNILINK-AS-AP Myanmar Unilink Communication Company Limited",
+      "severity": 2,
+      "scope": null,
+      "perpetrator": null,
+      "affected_services": [],
+      "is_confirmed": false,
+      "keepiton_matched": true,
+      "keepiton_ids": [],
+      "source_urls": [],
+      "metadata": {
+        "min_visibility_pct": 0.0,
+        "resolved": true,
+        "ioda_confirmed": false
+      }
+    },
+    {
+      "event_id": "bgp-2245",
+      "event_time": "2026-05-08T12:31:58Z",
+      "event_end": "2026-05-08T13:01:49Z",
+      "duration_minutes": 29,
+      "event_type": "outage",
+      "sources": [
+        "bgp"
+      ],
+      "asn": "AS149660",
+      "isp_name": "HSCL-AS-AP Horizon Sources Company Limited",
+      "severity": 2,
+      "scope": null,
+      "perpetrator": null,
+      "affected_services": [],
+      "is_confirmed": false,
+      "keepiton_matched": true,
+      "keepiton_ids": [],
+      "source_urls": [],
+      "metadata": {
+        "min_visibility_pct": 0.0,
+        "resolved": true,
+        "ioda_confirmed": false
+      }
+    },
+    {
+      "event_id": "bgp-2246",
+      "event_time": "2026-05-08T12:32:58Z",
+      "event_end": "2026-05-08T13:02:24Z",
+      "duration_minutes": 29,
+      "event_type": "outage",
+      "sources": [
+        "bgp"
+      ],
+      "asn": "AS151826",
+      "isp_name": "FASTSPEED-AS-AP Fast Speed",
+      "severity": 2,
+      "scope": null,
+      "perpetrator": null,
+      "affected_services": [],
+      "is_confirmed": false,
+      "keepiton_matched": true,
+      "keepiton_ids": [],
+      "source_urls": [],
+      "metadata": {
+        "min_visibility_pct": 0.0,
+        "resolved": true,
+        "ioda_confirmed": false
+      }
+    },
+    {
+      "event_id": "bgp-2247",
+      "event_time": "2026-05-08T13:03:30Z",
+      "event_end": "2026-05-08T13:33:44Z",
+      "duration_minutes": 30,
+      "event_type": "outage",
+      "sources": [
+        "bgp"
+      ],
+      "asn": "AS18399",
+      "isp_name": "YTCL-AS-AP Yatanarpon Teleport Company Limited",
+      "severity": 2,
+      "scope": null,
+      "perpetrator": null,
+      "affected_services": [],
+      "is_confirmed": false,
+      "keepiton_matched": true,
+      "keepiton_ids": [],
+      "source_urls": [],
+      "metadata": {
+        "min_visibility_pct": 0.0,
+        "resolved": true,
+        "ioda_confirmed": false
+      }
+    },
+    {
+      "event_id": "bgp-2248",
+      "event_time": "2026-05-08T13:15:30Z",
+      "event_end": "2026-05-08T13:20:04Z",
+      "duration_minutes": 4,
+      "event_type": "outage",
+      "sources": [
+        "bgp"
+      ],
+      "asn": "AS58952",
+      "isp_name": "FRONTIIRCOLTD-MM Frontiir Co. Ltd",
+      "severity": 2,
+      "scope": null,
+      "perpetrator": null,
+      "affected_services": [],
+      "is_confirmed": false,
+      "keepiton_matched": true,
+      "keepiton_ids": [],
+      "source_urls": [],
+      "metadata": {
+        "min_visibility_pct": 0.0,
+        "resolved": true,
+        "ioda_confirmed": false
+      }
+    },
+    {
+      "event_id": "bgp-2249",
+      "event_time": "2026-05-08T14:01:40Z",
+      "event_end": "2026-05-08T14:31:26Z",
+      "duration_minutes": 29,
+      "event_type": "outage",
+      "sources": [
+        "bgp"
+      ],
+      "asn": "AS136780",
+      "isp_name": "MIHL-AS-AP MYANMAR INFORMATION HIGHWAY LIMITED",
+      "severity": 2,
+      "scope": null,
+      "perpetrator": null,
+      "affected_services": [],
+      "is_confirmed": false,
+      "keepiton_matched": true,
+      "keepiton_ids": [],
+      "source_urls": [],
+      "metadata": {
+        "min_visibility_pct": 0.0,
+        "resolved": true,
+        "ioda_confirmed": false
+      }
+    },
+    {
+      "event_id": "bgp-2250",
+      "event_time": "2026-05-08T14:05:26Z",
+      "event_end": "2026-05-08T14:10:05Z",
+      "duration_minutes": 4,
+      "event_type": "outage",
+      "sources": [
+        "bgp"
+      ],
+      "asn": "AS132167",
+      "isp_name": "U9-MM Nine Communications Company Limited",
+      "severity": 2,
+      "scope": null,
+      "perpetrator": null,
+      "affected_services": [],
+      "is_confirmed": false,
+      "keepiton_matched": true,
+      "keepiton_ids": [],
+      "source_urls": [],
+      "metadata": {
+        "min_visibility_pct": 0.0,
+        "resolved": true,
+        "ioda_confirmed": false
+      }
+    },
+    {
+      "event_id": "bgp-2251",
+      "event_time": "2026-05-08T14:32:19Z",
+      "event_end": "2026-05-08T15:02:07Z",
+      "duration_minutes": 29,
+      "event_type": "outage",
+      "sources": [
+        "bgp"
+      ],
+      "asn": "AS135433",
+      "isp_name": "CGCL-AS-AP Connect Gateway Company Limited",
+      "severity": 2,
+      "scope": null,
+      "perpetrator": null,
+      "affected_services": [],
+      "is_confirmed": false,
+      "keepiton_matched": true,
+      "keepiton_ids": [],
+      "source_urls": [],
+      "metadata": {
+        "min_visibility_pct": 0.0,
+        "resolved": true,
+        "ioda_confirmed": false
+      }
+    },
+    {
+      "event_id": "bgp-2252",
+      "event_time": "2026-05-08T14:32:19Z",
+      "event_end": "2026-05-08T15:02:08Z",
+      "duration_minutes": 29,
+      "event_type": "outage",
+      "sources": [
+        "bgp"
+      ],
+      "asn": "AS140552",
+      "isp_name": "CBBANK-AS-AP Co-operative Bank Public Company Limited",
+      "severity": 2,
+      "scope": null,
+      "perpetrator": null,
+      "affected_services": [],
+      "is_confirmed": false,
+      "keepiton_matched": true,
+      "keepiton_ids": [],
+      "source_urls": [],
+      "metadata": {
+        "min_visibility_pct": 0.0,
+        "resolved": true,
+        "ioda_confirmed": false
+      }
+    },
+    {
+      "event_id": "bgp-2253",
+      "event_time": "2026-05-08T14:33:30Z",
+      "event_end": "2026-05-08T15:02:46Z",
+      "duration_minutes": 29,
+      "event_type": "outage",
+      "sources": [
+        "bgp"
+      ],
+      "asn": "AS139692",
+      "isp_name": "CHEN-AS-AP CHEN GUANG COMPANY LIMITED",
+      "severity": 2,
+      "scope": null,
+      "perpetrator": null,
+      "affected_services": [],
+      "is_confirmed": false,
+      "keepiton_matched": true,
+      "keepiton_ids": [],
+      "source_urls": [],
+      "metadata": {
+        "min_visibility_pct": 0.0,
+        "resolved": true,
+        "ioda_confirmed": false
+      }
+    },
+    {
+      "event_id": "bgp-2254",
+      "event_time": "2026-05-08T15:31:24Z",
+      "event_end": "2026-05-08T16:01:35Z",
+      "duration_minutes": 30,
+      "event_type": "outage",
+      "sources": [
+        "bgp"
+      ],
+      "asn": "AS139822",
+      "isp_name": "GNE-AS-MM GNE Company Limited",
+      "severity": 2,
+      "scope": null,
+      "perpetrator": null,
+      "affected_services": [],
+      "is_confirmed": false,
+      "keepiton_matched": true,
+      "keepiton_ids": [],
+      "source_urls": [],
+      "metadata": {
+        "min_visibility_pct": 0.0,
+        "resolved": true,
+        "ioda_confirmed": false
+      }
+    },
+    {
+      "event_id": "bgp-2255",
+      "event_time": "2026-05-08T15:45:29Z",
+      "event_end": "2026-05-08T15:50:07Z",
+      "duration_minutes": 4,
+      "event_type": "outage",
+      "sources": [
+        "bgp"
+      ],
+      "asn": "AS58952",
+      "isp_name": "FRONTIIRCOLTD-MM Frontiir Co. Ltd",
+      "severity": 2,
+      "scope": null,
+      "perpetrator": null,
+      "affected_services": [],
+      "is_confirmed": false,
+      "keepiton_matched": true,
+      "keepiton_ids": [],
+      "source_urls": [],
+      "metadata": {
+        "min_visibility_pct": 0.0,
+        "resolved": true,
+        "ioda_confirmed": false
+      }
+    },
+    {
+      "event_id": "bgp-2256",
+      "event_time": "2026-05-08T16:02:41Z",
+      "event_end": "2026-05-08T16:31:51Z",
+      "duration_minutes": 29,
+      "event_type": "outage",
+      "sources": [
+        "bgp"
+      ],
+      "asn": "AS133384",
+      "isp_name": "GTCL-AS-AP Global Technology Co., Ltd.",
+      "severity": 2,
+      "scope": null,
+      "perpetrator": null,
+      "affected_services": [],
+      "is_confirmed": false,
+      "keepiton_matched": true,
+      "keepiton_ids": [],
+      "source_urls": [],
+      "metadata": {
+        "min_visibility_pct": 0.0,
+        "resolved": true,
+        "ioda_confirmed": false
+      }
+    },
+    {
+      "event_id": "bgp-2257",
+      "event_time": "2026-05-08T16:03:59Z",
+      "event_end": "2026-05-08T16:32:31Z",
+      "duration_minutes": 28,
+      "event_type": "outage",
+      "sources": [
+        "bgp"
+      ],
+      "asn": "AS138167",
+      "isp_name": "TRUENET-AS-AP TrueNET",
+      "severity": 2,
+      "scope": null,
+      "perpetrator": null,
+      "affected_services": [],
+      "is_confirmed": false,
+      "keepiton_matched": true,
+      "keepiton_ids": [],
+      "source_urls": [],
+      "metadata": {
+        "min_visibility_pct": 0.0,
+        "resolved": true,
+        "ioda_confirmed": false
+      }
+    },
+    {
+      "event_id": "bgp-2258",
+      "event_time": "2026-05-08T16:15:21Z",
+      "event_end": "2026-05-08T16:20:04Z",
+      "duration_minutes": 4,
+      "event_type": "outage",
+      "sources": [
+        "bgp"
+      ],
+      "asn": "AS58952",
+      "isp_name": "FRONTIIRCOLTD-MM Frontiir Co. Ltd",
+      "severity": 2,
+      "scope": null,
+      "perpetrator": null,
+      "affected_services": [],
+      "is_confirmed": false,
+      "keepiton_matched": true,
+      "keepiton_ids": [],
+      "source_urls": [],
+      "metadata": {
+        "min_visibility_pct": 0.0,
+        "resolved": true,
+        "ioda_confirmed": false
+      }
+    },
+    {
+      "event_id": "bgp-2259",
+      "event_time": "2026-05-08T16:25:32Z",
+      "event_end": "2026-05-08T16:31:18Z",
+      "duration_minutes": 5,
+      "event_type": "outage",
+      "sources": [
+        "bgp"
+      ],
+      "asn": "AS132167",
+      "isp_name": "U9-MM Nine Communications Company Limited",
+      "severity": 2,
+      "scope": null,
+      "perpetrator": null,
+      "affected_services": [],
+      "is_confirmed": false,
+      "keepiton_matched": true,
+      "keepiton_ids": [],
+      "source_urls": [],
+      "metadata": {
+        "min_visibility_pct": 0.0,
+        "resolved": true,
+        "ioda_confirmed": false
+      }
+    },
+    {
+      "event_id": "bgp-2260",
+      "event_time": "2026-05-08T16:25:48Z",
+      "event_end": "2026-05-08T16:31:19Z",
+      "duration_minutes": 5,
+      "event_type": "outage",
+      "sources": [
+        "bgp"
+      ],
+      "asn": "AS58952",
+      "isp_name": "FRONTIIRCOLTD-MM Frontiir Co. Ltd",
+      "severity": 2,
+      "scope": null,
+      "perpetrator": null,
+      "affected_services": [],
+      "is_confirmed": false,
+      "keepiton_matched": true,
+      "keepiton_ids": [],
+      "source_urls": [],
+      "metadata": {
+        "min_visibility_pct": 0.0,
+        "resolved": true,
+        "ioda_confirmed": false
+      }
+    },
+    {
+      "event_id": "bgp-2261",
+      "event_time": "2026-05-08T16:55:32Z",
+      "event_end": "2026-05-08T17:01:24Z",
+      "duration_minutes": 5,
+      "event_type": "outage",
+      "sources": [
+        "bgp"
+      ],
+      "asn": "AS58952",
+      "isp_name": "FRONTIIRCOLTD-MM Frontiir Co. Ltd",
+      "severity": 2,
+      "scope": null,
+      "perpetrator": null,
+      "affected_services": [],
+      "is_confirmed": false,
+      "keepiton_matched": true,
+      "keepiton_ids": [],
+      "source_urls": [],
+      "metadata": {
+        "min_visibility_pct": 0.0,
+        "resolved": true,
+        "ioda_confirmed": false
+      }
+    },
+    {
+      "event_id": "bgp-2262",
+      "event_time": "2026-05-08T17:02:16Z",
+      "event_end": "2026-05-08T17:31:59Z",
+      "duration_minutes": 29,
+      "event_type": "outage",
+      "sources": [
+        "bgp"
+      ],
+      "asn": "AS131322",
+      "isp_name": "YTCL-AS-AP Yatanarpon Teleport Company Limited",
+      "severity": 2,
+      "scope": null,
+      "perpetrator": null,
+      "affected_services": [],
+      "is_confirmed": false,
+      "keepiton_matched": true,
+      "keepiton_ids": [],
+      "source_urls": [],
+      "metadata": {
+        "min_visibility_pct": 0.0,
+        "resolved": true,
+        "ioda_confirmed": false
+      }
+    },
+    {
+      "event_id": "bgp-2263",
+      "event_time": "2026-05-08T17:25:28Z",
+      "event_end": "2026-05-08T17:31:28Z",
+      "duration_minutes": 6,
+      "event_type": "outage",
+      "sources": [
+        "bgp"
+      ],
+      "asn": "AS58952",
+      "isp_name": "FRONTIIRCOLTD-MM Frontiir Co. Ltd",
+      "severity": 2,
+      "scope": null,
+      "perpetrator": null,
+      "affected_services": [],
+      "is_confirmed": false,
+      "keepiton_matched": true,
+      "keepiton_ids": [],
+      "source_urls": [],
+      "metadata": {
+        "min_visibility_pct": 0.0,
+        "resolved": true,
+        "ioda_confirmed": false
+      }
+    },
+    {
+      "event_id": "bgp-2264",
+      "event_time": "2026-05-08T17:34:16Z",
+      "event_end": "2026-05-08T18:03:13Z",
+      "duration_minutes": 28,
+      "event_type": "outage",
+      "sources": [
+        "bgp"
+      ],
+      "asn": "AS153044",
+      "isp_name": "MSCNC-AS-AP MYANMAR SKY CITY NETWORK COMMUNICATION Co.,Ltd",
+      "severity": 2,
+      "scope": null,
+      "perpetrator": null,
+      "affected_services": [],
+      "is_confirmed": false,
+      "keepiton_matched": true,
+      "keepiton_ids": [],
+      "source_urls": [],
+      "metadata": {
+        "min_visibility_pct": 0.0,
+        "resolved": true,
+        "ioda_confirmed": false
+      }
+    },
+    {
+      "event_id": "bgp-2265",
+      "event_time": "2026-05-08T17:40:38Z",
+      "event_end": "2026-05-08T17:45:07Z",
+      "duration_minutes": 4,
+      "event_type": "outage",
+      "sources": [
+        "bgp"
+      ],
+      "asn": "AS58952",
+      "isp_name": "FRONTIIRCOLTD-MM Frontiir Co. Ltd",
+      "severity": 2,
+      "scope": null,
+      "perpetrator": null,
+      "affected_services": [],
+      "is_confirmed": false,
+      "keepiton_matched": true,
+      "keepiton_ids": [],
+      "source_urls": [],
+      "metadata": {
+        "min_visibility_pct": 0.0,
+        "resolved": true,
+        "ioda_confirmed": false
+      }
+    },
+    {
+      "event_id": "bgp-2266",
+      "event_time": "2026-05-08T18:01:53Z",
+      "event_end": "2026-05-08T18:32:28Z",
+      "duration_minutes": 30,
+      "event_type": "outage",
+      "sources": [
+        "bgp"
+      ],
+      "asn": "AS153790",
+      "isp_name": "AMCL-AS-AP ADS Myanmar Company Limited",
+      "severity": 2,
+      "scope": null,
+      "perpetrator": null,
+      "affected_services": [],
+      "is_confirmed": false,
+      "keepiton_matched": true,
+      "keepiton_ids": [],
+      "source_urls": [],
+      "metadata": {
+        "min_visibility_pct": 0.0,
+        "resolved": true,
+        "ioda_confirmed": false
+      }
+    },
+    {
+      "event_id": "bgp-2267",
+      "event_time": "2026-05-08T18:05:28Z",
+      "event_end": "2026-05-08T18:10:04Z",
+      "duration_minutes": 4,
+      "event_type": "outage",
+      "sources": [
+        "bgp"
+      ],
+      "asn": "AS132167",
+      "isp_name": "U9-MM Nine Communications Company Limited",
+      "severity": 2,
+      "scope": null,
+      "perpetrator": null,
+      "affected_services": [],
+      "is_confirmed": false,
+      "keepiton_matched": true,
+      "keepiton_ids": [],
+      "source_urls": [],
+      "metadata": {
+        "min_visibility_pct": 0.0,
+        "resolved": true,
+        "ioda_confirmed": false
+      }
+    },
+    {
+      "event_id": "bgp-2268",
+      "event_time": "2026-05-08T18:05:44Z",
+      "event_end": "2026-05-08T18:10:05Z",
+      "duration_minutes": 4,
+      "event_type": "outage",
+      "sources": [
+        "bgp"
+      ],
+      "asn": "AS58952",
+      "isp_name": "FRONTIIRCOLTD-MM Frontiir Co. Ltd",
+      "severity": 2,
+      "scope": null,
+      "perpetrator": null,
+      "affected_services": [],
+      "is_confirmed": false,
+      "keepiton_matched": true,
+      "keepiton_ids": [],
+      "source_urls": [],
+      "metadata": {
+        "min_visibility_pct": 0.0,
+        "resolved": true,
+        "ioda_confirmed": false
+      }
+    },
+    {
+      "event_id": "bgp-2269",
+      "event_time": "2026-05-08T18:20:21Z",
+      "event_end": "2026-05-08T18:25:04Z",
+      "duration_minutes": 4,
+      "event_type": "outage",
+      "sources": [
+        "bgp"
+      ],
+      "asn": "AS58952",
+      "isp_name": "FRONTIIRCOLTD-MM Frontiir Co. Ltd",
+      "severity": 2,
+      "scope": null,
+      "perpetrator": null,
+      "affected_services": [],
+      "is_confirmed": false,
+      "keepiton_matched": true,
+      "keepiton_ids": [],
+      "source_urls": [],
+      "metadata": {
+        "min_visibility_pct": 0.0,
+        "resolved": true,
+        "ioda_confirmed": false
+      }
+    },
+    {
+      "event_id": "bgp-2270",
+      "event_time": "2026-05-08T18:20:37Z",
+      "event_end": "2026-05-08T18:25:05Z",
+      "duration_minutes": 4,
+      "event_type": "outage",
+      "sources": [
+        "bgp"
+      ],
+      "asn": "AS9988",
+      "isp_name": "MPT-AP Myanma Posts and Telecommunications",
+      "severity": 2,
+      "scope": null,
+      "perpetrator": null,
+      "affected_services": [],
+      "is_confirmed": false,
+      "keepiton_matched": true,
+      "keepiton_ids": [],
+      "source_urls": [],
+      "metadata": {
+        "min_visibility_pct": 0.0,
+        "resolved": true,
+        "ioda_confirmed": false
+      }
+    },
+    {
+      "event_id": "bgp-2271",
+      "event_time": "2026-05-08T18:45:28Z",
+      "event_end": "2026-05-08T18:50:04Z",
+      "duration_minutes": 4,
+      "event_type": "outage",
+      "sources": [
+        "bgp"
+      ],
+      "asn": "AS58952",
+      "isp_name": "FRONTIIRCOLTD-MM Frontiir Co. Ltd",
+      "severity": 2,
+      "scope": null,
+      "perpetrator": null,
+      "affected_services": [],
+      "is_confirmed": false,
+      "keepiton_matched": true,
+      "keepiton_ids": [],
+      "source_urls": [],
+      "metadata": {
+        "min_visibility_pct": 0.0,
+        "resolved": true,
+        "ioda_confirmed": false
+      }
+    },
+    {
+      "event_id": "bgp-2272",
+      "event_time": "2026-05-08T19:02:08Z",
+      "event_end": "2026-05-08T19:31:52Z",
+      "duration_minutes": 29,
+      "event_type": "outage",
+      "sources": [
+        "bgp"
+      ],
+      "asn": "AS137955",
+      "isp_name": "MMIX-AS-AP Myanmar Internet Exchange",
+      "severity": 2,
+      "scope": null,
+      "perpetrator": null,
+      "affected_services": [],
+      "is_confirmed": false,
+      "keepiton_matched": true,
+      "keepiton_ids": [],
+      "source_urls": [],
+      "metadata": {
+        "min_visibility_pct": 0.0,
+        "resolved": true,
+        "ioda_confirmed": false
+      }
+    },
+    {
+      "event_id": "bgp-2273",
+      "event_time": "2026-05-08T19:03:57Z",
+      "event_end": "2026-05-08T19:32:44Z",
+      "duration_minutes": 28,
+      "event_type": "outage",
+      "sources": [
+        "bgp"
+      ],
+      "asn": "AS152466",
+      "isp_name": "TLINKGROUP-AS-AP T-Link Group Company Limited",
+      "severity": 2,
+      "scope": null,
+      "perpetrator": null,
+      "affected_services": [],
+      "is_confirmed": false,
+      "keepiton_matched": true,
+      "keepiton_ids": [],
+      "source_urls": [],
+      "metadata": {
+        "min_visibility_pct": 0.0,
+        "resolved": true,
+        "ioda_confirmed": false
+      }
+    },
+    {
+      "event_id": "bgp-2274",
+      "event_time": "2026-05-08T19:04:48Z",
+      "event_end": "2026-05-08T19:33:37Z",
+      "duration_minutes": 28,
+      "event_type": "outage",
+      "sources": [
+        "bgp"
+      ],
+      "asn": "AS136168",
+      "isp_name": "CAMPANA-AS-AP Campana MYTHIC Co. Ltd.",
+      "severity": 2,
+      "scope": null,
+      "perpetrator": null,
+      "affected_services": [],
+      "is_confirmed": false,
+      "keepiton_matched": true,
+      "keepiton_ids": [],
+      "source_urls": [],
+      "metadata": {
+        "min_visibility_pct": 0.0,
+        "resolved": true,
+        "ioda_confirmed": false
+      }
+    },
+    {
+      "event_id": "bgp-2275",
+      "event_time": "2026-05-08T19:04:54Z",
+      "event_end": "2026-05-08T19:33:38Z",
+      "duration_minutes": 28,
+      "event_type": "outage",
+      "sources": [
+        "bgp"
+      ],
+      "asn": "AS149487",
+      "isp_name": "MCLOCCL-AS-AP MOC COMPANY LIMITED",
+      "severity": 2,
+      "scope": null,
+      "perpetrator": null,
+      "affected_services": [],
+      "is_confirmed": false,
+      "keepiton_matched": true,
+      "keepiton_ids": [],
+      "source_urls": [],
+      "metadata": {
+        "min_visibility_pct": 0.0,
+        "resolved": true,
+        "ioda_confirmed": false
+      }
+    },
+    {
+      "event_id": "bgp-2276",
+      "event_time": "2026-05-08T19:15:27Z",
+      "event_end": "2026-05-08T19:20:04Z",
+      "duration_minutes": 4,
+      "event_type": "outage",
+      "sources": [
+        "bgp"
+      ],
+      "asn": "AS58952",
+      "isp_name": "FRONTIIRCOLTD-MM Frontiir Co. Ltd",
+      "severity": 2,
+      "scope": null,
+      "perpetrator": null,
+      "affected_services": [],
+      "is_confirmed": false,
+      "keepiton_matched": true,
+      "keepiton_ids": [],
+      "source_urls": [],
+      "metadata": {
+        "min_visibility_pct": 0.0,
+        "resolved": true,
+        "ioda_confirmed": false
+      }
+    },
+    {
+      "event_id": "bgp-2277",
+      "event_time": "2026-05-08T19:32:43Z",
+      "event_end": "2026-05-08T20:02:58Z",
+      "duration_minutes": 30,
+      "event_type": "outage",
+      "sources": [
+        "bgp"
+      ],
+      "asn": "AS153998",
+      "isp_name": "MCBPCL-AS-AP Myanmar Citizens Bank Public Company Limited",
+      "severity": 2,
+      "scope": null,
+      "perpetrator": null,
+      "affected_services": [],
+      "is_confirmed": false,
+      "keepiton_matched": true,
+      "keepiton_ids": [],
+      "source_urls": [],
+      "metadata": {
+        "min_visibility_pct": 0.0,
+        "resolved": true,
+        "ioda_confirmed": false
+      }
+    },
+    {
+      "event_id": "bgp-2278",
+      "event_time": "2026-05-08T20:01:53Z",
+      "event_end": "2026-05-08T20:31:28Z",
+      "duration_minutes": 29,
+      "event_type": "outage",
+      "sources": [
+        "bgp"
+      ],
+      "asn": "AS136789",
+      "isp_name": "LOTUS-AS-AP LOTUS MUDRA COMPANY LIMITED",
+      "severity": 2,
+      "scope": null,
+      "perpetrator": null,
+      "affected_services": [],
+      "is_confirmed": false,
+      "keepiton_matched": true,
+      "keepiton_ids": [],
+      "source_urls": [],
+      "metadata": {
+        "min_visibility_pct": 0.0,
+        "resolved": true,
+        "ioda_confirmed": false
+      }
+    },
+    {
+      "event_id": "bgp-2279",
+      "event_time": "2026-05-08T20:40:34Z",
+      "event_end": "2026-05-08T20:45:07Z",
+      "duration_minutes": 4,
+      "event_type": "outage",
+      "sources": [
+        "bgp"
+      ],
+      "asn": "AS58952",
+      "isp_name": "FRONTIIRCOLTD-MM Frontiir Co. Ltd",
+      "severity": 2,
+      "scope": null,
+      "perpetrator": null,
+      "affected_services": [],
+      "is_confirmed": false,
+      "keepiton_matched": true,
+      "keepiton_ids": [],
+      "source_urls": [],
+      "metadata": {
+        "min_visibility_pct": 0.0,
+        "resolved": true,
+        "ioda_confirmed": false
+      }
+    },
+    {
+      "event_id": "bgp-2280",
+      "event_time": "2026-05-08T20:55:23Z",
+      "event_end": "2026-05-08T21:01:18Z",
+      "duration_minutes": 5,
+      "event_type": "outage",
+      "sources": [
+        "bgp"
+      ],
+      "asn": "AS58952",
+      "isp_name": "FRONTIIRCOLTD-MM Frontiir Co. Ltd",
+      "severity": 2,
+      "scope": null,
+      "perpetrator": null,
+      "affected_services": [],
+      "is_confirmed": false,
+      "keepiton_matched": true,
+      "keepiton_ids": [],
+      "source_urls": [],
+      "metadata": {
+        "min_visibility_pct": 0.0,
+        "resolved": true,
+        "ioda_confirmed": false
+      }
+    },
+    {
+      "event_id": "bgp-2281",
+      "event_time": "2026-05-08T21:02:56Z",
+      "event_end": "2026-05-08T21:32:24Z",
+      "duration_minutes": 29,
+      "event_type": "outage",
+      "sources": [
+        "bgp"
+      ],
+      "asn": "AS134528",
+      "isp_name": "MPTCL-AS-AP MYANMAR PI TECHNOLOGY CO., LTD",
+      "severity": 2,
+      "scope": null,
+      "perpetrator": null,
+      "affected_services": [],
+      "is_confirmed": false,
+      "keepiton_matched": true,
+      "keepiton_ids": [],
+      "source_urls": [],
+      "metadata": {
+        "min_visibility_pct": 0.0,
+        "resolved": true,
+        "ioda_confirmed": false
+      }
+    },
+    {
+      "event_id": "bgp-2282",
+      "event_time": "2026-05-08T22:01:27Z",
+      "event_end": "2026-05-08T22:31:12Z",
+      "duration_minutes": 29,
+      "event_type": "outage",
+      "sources": [
+        "bgp"
+      ],
+      "asn": "AS139804",
+      "isp_name": "REDPALM-AS-AP RED PALM COMPANY LIMITED",
+      "severity": 2,
+      "scope": null,
+      "perpetrator": null,
+      "affected_services": [],
+      "is_confirmed": false,
+      "keepiton_matched": true,
+      "keepiton_ids": [],
+      "source_urls": [],
+      "metadata": {
+        "min_visibility_pct": 0.0,
+        "resolved": true,
+        "ioda_confirmed": false
+      }
+    },
+    {
+      "event_id": "bgp-2283",
+      "event_time": "2026-05-08T22:03:01Z",
+      "event_end": "2026-05-08T22:32:43Z",
+      "duration_minutes": 29,
+      "event_type": "outage",
+      "sources": [
+        "bgp"
+      ],
+      "asn": "AS141704",
+      "isp_name": "GALAXIANET-AS-AP Galaxia @ Net",
+      "severity": 2,
+      "scope": null,
+      "perpetrator": null,
+      "affected_services": [],
+      "is_confirmed": false,
+      "keepiton_matched": true,
+      "keepiton_ids": [],
+      "source_urls": [],
+      "metadata": {
+        "min_visibility_pct": 0.0,
+        "resolved": true,
+        "ioda_confirmed": false
+      }
+    },
+    {
+      "event_id": "bgp-2284",
+      "event_time": "2026-05-08T22:31:37Z",
+      "event_end": "2026-05-08T23:01:15Z",
+      "duration_minutes": 29,
+      "event_type": "outage",
+      "sources": [
+        "bgp"
+      ],
+      "asn": "AS134736",
+      "isp_name": "NMCL-AS-AP NTT MYANMAR CO., LTD.",
+      "severity": 2,
+      "scope": null,
+      "perpetrator": null,
+      "affected_services": [],
+      "is_confirmed": false,
+      "keepiton_matched": true,
+      "keepiton_ids": [],
+      "source_urls": [],
+      "metadata": {
+        "min_visibility_pct": 0.0,
+        "resolved": true,
+        "ioda_confirmed": false
+      }
+    },
+    {
+      "event_id": "bgp-2285",
+      "event_time": "2026-05-08T22:55:26Z",
+      "event_end": "2026-05-08T23:01:46Z",
+      "duration_minutes": 6,
+      "event_type": "outage",
+      "sources": [
+        "bgp"
+      ],
+      "asn": "AS9988",
+      "isp_name": "MPT-AP Myanma Posts and Telecommunications",
+      "severity": 2,
+      "scope": null,
+      "perpetrator": null,
+      "affected_services": [],
+      "is_confirmed": false,
+      "keepiton_matched": true,
+      "keepiton_ids": [],
+      "source_urls": [],
+      "metadata": {
+        "min_visibility_pct": 0.0,
+        "resolved": true,
+        "ioda_confirmed": false
+      }
+    },
+    {
+      "event_id": "bgp-2286",
+      "event_time": "2026-05-08T23:31:36Z",
+      "event_end": "2026-05-09T00:01:39Z",
+      "duration_minutes": 30,
+      "event_type": "outage",
+      "sources": [
+        "bgp"
+      ],
+      "asn": "AS149660",
+      "isp_name": "HSCL-AS-AP Horizon Sources Company Limited",
       "severity": 2,
       "scope": null,
       "perpetrator": null,
