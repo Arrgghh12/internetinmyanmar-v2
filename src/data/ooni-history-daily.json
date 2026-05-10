@@ -420,13 +420,13 @@
     "period": "2026-05-08"
   },
   {
-    "anomaly_count": 329,
-    "confirmed_count": 28,
-    "failure_count": 92,
-    "ok_count": 1775,
-    "measurement_count": 2224,
+    "anomaly_count": 846,
+    "confirmed_count": 46,
+    "failure_count": 275,
+    "ok_count": 4914,
+    "measurement_count": 6081,
     "measurement_start_day": "2026-05-09",
-    "anomaly_rate": 14.8,
+    "anomaly_rate": 13.9,
     "period": "2026-05-09"
   }
 ]
