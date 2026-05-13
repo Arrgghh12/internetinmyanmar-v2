@@ -363,8 +363,8 @@ article:
   internal_links: [3, 5]
 
 github:
-  repo:         "Arrgghh12/internetinmyanmar-v2"
-  base_branch:  "dev"
+  repo:         "mattpltn/internetinmyanmar-v2"
+  base_branch:  "main"
   draft_prefix: "draft/"
 
 paths:

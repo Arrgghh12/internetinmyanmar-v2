@@ -28,6 +28,7 @@ from datetime import date
 from pathlib import Path
 
 import requests
+import yaml
 from dotenv import load_dotenv
 from urllib.parse import quote
 from github import Github, GithubException
@@ -45,10 +46,11 @@ BOT_TOKEN    = os.environ["TELEGRAM_BOT_TOKEN"]
 ALLOWED_CHAT = int(os.environ["TELEGRAM_CHAT_ID"])
 
 AGENTS_DIR   = Path(__file__).parent
+CONFIG       = yaml.safe_load((AGENTS_DIR / "config.yaml").read_text())
 PENDING_DIR  = AGENTS_DIR / "digest"
 GITHUB_TOKEN = os.environ["GITHUB_TOKEN"]
-REPO_NAME    = "Arrgghh12/internetinmyanmar-v2"
-BRANCH       = os.environ.get("PUBLISH_BRANCH", "dev")   # switch to "main" after DNS cutover
+REPO_NAME    = CONFIG.get("github", {}).get("repo", "mattpltn/internetinmyanmar-v2")
+BRANCH       = CONFIG.get("github", {}).get("base_branch", "main")
 DIGEST_PATH  = "src/content/digest"
 
 VALID_DIGEST_CATEGORIES = {"Shutdown", "Censorship", "Arrest", "Policy", "Data", "Surveillance", "Other"}
@@ -444,32 +446,32 @@ async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
     lines.append("\nCloudflare Pages rebuild triggered automatically.")
     await update.message.reply_text("\n".join(lines), parse_mode="Markdown")
 
-    # Auto-post the first published article to social media
-    first = selected[0]
-    pub_date = (first.get("published") or date.today().isoformat())[:10]
-    first_slug = slugify(first.get("your_title") or first.get("title", ""))
+    # Auto-post all published articles to social media
     await update.message.reply_text("📤 Posting to X + Facebook…")
-    try:
-        from distribution.social_poster import post_all
-        results = post_all({
-            "title":      first.get("your_title") or first.get("title", ""),
-            "excerpt":    strip_html(first.get("summary") or "")[:300],
-            "category":   normalize_category(first.get("category", "")),
-            "source":     first.get("source_name") or first.get("source", ""),
-            "slug":       f"{pub_date}-{first_slug}",
-            "source_url": first.get("url", ""),
-            "og_image":   first.get("og_image"),
-        })
-        posted = list(results["posted"].keys())
-        errors = results["errors"]
-        msg = f"✅ Posted to: {', '.join(posted)}" if posted else "⚠️ Nothing posted."
-        if errors:
-            msg += f"\n⚠️ Failed: {', '.join(f'{p}: {str(e)[:100]}' for p, e in errors.items())}"
-            msg += "\nUse /share to retry."
-        await update.message.reply_text(msg)
-    except Exception as e:
-        log.error("Auto social post failed: %s", e)
-        await update.message.reply_text(f"⚠️ Social post failed: {e}\nUse /share to retry.")
+    from distribution.social_poster import post_all
+    for article in selected:
+        pub_date = (article.get("published") or date.today().isoformat())[:10]
+        article_slug = slugify(article.get("your_title") or article.get("title", ""))
+        try:
+            results = post_all({
+                "title":      article.get("your_title") or article.get("title", ""),
+                "excerpt":    strip_html(article.get("summary") or "")[:300],
+                "category":   normalize_category(article.get("category", "")),
+                "source":     article.get("source_name") or article.get("source", ""),
+                "slug":       f"{pub_date}-{article_slug}",
+                "source_url": article.get("url", ""),
+                "og_image":   article.get("og_image"),
+            })
+            posted = list(results["posted"].keys())
+            errors = results["errors"]
+            title_short = (article.get("your_title") or article.get("title", ""))[:50]
+            msg = f"✅ <b>{title_short}</b> → {', '.join(posted)}" if posted else f"⚠️ Nothing posted for: {title_short}"
+            if errors:
+                msg += f"\n⚠️ Failed: {', '.join(f'{p}: {str(e)[:80]}' for p, e in errors.items())}"
+            await update.message.reply_text(msg, parse_mode="HTML")
+        except Exception as e:
+            log.error("Auto social post failed for %s: %s", article.get("title"), e)
+            await update.message.reply_text(f"⚠️ Social post failed: {e}\nUse /share to retry.")
 
 
 # ── Social posting callback ────────────────────────────────────────────────────
