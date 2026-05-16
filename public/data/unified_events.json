@@ -1,20 +1,23 @@
 {
-  "generated_at": "2026-05-16T00:15:01Z",
-  "dataset_version": "v202605160010",
+  "generated_at": "2026-05-16T12:15:02Z",
+  "dataset_version": "v202605161210",
   "processing_log": {
-    "bgp_outages_loaded": 1710,
+    "bgp_outages_loaded": 1722,
     "keepiton_events_loaded": 95,
-    "unified_events_total": 1805,
-    "bgp_events_in_unified": 1710,
+    "unified_events_total": 1817,
+    "bgp_events_in_unified": 1722,
     "kit_events_in_unified": 95,
-    "warnings": []
+    "warnings": [
+      "bgp-outages.json is stale (5:12:12.368685 old, limit 1:00:00)",
+      "ooni-history-daily.json is stale (1 day, 12:15:01.893328 old, limit 1 day, 1:00:00)"
+    ]
   },
   "events": [
     {
-      "event_id": "kit-1711",
+      "event_id": "kit-1723",
       "event_time": "2021-08-20T00:00:00Z",
-      "event_end": "2026-05-15T23:59:59Z",
-      "duration_minutes": 2489760,
+      "event_end": "2026-05-16T23:59:59Z",
+      "duration_minutes": 2491200,
       "event_type": "shutdown",
       "sources": [
         "keepiton"
@@ -37,15 +40,15 @@
       "metadata": {
         "kit_type": "full_network",
         "ongoing": true,
-        "duration_days": 1729,
-        "concurrent_bgp": 1710
+        "duration_days": 1730,
+        "concurrent_bgp": 1722
       }
     },
     {
-      "event_id": "kit-1712",
+      "event_id": "kit-1724",
       "event_time": "2021-09-14T00:00:00Z",
-      "event_end": "2026-05-15T23:59:59Z",
-      "duration_minutes": 2453760,
+      "event_end": "2026-05-16T23:59:59Z",
+      "duration_minutes": 2455200,
       "event_type": "shutdown",
       "sources": [
         "keepiton"
@@ -68,15 +71,15 @@
       "metadata": {
         "kit_type": "full_network",
         "ongoing": true,
-        "duration_days": 1704,
-        "concurrent_bgp": 1710
+        "duration_days": 1705,
+        "concurrent_bgp": 1722
       }
     },
     {
-      "event_id": "kit-1713",
+      "event_id": "kit-1725",
       "event_time": "2021-09-23T00:00:00Z",
-      "event_end": "2026-05-15T23:59:59Z",
-      "duration_minutes": 2440800,
+      "event_end": "2026-05-16T23:59:59Z",
+      "duration_minutes": 2442240,
       "event_type": "shutdown",
       "sources": [
         "keepiton"
@@ -99,15 +102,15 @@
       "metadata": {
         "kit_type": "full_network",
         "ongoing": true,
-        "duration_days": 1695,
-        "concurrent_bgp": 1710
+        "duration_days": 1696,
+        "concurrent_bgp": 1722
       }
     },
     {
-      "event_id": "kit-1714",
+      "event_id": "kit-1726",
       "event_time": "2021-09-26T00:00:00Z",
-      "event_end": "2026-05-15T23:59:59Z",
-      "duration_minutes": 2436480,
+      "event_end": "2026-05-16T23:59:59Z",
+      "duration_minutes": 2437920,
       "event_type": "shutdown",
       "sources": [
         "keepiton"
@@ -129,15 +132,15 @@
       "metadata": {
         "kit_type": "full_network",
         "ongoing": true,
-        "duration_days": 1692,
-        "concurrent_bgp": 1710
+        "duration_days": 1693,
+        "concurrent_bgp": 1722
       }
     },
     {
-      "event_id": "kit-1715",
+      "event_id": "kit-1727",
       "event_time": "2022-01-06T00:00:00Z",
-      "event_end": "2026-05-15T23:59:59Z",
-      "duration_minutes": 2289600,
+      "event_end": "2026-05-16T23:59:59Z",
+      "duration_minutes": 2291040,
       "event_type": "shutdown",
       "sources": [
         "keepiton"
@@ -159,15 +162,15 @@
       "metadata": {
         "kit_type": "full_network",
         "ongoing": true,
-        "duration_days": 1590,
-        "concurrent_bgp": 1710
+        "duration_days": 1591,
+        "concurrent_bgp": 1722
       }
     },
     {
-      "event_id": "kit-1716",
+      "event_id": "kit-1728",
       "event_time": "2022-05-24T00:00:00Z",
-      "event_end": "2026-05-15T23:59:59Z",
-      "duration_minutes": 2090880,
+      "event_end": "2026-05-16T23:59:59Z",
+      "duration_minutes": 2092320,
       "event_type": "shutdown",
       "sources": [
         "keepiton"
@@ -189,15 +192,15 @@
       "metadata": {
         "kit_type": "full_network",
         "ongoing": true,
-        "duration_days": 1452,
-        "concurrent_bgp": 1710
+        "duration_days": 1453,
+        "concurrent_bgp": 1722
       }
     },
     {
-      "event_id": "kit-1717",
+      "event_id": "kit-1729",
       "event_time": "2024-02-16T00:00:00Z",
-      "event_end": "2026-05-15T23:59:59Z",
-      "duration_minutes": 1179360,
+      "event_end": "2026-05-16T23:59:59Z",
+      "duration_minutes": 1180800,
       "event_type": "shutdown",
       "sources": [
         "keepiton"
@@ -223,15 +226,15 @@
       "metadata": {
         "kit_type": "mobile",
         "ongoing": true,
-        "duration_days": 819,
-        "concurrent_bgp": 1710
+        "duration_days": 820,
+        "concurrent_bgp": 1722
       }
     },
     {
-      "event_id": "kit-1718",
+      "event_id": "kit-1730",
       "event_time": "2024-04-06T00:00:00Z",
-      "event_end": "2026-05-15T23:59:59Z",
-      "duration_minutes": 1107360,
+      "event_end": "2026-05-16T23:59:59Z",
+      "duration_minutes": 1108800,
       "event_type": "shutdown",
       "sources": [
         "keepiton"
@@ -253,15 +256,15 @@
       "metadata": {
         "kit_type": "full_network",
         "ongoing": true,
-        "duration_days": 769,
-        "concurrent_bgp": 1710
+        "duration_days": 770,
+        "concurrent_bgp": 1722
       }
     },
     {
-      "event_id": "kit-1719",
+      "event_id": "kit-1731",
       "event_time": "2024-07-14T00:00:00Z",
-      "event_end": "2026-05-15T23:59:59Z",
-      "duration_minutes": 964800,
+      "event_end": "2026-05-16T23:59:59Z",
+      "duration_minutes": 966240,
       "event_type": "shutdown",
       "sources": [
         "keepiton"
@@ -284,15 +287,15 @@
       "metadata": {
         "kit_type": "mobile",
         "ongoing": true,
-        "duration_days": 670,
-        "concurrent_bgp": 1710
+        "duration_days": 671,
+        "concurrent_bgp": 1722
       }
     },
     {
-      "event_id": "kit-1720",
+      "event_id": "kit-1732",
       "event_time": "2024-07-21T00:00:00Z",
-      "event_end": "2026-05-15T23:59:59Z",
-      "duration_minutes": 954720,
+      "event_end": "2026-05-16T23:59:59Z",
+      "duration_minutes": 956160,
       "event_type": "shutdown",
       "sources": [
         "keepiton"
@@ -315,15 +318,15 @@
       "metadata": {
         "kit_type": "full_network",
         "ongoing": true,
-        "duration_days": 663,
-        "concurrent_bgp": 1710
+        "duration_days": 664,
+        "concurrent_bgp": 1722
       }
     },
     {
-      "event_id": "kit-1721",
+      "event_id": "kit-1733",
       "event_time": "2024-11-16T00:00:00Z",
-      "event_end": "2026-05-15T23:59:59Z",
-      "duration_minutes": 784800,
+      "event_end": "2026-05-16T23:59:59Z",
+      "duration_minutes": 786240,
       "event_type": "shutdown",
       "sources": [
         "keepiton"
@@ -345,12 +348,12 @@
       "metadata": {
         "kit_type": "full_network",
         "ongoing": true,
-        "duration_days": 545,
-        "concurrent_bgp": 1710
+        "duration_days": 546,
+        "concurrent_bgp": 1722
       }
     },
     {
-      "event_id": "kit-1722",
+      "event_id": "kit-1734",
       "event_time": "2024-12-20T00:00:00Z",
       "event_end": "2025-01-02T23:59:59Z",
       "duration_minutes": 18720,
@@ -380,10 +383,10 @@
       }
     },
     {
-      "event_id": "kit-1723",
+      "event_id": "kit-1735",
       "event_time": "2025-01-01T00:00:00Z",
-      "event_end": "2026-05-15T23:59:59Z",
-      "duration_minutes": 718560,
+      "event_end": "2026-05-16T23:59:59Z",
+      "duration_minutes": 720000,
       "event_type": "shutdown",
       "sources": [
         "keepiton"
@@ -405,15 +408,15 @@
       "metadata": {
         "kit_type": "full_network",
         "ongoing": true,
-        "duration_days": 499,
-        "concurrent_bgp": 1710
+        "duration_days": 500,
+        "concurrent_bgp": 1722
       }
     },
     {
-      "event_id": "kit-1724",
+      "event_id": "kit-1736",
       "event_time": "2025-01-02T00:00:00Z",
-      "event_end": "2026-05-15T23:59:59Z",
-      "duration_minutes": 717120,
+      "event_end": "2026-05-16T23:59:59Z",
+      "duration_minutes": 718560,
       "event_type": "shutdown",
       "sources": [
         "keepiton"
@@ -435,15 +438,15 @@
       "metadata": {
         "kit_type": "full_network",
         "ongoing": true,
-        "duration_days": 498,
-        "concurrent_bgp": 1710
+        "duration_days": 499,
+        "concurrent_bgp": 1722
       }
     },
     {
-      "event_id": "kit-1725",
+      "event_id": "kit-1737",
       "event_time": "2025-01-03T00:00:00Z",
-      "event_end": "2026-05-15T23:59:59Z",
-      "duration_minutes": 715680,
+      "event_end": "2026-05-16T23:59:59Z",
+      "duration_minutes": 717120,
       "event_type": "shutdown",
       "sources": [
         "keepiton"
@@ -465,15 +468,15 @@
       "metadata": {
         "kit_type": "full_network",
         "ongoing": true,
-        "duration_days": 497,
-        "concurrent_bgp": 1710
+        "duration_days": 498,
+        "concurrent_bgp": 1722
       }
     },
     {
-      "event_id": "kit-1726",
+      "event_id": "kit-1738",
       "event_time": "2025-01-03T00:00:00Z",
-      "event_end": "2026-05-15T23:59:59Z",
-      "duration_minutes": 715680,
+      "event_end": "2026-05-16T23:59:59Z",
+      "duration_minutes": 717120,
       "event_type": "shutdown",
       "sources": [
         "keepiton"
@@ -496,15 +499,15 @@
       "metadata": {
         "kit_type": "full_network",
         "ongoing": true,
-        "duration_days": 497,
-        "concurrent_bgp": 1710
+        "duration_days": 498,
+        "concurrent_bgp": 1722
       }
     },
     {
-      "event_id": "kit-1727",
+      "event_id": "kit-1739",
       "event_time": "2025-01-11T00:00:00Z",
-      "event_end": "2026-05-15T23:59:59Z",
-      "duration_minutes": 704160,
+      "event_end": "2026-05-16T23:59:59Z",
+      "duration_minutes": 705600,
       "event_type": "shutdown",
       "sources": [
         "keepiton"
@@ -526,12 +529,12 @@
       "metadata": {
         "kit_type": "full_network",
         "ongoing": true,
-        "duration_days": 489,
-        "concurrent_bgp": 1710
+        "duration_days": 490,
+        "concurrent_bgp": 1722
       }
     },
     {
-      "event_id": "kit-1728",
+      "event_id": "kit-1740",
       "event_time": "2025-01-16T00:00:00Z",
       "event_end": "2025-01-18T23:59:59Z",
       "duration_minutes": 2880,
@@ -561,7 +564,7 @@
       }
     },
     {
-      "event_id": "kit-1729",
+      "event_id": "kit-1741",
       "event_time": "2025-01-20T00:00:00Z",
       "event_end": "2025-02-01T23:59:59Z",
       "duration_minutes": 17280,
@@ -591,10 +594,10 @@
       }
     },
     {
-      "event_id": "kit-1730",
+      "event_id": "kit-1742",
       "event_time": "2025-01-22T00:00:00Z",
-      "event_end": "2026-05-15T23:59:59Z",
-      "duration_minutes": 688320,
+      "event_end": "2026-05-16T23:59:59Z",
+      "duration_minutes": 689760,
       "event_type": "shutdown",
       "sources": [
         "keepiton"
@@ -617,15 +620,15 @@
       "metadata": {
         "kit_type": "full_network",
         "ongoing": true,
-        "duration_days": 478,
-        "concurrent_bgp": 1710
+        "duration_days": 479,
+        "concurrent_bgp": 1722
       }
     },
     {
-      "event_id": "kit-1731",
+      "event_id": "kit-1743",
       "event_time": "2025-01-28T00:00:00Z",
-      "event_end": "2026-05-15T23:59:59Z",
-      "duration_minutes": 679680,
+      "event_end": "2026-05-16T23:59:59Z",
+      "duration_minutes": 681120,
       "event_type": "shutdown",
       "sources": [
         "keepiton"
@@ -648,15 +651,15 @@
       "metadata": {
         "kit_type": "full_network",
         "ongoing": true,
-        "duration_days": 472,
-        "concurrent_bgp": 1710
+        "duration_days": 473,
+        "concurrent_bgp": 1722
       }
     },
     {
-      "event_id": "kit-1732",
+      "event_id": "kit-1744",
       "event_time": "2025-01-29T00:00:00Z",
-      "event_end": "2026-05-15T23:59:59Z",
-      "duration_minutes": 678240,
+      "event_end": "2026-05-16T23:59:59Z",
+      "duration_minutes": 679680,
       "event_type": "shutdown",
       "sources": [
         "keepiton"
@@ -678,15 +681,15 @@
       "metadata": {
         "kit_type": "full_network",
         "ongoing": true,
-        "duration_days": 471,
-        "concurrent_bgp": 1710
+        "duration_days": 472,
+        "concurrent_bgp": 1722
       }
     },
     {
-      "event_id": "kit-1733",
+      "event_id": "kit-1745",
       "event_time": "2025-01-29T00:00:00Z",
-      "event_end": "2026-05-15T23:59:59Z",
-      "duration_minutes": 678240,
+      "event_end": "2026-05-16T23:59:59Z",
+      "duration_minutes": 679680,
       "event_type": "shutdown",
       "sources": [
         "keepiton"
@@ -709,15 +712,15 @@
       "metadata": {
         "kit_type": "full_network",
         "ongoing": true,
-        "duration_days": 471,
-        "concurrent_bgp": 1710
+        "duration_days": 472,
+        "concurrent_bgp": 1722
       }
     },
     {
-      "event_id": "kit-1734",
+      "event_id": "kit-1746",
       "event_time": "2025-02-04T00:00:00Z",
-      "event_end": "2026-05-15T23:59:59Z",
-      "duration_minutes": 669600,
+      "event_end": "2026-05-16T23:59:59Z",
+      "duration_minutes": 671040,
       "event_type": "shutdown",
       "sources": [
         "keepiton"
@@ -740,15 +743,15 @@
       "metadata": {
         "kit_type": "full_network",
         "ongoing": true,
-        "duration_days": 465,
-        "concurrent_bgp": 1710
+        "duration_days": 466,
+        "concurrent_bgp": 1722
       }
     },
     {
-      "event_id": "kit-1735",
+      "event_id": "kit-1747",
       "event_time": "2025-02-05T00:00:00Z",
-      "event_end": "2026-05-15T23:59:59Z",
-      "duration_minutes": 668160,
+      "event_end": "2026-05-16T23:59:59Z",
+      "duration_minutes": 669600,
       "event_type": "shutdown",
       "sources": [
         "keepiton"
@@ -771,12 +774,12 @@
       "metadata": {
         "kit_type": "full_network",
         "ongoing": true,
-        "duration_days": 464,
-        "concurrent_bgp": 1710
+        "duration_days": 465,
+        "concurrent_bgp": 1722
       }
     },
     {
-      "event_id": "kit-1736",
+      "event_id": "kit-1748",
       "event_time": "2025-02-06T00:00:00Z",
       "event_end": "2025-02-10T23:59:59Z",
       "duration_minutes": 5760,
@@ -806,10 +809,10 @@
       }
     },
     {
-      "event_id": "kit-1737",
+      "event_id": "kit-1749",
       "event_time": "2025-02-19T00:00:00Z",
-      "event_end": "2026-05-15T23:59:59Z",
-      "duration_minutes": 648000,
+      "event_end": "2026-05-16T23:59:59Z",
+      "duration_minutes": 649440,
       "event_type": "shutdown",
       "sources": [
         "keepiton"
@@ -832,15 +835,15 @@
       "metadata": {
         "kit_type": "full_network",
         "ongoing": true,
-        "duration_days": 450,
-        "concurrent_bgp": 1710
+        "duration_days": 451,
+        "concurrent_bgp": 1722
       }
     },
     {
-      "event_id": "kit-1738",
+      "event_id": "kit-1750",
       "event_time": "2025-02-21T00:00:00Z",
-      "event_end": "2026-05-15T23:59:59Z",
-      "duration_minutes": 645120,
+      "event_end": "2026-05-16T23:59:59Z",
+      "duration_minutes": 646560,
       "event_type": "shutdown",
       "sources": [
         "keepiton"
@@ -862,12 +865,12 @@
       "metadata": {
         "kit_type": "full_network",
         "ongoing": true,
-        "duration_days": 448,
-        "concurrent_bgp": 1710
+        "duration_days": 449,
+        "concurrent_bgp": 1722
       }
     },
     {
-      "event_id": "kit-1739",
+      "event_id": "kit-1751",
       "event_time": "2025-02-25T00:00:00Z",
       "event_end": "2025-03-05T23:59:59Z",
       "duration_minutes": 11520,
@@ -897,7 +900,7 @@
       }
     },
     {
-      "event_id": "kit-1740",
+      "event_id": "kit-1752",
       "event_time": "2025-03-02T00:00:00Z",
       "event_end": "2025-03-23T23:59:59Z",
       "duration_minutes": 30240,
@@ -927,10 +930,10 @@
       }
     },
     {
-      "event_id": "kit-1741",
+      "event_id": "kit-1753",
       "event_time": "2025-03-03T00:00:00Z",
-      "event_end": "2026-05-15T23:59:59Z",
-      "duration_minutes": 630720,
+      "event_end": "2026-05-16T23:59:59Z",
+      "duration_minutes": 632160,
       "event_type": "shutdown",
       "sources": [
         "keepiton"
@@ -953,15 +956,15 @@
       "metadata": {
         "kit_type": "full_network",
         "ongoing": true,
-        "duration_days": 438,
-        "concurrent_bgp": 1710
+        "duration_days": 439,
+        "concurrent_bgp": 1722
       }
     },
     {
-      "event_id": "kit-1742",
+      "event_id": "kit-1754",
       "event_time": "2025-03-08T00:00:00Z",
-      "event_end": "2026-05-15T23:59:59Z",
-      "duration_minutes": 623520,
+      "event_end": "2026-05-16T23:59:59Z",
+      "duration_minutes": 624960,
       "event_type": "shutdown",
       "sources": [
         "keepiton"
@@ -983,15 +986,15 @@
       "metadata": {
         "kit_type": "full_network",
         "ongoing": true,
-        "duration_days": 433,
-        "concurrent_bgp": 1710
+        "duration_days": 434,
+        "concurrent_bgp": 1722
       }
     },
     {
-      "event_id": "kit-1743",
+      "event_id": "kit-1755",
       "event_time": "2025-03-16T00:00:00Z",
-      "event_end": "2026-05-15T23:59:59Z",
-      "duration_minutes": 612000,
+      "event_end": "2026-05-16T23:59:59Z",
+      "duration_minutes": 613440,
       "event_type": "shutdown",
       "sources": [
         "keepiton"
@@ -1013,15 +1016,15 @@
       "metadata": {
         "kit_type": "full_network",
         "ongoing": true,
-        "duration_days": 425,
-        "concurrent_bgp": 1710
+        "duration_days": 426,
+        "concurrent_bgp": 1722
       }
     },
     {
-      "event_id": "kit-1744",
+      "event_id": "kit-1756",
       "event_time": "2025-03-16T00:00:00Z",
-      "event_end": "2026-05-15T23:59:59Z",
-      "duration_minutes": 612000,
+      "event_end": "2026-05-16T23:59:59Z",
+      "duration_minutes": 613440,
       "event_type": "shutdown",
       "sources": [
         "keepiton"
@@ -1043,15 +1046,15 @@
       "metadata": {
         "kit_type": "full_network",
         "ongoing": true,
-        "duration_days": 425,
-        "concurrent_bgp": 1710
+        "duration_days": 426,
+        "concurrent_bgp": 1722
       }
     },
     {
-      "event_id": "kit-1745",
+      "event_id": "kit-1757",
       "event_time": "2025-03-17T00:00:00Z",
-      "event_end": "2026-05-15T23:59:59Z",
-      "duration_minutes": 610560,
+      "event_end": "2026-05-16T23:59:59Z",
+      "duration_minutes": 612000,
       "event_type": "shutdown",
       "sources": [
         "keepiton"
@@ -1074,15 +1077,15 @@
       "metadata": {
         "kit_type": "full_network",
         "ongoing": true,
-        "duration_days": 424,
-        "concurrent_bgp": 1710
+        "duration_days": 425,
+        "concurrent_bgp": 1722
       }
     },
     {
-      "event_id": "kit-1746",
+      "event_id": "kit-1758",
       "event_time": "2025-03-20T00:00:00Z",
-      "event_end": "2026-05-15T23:59:59Z",
-      "duration_minutes": 606240,
+      "event_end": "2026-05-16T23:59:59Z",
+      "duration_minutes": 607680,
       "event_type": "shutdown",
       "sources": [
         "keepiton"
@@ -1104,15 +1107,15 @@
       "metadata": {
         "kit_type": "full_network",
         "ongoing": true,
-        "duration_days": 421,
-        "concurrent_bgp": 1710
+        "duration_days": 422,
+        "concurrent_bgp": 1722
       }
     },
     {
-      "event_id": "kit-1747",
+      "event_id": "kit-1759",
       "event_time": "2025-03-23T00:00:00Z",
-      "event_end": "2026-05-15T23:59:59Z",
-      "duration_minutes": 601920,
+      "event_end": "2026-05-16T23:59:59Z",
+      "duration_minutes": 603360,
       "event_type": "shutdown",
       "sources": [
         "keepiton"
@@ -1134,15 +1137,15 @@
       "metadata": {
         "kit_type": "full_network",
         "ongoing": true,
-        "duration_days": 418,
-        "concurrent_bgp": 1710
+        "duration_days": 419,
+        "concurrent_bgp": 1722
       }
     },
     {
-      "event_id": "kit-1748",
+      "event_id": "kit-1760",
       "event_time": "2025-03-25T00:00:00Z",
-      "event_end": "2026-05-15T23:59:59Z",
-      "duration_minutes": 599040,
+      "event_end": "2026-05-16T23:59:59Z",
+      "duration_minutes": 600480,
       "event_type": "shutdown",
       "sources": [
         "keepiton"
@@ -1164,15 +1167,15 @@
       "metadata": {
         "kit_type": "full_network",
         "ongoing": true,
-        "duration_days": 416,
-        "concurrent_bgp": 1710
+        "duration_days": 417,
+        "concurrent_bgp": 1722
       }
     },
     {
-      "event_id": "kit-1749",
+      "event_id": "kit-1761",
       "event_time": "2025-04-07T00:00:00Z",
-      "event_end": "2026-05-15T23:59:59Z",
-      "duration_minutes": 580320,
+      "event_end": "2026-05-16T23:59:59Z",
+      "duration_minutes": 581760,
       "event_type": "shutdown",
       "sources": [
         "keepiton"
@@ -1195,12 +1198,12 @@
       "metadata": {
         "kit_type": "full_network",
         "ongoing": true,
-        "duration_days": 403,
-        "concurrent_bgp": 1710
+        "duration_days": 404,
+        "concurrent_bgp": 1722
       }
     },
     {
-      "event_id": "kit-1750",
+      "event_id": "kit-1762",
       "event_time": "2025-04-11T00:00:00Z",
       "event_end": "2025-04-15T23:59:59Z",
       "duration_minutes": 5760,
@@ -1231,10 +1234,10 @@
       }
     },
     {
-      "event_id": "kit-1751",
+      "event_id": "kit-1763",
       "event_time": "2025-04-14T00:00:00Z",
-      "event_end": "2026-05-15T23:59:59Z",
-      "duration_minutes": 570240,
+      "event_end": "2026-05-16T23:59:59Z",
+      "duration_minutes": 571680,
       "event_type": "shutdown",
       "sources": [
         "keepiton"
@@ -1256,15 +1259,15 @@
       "metadata": {
         "kit_type": "full_network",
         "ongoing": true,
-        "duration_days": 396,
-        "concurrent_bgp": 1710
+        "duration_days": 397,
+        "concurrent_bgp": 1722
       }
     },
     {
-      "event_id": "kit-1752",
+      "event_id": "kit-1764",
       "event_time": "2025-04-15T00:00:00Z",
-      "event_end": "2026-05-15T23:59:59Z",
-      "duration_minutes": 568800,
+      "event_end": "2026-05-16T23:59:59Z",
+      "duration_minutes": 570240,
       "event_type": "shutdown",
       "sources": [
         "keepiton"
@@ -1286,12 +1289,12 @@
       "metadata": {
         "kit_type": "full_network",
         "ongoing": true,
-        "duration_days": 395,
-        "concurrent_bgp": 1710
+        "duration_days": 396,
+        "concurrent_bgp": 1722
       }
     },
     {
-      "event_id": "kit-1753",
+      "event_id": "kit-1765",
       "event_time": "2025-04-15T00:00:00Z",
       "event_end": "2025-04-18T23:59:59Z",
       "duration_minutes": 4320,
@@ -1321,10 +1324,10 @@
       }
     },
     {
-      "event_id": "kit-1754",
+      "event_id": "kit-1766",
       "event_time": "2025-04-17T00:00:00Z",
-      "event_end": "2026-05-15T23:59:59Z",
-      "duration_minutes": 565920,
+      "event_end": "2026-05-16T23:59:59Z",
+      "duration_minutes": 567360,
       "event_type": "shutdown",
       "sources": [
         "keepiton"
@@ -1346,12 +1349,12 @@
       "metadata": {
         "kit_type": "full_network",
         "ongoing": true,
-        "duration_days": 393,
-        "concurrent_bgp": 1710
+        "duration_days": 394,
+        "concurrent_bgp": 1722
       }
     },
     {
-      "event_id": "kit-1755",
+      "event_id": "kit-1767",
       "event_time": "2025-04-20T00:00:00Z",
       "event_end": "2025-04-23T23:59:59Z",
       "duration_minutes": 4320,
@@ -1382,7 +1385,7 @@
       }
     },
     {
-      "event_id": "kit-1756",
+      "event_id": "kit-1768",
       "event_time": "2025-04-29T00:00:00Z",
       "event_end": "2025-05-03T23:59:59Z",
       "duration_minutes": 5760,
@@ -1413,7 +1416,7 @@
       }
     },
     {
-      "event_id": "kit-1757",
+      "event_id": "kit-1769",
       "event_time": "2025-05-01T00:00:00Z",
       "event_end": "2025-06-01T23:59:59Z",
       "duration_minutes": 44640,
@@ -1444,10 +1447,10 @@
       }
     },
     {
-      "event_id": "kit-1758",
+      "event_id": "kit-1770",
       "event_time": "2025-05-01T00:00:00Z",
-      "event_end": "2026-05-15T23:59:59Z",
-      "duration_minutes": 545760,
+      "event_end": "2026-05-16T23:59:59Z",
+      "duration_minutes": 547200,
       "event_type": "shutdown",
       "sources": [
         "keepiton"
@@ -1469,15 +1472,15 @@
       "metadata": {
         "kit_type": "full_network",
         "ongoing": true,
-        "duration_days": 379,
-        "concurrent_bgp": 1710
+        "duration_days": 380,
+        "concurrent_bgp": 1722
       }
     },
     {
-      "event_id": "kit-1759",
+      "event_id": "kit-1771",
       "event_time": "2025-05-02T00:00:00Z",
-      "event_end": "2026-05-15T23:59:59Z",
-      "duration_minutes": 544320,
+      "event_end": "2026-05-16T23:59:59Z",
+      "duration_minutes": 545760,
       "event_type": "shutdown",
       "sources": [
         "keepiton"
@@ -1499,15 +1502,15 @@
       "metadata": {
         "kit_type": "full_network",
         "ongoing": true,
-        "duration_days": 378,
-        "concurrent_bgp": 1710
+        "duration_days": 379,
+        "concurrent_bgp": 1722
       }
     },
     {
-      "event_id": "kit-1760",
+      "event_id": "kit-1772",
       "event_time": "2025-05-07T00:00:00Z",
-      "event_end": "2026-05-15T23:59:59Z",
-      "duration_minutes": 537120,
+      "event_end": "2026-05-16T23:59:59Z",
+      "duration_minutes": 538560,
       "event_type": "shutdown",
       "sources": [
         "keepiton"
@@ -1529,12 +1532,12 @@
       "metadata": {
         "kit_type": "full_network",
         "ongoing": true,
-        "duration_days": 373,
-        "concurrent_bgp": 1710
+        "duration_days": 374,
+        "concurrent_bgp": 1722
       }
     },
     {
-      "event_id": "kit-1761",
+      "event_id": "kit-1773",
       "event_time": "2025-05-07T00:00:00Z",
       "event_end": "2025-05-31T23:59:59Z",
       "duration_minutes": 34560,
@@ -1564,7 +1567,7 @@
       }
     },
     {
-      "event_id": "kit-1762",
+      "event_id": "kit-1774",
       "event_time": "2025-05-31T00:00:00Z",
       "event_end": "2025-06-21T23:59:59Z",
       "duration_minutes": 30240,
@@ -1595,10 +1598,10 @@
       }
     },
     {
-      "event_id": "kit-1763",
+      "event_id": "kit-1775",
       "event_time": "2025-06-03T00:00:00Z",
-      "event_end": "2026-05-15T23:59:59Z",
-      "duration_minutes": 498240,
+      "event_end": "2026-05-16T23:59:59Z",
+      "duration_minutes": 499680,
       "event_type": "shutdown",
       "sources": [
         "keepiton"
@@ -1621,15 +1624,15 @@
       "metadata": {
         "kit_type": "full_network",
         "ongoing": true,
-        "duration_days": 346,
-        "concurrent_bgp": 1710
+        "duration_days": 347,
+        "concurrent_bgp": 1722
       }
     },
     {
-      "event_id": "kit-1764",
+      "event_id": "kit-1776",
       "event_time": "2025-06-06T00:00:00Z",
-      "event_end": "2026-05-15T23:59:59Z",
-      "duration_minutes": 493920,
+      "event_end": "2026-05-16T23:59:59Z",
+      "duration_minutes": 495360,
       "event_type": "shutdown",
       "sources": [
         "keepiton"
@@ -1652,15 +1655,15 @@
       "metadata": {
         "kit_type": "full_network",
         "ongoing": true,
-        "duration_days": 343,
-        "concurrent_bgp": 1710
+        "duration_days": 344,
+        "concurrent_bgp": 1722
       }
     },
     {
-      "event_id": "kit-1765",
+      "event_id": "kit-1777",
       "event_time": "2025-06-06T00:00:00Z",
-      "event_end": "2026-05-15T23:59:59Z",
-      "duration_minutes": 493920,
+      "event_end": "2026-05-16T23:59:59Z",
+      "duration_minutes": 495360,
       "event_type": "shutdown",
       "sources": [
         "keepiton"
@@ -1682,15 +1685,15 @@
       "metadata": {
         "kit_type": "full_network",
         "ongoing": true,
-        "duration_days": 343,
-        "concurrent_bgp": 1710
+        "duration_days": 344,
+        "concurrent_bgp": 1722
       }
     },
     {
-      "event_id": "kit-1766",
+      "event_id": "kit-1778",
       "event_time": "2025-06-10T00:00:00Z",
-      "event_end": "2026-05-15T23:59:59Z",
-      "duration_minutes": 488160,
+      "event_end": "2026-05-16T23:59:59Z",
+      "duration_minutes": 489600,
       "event_type": "shutdown",
       "sources": [
         "keepiton"
@@ -1713,15 +1716,15 @@
       "metadata": {
         "kit_type": "full_network",
         "ongoing": true,
-        "duration_days": 339,
-        "concurrent_bgp": 1710
+        "duration_days": 340,
+        "concurrent_bgp": 1722
       }
     },
     {
-      "event_id": "kit-1767",
+      "event_id": "kit-1779",
       "event_time": "2025-06-11T00:00:00Z",
-      "event_end": "2026-05-15T23:59:59Z",
-      "duration_minutes": 486720,
+      "event_end": "2026-05-16T23:59:59Z",
+      "duration_minutes": 488160,
       "event_type": "shutdown",
       "sources": [
         "keepiton"
@@ -1743,15 +1746,15 @@
       "metadata": {
         "kit_type": "full_network",
         "ongoing": true,
-        "duration_days": 338,
-        "concurrent_bgp": 1710
+        "duration_days": 339,
+        "concurrent_bgp": 1722
       }
     },
     {
-      "event_id": "kit-1768",
+      "event_id": "kit-1780",
       "event_time": "2025-06-24T00:00:00Z",
-      "event_end": "2026-05-15T23:59:59Z",
-      "duration_minutes": 468000,
+      "event_end": "2026-05-16T23:59:59Z",
+      "duration_minutes": 469440,
       "event_type": "shutdown",
       "sources": [
         "keepiton"
@@ -1774,15 +1777,15 @@
       "metadata": {
         "kit_type": "full_network",
         "ongoing": true,
-        "duration_days": 325,
-        "concurrent_bgp": 1710
+        "duration_days": 326,
+        "concurrent_bgp": 1722
       }
     },
     {
-      "event_id": "kit-1769",
+      "event_id": "kit-1781",
       "event_time": "2025-07-08T00:00:00Z",
-      "event_end": "2026-05-15T23:59:59Z",
-      "duration_minutes": 447840,
+      "event_end": "2026-05-16T23:59:59Z",
+      "duration_minutes": 449280,
       "event_type": "shutdown",
       "sources": [
         "keepiton"
@@ -1805,15 +1808,15 @@
       "metadata": {
         "kit_type": "full_network",
         "ongoing": true,
-        "duration_days": 311,
-        "concurrent_bgp": 1710
+        "duration_days": 312,
+        "concurrent_bgp": 1722
       }
     },
     {
-      "event_id": "kit-1770",
+      "event_id": "kit-1782",
       "event_time": "2025-07-14T00:00:00Z",
-      "event_end": "2026-05-15T23:59:59Z",
-      "duration_minutes": 439200,
+      "event_end": "2026-05-16T23:59:59Z",
+      "duration_minutes": 440640,
       "event_type": "shutdown",
       "sources": [
         "keepiton"
@@ -1836,12 +1839,12 @@
       "metadata": {
         "kit_type": "full_network",
         "ongoing": true,
-        "duration_days": 305,
-        "concurrent_bgp": 1710
+        "duration_days": 306,
+        "concurrent_bgp": 1722
       }
     },
     {
-      "event_id": "kit-1771",
+      "event_id": "kit-1783",
       "event_time": "2025-07-18T00:00:00Z",
       "event_end": "2025-07-18T23:59:59Z",
       "duration_minutes": 0,
@@ -1872,7 +1875,7 @@
       }
     },
     {
-      "event_id": "kit-1772",
+      "event_id": "kit-1784",
       "event_time": "2025-07-23T00:00:00Z",
       "event_end": "2025-07-28T23:59:59Z",
       "duration_minutes": 7200,
@@ -1902,7 +1905,7 @@
       }
     },
     {
-      "event_id": "kit-1773",
+      "event_id": "kit-1785",
       "event_time": "2025-07-24T00:00:00Z",
       "event_end": "2025-07-28T23:59:59Z",
       "duration_minutes": 5760,
@@ -1933,10 +1936,10 @@
       }
     },
     {
-      "event_id": "kit-1774",
+      "event_id": "kit-1786",
       "event_time": "2025-07-25T00:00:00Z",
-      "event_end": "2026-05-15T23:59:59Z",
-      "duration_minutes": 423360,
+      "event_end": "2026-05-16T23:59:59Z",
+      "duration_minutes": 424800,
       "event_type": "shutdown",
       "sources": [
         "keepiton"
@@ -1958,15 +1961,15 @@
       "metadata": {
         "kit_type": "full_network",
         "ongoing": true,
-        "duration_days": 294,
-        "concurrent_bgp": 1710
+        "duration_days": 295,
+        "concurrent_bgp": 1722
       }
     },
     {
-      "event_id": "kit-1775",
+      "event_id": "kit-1787",
       "event_time": "2025-08-16T00:00:00Z",
-      "event_end": "2026-05-15T23:59:59Z",
-      "duration_minutes": 391680,
+      "event_end": "2026-05-16T23:59:59Z",
+      "duration_minutes": 393120,
       "event_type": "shutdown",
       "sources": [
         "keepiton"
@@ -1989,15 +1992,15 @@
       "metadata": {
         "kit_type": "full_network",
         "ongoing": true,
-        "duration_days": 272,
-        "concurrent_bgp": 1710
+        "duration_days": 273,
+        "concurrent_bgp": 1722
       }
     },
     {
-      "event_id": "kit-1776",
+      "event_id": "kit-1788",
       "event_time": "2025-08-19T00:00:00Z",
-      "event_end": "2026-05-15T23:59:59Z",
-      "duration_minutes": 387360,
+      "event_end": "2026-05-16T23:59:59Z",
+      "duration_minutes": 388800,
       "event_type": "shutdown",
       "sources": [
         "keepiton"
@@ -2020,15 +2023,15 @@
       "metadata": {
         "kit_type": "full_network",
         "ongoing": true,
-        "duration_days": 269,
-        "concurrent_bgp": 1710
+        "duration_days": 270,
+        "concurrent_bgp": 1722
       }
     },
     {
-      "event_id": "kit-1777",
+      "event_id": "kit-1789",
       "event_time": "2025-08-19T00:00:00Z",
-      "event_end": "2026-05-15T23:59:59Z",
-      "duration_minutes": 387360,
+      "event_end": "2026-05-16T23:59:59Z",
+      "duration_minutes": 388800,
       "event_type": "shutdown",
       "sources": [
         "keepiton"
@@ -2051,15 +2054,15 @@
       "metadata": {
         "kit_type": "full_network",
         "ongoing": true,
-        "duration_days": 269,
-        "concurrent_bgp": 1710
+        "duration_days": 270,
+        "concurrent_bgp": 1722
       }
     },
     {
-      "event_id": "kit-1778",
+      "event_id": "kit-1790",
       "event_time": "2025-08-26T00:00:00Z",
-      "event_end": "2026-05-15T23:59:59Z",
-      "duration_minutes": 377280,
+      "event_end": "2026-05-16T23:59:59Z",
+      "duration_minutes": 378720,
       "event_type": "shutdown",
       "sources": [
         "keepiton"
@@ -2082,15 +2085,15 @@
       "metadata": {
         "kit_type": "full_network",
         "ongoing": true,
-        "duration_days": 262,
-        "concurrent_bgp": 1710
+        "duration_days": 263,
+        "concurrent_bgp": 1722
       }
     },
     {
-      "event_id": "kit-1779",
+      "event_id": "kit-1791",
       "event_time": "2025-09-01T00:00:00Z",
-      "event_end": "2026-05-15T23:59:59Z",
-      "duration_minutes": 368640,
+      "event_end": "2026-05-16T23:59:59Z",
+      "duration_minutes": 370080,
       "event_type": "shutdown",
       "sources": [
         "keepiton"
@@ -2112,15 +2115,15 @@
       "metadata": {
         "kit_type": "full_network",
         "ongoing": true,
-        "duration_days": 256,
-        "concurrent_bgp": 1710
+        "duration_days": 257,
+        "concurrent_bgp": 1722
       }
     },
     {
-      "event_id": "kit-1780",
+      "event_id": "kit-1792",
       "event_time": "2025-09-01T00:00:00Z",
-      "event_end": "2026-05-15T23:59:59Z",
-      "duration_minutes": 368640,
+      "event_end": "2026-05-16T23:59:59Z",
+      "duration_minutes": 370080,
       "event_type": "shutdown",
       "sources": [
         "keepiton"
@@ -2143,15 +2146,15 @@
       "metadata": {
         "kit_type": "full_network",
         "ongoing": true,
-        "duration_days": 256,
-        "concurrent_bgp": 1710
+        "duration_days": 257,
+        "concurrent_bgp": 1722
       }
     },
     {
-      "event_id": "kit-1781",
+      "event_id": "kit-1793",
       "event_time": "2025-09-02T00:00:00Z",
-      "event_end": "2026-05-15T23:59:59Z",
-      "duration_minutes": 367200,
+      "event_end": "2026-05-16T23:59:59Z",
+      "duration_minutes": 368640,
       "event_type": "shutdown",
       "sources": [
         "keepiton"
@@ -2174,15 +2177,15 @@
       "metadata": {
         "kit_type": "full_network",
         "ongoing": true,
-        "duration_days": 255,
-        "concurrent_bgp": 1710
+        "duration_days": 256,
+        "concurrent_bgp": 1722
       }
     },
     {
-      "event_id": "kit-1782",
+      "event_id": "kit-1794",
       "event_time": "2025-09-10T00:00:00Z",
-      "event_end": "2026-05-15T23:59:59Z",
-      "duration_minutes": 355680,
+      "event_end": "2026-05-16T23:59:59Z",
+      "duration_minutes": 357120,
       "event_type": "shutdown",
       "sources": [
         "keepiton"
@@ -2205,12 +2208,12 @@
       "metadata": {
         "kit_type": "full_network",
         "ongoing": true,
-        "duration_days": 247,
-        "concurrent_bgp": 1710
+        "duration_days": 248,
+        "concurrent_bgp": 1722
       }
     },
     {
-      "event_id": "kit-1783",
+      "event_id": "kit-1795",
       "event_time": "2025-09-12T00:00:00Z",
       "event_end": "2025-09-20T23:59:59Z",
       "duration_minutes": 11520,
@@ -2241,10 +2244,10 @@
       }
     },
     {
-      "event_id": "kit-1784",
+      "event_id": "kit-1796",
       "event_time": "2025-09-15T00:00:00Z",
-      "event_end": "2026-05-15T23:59:59Z",
-      "duration_minutes": 348480,
+      "event_end": "2026-05-16T23:59:59Z",
+      "duration_minutes": 349920,
       "event_type": "shutdown",
       "sources": [
         "keepiton"
@@ -2267,15 +2270,15 @@
       "metadata": {
         "kit_type": "full_network",
         "ongoing": true,
-        "duration_days": 242,
-        "concurrent_bgp": 1710
+        "duration_days": 243,
+        "concurrent_bgp": 1722
       }
     },
     {
-      "event_id": "kit-1785",
+      "event_id": "kit-1797",
       "event_time": "2025-09-18T00:00:00Z",
-      "event_end": "2026-05-15T23:59:59Z",
-      "duration_minutes": 344160,
+      "event_end": "2026-05-16T23:59:59Z",
+      "duration_minutes": 345600,
       "event_type": "shutdown",
       "sources": [
         "keepiton"
@@ -2298,15 +2301,15 @@
       "metadata": {
         "kit_type": "full_network",
         "ongoing": true,
-        "duration_days": 239,
-        "concurrent_bgp": 1710
+        "duration_days": 240,
+        "concurrent_bgp": 1722
       }
     },
     {
-      "event_id": "kit-1786",
+      "event_id": "kit-1798",
       "event_time": "2025-09-22T00:00:00Z",
-      "event_end": "2026-05-15T23:59:59Z",
-      "duration_minutes": 338400,
+      "event_end": "2026-05-16T23:59:59Z",
+      "duration_minutes": 339840,
       "event_type": "shutdown",
       "sources": [
         "keepiton"
@@ -2328,15 +2331,15 @@
       "metadata": {
         "kit_type": "full_network",
         "ongoing": true,
-        "duration_days": 235,
-        "concurrent_bgp": 1710
+        "duration_days": 236,
+        "concurrent_bgp": 1722
       }
     },
     {
-      "event_id": "kit-1787",
+      "event_id": "kit-1799",
       "event_time": "2025-09-26T00:00:00Z",
-      "event_end": "2026-05-15T23:59:59Z",
-      "duration_minutes": 332640,
+      "event_end": "2026-05-16T23:59:59Z",
+      "duration_minutes": 334080,
       "event_type": "shutdown",
       "sources": [
         "keepiton"
@@ -2358,12 +2361,12 @@
       "metadata": {
         "kit_type": "full_network",
         "ongoing": true,
-        "duration_days": 231,
-        "concurrent_bgp": 1710
+        "duration_days": 232,
+        "concurrent_bgp": 1722
       }
     },
     {
-      "event_id": "kit-1788",
+      "event_id": "kit-1800",
       "event_time": "2025-10-02T00:00:00Z",
       "event_end": "2025-10-07T23:59:59Z",
       "duration_minutes": 7200,
@@ -2393,7 +2396,7 @@
       }
     },
     {
-      "event_id": "kit-1789",
+      "event_id": "kit-1801",
       "event_time": "2025-10-03T00:00:00Z",
       "event_end": "2025-10-04T23:59:59Z",
       "duration_minutes": 1440,
@@ -2424,7 +2427,7 @@
       }
     },
     {
-      "event_id": "kit-1790",
+      "event_id": "kit-1802",
       "event_time": "2025-10-06T00:00:00Z",
       "event_end": "2025-10-07T23:59:59Z",
       "duration_minutes": 1440,
@@ -2454,10 +2457,10 @@
       }
     },
     {
-      "event_id": "kit-1791",
+      "event_id": "kit-1803",
       "event_time": "2025-10-14T00:00:00Z",
-      "event_end": "2026-05-15T23:59:59Z",
-      "duration_minutes": 306720,
+      "event_end": "2026-05-16T23:59:59Z",
+      "duration_minutes": 308160,
       "event_type": "shutdown",
       "sources": [
         "keepiton"
@@ -2480,15 +2483,15 @@
       "metadata": {
         "kit_type": "full_network",
         "ongoing": true,
-        "duration_days": 213,
-        "concurrent_bgp": 1710
+        "duration_days": 214,
+        "concurrent_bgp": 1722
       }
     },
     {
-      "event_id": "kit-1792",
+      "event_id": "kit-1804",
       "event_time": "2025-10-15T00:00:00Z",
-      "event_end": "2026-05-15T23:59:59Z",
-      "duration_minutes": 305280,
+      "event_end": "2026-05-16T23:59:59Z",
+      "duration_minutes": 306720,
       "event_type": "shutdown",
       "sources": [
         "keepiton"
@@ -2511,15 +2514,15 @@
       "metadata": {
         "kit_type": "full_network",
         "ongoing": true,
-        "duration_days": 212,
-        "concurrent_bgp": 1710
+        "duration_days": 213,
+        "concurrent_bgp": 1722
       }
     },
     {
-      "event_id": "kit-1793",
+      "event_id": "kit-1805",
       "event_time": "2025-10-16T00:00:00Z",
-      "event_end": "2026-05-15T23:59:59Z",
-      "duration_minutes": 303840,
+      "event_end": "2026-05-16T23:59:59Z",
+      "duration_minutes": 305280,
       "event_type": "shutdown",
       "sources": [
         "keepiton"
@@ -2541,12 +2544,12 @@
       "metadata": {
         "kit_type": "full_network",
         "ongoing": true,
-        "duration_days": 211,
-        "concurrent_bgp": 1710
+        "duration_days": 212,
+        "concurrent_bgp": 1722
       }
     },
     {
-      "event_id": "kit-1794",
+      "event_id": "kit-1806",
       "event_time": "2025-11-01T00:00:00Z",
       "event_end": "2025-11-02T23:59:59Z",
       "duration_minutes": 1440,
@@ -2577,10 +2580,10 @@
       }
     },
     {
-      "event_id": "kit-1795",
+      "event_id": "kit-1807",
       "event_time": "2025-11-04T00:00:00Z",
-      "event_end": "2026-05-15T23:59:59Z",
-      "duration_minutes": 276480,
+      "event_end": "2026-05-16T23:59:59Z",
+      "duration_minutes": 277920,
       "event_type": "shutdown",
       "sources": [
         "keepiton"
@@ -2603,15 +2606,15 @@
       "metadata": {
         "kit_type": "full_network",
         "ongoing": true,
-        "duration_days": 192,
-        "concurrent_bgp": 1710
+        "duration_days": 193,
+        "concurrent_bgp": 1722
       }
     },
     {
-      "event_id": "kit-1796",
+      "event_id": "kit-1808",
       "event_time": "2025-11-11T00:00:00Z",
-      "event_end": "2026-05-15T23:59:59Z",
-      "duration_minutes": 266400,
+      "event_end": "2026-05-16T23:59:59Z",
+      "duration_minutes": 267840,
       "event_type": "shutdown",
       "sources": [
         "keepiton"
@@ -2634,15 +2637,15 @@
       "metadata": {
         "kit_type": "full_network",
         "ongoing": true,
-        "duration_days": 185,
-        "concurrent_bgp": 1710
+        "duration_days": 186,
+        "concurrent_bgp": 1722
       }
     },
     {
-      "event_id": "kit-1797",
+      "event_id": "kit-1809",
       "event_time": "2025-11-14T00:00:00Z",
-      "event_end": "2026-05-15T23:59:59Z",
-      "duration_minutes": 262080,
+      "event_end": "2026-05-16T23:59:59Z",
+      "duration_minutes": 263520,
       "event_type": "shutdown",
       "sources": [
         "keepiton"
@@ -2664,15 +2667,15 @@
       "metadata": {
         "kit_type": "full_network",
         "ongoing": true,
-        "duration_days": 182,
-        "concurrent_bgp": 1710
+        "duration_days": 183,
+        "concurrent_bgp": 1722
       }
     },
     {
-      "event_id": "kit-1798",
+      "event_id": "kit-1810",
       "event_time": "2025-11-19T00:00:00Z",
-      "event_end": "2026-05-15T23:59:59Z",
-      "duration_minutes": 254880,
+      "event_end": "2026-05-16T23:59:59Z",
+      "duration_minutes": 256320,
       "event_type": "shutdown",
       "sources": [
         "keepiton"
@@ -2694,15 +2697,15 @@
       "metadata": {
         "kit_type": "full_network",
         "ongoing": true,
-        "duration_days": 177,
-        "concurrent_bgp": 1710
+        "duration_days": 178,
+        "concurrent_bgp": 1722
       }
     },
     {
-      "event_id": "kit-1799",
+      "event_id": "kit-1811",
       "event_time": "2025-11-23T00:00:00Z",
-      "event_end": "2026-05-15T23:59:59Z",
-      "duration_minutes": 249120,
+      "event_end": "2026-05-16T23:59:59Z",
+      "duration_minutes": 250560,
       "event_type": "shutdown",
       "sources": [
         "keepiton"
@@ -2725,15 +2728,15 @@
       "metadata": {
         "kit_type": "full_network",
         "ongoing": true,
-        "duration_days": 173,
-        "concurrent_bgp": 1710
+        "duration_days": 174,
+        "concurrent_bgp": 1722
       }
     },
     {
-      "event_id": "kit-1800",
+      "event_id": "kit-1812",
       "event_time": "2025-12-08T00:00:00Z",
-      "event_end": "2026-05-15T23:59:59Z",
-      "duration_minutes": 227520,
+      "event_end": "2026-05-16T23:59:59Z",
+      "duration_minutes": 228960,
       "event_type": "shutdown",
       "sources": [
         "keepiton"
@@ -2756,15 +2759,15 @@
       "metadata": {
         "kit_type": "full_network",
         "ongoing": true,
-        "duration_days": 158,
-        "concurrent_bgp": 1710
+        "duration_days": 159,
+        "concurrent_bgp": 1722
       }
     },
     {
-      "event_id": "kit-1801",
+      "event_id": "kit-1813",
       "event_time": "2025-12-09T00:00:00Z",
-      "event_end": "2026-05-15T23:59:59Z",
-      "duration_minutes": 226080,
+      "event_end": "2026-05-16T23:59:59Z",
+      "duration_minutes": 227520,
       "event_type": "shutdown",
       "sources": [
         "keepiton"
@@ -2786,15 +2789,15 @@
       "metadata": {
         "kit_type": "full_network",
         "ongoing": true,
-        "duration_days": 157,
-        "concurrent_bgp": 1710
+        "duration_days": 158,
+        "concurrent_bgp": 1722
       }
     },
     {
-      "event_id": "kit-1802",
+      "event_id": "kit-1814",
       "event_time": "2025-12-15T00:00:00Z",
-      "event_end": "2026-05-15T23:59:59Z",
-      "duration_minutes": 217440,
+      "event_end": "2026-05-16T23:59:59Z",
+      "duration_minutes": 218880,
       "event_type": "shutdown",
       "sources": [
         "keepiton"
@@ -2816,12 +2819,12 @@
       "metadata": {
         "kit_type": "full_network",
         "ongoing": true,
-        "duration_days": 151,
-        "concurrent_bgp": 1710
+        "duration_days": 152,
+        "concurrent_bgp": 1722
       }
     },
     {
-      "event_id": "kit-1803",
+      "event_id": "kit-1815",
       "event_time": "2025-12-18T00:00:00Z",
       "event_end": "2025-12-31T23:59:59Z",
       "duration_minutes": 18720,
@@ -2852,10 +2855,10 @@
       }
     },
     {
-      "event_id": "kit-1804",
+      "event_id": "kit-1816",
       "event_time": "2025-12-24T00:00:00Z",
-      "event_end": "2026-05-15T23:59:59Z",
-      "duration_minutes": 204480,
+      "event_end": "2026-05-16T23:59:59Z",
+      "duration_minutes": 205920,
       "event_type": "shutdown",
       "sources": [
         "keepiton"
@@ -2877,12 +2880,12 @@
       "metadata": {
         "kit_type": "full_network",
         "ongoing": true,
-        "duration_days": 142,
-        "concurrent_bgp": 1710
+        "duration_days": 143,
+        "concurrent_bgp": 1722
       }
     },
     {
-      "event_id": "kit-1805",
+      "event_id": "kit-1817",
       "event_time": "2025-12-27T00:00:00Z",
       "event_end": "2025-12-28T23:59:59Z",
       "duration_minutes": 1440,
@@ -45645,6 +45648,306 @@
       ],
       "asn": "AS58952",
       "isp_name": "FRONTIIRCOLTD-MM Frontiir Co. Ltd",
+      "severity": 2,
+      "scope": null,
+      "perpetrator": null,
+      "affected_services": [],
+      "is_confirmed": false,
+      "keepiton_matched": true,
+      "keepiton_ids": [],
+      "source_urls": [],
+      "metadata": {
+        "min_visibility_pct": 0.0,
+        "resolved": true,
+        "ioda_confirmed": false
+      }
+    },
+    {
+      "event_id": "bgp-1711",
+      "event_time": "2026-05-16T00:31:52Z",
+      "event_end": "2026-05-16T01:01:27Z",
+      "duration_minutes": 29,
+      "event_type": "outage",
+      "sources": [
+        "bgp"
+      ],
+      "asn": "AS137888",
+      "isp_name": "BCM-AS-AP Bee Connect Myanmar Co., Ltd.",
+      "severity": 2,
+      "scope": null,
+      "perpetrator": null,
+      "affected_services": [],
+      "is_confirmed": false,
+      "keepiton_matched": true,
+      "keepiton_ids": [],
+      "source_urls": [],
+      "metadata": {
+        "min_visibility_pct": 0.0,
+        "resolved": true,
+        "ioda_confirmed": false
+      }
+    },
+    {
+      "event_id": "bgp-1712",
+      "event_time": "2026-05-16T01:31:56Z",
+      "event_end": "2026-05-16T02:01:49Z",
+      "duration_minutes": 29,
+      "event_type": "outage",
+      "sources": [
+        "bgp"
+      ],
+      "asn": "AS132344",
+      "isp_name": "STMCL-AS-AP SEANET",
+      "severity": 2,
+      "scope": null,
+      "perpetrator": null,
+      "affected_services": [],
+      "is_confirmed": false,
+      "keepiton_matched": true,
+      "keepiton_ids": [],
+      "source_urls": [],
+      "metadata": {
+        "min_visibility_pct": 0.0,
+        "resolved": true,
+        "ioda_confirmed": false
+      }
+    },
+    {
+      "event_id": "bgp-1713",
+      "event_time": "2026-05-16T02:31:47Z",
+      "event_end": "2026-05-16T03:01:34Z",
+      "duration_minutes": 29,
+      "event_type": "outage",
+      "sources": [
+        "bgp"
+      ],
+      "asn": "AS150153",
+      "isp_name": "AWSCL-AS-AP A W S MYANMAR COMPANY LIMITED",
+      "severity": 2,
+      "scope": null,
+      "perpetrator": null,
+      "affected_services": [],
+      "is_confirmed": false,
+      "keepiton_matched": true,
+      "keepiton_ids": [],
+      "source_urls": [],
+      "metadata": {
+        "min_visibility_pct": 0.0,
+        "resolved": true,
+        "ioda_confirmed": false
+      }
+    },
+    {
+      "event_id": "bgp-1714",
+      "event_time": "2026-05-16T02:31:53Z",
+      "event_end": "2026-05-16T03:01:37Z",
+      "duration_minutes": 29,
+      "event_type": "outage",
+      "sources": [
+        "bgp"
+      ],
+      "asn": "AS137888",
+      "isp_name": "BCM-AS-AP Bee Connect Myanmar Co., Ltd.",
+      "severity": 2,
+      "scope": null,
+      "perpetrator": null,
+      "affected_services": [],
+      "is_confirmed": false,
+      "keepiton_matched": true,
+      "keepiton_ids": [],
+      "source_urls": [],
+      "metadata": {
+        "min_visibility_pct": 0.0,
+        "resolved": true,
+        "ioda_confirmed": false
+      }
+    },
+    {
+      "event_id": "bgp-1715",
+      "event_time": "2026-05-16T02:31:53Z",
+      "event_end": "2026-05-16T03:01:37Z",
+      "duration_minutes": 29,
+      "event_type": "outage",
+      "sources": [
+        "bgp"
+      ],
+      "asn": "AS137891",
+      "isp_name": "BETHEFIRST-AS-AP Be The First",
+      "severity": 2,
+      "scope": null,
+      "perpetrator": null,
+      "affected_services": [],
+      "is_confirmed": false,
+      "keepiton_matched": true,
+      "keepiton_ids": [],
+      "source_urls": [],
+      "metadata": {
+        "min_visibility_pct": 0.0,
+        "resolved": true,
+        "ioda_confirmed": false
+      }
+    },
+    {
+      "event_id": "bgp-1716",
+      "event_time": "2026-05-16T02:31:55Z",
+      "event_end": "2026-05-16T03:01:39Z",
+      "duration_minutes": 29,
+      "event_type": "outage",
+      "sources": [
+        "bgp"
+      ],
+      "asn": "AS153777",
+      "isp_name": "MMC-AS-AP Mandalar Mandalay Company Limited",
+      "severity": 2,
+      "scope": null,
+      "perpetrator": null,
+      "affected_services": [],
+      "is_confirmed": false,
+      "keepiton_matched": true,
+      "keepiton_ids": [],
+      "source_urls": [],
+      "metadata": {
+        "min_visibility_pct": 0.0,
+        "resolved": true,
+        "ioda_confirmed": false
+      }
+    },
+    {
+      "event_id": "bgp-1717",
+      "event_time": "2026-05-16T02:32:05Z",
+      "event_end": "2026-05-16T03:01:45Z",
+      "duration_minutes": 29,
+      "event_type": "outage",
+      "sources": [
+        "bgp"
+      ],
+      "asn": "AS136919",
+      "isp_name": "FACE24COLTD-AS-AP FACE24 Co.,Ltd",
+      "severity": 2,
+      "scope": null,
+      "perpetrator": null,
+      "affected_services": [],
+      "is_confirmed": false,
+      "keepiton_matched": true,
+      "keepiton_ids": [],
+      "source_urls": [],
+      "metadata": {
+        "min_visibility_pct": 0.0,
+        "resolved": true,
+        "ioda_confirmed": false
+      }
+    },
+    {
+      "event_id": "bgp-1718",
+      "event_time": "2026-05-16T03:01:19Z",
+      "event_end": "2026-05-16T03:31:06Z",
+      "duration_minutes": 29,
+      "event_type": "outage",
+      "sources": [
+        "bgp"
+      ],
+      "asn": "AS137259",
+      "isp_name": "ILINK-AS-AP i-Link",
+      "severity": 2,
+      "scope": null,
+      "perpetrator": null,
+      "affected_services": [],
+      "is_confirmed": false,
+      "keepiton_matched": true,
+      "keepiton_ids": [],
+      "source_urls": [],
+      "metadata": {
+        "min_visibility_pct": 0.0,
+        "resolved": true,
+        "ioda_confirmed": false
+      }
+    },
+    {
+      "event_id": "bgp-1719",
+      "event_time": "2026-05-16T05:01:20Z",
+      "event_end": "2026-05-16T05:31:19Z",
+      "duration_minutes": 29,
+      "event_type": "outage",
+      "sources": [
+        "bgp"
+      ],
+      "asn": "AS134739",
+      "isp_name": "AGBC-AS-AP AGB Communication Co., Ltd",
+      "severity": 2,
+      "scope": null,
+      "perpetrator": null,
+      "affected_services": [],
+      "is_confirmed": false,
+      "keepiton_matched": true,
+      "keepiton_ids": [],
+      "source_urls": [],
+      "metadata": {
+        "min_visibility_pct": 0.0,
+        "resolved": true,
+        "ioda_confirmed": false
+      }
+    },
+    {
+      "event_id": "bgp-1720",
+      "event_time": "2026-05-16T07:01:32Z",
+      "event_end": "2026-05-16T07:31:22Z",
+      "duration_minutes": 29,
+      "event_type": "outage",
+      "sources": [
+        "bgp"
+      ],
+      "asn": "AS134736",
+      "isp_name": "NMCL-AS-AP NTT MYANMAR CO., LTD.",
+      "severity": 2,
+      "scope": null,
+      "perpetrator": null,
+      "affected_services": [],
+      "is_confirmed": false,
+      "keepiton_matched": true,
+      "keepiton_ids": [],
+      "source_urls": [],
+      "metadata": {
+        "min_visibility_pct": 0.0,
+        "resolved": true,
+        "ioda_confirmed": false
+      }
+    },
+    {
+      "event_id": "bgp-1721",
+      "event_time": "2026-05-16T07:02:44Z",
+      "event_end": "2026-05-16T07:32:11Z",
+      "duration_minutes": 29,
+      "event_type": "outage",
+      "sources": [
+        "bgp"
+      ],
+      "asn": "AS149810",
+      "isp_name": "ACL-AS-AP AnyNet",
+      "severity": 2,
+      "scope": null,
+      "perpetrator": null,
+      "affected_services": [],
+      "is_confirmed": false,
+      "keepiton_matched": true,
+      "keepiton_ids": [],
+      "source_urls": [],
+      "metadata": {
+        "min_visibility_pct": 0.0,
+        "resolved": true,
+        "ioda_confirmed": false
+      }
+    },
+    {
+      "event_id": "bgp-1722",
+      "event_time": "2026-05-16T07:02:49Z",
+      "event_end": "2026-05-16T07:32:16Z",
+      "duration_minutes": 29,
+      "event_type": "outage",
+      "sources": [
+        "bgp"
+      ],
+      "asn": "AS134976",
+      "isp_name": "MATL-AS-AP Myint & Associates Telecommunications Ltd",
       "severity": 2,
       "scope": null,
       "perpetrator": null,
