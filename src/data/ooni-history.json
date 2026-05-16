@@ -693,13 +693,13 @@
     "month": "2026-04"
   },
   {
-    "anomaly_count": 10582,
-    "confirmed_count": 813,
-    "failure_count": 2319,
-    "ok_count": 53800,
-    "measurement_count": 67514,
+    "anomaly_count": 11479,
+    "confirmed_count": 896,
+    "failure_count": 2474,
+    "ok_count": 57479,
+    "measurement_count": 72328,
     "measurement_start_day": "2026-05-01",
-    "anomaly_rate": 15.7,
+    "anomaly_rate": 15.9,
     "period": "2026-05-01",
     "month": "2026-05"
   }
