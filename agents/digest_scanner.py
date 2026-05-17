@@ -18,6 +18,7 @@ import json
 import logging
 import os
 from datetime import date
+from difflib import SequenceMatcher
 from pathlib import Path
 
 import requests
@@ -75,14 +76,30 @@ def telegram_send(text: str) -> None:
         log.error("Telegram send failed: %s", e)
 
 
+def _dedupe_cross_language(candidates: list[dict]) -> list[dict]:
+    """Drop Burmese candidates when a similar English candidate already covers the story."""
+    en_titles = [c["title"].lower() for c in candidates if c.get("lang") != "my"]
+    result = []
+    for c in candidates:
+        if c.get("lang") == "my":
+            translated = _translate_title(c["title"])
+            t_lower = translated.lower()
+            if any(SequenceMatcher(None, t_lower, et).ratio() > 0.55 for et in en_titles):
+                log.info("Dropping Burmese dupe (English version exists): %s", c["title"][:60])
+                continue
+            c["_translated_title"] = translated  # cache — reused in build_telegram_message
+        result.append(c)
+    return result
+
+
 def build_telegram_message(candidates: list[dict], today: str) -> str:
     lines = [f"📰 <b>IIM Daily Digest — {today}</b>"]
     lines.append(f"{len(candidates)} article{'s' if len(candidates) != 1 else ''} matched\n")
     for i, c in enumerate(candidates, 1):
-        title = c.get("title", "")
+        title = c.get("_translated_title") or c.get("title", "")
         url   = c.get("url", "")
         if c.get("lang") == "my":
-            title = f"{_translate_title(title)} <code>[my→en]</code>"
+            title = f"{title} <code>[my→en]</code>"
             url   = gt_url(url)
         lines.append(f"<b>{i}.</b> {title}")
         lines.append(url)
@@ -122,7 +139,8 @@ def run(dry_run: bool = False):
         and item.get("source") not in DIGEST_EXCLUDED_SOURCES
     ]
     candidates.sort(key=lambda x: x["relevance_score"], reverse=True)
-    log.info("Candidates: %d", len(candidates))
+    candidates = _dedupe_cross_language(candidates)
+    log.info("Candidates after cross-language dedup: %d", len(candidates))
 
     if not candidates:
         log.info("No candidates above threshold %.1f", MIN_SCORE)
