@@ -59,6 +59,8 @@ interface StatusEvent {
 
 const statusEvents: StatusEvent[] = []
 const lastDown: Record<string, string> = {}   // asn → timestamp when it went RED
+// UI only renders RED (offline) and RED→GREEN/YELLOW (recovery) events; 30d covers the 7d max window
+const cutoff30d = new Date(Date.now() - 30 * 24 * 3600 * 1000).toISOString()
 
 for (let i = 1; i < history.length; i++) {
   const prev = history[i - 1].statuses ?? {}
@@ -82,6 +84,10 @@ for (let i = 1; i < history.length; i++) {
       }
     }
 
+    // Skip transitions the UI never renders (GREEN↔YELLOW noise) and events outside the display window
+    const isRendered = currStatus === 'RED' || prevStatus === 'RED'
+    if (!isRendered || history[i].timestamp < cutoff30d) continue
+
     const meta = metadata[asn]
     statusEvents.push({
       timestamp: history[i].timestamp, asn,
@@ -94,7 +100,6 @@ for (let i = 1; i < history.length; i++) {
   }
 }
 statusEvents.sort((a, b) => b.timestamp.localeCompare(a.timestamp))
-// Pass all events to client (filtered client-side by time window)
 const allEvents = statusEvents
 
 // ── Build ASN rows for client-side table ──────────────────────────────────────
