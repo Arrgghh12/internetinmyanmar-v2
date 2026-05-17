@@ -244,7 +244,10 @@ def publish_to_github(selected: list[dict]) -> tuple[int, list[str]]:
                 log.warning("OG image fetch failed for %s: %s", c.get("url"), exc)
 
         pub_date = (c.get("published") or today)[:10]
-        slug     = slugify(c.get("your_title") or c.get("title", ""))
+        title_for_slug = c.get("your_title") or c.get("title", "")
+        if c.get("lang") == "my":
+            title_for_slug = _translate(title_for_slug)
+        slug     = slugify(title_for_slug)
         filename = f"{pub_date}-{slug}.mdx"
         path     = f"{DIGEST_PATH}/{filename}"
         content  = make_mdx(c, today)

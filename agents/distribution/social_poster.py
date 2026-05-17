@@ -163,6 +163,16 @@ def post_facebook(text: str, url: str, image_url: str | None = None) -> dict:
             json={"url": image_url, "caption": f"{text}\n\n{url}"},
             timeout=15,
         )
+        if resp.status_code >= 500:
+            # Facebook can't reach the image (CDN block, etc.) — fall back to link post
+            import sys
+            print(f"  ⚠ Facebook /photos {resp.status_code}, falling back to /feed", file=sys.stderr)
+            resp = httpx.post(
+                f"https://graph.facebook.com/v19.0/{page_id}/feed",
+                params={"access_token": token},
+                json={"message": text, "link": url},
+                timeout=15,
+            )
     else:
         resp = httpx.post(
             f"https://graph.facebook.com/v19.0/{page_id}/feed",
