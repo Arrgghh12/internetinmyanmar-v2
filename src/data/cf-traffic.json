@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-05-17T00:01:43.310565+00:00",
+  "lastUpdated": "2026-05-17T12:00:49.717474+00:00",
   "monthly": [
     {
       "month": "2025-04",
@@ -371,111 +371,115 @@
     },
     {
       "timestamp": "2026-04-19T00:00:00Z",
-      "cf_traffic": 96.7
+      "cf_traffic": 96.9
     },
     {
       "timestamp": "2026-04-20T00:00:00Z",
-      "cf_traffic": 91.9
+      "cf_traffic": 92.1
     },
     {
       "timestamp": "2026-04-21T00:00:00Z",
-      "cf_traffic": 88.9
-    },
-    {
-      "timestamp": "2026-04-22T00:00:00Z",
-      "cf_traffic": 91.2
-    },
-    {
-      "timestamp": "2026-04-23T00:00:00Z",
-      "cf_traffic": 89.0
-    },
-    {
-      "timestamp": "2026-04-24T00:00:00Z",
-      "cf_traffic": 88.0
-    },
-    {
-      "timestamp": "2026-04-25T00:00:00Z",
-      "cf_traffic": 87.8
-    },
-    {
-      "timestamp": "2026-04-26T00:00:00Z",
-      "cf_traffic": 95.3
-    },
-    {
-      "timestamp": "2026-04-27T00:00:00Z",
-      "cf_traffic": 91.1
-    },
-    {
-      "timestamp": "2026-04-28T00:00:00Z",
-      "cf_traffic": 87.0
-    },
-    {
-      "timestamp": "2026-04-29T00:00:00Z",
       "cf_traffic": 89.2
     },
     {
+      "timestamp": "2026-04-22T00:00:00Z",
+      "cf_traffic": 91.5
+    },
+    {
+      "timestamp": "2026-04-23T00:00:00Z",
+      "cf_traffic": 89.2
+    },
+    {
+      "timestamp": "2026-04-24T00:00:00Z",
+      "cf_traffic": 88.2
+    },
+    {
+      "timestamp": "2026-04-25T00:00:00Z",
+      "cf_traffic": 88.0
+    },
+    {
+      "timestamp": "2026-04-26T00:00:00Z",
+      "cf_traffic": 95.6
+    },
+    {
+      "timestamp": "2026-04-27T00:00:00Z",
+      "cf_traffic": 91.3
+    },
+    {
+      "timestamp": "2026-04-28T00:00:00Z",
+      "cf_traffic": 87.2
+    },
+    {
+      "timestamp": "2026-04-29T00:00:00Z",
+      "cf_traffic": 89.4
+    },
+    {
       "timestamp": "2026-04-30T00:00:00Z",
-      "cf_traffic": 95.7
+      "cf_traffic": 95.9
     },
     {
       "timestamp": "2026-05-01T00:00:00Z",
-      "cf_traffic": 97.9
+      "cf_traffic": 98.1
     },
     {
       "timestamp": "2026-05-02T00:00:00Z",
-      "cf_traffic": 96.8
+      "cf_traffic": 97.1
     },
     {
       "timestamp": "2026-05-03T00:00:00Z",
-      "cf_traffic": 98.5
+      "cf_traffic": 98.8
     },
     {
       "timestamp": "2026-05-04T00:00:00Z",
-      "cf_traffic": 86.9
+      "cf_traffic": 87.1
     },
     {
       "timestamp": "2026-05-05T00:00:00Z",
-      "cf_traffic": 85.4
+      "cf_traffic": 85.6
     },
     {
       "timestamp": "2026-05-06T00:00:00Z",
-      "cf_traffic": 86.3
+      "cf_traffic": 86.6
     },
     {
       "timestamp": "2026-05-07T00:00:00Z",
-      "cf_traffic": 83.6
+      "cf_traffic": 83.8
     },
     {
       "timestamp": "2026-05-08T00:00:00Z",
-      "cf_traffic": 85.1
+      "cf_traffic": 85.4
     },
     {
       "timestamp": "2026-05-09T00:00:00Z",
-      "cf_traffic": 93.1
+      "cf_traffic": 93.3
     },
     {
       "timestamp": "2026-05-10T00:00:00Z",
-      "cf_traffic": 99.8
+      "cf_traffic": 100.0
     },
     {
       "timestamp": "2026-05-11T00:00:00Z",
-      "cf_traffic": 89.8
+      "cf_traffic": 90.1
     },
     {
       "timestamp": "2026-05-12T00:00:00Z",
-      "cf_traffic": 90.4
+      "cf_traffic": 90.7
     },
     {
       "timestamp": "2026-05-13T00:00:00Z",
-      "cf_traffic": 86.8
+      "cf_traffic": 87.0
     },
     {
       "timestamp": "2026-05-14T00:00:00Z",
-      "cf_traffic": 92.3
+      "cf_traffic": 92.5
     },
     {
       "timestamp": "2026-05-15T00:00:00Z",
-      "cf_traffic": 93.0
+      "cf_traffic": 93.2
+    },
+    {
+      "timestamp": "2026-05-16T00:00:00Z",
+      "cf_traffic": 97.4
     }
   ]
 }
