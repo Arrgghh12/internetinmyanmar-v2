@@ -59,8 +59,8 @@ interface StatusEvent {
 
 const statusEvents: StatusEvent[] = []
 const lastDown: Record<string, string> = {}   // asn → timestamp when it went RED
-// UI only renders RED (offline) and RED→GREEN/YELLOW (recovery) events; 30d covers the 7d max window
-const cutoff30d = new Date(Date.now() - 30 * 24 * 3600 * 1000).toISOString()
+// UI only renders RED (offline) and RED→GREEN/YELLOW (recovery) events; matches the 7d max UI window
+const cutoff30d = new Date(Date.now() - 7 * 24 * 3600 * 1000).toISOString()
 
 for (let i = 1; i < history.length; i++) {
   const prev = history[i - 1].statuses ?? {}
