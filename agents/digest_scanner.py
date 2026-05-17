@@ -103,6 +103,8 @@ def run(dry_run: bool = False):
     all_scored = json.loads(MONITOR_OUT.read_text())
     log.info("Loaded %d items from monitor_output.json", len(all_scored))
 
+    DIGEST_EXCLUDED_SOURCES = {"ooni_api"}
+
     candidates = [
         {
             "title":           item.get("title", ""),
@@ -117,6 +119,7 @@ def run(dry_run: bool = False):
         }
         for item in all_scored
         if item.get("score", 0) >= MIN_SCORE
+        and item.get("source") not in DIGEST_EXCLUDED_SOURCES
     ]
     candidates.sort(key=lambda x: x["relevance_score"], reverse=True)
     log.info("Candidates: %d", len(candidates))

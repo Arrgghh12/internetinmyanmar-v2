@@ -57,6 +57,12 @@ feeds:
     type: rss
     lang: en
 
+  - key: access_now
+    url: https://www.accessnow.org/category/blog/feed/
+    type: rss
+    lang: en
+    filter: myanmar
+
   - key: athan
     url: https://athanmyanmar.org/feed/
     type: rss
@@ -66,6 +72,12 @@ feeds:
     url: https://freeexpressionmyanmar.org/feed/
     type: rss
     lang: en
+
+  - key: justice_for_myanmar
+    url: https://news.google.com/rss/search?q=site:justiceformyanmar.org&hl=en-US&gl=US&ceid=US:en
+    type: rss
+    lang: en
+    note: "Google News proxy — no direct RSS feed"
 
   - key: burma_campaign_uk
     url: https://burmacampaign.org.uk/feed
@@ -106,6 +118,11 @@ feeds:
 
   - key: myanmar_now_english
     url: https://myanmar-now.org/en/feed/
+    type: rss
+    lang: en
+
+  - key: bni
+    url: https://www.bnionline.net/en/rss.xml
     type: rss
     lang: en
 
