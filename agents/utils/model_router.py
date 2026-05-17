@@ -125,8 +125,8 @@ ROUTEABLE = {
     "extract_meta":   ("groq",      200),
     "consolidate":    ("deepseek", 1500),
     "anomaly_detect": ("deepseek",  500),
-    "translate_mm":   ("qwen",     1000),
-    "summarize_mm":   ("qwen",      400),
+    "translate_mm":   ("deepseek", 1000),
+    "summarize_mm":   ("deepseek",  400),
     "seo_generate":   ("deepseek",  200),
     "copy":           ("deepseek",  300),
     # Editorial tasks — DeepSeek
